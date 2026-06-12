@@ -1,0 +1,612 @@
+[
+ {
+  "size": 11,
+  "grid": [
+   "FORD###STU#",
+   "ODOR###PUN#",
+   "RENAISSANCE",
+   "###PRETTILY",
+   "#TWEETY#SEE",
+   "DRED###BIAS",
+   "OIL#APPEAR#",
+   "OBLIGATE###",
+   "RESTORATION",
+   "#CEL###LALA",
+   "#ATL###ENDS"
+  ],
+  "answers": [
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 0,
+    "answer": "FORD",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 7,
+    "answer": "STU",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 0,
+    "answer": "ODOR",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 7,
+    "answer": "PUN",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "RENAISSANCE",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 3,
+    "answer": "PRETTILY",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 1,
+    "answer": "TWEETY",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 8,
+    "answer": "SEE",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 5,
+    "c": 0,
+    "answer": "DRED",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 5,
+    "c": 7,
+    "answer": "BIAS",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 6,
+    "c": 0,
+    "answer": "OIL",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 6,
+    "c": 4,
+    "answer": "APPEAR",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 7,
+    "c": 0,
+    "answer": "OBLIGATE",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 8,
+    "c": 0,
+    "answer": "RESTORATION",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 9,
+    "c": 1,
+    "answer": "CEL",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 9,
+    "c": 7,
+    "answer": "LALA",
+    "q": 75
+   },
+   {
+    "dir": "across",
+    "r": 10,
+    "c": 1,
+    "answer": "ATL",
+    "q": 70
+   },
+   {
+    "dir": "across",
+    "r": 10,
+    "c": 7,
+    "answer": "ENDS",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 0,
+    "answer": "FOR",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 5,
+    "c": 0,
+    "answer": "DOOR",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 1,
+    "answer": "ODE",
+    "q": 70
+   },
+   {
+    "dir": "down",
+    "r": 4,
+    "c": 1,
+    "answer": "TRIBECA",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 2,
+    "answer": "RON",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 4,
+    "c": 2,
+    "answer": "WELLSET",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 3,
+    "answer": "DRAPED",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 7,
+    "c": 3,
+    "answer": "ITLL",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 2,
+    "c": 4,
+    "answer": "IRE",
+    "q": 85
+   },
+   {
+    "dir": "down",
+    "r": 6,
+    "c": 4,
+    "answer": "AGO",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 2,
+    "c": 5,
+    "answer": "SET",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 6,
+    "c": 5,
+    "answer": "PAR",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 2,
+    "c": 6,
+    "answer": "STY",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 6,
+    "c": 6,
+    "answer": "PTA",
+    "q": 70
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 7,
+    "answer": "SPAT",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 5,
+    "c": 7,
+    "answer": "BEETLE",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 8,
+    "answer": "TUNISIA",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 8,
+    "c": 8,
+    "answer": "IAN",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 9,
+    "answer": "UNCLEAR",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 8,
+    "c": 9,
+    "answer": "OLD",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 2,
+    "c": 10,
+    "answer": "EYES",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 8,
+    "c": 10,
+    "answer": "NAS",
+    "q": 70
+   }
+  ]
+ },
+ {
+  "size": 11,
+  "grid": [
+   "HIM#FLAP###",
+   "UNA#RENEWAL",
+   "RPG#ANDREWS",
+   "TUNIS###LAD",
+   "#TAPED#FLY#",
+   "##CORELLI##",
+   "#FAD#BLEND#",
+   "MAR###BAGEL",
+   "SITUATE#TIE",
+   "GRANDMA#OFF",
+   "###ODIN#NYT"
+  ],
+  "answers": [
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 0,
+    "answer": "HIM",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 4,
+    "answer": "FLAP",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 0,
+    "answer": "UNA",
+    "q": 75
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 4,
+    "answer": "RENEWAL",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "RPG",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 4,
+    "answer": "ANDREWS",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 0,
+    "answer": "TUNIS",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 8,
+    "answer": "LAD",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 1,
+    "answer": "TAPED",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 7,
+    "answer": "FLY",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 5,
+    "c": 2,
+    "answer": "CORELLI",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 6,
+    "c": 1,
+    "answer": "FAD",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 6,
+    "c": 5,
+    "answer": "BLEND",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 7,
+    "c": 0,
+    "answer": "MAR",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 7,
+    "c": 6,
+    "answer": "BAGEL",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 8,
+    "c": 0,
+    "answer": "SITUATE",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 8,
+    "c": 8,
+    "answer": "TIE",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 9,
+    "c": 0,
+    "answer": "GRANDMA",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 9,
+    "c": 8,
+    "answer": "OFF",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 10,
+    "c": 3,
+    "answer": "ODIN",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 10,
+    "c": 8,
+    "answer": "NYT",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 0,
+    "answer": "HURT",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 7,
+    "c": 0,
+    "answer": "MSG",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 1,
+    "answer": "INPUT",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 6,
+    "c": 1,
+    "answer": "FAIR",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 2,
+    "answer": "MAGNACARTA",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 3,
+    "c": 3,
+    "answer": "IPOD",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 8,
+    "c": 3,
+    "answer": "UNO",
+    "q": 65
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 4,
+    "answer": "FRASER",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 8,
+    "c": 4,
+    "answer": "ADD",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 5,
+    "answer": "LEN",
+    "q": 75
+   },
+   {
+    "dir": "down",
+    "r": 4,
+    "c": 5,
+    "answer": "DEB",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 8,
+    "c": 5,
+    "answer": "TMI",
+    "q": 70
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 6,
+    "answer": "AND",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 5,
+    "c": 6,
+    "answer": "LLBEAN",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 7,
+    "answer": "PER",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 4,
+    "c": 7,
+    "answer": "FLEA",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 8,
+    "answer": "WELLINGTON",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 9,
+    "answer": "AWAY",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 6,
+    "c": 9,
+    "answer": "DEIFY",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 10,
+    "answer": "LSD",
+    "q": 70
+   },
+   {
+    "dir": "down",
+    "r": 7,
+    "c": 10,
+    "answer": "LEFT",
+    "q": 90
+   }
+  ]
+ }
+]

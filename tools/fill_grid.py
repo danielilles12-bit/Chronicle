@@ -66,13 +66,13 @@ def min_freq_for_len(n):
     return 100_000
 
 
-def load_vocab(freq):
+def load_vocab(freq, short_min=60):
     """Returns (words, score_fn, quality_fn, mode)."""
     ext = get_external_words()
     if ext:
         buckets = {}
         for w, s in ext.items():
-            if (s >= (60 if len(w) <= 4 else 50) and w.isalpha()
+            if (s >= (short_min if len(w) <= 4 else 50) and w.isalpha()
                     and 3 <= len(w) <= 15 and w not in BAN):
                 buckets.setdefault(len(w), []).append(w)
         words = set()
@@ -253,7 +253,7 @@ class Filler:
         out = sorted((w for w in pool if w not in used), key=self.score, reverse=True)
         return out[:limit]
 
-    def fill(self, rows, seeds, deadline, pinned=None, max_nodes=250_000):
+    def fill(self, rows, seeds, deadline, pinned=None, max_nodes=250_000, max_seeds=3):
         slots = build_slots(rows)
         cell2slots = {}
         for idx, s in enumerate(slots):
@@ -304,7 +304,7 @@ class Filler:
         order = sorted(range(len(slots)), key=lambda i: -slots[i]["len"])
         placed = 0
         for idx in order:
-            if placed >= 3 or slots[idx]["len"] < 8:
+            if placed >= max_seeds or slots[idx]["len"] < 8:
                 break
             if idx in assigned:
                 continue
@@ -370,12 +370,14 @@ def main():
     ap.add_argument("--blocks", type=int, default=None)
     ap.add_argument("--quality", type=int, default=None)
     ap.add_argument("--seed", type=int, default=None)
+    ap.add_argument("--seeds", type=int, default=3, help="max history seed words")
+    ap.add_argument("--short-min", type=int, default=60, help="min score for 3-4 letter vocab")
     ap.add_argument("--out", required=True)
     args = ap.parse_args()
 
     rng = random.Random(args.seed)
     freq = load_freq()
-    words, score, quality, mode = load_vocab(freq)
+    words, score, quality, mode = load_vocab(freq, short_min=args.short_min)
     print("vocab size:", len(words), "mode:", mode, file=sys.stderr)
     filler = Filler(words, score, rng)
 
@@ -399,8 +401,9 @@ def main():
             continue
         seeds = [w for w in HISTORY_WORDS if len(w) >= 8]
         rng.shuffle(seeds)
-        per_try = 45 if n >= 11 else 8
-        filled = filler.fill(rows, seeds, min(time.time() + per_try, t_end))
+        per_try = 60 if n >= 11 else 8
+        filled = filler.fill(rows, seeds, min(time.time() + per_try, t_end),
+                             max_seeds=args.seeds)
         if not filled:
             print("attempt %d: fail (nodes=%d)" % (attempt, filler.nodes), file=sys.stderr)
             continue

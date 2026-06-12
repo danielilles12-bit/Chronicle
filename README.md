@@ -28,8 +28,19 @@ after the first load.
 
 ## Known limitations and substitutions
 
-- _This section is filled in at the end of the build — see the bottom of the
-  file for the final word on what shipped._
+- **Full-size crosswords are 11×11, not 15×15.** Building a valid 15×15 with
+  fully interlocking, real-word, history-clueable fill is genuinely hard; after
+  sustained automated attempts the two big puzzles shipped as high-quality
+  11×11 grids (with proper rotational symmetry), which the build instructions
+  explicitly allowed as a substitution. They still contain grid-spanning
+  history marquees: MAGNA CARTA, WELLINGTON, RENAISSANCE, RESTORATION.
+- **Offline testing note:** complete offline behaviour is verified
+  automatically in Chrome's engine; the WebKit test harness has a known quirk
+  reloading offline pages, so the same flow there is best-effort. On a real
+  iPhone, installed PWAs work offline (that's the whole point) — load the app
+  once online first.
+- The "smaller" map-game scores (hints, typos) are by design — see scoring in
+  the app's start screen.
 
 ## Put it on the web, free (one-time, ~10 minutes)
 

@@ -192,7 +192,7 @@
     "id": "tamerlane", "name": "Tamerlane", "difficulty": "hard",
     "variants": ["tamerlane", "timur", "timur the lame", "tamburlaine"],
     "occupation": "Turco-Mongol conqueror who built an empire from Samarkand",
-    "birth": { "year": 1336, "place": "Kesh (Shahrisabz), Uzbekistan", "lat": 39.05, "lon": 66.83 },
+    "birth": { "year": 1336, "approx": true, "place": "Kesh (Shahrisabz), Uzbekistan", "lat": 39.05, "lon": 66.83 },
     "death": { "year": 1405, "place": "Otrar, Kazakhstan", "lat": 42.85, "lon": 68.3 }
   },
   {

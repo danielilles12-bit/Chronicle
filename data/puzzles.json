@@ -182,5 +182,107 @@
         { "num": 11, "row": 4, "col": 3, "answer": "NEE", "clue": "Maiden-name indicator on old records" }
       ]
     }
+  },
+  {
+    "id": "full-1", "format": "full", "size": 11, "title": "Runnymede",
+    "grid": ["HIM#FLAP###", "UNA#RENEWAL", "RPG#ANDREWS", "TUNIS###LAD", "#TAPED#FLY#", "##CORELLI##", "#FAD#BLEND#", "MAR###BAGEL", "SITUATE#TIE", "GRANDMA#OFF", "###ODIN#NYT"],
+    "clues": {
+      "across": [
+        { "num": 1, "row": 0, "col": 0, "answer": "HIM", "clue": "That fellow" },
+        { "num": 4, "row": 0, "col": 4, "answer": "FLAP", "clue": "Commotion" },
+        { "num": 8, "row": 1, "col": 0, "answer": "UNA", "clue": "Heroine of Spenser's \"The Faerie Queene\" (1590)" },
+        { "num": 9, "row": 1, "col": 4, "answer": "RENEWAL", "clue": "Urban ___, the midcentury bulldoze-and-rebuild policy" },
+        { "num": 13, "row": 2, "col": 0, "answer": "RPG", "clue": "Rocket-propelled grenade, for short" },
+        { "num": 14, "row": 2, "col": 4, "answer": "ANDREWS", "clue": "WWII's singing ___ Sisters" },
+        { "num": 15, "row": 3, "col": 0, "answer": "TUNIS", "clue": "Capital city near the ruins of Carthage" },
+        { "num": 17, "row": 3, "col": 8, "answer": "LAD", "clue": "Powder monkey aboard an old warship, typically" },
+        { "num": 18, "row": 4, "col": 1, "answer": "TAPED", "clue": "Like Nixon's Oval Office conversations" },
+        { "num": 20, "row": 4, "col": 7, "answer": "FLY", "clue": "Do what Lindbergh did across the Atlantic in 1927" },
+        { "num": 21, "row": 5, "col": 2, "answer": "CORELLI", "clue": "Arcangelo ___, Baroque master of the violin" },
+        { "num": 23, "row": 6, "col": 1, "answer": "FAD", "clue": "Hula hoop in 1958 or goldfish-swallowing in 1939, e.g." },
+        { "num": 24, "row": 6, "col": 5, "answer": "BLEND", "clue": "Melting-pot outcome" },
+        { "num": 26, "row": 7, "col": 0, "answer": "MAR", "clue": "Deface, as iconoclasts did church statues" },
+        { "num": 27, "row": 7, "col": 6, "answer": "BAGEL", "clue": "Ring bread brought to New York by Eastern European Jewish immigrants" },
+        { "num": 29, "row": 8, "col": 0, "answer": "SITUATE", "clue": "Place in context, as a historian does an event" },
+        { "num": 33, "row": 8, "col": 8, "answer": "TIE", "clue": "Railroad-track crosspiece laid by the thousands in the 1860s" },
+        { "num": 34, "row": 9, "col": 0, "answer": "GRANDMA", "clue": "___ Moses, farm-life painter who took up the brush in her late 70s" },
+        { "num": 35, "row": 9, "col": 8, "answer": "OFF", "clue": "Like city lights during Blitz blackouts" },
+        { "num": 36, "row": 10, "col": 3, "answer": "ODIN", "clue": "God who traded an eye for wisdom, in Norse belief" },
+        { "num": 37, "row": 10, "col": 8, "answer": "NYT", "clue": "Paper whose crossword first appeared in 1942, in brief" }
+      ],
+      "down": [
+        { "num": 1, "row": 0, "col": 0, "answer": "HURT", "clue": "Wounded" },
+        { "num": 2, "row": 0, "col": 1, "answer": "INPUT", "clue": "What punch cards fed an early computer" },
+        { "num": 3, "row": 0, "col": 2, "answer": "MAGNACARTA", "clue": "Charter King John sealed at Runnymede in 1215" },
+        { "num": 4, "row": 0, "col": 4, "answer": "FRASER", "clue": "Simon ___, the last man beheaded in Britain (1747)" },
+        { "num": 5, "row": 0, "col": 5, "answer": "LEN", "clue": "Deighton who wrote Cold War spy fiction" },
+        { "num": 6, "row": 0, "col": 6, "answer": "AND", "clue": "Plus" },
+        { "num": 7, "row": 0, "col": 7, "answer": "PER", "clue": "As stated by, on old decrees" },
+        { "num": 10, "row": 1, "col": 8, "answer": "WELLINGTON", "clue": "Duke who beat Napoleon at Waterloo" },
+        { "num": 11, "row": 1, "col": 9, "answer": "AWAY", "clue": "Where Napoleon was sent, twice" },
+        { "num": 12, "row": 1, "col": 10, "answer": "LSD", "clue": "Inits. of 1960s counterculture" },
+        { "num": 16, "row": 3, "col": 3, "answer": "IPOD", "clue": "2001 gadget that upended the music industry" },
+        { "num": 19, "row": 4, "col": 5, "answer": "DEB", "clue": "Young woman making her society bow, for short" },
+        { "num": 20, "row": 4, "col": 7, "answer": "FLEA", "clue": "Tiny star of a Victorian novelty circus" },
+        { "num": 22, "row": 5, "col": 6, "answer": "LLBEAN", "clue": "Maine outfitter founded in 1912" },
+        { "num": 23, "row": 6, "col": 1, "answer": "FAIR", "clue": "World's ___ (Chicago's 1893 edition built the White City)" },
+        { "num": 25, "row": 6, "col": 9, "answer": "DEIFY", "clue": "Treat as a god, as the Roman Senate did dead emperors" },
+        { "num": 26, "row": 7, "col": 0, "answer": "MSG", "clue": "Flavor enhancer first isolated in 1908" },
+        { "num": 28, "row": 7, "col": 10, "answer": "LEFT", "clue": "Political wing named for French Revolutionary seating" },
+        { "num": 30, "row": 8, "col": 3, "answer": "UNO", "clue": "One, to Garibaldi" },
+        { "num": 31, "row": 8, "col": 4, "answer": "ADD", "clue": "Total (up), as a quartermaster does supplies" },
+        { "num": 32, "row": 8, "col": 5, "answer": "TMI", "clue": "Three Mile Island inits. — or \"spare me the details\"" }
+      ]
+    }
+  },
+  {
+    "id": "full-2", "format": "full", "size": 11, "title": "Rebirth",
+    "grid": ["FORD###STU#", "ODOR###PUN#", "RENAISSANCE", "###PRETTILY", "#TWEETY#SEE", "DRED###BIAS", "OIL#APPEAR#", "OBLIGATE###", "RESTORATION", "#CEL###LALA", "#ATL###ENDS"],
+    "clues": {
+      "across": [
+        { "num": 1, "row": 0, "col": 0, "answer": "FORD", "clue": "Company whose Model T put America on wheels" },
+        { "num": 5, "row": 0, "col": 7, "answer": "STU", "clue": "___ Sutcliffe, the \"fifth Beatle\"" },
+        { "num": 8, "row": 1, "col": 0, "answer": "ODOR", "clue": "What a medieval nosegay was held against" },
+        { "num": 9, "row": 1, "col": 7, "answer": "PUN", "clue": "Groan-worthy wordplay" },
+        { "num": 10, "row": 2, "col": 0, "answer": "RENAISSANCE", "clue": "Rebirth of classical learning that began in 14th-century Italy" },
+        { "num": 15, "row": 3, "col": 3, "answer": "PRETTILY", "clue": "In a fetching way" },
+        { "num": 16, "row": 4, "col": 1, "answer": "TWEETY", "clue": "Cartoon canary who debuted in 1942" },
+        { "num": 18, "row": 4, "col": 8, "answer": "SEE", "clue": "Holy ___ (the papacy's jurisdiction)" },
+        { "num": 19, "row": 5, "col": 0, "answer": "DRED", "clue": "___ Scott, plaintiff in an infamous 1857 Supreme Court case" },
+        { "num": 20, "row": 5, "col": 7, "answer": "BIAS", "clue": "What a careful historian works to set aside" },
+        { "num": 21, "row": 6, "col": 0, "answer": "OIL", "clue": "Whale ___, the lamp fuel of the 1800s" },
+        { "num": 22, "row": 6, "col": 4, "answer": "APPEAR", "clue": "Come into view, as sails on the horizon" },
+        { "num": 25, "row": 7, "col": 0, "answer": "OBLIGATE", "clue": "Bind by duty, as a vassal to his lord" },
+        { "num": 27, "row": 8, "col": 0, "answer": "RESTORATION", "clue": "The monarchy's return to England in 1660" },
+        { "num": 31, "row": 9, "col": 1, "answer": "CEL", "clue": "Hand-painted frame from animation's golden age" },
+        { "num": 32, "row": 9, "col": 7, "answer": "LALA", "clue": "Sung syllables" },
+        { "num": 33, "row": 10, "col": 1, "answer": "ATL", "clue": "Airport code for the city Sherman burned in 1864" },
+        { "num": 34, "row": 10, "col": 7, "answer": "ENDS", "clue": "What treaties put to wars" }
+      ],
+      "down": [
+        { "num": 1, "row": 0, "col": 0, "answer": "FOR", "clue": "On the aye side" },
+        { "num": 2, "row": 0, "col": 1, "answer": "ODE", "clue": "Keats wrote one on a Grecian urn" },
+        { "num": 3, "row": 0, "col": 2, "answer": "RON", "clue": "Reagan, to friends" },
+        { "num": 4, "row": 0, "col": 3, "answer": "DRAPED", "clue": "Like togas and classical statues" },
+        { "num": 5, "row": 0, "col": 7, "answer": "SPAT", "clue": "Lovers' quarrel" },
+        { "num": 6, "row": 0, "col": 8, "answer": "TUNISIA", "clue": "Modern country containing ancient Carthage" },
+        { "num": 7, "row": 0, "col": 9, "answer": "UNCLEAR", "clue": "Like battle reports in the fog of war" },
+        { "num": 11, "row": 2, "col": 4, "answer": "IRE", "clue": "Wrath, like Achilles' in the \"Iliad\"" },
+        { "num": 12, "row": 2, "col": 5, "answer": "SET", "clue": "What the sun never did on the British Empire, it was said" },
+        { "num": 13, "row": 2, "col": 6, "answer": "STY", "clue": "Pig's quarters" },
+        { "num": 14, "row": 2, "col": 10, "answer": "EYES", "clue": "What a periscope lent submariners" },
+        { "num": 16, "row": 4, "col": 1, "answer": "TRIBECA", "clue": "Manhattan district, short for \"Triangle Below Canal\"" },
+        { "num": 17, "row": 4, "col": 2, "answer": "WELLSET", "clue": "Firmly established, as traditions" },
+        { "num": 19, "row": 5, "col": 0, "answer": "DOOR", "clue": "What Luther reputedly nailed his theses to" },
+        { "num": 20, "row": 5, "col": 7, "answer": "BEETLE", "clue": "Volkswagen model with 1930s origins" },
+        { "num": 22, "row": 6, "col": 4, "answer": "AGO", "clue": "In the past" },
+        { "num": 23, "row": 6, "col": 5, "answer": "PAR", "clue": "Standard score in golf, the game Scotland gave the world" },
+        { "num": 24, "row": 6, "col": 6, "answer": "PTA", "clue": "School org. with roots in 1897's National Congress of Mothers" },
+        { "num": 26, "row": 7, "col": 3, "answer": "ITLL", "clue": "\"___ pass\"" },
+        { "num": 28, "row": 8, "col": 8, "answer": "IAN", "clue": "Fleming of naval intelligence who created James Bond" },
+        { "num": 29, "row": 8, "col": 9, "answer": "OLD", "clue": "Like history's news" },
+        { "num": 30, "row": 8, "col": 10, "answer": "NAS", "clue": "Science academy chartered under Lincoln, for short" }
+      ]
+    }
   }
 ]
