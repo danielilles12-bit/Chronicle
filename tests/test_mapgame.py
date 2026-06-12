@@ -149,15 +149,15 @@ def main():
             best = pg.text_content("#map-best")
             assert str(expected_total) in best, best
 
-            # an interrupted session can be resumed after a reload
+            # an interrupted session resumes WITHOUT replaying the round that
+            # was answered when the app died (the killed-before-"Next" path)
             pg.click("#map-start")
             pg.wait_for_selector("#map-svg circle")
             info, fig = round_info(pg)
             guess(pg, fig["name"])
             pg.wait_for_selector("#map-feedback", state="visible")
             score_before = pg.text_content("#map-score").strip()
-            pg.click("#map-next")
-            pg.reload()
+            pg.reload()                       # killed before tapping Next
             pg.wait_for_selector("#card-map")
             pg.click("#card-map")
             pg.wait_for_selector("#map-resume", state="visible")
@@ -167,6 +167,8 @@ def main():
             pg.wait_for_selector("#map-svg circle")
             assert pg.text_content("#map-progress").strip() == "Round 2 of 10"
             assert pg.text_content("#map-score").strip() == score_before
+            info2, _ = round_info(pg)
+            assert info2["id"] != info["id"], "resumed session must not replay the scored round"
 
             fail_on_errors(errors, "map session")
 

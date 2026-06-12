@@ -139,9 +139,12 @@ export function renderMapStart() {
     ? `Your best: ${m.bestScore} pts · longest streak ${m.bestStreak}`
     : 'First session — good luck';
   const saved = store.getSession();
-  $('#map-resume').hidden = !saved;
-  if (saved) {
-    $('#map-resume').textContent = `Resume — round ${saved.i + 1} of 10 (${saved.score} pts)`;
+  const resumable = saved && saved.ids && saved.results
+    && saved.results.length < saved.ids.length;
+  $('#map-resume').hidden = !resumable;
+  if (resumable) {
+    $('#map-resume').textContent =
+      `Resume — round ${saved.results.length + 1} of 10 (${saved.score} pts)`;
   }
 }
 
@@ -157,11 +160,21 @@ function persistSession() {
 
 function resumeSession() {
   const saved = store.getSession();
-  if (!saved) return;
+  if (!saved || !saved.ids || !saved.results) return;
   const byId = (id) => DATA.figures.find((f) => f.id === id);
+  // The round to play is always the first one without a stored result —
+  // a session saved mid-round (answered, "Next" untapped) must NOT replay
+  // the already-scored round.
+  const next = saved.results.length;
+  if (next >= saved.ids.length || saved.ids.some((id) => !byId(id))
+      || saved.results.some((r) => !byId(r.id))) {
+    store.clearSession();
+    renderMapStart();
+    return;
+  }
   S = {
     rounds: saved.ids.map(byId),
-    i: saved.i, score: saved.score, streak: saved.streak,
+    i: next, score: saved.score, streak: saved.streak,
     bestStreak: saved.bestStreak,
     results: saved.results.map((r) => ({
       fig: byId(r.id), pts: r.pts, correct: r.correct, hints: r.hints, wrongs: r.wrongs,
@@ -198,6 +211,8 @@ function startRound() {
   $('#map-score').textContent = `${S.score} pts`;
   $('#map-feedback').hidden = true;
   $('#map-feedback').innerHTML = '';
+  $('#map-form').hidden = false;
+  $('#map-hints').hidden = false;
   $('#map-hint-chips').innerHTML = '';
   $('#map-guesses').innerHTML = '';
   $('#map-input').value = '';
@@ -265,12 +280,15 @@ function resolveRound(correct) {
   $('#hint-occ').disabled = true;
   $('#hint-ini').disabled = true;
   $('#map-reveal').disabled = true;
+  $('#map-form').hidden = true;     // resolved: clear the dead controls so
+  $('#map-hints').hidden = true;    // the Next button is always in view
   $('#map-score').textContent = `${S.score} pts`;
   $('#map-streak').hidden = S.streak < 2;
   if (S.streak >= 2) $('#map-streak').textContent = `${S.streak} in a row`;
   const last = S.i === S.rounds.length - 1;
   $('#map-next').textContent = last ? 'See results ›' : 'Next round ›';
   $('#map-next').hidden = false;
+  $('#map-next').scrollIntoView({ block: 'nearest' });
 }
 
 function finishSession() {

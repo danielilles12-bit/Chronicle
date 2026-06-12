@@ -20,11 +20,16 @@ export function show(id) {
 }
 
 // Desktop nicety: the browser Back button walks the in-app view trail.
-window.addEventListener('popstate', () => {
-  if (trail.length > 1) {
+// Depth-synced so the Forward button never navigates the app backwards.
+try { window.history.replaceState({ depth: 1 }, ''); } catch (e) { /* sandboxed */ }
+window.addEventListener('popstate', (e) => {
+  const depth = (e.state && e.state.depth) || 1;
+  let changed = false;
+  while (trail.length > Math.max(1, depth)) {
     trail.pop();
-    render();
+    changed = true;
   }
+  if (changed) render();
 });
 
 export function back() {

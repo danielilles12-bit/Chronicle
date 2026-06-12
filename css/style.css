@@ -229,6 +229,7 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 #map-feedback b.fig { font-family: var(--serif); font-size: 17px; }
 #map-feedback .pts { font-weight: 800; color: var(--gold); }
 #map-guesses { display: flex; flex-wrap: wrap; gap: 6px; }
+#map-next { position: sticky; bottom: 2px; }
 .guess-chip {
   font-size: 13px; color: var(--muted); background: var(--soft);
   border-radius: 999px; padding: 4px 12px; text-decoration: line-through;

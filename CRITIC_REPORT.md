@@ -1,75 +1,66 @@
-# Critic report — round 3
+# Critic report — round 4
 
 ## Verdict
-HIGH: 1  MEDIUM: 1  LOW: 10
+HIGH: 1  MEDIUM: 1  LOW: 8
 
 ## Defects
 
-### [HIGH] PAC clue gives the wrong year for the first PAC
-- Where: data/puzzles.json — full-1 ("Second Terms"), 61-Across, answer PAC
-- What: Clue says "Election-funding org. — the first was formed in 1944." The first PAC, the CIO-PAC, was formed in July 1943 (in response to the Smith–Connally Act of June 1943), to support FDR's 1944 campaign. The org was formed in 1943, not 1944.
-- Why it matters: A factually wrong date in a clue is exactly what the spec forbids; the clue's whole hook is the date.
+### [HIGH] Resuming a map session mid-round replays an already-scored round and double-counts it
+- Where: js/mapgame.js — resumeSession() / persistSession() / startRound()
+- What: persistSession() saves the round index `i` when a round starts and again when it resolves, but `i` is only advanced when the player taps "Next". If the app is killed/reloaded in the window between answering and tapping "Next" (a natural moment to switch apps on iOS, where the PWA page is routinely evicted), the saved state has the resolved round still at index `i` with its result already in `results` and its points already in `score`. resumeSession() blindly restarts round `i`: the same figure is presented again — with its name just shown in the feedback the player saw — and answering it again pushes a duplicate result and adds points a second time. Empirically reproduced (Playwright, mapseed=42): answer round 1 correctly (100 pts) → reload → "Resume — round 1 of 10 (100 pts)" → same figure (darwin) replayed with input enabled → score 210 pts, saved results length 2 at i=0. The replay even collects a +10 "streak" bonus for consecutively answering the same round, and the session would end with 11 results in a "10-round" summary and an inflated, persisted best score.
+- Why it matters: Broken functionality in a shipped feature — corrupted scoring, a free already-revealed answer, and a permanently inflated best score. The test suite only covers resume-after-Next (tests/test_mapgame.py), so this path is untested.
 
-### [MEDIUM] EDY clue calls the candy maker an "ice-cream maker"
-- Where: data/puzzles.json — full-1 ("Second Terms"), 42-Down, answer EDY
-- What: Clue: "Joseph ___, ice-cream maker who teamed with Dreyer in 1928." In every standard account (incl. the brand's own history), Joseph Edy was the candy maker and William Dreyer the ice-cream maker; the pair founded Grand Ice Cream in Oakland in 1928. The 1928 date is right; the occupational descriptor is swapped onto the wrong partner.
-- Why it matters: Misleading/sloppy wording — solvers who know the trivia know Edy as the candy man.
+### [MEDIUM] "Next round" button is below the fold after a round resolves
+- Where: index.html / css/style.css (#map-next at the bottom of .map-main); visible in screenshots/12-map-correct.png and 14-map-revealed.png
+- What: On the target 390×844 viewport, once the feedback box appears (plus any hint chip or wrong-guess chip), the primary "Next round ›" action is pushed fully off-screen (12-map-correct.png: not visible at all; 14-map-revealed.png: top sliver visible). There is no scroll affordance; the input and buttons above it are all disabled at that moment, so the screen reads as a dead end until the player discovers they can scroll the lower panel.
+- Why it matters: The single action that moves the game forward is hidden at the exact moment the player needs it, on the primary device, in the project's own canonical screenshots — well below the NYT bar the spec sets.
 
-### [LOW] Full-1 title "Second Terms" is only half-earned
-- Where: data/puzzles.json — full-1
-- What: Of the two 15-letter spanners, GROVERCLEVELAND fits the title (non-consecutive second term) but EIGHTTRACKTAPES has nothing to do with it. The title implies a theme the grid doesn't deliver. (Full-2's "Old Europe" coheres: VERSAILLES + METTERNICH.)
-- Why it matters: Un-NYT-like; a titled puzzle promises a theme.
+### [LOW] Browser history and in-app trail desynchronise
+- Where: js/app.js — show()/back()/popstate handler
+- What: show() pushes a history state, but the in-app ‹ back button pops only the internal trail, leaving the pushed history entry behind; and the popstate handler pops the trail on any popstate, so pressing the browser's Forward button also navigates the app backwards. The common Back-button case works; the bookkeeping around it is loose.
+- Why it matters: Mildly odd navigation on desktop browsers; invisible in the installed PWA, the primary target.
 
-### [LOW] Repeated fill across puzzles, including identical 1-Across in consecutive midis
-- Where: data/puzzles.json — midi-1 and midi-2 both open with 1A NOT; HAN, EON, ARI, AMA, NIT and ERA each appear in two different puzzles
-- What: Within-puzzle uniqueness holds (validator enforces it), but a 10-puzzle set re-using short fill — twice in the very same slot — is inelegant.
-- Why it matters: Feels like constructor's autopilot to a regular solver.
+### [LOW] Repeated short fill across the 10-puzzle set, including an identical 1-Across in consecutive midis
+- Where: data/puzzles.json — midi-1 and midi-2 both open with 1A NOT; HAN (mini-1/mini-3), EON (mini-4/mini-5), ERA (midi-1/full-2), AMA, ARI and NIT (midi-2/full-2) each appear in two puzzles
+- What: Within-puzzle uniqueness holds (validator-enforced), but a small set re-using the same short answers — twice in the very same slot — reads as constructor autopilot.
+- Why it matters: Inelegant for a curated 10-puzzle collection; a regular solver will notice.
 
-### [LOW] TREXARM is a borderline entry with a loose clue
-- Where: data/puzzles.json — full-1, 25-Across
-- What: "Tiny-limbed pose named for a Cretaceous predator." "T. rex arms" is informal slang (sleep position/dance move); as a 7-letter crossword entry it's wobbly, and "pose" stretches it further. Facts in the clue (Cretaceous) are fine.
-- Why it matters: Spec demands real words/names/phrases only; this one is defensible but at the edge.
+### [LOW] ANN and ANNA in the same grid
+- Where: data/puzzles.json — full-2 ("Old Europe"), 23-Down ANN and 61-Down ANNA
+- What: Both clues are factually fine (Cape Ann is named for Anne of Denmark; Anna Leonowens was in Siam in the 1860s), but ANN is wholly contained in ANNA; NYT-style construction avoids near-duplicate entries of the same name root in one puzzle.
+- Why it matters: Duplication-adjacent blemish in the marquee puzzle.
 
-### [LOW] ANAKIN clue leans on a name not used on screen until 1983
-- Where: data/puzzles.json — full-2 ("Old Europe"), 72-Across
-- What: "Skywalker whose screen saga began in 1977." The character (as Darth Vader) debuted in 1977, but the name "Anakin" wasn't spoken on screen until Return of the Jedi (1983). Defensible, but a pedant can object.
-- Why it matters: Date-pinned clues invite date-pedantry.
+### [LOW] TREXARM remains a borderline entry
+- Where: data/puzzles.json — full-1 ("Across the Ages"), 25-Across
+- What: The reclued "Notoriously stubby limb on the Cretaceous' apex predator" is factually fine and better than round 3's "pose" wording, but T-REX ARM as a standalone 7-letter entry is still informal slang at the edge of "real words/names/phrases only".
+- Why it matters: Spec's vocabulary bar; defensible but wobbly.
 
-### [LOW] Completion modal has a single exit
-- Where: js/crossword.js / index.html — #cw-done
-- What: After solving, the only action is "Back to puzzles"; the modal backdrop isn't dismissible, so you can't stay and admire the solved grid (you must re-open the puzzle from the list).
-- Why it matters: NYT lets you close the congratulations and look at your grid.
+### [LOW] EGO clued as a "Freudian coinage"
+- Where: data/puzzles.json — full-1, 64-Across
+- What: Freud wrote "das Ich"; "ego" is the Latin his English translators chose, and the word long predates Freud. As shorthand for "the psychoanalytic sense originates with Freud" the clue is defensible under a standard reading, but "coinage" overstates it.
+- Why it matters: Date/attribution-pinned clues invite exactly this pedantry; "Freudian concept" would be airtight.
 
-### [LOW] Browser Back button is not wired to the in-app router
-- Where: js/app.js (trail-based router, no History API)
-- What: On desktop (and any browser context), pressing the browser's Back button exits the app instead of going back one view. Irrelevant in the installed iPhone PWA, the primary target.
-- Why it matters: Mild dead-end feel on desktop, which the spec says must be acceptable.
-
-### [LOW] Map session is lost if the app is killed mid-run
-- Where: js/mapgame.js / js/storage.js
-- What: Only bestScore/bestStreak/sessions persist. Crossword progress survives force-quit; a half-finished 10-round map session does not.
-- Why it matters: Spec says scores/progress persist; sessions are short, but the asymmetry with crosswords is noticeable.
-
-### [LOW] Dynamic label-halo scaling is silently overridden by CSS
-- Where: js/mapgame.js scaleMarkers() vs css/style.css `.mk-label { stroke-width: 3 }`
-- What: scaleMarkers sets `stroke-width` as an SVG presentation attribute on each zoom frame, but the CSS class rule outranks presentation attributes, so the halo is always 3 user-units — the per-zoom computation is dead code, and the white halo is relatively thicker at deep zooms than intended. Shipped screenshots still look fine.
-- Why it matters: Dead code masking an intended visual behaviour; could bite a future tweak.
+### [LOW] resumeSession() trusts the saved blob completely
+- Where: js/mapgame.js — resumeSession()
+- What: Saved figure ids are looked up with `DATA.figures.find(...)` and used unchecked; if a stored session references an id that no longer exists (e.g. after a future figures.json edit ships via SW update), `round()` returns undefined and startRound() throws, leaving a blank map view. No length/shape validation either.
+- Why it matters: Latent crash on the upgrade path; trivial to guard.
 
 ### [LOW] Pinch zoom disabled app-wide
-- Where: index.html viewport meta (`user-scalable=no`)
-- What: Standard for app-like games, and the README discloses it as a deliberate accessibility trade-off, but it remains a real accessibility limitation (no zoom for low-vision users).
+- Where: index.html viewport meta (user-scalable=no)
+- What: Standard for app-like games and disclosed in the README as a deliberate trade-off, but it remains a real accessibility limitation for low-vision users.
 - Why it matters: Accessibility; mitigated by large type and disclosure.
 
 ### [LOW] Offline behaviour automated only on Chromium
 - Where: tests/test_pwa.py; README "Known limitations"
-- What: WebKit's Playwright harness errors on offline reload ("WebKit encountered an internal error"), so the full offline flow is hard-gated on Chromium only; WebKit is best-effort. Disclosed in README and test output.
-- Why it matters: The target platform is iOS/WebKit; the offline guarantee there rests on PWA platform behaviour, not on a green automated check.
+- What: WebKit's Playwright harness errors on offline reload, so the full offline flow is hard-gated on Chromium only, WebKit best-effort. Disclosed in README and test output.
+- Why it matters: The target platform is iOS/WebKit; the offline guarantee there rests on PWA platform behaviour, not a green automated check.
 
 ## What was checked
-- Ran `python3 tools/validate_puzzles.py` myself: 5 mini / 3 midi / 2 full, ALL PUZZLES VALID (structure, ≥3-letter runs, full interlock, connectivity, 15×15 rotational symmetry, numbering/answer/position agreement, no in-puzzle duplicate answers, no clue containing its own answer).
-- Ran the full suite `python3 tests/run_all.py`: validator, crosswords (all 10 solved end-to-end in WebKit/iPhone viewport incl. direction toggle, check/reveal, wrong-fill toast, persistence across reload), map game (deterministic 10-round session with exact-score assertions, hint-chip checks, regnal-numeral matching guards, best-score persistence), PWA/offline (manifest, icons, SW, Chromium offline flow), screenshots — all five steps PASS, zero console errors asserted by the harness.
-- Read every clue/answer in data/puzzles.json (all fresh 15×15 clues plus all mini/midi clues) as the pedantic professor; manually cross-checked grid letters against both 15-letter spanners (GROVERCLEVELAND, EIGHTTRACKTAPES) and full-2's marquee entries (VERSAILLES, METTERNICH, STREETER, MAVERICK); WebSearch-verified the claims I wasn't certain of: first-PAC date (wrong — CIO-PAC, 1943), Edy/Dreyer roles (misleading), Safeco 1923 founding (accurate per the company's own corporate history), Ruth Cheney Streeter (accurate). Dozens of other dated claims (Bauxite/Les Baux 1821, Tetris 1984, RICO 1970, WTA 1973, MTV 1981, Ascot 1711, bra patent 1914, NES 1985, Chicago L 1892, Emu War 1932, Edict of Nantes 1598, 1800 electoral tie, Notre-Dame 1804, Bikini 1946–58, Schubert Octet 1824, Nye Committee, Order No. 227, Hannibal 218 BC, Louisiana Purchase $15M, etc.) checked — no further errors found.
-- Verified all 30 figures in data/figures.json: names, variants, difficulty spread (10/10/10), birth/death years (incl. BC handling and "approx" flags), place names, occupation texts, and coordinate plausibility against the stated places (e.g. Mvezo, Sancellemoz/Passy, Fort de Joux, Libyssa/Gebze, Otrar, Kealakekua Bay, Werowocomoco, Szigetvár) — no errors found.
-- Read all UX code (index.html, css/style.css, js/app.js, crossword.js, mapgame.js, match.js, storage.js, sw.js, manifest.webmanifest) against every spec item: standalone manifest + full icon set incl. apple-touch-icon, SW precache list complete, NYT crossword conventions (tap/toggle, clue bar, auto-advance, clue list, check/reveal square-word-puzzle, timer, celebration only on a fully correct grid), map scoring math (max(10, 100−25·hints−10·wrongs), +10 streak from the 2nd consecutive, reveal = 0), forgiving matching (accent/case/punctuation-insensitive, length-scaled Damerau-Levenshtein, roman-numeral guard), localStorage persistence.
-- Inspected all 16 screenshots in screenshots/ for layout, typography, marker/label legibility, zoom framing, scoring consistency (summary 395 = 75+100+110+110 checks out, streak bonuses correct) and desktop rendering.
-- Checked icons (real rendered PNG set incl. maskable + apple-touch-icon) and README claims against the code and test output.
+- Ran `python3 tools/validate_puzzles.py` myself: 5 mini / 3 midi / 2 full, ALL PUZZLES VALID (structure, ≥3-letter runs, interlock, connectivity, 15×15 rotational symmetry, numbering/answer/position agreement, no in-puzzle duplicate answers, no clue containing its own answer). Read the validator's source to confirm it checks what it claims.
+- Ran the full suite `python3 tests/run_all.py`: all five steps PASS (validator; all 10 crosswords solved end-to-end in WebKit/iPhone viewport with direction-toggle, check/reveal, wrong-fill toast and persistence assertions; deterministic 10-round map session with exact score math, hint-chip and regnal-numeral matching guards, best-score persistence, resume-after-Next; manifest/icons/SW/Chromium-offline; all 16 screenshots regenerated). Console/page errors asserted zero by the harness.
+- Wrote and ran my own Playwright probe for the resume path the suite does not cover (reload after resolving, before "Next") — this is what surfaced the HIGH defect, with exact numbers (100 → 210 pts, duplicate result at i=0).
+- Re-read every clue/answer in data/puzzles.json as the pedantic professor. Round-3 defects verified fixed: PAC clue now says 1943 (CIO-PAC, correct), EDY now "candy maker who partnered with ice-cream man Dreyer in 1928" (roles now correct), full-1 retitled "Across the Ages" (no false theme promise), ANAKIN reclued to "first named on screen in 1983" (correct — Return of the Jedi). Hand-verified both 15-letter spanners letter-by-letter against the grid (GROVERCLEVELAND col 2, EIGHTTRACKTAPES col 12). Spot-verified the dated/factual claims across all 10 puzzles (Les Baux 1821, Tetris 1984, Safeco 1923, Spindletop 1901, AMA 1847, Nye Committee, 1800 electoral tie, Notre-Dame 1804, Bikini 1946–58, Hannibal 218 BC, $15M Louisiana Purchase, Stamp Act 1765, RICO 1970, Saudi unification 1932, Hee Haw 1969, Schubert Octet 1824, Ascot 1711, bra patent 1914, NES 1985, Chicago L 1892, NATO 1949, Tut 1922, Rousseau 1762, Haggard 1887, Suleiman "Kanuni", John Rae, Cape Ann/Anne of Denmark, Streeter/Women Marines, Emu War 1932, Versailles 1919, Edict of Nantes 1598, Fiona Macleod 1890s + Shrek 2001, Elsie 1936, NBA 1946, MTV 1981, WTA 1973, Leonowens 1860s, Maverick, Moran, Mae West, CSI 2000, laser 1960, Marie Curie/"radioactivity", Moe Berg, Ogden "Junction City", Victoria/William IV, Plessis-Praslin, core-rope ROM, Pindar, Uma/Parvati, Pan/panic) — no factual errors found this round.
+- Verified all 30 figures in data/figures.json: 10/10/10 difficulty split, unique ids, names/variants, birth/death years (incl. BC and approx flags), place names and coordinate plausibility (Ajaccio, Longwood, Mvezo, Sancellemoz/Passy, Fort de Joux, Libyssa/Gebze, Otrar, Kealakekua Bay, Werowocomoco, Szigetvár, Stettin/Szczecin, Santa Marta, Kochi, Downe) — no errors found.
+- Read all UX code (index.html, css/style.css, js/app.js, crossword.js, mapgame.js, match.js, storage.js, sw.js, manifest.webmanifest) against every spec item; confirmed round-3 fixes ("Admire the grid" second exit, History-API Back, map session resume button, .mk-label stroke-width no longer clobbered by CSS).
+- Inspected all 16 screenshots for layout, typography, marker/label legibility, zoom framing and scoring consistency (summary 395 = 75+0+100+110+110 checks out; solved state, check/reveal sheet, clue list, full 15×15 render all look right) — which is also where the below-the-fold "Next round" problem shows.
+- Checked icons (real PNGs: 32/180/192/512/maskable-512) and manifest/SW precache list completeness against the file tree.
