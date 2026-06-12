@@ -33,7 +33,14 @@ window.addEventListener('popstate', (e) => {
 });
 
 export function back() {
-  if (trail.length > 1) trail.pop();
+  if (trail.length <= 1) return;
+  // pop via the History API when we own the current entry so the browser
+  // and in-app trails stay in step; popstate does the actual render
+  if (window.history.state && window.history.state.depth === trail.length) {
+    window.history.back();
+    return;
+  }
+  trail.pop();
   render();
 }
 
@@ -47,6 +54,7 @@ function render() {
   const id = trail[trail.length - 1];
   $$('.view').forEach((v) => { v.hidden = v.id !== id; });
   if (id === 'view-home') refreshHomeStats();
+  if (id === 'view-mapstart') renderMapStart();   // keep Resume state fresh
   document.dispatchEvent(new CustomEvent('viewchange', { detail: id }));
 }
 

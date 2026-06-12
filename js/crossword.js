@@ -32,7 +32,7 @@ export function renderPuzzleList() {
       btn.className = 'cwitem';
       btn.dataset.pid = p.id;
       const state = st && st.completed
-        ? `<span class="cw-state done">✓ ${fmtTime(st.elapsed)}</span>`
+        ? `<span class="cw-state done">✓ ${fmtTime(st.elapsed)}${st.assisted ? ' · revealed' : ''}</span>`
         : (st && st.entries && st.entries.some((e) => e)
           ? '<span class="cw-state">In progress</span>'
           : '<span class="cw-state">—</span>');
@@ -100,9 +100,14 @@ export function openPuzzle(p) {
     revealed: new Set(saved.revealed || []),
     elapsed: saved.elapsed || 0,
     completed: !!saved.completed,
+    assisted: !!saved.assisted,
     sel: null, dir: 'across',
   };
   $('#cw-title').textContent = p.title;
+  $('#cw-done').hidden = true;     // never carry overlays from a previous puzzle
+  $('#cw-sheet').hidden = true;
+  $('#cw-cluelist').hidden = true;
+  $('#cw-toast').hidden = true;
   buildGridDOM();
   buildClueLists();
   show('view-cw');
@@ -119,6 +124,7 @@ function persist() {
     revealed: [...G.revealed],
     elapsed: G.elapsed,
     completed: G.completed,
+    assisted: !!G.assisted,
   });
 }
 
@@ -336,6 +342,7 @@ function restart() {
     G.revealed.clear();
     G.elapsed = 0;
     G.completed = false;
+    G.assisted = false;
     persist();
     renderTimer();
     startTimer();
@@ -350,12 +357,19 @@ function checkCompletion() {
   if (whites.every((c) => G.entries[c.i] === c.sol)) {
     if (G.completed) return;
     G.completed = true;
+    G.assisted = G.revealed.size > 0;
     stopTimer();
     persist();
-    $('#cw-done-title').textContent = ['Splendid!', 'Bravo!', 'History made!'][Math.floor(Math.random() * 3)];
-    $('#cw-done-sub').textContent = `${G.p.title} solved in ${fmtTime(G.elapsed)}.`;
+    if (G.assisted) {
+      $('#cw-done-title').textContent = 'Filled in!';
+      $('#cw-done-sub').textContent =
+        `${G.p.title} finished with reveals in ${fmtTime(G.elapsed)} — try the next one cold.`;
+    } else {
+      $('#cw-done-title').textContent = ['Splendid!', 'Bravo!', 'History made!'][Math.floor(Math.random() * 3)];
+      $('#cw-done-sub').textContent = `${G.p.title} solved in ${fmtTime(G.elapsed)}.`;
+    }
     $('#cw-done').hidden = false;
-    confetti();
+    if (!G.assisted) confetti();
   } else {
     const t = $('#cw-toast');
     t.hidden = false;
@@ -482,15 +496,25 @@ export function initCrossword() {
     // timer self-gates on document.hidden; nothing else needed
   });
   document.addEventListener('viewchange', (e) => {
-    if (e.detail !== 'view-cw') stopTimer();
-    else if (G && !G.completed && !timerInt) startTimer();
+    if (e.detail !== 'view-cw') {
+      stopTimer();
+      $('#cw-done').hidden = true;   // leaving mid-celebration must not strand the modal
+      $('#cw-sheet').hidden = true;
+      $('#cw-cluelist').hidden = true;
+    } else if (G && !G.completed && !timerInt) {
+      startTimer();
+    }
   });
 
   window.addEventListener('keydown', (e) => {
     if ($('#view-cw').hidden || !G) return;
-    // no grid input while a sheet, clue list, confirm or completion modal is up
+    // no grid input while a sheet, clue list, confirm or completion modal is up —
+    // and keep Backspace/Tab from triggering browser navigation underneath
     if (!$('#cw-sheet').hidden || !$('#cw-cluelist').hidden
-        || !$('#cw-done').hidden || !$('#confirm-sheet').hidden) return;
+        || !$('#cw-done').hidden || !$('#confirm-sheet').hidden) {
+      if (e.key === 'Backspace' || e.key === 'Tab') e.preventDefault();
+      return;
+    }
     if (e.metaKey || e.ctrlKey || e.altKey) return;
     if (/^[a-zA-Z]$/.test(e.key)) { type(e.key.toUpperCase()); e.preventDefault(); }
     else if (e.key === 'Backspace') { backspace(); e.preventDefault(); }

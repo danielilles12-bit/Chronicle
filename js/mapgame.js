@@ -139,12 +139,12 @@ export function renderMapStart() {
     ? `Your best: ${m.bestScore} pts · longest streak ${m.bestStreak}`
     : 'First session — good luck';
   const saved = store.getSession();
-  const resumable = saved && saved.ids && saved.results
-    && saved.results.length < saved.ids.length;
-  $('#map-resume').hidden = !resumable;
-  if (resumable) {
-    $('#map-resume').textContent =
-      `Resume — round ${saved.results.length + 1} of 10 (${saved.score} pts)`;
+  const valid = saved && saved.ids && saved.results;
+  $('#map-resume').hidden = !valid;
+  if (valid) {
+    $('#map-resume').textContent = saved.results.length >= saved.ids.length
+      ? `See your results (${saved.score} pts)`
+      : `Resume — round ${saved.results.length + 1} of 10 (${saved.score} pts)`;
   }
 }
 
@@ -152,6 +152,9 @@ function persistSession() {
   store.setSession({
     ids: S.rounds.map((f) => f.id),
     i: S.i, score: S.score, streak: S.streak, bestStreak: S.bestStreak,
+    cur: S.cur && S.cur.open
+      ? { hints: S.cur.hints, wrongs: S.cur.wrongs, occUsed: !!S.cur.occUsed, iniUsed: !!S.cur.iniUsed }
+      : null,
     results: S.results.map((r) => ({
       id: r.fig.id, pts: r.pts, correct: r.correct, hints: r.hints, wrongs: r.wrongs,
     })),
@@ -166,20 +169,26 @@ function resumeSession() {
   // a session saved mid-round (answered, "Next" untapped) must NOT replay
   // the already-scored round.
   const next = saved.results.length;
-  if (next >= saved.ids.length || saved.ids.some((id) => !byId(id))
-      || saved.results.some((r) => !byId(r.id))) {
+  if (saved.ids.some((id) => !byId(id)) || saved.results.some((r) => !byId(r.id))) {
     store.clearSession();
     renderMapStart();
     return;
   }
   S = {
     rounds: saved.ids.map(byId),
-    i: next, score: saved.score, streak: saved.streak,
+    i: Math.min(next, saved.ids.length - 1),
+    score: saved.score, streak: saved.streak,
     bestStreak: saved.bestStreak,
     results: saved.results.map((r) => ({
       fig: byId(r.id), pts: r.pts, correct: r.correct, hints: r.hints, wrongs: r.wrongs,
     })),
+    pendingCur: saved.cur || null,
   };
+  if (next >= saved.ids.length) {
+    // every round already answered when the app died: go straight to results
+    finishSession();
+    return;
+  }
   renderWorld();
   setVb([0, 0, MAP_W, MAP_H]);
   show('view-map');
@@ -206,7 +215,11 @@ function round() { return S.rounds[S.i]; }
 
 function startRound() {
   const fig = round();
-  S.cur = { hints: 0, wrongs: 0, open: true };
+  const carried = S.pendingCur;
+  S.pendingCur = null;
+  S.cur = carried
+    ? { hints: carried.hints, wrongs: carried.wrongs, occUsed: carried.occUsed, iniUsed: carried.iniUsed, open: true }
+    : { hints: 0, wrongs: 0, occUsed: false, iniUsed: false, open: true };
   $('#map-progress').textContent = `Round ${S.i + 1} of 10`;
   $('#map-score').textContent = `${S.score} pts`;
   $('#map-feedback').hidden = true;
@@ -221,6 +234,15 @@ function startRound() {
   $('#hint-occ').disabled = false;
   $('#hint-ini').disabled = false;
   $('#map-reveal').disabled = false;
+  // a resumed mid-round keeps its hints (and their cost): rebuild the chips
+  if (S.cur.occUsed) {
+    $('#hint-occ').disabled = true;
+    addHintChip(fig.occupation);
+  }
+  if (S.cur.iniUsed) {
+    $('#hint-ini').disabled = true;
+    addHintChip(`Initials: ${initials(fig.name)}`);
+  }
   $('#map-next').hidden = true;
   $('#map-streak').hidden = S.streak < 2;
   if (S.streak >= 2) $('#map-streak').textContent = `${S.streak} in a row`;
@@ -234,6 +256,13 @@ function startRound() {
   window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
     mapRound: { index: S.i, id: fig.id, name: fig.name },
   });
+}
+
+function addHintChip(text) {
+  const chip = document.createElement('div');
+  chip.className = 'hint-chip';
+  chip.textContent = text;
+  $('#map-hint-chips').appendChild(chip);
 }
 
 const NAME_PARTICLES = new Set(['of', 'the', 'van', 'von', 'da', 'de', 'la', 'le', 'di']);
@@ -343,6 +372,7 @@ export function initMapGame() {
       resolveRound(true);
     } else {
       S.cur.wrongs++;
+      persistSession();
       const chip = document.createElement('span');
       chip.className = 'guess-chip';
       chip.textContent = guess;
@@ -359,21 +389,19 @@ export function initMapGame() {
   $('#hint-occ').addEventListener('click', () => {
     if (!S || !S.cur.open) return;
     S.cur.hints++;
+    S.cur.occUsed = true;
     $('#hint-occ').disabled = true;
-    const chip = document.createElement('div');
-    chip.className = 'hint-chip';
-    chip.textContent = round().occupation;
-    $('#map-hint-chips').appendChild(chip);
+    addHintChip(round().occupation);
+    persistSession();
   });
 
   $('#hint-ini').addEventListener('click', () => {
     if (!S || !S.cur.open) return;
     S.cur.hints++;
+    S.cur.iniUsed = true;
     $('#hint-ini').disabled = true;
-    const chip = document.createElement('div');
-    chip.className = 'hint-chip';
-    chip.textContent = `Initials: ${initials(round().name)}`;
-    $('#map-hint-chips').appendChild(chip);
+    addHintChip(`Initials: ${initials(round().name)}`);
+    persistSession();
   });
 
   $('#map-reveal').addEventListener('click', () => {

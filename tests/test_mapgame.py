@@ -170,6 +170,26 @@ def main():
             info2, _ = round_info(pg)
             assert info2["id"] != info["id"], "resumed session must not replay the scored round"
 
+            # dying after the FINAL round resolves (before "See results") must
+            # still deliver the summary and record the session
+            for _ in range(9):                      # rounds 2..10
+                pg.click("#map-reveal")
+                pg.wait_for_selector("#map-feedback", state="visible")
+                if pg.text_content("#map-next").strip().startswith("See results"):
+                    break
+                pg.click("#map-next")
+            pg.reload()
+            pg.wait_for_selector("#card-map")
+            pg.click("#card-map")
+            pg.wait_for_selector("#map-resume", state="visible")
+            assert "See your results" in pg.text_content("#map-resume")
+            pg.click("#map-resume")
+            pg.wait_for_selector("#sum-total")
+            assert pg.locator("#sum-rounds li").count() == 10
+            pg.click("#sum-home")
+            pg.click("#card-map")
+            assert pg.locator("#map-resume").is_hidden(), "finished session must clear"
+
             fail_on_errors(errors, "map session")
 
     print("MAP GAME TESTS OK (total matched: %s)" % total)
