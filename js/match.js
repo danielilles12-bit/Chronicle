@@ -50,26 +50,24 @@ function tolerance(len) {
 const ROMANS = new Set(['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix',
   'x', 'xi', 'xii', 'xiii', 'xiv', 'xv', 'xvi']);
 
-function splitNumeral(s) {
-  const parts = s.split(' ');
-  const last = parts[parts.length - 1];
-  if (parts.length > 1 && ROMANS.has(last)) {
-    return [parts.slice(0, -1).join(' '), last];
-  }
-  return [s, ''];
+// All roman-numeral tokens anywhere in the name, in order. Fuzzy matching is
+// only allowed between strings whose numeral sequences are identical, so
+// "Cleopatra I" can't ride the typo budget into "Cleopatra", nor
+// "Alexander IV of Macedon" into "Alexander III of Macedon".
+function numeralKey(s) {
+  return s.split(' ').filter((t) => ROMANS.has(t)).join('-');
 }
 
 export function isMatch(guess, figure) {
   const g = normalize(guess);
   if (g.length < 2) return false;
-  const gNum = splitNumeral(g)[1];
+  const gKey = numeralKey(g);
   const cands = [figure.name].concat(figure.variants || []);
   for (const raw of cands) {
     const c = normalize(raw);
     if (!c) continue;
     if (g === c) return true;
-    const cNum = splitNumeral(c)[1];
-    if (gNum && cNum && gNum !== cNum) continue;
+    if (numeralKey(c) !== gKey) continue;
     const tol = tolerance(c.length);
     if (tol > 0 && damerau(g, c, tol) <= tol) return true;
   }

@@ -1,0 +1,1720 @@
+[
+ {
+  "size": 15,
+  "grid": [
+   "ANG#CADDY#OCEAN",
+   "PAR#HIREE#PRICE",
+   "ADO#IDEAL#TIGHT",
+   "RIVER#ALPS#SHE#",
+   "TREXARM##UNIT##",
+   "##RICO##CLUSTER",
+   "#ACT#UNSEEN#RAE",
+   "AWL##SAUDI##ATF",
+   "HEE#ESTEEM#MCS#",
+   "HDVIDEO##AMOK##",
+   "##ENYA##INERTIA",
+   "#ELF#UPON#TEAMS",
+   "BRAUN#OCTET#PAC",
+   "RINSE#SHELL#EGO",
+   "ANDES#HORSE#SET"
+  ],
+  "answers": [
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 0,
+    "answer": "ANG",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 4,
+    "answer": "CADDY",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 10,
+    "answer": "OCEAN",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 0,
+    "answer": "PAR",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 4,
+    "answer": "HIREE",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 10,
+    "answer": "PRICE",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "ADO",
+    "q": 70
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 4,
+    "answer": "IDEAL",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 10,
+    "answer": "TIGHT",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 0,
+    "answer": "RIVER",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 6,
+    "answer": "ALPS",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 11,
+    "answer": "SHE",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 0,
+    "answer": "TREXARM",
+    "q": 100
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 9,
+    "answer": "UNIT",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 5,
+    "c": 2,
+    "answer": "RICO",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 5,
+    "c": 8,
+    "answer": "CLUSTER",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 6,
+    "c": 1,
+    "answer": "ACT",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 6,
+    "c": 5,
+    "answer": "UNSEEN",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 6,
+    "c": 12,
+    "answer": "RAE",
+    "q": 65
+   },
+   {
+    "dir": "across",
+    "r": 7,
+    "c": 0,
+    "answer": "AWL",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 7,
+    "c": 5,
+    "answer": "SAUDI",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 7,
+    "c": 12,
+    "answer": "ATF",
+    "q": 60
+   },
+   {
+    "dir": "across",
+    "r": 8,
+    "c": 0,
+    "answer": "HEE",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 8,
+    "c": 4,
+    "answer": "ESTEEM",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 8,
+    "c": 11,
+    "answer": "MCS",
+    "q": 65
+   },
+   {
+    "dir": "across",
+    "r": 9,
+    "c": 0,
+    "answer": "HDVIDEO",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 9,
+    "c": 9,
+    "answer": "AMOK",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 10,
+    "c": 2,
+    "answer": "ENYA",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 10,
+    "c": 8,
+    "answer": "INERTIA",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 11,
+    "c": 1,
+    "answer": "ELF",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 11,
+    "c": 5,
+    "answer": "UPON",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 11,
+    "c": 10,
+    "answer": "TEAMS",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 12,
+    "c": 0,
+    "answer": "BRAUN",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 12,
+    "c": 6,
+    "answer": "OCTET",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 12,
+    "c": 12,
+    "answer": "PAC",
+    "q": 85
+   },
+   {
+    "dir": "across",
+    "r": 13,
+    "c": 0,
+    "answer": "RINSE",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 13,
+    "c": 6,
+    "answer": "SHELL",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 13,
+    "c": 12,
+    "answer": "EGO",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 14,
+    "c": 0,
+    "answer": "ANDES",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 14,
+    "c": 6,
+    "answer": "HORSE",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 14,
+    "c": 12,
+    "answer": "SET",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 0,
+    "answer": "APART",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 7,
+    "c": 0,
+    "answer": "AHH",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 12,
+    "c": 0,
+    "answer": "BRA",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 1,
+    "answer": "NADIR",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 6,
+    "c": 1,
+    "answer": "AWED",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 11,
+    "c": 1,
+    "answer": "ERIN",
+    "q": 70
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 2,
+    "answer": "GROVERCLEVELAND",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 3,
+    "c": 3,
+    "answer": "EXIT",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 9,
+    "c": 3,
+    "answer": "INFUSE",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 4,
+    "answer": "CHIRAC",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 8,
+    "c": 4,
+    "answer": "EDY",
+    "q": 65
+   },
+   {
+    "dir": "down",
+    "r": 12,
+    "c": 4,
+    "answer": "NES",
+    "q": 60
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 5,
+    "answer": "AID",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 4,
+    "c": 5,
+    "answer": "ROUSSEAU",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 6,
+    "answer": "DREAM",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 6,
+    "c": 6,
+    "answer": "NATO",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 11,
+    "c": 6,
+    "answer": "POSH",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 7,
+    "answer": "DEAL",
+    "q": 75
+   },
+   {
+    "dir": "down",
+    "r": 6,
+    "c": 7,
+    "answer": "SUE",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 11,
+    "c": 7,
+    "answer": "OCHO",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 8,
+    "answer": "YELP",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 5,
+    "c": 8,
+    "answer": "CEDE",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 10,
+    "c": 8,
+    "answer": "INTER",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 3,
+    "c": 9,
+    "answer": "SULEIMAN",
+    "q": 30
+   },
+   {
+    "dir": "down",
+    "r": 12,
+    "c": 9,
+    "answer": "ELS",
+    "q": 70
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 10,
+    "answer": "OPT",
+    "q": 60
+   },
+   {
+    "dir": "down",
+    "r": 4,
+    "c": 10,
+    "answer": "NUN",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 9,
+    "c": 10,
+    "answer": "METTLE",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 11,
+    "answer": "CRISIS",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 8,
+    "c": 11,
+    "answer": "MORE",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 12,
+    "answer": "EIGHTTRACKTAPES",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 13,
+    "answer": "ACHE",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 5,
+    "c": 13,
+    "answer": "EATS",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 10,
+    "c": 13,
+    "answer": "IMAGE",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 14,
+    "answer": "NET",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 5,
+    "c": 14,
+    "answer": "REF",
+    "q": 65
+   },
+   {
+    "dir": "down",
+    "r": 10,
+    "c": 14,
+    "answer": "ASCOT",
+    "q": 80
+   }
+  ]
+ },
+ {
+  "size": 15,
+  "grid": [
+   "ADA#NASH##ONCE#",
+   "PARTITION#HOHUM",
+   "TROUBLESHOOTERS",
+   "#TMI##SELF#AVON",
+   "#SATOUT##FETA##",
+   "###IMPACT#TELL#",
+   "STOOGE#HERA#ION",
+   "ESPN#NOONE#MERE",
+   "EAT#ODDS#FEARED",
+   "#ROSA#DESERT###",
+   "##META##TRACTS#",
+   "IKEA#SKIP##HEE#",
+   "CATLIKEREFLEXES",
+   "ERRED#NOTREDAME",
+   "#TYRA##NEYO#NEW"
+  ],
+  "answers": [
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 0,
+    "answer": "ADA",
+    "q": 70
+   },
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 4,
+    "answer": "NASH",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 10,
+    "answer": "ONCE",
+    "q": 70
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 0,
+    "answer": "PARTITION",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 10,
+    "answer": "HOHUM",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "TROUBLESHOOTERS",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 1,
+    "answer": "TMI",
+    "q": 70
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 6,
+    "answer": "SELF",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 11,
+    "answer": "AVON",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 1,
+    "answer": "SATOUT",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 9,
+    "answer": "FETA",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 5,
+    "c": 3,
+    "answer": "IMPACT",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 5,
+    "c": 10,
+    "answer": "TELL",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 6,
+    "c": 0,
+    "answer": "STOOGE",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 6,
+    "c": 7,
+    "answer": "HERA",
+    "q": 65
+   },
+   {
+    "dir": "across",
+    "r": 6,
+    "c": 12,
+    "answer": "ION",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 7,
+    "c": 0,
+    "answer": "ESPN",
+    "q": 70
+   },
+   {
+    "dir": "across",
+    "r": 7,
+    "c": 5,
+    "answer": "NOONE",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 7,
+    "c": 11,
+    "answer": "MERE",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 8,
+    "c": 0,
+    "answer": "EAT",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 8,
+    "c": 4,
+    "answer": "ODDS",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 8,
+    "c": 9,
+    "answer": "FEARED",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 9,
+    "c": 1,
+    "answer": "ROSA",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 9,
+    "c": 6,
+    "answer": "DESERT",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 10,
+    "c": 2,
+    "answer": "META",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 10,
+    "c": 8,
+    "answer": "TRACTS",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 11,
+    "c": 0,
+    "answer": "IKEA",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 11,
+    "c": 5,
+    "answer": "SKIP",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 11,
+    "c": 11,
+    "answer": "HEE",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 12,
+    "c": 0,
+    "answer": "CATLIKEREFLEXES",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 13,
+    "c": 0,
+    "answer": "ERRED",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 13,
+    "c": 6,
+    "answer": "NOTREDAME",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 14,
+    "c": 1,
+    "answer": "TYRA",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 14,
+    "c": 7,
+    "answer": "NEYO",
+    "q": 75
+   },
+   {
+    "dir": "across",
+    "r": 14,
+    "c": 12,
+    "answer": "NEW",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 0,
+    "answer": "APT",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 6,
+    "c": 0,
+    "answer": "SEE",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 11,
+    "c": 0,
+    "answer": "ICE",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 1,
+    "answer": "DARTS",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 6,
+    "c": 1,
+    "answer": "TSAR",
+    "q": 50
+   },
+   {
+    "dir": "down",
+    "r": 11,
+    "c": 1,
+    "answer": "KART",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 2,
+    "answer": "AROMA",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 6,
+    "c": 2,
+    "answer": "OPTOMETRY",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 3,
+    "answer": "TUITION",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 9,
+    "c": 3,
+    "answer": "SEALER",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 4,
+    "answer": "NIB",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 4,
+    "c": 4,
+    "answer": "OMG",
+    "q": 85
+   },
+   {
+    "dir": "down",
+    "r": 8,
+    "c": 4,
+    "answer": "OAT",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 12,
+    "c": 4,
+    "answer": "IDA",
+    "q": 60
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 5,
+    "answer": "ATL",
+    "q": 70
+   },
+   {
+    "dir": "down",
+    "r": 4,
+    "c": 5,
+    "answer": "UPEND",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 10,
+    "c": 5,
+    "answer": "ASK",
+    "q": 56
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 6,
+    "answer": "SIESTA",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 7,
+    "c": 6,
+    "answer": "ODD",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 11,
+    "c": 6,
+    "answer": "KEN",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 7,
+    "answer": "HOSE",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 5,
+    "c": 7,
+    "answer": "CHOSE",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 11,
+    "c": 7,
+    "answer": "IRON",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 8,
+    "answer": "NHL",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 5,
+    "c": 8,
+    "answer": "TEN",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 9,
+    "c": 8,
+    "answer": "STPETE",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 2,
+    "c": 9,
+    "answer": "OFF",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 6,
+    "c": 9,
+    "answer": "REFER",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 12,
+    "c": 9,
+    "answer": "FRY",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 10,
+    "answer": "OHO",
+    "q": 70
+   },
+   {
+    "dir": "down",
+    "r": 4,
+    "c": 10,
+    "answer": "ETA",
+    "q": 60
+   },
+   {
+    "dir": "down",
+    "r": 8,
+    "c": 10,
+    "answer": "ERA",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 12,
+    "c": 10,
+    "answer": "LEO",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 11,
+    "answer": "NOTATE",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 7,
+    "c": 11,
+    "answer": "MATCHED",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 12,
+    "answer": "CHEVALIER",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 10,
+    "c": 12,
+    "answer": "TEXAN",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 13,
+    "answer": "EURO",
+    "q": 70
+   },
+   {
+    "dir": "down",
+    "r": 5,
+    "c": 13,
+    "answer": "LORE",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 10,
+    "c": 13,
+    "answer": "SEEME",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 14,
+    "answer": "MSN",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 6,
+    "c": 14,
+    "answer": "NED",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 12,
+    "c": 14,
+    "answer": "SEW",
+    "q": 90
+   }
+  ]
+ },
+ {
+  "size": 15,
+  "grid": [
+   "COSMIC#COB#RAGS",
+   "ALTERS#EMU#IDLE",
+   "VERSAILLES#GRAN",
+   "##EAT#ALL#FIONA",
+   "ABE#ELSIE#EDICT",
+   "NIT##LENTIL#TEE",
+   "NOEL#ARI#NIB###",
+   "##REAM###EXAM##",
+   "###NBA#MTV#GAME",
+   "AMA#ASPIRE##VAL",
+   "FIRST#ALARM#EEK",
+   "FLAKE#TIC#OAR##",
+   "ELBA#METTERNICH",
+   "CELT#ANI#RANCHO",
+   "TREE#WTA#ANAKIN"
+  ],
+  "answers": [
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 0,
+    "answer": "COSMIC",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 7,
+    "answer": "COB",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 11,
+    "answer": "RAGS",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 0,
+    "answer": "ALTERS",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 7,
+    "answer": "EMU",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 11,
+    "answer": "IDLE",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "VERSAILLES",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 11,
+    "answer": "GRAN",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 2,
+    "answer": "EAT",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 6,
+    "answer": "ALL",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 10,
+    "answer": "FIONA",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 0,
+    "answer": "ABE",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 4,
+    "answer": "ELSIE",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 10,
+    "answer": "EDICT",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 5,
+    "c": 0,
+    "answer": "NIT",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 5,
+    "c": 5,
+    "answer": "LENTIL",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 5,
+    "c": 12,
+    "answer": "TEE",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 6,
+    "c": 0,
+    "answer": "NOEL",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 6,
+    "c": 5,
+    "answer": "ARI",
+    "q": 65
+   },
+   {
+    "dir": "across",
+    "r": 6,
+    "c": 9,
+    "answer": "NIB",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 7,
+    "c": 2,
+    "answer": "REAM",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 7,
+    "c": 9,
+    "answer": "EXAM",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 8,
+    "c": 3,
+    "answer": "NBA",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 8,
+    "c": 7,
+    "answer": "MTV",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 8,
+    "c": 11,
+    "answer": "GAME",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 9,
+    "c": 0,
+    "answer": "AMA",
+    "q": 65
+   },
+   {
+    "dir": "across",
+    "r": 9,
+    "c": 4,
+    "answer": "ASPIRE",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 9,
+    "c": 12,
+    "answer": "VAL",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 10,
+    "c": 0,
+    "answer": "FIRST",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 10,
+    "c": 6,
+    "answer": "ALARM",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 10,
+    "c": 12,
+    "answer": "EEK",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 11,
+    "c": 0,
+    "answer": "FLAKE",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 11,
+    "c": 6,
+    "answer": "TIC",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 11,
+    "c": 10,
+    "answer": "OAR",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 12,
+    "c": 0,
+    "answer": "ELBA",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 12,
+    "c": 5,
+    "answer": "METTERNICH",
+    "q": 22
+   },
+   {
+    "dir": "across",
+    "r": 13,
+    "c": 0,
+    "answer": "CELT",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 13,
+    "c": 5,
+    "answer": "ANI",
+    "q": 60
+   },
+   {
+    "dir": "across",
+    "r": 13,
+    "c": 9,
+    "answer": "RANCHO",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 14,
+    "c": 0,
+    "answer": "TREE",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 14,
+    "c": 5,
+    "answer": "WTA",
+    "q": 70
+   },
+   {
+    "dir": "across",
+    "r": 14,
+    "c": 9,
+    "answer": "ANAKIN",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 0,
+    "answer": "CAV",
+    "q": 60
+   },
+   {
+    "dir": "down",
+    "r": 4,
+    "c": 0,
+    "answer": "ANN",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 9,
+    "c": 0,
+    "answer": "AFFECT",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 1,
+    "answer": "OLE",
+    "q": 75
+   },
+   {
+    "dir": "down",
+    "r": 4,
+    "c": 1,
+    "answer": "BIO",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 9,
+    "c": 1,
+    "answer": "MILLER",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 2,
+    "answer": "STREETER",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 9,
+    "c": 2,
+    "answer": "ARABLE",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 3,
+    "answer": "MESA",
+    "q": 70
+   },
+   {
+    "dir": "down",
+    "r": 6,
+    "c": 3,
+    "answer": "LEN",
+    "q": 75
+   },
+   {
+    "dir": "down",
+    "r": 10,
+    "c": 3,
+    "answer": "SKATE",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 4,
+    "answer": "IRATE",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 7,
+    "c": 4,
+    "answer": "ABATE",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 5,
+    "answer": "CSI",
+    "q": 75
+   },
+   {
+    "dir": "down",
+    "r": 4,
+    "c": 5,
+    "answer": "LLAMAS",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 12,
+    "c": 5,
+    "answer": "MAW",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 2,
+    "c": 6,
+    "answer": "LASER",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 9,
+    "c": 6,
+    "answer": "PATENT",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 7,
+    "answer": "CELLINI",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 8,
+    "c": 7,
+    "answer": "MILITIA",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 8,
+    "answer": "OMELET",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 8,
+    "c": 8,
+    "answer": "TRACT",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 9,
+    "answer": "BUS",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 5,
+    "c": 9,
+    "answer": "INEVER",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 12,
+    "c": 9,
+    "answer": "ERA",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 3,
+    "c": 10,
+    "answer": "FELIX",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 10,
+    "c": 10,
+    "answer": "MORAN",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 11,
+    "answer": "RIGID",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 6,
+    "c": 11,
+    "answer": "BAG",
+    "q": 70
+   },
+   {
+    "dir": "down",
+    "r": 11,
+    "c": 11,
+    "answer": "ANNA",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 12,
+    "answer": "ADROIT",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 7,
+    "c": 12,
+    "answer": "MAVERICK",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 13,
+    "answer": "GLANCE",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 8,
+    "c": 13,
+    "answer": "MAE",
+    "q": 65
+   },
+   {
+    "dir": "down",
+    "r": 12,
+    "c": 13,
+    "answer": "CHI",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 14,
+    "answer": "SENATE",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 8,
+    "c": 14,
+    "answer": "ELK",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 12,
+    "c": 14,
+    "answer": "HON",
+    "q": 70
+   }
+  ]
+ }
+]

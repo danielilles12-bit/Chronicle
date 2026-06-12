@@ -120,7 +120,7 @@
   },
   {
     "id": "marieantoinette", "name": "Marie Antoinette", "difficulty": "medium",
-    "variants": ["marie antoinette"],
+    "variants": ["marie antoinette", "antoinette"],
     "occupation": "Queen of France, executed during the Revolution",
     "birth": { "year": 1755, "place": "Vienna, Austria", "lat": 48.21, "lon": 16.37 },
     "death": { "year": 1793, "place": "Place de la Révolution, Paris, France", "lat": 48.87, "lon": 2.32 }
@@ -197,7 +197,7 @@
   },
   {
     "id": "catherine", "name": "Catherine the Great", "difficulty": "hard",
-    "variants": ["catherine the great", "catherine ii"],
+    "variants": ["catherine the great", "catherine ii", "catherine"],
     "occupation": "Empress of Russia",
     "birth": { "year": 1729, "place": "Stettin, Prussia (Szczecin, Poland)", "lat": 53.43, "lon": 14.55 },
     "death": { "year": 1796, "place": "Saint Petersburg, Russia", "lat": 59.94, "lon": 30.31 }

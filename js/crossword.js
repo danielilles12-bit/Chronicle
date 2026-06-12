@@ -220,6 +220,11 @@ function paint() {
 function type(ch) {
   if (!G || G.completed) return;
   const i = G.sel;
+  if (G.revealed.has(i)) {       // revealed squares are locked, like the NYT
+    advanceAfterFill();
+    paint();
+    return;
+  }
   G.entries[i] = ch;
   G.wrong.delete(i);
   advanceAfterFill();
@@ -244,7 +249,7 @@ function advanceAfterFill() {
 function backspace() {
   if (!G || G.completed) return;
   const i = G.sel;
-  if (G.entries[i]) {
+  if (G.entries[i] && !G.revealed.has(i)) {
     G.entries[i] = '';
     G.wrong.delete(i);
   } else {
@@ -257,8 +262,10 @@ function backspace() {
       const s2 = curSlot();
       G.sel = s2.cells[s2.cells.length - 1];
     }
-    G.entries[G.sel] = '';
-    G.wrong.delete(G.sel);
+    if (!G.revealed.has(G.sel)) {
+      G.entries[G.sel] = '';
+      G.wrong.delete(G.sel);
+    }
   }
   persist();
   paint();
@@ -478,6 +485,9 @@ export function initCrossword() {
 
   window.addEventListener('keydown', (e) => {
     if ($('#view-cw').hidden || !G) return;
+    // no grid input while a sheet, clue list, confirm or completion modal is up
+    if (!$('#cw-sheet').hidden || !$('#cw-cluelist').hidden
+        || !$('#cw-done').hidden || !$('#confirm-sheet').hidden) return;
     if (e.metaKey || e.ctrlKey || e.altKey) return;
     if (/^[a-zA-Z]$/.test(e.key)) { type(e.key.toUpperCase()); e.preventDefault(); }
     else if (e.key === 'Backspace') { backspace(); e.preventDefault(); }

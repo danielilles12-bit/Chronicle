@@ -1,84 +1,146 @@
-# Critic report — round 1
+# Critic report — round 2
 
 ## Verdict
-HIGH: 1  MEDIUM: 4  LOW: 9
+HIGH: 0  MEDIUM: 1  LOW: 8
+
+There are zero HIGH defects this round. All five round-1 functional complaints
+(hint-chip leak, year-label collision, session double-count/dead-end, native
+confirms, screenshot misrepresentations) are verified fixed in code, in tests
+and in the regenerated screenshots.
 
 ## Defects
 
-### [HIGH] Hint chips from previous rounds persist for the rest of the session
-- Where: `js/mapgame.js` (`startRound` vs. the `#hint-occ` / `#hint-ini` click handlers); visible in shipped screenshots `13-map-wrong-guess.png` and `14-map-revealed.png`
-- What: Hint chips are inserted as siblings of `#map-guesses` (`$('#map-guesses').parentNode.insertBefore(chip, $('#map-guesses'))`), but `startRound()` only clears `#map-guesses` itself. Every hint chip therefore stays on screen for all subsequent rounds (and accumulates if more hints are used). The shipped screenshots prove it: in Round 2 (Nelson Mandela) the player is still shown "First European to reach India by sea" — Vasco da Gama's occupation hint from Round 1.
-- Why it matters: The game actively displays the wrong figure's hint during play; a player who trusts it will answer with the previous figure. This is a functional defect reachable in any normal session that uses a hint.
+### [MEDIUM] Regnal-numeral guard is incomplete — some wrong monarchs still score as correct
+- Where: `js/match.js` (`splitNumeral` / `isMatch`) against `data/figures.json`
+- What: The round-1 fix only compares numerals when **both** the guess and the
+  candidate end in one. Two holes remain, confirmed by replicating the
+  algorithm exactly: (1) a guess with a trailing numeral fuzzy-matches a
+  numeral-less variant — "Cleopatra I" (a real, different queen: Cleopatra I
+  Syra, regent of Egypt c. 193–176 BC) matches the stored variant "cleopatra"
+  at edit distance 2 and is scored correct for Cleopatra VII; (2) numerals not
+  in last position bypass the guard entirely — "Alexander I of Macedon",
+  "Alexander II of Macedon" and "Alexander IV of Macedon" (all real, different
+  kings) are within distance ≤2 of the variant "alexander iii of macedon" and
+  all score as correct. ("Napoleon II/III", "Catherine I", "Suleiman II" are
+  genuinely fixed.)
+- Why it matters: Round 1's principle stands — typo forgiveness must not
+  credit a player who names a factually different historical person.
 
-### [MEDIUM] Birth/death year labels collide when the two points are close
-- Where: `js/mapgame.js` `scaleMarkers`/`drawMarkers`; visible in `13-map-wrong-guess.png` and `14-map-revealed.png` (Mandela: "2013" overprints "1918", which is unreadable)
-- What: Both labels are anchored a fixed offset right of their dots (birth above, death below) with no collision handling. For figures whose birth and death points are near each other but not identical (Mandela Mvezo/Johannesburg; similarly Mozart Salzburg/Vienna, Saladin Tikrit/Damascus at certain aspect ratios), the labels overlap and one year is illegible.
-- Why it matters: The two years are the core puzzle information; when one is unreadable the round is materially harder for no reason and the screen looks broken.
+### [LOW] Repeated answers across the 10-puzzle set — worse than round 1 recorded
+- Where: `data/puzzles.json`
+- What: Nine answers now repeat across puzzles: AGO (midi-3, full-2),
+  EON (mini-4, mini-5), FOR (mini-2, full-2), HAN (mini-1, mini-3),
+  NOT (midi-1, midi-2), ODE (midi-2, full-2), ODIN (mini-4, full-1),
+  OIL (midi-2, full-2), TIE (midi-3, full-1). Round 1 listed five of these;
+  ODE, OIL, TIE and AGO were missed then and remain. No within-puzzle dupes
+  (validator-confirmed).
+- Why it matters: Noticeable déjà vu in a small curated pack a player will
+  finish in a sitting or two; the round-1 note was not acted on.
 
-### [MEDIUM] Factually sloppy clue: Plato and the five solids (Midi 3, 4-Down)
-- Where: `data/puzzles.json`, `midi-3`, down 4: "Plato matched five of them to the elements" (SOLIDS)
-- What: In the *Timaeus* Plato matched four solids to the four elements (tetrahedron–fire, cube–earth, octahedron–air, icosahedron–water); the dodecahedron he assigned to the cosmos/heavens, not to an element. "Matched five of them to the elements" overstates it.
-- Why it matters: A history-themed crossword trades on precision; a pedantic solver will rightly object.
+### [LOW] FOR crosses FORD in the same starting square (and other substring containments)
+- Where: `data/puzzles.json`, full-2 (1-Across FORD, 1-Down FOR share square
+  (0,0)); also AND inside crossing ANDREWS and inside GRANDMA (full-1), LEN
+  inside crossing BLEND (full-1), SET inside WELLSET (full-2)
+- What: An answer that is a prefix of the entry it crosses, starting in the
+  very same cell, is a construction wart NYT editors would not pass; the other
+  containments are lesser versions of the same blemish.
+- Why it matters: The product's stated bar is NYT-grade construction.
 
-### [MEDIUM] Typo tolerance accepts the wrong monarch as correct
-- Where: `js/match.js` (`tolerance` of 2 for candidates ≥ 9 chars) against `data/figures.json` variants
-- What: Regnal numerals fall inside the edit-distance budget: "Napoleon III" matches variant "napoleon i" (distance 2), "Catherine I" matches "catherine ii" (distance 1), "Suleiman II" matches "suleiman i" (distance 1). A player who names a *different historical person* is scored correct.
-- Why it matters: Forgiving matching is for typos, not for crediting answers that are factually a different figure.
+### [LOW] Revealed squares are not locked
+- Where: `js/crossword.js` (`type()` does not check `G.revealed`)
+- What: After "Reveal square/word/puzzle", the player can type over the
+  revealed letter; the red "revealed" corner triangle stays on a now-wrong
+  cell, producing a contradictory state (revealed mark + wrong letter, later
+  also the red check slash). NYT locks revealed cells.
+- Why it matters: Visual state lies about the cell; trivially reachable by
+  tapping a revealed square and typing.
 
-### [MEDIUM] Spec deviation: a number of clues have no history angle at all
-- Where: `data/puzzles.json` — e.g. OATBRAN ("High-fiber cereal component", midi-2), PRETTILY ("In a fetching way", full-2), IRONON, PROS, NAMELY, SEEM, OWNERS (midi-3), HIM, FLAP, HURT, AND (full-1), PUN, SPAT, STY, LALA, ITLL (full-2), GETONIT (midi-1), LET (mini-3)
-- What: The Definition of Done says "all clues history-themed and factually accurate." Most fill is admirably history-slanted, but the entries above are plain dictionary/pop clues with no historical angle.
-- Why it matters: It is a stated acceptance criterion; judged against the spec these clues miss it (NYT-realistic, but the spec is stricter than the NYT).
+### [LOW] Physical keyboard still types into the grid while overlays are open
+- Where: `js/crossword.js` global `keydown` handler (only checks
+  `#view-cw.hidden`)
+- What: With the check/reveal sheet, the clue list, or the styled confirm
+  dialog open, letter keys, Backspace, Tab and arrows still mutate the grid
+  underneath (desktop/hardware-keyboard scenario).
+- Why it matters: Input leaking under a modal is classic un-QA'd behaviour;
+  a stray keystroke during "Reveal the entire puzzle?" edits the puzzle.
 
-### [LOW] Back from the session summary leads to a dead round, and "See results" double-counts the session
-- Where: `js/mapgame.js` (`finishSession`, router trail in `js/app.js`)
-- What: From the summary, the top-left back chevron returns to the finished round-10 screen (everything disabled) where "See results ›" can be pressed again; `finishSession()` then increments `m.sessions` a second time.
-- Why it matters: Dead-ended screen plus a quietly inflating stats counter.
+### [LOW] Inconsistent leniency on lone first names in the map game
+- Where: `data/figures.json` variants + `js/match.js` tolerance
+- What: "Alexander", "Suleiman", "Victoria", "Cleopatra", "Napoleon",
+  "Hannibal", "Toussaint" are all accepted bare, but "Catherine" (for
+  Catherine the Great) is rejected — no bare variant and "catherine" is
+  distance 3 from "catherine ii". "Antoinette" is likewise rejected for
+  Marie Antoinette. A player who is right but terse loses the round.
+- Why it matters: The forgiveness rules feel arbitrary exactly where the spec
+  promises forgiving matching with stored variants.
 
-### [LOW] Quitting a session mid-way has no confirmation
-- Where: `#view-map` back button (aria-label "Quit session"), `index.html` / `js/app.js`
-- What: One accidental tap on the chevron abandons a 10-round session silently; the in-progress score is lost with no "are you sure?".
-- Why it matters: Easy destructive action; NYT Games confirm before discarding progress.
+### [LOW] A handful of clues still have no history angle; one is sloppily worded
+- Where: `data/puzzles.json` — AGO "In the past" (full-2), WAS "'Is,' once"
+  (mini-2), TRIBECA "Manhattan district, short for 'Triangle Below Canal'"
+  (full-2), GETONIT "'Hop to it, soldier!'" (midi-1, fig-leaf only); plus HIM
+  "Any king, grammatically" (full-1) — the property is pronominal/referential,
+  not grammatical case of kingship; the wording is loose.
+- Why it matters: "All clues history-themed" is a stated acceptance criterion;
+  round 1's rewrites covered most but not all (note: AGO is clued historically
+  in midi-3 yet generically in full-2).
 
-### [LOW] Native `window.confirm` dialogs break the visual register
-- Where: `js/crossword.js` `doReveal('puzzle')` and `restart()`
-- What: Reveal-puzzle and Clear & restart use the browser's system confirm dialog inside an otherwise carefully styled app (custom sheets exist and could host this).
-- Why it matters: Jarring, un-NYT-like; on an installed PWA the system dialog looks foreign.
-
-### [LOW] Stated scoring rules omit the floor and the bonus size
-- Where: `index.html` map start screen copy / README vs. `js/mapgame.js` `resolveRound`
-- What: Copy says hints cost 25 and wrong guesses 10 (implying a correct answer could approach 0), but the code floors any correct answer at 10 points (`Math.max(10, …)`), and the streak bonus is a flat +10 from 2-in-a-row — neither is stated.
-- Why it matters: Score shown can contradict the arithmetic the rules imply (e.g. 2 hints + 5 wrong guesses still pays 10).
-
-### [LOW] Initials hint includes particles and epithets
-- Where: `js/mapgame.js` `initials()`
-- What: "Joan of Arc" → "J. O. A.", "Catherine the Great" → "C. T. G.", "Alexander the Great" → "A. T. G.", "Vincent van Gogh" → "V. V. G.". Initialising "of"/"the" is noise, not signal.
-- Why it matters: A paid-for hint (−25) should be crisp; "T. G." is not an initial of a name.
-
-### [LOW] Two shipped screenshots misrepresent real states
-- Where: `screenshots/16-desktop-home.png`, `screenshots/06-crossword-complete.png`
-- What: The "desktop" shot shows the iOS-Safari "Add to Home Screen" tip (the capture used an iPhone UA at desktop size — real desktops never see it); the completion shot reads "Mini 1 solved in 0:00." because the test auto-solved in under a second.
-- Why it matters: The screenshot set is the visual record of the product; these two show states a user cannot reach.
-
-### [LOW] Pinch-zoom disabled
+### [LOW] Pinch-zoom remains disabled app-wide
 - Where: `index.html` viewport meta (`user-scalable=no`)
-- What: Zoom is blocked app-wide, including the reading-heavy clue list and summary screens.
-- Why it matters: Accessibility (WCAG 1.4.4); common in games but still a trade-off worth recording.
+- What: Unchanged from round 1; now at least documented as a deliberate
+  trade-off in README. Reading-heavy screens (clue list, summary) still cannot
+  be zoomed (WCAG 1.4.4).
+- Why it matters: Accessibility cost is acknowledged but not mitigated (e.g.
+  no larger-text option).
 
-### [LOW] Cleopatra "Last pharaoh of Ptolemaic Egypt" is loose
-- Where: `data/figures.json`, `cleopatra` occupation
-- What: Strictly, her son Caesarion (Ptolemy XV) was nominal pharaoh for roughly two weeks after her suicide; careful sources say "last *active* ruler of the Ptolemaic Kingdom."
-- Why it matters: Pedantic-professor territory, but this is exactly the persona the product invites.
-
-### [LOW] Repeated answers across the 10-puzzle set
-- Where: `data/puzzles.json` — HAN (mini-1, mini-3), NOT (midi-1, midi-2), ODIN (mini-4, full-1), FOR (mini-2, full-2), EON (mini-4, mini-5)
-- What: No puzzle repeats an answer internally (validator-checked), but the same short entries recur across a set a player will likely finish in one or two sittings; ODIN even gets the same one-eyed-god angle twice.
-- Why it matters: Noticeable déjà vu in a small, curated pack.
+### [LOW] Housekeeping: dead CSS and a stray build artifact
+- Where: `css/style.css` lines 136–137 (`.cell.flash` / `@keyframes cellflash`
+  referenced nowhere in JS or HTML); untracked `tools/out/fulls.json` in the
+  working tree while sibling outputs (`minis/midis/elevens.json`) are committed
+- What: Unused animation rule shipped to clients; inconsistent repo state.
+- Why it matters: Cosmetic, but the spec says zero placeholders/dead ends —
+  dead code is the same smell.
 
 ## What was checked
-- Every clue/answer in `data/puzzles.json` (all 10 puzzles): grid/clue consistency re-derived by hand for all five minis, three midis and both 11×11s (rotational symmetry confirmed cell-by-cell); every factual claim in every clue audited. Spot-verified by web search where not certain: Simon Fraser last beheading 1747 ([Wikipedia](https://en.wikipedia.org/wiki/Simon_Fraser,_11th_Lord_Lovat)), Safeco founded 1923 in Seattle ([Wikipedia](https://en.wikipedia.org/wiki/Safeco)), bauxite identified at Les Baux 1821 ([EARTH Magazine](https://www.earthmagazine.org/article/march-23-1821-bauxite-discovered/)), Ogden "Junction City" ([USU exhibit](https://exhibits.usu.edu/exhibits/show/transcontinentalrailroad/utahafterthegoldenspike/impacts/ogden)). No factual errors found in the puzzles beyond the Plato wording above.
-- All 30 figures in `data/figures.json`: names, variants, birth/death years, places, occupations, and coordinate plausibility against each named place (all coordinates check out; difficulty split is exactly 10/10/10; 30 figures as specced).
-- `python3 tools/validate_puzzles.py` run directly: ALL PUZZLES VALID (5 mini, 3 midi, 2 full). The 11×11 substitution for 15×15 is documented in README as the build instructions allowed.
-- Full suite `python3 tests/run_all.py` run: validator, crosswords, map game, pwa/offline, screenshots — all PASS, including console-error assertions.
-- All 16 screenshots inspected (this is how the HIGH and the label-collision defects were found).
-- Code read in full: `index.html`, `css/style.css`, `js/app.js`, `js/crossword.js`, `js/mapgame.js`, `js/match.js`, `js/storage.js`, `sw.js`, `manifest.webmanifest`, `tools/validate_puzzles.py`. Crossword UX verified against the spec list (tap-to-select, direction toggle, clue bar, auto-advance, full clue list, check/reveal at all three scopes, timer, correct-only celebration — all present). Manifest standalone + full icon set verified (apple-touch-icon is 180×180); service worker precaches all app assets.
+- Ran `python3 tools/validate_puzzles.py` myself: 5 mini / 3 midi / 2 full,
+  ALL PUZZLES VALID (structure, ≥3-letter runs, interlock, connectivity,
+  rotational symmetry on the 11×11s, numbering/answer/position agreement, no
+  within-puzzle duplicate answers, no clue containing its own answer).
+- Ran the full suite `python3 tests/run_all.py` myself: validator, crosswords
+  (all 10 solved end-to-end in WebKit/iPhone with toggle, check/reveal,
+  wrong-fill toast, persistence-across-reload assertions), map game (full
+  deterministic 10-round session with exact score math, hint-chip leak
+  regression test, regnal-numeral assertions), PWA (manifest/icons/iOS meta,
+  Chromium SW + full offline flow hard-gated; WebKit harness quirk tolerated
+  and documented in README), screenshots — all PASS, console/page errors
+  asserted empty on the gated paths.
+- Audited every clue and answer in all 10 puzzles against the grids (answers
+  re-derived from grid strings) and for factual accuracy, including all 20
+  round-1 rewrites (Pascal/Cleopatra's nose, oat-bran craze, Old Guard
+  "grumblers", Platonic-solids rewrite, Khrushchev shoe-banging, Lewis AND
+  Clark, "over by Christmas" 1914, Gibson Girl, madrigal la-la, Woden/
+  Wednesday, etc.). Spot checks beyond round 1: Roman Empire ~5M km², Notre-
+  Dame 1804 single emperor crowned, NAS chartered 1863 under Lincoln, PTA 1897
+  National Congress of Mothers, Tweety 1942, MSG 1908, L.L.Bean 1912. No
+  factual errors found.
+- Audited all 30 figures in `data/figures.json` (count, 10/10/10 difficulty
+  split, names, variants, years, places, coordinate plausibility for every
+  birth/death place, occupation texts). Verified the contested Vasco da Gama
+  "c. 1469" via web search (Subrahmanyam's authoritative biography argues
+  1469; Wikipedia/Britannica concur it is a defensible dating) — accepted.
+- Re-implemented `js/match.js` (normalize, Damerau-Levenshtein, tolerance,
+  numeral guard) in Python and brute-forced cross-figure confusions plus 17
+  wrong-monarch probes — source of the MEDIUM finding above; also verified
+  the round-1 cases (Napoleon III, Catherine I, Suleiman II) are fixed.
+- Read all shipped code (`index.html`, `css/style.css`, `js/app.js`,
+  `js/crossword.js`, `js/mapgame.js`, `js/match.js`, `js/storage.js`,
+  `sw.js`, `manifest.webmanifest`) against every Definition-of-Done item;
+  traced router trails for dead ends (summary back-chevron now goes Home;
+  `S.done` guard prevents session double-count; quit now confirms via the
+  styled in-app sheet).
+- Inspected all 16 screenshots: hint chips no longer leak across rounds
+  (13/14), Mandela's 1918/2013 labels no longer collide, completion shows a
+  real solve time (1:01), desktop home no longer shows the iOS install tip;
+  checked icon files are real PNGs at 192/512/512-maskable/180 (apple-touch).
+- Verified README records the 15×15→11×11 substitution, the full scoring
+  rules (floor and streak bonus), the WebKit offline-test caveat and the
+  pinch-zoom trade-off, as required.

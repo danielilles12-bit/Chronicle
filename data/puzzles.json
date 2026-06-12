@@ -1,288 +1,2052 @@
 [
-  {
-    "id": "mini-1", "format": "mini", "size": 5, "title": "Mini 1",
-    "grid": ["HAN##", "ERODE", "REBEL", "SALEM", "##EDO"],
-    "clues": {
-      "across": [
-        { "num": 1, "row": 0, "col": 0, "answer": "HAN", "clue": "Dynasty that gave China's majority ethnic group its name" },
-        { "num": 4, "row": 1, "col": 0, "answer": "ERODE", "clue": "Wear away, as desert winds have done to the Sphinx" },
-        { "num": 7, "row": 2, "col": 0, "answer": "REBEL", "clue": "Spartacus, to Rome" },
-        { "num": 8, "row": 3, "col": 0, "answer": "SALEM", "clue": "Massachusetts town of the 1692 witch trials" },
-        { "num": 9, "row": 4, "col": 2, "answer": "EDO", "clue": "Tokyo, before 1868" }
-      ],
-      "down": [
-        { "num": 1, "row": 0, "col": 0, "answer": "HERS", "clue": "The queen's, not the king's" },
-        { "num": 2, "row": 0, "col": 1, "answer": "AREA", "clue": "Rome's empire covered about five million square kilometers of it at its peak" },
-        { "num": 3, "row": 0, "col": 2, "answer": "NOBLE", "clue": "Like dukes and earls" },
-        { "num": 5, "row": 1, "col": 3, "answer": "DEED", "clue": "What a land charter records" },
-        { "num": 6, "row": 1, "col": 4, "answer": "ELMO", "clue": "St. ___'s fire, the mast-top glow sailors read as an omen" }
-      ]
+ {
+  "id": "mini-1",
+  "format": "mini",
+  "size": 5,
+  "title": "Mini 1",
+  "grid": [
+   "HAN##",
+   "ERODE",
+   "REBEL",
+   "SALEM",
+   "##EDO"
+  ],
+  "clues": {
+   "across": [
+    {
+     "num": 1,
+     "row": 0,
+     "col": 0,
+     "answer": "HAN",
+     "clue": "Dynasty that gave China's majority ethnic group its name"
+    },
+    {
+     "num": 4,
+     "row": 1,
+     "col": 0,
+     "answer": "ERODE",
+     "clue": "Wear away, as desert winds have done to the Sphinx"
+    },
+    {
+     "num": 7,
+     "row": 2,
+     "col": 0,
+     "answer": "REBEL",
+     "clue": "Spartacus, to Rome"
+    },
+    {
+     "num": 8,
+     "row": 3,
+     "col": 0,
+     "answer": "SALEM",
+     "clue": "Massachusetts town of the 1692 witch trials"
+    },
+    {
+     "num": 9,
+     "row": 4,
+     "col": 2,
+     "answer": "EDO",
+     "clue": "Tokyo, before 1868"
     }
-  },
-  {
-    "id": "mini-2", "format": "mini", "size": 5, "title": "Mini 2",
-    "grid": ["#FOR#", "WIPED", "ALIAS", "SCULL", "#HMM#"],
-    "clues": {
-      "across": [
-        { "num": 1, "row": 0, "col": 1, "answer": "FOR", "clue": "In favor of, as a senator voting aye" },
-        { "num": 4, "row": 1, "col": 0, "answer": "WIPED", "clue": "Erased, as a chalkboard — or a dynasty" },
-        { "num": 6, "row": 2, "col": 0, "answer": "ALIAS", "clue": "Name an outlaw of the Old West rode under" },
-        { "num": 7, "row": 3, "col": 0, "answer": "SCULL", "clue": "Light racing boat, or the oar that moves it" },
-        { "num": 8, "row": 4, "col": 1, "answer": "HMM", "clue": "Sound of a historian pondering" }
-      ],
-      "down": [
-        { "num": 1, "row": 0, "col": 1, "answer": "FILCH", "clue": "Steal, as a pickpocket in Dickens's London might" },
-        { "num": 2, "row": 0, "col": 2, "answer": "OPIUM", "clue": "The ___ Wars, 19th-century clashes between Britain and Qing China" },
-        { "num": 3, "row": 0, "col": 3, "answer": "REALM", "clue": "A monarch's domain" },
-        { "num": 4, "row": 1, "col": 0, "answer": "WAS", "clue": "\"Is,\" once" },
-        { "num": 5, "row": 1, "col": 4, "answer": "DSL", "clue": "Initials that ended the dial-up internet era" }
-      ]
+   ],
+   "down": [
+    {
+     "num": 1,
+     "row": 0,
+     "col": 0,
+     "answer": "HERS",
+     "clue": "The queen's, not the king's"
+    },
+    {
+     "num": 2,
+     "row": 0,
+     "col": 1,
+     "answer": "AREA",
+     "clue": "Rome's empire covered about five million square kilometers of it at its peak"
+    },
+    {
+     "num": 3,
+     "row": 0,
+     "col": 2,
+     "answer": "NOBLE",
+     "clue": "Like dukes and earls"
+    },
+    {
+     "num": 5,
+     "row": 1,
+     "col": 3,
+     "answer": "DEED",
+     "clue": "What a land charter records"
+    },
+    {
+     "num": 6,
+     "row": 1,
+     "col": 4,
+     "answer": "ELMO",
+     "clue": "St. ___'s fire, the mast-top glow sailors read as an omen"
     }
-  },
-  {
-    "id": "mini-3", "format": "mini", "size": 5, "title": "Mini 3",
-    "grid": ["HAMS#", "ATOP#", "NOVEL", "#LICE", "#LEST"],
-    "clues": {
-      "across": [
-        { "num": 1, "row": 0, "col": 0, "answer": "HAMS", "clue": "Cured legs hanging in a medieval larder" },
-        { "num": 5, "row": 1, "col": 0, "answer": "ATOP", "clue": "Perched on, as a citadel on a hill" },
-        { "num": 6, "row": 2, "col": 0, "answer": "NOVEL", "clue": "\"War and Peace,\" for one" },
-        { "num": 8, "row": 3, "col": 1, "answer": "LICE", "clue": "Trench pests of the First World War" },
-        { "num": 9, "row": 4, "col": 1, "answer": "LEST", "clue": "\"___ we forget\" (remembrance phrase)" }
-      ],
-      "down": [
-        { "num": 1, "row": 0, "col": 0, "answer": "HAN", "clue": "Chinese dynasty between the Qin and the Three Kingdoms" },
-        { "num": 2, "row": 0, "col": 1, "answer": "ATOLL", "clue": "Bikini, site of 1946–58 nuclear tests, is one" },
-        { "num": 3, "row": 0, "col": 2, "answer": "MOVIE", "clue": "\"Lawrence of Arabia,\" e.g." },
-        { "num": 4, "row": 0, "col": 3, "answer": "SPECS", "clue": "Glasses, like Gandhi's famous round pair" },
-        { "num": 7, "row": 2, "col": 4, "answer": "LET", "clue": "Allowed, as serfs seldom were to leave the manor" }
-      ]
-    }
-  },
-  {
-    "id": "mini-4", "format": "mini", "size": 5, "title": "Mini 4",
-    "grid": ["#WRAP", "#AUTO", "ELBOW", "ODIN#", "NONE#"],
-    "clues": {
-      "across": [
-        { "num": 1, "row": 0, "col": 1, "answer": "WRAP", "clue": "Toga or sari, essentially" },
-        { "num": 5, "row": 1, "col": 1, "answer": "AUTO", "clue": "Ford's Model T, e.g., informally" },
-        { "num": 6, "row": 2, "col": 0, "answer": "ELBOW", "clue": "Joint a shield-bearer keeps bent" },
-        { "num": 7, "row": 3, "col": 0, "answer": "ODIN", "clue": "One-eyed chief god of the Vikings" },
-        { "num": 8, "row": 4, "col": 0, "answer": "NONE", "clue": "How many Roman emperors died on Elba" }
-      ],
-      "down": [
-        { "num": 1, "row": 0, "col": 1, "answer": "WALDO", "clue": "Ralph ___ Emerson" },
-        { "num": 2, "row": 0, "col": 2, "answer": "RUBIN", "clue": "___ \"Hurricane\" Carter, boxer at the center of a famous 1960s injustice" },
-        { "num": 3, "row": 0, "col": 3, "answer": "ATONE", "clue": "Make amends, as Henry II did after Becket's murder" },
-        { "num": 4, "row": 0, "col": 4, "answer": "POW", "clue": "Wartime captive, for short" },
-        { "num": 6, "row": 2, "col": 0, "answer": "EON", "clue": "Age upon age" }
-      ]
-    }
-  },
-  {
-    "id": "mini-5", "format": "mini", "size": 5, "title": "Mini 5",
-    "grid": ["#EON#", "MARIE", "OGDEN", "ELECT", "#ERE#"],
-    "clues": {
-      "across": [
-        { "num": 1, "row": 0, "col": 1, "answer": "EON", "clue": "Vast stretch of time" },
-        { "num": 4, "row": 1, "col": 0, "answer": "MARIE", "clue": "Curie who coined the term \"radioactivity\"" },
-        { "num": 6, "row": 2, "col": 0, "answer": "OGDEN", "clue": "Utah rail town nicknamed Junction City" },
-        { "num": 7, "row": 3, "col": 0, "answer": "ELECT", "clue": "Choose by ballot — which Athenians often skipped in favor of drawing lots" },
-        { "num": 8, "row": 4, "col": 1, "answer": "ERE", "clue": "Before, to Shakespeare" }
-      ],
-      "down": [
-        { "num": 1, "row": 0, "col": 1, "answer": "EAGLE", "clue": "Standard a Roman legion would die to protect" },
-        { "num": 2, "row": 0, "col": 2, "answer": "ORDER", "clue": "The Knights Templar were a military one" },
-        { "num": 3, "row": 0, "col": 3, "answer": "NIECE", "clue": "Queen Victoria, to King William IV" },
-        { "num": 4, "row": 1, "col": 0, "answer": "MOE", "clue": "Berg, the big-league catcher who spied for the U.S. in WWII" },
-        { "num": 5, "row": 1, "col": 4, "answer": "ENT", "clue": "Nose doc, briefly — Pascal said Cleopatra's changed history" }
-      ]
-    }
-  },
-  {
-    "id": "midi-1", "format": "midi", "size": 7, "title": "Midi 1",
-    "grid": ["###NOT#", "#SPIRES", "BAUXITE", "AFT#ERA", "GETONIT", "SCENTS#", "#ORE###"],
-    "clues": {
-      "across": [
-        { "num": 1, "row": 0, "col": 3, "answer": "NOT", "clue": "\"___ a step back!\" — Stalin's Order No. 227" },
-        { "num": 4, "row": 1, "col": 1, "answer": "SPIRES", "clue": "Cathedral toppers medieval towns competed over" },
-        { "num": 7, "row": 2, "col": 0, "answer": "BAUXITE", "clue": "Aluminum ore first identified at Les Baux, France, in 1821" },
-        { "num": 8, "row": 3, "col": 0, "answer": "AFT", "clue": "Toward a galleon's stern" },
-        { "num": 9, "row": 3, "col": 4, "answer": "ERA", "clue": "Victorian or Edwardian, e.g." },
-        { "num": 10, "row": 4, "col": 0, "answer": "GETONIT", "clue": "\"Hop to it, soldier!\"" },
-        { "num": 12, "row": 5, "col": 0, "answer": "SCENTS", "clue": "What the spice routes carried along with flavors" },
-        { "num": 13, "row": 6, "col": 1, "answer": "ORE", "clue": "Comstock Lode load" }
-      ],
-      "down": [
-        { "num": 1, "row": 0, "col": 3, "answer": "NIX", "clue": "Veto, as a bill" },
-        { "num": 2, "row": 0, "col": 4, "answer": "ORIENT", "clue": "The East, to old mapmakers" },
-        { "num": 3, "row": 0, "col": 5, "answer": "TETRIS", "clue": "Block-stacking game born in 1984 Moscow" },
-        { "num": 4, "row": 1, "col": 1, "answer": "SAFECO", "clue": "Seattle insurance company founded in 1923" },
-        { "num": 5, "row": 1, "col": 2, "answer": "PUTTER", "clue": "Tinker (around), as an inventor in a shed" },
-        { "num": 6, "row": 1, "col": 6, "answer": "SEAT", "clue": "What a county's capital town is called" },
-        { "num": 7, "row": 2, "col": 0, "answer": "BAGS", "clue": "Carpetbaggers carried them" },
-        { "num": 11, "row": 4, "col": 3, "answer": "ONE", "clue": "Number of emperors crowned at Notre-Dame in 1804" }
-      ]
-    }
-  },
-  {
-    "id": "midi-2", "format": "midi", "size": 7, "title": "Midi 2",
-    "grid": ["NOT#OOF", "AIR#ADA", "BLUSTER", "##MOB##", "PAPYRUS", "ARE#AMA", "NIT#NAP"],
-    "clues": {
-      "across": [
-        { "num": 1, "row": 0, "col": 0, "answer": "NOT", "clue": "Like Rome, built in a day" },
-        { "num": 4, "row": 0, "col": 4, "answer": "OOF", "clue": "Grunt from a jousting hit" },
-        { "num": 7, "row": 1, "col": 0, "answer": "AIR", "clue": "It separated the Wright brothers from the ground in 1903" },
-        { "num": 8, "row": 1, "col": 4, "answer": "ADA", "clue": "Lovelace called the first computer programmer" },
-        { "num": 9, "row": 2, "col": 0, "answer": "BLUSTER", "clue": "Saber-rattling talk" },
-        { "num": 11, "row": 3, "col": 2, "answer": "MOB", "clue": "Crowd that stormed the Bastille, e.g." },
-        { "num": 12, "row": 4, "col": 0, "answer": "PAPYRUS", "clue": "Nile reed the Egyptians wrote on" },
-        { "num": 16, "row": 5, "col": 0, "answer": "ARE", "clue": "\"We ___ not amused\" (remark attributed to Queen Victoria)" },
-        { "num": 17, "row": 5, "col": 4, "answer": "AMA", "clue": "Doctors' assn. founded in 1847" },
-        { "num": 18, "row": 6, "col": 0, "answer": "NIT", "clue": "Tiny egg a trench inspection hunted for" },
-        { "num": 19, "row": 6, "col": 4, "answer": "NAP", "clue": "Short sleep — Churchill swore by his daily one" }
-      ],
-      "down": [
-        { "num": 1, "row": 0, "col": 0, "answer": "NAB", "clue": "Catch, as a Scotland Yard inspector might" },
-        { "num": 2, "row": 0, "col": 1, "answer": "OIL", "clue": "It gushed at Spindletop in 1901" },
-        { "num": 3, "row": 0, "col": 2, "answer": "TRUMPET", "clue": "Herald's fanfare instrument" },
-        { "num": 4, "row": 0, "col": 4, "answer": "OATBRAN", "clue": "Ingredient at the heart of a late-1980s health craze" },
-        { "num": 5, "row": 0, "col": 5, "answer": "ODE", "clue": "Pindar wrote them for Olympic victors" },
-        { "num": 6, "row": 0, "col": 6, "answer": "FAR", "clue": "Like Cathay, to medieval Europe" },
-        { "num": 10, "row": 2, "col": 3, "answer": "SOY", "clue": "Sauce with millennia of history in China" },
-        { "num": 12, "row": 4, "col": 0, "answer": "PAN", "clue": "Greek god of wild places whose name spawned a word for sudden fear" },
-        { "num": 13, "row": 4, "col": 1, "answer": "ARI", "clue": "Shipping magnate Onassis, familiarly" },
-        { "num": 14, "row": 4, "col": 5, "answer": "UMA", "clue": "Name of the Hindu goddess Parvati" },
-        { "num": 15, "row": 4, "col": 6, "answer": "SAP", "clue": "Siege trench dug toward a fortress wall" }
-      ]
-    }
-  },
-  {
-    "id": "midi-3", "format": "midi", "size": 7, "title": "Midi 3",
-    "grid": ["##PROS#", "#IRONON", "#NAMELY", "ALL#TIE", "GAINED#", "OWNERS#", "#SEEM##"],
-    "clues": {
-      "across": [
-        { "num": 1, "row": 0, "col": 2, "answer": "PROS", "clue": "Old hands, like Napoleon's grumbling Old Guard" },
-        { "num": 5, "row": 1, "col": 1, "answer": "IRONON", "clue": "Patch a Victorian seamstress would have envied — just press with heat" },
-        { "num": 7, "row": 2, "col": 1, "answer": "NAMELY", "clue": "That is to say, in a treaty's fine print" },
-        { "num": 8, "row": 3, "col": 0, "answer": "ALL", "clue": "\"___ roads lead to Rome\"" },
-        { "num": 9, "row": 3, "col": 4, "answer": "TIE", "clue": "What the 1800 U.S. presidential election infamously ended in" },
-        { "num": 10, "row": 4, "col": 0, "answer": "GAINED", "clue": "Won, as territory" },
-        { "num": 12, "row": 5, "col": 0, "answer": "OWNERS", "clue": "Lords of the manor, with respect to the land" },
-        { "num": 13, "row": 6, "col": 1, "answer": "SEEM", "clue": "Look a certain way, as Potemkin villages were built to" }
-      ],
-      "down": [
-        { "num": 1, "row": 0, "col": 2, "answer": "PRALINE", "clue": "Sugared-nut sweet named for a 17th-century French marshal" },
-        { "num": 2, "row": 0, "col": 3, "answer": "ROM", "clue": "Apollo 11's guidance computer had its programs woven into this memory, briefly" },
-        { "num": 3, "row": 0, "col": 4, "answer": "ONETERM", "clue": "Like the presidencies of both John Adams and John Quincy Adams" },
-        { "num": 4, "row": 0, "col": 5, "answer": "SOLIDS", "clue": "Geometry has five \"Platonic\" ones" },
-        { "num": 5, "row": 1, "col": 1, "answer": "INLAWS", "clue": "Relatives Henry VIII kept acquiring" },
-        { "num": 6, "row": 1, "col": 6, "answer": "NYE", "clue": "Gerald ___, senator whose 1930s committee probed WWI arms profits" },
-        { "num": 8, "row": 3, "col": 0, "answer": "AGO", "clue": "\"Four score and seven years ___...\"" },
-        { "num": 11, "row": 4, "col": 3, "answer": "NEE", "clue": "Maiden-name indicator on old records" }
-      ]
-    }
-  },
-  {
-    "id": "full-1", "format": "full", "size": 11, "title": "Runnymede",
-    "grid": ["HIM#FLAP###", "UNA#RENEWAL", "RPG#ANDREWS", "TUNIS###LAD", "#TAPED#FLY#", "##CORELLI##", "#FAD#BLEND#", "MAR###BAGEL", "SITUATE#TIE", "GRANDMA#OFF", "###ODIN#NYT"],
-    "clues": {
-      "across": [
-        { "num": 1, "row": 0, "col": 0, "answer": "HIM", "clue": "Any king, grammatically" },
-        { "num": 4, "row": 0, "col": 4, "answer": "FLAP", "clue": "Stir, like the one over Khrushchev's shoe-banging at the U.N." },
-        { "num": 8, "row": 1, "col": 0, "answer": "UNA", "clue": "Heroine of Spenser's \"The Faerie Queene\" (1590)" },
-        { "num": 9, "row": 1, "col": 4, "answer": "RENEWAL", "clue": "Urban ___, the midcentury bulldoze-and-rebuild policy" },
-        { "num": 13, "row": 2, "col": 0, "answer": "RPG", "clue": "Rocket-propelled grenade, for short" },
-        { "num": 14, "row": 2, "col": 4, "answer": "ANDREWS", "clue": "WWII's singing ___ Sisters" },
-        { "num": 15, "row": 3, "col": 0, "answer": "TUNIS", "clue": "Capital city near the ruins of Carthage" },
-        { "num": 17, "row": 3, "col": 8, "answer": "LAD", "clue": "Powder monkey aboard an old warship, typically" },
-        { "num": 18, "row": 4, "col": 1, "answer": "TAPED", "clue": "Like Nixon's Oval Office conversations" },
-        { "num": 20, "row": 4, "col": 7, "answer": "FLY", "clue": "Do what Lindbergh did across the Atlantic in 1927" },
-        { "num": 21, "row": 5, "col": 2, "answer": "CORELLI", "clue": "Arcangelo ___, Baroque master of the violin" },
-        { "num": 23, "row": 6, "col": 1, "answer": "FAD", "clue": "Hula hoop in 1958 or goldfish-swallowing in 1939, e.g." },
-        { "num": 24, "row": 6, "col": 5, "answer": "BLEND", "clue": "Melting-pot outcome" },
-        { "num": 26, "row": 7, "col": 0, "answer": "MAR", "clue": "Deface, as iconoclasts did church statues" },
-        { "num": 27, "row": 7, "col": 6, "answer": "BAGEL", "clue": "Ring bread brought to New York by Eastern European Jewish immigrants" },
-        { "num": 29, "row": 8, "col": 0, "answer": "SITUATE", "clue": "Place in context, as a historian does an event" },
-        { "num": 33, "row": 8, "col": 8, "answer": "TIE", "clue": "Railroad-track crosspiece laid by the thousands in the 1860s" },
-        { "num": 34, "row": 9, "col": 0, "answer": "GRANDMA", "clue": "___ Moses, farm-life painter who took up the brush in her late 70s" },
-        { "num": 35, "row": 9, "col": 8, "answer": "OFF", "clue": "Like city lights during Blitz blackouts" },
-        { "num": 36, "row": 10, "col": 3, "answer": "ODIN", "clue": "Norse counterpart of Woden, source of \"Wednesday\"" },
-        { "num": 37, "row": 10, "col": 8, "answer": "NYT", "clue": "Paper whose crossword first appeared in 1942, in brief" }
-      ],
-      "down": [
-        { "num": 1, "row": 0, "col": 0, "answer": "HURT", "clue": "Wounded, like national pride after a lost war" },
-        { "num": 2, "row": 0, "col": 1, "answer": "INPUT", "clue": "What punch cards fed an early computer" },
-        { "num": 3, "row": 0, "col": 2, "answer": "MAGNACARTA", "clue": "Charter King John sealed at Runnymede in 1215" },
-        { "num": 4, "row": 0, "col": 4, "answer": "FRASER", "clue": "Simon ___, the last man beheaded in Britain (1747)" },
-        { "num": 5, "row": 0, "col": 5, "answer": "LEN", "clue": "Deighton who wrote Cold War spy fiction" },
-        { "num": 6, "row": 0, "col": 6, "answer": "AND", "clue": "Lewis ___ Clark" },
-        { "num": 7, "row": 0, "col": 7, "answer": "PER", "clue": "As stated by, on old decrees" },
-        { "num": 10, "row": 1, "col": 8, "answer": "WELLINGTON", "clue": "Duke who beat Napoleon at Waterloo" },
-        { "num": 11, "row": 1, "col": 9, "answer": "AWAY", "clue": "Where Napoleon was sent, twice" },
-        { "num": 12, "row": 1, "col": 10, "answer": "LSD", "clue": "Inits. of 1960s counterculture" },
-        { "num": 16, "row": 3, "col": 3, "answer": "IPOD", "clue": "2001 gadget that upended the music industry" },
-        { "num": 19, "row": 4, "col": 5, "answer": "DEB", "clue": "Young woman making her society bow, for short" },
-        { "num": 20, "row": 4, "col": 7, "answer": "FLEA", "clue": "Tiny star of a Victorian novelty circus" },
-        { "num": 22, "row": 5, "col": 6, "answer": "LLBEAN", "clue": "Maine outfitter founded in 1912" },
-        { "num": 23, "row": 6, "col": 1, "answer": "FAIR", "clue": "World's ___ (Chicago's 1893 edition built the White City)" },
-        { "num": 25, "row": 6, "col": 9, "answer": "DEIFY", "clue": "Treat as a god, as the Roman Senate did dead emperors" },
-        { "num": 26, "row": 7, "col": 0, "answer": "MSG", "clue": "Flavor enhancer first isolated in 1908" },
-        { "num": 28, "row": 7, "col": 10, "answer": "LEFT", "clue": "Political wing named for French Revolutionary seating" },
-        { "num": 30, "row": 8, "col": 3, "answer": "UNO", "clue": "One, to Garibaldi" },
-        { "num": 31, "row": 8, "col": 4, "answer": "ADD", "clue": "Total (up), as a quartermaster does supplies" },
-        { "num": 32, "row": 8, "col": 5, "answer": "TMI", "clue": "Three Mile Island inits. — or \"spare me the details\"" }
-      ]
-    }
-  },
-  {
-    "id": "full-2", "format": "full", "size": 11, "title": "Rebirth",
-    "grid": ["FORD###STU#", "ODOR###PUN#", "RENAISSANCE", "###PRETTILY", "#TWEETY#SEE", "DRED###BIAS", "OIL#APPEAR#", "OBLIGATE###", "RESTORATION", "#CEL###LALA", "#ATL###ENDS"],
-    "clues": {
-      "across": [
-        { "num": 1, "row": 0, "col": 0, "answer": "FORD", "clue": "Company whose Model T put America on wheels" },
-        { "num": 5, "row": 0, "col": 7, "answer": "STU", "clue": "___ Sutcliffe, the \"fifth Beatle\"" },
-        { "num": 8, "row": 1, "col": 0, "answer": "ODOR", "clue": "What a medieval nosegay was held against" },
-        { "num": 9, "row": 1, "col": 7, "answer": "PUN", "clue": "Wordplay Shakespeare's plays contain by the hundred" },
-        { "num": 10, "row": 2, "col": 0, "answer": "RENAISSANCE", "clue": "Rebirth of classical learning that began in 14th-century Italy" },
-        { "num": 15, "row": 3, "col": 3, "answer": "PRETTILY", "clue": "In a fetching way, like a Gibson Girl illustration" },
-        { "num": 16, "row": 4, "col": 1, "answer": "TWEETY", "clue": "Cartoon canary who debuted in 1942" },
-        { "num": 18, "row": 4, "col": 8, "answer": "SEE", "clue": "Holy ___ (the papacy's jurisdiction)" },
-        { "num": 19, "row": 5, "col": 0, "answer": "DRED", "clue": "___ Scott, plaintiff in an infamous 1857 Supreme Court case" },
-        { "num": 20, "row": 5, "col": 7, "answer": "BIAS", "clue": "What a careful historian works to set aside" },
-        { "num": 21, "row": 6, "col": 0, "answer": "OIL", "clue": "Whale ___, the lamp fuel of the 1800s" },
-        { "num": 22, "row": 6, "col": 4, "answer": "APPEAR", "clue": "Come into view, as sails on the horizon" },
-        { "num": 25, "row": 7, "col": 0, "answer": "OBLIGATE", "clue": "Bind by duty, as a vassal to his lord" },
-        { "num": 27, "row": 8, "col": 0, "answer": "RESTORATION", "clue": "The monarchy's return to England in 1660" },
-        { "num": 31, "row": 9, "col": 1, "answer": "CEL", "clue": "Hand-painted frame from animation's golden age" },
-        { "num": 32, "row": 9, "col": 7, "answer": "LALA", "clue": "Madrigal refrain syllables" },
-        { "num": 33, "row": 10, "col": 1, "answer": "ATL", "clue": "Airport code for the city Sherman burned in 1864" },
-        { "num": 34, "row": 10, "col": 7, "answer": "ENDS", "clue": "What treaties put to wars" }
-      ],
-      "down": [
-        { "num": 1, "row": 0, "col": 0, "answer": "FOR", "clue": "In support of a motion" },
-        { "num": 2, "row": 0, "col": 1, "answer": "ODE", "clue": "Keats wrote one on a Grecian urn" },
-        { "num": 3, "row": 0, "col": 2, "answer": "RON", "clue": "Reagan, to friends" },
-        { "num": 4, "row": 0, "col": 3, "answer": "DRAPED", "clue": "Like togas and classical statues" },
-        { "num": 5, "row": 0, "col": 7, "answer": "SPAT", "clue": "Quarrel far smaller than the Wars of the Roses" },
-        { "num": 6, "row": 0, "col": 8, "answer": "TUNISIA", "clue": "Modern country containing ancient Carthage" },
-        { "num": 7, "row": 0, "col": 9, "answer": "UNCLEAR", "clue": "Like battle reports in the fog of war" },
-        { "num": 11, "row": 2, "col": 4, "answer": "IRE", "clue": "Wrath, like Achilles' in the \"Iliad\"" },
-        { "num": 12, "row": 2, "col": 5, "answer": "SET", "clue": "What the sun never did on the British Empire, it was said" },
-        { "num": 13, "row": 2, "col": 6, "answer": "STY", "clue": "Where a medieval village's pigs lived" },
-        { "num": 14, "row": 2, "col": 10, "answer": "EYES", "clue": "What a periscope lent submariners" },
-        { "num": 16, "row": 4, "col": 1, "answer": "TRIBECA", "clue": "Manhattan district, short for \"Triangle Below Canal\"" },
-        { "num": 17, "row": 4, "col": 2, "answer": "WELLSET", "clue": "Firmly established, as traditions" },
-        { "num": 19, "row": 5, "col": 0, "answer": "DOOR", "clue": "What Luther reputedly nailed his theses to" },
-        { "num": 20, "row": 5, "col": 7, "answer": "BEETLE", "clue": "Volkswagen model with 1930s origins" },
-        { "num": 22, "row": 6, "col": 4, "answer": "AGO", "clue": "In the past" },
-        { "num": 23, "row": 6, "col": 5, "answer": "PAR", "clue": "Standard score in golf, the game Scotland gave the world" },
-        { "num": 24, "row": 6, "col": 6, "answer": "PTA", "clue": "School org. with roots in 1897's National Congress of Mothers" },
-        { "num": 26, "row": 7, "col": 3, "answer": "ITLL", "clue": "\"___ all be over by Christmas\" (1914's famous misjudgment)" },
-        { "num": 28, "row": 8, "col": 8, "answer": "IAN", "clue": "Fleming of naval intelligence who created James Bond" },
-        { "num": 29, "row": 8, "col": 9, "answer": "OLD", "clue": "Like history's news" },
-        { "num": 30, "row": 8, "col": 10, "answer": "NAS", "clue": "Science academy chartered under Lincoln, for short" }
-      ]
-    }
+   ]
   }
+ },
+ {
+  "id": "mini-2",
+  "format": "mini",
+  "size": 5,
+  "title": "Mini 2",
+  "grid": [
+   "#FOR#",
+   "WIPED",
+   "ALIAS",
+   "SCULL",
+   "#HMM#"
+  ],
+  "clues": {
+   "across": [
+    {
+     "num": 1,
+     "row": 0,
+     "col": 1,
+     "answer": "FOR",
+     "clue": "In favor of, as a senator voting aye"
+    },
+    {
+     "num": 4,
+     "row": 1,
+     "col": 0,
+     "answer": "WIPED",
+     "clue": "Erased, as a chalkboard \u2014 or a dynasty"
+    },
+    {
+     "num": 6,
+     "row": 2,
+     "col": 0,
+     "answer": "ALIAS",
+     "clue": "Name an outlaw of the Old West rode under"
+    },
+    {
+     "num": 7,
+     "row": 3,
+     "col": 0,
+     "answer": "SCULL",
+     "clue": "Light racing boat, or the oar that moves it"
+    },
+    {
+     "num": 8,
+     "row": 4,
+     "col": 1,
+     "answer": "HMM",
+     "clue": "Sound of a historian pondering"
+    }
+   ],
+   "down": [
+    {
+     "num": 1,
+     "row": 0,
+     "col": 1,
+     "answer": "FILCH",
+     "clue": "Steal, as a pickpocket in Dickens's London might"
+    },
+    {
+     "num": 2,
+     "row": 0,
+     "col": 2,
+     "answer": "OPIUM",
+     "clue": "The ___ Wars, 19th-century clashes between Britain and Qing China"
+    },
+    {
+     "num": 3,
+     "row": 0,
+     "col": 3,
+     "answer": "REALM",
+     "clue": "A monarch's domain"
+    },
+    {
+     "num": 4,
+     "row": 1,
+     "col": 0,
+     "answer": "WAS",
+     "clue": "\"It ___ ever thus\""
+    },
+    {
+     "num": 5,
+     "row": 1,
+     "col": 4,
+     "answer": "DSL",
+     "clue": "Initials that ended the dial-up internet era"
+    }
+   ]
+  }
+ },
+ {
+  "id": "mini-3",
+  "format": "mini",
+  "size": 5,
+  "title": "Mini 3",
+  "grid": [
+   "HAMS#",
+   "ATOP#",
+   "NOVEL",
+   "#LICE",
+   "#LEST"
+  ],
+  "clues": {
+   "across": [
+    {
+     "num": 1,
+     "row": 0,
+     "col": 0,
+     "answer": "HAMS",
+     "clue": "Cured legs hanging in a medieval larder"
+    },
+    {
+     "num": 5,
+     "row": 1,
+     "col": 0,
+     "answer": "ATOP",
+     "clue": "Perched on, as a citadel on a hill"
+    },
+    {
+     "num": 6,
+     "row": 2,
+     "col": 0,
+     "answer": "NOVEL",
+     "clue": "\"War and Peace,\" for one"
+    },
+    {
+     "num": 8,
+     "row": 3,
+     "col": 1,
+     "answer": "LICE",
+     "clue": "Trench pests of the First World War"
+    },
+    {
+     "num": 9,
+     "row": 4,
+     "col": 1,
+     "answer": "LEST",
+     "clue": "\"___ we forget\" (remembrance phrase)"
+    }
+   ],
+   "down": [
+    {
+     "num": 1,
+     "row": 0,
+     "col": 0,
+     "answer": "HAN",
+     "clue": "Chinese dynasty between the Qin and the Three Kingdoms"
+    },
+    {
+     "num": 2,
+     "row": 0,
+     "col": 1,
+     "answer": "ATOLL",
+     "clue": "Bikini, site of 1946\u201358 nuclear tests, is one"
+    },
+    {
+     "num": 3,
+     "row": 0,
+     "col": 2,
+     "answer": "MOVIE",
+     "clue": "\"Lawrence of Arabia,\" e.g."
+    },
+    {
+     "num": 4,
+     "row": 0,
+     "col": 3,
+     "answer": "SPECS",
+     "clue": "Glasses, like Gandhi's famous round pair"
+    },
+    {
+     "num": 7,
+     "row": 2,
+     "col": 4,
+     "answer": "LET",
+     "clue": "Allowed, as serfs seldom were to leave the manor"
+    }
+   ]
+  }
+ },
+ {
+  "id": "mini-4",
+  "format": "mini",
+  "size": 5,
+  "title": "Mini 4",
+  "grid": [
+   "#WRAP",
+   "#AUTO",
+   "ELBOW",
+   "ODIN#",
+   "NONE#"
+  ],
+  "clues": {
+   "across": [
+    {
+     "num": 1,
+     "row": 0,
+     "col": 1,
+     "answer": "WRAP",
+     "clue": "Toga or sari, essentially"
+    },
+    {
+     "num": 5,
+     "row": 1,
+     "col": 1,
+     "answer": "AUTO",
+     "clue": "Ford's Model T, e.g., informally"
+    },
+    {
+     "num": 6,
+     "row": 2,
+     "col": 0,
+     "answer": "ELBOW",
+     "clue": "Joint a shield-bearer keeps bent"
+    },
+    {
+     "num": 7,
+     "row": 3,
+     "col": 0,
+     "answer": "ODIN",
+     "clue": "One-eyed chief god of the Vikings"
+    },
+    {
+     "num": 8,
+     "row": 4,
+     "col": 0,
+     "answer": "NONE",
+     "clue": "How many Roman emperors died on Elba"
+    }
+   ],
+   "down": [
+    {
+     "num": 1,
+     "row": 0,
+     "col": 1,
+     "answer": "WALDO",
+     "clue": "Ralph ___ Emerson"
+    },
+    {
+     "num": 2,
+     "row": 0,
+     "col": 2,
+     "answer": "RUBIN",
+     "clue": "___ \"Hurricane\" Carter, boxer at the center of a famous 1960s injustice"
+    },
+    {
+     "num": 3,
+     "row": 0,
+     "col": 3,
+     "answer": "ATONE",
+     "clue": "Make amends, as Henry II did after Becket's murder"
+    },
+    {
+     "num": 4,
+     "row": 0,
+     "col": 4,
+     "answer": "POW",
+     "clue": "Wartime captive, for short"
+    },
+    {
+     "num": 6,
+     "row": 2,
+     "col": 0,
+     "answer": "EON",
+     "clue": "Age upon age"
+    }
+   ]
+  }
+ },
+ {
+  "id": "mini-5",
+  "format": "mini",
+  "size": 5,
+  "title": "Mini 5",
+  "grid": [
+   "#EON#",
+   "MARIE",
+   "OGDEN",
+   "ELECT",
+   "#ERE#"
+  ],
+  "clues": {
+   "across": [
+    {
+     "num": 1,
+     "row": 0,
+     "col": 1,
+     "answer": "EON",
+     "clue": "Vast stretch of time"
+    },
+    {
+     "num": 4,
+     "row": 1,
+     "col": 0,
+     "answer": "MARIE",
+     "clue": "Curie who coined the term \"radioactivity\""
+    },
+    {
+     "num": 6,
+     "row": 2,
+     "col": 0,
+     "answer": "OGDEN",
+     "clue": "Utah rail town nicknamed Junction City"
+    },
+    {
+     "num": 7,
+     "row": 3,
+     "col": 0,
+     "answer": "ELECT",
+     "clue": "Choose by ballot \u2014 which Athenians often skipped in favor of drawing lots"
+    },
+    {
+     "num": 8,
+     "row": 4,
+     "col": 1,
+     "answer": "ERE",
+     "clue": "Before, to Shakespeare"
+    }
+   ],
+   "down": [
+    {
+     "num": 1,
+     "row": 0,
+     "col": 1,
+     "answer": "EAGLE",
+     "clue": "Standard a Roman legion would die to protect"
+    },
+    {
+     "num": 2,
+     "row": 0,
+     "col": 2,
+     "answer": "ORDER",
+     "clue": "The Knights Templar were a military one"
+    },
+    {
+     "num": 3,
+     "row": 0,
+     "col": 3,
+     "answer": "NIECE",
+     "clue": "Queen Victoria, to King William IV"
+    },
+    {
+     "num": 4,
+     "row": 1,
+     "col": 0,
+     "answer": "MOE",
+     "clue": "Berg, the big-league catcher who spied for the U.S. in WWII"
+    },
+    {
+     "num": 5,
+     "row": 1,
+     "col": 4,
+     "answer": "ENT",
+     "clue": "Nose doc, briefly \u2014 Pascal said Cleopatra's changed history"
+    }
+   ]
+  }
+ },
+ {
+  "id": "midi-1",
+  "format": "midi",
+  "size": 7,
+  "title": "Midi 1",
+  "grid": [
+   "###NOT#",
+   "#SPIRES",
+   "BAUXITE",
+   "AFT#ERA",
+   "GETONIT",
+   "SCENTS#",
+   "#ORE###"
+  ],
+  "clues": {
+   "across": [
+    {
+     "num": 1,
+     "row": 0,
+     "col": 3,
+     "answer": "NOT",
+     "clue": "\"___ a step back!\" \u2014 Stalin's Order No. 227"
+    },
+    {
+     "num": 4,
+     "row": 1,
+     "col": 1,
+     "answer": "SPIRES",
+     "clue": "Cathedral toppers medieval towns competed over"
+    },
+    {
+     "num": 7,
+     "row": 2,
+     "col": 0,
+     "answer": "BAUXITE",
+     "clue": "Aluminum ore first identified at Les Baux, France, in 1821"
+    },
+    {
+     "num": 8,
+     "row": 3,
+     "col": 0,
+     "answer": "AFT",
+     "clue": "Toward a galleon's stern"
+    },
+    {
+     "num": 9,
+     "row": 3,
+     "col": 4,
+     "answer": "ERA",
+     "clue": "Victorian or Edwardian, e.g."
+    },
+    {
+     "num": 10,
+     "row": 4,
+     "col": 0,
+     "answer": "GETONIT",
+     "clue": "Drill sergeant's \"start now!\""
+    },
+    {
+     "num": 12,
+     "row": 5,
+     "col": 0,
+     "answer": "SCENTS",
+     "clue": "What the spice routes carried along with flavors"
+    },
+    {
+     "num": 13,
+     "row": 6,
+     "col": 1,
+     "answer": "ORE",
+     "clue": "Comstock Lode load"
+    }
+   ],
+   "down": [
+    {
+     "num": 1,
+     "row": 0,
+     "col": 3,
+     "answer": "NIX",
+     "clue": "Veto, as a bill"
+    },
+    {
+     "num": 2,
+     "row": 0,
+     "col": 4,
+     "answer": "ORIENT",
+     "clue": "The East, to old mapmakers"
+    },
+    {
+     "num": 3,
+     "row": 0,
+     "col": 5,
+     "answer": "TETRIS",
+     "clue": "Block-stacking game born in 1984 Moscow"
+    },
+    {
+     "num": 4,
+     "row": 1,
+     "col": 1,
+     "answer": "SAFECO",
+     "clue": "Seattle insurance company founded in 1923"
+    },
+    {
+     "num": 5,
+     "row": 1,
+     "col": 2,
+     "answer": "PUTTER",
+     "clue": "Tinker (around), as an inventor in a shed"
+    },
+    {
+     "num": 6,
+     "row": 1,
+     "col": 6,
+     "answer": "SEAT",
+     "clue": "What a county's capital town is called"
+    },
+    {
+     "num": 7,
+     "row": 2,
+     "col": 0,
+     "answer": "BAGS",
+     "clue": "Carpetbaggers carried them"
+    },
+    {
+     "num": 11,
+     "row": 4,
+     "col": 3,
+     "answer": "ONE",
+     "clue": "Number of emperors crowned at Notre-Dame in 1804"
+    }
+   ]
+  }
+ },
+ {
+  "id": "midi-2",
+  "format": "midi",
+  "size": 7,
+  "title": "Midi 2",
+  "grid": [
+   "NOT#OOF",
+   "AIR#ADA",
+   "BLUSTER",
+   "##MOB##",
+   "PAPYRUS",
+   "ARE#AMA",
+   "NIT#NAP"
+  ],
+  "clues": {
+   "across": [
+    {
+     "num": 1,
+     "row": 0,
+     "col": 0,
+     "answer": "NOT",
+     "clue": "Like Rome, built in a day"
+    },
+    {
+     "num": 4,
+     "row": 0,
+     "col": 4,
+     "answer": "OOF",
+     "clue": "Grunt from a jousting hit"
+    },
+    {
+     "num": 7,
+     "row": 1,
+     "col": 0,
+     "answer": "AIR",
+     "clue": "It separated the Wright brothers from the ground in 1903"
+    },
+    {
+     "num": 8,
+     "row": 1,
+     "col": 4,
+     "answer": "ADA",
+     "clue": "Lovelace called the first computer programmer"
+    },
+    {
+     "num": 9,
+     "row": 2,
+     "col": 0,
+     "answer": "BLUSTER",
+     "clue": "Saber-rattling talk"
+    },
+    {
+     "num": 11,
+     "row": 3,
+     "col": 2,
+     "answer": "MOB",
+     "clue": "Crowd that stormed the Bastille, e.g."
+    },
+    {
+     "num": 12,
+     "row": 4,
+     "col": 0,
+     "answer": "PAPYRUS",
+     "clue": "Nile reed the Egyptians wrote on"
+    },
+    {
+     "num": 16,
+     "row": 5,
+     "col": 0,
+     "answer": "ARE",
+     "clue": "\"We ___ not amused\" (remark attributed to Queen Victoria)"
+    },
+    {
+     "num": 17,
+     "row": 5,
+     "col": 4,
+     "answer": "AMA",
+     "clue": "Doctors' assn. founded in 1847"
+    },
+    {
+     "num": 18,
+     "row": 6,
+     "col": 0,
+     "answer": "NIT",
+     "clue": "Tiny egg a trench inspection hunted for"
+    },
+    {
+     "num": 19,
+     "row": 6,
+     "col": 4,
+     "answer": "NAP",
+     "clue": "Short sleep \u2014 Churchill swore by his daily one"
+    }
+   ],
+   "down": [
+    {
+     "num": 1,
+     "row": 0,
+     "col": 0,
+     "answer": "NAB",
+     "clue": "Catch, as a Scotland Yard inspector might"
+    },
+    {
+     "num": 2,
+     "row": 0,
+     "col": 1,
+     "answer": "OIL",
+     "clue": "It gushed at Spindletop in 1901"
+    },
+    {
+     "num": 3,
+     "row": 0,
+     "col": 2,
+     "answer": "TRUMPET",
+     "clue": "Herald's fanfare instrument"
+    },
+    {
+     "num": 4,
+     "row": 0,
+     "col": 4,
+     "answer": "OATBRAN",
+     "clue": "Ingredient at the heart of a late-1980s health craze"
+    },
+    {
+     "num": 5,
+     "row": 0,
+     "col": 5,
+     "answer": "ODE",
+     "clue": "Pindar wrote them for Olympic victors"
+    },
+    {
+     "num": 6,
+     "row": 0,
+     "col": 6,
+     "answer": "FAR",
+     "clue": "Like Cathay, to medieval Europe"
+    },
+    {
+     "num": 10,
+     "row": 2,
+     "col": 3,
+     "answer": "SOY",
+     "clue": "Sauce with millennia of history in China"
+    },
+    {
+     "num": 12,
+     "row": 4,
+     "col": 0,
+     "answer": "PAN",
+     "clue": "Greek god of wild places whose name spawned a word for sudden fear"
+    },
+    {
+     "num": 13,
+     "row": 4,
+     "col": 1,
+     "answer": "ARI",
+     "clue": "Shipping magnate Onassis, familiarly"
+    },
+    {
+     "num": 14,
+     "row": 4,
+     "col": 5,
+     "answer": "UMA",
+     "clue": "Name of the Hindu goddess Parvati"
+    },
+    {
+     "num": 15,
+     "row": 4,
+     "col": 6,
+     "answer": "SAP",
+     "clue": "Siege trench dug toward a fortress wall"
+    }
+   ]
+  }
+ },
+ {
+  "id": "midi-3",
+  "format": "midi",
+  "size": 7,
+  "title": "Midi 3",
+  "grid": [
+   "##PROS#",
+   "#IRONON",
+   "#NAMELY",
+   "ALL#TIE",
+   "GAINED#",
+   "OWNERS#",
+   "#SEEM##"
+  ],
+  "clues": {
+   "across": [
+    {
+     "num": 1,
+     "row": 0,
+     "col": 2,
+     "answer": "PROS",
+     "clue": "Old hands, like Napoleon's grumbling Old Guard"
+    },
+    {
+     "num": 5,
+     "row": 1,
+     "col": 1,
+     "answer": "IRONON",
+     "clue": "Patch a Victorian seamstress would have envied \u2014 just press with heat"
+    },
+    {
+     "num": 7,
+     "row": 2,
+     "col": 1,
+     "answer": "NAMELY",
+     "clue": "That is to say, in a treaty's fine print"
+    },
+    {
+     "num": 8,
+     "row": 3,
+     "col": 0,
+     "answer": "ALL",
+     "clue": "\"___ roads lead to Rome\""
+    },
+    {
+     "num": 9,
+     "row": 3,
+     "col": 4,
+     "answer": "TIE",
+     "clue": "What the 1800 U.S. presidential election infamously ended in"
+    },
+    {
+     "num": 10,
+     "row": 4,
+     "col": 0,
+     "answer": "GAINED",
+     "clue": "Won, as territory"
+    },
+    {
+     "num": 12,
+     "row": 5,
+     "col": 0,
+     "answer": "OWNERS",
+     "clue": "Lords of the manor, with respect to the land"
+    },
+    {
+     "num": 13,
+     "row": 6,
+     "col": 1,
+     "answer": "SEEM",
+     "clue": "Look a certain way, as Potemkin villages were built to"
+    }
+   ],
+   "down": [
+    {
+     "num": 1,
+     "row": 0,
+     "col": 2,
+     "answer": "PRALINE",
+     "clue": "Sugared-nut sweet named for a 17th-century French marshal"
+    },
+    {
+     "num": 2,
+     "row": 0,
+     "col": 3,
+     "answer": "ROM",
+     "clue": "Apollo 11's guidance computer had its programs woven into this memory, briefly"
+    },
+    {
+     "num": 3,
+     "row": 0,
+     "col": 4,
+     "answer": "ONETERM",
+     "clue": "Like the presidencies of both John Adams and John Quincy Adams"
+    },
+    {
+     "num": 4,
+     "row": 0,
+     "col": 5,
+     "answer": "SOLIDS",
+     "clue": "Geometry has five \"Platonic\" ones"
+    },
+    {
+     "num": 5,
+     "row": 1,
+     "col": 1,
+     "answer": "INLAWS",
+     "clue": "Relatives Henry VIII kept acquiring"
+    },
+    {
+     "num": 6,
+     "row": 1,
+     "col": 6,
+     "answer": "NYE",
+     "clue": "Gerald ___, senator whose 1930s committee probed WWI arms profits"
+    },
+    {
+     "num": 8,
+     "row": 3,
+     "col": 0,
+     "answer": "AGO",
+     "clue": "\"Four score and seven years ___...\""
+    },
+    {
+     "num": 11,
+     "row": 4,
+     "col": 3,
+     "answer": "NEE",
+     "clue": "Maiden-name indicator on old records"
+    }
+   ]
+  }
+ },
+ {
+  "id": "full-1",
+  "format": "full",
+  "size": 15,
+  "title": "Second Terms",
+  "grid": [
+   "ANG#CADDY#OCEAN",
+   "PAR#HIREE#PRICE",
+   "ADO#IDEAL#TIGHT",
+   "RIVER#ALPS#SHE#",
+   "TREXARM##UNIT##",
+   "##RICO##CLUSTER",
+   "#ACT#UNSEEN#RAE",
+   "AWL##SAUDI##ATF",
+   "HEE#ESTEEM#MCS#",
+   "HDVIDEO##AMOK##",
+   "##ENYA##INERTIA",
+   "#ELF#UPON#TEAMS",
+   "BRAUN#OCTET#PAC",
+   "RINSE#SHELL#EGO",
+   "ANDES#HORSE#SET"
+  ],
+  "clues": {
+   "across": [
+    {
+     "num": 1,
+     "row": 0,
+     "col": 0,
+     "answer": "ANG",
+     "clue": "Lee who directed 1995's Austen adaptation \"Sense and Sensibility\""
+    },
+    {
+     "num": 4,
+     "row": 0,
+     "col": 4,
+     "answer": "CADDY",
+     "clue": "Tea ___, the Victorian pantry box"
+    },
+    {
+     "num": 9,
+     "row": 0,
+     "col": 10,
+     "answer": "OCEAN",
+     "clue": "\"In 1492, Columbus sailed the ___ blue\""
+    },
+    {
+     "num": 14,
+     "row": 1,
+     "col": 0,
+     "answer": "PAR",
+     "clue": "Standard on the old Scottish links"
+    },
+    {
+     "num": 15,
+     "row": 1,
+     "col": 4,
+     "answer": "HIREE",
+     "clue": "Fresh recruit to the firm"
+    },
+    {
+     "num": 16,
+     "row": 1,
+     "col": 10,
+     "answer": "PRICE",
+     "clue": "The Louisiana Purchase's was $15 million"
+    },
+    {
+     "num": 17,
+     "row": 2,
+     "col": 0,
+     "answer": "ADO",
+     "clue": "\"Much ___ About Nothing\""
+    },
+    {
+     "num": 18,
+     "row": 2,
+     "col": 4,
+     "answer": "IDEAL",
+     "clue": "Perfect form, in Plato's philosophy"
+    },
+    {
+     "num": 19,
+     "row": 2,
+     "col": 10,
+     "answer": "TIGHT",
+     "clue": "Like a blockade that actually works"
+    },
+    {
+     "num": 20,
+     "row": 3,
+     "col": 0,
+     "answer": "RIVER",
+     "clue": "The Rubicon, for one"
+    },
+    {
+     "num": 22,
+     "row": 3,
+     "col": 6,
+     "answer": "ALPS",
+     "clue": "Range Hannibal crossed with elephants in 218 BC"
+    },
+    {
+     "num": 24,
+     "row": 3,
+     "col": 11,
+     "answer": "SHE",
+     "clue": "\"___ who must be obeyed\" (H. Rider Haggard, 1887)"
+    },
+    {
+     "num": 25,
+     "row": 4,
+     "col": 0,
+     "answer": "TREXARM",
+     "clue": "Tiny-limbed pose named for a Cretaceous predator"
+    },
+    {
+     "num": 27,
+     "row": 4,
+     "col": 9,
+     "answer": "UNIT",
+     "clue": "Legion or cohort, e.g."
+    },
+    {
+     "num": 29,
+     "row": 5,
+     "col": 2,
+     "answer": "RICO",
+     "clue": "Anti-racketeering law of 1970, briefly"
+    },
+    {
+     "num": 30,
+     "row": 5,
+     "col": 8,
+     "answer": "CLUSTER",
+     "clue": "Close-packed bunch, as of Aegean islands"
+    },
+    {
+     "num": 33,
+     "row": 6,
+     "col": 1,
+     "answer": "ACT",
+     "clue": "The Stamp ___ of 1765"
+    },
+    {
+     "num": 34,
+     "row": 6,
+     "col": 5,
+     "answer": "UNSEEN",
+     "clue": "Like most of an iceberg, as the Titanic learned"
+    },
+    {
+     "num": 37,
+     "row": 6,
+     "col": 12,
+     "answer": "RAE",
+     "clue": "John ___, Arctic explorer who learned the Franklin expedition's fate"
+    },
+    {
+     "num": 38,
+     "row": 7,
+     "col": 0,
+     "answer": "AWL",
+     "clue": "Piercing tool in cobblers' kits since antiquity"
+    },
+    {
+     "num": 39,
+     "row": 7,
+     "col": 5,
+     "answer": "SAUDI",
+     "clue": "___ Arabia, kingdom unified in 1932"
+    },
+    {
+     "num": 40,
+     "row": 7,
+     "col": 12,
+     "answer": "ATF",
+     "clue": "Federal agcy. with roots in Prohibition enforcement"
+    },
+    {
+     "num": 41,
+     "row": 8,
+     "col": 0,
+     "answer": "HEE",
+     "clue": "\"___ Haw,\" cornpone variety show that debuted in 1969"
+    },
+    {
+     "num": 42,
+     "row": 8,
+     "col": 4,
+     "answer": "ESTEEM",
+     "clue": "High regard"
+    },
+    {
+     "num": 43,
+     "row": 8,
+     "col": 11,
+     "answer": "MCS",
+     "clue": "Mic wielders, briefly"
+    },
+    {
+     "num": 44,
+     "row": 9,
+     "col": 0,
+     "answer": "HDVIDEO",
+     "clue": "What home movies became in the late 2000s, briefly"
+    },
+    {
+     "num": 46,
+     "row": 9,
+     "col": 9,
+     "answer": "AMOK",
+     "clue": "Run ___ (rampage, from a Malay word)"
+    },
+    {
+     "num": 48,
+     "row": 10,
+     "col": 2,
+     "answer": "ENYA",
+     "clue": "\"Orinoco Flow\" singer of 1988"
+    },
+    {
+     "num": 49,
+     "row": 10,
+     "col": 8,
+     "answer": "INERTIA",
+     "clue": "Subject of Newton's first law"
+    },
+    {
+     "num": 52,
+     "row": 11,
+     "col": 1,
+     "answer": "ELF",
+     "clue": "Sprite of Norse folklore"
+    },
+    {
+     "num": 53,
+     "row": 11,
+     "col": 5,
+     "answer": "UPON",
+     "clue": "\"Once ___ a time...\""
+    },
+    {
+     "num": 56,
+     "row": 11,
+     "col": 10,
+     "answer": "TEAMS",
+     "clue": "Constantinople's chariot-racing Blues and Greens, e.g."
+    },
+    {
+     "num": 57,
+     "row": 12,
+     "col": 0,
+     "answer": "BRAUN",
+     "clue": "Wernher von ___, rocket pioneer"
+    },
+    {
+     "num": 59,
+     "row": 12,
+     "col": 6,
+     "answer": "OCTET",
+     "clue": "Schubert wrote a famous one in 1824"
+    },
+    {
+     "num": 61,
+     "row": 12,
+     "col": 12,
+     "answer": "PAC",
+     "clue": "Election-funding org. \u2014 the first was formed in 1944"
+    },
+    {
+     "num": 62,
+     "row": 13,
+     "col": 0,
+     "answer": "RINSE",
+     "clue": "Wash lightly"
+    },
+    {
+     "num": 63,
+     "row": 13,
+     "col": 6,
+     "answer": "SHELL",
+     "clue": "What a WWI howitzer lobbed"
+    },
+    {
+     "num": 64,
+     "row": 13,
+     "col": 12,
+     "answer": "EGO",
+     "clue": "Freudian coinage"
+    },
+    {
+     "num": 65,
+     "row": 14,
+     "col": 0,
+     "answer": "ANDES",
+     "clue": "Mountains of the Inca"
+    },
+    {
+     "num": 66,
+     "row": 14,
+     "col": 6,
+     "answer": "HORSE",
+     "clue": "Troy's wooden undoing"
+    },
+    {
+     "num": 67,
+     "row": 14,
+     "col": 12,
+     "answer": "SET",
+     "clue": "What the sun famously never did on the British Empire"
+    }
+   ],
+   "down": [
+    {
+     "num": 1,
+     "row": 0,
+     "col": 0,
+     "answer": "APART",
+     "clue": "\"Things fall ___\" (Yeats line that titled Achebe's novel)"
+    },
+    {
+     "num": 2,
+     "row": 0,
+     "col": 1,
+     "answer": "NADIR",
+     "clue": "Rock bottom \u2014 a term astronomy took from Arabic"
+    },
+    {
+     "num": 3,
+     "row": 0,
+     "col": 2,
+     "answer": "GROVERCLEVELAND",
+     "clue": "President both before and after Benjamin Harrison"
+    },
+    {
+     "num": 4,
+     "row": 0,
+     "col": 4,
+     "answer": "CHIRAC",
+     "clue": "French president from 1995 to 2007"
+    },
+    {
+     "num": 5,
+     "row": 0,
+     "col": 5,
+     "answer": "AID",
+     "clue": "What the Marshall Plan delivered"
+    },
+    {
+     "num": 6,
+     "row": 0,
+     "col": 6,
+     "answer": "DREAM",
+     "clue": "King's 1963 speech had a famous one"
+    },
+    {
+     "num": 7,
+     "row": 0,
+     "col": 7,
+     "answer": "DEAL",
+     "clue": "FDR's New ___"
+    },
+    {
+     "num": 8,
+     "row": 0,
+     "col": 8,
+     "answer": "YELP",
+     "clue": "Stepped-on hound's cry"
+    },
+    {
+     "num": 9,
+     "row": 0,
+     "col": 10,
+     "answer": "OPT",
+     "clue": "Choose (to)"
+    },
+    {
+     "num": 10,
+     "row": 0,
+     "col": 11,
+     "answer": "CRISIS",
+     "clue": "The Cuban Missile ___"
+    },
+    {
+     "num": 11,
+     "row": 0,
+     "col": 12,
+     "answer": "EIGHTTRACKTAPES",
+     "clue": "Car-audio relics that faded away by the early 1980s"
+    },
+    {
+     "num": 12,
+     "row": 0,
+     "col": 13,
+     "answer": "ACHE",
+     "clue": "Long (for), as an exile does for home"
+    },
+    {
+     "num": 13,
+     "row": 0,
+     "col": 14,
+     "answer": "NET",
+     "clue": "Weapon of the gladiator called a retiarius"
+    },
+    {
+     "num": 21,
+     "row": 3,
+     "col": 3,
+     "answer": "EXIT",
+     "clue": "Way out"
+    },
+    {
+     "num": 23,
+     "row": 3,
+     "col": 9,
+     "answer": "SULEIMAN",
+     "clue": "Ottoman sultan his subjects called \"the Lawgiver\""
+    },
+    {
+     "num": 26,
+     "row": 4,
+     "col": 5,
+     "answer": "ROUSSEAU",
+     "clue": "\"The Social Contract\" philosopher, 1762"
+    },
+    {
+     "num": 28,
+     "row": 4,
+     "col": 10,
+     "answer": "NUN",
+     "clue": "Sister of a medieval abbey"
+    },
+    {
+     "num": 30,
+     "row": 5,
+     "col": 8,
+     "answer": "CEDE",
+     "clue": "Hand over, as territory by treaty"
+    },
+    {
+     "num": 31,
+     "row": 5,
+     "col": 13,
+     "answer": "EATS",
+     "clue": "Diner fare, slangily"
+    },
+    {
+     "num": 32,
+     "row": 5,
+     "col": 14,
+     "answer": "REF",
+     "clue": "Bout official, briefly"
+    },
+    {
+     "num": 33,
+     "row": 6,
+     "col": 1,
+     "answer": "AWED",
+     "clue": "Like the first viewers of Tutankhamun's gold in 1922"
+    },
+    {
+     "num": 35,
+     "row": 6,
+     "col": 6,
+     "answer": "NATO",
+     "clue": "Alliance founded in 1949"
+    },
+    {
+     "num": 36,
+     "row": 6,
+     "col": 7,
+     "answer": "SUE",
+     "clue": "What Dred Scott did for his freedom"
+    },
+    {
+     "num": 38,
+     "row": 7,
+     "col": 0,
+     "answer": "AHH",
+     "clue": "Sigh of a legionary easing into the baths"
+    },
+    {
+     "num": 42,
+     "row": 8,
+     "col": 4,
+     "answer": "EDY",
+     "clue": "Joseph ___, ice-cream maker who teamed with Dreyer in 1928"
+    },
+    {
+     "num": 43,
+     "row": 8,
+     "col": 11,
+     "answer": "MORE",
+     "clue": "Thomas who wrote \"Utopia\" \u2014 and lost his head"
+    },
+    {
+     "num": 45,
+     "row": 9,
+     "col": 3,
+     "answer": "INFUSE",
+     "clue": "Steep, as tea"
+    },
+    {
+     "num": 47,
+     "row": 9,
+     "col": 10,
+     "answer": "METTLE",
+     "clue": "What Thermopylae tested"
+    },
+    {
+     "num": 49,
+     "row": 10,
+     "col": 8,
+     "answer": "INTER",
+     "clue": "Lay in a barrow, say"
+    },
+    {
+     "num": 50,
+     "row": 10,
+     "col": 13,
+     "answer": "IMAGE",
+     "clue": "Caesar's, on a denarius"
+    },
+    {
+     "num": 51,
+     "row": 10,
+     "col": 14,
+     "answer": "ASCOT",
+     "clue": "Royal racecourse since 1711"
+    },
+    {
+     "num": 52,
+     "row": 11,
+     "col": 1,
+     "answer": "ERIN",
+     "clue": "Ireland, in old poetry"
+    },
+    {
+     "num": 54,
+     "row": 11,
+     "col": 6,
+     "answer": "POSH",
+     "clue": "Fancy \u2014 folk etymology claims it's from \"port out, starboard home\""
+    },
+    {
+     "num": 55,
+     "row": 11,
+     "col": 7,
+     "answer": "OCHO",
+     "clue": "Eight, to the Armada's admirals"
+    },
+    {
+     "num": 57,
+     "row": 12,
+     "col": 0,
+     "answer": "BRA",
+     "clue": "Garment patented by Mary Phelps Jacob in 1914"
+    },
+    {
+     "num": 58,
+     "row": 12,
+     "col": 4,
+     "answer": "NES",
+     "clue": "8-bit Nintendo console of 1985, briefly"
+    },
+    {
+     "num": 60,
+     "row": 12,
+     "col": 9,
+     "answer": "ELS",
+     "clue": "Chicago's elevated trains, running since 1892"
+    }
+   ]
+  }
+ },
+ {
+  "id": "full-2",
+  "format": "full",
+  "size": 15,
+  "title": "Old Europe",
+  "grid": [
+   "COSMIC#COB#RAGS",
+   "ALTERS#EMU#IDLE",
+   "VERSAILLES#GRAN",
+   "##EAT#ALL#FIONA",
+   "ABE#ELSIE#EDICT",
+   "NIT##LENTIL#TEE",
+   "NOEL#ARI#NIB###",
+   "##REAM###EXAM##",
+   "###NBA#MTV#GAME",
+   "AMA#ASPIRE##VAL",
+   "FIRST#ALARM#EEK",
+   "FLAKE#TIC#OAR##",
+   "ELBA#METTERNICH",
+   "CELT#ANI#RANCHO",
+   "TREE#WTA#ANAKIN"
+  ],
+  "clues": {
+   "across": [
+    {
+     "num": 1,
+     "row": 0,
+     "col": 0,
+     "answer": "COSMIC",
+     "clue": "Like the spheres of Aristotle's heavens"
+    },
+    {
+     "num": 7,
+     "row": 0,
+     "col": 7,
+     "answer": "COB",
+     "clue": "What maize kernels ride on \u2014 a New World gift to the Old"
+    },
+    {
+     "num": 10,
+     "row": 0,
+     "col": 11,
+     "answer": "RAGS",
+     "clue": "___-to-riches story, like Carnegie's"
+    },
+    {
+     "num": 14,
+     "row": 1,
+     "col": 0,
+     "answer": "ALTERS",
+     "clue": "Amends, as a constitution"
+    },
+    {
+     "num": 15,
+     "row": 1,
+     "col": 7,
+     "answer": "EMU",
+     "clue": "Flightless Aussie that \"won\" a 1932 war against the army"
+    },
+    {
+     "num": 16,
+     "row": 1,
+     "col": 11,
+     "answer": "IDLE",
+     "clue": "Like a mothballed fleet"
+    },
+    {
+     "num": 17,
+     "row": 2,
+     "col": 0,
+     "answer": "VERSAILLES",
+     "clue": "Palace where the 1919 treaty was signed"
+    },
+    {
+     "num": 19,
+     "row": 2,
+     "col": 11,
+     "answer": "GRAN",
+     "clue": "Family elder, fondly"
+    },
+    {
+     "num": 20,
+     "row": 3,
+     "col": 2,
+     "answer": "EAT",
+     "clue": "Break bread"
+    },
+    {
+     "num": 21,
+     "row": 3,
+     "col": 6,
+     "answer": "ALL",
+     "clue": "\"___ Quiet on the Western Front\""
+    },
+    {
+     "num": 22,
+     "row": 3,
+     "col": 10,
+     "answer": "FIONA",
+     "clue": "Name behind an 1890s literary hoax \u2014 and a 2001 cartoon princess"
+    },
+    {
+     "num": 23,
+     "row": 4,
+     "col": 0,
+     "answer": "ABE",
+     "clue": "Lincoln, familiarly"
+    },
+    {
+     "num": 25,
+     "row": 4,
+     "col": 4,
+     "answer": "ELSIE",
+     "clue": "Borden's cow mascot since the 1930s"
+    },
+    {
+     "num": 27,
+     "row": 4,
+     "col": 10,
+     "answer": "EDICT",
+     "clue": "The ___ of Nantes, Henry IV's 1598 toleration decree"
+    },
+    {
+     "num": 28,
+     "row": 5,
+     "col": 0,
+     "answer": "NIT",
+     "clue": "Pedant's find"
+    },
+    {
+     "num": 29,
+     "row": 5,
+     "col": 5,
+     "answer": "LENTIL",
+     "clue": "Esau sold his birthright for a stew of them"
+    },
+    {
+     "num": 31,
+     "row": 5,
+     "col": 12,
+     "answer": "TEE",
+     "clue": "Starting point at St Andrews"
+    },
+    {
+     "num": 32,
+     "row": 6,
+     "col": 0,
+     "answer": "NOEL",
+     "clue": "Christmas, in old carols"
+    },
+    {
+     "num": 34,
+     "row": 6,
+     "col": 5,
+     "answer": "ARI",
+     "clue": "___ Fleischer, early-2000s White House spokesman"
+    },
+    {
+     "num": 35,
+     "row": 6,
+     "col": 9,
+     "answer": "NIB",
+     "clue": "Point a scribe dipped in ink"
+    },
+    {
+     "num": 37,
+     "row": 7,
+     "col": 2,
+     "answer": "REAM",
+     "clue": "500 sheets \u2014 once 480, by old convention"
+    },
+    {
+     "num": 39,
+     "row": 7,
+     "col": 9,
+     "answer": "EXAM",
+     "clue": "Imperial China's civil-service ordeal"
+    },
+    {
+     "num": 41,
+     "row": 8,
+     "col": 3,
+     "answer": "NBA",
+     "clue": "League founded in 1946, for short"
+    },
+    {
+     "num": 42,
+     "row": 8,
+     "col": 7,
+     "answer": "MTV",
+     "clue": "Channel that debuted on Aug. 1, 1981"
+    },
+    {
+     "num": 44,
+     "row": 8,
+     "col": 11,
+     "answer": "GAME",
+     "clue": "The Great ___, the Anglo-Russian contest over Central Asia"
+    },
+    {
+     "num": 47,
+     "row": 9,
+     "col": 0,
+     "answer": "AMA",
+     "clue": "Grp. that fought Medicare's creation in the 1960s"
+    },
+    {
+     "num": 50,
+     "row": 9,
+     "col": 4,
+     "answer": "ASPIRE",
+     "clue": "Aim high, as Icarus did unwisely"
+    },
+    {
+     "num": 52,
+     "row": 9,
+     "col": 12,
+     "answer": "VAL",
+     "clue": "Kilmer who played Doc Holliday"
+    },
+    {
+     "num": 53,
+     "row": 10,
+     "col": 0,
+     "answer": "FIRST",
+     "clue": "Like Washington, among presidents"
+    },
+    {
+     "num": 55,
+     "row": 10,
+     "col": 6,
+     "answer": "ALARM",
+     "clue": "What Paul Revere's ride raised"
+    },
+    {
+     "num": 57,
+     "row": 10,
+     "col": 12,
+     "answer": "EEK",
+     "clue": "Mouse-spotter's squeak"
+    },
+    {
+     "num": 58,
+     "row": 11,
+     "col": 0,
+     "answer": "FLAKE",
+     "clue": "Bit of the snow that doomed Napoleon's retreat"
+    },
+    {
+     "num": 59,
+     "row": 11,
+     "col": 6,
+     "answer": "TIC",
+     "clue": "Nervous habit"
+    },
+    {
+     "num": 60,
+     "row": 11,
+     "col": 10,
+     "answer": "OAR",
+     "clue": "Trireme propeller"
+    },
+    {
+     "num": 62,
+     "row": 12,
+     "col": 0,
+     "answer": "ELBA",
+     "clue": "Napoleon's first island exile"
+    },
+    {
+     "num": 63,
+     "row": 12,
+     "col": 5,
+     "answer": "METTERNICH",
+     "clue": "Austrian who steered the Congress of Vienna"
+    },
+    {
+     "num": 67,
+     "row": 13,
+     "col": 0,
+     "answer": "CELT",
+     "clue": "Ancient Gaul or Briton"
+    },
+    {
+     "num": 68,
+     "row": 13,
+     "col": 5,
+     "answer": "ANI",
+     "clue": "Ruined Armenian capital called the city of 1,001 churches"
+    },
+    {
+     "num": 69,
+     "row": 13,
+     "col": 9,
+     "answer": "RANCHO",
+     "clue": "Estate on a Spanish-colonial land grant"
+    },
+    {
+     "num": 70,
+     "row": 14,
+     "col": 0,
+     "answer": "TREE",
+     "clue": "Genealogist's chart"
+    },
+    {
+     "num": 71,
+     "row": 14,
+     "col": 5,
+     "answer": "WTA",
+     "clue": "Org. Billie Jean King co-founded in 1973"
+    },
+    {
+     "num": 72,
+     "row": 14,
+     "col": 9,
+     "answer": "ANAKIN",
+     "clue": "Skywalker whose screen saga began in 1977"
+    }
+   ],
+   "down": [
+    {
+     "num": 1,
+     "row": 0,
+     "col": 0,
+     "answer": "CAV",
+     "clue": "Air ___: Vietnam-era helicopter units, briefly"
+    },
+    {
+     "num": 2,
+     "row": 0,
+     "col": 1,
+     "answer": "OLE",
+     "clue": "Cry at a corrida"
+    },
+    {
+     "num": 3,
+     "row": 0,
+     "col": 2,
+     "answer": "STREETER",
+     "clue": "Ruth ___, first director of the WWII Women Marines"
+    },
+    {
+     "num": 4,
+     "row": 0,
+     "col": 3,
+     "answer": "MESA",
+     "clue": "Flat-topped landform of the old Southwest"
+    },
+    {
+     "num": 5,
+     "row": 0,
+     "col": 4,
+     "answer": "IRATE",
+     "clue": "Wrathful as Achilles"
+    },
+    {
+     "num": 6,
+     "row": 0,
+     "col": 5,
+     "answer": "CSI",
+     "clue": "Forensics franchise that debuted in 2000, briefly"
+    },
+    {
+     "num": 7,
+     "row": 0,
+     "col": 7,
+     "answer": "CELLINI",
+     "clue": "Benvenuto with the scandalous autobiography"
+    },
+    {
+     "num": 8,
+     "row": 0,
+     "col": 8,
+     "answer": "OMELET",
+     "clue": "Dish whose name France gave the world"
+    },
+    {
+     "num": 9,
+     "row": 0,
+     "col": 9,
+     "answer": "BUS",
+     "clue": "What Rosa Parks boarded into history"
+    },
+    {
+     "num": 10,
+     "row": 0,
+     "col": 11,
+     "answer": "RIGID",
+     "clue": "Like Spartan discipline"
+    },
+    {
+     "num": 11,
+     "row": 0,
+     "col": 12,
+     "answer": "ADROIT",
+     "clue": "Deft \u2014 a word from the French"
+    },
+    {
+     "num": 12,
+     "row": 0,
+     "col": 13,
+     "answer": "GLANCE",
+     "clue": "Quick look"
+    },
+    {
+     "num": 13,
+     "row": 0,
+     "col": 14,
+     "answer": "SENATE",
+     "clue": "Rome's deliberative body"
+    },
+    {
+     "num": 18,
+     "row": 2,
+     "col": 6,
+     "answer": "LASER",
+     "clue": "1960 invention now used in eye surgery"
+    },
+    {
+     "num": 22,
+     "row": 3,
+     "col": 10,
+     "answer": "FELIX",
+     "clue": "The Cat of silent-film cartoons"
+    },
+    {
+     "num": 23,
+     "row": 4,
+     "col": 0,
+     "answer": "ANN",
+     "clue": "Cape ___, Mass., named for James I's queen"
+    },
+    {
+     "num": 24,
+     "row": 4,
+     "col": 1,
+     "answer": "BIO",
+     "clue": "Plutarch specialty, for short"
+    },
+    {
+     "num": 26,
+     "row": 4,
+     "col": 5,
+     "answer": "LLAMAS",
+     "clue": "Pack animals of the Inca"
+    },
+    {
+     "num": 30,
+     "row": 5,
+     "col": 9,
+     "answer": "INEVER",
+     "clue": "\"Well, ___!\" (scandalized Victorian's cry)"
+    },
+    {
+     "num": 33,
+     "row": 6,
+     "col": 3,
+     "answer": "LEN",
+     "clue": "Deighton of Cold War spy fiction"
+    },
+    {
+     "num": 36,
+     "row": 6,
+     "col": 11,
+     "answer": "BAG",
+     "clue": "Diplomatic pouch, e.g."
+    },
+    {
+     "num": 38,
+     "row": 7,
+     "col": 4,
+     "answer": "ABATE",
+     "clue": "Die down, as a siege bombardment"
+    },
+    {
+     "num": 40,
+     "row": 7,
+     "col": 12,
+     "answer": "MAVERICK",
+     "clue": "Unbranded calf, named for Texas rancher Samuel"
+    },
+    {
+     "num": 42,
+     "row": 8,
+     "col": 7,
+     "answer": "MILITIA",
+     "clue": "The Minutemen, for example"
+    },
+    {
+     "num": 43,
+     "row": 8,
+     "col": 8,
+     "answer": "TRACT",
+     "clue": "Pamphlet of the sort Reformation presses churned out"
+    },
+    {
+     "num": 45,
+     "row": 8,
+     "col": 13,
+     "answer": "MAE",
+     "clue": "West who scandalized the 1920s stage"
+    },
+    {
+     "num": 46,
+     "row": 8,
+     "col": 14,
+     "answer": "ELK",
+     "clue": "Beast on a Stone Age cave wall"
+    },
+    {
+     "num": 47,
+     "row": 9,
+     "col": 0,
+     "answer": "AFFECT",
+     "clue": "Have an influence on"
+    },
+    {
+     "num": 48,
+     "row": 9,
+     "col": 1,
+     "answer": "MILLER",
+     "clue": "Arthur who set \"The Crucible\" in 1692 Salem"
+    },
+    {
+     "num": 49,
+     "row": 9,
+     "col": 2,
+     "answer": "ARABLE",
+     "clue": "Like land worth conquering"
+    },
+    {
+     "num": 51,
+     "row": 9,
+     "col": 6,
+     "answer": "PATENT",
+     "clue": "Edison filed more than a thousand of them"
+    },
+    {
+     "num": 54,
+     "row": 10,
+     "col": 3,
+     "answer": "SKATE",
+     "clue": "Glide like a Dutch canal-traveler of old"
+    },
+    {
+     "num": 56,
+     "row": 10,
+     "col": 10,
+     "answer": "MORAN",
+     "clue": "Bugs ___, Capone's North Side rival"
+    },
+    {
+     "num": 61,
+     "row": 11,
+     "col": 11,
+     "answer": "ANNA",
+     "clue": "Governess Leonowens of 1860s Siam"
+    },
+    {
+     "num": 63,
+     "row": 12,
+     "col": 5,
+     "answer": "MAW",
+     "clue": "Gaping mouth"
+    },
+    {
+     "num": 64,
+     "row": 12,
+     "col": 9,
+     "answer": "ERA",
+     "clue": "Equal Rights Amendment, briefly"
+    },
+    {
+     "num": 65,
+     "row": 12,
+     "col": 13,
+     "answer": "CHI",
+     "clue": "X of the Greek alphabet"
+    },
+    {
+     "num": 66,
+     "row": 12,
+     "col": 14,
+     "answer": "HON",
+     "clue": "Sweetie, in a 1940s diner"
+    }
+   ]
+  }
+ }
 ]

@@ -133,9 +133,6 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   content: ''; position: absolute; top: 0; right: 0; border: 6px solid transparent;
   border-top-color: var(--red); border-right-color: var(--red);
 }
-.cell.flash { animation: cellflash .5s ease; }
-@keyframes cellflash { 0% { background: var(--gold); } 100% { background: var(--paper); } }
-
 #cw-cluebar {
   display: flex; align-items: stretch; background: var(--selword);
   min-height: 48px; margin-top: auto;

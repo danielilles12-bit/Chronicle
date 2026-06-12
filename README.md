@@ -28,12 +28,13 @@ after the first load.
 
 ## Known limitations and substitutions
 
-- **Full-size crosswords are 11×11, not 15×15.** Building a valid 15×15 with
-  fully interlocking, real-word, history-clueable fill is genuinely hard; after
-  sustained automated attempts the two big puzzles shipped as high-quality
-  11×11 grids (with proper rotational symmetry), which the build instructions
-  explicitly allowed as a substitution. They still contain grid-spanning
-  history marquees: MAGNA CARTA, WELLINGTON, RENAISSANCE, RESTORATION.
+- **The two full-size crosswords are genuine 15×15 grids** with standard
+  rotational symmetry — no substitution was needed in the end (it took three
+  generations of construction software overnight). Grid-spanning marquee
+  answers include GROVER CLEVELAND, EIGHT-TRACK TAPES, VERSAILLES and
+  METTERNICH. A small number of entries are modern pop culture rather than
+  history (e.g. ANAKIN, MTV) — their clues are pinned to dates so even those
+  read as history.
 - **Offline testing note:** complete offline behaviour is verified
   automatically in Chrome's engine; the WebKit test harness has a known quirk
   reloading offline pages, so the same flow there is best-effort. On a real
