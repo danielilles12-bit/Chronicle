@@ -98,5 +98,89 @@
         { "num": 5, "row": 1, "col": 4, "answer": "ENT", "clue": "Throat doc, briefly" }
       ]
     }
+  },
+  {
+    "id": "midi-1", "format": "midi", "size": 7, "title": "Midi 1",
+    "grid": ["###NOT#", "#SPIRES", "BAUXITE", "AFT#ERA", "GETONIT", "SCENTS#", "#ORE###"],
+    "clues": {
+      "across": [
+        { "num": 1, "row": 0, "col": 3, "answer": "NOT", "clue": "\"___ a step back!\" — Stalin's Order No. 227" },
+        { "num": 4, "row": 1, "col": 1, "answer": "SPIRES", "clue": "Cathedral toppers medieval towns competed over" },
+        { "num": 7, "row": 2, "col": 0, "answer": "BAUXITE", "clue": "Aluminum ore first identified at Les Baux, France, in 1821" },
+        { "num": 8, "row": 3, "col": 0, "answer": "AFT", "clue": "Toward a galleon's stern" },
+        { "num": 9, "row": 3, "col": 4, "answer": "ERA", "clue": "Victorian or Edwardian, e.g." },
+        { "num": 10, "row": 4, "col": 0, "answer": "GETONIT", "clue": "\"Hop to it!\"" },
+        { "num": 12, "row": 5, "col": 0, "answer": "SCENTS", "clue": "What the spice routes carried along with flavors" },
+        { "num": 13, "row": 6, "col": 1, "answer": "ORE", "clue": "Comstock Lode load" }
+      ],
+      "down": [
+        { "num": 1, "row": 0, "col": 3, "answer": "NIX", "clue": "Veto, as a bill" },
+        { "num": 2, "row": 0, "col": 4, "answer": "ORIENT", "clue": "The East, to old mapmakers" },
+        { "num": 3, "row": 0, "col": 5, "answer": "TETRIS", "clue": "Block-stacking game born in 1984 Moscow" },
+        { "num": 4, "row": 1, "col": 1, "answer": "SAFECO", "clue": "Seattle insurance company founded in 1923" },
+        { "num": 5, "row": 1, "col": 2, "answer": "PUTTER", "clue": "Tinker (around), as an inventor in a shed" },
+        { "num": 6, "row": 1, "col": 6, "answer": "SEAT", "clue": "What a county's capital town is called" },
+        { "num": 7, "row": 2, "col": 0, "answer": "BAGS", "clue": "Carpetbaggers carried them" },
+        { "num": 11, "row": 4, "col": 3, "answer": "ONE", "clue": "Number of emperors crowned at Notre-Dame in 1804" }
+      ]
+    }
+  },
+  {
+    "id": "midi-2", "format": "midi", "size": 7, "title": "Midi 2",
+    "grid": ["NOT#OOF", "AIR#ADA", "BLUSTER", "##MOB##", "PAPYRUS", "ARE#AMA", "NIT#NAP"],
+    "clues": {
+      "across": [
+        { "num": 1, "row": 0, "col": 0, "answer": "NOT", "clue": "Like Rome, built in a day" },
+        { "num": 4, "row": 0, "col": 4, "answer": "OOF", "clue": "Grunt from a jousting hit" },
+        { "num": 7, "row": 1, "col": 0, "answer": "AIR", "clue": "It separated the Wright brothers from the ground in 1903" },
+        { "num": 8, "row": 1, "col": 4, "answer": "ADA", "clue": "Lovelace called the first computer programmer" },
+        { "num": 9, "row": 2, "col": 0, "answer": "BLUSTER", "clue": "Saber-rattling talk" },
+        { "num": 11, "row": 3, "col": 2, "answer": "MOB", "clue": "Crowd that stormed the Bastille, e.g." },
+        { "num": 12, "row": 4, "col": 0, "answer": "PAPYRUS", "clue": "Nile reed the Egyptians wrote on" },
+        { "num": 16, "row": 5, "col": 0, "answer": "ARE", "clue": "\"We ___ not amused\" (remark attributed to Queen Victoria)" },
+        { "num": 17, "row": 5, "col": 4, "answer": "AMA", "clue": "Doctors' assn. founded in 1847" },
+        { "num": 18, "row": 6, "col": 0, "answer": "NIT", "clue": "Tiny egg a trench inspection hunted for" },
+        { "num": 19, "row": 6, "col": 4, "answer": "NAP", "clue": "Short sleep — Churchill swore by his daily one" }
+      ],
+      "down": [
+        { "num": 1, "row": 0, "col": 0, "answer": "NAB", "clue": "Catch, as a Scotland Yard inspector might" },
+        { "num": 2, "row": 0, "col": 1, "answer": "OIL", "clue": "It gushed at Spindletop in 1901" },
+        { "num": 3, "row": 0, "col": 2, "answer": "TRUMPET", "clue": "Herald's fanfare instrument" },
+        { "num": 4, "row": 0, "col": 4, "answer": "OATBRAN", "clue": "High-fiber cereal component" },
+        { "num": 5, "row": 0, "col": 5, "answer": "ODE", "clue": "Pindar wrote them for Olympic victors" },
+        { "num": 6, "row": 0, "col": 6, "answer": "FAR", "clue": "Like Cathay, to medieval Europe" },
+        { "num": 10, "row": 2, "col": 3, "answer": "SOY", "clue": "Sauce with millennia of history in China" },
+        { "num": 12, "row": 4, "col": 0, "answer": "PAN", "clue": "Greek god of wild places whose name spawned a word for sudden fear" },
+        { "num": 13, "row": 4, "col": 1, "answer": "ARI", "clue": "Shipping magnate Onassis, familiarly" },
+        { "num": 14, "row": 4, "col": 5, "answer": "UMA", "clue": "Name of the Hindu goddess Parvati" },
+        { "num": 15, "row": 4, "col": 6, "answer": "SAP", "clue": "Siege trench dug toward a fortress wall" }
+      ]
+    }
+  },
+  {
+    "id": "midi-3", "format": "midi", "size": 7, "title": "Midi 3",
+    "grid": ["##PROS#", "#IRONON", "#NAMELY", "ALL#TIE", "GAINED#", "OWNERS#", "#SEEM##"],
+    "clues": {
+      "across": [
+        { "num": 1, "row": 0, "col": 2, "answer": "PROS", "clue": "Veterans, as opposed to greenhorns" },
+        { "num": 5, "row": 1, "col": 1, "answer": "IRONON", "clue": "Patch type pressed with heat" },
+        { "num": 7, "row": 2, "col": 1, "answer": "NAMELY", "clue": "That is to say" },
+        { "num": 8, "row": 3, "col": 0, "answer": "ALL", "clue": "\"___ roads lead to Rome\"" },
+        { "num": 9, "row": 3, "col": 4, "answer": "TIE", "clue": "What the 1800 U.S. presidential election infamously ended in" },
+        { "num": 10, "row": 4, "col": 0, "answer": "GAINED", "clue": "Won, as territory" },
+        { "num": 12, "row": 5, "col": 0, "answer": "OWNERS", "clue": "Title holders" },
+        { "num": 13, "row": 6, "col": 1, "answer": "SEEM", "clue": "Appear" }
+      ],
+      "down": [
+        { "num": 1, "row": 0, "col": 2, "answer": "PRALINE", "clue": "Sugared-nut sweet named for a 17th-century French marshal" },
+        { "num": 2, "row": 0, "col": 3, "answer": "ROM", "clue": "Apollo 11's guidance computer had its programs woven into this memory, briefly" },
+        { "num": 3, "row": 0, "col": 4, "answer": "ONETERM", "clue": "Like the presidencies of both John Adams and John Quincy Adams" },
+        { "num": 4, "row": 0, "col": 5, "answer": "SOLIDS", "clue": "Plato matched five of them to the elements" },
+        { "num": 5, "row": 1, "col": 1, "answer": "INLAWS", "clue": "Relatives Henry VIII kept acquiring" },
+        { "num": 6, "row": 1, "col": 6, "answer": "NYE", "clue": "Gerald ___, senator whose 1930s committee probed WWI arms profits" },
+        { "num": 8, "row": 3, "col": 0, "answer": "AGO", "clue": "\"Four score and seven years ___...\"" },
+        { "num": 11, "row": 4, "col": 3, "answer": "NEE", "clue": "Maiden-name indicator on old records" }
+      ]
+    }
   }
 ]

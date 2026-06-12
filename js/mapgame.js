@@ -1,5 +1,5 @@
 // "Map of a Life": guess the historical figure from birth/death geography.
-import { DATA, $, show, goHome, refreshHomeStats } from './app.js';
+import { DATA, $, show, back, goHome, refreshHomeStats } from './app.js';
 import * as store from './storage.js';
 import { isMatch } from './match.js';
 
@@ -281,6 +281,7 @@ export function initMapGame() {
       inp.classList.remove('shake');
       void inp.offsetWidth;       // restart the animation
       inp.classList.add('shake');
+      inp.focus();
     }
   });
 
@@ -315,6 +316,9 @@ export function initMapGame() {
     startRound();
   });
 
-  $('#sum-again').addEventListener('click', startSession);
+  $('#sum-again').addEventListener('click', () => {
+    back();              // drop the summary from the view trail
+    startSession();
+  });
   $('#sum-home').addEventListener('click', goHome);
 }
