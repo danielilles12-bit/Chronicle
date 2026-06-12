@@ -2,820 +2,820 @@
  {
   "size": 5,
   "grid": [
-   "#ADDY",
-   "#TRUE",
-   "TRACE",
-   "HIGH#",
-   "EASY#"
+   "#FOR#",
+   "WIPED",
+   "ALIAS",
+   "SCULL",
+   "#HMM#"
   ],
   "answers": [
    {
     "dir": "across",
     "r": 0,
     "c": 1,
-    "answer": "ADDY",
-    "freq": 311135
-   },
-   {
-    "dir": "across",
-    "r": 1,
-    "c": 1,
-    "answer": "TRUE",
-    "freq": 349170
-   },
-   {
-    "dir": "across",
-    "r": 2,
-    "c": 0,
-    "answer": "TRACE",
-    "freq": 344498
-   },
-   {
-    "dir": "across",
-    "r": 3,
-    "c": 0,
-    "answer": "HIGH",
-    "freq": 349837
-   },
-   {
-    "dir": "across",
-    "r": 4,
-    "c": 0,
-    "answer": "EASY",
-    "freq": 349380
-   },
-   {
-    "dir": "down",
-    "r": 2,
-    "c": 0,
-    "answer": "THE",
-    "freq": 350000
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 1,
-    "answer": "ATRIA",
-    "freq": 294603
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 2,
-    "answer": "DRAGS",
-    "freq": 311321
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 3,
-    "answer": "DUCHY",
-    "freq": 300519
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 4,
-    "answer": "YEE",
-    "freq": 324417
-   }
-  ]
- },
- {
-  "size": 5,
-  "grid": [
-   "#YOU#",
-   "NORSE",
-   "AUGUR",
-   "ARIAS",
-   "#SAL#"
-  ],
-  "answers": [
-   {
-    "dir": "across",
-    "r": 0,
-    "c": 1,
-    "answer": "YOU",
-    "freq": 349986
-   },
-   {
-    "dir": "across",
-    "r": 1,
-    "c": 0,
-    "answer": "NORSE",
-    "freq": 317957
-   },
-   {
-    "dir": "across",
-    "r": 2,
-    "c": 0,
-    "answer": "AUGUR",
-    "freq": 260582
-   },
-   {
-    "dir": "across",
-    "r": 3,
-    "c": 0,
-    "answer": "ARIAS",
-    "freq": 317636
-   },
-   {
-    "dir": "across",
-    "r": 4,
-    "c": 1,
-    "answer": "SAL",
-    "freq": 333716
-   },
-   {
-    "dir": "down",
-    "r": 1,
-    "c": 0,
-    "answer": "NAA",
-    "freq": 312719
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 1,
-    "answer": "YOURS",
-    "freq": 346401
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 2,
-    "answer": "ORGIA",
-    "freq": 280387
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 3,
-    "answer": "USUAL",
-    "freq": 345849
-   },
-   {
-    "dir": "down",
-    "r": 1,
-    "c": 4,
-    "answer": "ERS",
-    "freq": 335442
-   }
-  ]
- },
- {
-  "size": 5,
-  "grid": [
-   "AMES#",
-   "NEXT#",
-   "DRIED",
-   "#ALEA",
-   "#KELL"
-  ],
-  "answers": [
-   {
-    "dir": "across",
-    "r": 0,
-    "c": 0,
-    "answer": "AMES",
-    "freq": 335919
-   },
-   {
-    "dir": "across",
-    "r": 1,
-    "c": 0,
-    "answer": "NEXT",
-    "freq": 349880
-   },
-   {
-    "dir": "across",
-    "r": 2,
-    "c": 0,
-    "answer": "DRIED",
-    "freq": 341383
-   },
-   {
-    "dir": "across",
-    "r": 3,
-    "c": 1,
-    "answer": "ALEA",
-    "freq": 278358
-   },
-   {
-    "dir": "across",
-    "r": 4,
-    "c": 1,
-    "answer": "KELL",
-    "freq": 302949
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 0,
-    "answer": "AND",
-    "freq": 349998
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 1,
-    "answer": "MERAK",
-    "freq": 254005
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 2,
-    "answer": "EXILE",
-    "freq": 335622
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 3,
-    "answer": "STEEL",
-    "freq": 348332
-   },
-   {
-    "dir": "down",
-    "r": 2,
-    "c": 4,
-    "answer": "DAL",
-    "freq": 333595
-   }
-  ]
- },
- {
-  "size": 5,
-  "grid": [
-   "##YOU",
-   "PAEAN",
-   "AWARD",
-   "TORSO",
-   "ELS##"
-  ],
-  "answers": [
-   {
-    "dir": "across",
-    "r": 0,
-    "c": 2,
-    "answer": "YOU",
-    "freq": 349986
-   },
-   {
-    "dir": "across",
-    "r": 1,
-    "c": 0,
-    "answer": "PAEAN",
-    "freq": 236830
-   },
-   {
-    "dir": "across",
-    "r": 2,
-    "c": 0,
-    "answer": "AWARD",
-    "freq": 348634
-   },
-   {
-    "dir": "across",
-    "r": 3,
-    "c": 0,
-    "answer": "TORSO",
-    "freq": 331143
-   },
-   {
-    "dir": "across",
-    "r": 4,
-    "c": 0,
-    "answer": "ELS",
-    "freq": 326430
-   },
-   {
-    "dir": "down",
-    "r": 1,
-    "c": 0,
-    "answer": "PATE",
-    "freq": 321036
-   },
-   {
-    "dir": "down",
-    "r": 1,
-    "c": 1,
-    "answer": "AWOL",
-    "freq": 308711
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 2,
-    "answer": "YEARS",
-    "freq": 349829
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 3,
-    "answer": "OARS",
-    "freq": 311997
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 4,
-    "answer": "UNDO",
-    "freq": 341282
-   }
-  ]
- },
- {
-  "size": 5,
-  "grid": [
-   "##HAN",
-   "ASANA",
-   "SPLAT",
-   "HELLO",
-   "AWS##"
-  ],
-  "answers": [
-   {
-    "dir": "across",
-    "r": 0,
-    "c": 2,
-    "answer": "HAN",
-    "freq": 338063
-   },
-   {
-    "dir": "across",
-    "r": 1,
-    "c": 0,
-    "answer": "ASANA",
-    "freq": 277704
-   },
-   {
-    "dir": "across",
-    "r": 2,
-    "c": 0,
-    "answer": "SPLAT",
-    "freq": 301542
-   },
-   {
-    "dir": "across",
-    "r": 3,
-    "c": 0,
-    "answer": "HELLO",
-    "freq": 347581
-   },
-   {
-    "dir": "across",
-    "r": 4,
-    "c": 0,
-    "answer": "AWS",
-    "freq": 319068
-   },
-   {
-    "dir": "down",
-    "r": 1,
-    "c": 0,
-    "answer": "ASHA",
-    "freq": 316128
-   },
-   {
-    "dir": "down",
-    "r": 1,
-    "c": 1,
-    "answer": "SPEW",
-    "freq": 300402
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 2,
-    "answer": "HALLS",
-    "freq": 339393
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 3,
-    "answer": "ANAL",
-    "freq": 348635
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 4,
-    "answer": "NATO",
-    "freq": 340625
-   }
-  ]
- },
- {
-  "size": 5,
-  "grid": [
-   "FOR##",
-   "OPIUM",
-   "BETTA",
-   "SNEAD",
-   "##SHI"
-  ],
-  "answers": [
-   {
-    "dir": "across",
-    "r": 0,
-    "c": 0,
     "answer": "FOR",
-    "freq": 349994
+    "q": 90
    },
    {
     "dir": "across",
     "r": 1,
     "c": 0,
-    "answer": "OPIUM",
-    "freq": 327734
+    "answer": "WIPED",
+    "q": 80
    },
    {
     "dir": "across",
     "r": 2,
     "c": 0,
-    "answer": "BETTA",
-    "freq": 307466
+    "answer": "ALIAS",
+    "q": 90
    },
    {
     "dir": "across",
     "r": 3,
     "c": 0,
-    "answer": "SNEAD",
-    "freq": 277723
+    "answer": "SCULL",
+    "q": 90
    },
    {
     "dir": "across",
     "r": 4,
-    "c": 2,
-    "answer": "SHI",
-    "freq": 332946
+    "c": 1,
+    "answer": "HMM",
+    "q": 80
    },
    {
     "dir": "down",
-    "r": 0,
+    "r": 1,
     "c": 0,
-    "answer": "FOBS",
-    "freq": 266439
+    "answer": "WAS",
+    "q": 85
    },
    {
     "dir": "down",
     "r": 0,
     "c": 1,
-    "answer": "OPEN",
-    "freq": 349718
+    "answer": "FILCH",
+    "q": 90
    },
    {
     "dir": "down",
     "r": 0,
     "c": 2,
-    "answer": "RITES",
-    "freq": 328288
+    "answer": "OPIUM",
+    "q": 90
    },
    {
     "dir": "down",
-    "r": 1,
+    "r": 0,
     "c": 3,
-    "answer": "UTAH",
-    "freq": 347128
+    "answer": "REALM",
+    "q": 50
    },
    {
     "dir": "down",
     "r": 1,
     "c": 4,
-    "answer": "MADI",
-    "freq": 263407
+    "answer": "DSL",
+    "q": 70
    }
   ]
  },
  {
   "size": 5,
   "grid": [
-   "RAJ##",
-   "AREAL",
-   "TERRI",
-   "EARNS",
-   "##YEA"
+   "HAN##",
+   "ERODE",
+   "REBEL",
+   "SALEM",
+   "##EDO"
   ],
   "answers": [
    {
     "dir": "across",
     "r": 0,
     "c": 0,
-    "answer": "RAJ",
-    "freq": 328427
+    "answer": "HAN",
+    "q": 80
    },
    {
     "dir": "across",
     "r": 1,
     "c": 0,
-    "answer": "AREAL",
-    "freq": 295668
+    "answer": "ERODE",
+    "q": 90
    },
    {
     "dir": "across",
     "r": 2,
     "c": 0,
-    "answer": "TERRI",
-    "freq": 336522
+    "answer": "REBEL",
+    "q": 90
    },
    {
     "dir": "across",
     "r": 3,
     "c": 0,
-    "answer": "EARNS",
-    "freq": 330405
+    "answer": "SALEM",
+    "q": 80
    },
    {
     "dir": "across",
     "r": 4,
     "c": 2,
-    "answer": "YEA",
-    "freq": 341844
+    "answer": "EDO",
+    "q": 40
    },
    {
     "dir": "down",
     "r": 0,
     "c": 0,
-    "answer": "RATE",
-    "freq": 349649
+    "answer": "HERS",
+    "q": 85
    },
    {
     "dir": "down",
     "r": 0,
     "c": 1,
     "answer": "AREA",
-    "freq": 349748
+    "q": 90
    },
    {
     "dir": "down",
     "r": 0,
     "c": 2,
-    "answer": "JERRY",
-    "freq": 345161
+    "answer": "NOBLE",
+    "q": 90
    },
    {
     "dir": "down",
     "r": 1,
     "c": 3,
-    "answer": "ARNE",
-    "freq": 319460
+    "answer": "DEED",
+    "q": 90
    },
    {
     "dir": "down",
     "r": 1,
     "c": 4,
-    "answer": "LISA",
-    "freq": 345492
+    "answer": "ELMO",
+    "q": 90
    }
   ]
  },
  {
   "size": 5,
   "grid": [
-   "#AND#",
-   "UNIES",
-   "LIGNE",
-   "ETHIC",
-   "#ATS#"
+   "#RAJ#",
+   "SHRED",
+   "POLLY",
+   "ADELE",
+   "#ANY#"
   ],
   "answers": [
    {
     "dir": "across",
     "r": 0,
     "c": 1,
-    "answer": "AND",
-    "freq": 349998
+    "answer": "RAJ",
+    "q": 50
    },
    {
     "dir": "across",
     "r": 1,
     "c": 0,
-    "answer": "UNIES",
-    "freq": 250545
+    "answer": "SHRED",
+    "q": 90
    },
    {
     "dir": "across",
     "r": 2,
     "c": 0,
-    "answer": "LIGNE",
-    "freq": 327487
+    "answer": "POLLY",
+    "q": 80
    },
    {
     "dir": "across",
     "r": 3,
     "c": 0,
-    "answer": "ETHIC",
-    "freq": 327774
+    "answer": "ADELE",
+    "q": 90
    },
    {
     "dir": "across",
     "r": 4,
     "c": 1,
-    "answer": "ATS",
-    "freq": 333095
+    "answer": "ANY",
+    "q": 90
    },
    {
     "dir": "down",
     "r": 1,
     "c": 0,
-    "answer": "ULE",
-    "freq": 281191
+    "answer": "SPA",
+    "q": 90
    },
    {
     "dir": "down",
     "r": 0,
     "c": 1,
-    "answer": "ANITA",
-    "freq": 338364
+    "answer": "RHODA",
+    "q": 80
    },
    {
     "dir": "down",
     "r": 0,
     "c": 2,
-    "answer": "NIGHT",
-    "freq": 349407
+    "answer": "ARLEN",
+    "q": 80
    },
    {
     "dir": "down",
     "r": 0,
     "c": 3,
-    "answer": "DENIS",
-    "freq": 336573
+    "answer": "JELLY",
+    "q": 90
    },
    {
     "dir": "down",
     "r": 1,
     "c": 4,
-    "answer": "SEC",
-    "freq": 348026
+    "answer": "DYE",
+    "q": 80
    }
   ]
  },
  {
   "size": 5,
   "grid": [
-   "#YOU#",
-   "SPUNK",
-   "ERNIE",
-   "RECTA",
-   "#SES#"
+   "RUSH#",
+   "ASIA#",
+   "JUDGE",
+   "#REAL",
+   "#PARK"
   ],
   "answers": [
    {
     "dir": "across",
     "r": 0,
-    "c": 1,
-    "answer": "YOU",
-    "freq": 349986
+    "c": 0,
+    "answer": "RUSH",
+    "q": 90
    },
    {
     "dir": "across",
     "r": 1,
     "c": 0,
-    "answer": "SPUNK",
-    "freq": 305391
+    "answer": "ASIA",
+    "q": 90
    },
    {
     "dir": "across",
     "r": 2,
     "c": 0,
-    "answer": "ERNIE",
-    "freq": 333732
+    "answer": "JUDGE",
+    "q": 90
    },
    {
     "dir": "across",
     "r": 3,
-    "c": 0,
-    "answer": "RECTA",
-    "freq": 239259
+    "c": 1,
+    "answer": "REAL",
+    "q": 90
    },
    {
     "dir": "across",
     "r": 4,
     "c": 1,
-    "answer": "SES",
-    "freq": 335430
+    "answer": "PARK",
+    "q": 70
    },
    {
     "dir": "down",
-    "r": 1,
+    "r": 0,
     "c": 0,
-    "answer": "SER",
-    "freq": 342071
+    "answer": "RAJ",
+    "q": 50
    },
    {
     "dir": "down",
     "r": 0,
     "c": 1,
-    "answer": "YPRES",
-    "freq": 256585
+    "answer": "USURP",
+    "q": 90
    },
    {
     "dir": "down",
     "r": 0,
     "c": 2,
-    "answer": "OUNCE",
-    "freq": 336857
+    "answer": "SIDEA",
+    "q": 90
    },
    {
     "dir": "down",
     "r": 0,
     "c": 3,
-    "answer": "UNITS",
-    "freq": 348547
+    "answer": "HAGAR",
+    "q": 80
    },
    {
     "dir": "down",
-    "r": 1,
+    "r": 2,
     "c": 4,
-    "answer": "KEA",
-    "freq": 310312
+    "answer": "ELK",
+    "q": 90
    }
   ]
  },
  {
   "size": 5,
   "grid": [
-   "EON##",
-   "AROSE",
-   "RAMAN",
-   "LLOYD",
-   "##SAS"
+   "#AGE#",
+   "GLIDE",
+   "MOVIE",
+   "CHECK",
+   "#ART#"
   ],
   "answers": [
    {
     "dir": "across",
     "r": 0,
+    "c": 1,
+    "answer": "AGE",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 0,
+    "answer": "GLIDE",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "MOVIE",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 0,
+    "answer": "CHECK",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 1,
+    "answer": "ART",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 0,
+    "answer": "GMC",
+    "q": 70
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 1,
+    "answer": "ALOHA",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 2,
+    "answer": "GIVER",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 3,
+    "answer": "EDICT",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 4,
+    "answer": "EEK",
+    "q": 80
+   }
+  ]
+ },
+ {
+  "size": 5,
+  "grid": [
+   "ALL##",
+   "RIOTS",
+   "EMAIL",
+   "APNEA",
+   "##SRY"
+  ],
+  "answers": [
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 0,
+    "answer": "ALL",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 0,
+    "answer": "RIOTS",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "EMAIL",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 0,
+    "answer": "APNEA",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 2,
+    "answer": "SRY",
+    "q": 70
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 0,
+    "answer": "AREA",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 1,
+    "answer": "LIMP",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 2,
+    "answer": "LOANS",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 3,
+    "answer": "TIER",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 4,
+    "answer": "SLAY",
+    "q": 90
+   }
+  ]
+ },
+ {
+  "size": 5,
+  "grid": [
+   "#WRAP",
+   "#AUTO",
+   "ELBOW",
+   "ODIN#",
+   "NONE#"
+  ],
+  "answers": [
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 1,
+    "answer": "WRAP",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 1,
+    "answer": "AUTO",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "ELBOW",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 0,
+    "answer": "ODIN",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 0,
+    "answer": "NONE",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 2,
     "c": 0,
     "answer": "EON",
-    "freq": 316453
-   },
-   {
-    "dir": "across",
-    "r": 1,
-    "c": 0,
-    "answer": "AROSE",
-    "freq": 335011
-   },
-   {
-    "dir": "across",
-    "r": 2,
-    "c": 0,
-    "answer": "RAMAN",
-    "freq": 324055
-   },
-   {
-    "dir": "across",
-    "r": 3,
-    "c": 0,
-    "answer": "LLOYD",
-    "freq": 342458
-   },
-   {
-    "dir": "across",
-    "r": 4,
-    "c": 2,
-    "answer": "SAS",
-    "freq": 341141
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 0,
-    "answer": "EARL",
-    "freq": 342047
+    "q": 80
    },
    {
     "dir": "down",
     "r": 0,
     "c": 1,
-    "answer": "ORAL",
-    "freq": 348051
+    "answer": "WALDO",
+    "q": 80
    },
    {
     "dir": "down",
     "r": 0,
     "c": 2,
-    "answer": "NOMOS",
-    "freq": 246501
+    "answer": "RUBIN",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 3,
+    "answer": "ATONE",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 4,
+    "answer": "POW",
+    "q": 90
+   }
+  ]
+ },
+ {
+  "size": 5,
+  "grid": [
+   "#EON#",
+   "MARIE",
+   "OGDEN",
+   "ELECT",
+   "#ERE#"
+  ],
+  "answers": [
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 1,
+    "answer": "EON",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 0,
+    "answer": "MARIE",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "OGDEN",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 0,
+    "answer": "ELECT",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 1,
+    "answer": "ERE",
+    "q": 75
    },
    {
     "dir": "down",
     "r": 1,
+    "c": 0,
+    "answer": "MOE",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 1,
+    "answer": "EAGLE",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 2,
+    "answer": "ORDER",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
     "c": 3,
-    "answer": "SAYA",
-    "freq": 302351
+    "answer": "NIECE",
+    "q": 90
    },
    {
     "dir": "down",
     "r": 1,
     "c": 4,
-    "answer": "ENDS",
-    "freq": 347625
+    "answer": "ENT",
+    "q": 65
+   }
+  ]
+ },
+ {
+  "size": 5,
+  "grid": [
+   "HAMS#",
+   "ATOP#",
+   "NOVEL",
+   "#LICE",
+   "#LEST"
+  ],
+  "answers": [
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 0,
+    "answer": "HAMS",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 0,
+    "answer": "ATOP",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "NOVEL",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 1,
+    "answer": "LICE",
+    "q": 85
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 1,
+    "answer": "LEST",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 0,
+    "answer": "HAN",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 1,
+    "answer": "ATOLL",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 2,
+    "answer": "MOVIE",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 3,
+    "answer": "SPECS",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 2,
+    "c": 4,
+    "answer": "LET",
+    "q": 90
+   }
+  ]
+ },
+ {
+  "size": 5,
+  "grid": [
+   "#VATS",
+   "#IMOK",
+   "ATARI",
+   "LAST#",
+   "LESS#"
+  ],
+  "answers": [
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 1,
+    "answer": "VATS",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 1,
+    "answer": "IMOK",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "ATARI",
+    "q": 80
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 0,
+    "answer": "LAST",
+    "q": 90
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 0,
+    "answer": "LESS",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 2,
+    "c": 0,
+    "answer": "ALL",
+    "q": 90
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 1,
+    "answer": "VITAE",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 2,
+    "answer": "AMASS",
+    "q": 85
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 3,
+    "answer": "TORTS",
+    "q": 80
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 4,
+    "answer": "SKI",
+    "q": 90
    }
   ]
  }

@@ -57,6 +57,13 @@ HISTORY_WORDS = [
     "GENERAL", "ADMIRAL", "MARSHAL", "EXILE", "REGICIDE", "DYNAST", "HEIR",
     "LINEAGE", "MYTH", "SAGA", "EPIC", "ORACLE", "TEMPLE", "SHRINE", "IDOL",
     "ALTAR", "TOMB", "CRYPT", "MUMMY", "SARCOPHAGUS", "BARROW", "DOLMEN",
+    # Peoples, places, myth & legend (clueable as history/legend)
+    "ROMAN", "ROMANS", "GREEK", "GREEKS", "EGYPT", "CRETE", "DELPHI",
+    "DELHI", "PETRA", "DOGE", "DOGES", "NUBIA", "PICTS", "MOORS", "SAXON",
+    "TSARS", "TROY", "ILIAD", "HOMER", "AESOP", "MIDAS", "SOLON", "ZEUS",
+    "HERA", "ARES", "EROS", "ODIN", "THOR", "LOKI", "OSIRIS", "ANUBIS",
+    "ATHENA", "APOLLO", "TITAN", "TITANS", "ORACLE", "PARIS", "ROME",
+    "ATHENA", "VATICAN", "KREMLIN", "ALAMO", "LOUVRE", "NOTREDAME",
 ]
 
 # Deduplicate while preserving order

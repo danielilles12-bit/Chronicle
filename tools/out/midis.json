@@ -2,181 +2,139 @@
  {
   "size": 7,
   "grid": [
-   "AGE#ONE",
-   "SUR#RAG",
-   "KNOWING",
-   "##SAO##",
-   "ICICLES",
-   "DEV#EVE",
-   "APE#SAA"
+   "#YOU###",
+   "#OPPOSE",
+   "CRISPER",
+   "AKA#EWE",
+   "RETIRES",
+   "PREWAR#",
+   "###ASS#"
   ],
   "answers": [
    {
     "dir": "across",
     "r": 0,
-    "c": 0,
-    "answer": "AGE",
-    "freq": 349421
-   },
-   {
-    "dir": "across",
-    "r": 0,
-    "c": 4,
-    "answer": "ONE",
-    "freq": 349956
+    "c": 1,
+    "answer": "YOU",
+    "freq": 349986
    },
    {
     "dir": "across",
     "r": 1,
-    "c": 0,
-    "answer": "SUR",
-    "freq": 344803
-   },
-   {
-    "dir": "across",
-    "r": 1,
-    "c": 4,
-    "answer": "RAG",
-    "freq": 334191
+    "c": 1,
+    "answer": "OPPOSE",
+    "freq": 337759
    },
    {
     "dir": "across",
     "r": 2,
     "c": 0,
-    "answer": "KNOWING",
-    "freq": 345297
+    "answer": "CRISPER",
+    "freq": 266418
    },
    {
     "dir": "across",
     "r": 3,
-    "c": 2,
-    "answer": "SAO",
-    "freq": 341369
+    "c": 0,
+    "answer": "AKA",
+    "freq": 344457
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 4,
+    "answer": "EWE",
+    "freq": 308109
    },
    {
     "dir": "across",
     "r": 4,
     "c": 0,
-    "answer": "ICICLES",
-    "freq": 293124
+    "answer": "RETIRES",
+    "freq": 314966
    },
    {
     "dir": "across",
     "r": 5,
     "c": 0,
-    "answer": "DEV",
-    "freq": 348180
-   },
-   {
-    "dir": "across",
-    "r": 5,
-    "c": 4,
-    "answer": "EVE",
-    "freq": 344993
+    "answer": "PREWAR",
+    "freq": 289016
    },
    {
     "dir": "across",
     "r": 6,
-    "c": 0,
-    "answer": "APE",
-    "freq": 334415
-   },
-   {
-    "dir": "across",
-    "r": 6,
-    "c": 4,
-    "answer": "SAA",
-    "freq": 319865
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 0,
-    "answer": "ASK",
-    "freq": 349252
-   },
-   {
-    "dir": "down",
-    "r": 4,
-    "c": 0,
-    "answer": "IDA",
-    "freq": 336271
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 1,
-    "answer": "GUN",
-    "freq": 346666
-   },
-   {
-    "dir": "down",
-    "r": 4,
-    "c": 1,
-    "answer": "CEP",
-    "freq": 322281
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 2,
-    "answer": "EROSIVE",
-    "freq": 261037
+    "c": 3,
+    "answer": "ASS",
+    "freq": 348697
    },
    {
     "dir": "down",
     "r": 2,
+    "c": 0,
+    "answer": "CARP",
+    "freq": 331932
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 1,
+    "answer": "YORKER",
+    "freq": 330785
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 2,
+    "answer": "OPIATE",
+    "freq": 310489
+   },
+   {
+    "dir": "down",
+    "r": 0,
     "c": 3,
-    "answer": "WAC",
-    "freq": 330763
+    "answer": "UPS",
+    "freq": 347471
    },
    {
     "dir": "down",
-    "r": 0,
+    "r": 4,
+    "c": 3,
+    "answer": "IWA",
+    "freq": 297154
+   },
+   {
+    "dir": "down",
+    "r": 1,
     "c": 4,
-    "answer": "ORIOLES",
-    "freq": 332496
+    "answer": "OPERAS",
+    "freq": 320331
    },
    {
     "dir": "down",
-    "r": 0,
+    "r": 1,
     "c": 5,
-    "answer": "NAN",
-    "freq": 337181
+    "answer": "SEWERS",
+    "freq": 321035
    },
    {
     "dir": "down",
-    "r": 4,
-    "c": 5,
-    "answer": "EVA",
-    "freq": 341689
-   },
-   {
-    "dir": "down",
-    "r": 0,
+    "r": 1,
     "c": 6,
-    "answer": "EGG",
-    "freq": 344847
-   },
-   {
-    "dir": "down",
-    "r": 4,
-    "c": 6,
-    "answer": "SEA",
-    "freq": 348681
+    "answer": "ERES",
+    "freq": 294250
    }
   ]
  },
  {
   "size": 7,
   "grid": [
-   "YOU#PSI",
-   "EAT#REV",
-   "TRILOGY",
-   "##LAS##",
-   "ARIZONA",
-   "SUZ#DEL",
-   "SEE#YES"
+   "YOU#ATE",
+   "ERR#TRY",
+   "NECKTIE",
+   "##HOE##",
+   "THIAMIN",
+   "ION#PSI",
+   "STS#TOT"
   ],
   "answers": [
    {
@@ -190,505 +148,43 @@
     "dir": "across",
     "r": 0,
     "c": 4,
-    "answer": "PSI",
-    "freq": 341199
+    "answer": "ATE",
+    "freq": 341001
    },
    {
     "dir": "across",
     "r": 1,
     "c": 0,
-    "answer": "EAT",
-    "freq": 347273
+    "answer": "ERR",
+    "freq": 338648
    },
    {
     "dir": "across",
     "r": 1,
     "c": 4,
-    "answer": "REV",
-    "freq": 344783
+    "answer": "TRY",
+    "freq": 349317
    },
    {
     "dir": "across",
     "r": 2,
     "c": 0,
-    "answer": "TRILOGY",
-    "freq": 338106
+    "answer": "NECKTIE",
+    "freq": 297204
    },
    {
     "dir": "across",
     "r": 3,
     "c": 2,
-    "answer": "LAS",
-    "freq": 348363
+    "answer": "HOE",
+    "freq": 329038
    },
    {
     "dir": "across",
     "r": 4,
     "c": 0,
-    "answer": "ARIZONA",
-    "freq": 347943
-   },
-   {
-    "dir": "across",
-    "r": 5,
-    "c": 0,
-    "answer": "SUZ",
-    "freq": 291224
-   },
-   {
-    "dir": "across",
-    "r": 5,
-    "c": 4,
-    "answer": "DEL",
-    "freq": 347884
-   },
-   {
-    "dir": "across",
-    "r": 6,
-    "c": 0,
-    "answer": "SEE",
-    "freq": 349937
-   },
-   {
-    "dir": "across",
-    "r": 6,
-    "c": 4,
-    "answer": "YES",
-    "freq": 349517
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 0,
-    "answer": "YET",
-    "freq": 349365
-   },
-   {
-    "dir": "down",
-    "r": 4,
-    "c": 0,
-    "answer": "ASS",
-    "freq": 348697
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 1,
-    "answer": "OAR",
-    "freq": 322154
-   },
-   {
-    "dir": "down",
-    "r": 4,
-    "c": 1,
-    "answer": "RUE",
-    "freq": 338472
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 2,
-    "answer": "UTILIZE",
-    "freq": 341123
-   },
-   {
-    "dir": "down",
-    "r": 2,
-    "c": 3,
-    "answer": "LAZ",
-    "freq": 269897
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 4,
-    "answer": "PROSODY",
-    "freq": 276072
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 5,
-    "answer": "SEG",
-    "freq": 329664
-   },
-   {
-    "dir": "down",
-    "r": 4,
-    "c": 5,
-    "answer": "NEE",
-    "freq": 328998
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 6,
-    "answer": "IVY",
-    "freq": 338281
-   },
-   {
-    "dir": "down",
-    "r": 4,
-    "c": 6,
-    "answer": "ALS",
-    "freq": 339799
-   }
-  ]
- },
- {
-  "size": 7,
-  "grid": [
-   "#SPIN##",
-   "#ERNIE#",
-   "APOSTLE",
-   "RAJ#RES",
-   "CLERICS",
-   "#SCOTT#",
-   "##TIES#"
-  ],
-  "answers": [
-   {
-    "dir": "across",
-    "r": 0,
-    "c": 1,
-    "answer": "SPIN",
-    "freq": 344817
-   },
-   {
-    "dir": "across",
-    "r": 1,
-    "c": 1,
-    "answer": "ERNIE",
-    "freq": 333732
-   },
-   {
-    "dir": "across",
-    "r": 2,
-    "c": 0,
-    "answer": "APOSTLE",
-    "freq": 331252
-   },
-   {
-    "dir": "across",
-    "r": 3,
-    "c": 0,
-    "answer": "RAJ",
-    "freq": 328427
-   },
-   {
-    "dir": "across",
-    "r": 3,
-    "c": 4,
-    "answer": "RES",
-    "freq": 346288
-   },
-   {
-    "dir": "across",
-    "r": 4,
-    "c": 0,
-    "answer": "CLERICS",
-    "freq": 310165
-   },
-   {
-    "dir": "across",
-    "r": 5,
-    "c": 1,
-    "answer": "SCOTT",
-    "freq": 348028
-   },
-   {
-    "dir": "across",
-    "r": 6,
-    "c": 2,
-    "answer": "TIES",
-    "freq": 344097
-   },
-   {
-    "dir": "down",
-    "r": 2,
-    "c": 0,
-    "answer": "ARC",
-    "freq": 344674
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 1,
-    "answer": "SEPALS",
-    "freq": 255788
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 2,
-    "answer": "PROJECT",
-    "freq": 349713
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 3,
-    "answer": "INS",
-    "freq": 344213
-   },
-   {
-    "dir": "down",
-    "r": 4,
-    "c": 3,
-    "answer": "ROI",
-    "freq": 339179
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 4,
-    "answer": "NITRITE",
-    "freq": 311454
-   },
-   {
-    "dir": "down",
-    "r": 1,
-    "c": 5,
-    "answer": "ELECTS",
-    "freq": 321157
-   },
-   {
-    "dir": "down",
-    "r": 2,
-    "c": 6,
-    "answer": "ESS",
-    "freq": 330320
-   }
-  ]
- },
- {
-  "size": 7,
-  "grid": [
-   "AGE#ARE",
-   "NAA#BAD",
-   "SYSTEMS",
-   "##TOL##",
-   "PRESIDE",
-   "AIR#AHO",
-   "YON#NUN"
-  ],
-  "answers": [
-   {
-    "dir": "across",
-    "r": 0,
-    "c": 0,
-    "answer": "AGE",
-    "freq": 349421
-   },
-   {
-    "dir": "across",
-    "r": 0,
-    "c": 4,
-    "answer": "ARE",
-    "freq": 349981
-   },
-   {
-    "dir": "across",
-    "r": 1,
-    "c": 0,
-    "answer": "NAA",
-    "freq": 312719
-   },
-   {
-    "dir": "across",
-    "r": 1,
-    "c": 4,
-    "answer": "BAD",
-    "freq": 349160
-   },
-   {
-    "dir": "across",
-    "r": 2,
-    "c": 0,
-    "answer": "SYSTEMS",
-    "freq": 349688
-   },
-   {
-    "dir": "across",
-    "r": 3,
-    "c": 2,
-    "answer": "TOL",
-    "freq": 319608
-   },
-   {
-    "dir": "across",
-    "r": 4,
-    "c": 0,
-    "answer": "PRESIDE",
-    "freq": 310316
-   },
-   {
-    "dir": "across",
-    "r": 5,
-    "c": 0,
-    "answer": "AIR",
-    "freq": 349523
-   },
-   {
-    "dir": "across",
-    "r": 5,
-    "c": 4,
-    "answer": "AHO",
-    "freq": 288653
-   },
-   {
-    "dir": "across",
-    "r": 6,
-    "c": 0,
-    "answer": "YON",
-    "freq": 314339
-   },
-   {
-    "dir": "across",
-    "r": 6,
-    "c": 4,
-    "answer": "NUN",
-    "freq": 329607
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 0,
-    "answer": "ANS",
-    "freq": 334066
-   },
-   {
-    "dir": "down",
-    "r": 4,
-    "c": 0,
-    "answer": "PAY",
-    "freq": 349402
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 1,
-    "answer": "GAY",
-    "freq": 349545
-   },
-   {
-    "dir": "down",
-    "r": 4,
-    "c": 1,
-    "answer": "RIO",
-    "freq": 344710
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 2,
-    "answer": "EASTERN",
-    "freq": 347903
-   },
-   {
-    "dir": "down",
-    "r": 2,
-    "c": 3,
-    "answer": "TOS",
-    "freq": 335983
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 4,
-    "answer": "ABELIAN",
-    "freq": 311830
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 5,
-    "answer": "RAM",
-    "freq": 346788
-   },
-   {
-    "dir": "down",
-    "r": 4,
-    "c": 5,
-    "answer": "DHU",
-    "freq": 256040
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 6,
-    "answer": "EDS",
-    "freq": 341541
-   },
-   {
-    "dir": "down",
-    "r": 4,
-    "c": 6,
-    "answer": "EON",
-    "freq": 316453
-   }
-  ]
- },
- {
-  "size": 7,
-  "grid": [
-   "AGE#GUT",
-   "RAT#URI",
-   "CYCLING",
-   "##HAN##",
-   "WRITERS",
-   "ION#AER",
-   "NIG#SSI"
-  ],
-  "answers": [
-   {
-    "dir": "across",
-    "r": 0,
-    "c": 0,
-    "answer": "AGE",
-    "freq": 349421
-   },
-   {
-    "dir": "across",
-    "r": 0,
-    "c": 4,
-    "answer": "GUT",
-    "freq": 336124
-   },
-   {
-    "dir": "across",
-    "r": 1,
-    "c": 0,
-    "answer": "RAT",
-    "freq": 344091
-   },
-   {
-    "dir": "across",
-    "r": 1,
-    "c": 4,
-    "answer": "URI",
-    "freq": 341242
-   },
-   {
-    "dir": "across",
-    "r": 2,
-    "c": 0,
-    "answer": "CYCLING",
-    "freq": 344481
-   },
-   {
-    "dir": "across",
-    "r": 3,
-    "c": 2,
-    "answer": "HAN",
-    "freq": 338063
-   },
-   {
-    "dir": "across",
-    "r": 4,
-    "c": 0,
-    "answer": "WRITERS",
-    "freq": 346281
+    "answer": "THIAMIN",
+    "freq": 285805
    },
    {
     "dir": "across",
@@ -701,519 +197,729 @@
     "dir": "across",
     "r": 5,
     "c": 4,
-    "answer": "AER",
-    "freq": 318937
+    "answer": "PSI",
+    "freq": 341199
    },
    {
     "dir": "across",
     "r": 6,
     "c": 0,
-    "answer": "NIG",
-    "freq": 284524
+    "answer": "STS",
+    "freq": 337591
    },
    {
     "dir": "across",
     "r": 6,
     "c": 4,
-    "answer": "SSI",
-    "freq": 334682
+    "answer": "TOT",
+    "freq": 339554
    },
    {
     "dir": "down",
     "r": 0,
     "c": 0,
-    "answer": "ARC",
-    "freq": 344674
+    "answer": "YEN",
+    "freq": 340851
    },
    {
     "dir": "down",
     "r": 4,
     "c": 0,
-    "answer": "WIN",
-    "freq": 348761
+    "answer": "TIS",
+    "freq": 336707
    },
    {
     "dir": "down",
     "r": 0,
     "c": 1,
-    "answer": "GAY",
-    "freq": 349545
+    "answer": "ORE",
+    "freq": 336528
    },
    {
     "dir": "down",
     "r": 4,
     "c": 1,
-    "answer": "ROI",
-    "freq": 339179
+    "answer": "HOT",
+    "freq": 349514
    },
    {
     "dir": "down",
     "r": 0,
     "c": 2,
-    "answer": "ETCHING",
-    "freq": 328751
+    "answer": "URCHINS",
+    "freq": 278434
    },
    {
     "dir": "down",
     "r": 2,
     "c": 3,
-    "answer": "LAT",
-    "freq": 344837
+    "answer": "KOA",
+    "freq": 314455
    },
    {
     "dir": "down",
     "r": 0,
     "c": 4,
-    "answer": "GUINEAS",
-    "freq": 289154
+    "answer": "ATTEMPT",
+    "freq": 346945
    },
    {
     "dir": "down",
     "r": 0,
     "c": 5,
-    "answer": "URN",
-    "freq": 331523
+    "answer": "TRI",
+    "freq": 343822
    },
    {
     "dir": "down",
     "r": 4,
     "c": 5,
-    "answer": "RES",
-    "freq": 346288
+    "answer": "ISO",
+    "freq": 346408
    },
    {
     "dir": "down",
     "r": 0,
     "c": 6,
-    "answer": "TIG",
-    "freq": 325601
+    "answer": "EYE",
+    "freq": 348435
    },
    {
     "dir": "down",
     "r": 4,
     "c": 6,
-    "answer": "SRI",
-    "freq": 345262
+    "answer": "NIT",
+    "freq": 320156
    }
   ]
  },
  {
   "size": 7,
   "grid": [
-   "#SPAM##",
-   "WARREN#",
-   "ALONSO#",
-   "RAJ#SIA",
-   "#DESIST",
-   "#SCONES",
-   "##TUGS#"
+   "EDO#VAS",
+   "MEN#IVA",
+   "SNEAKER",
+   "##TUI##",
+   "CHIMNEY",
+   "OAM#GEE",
+   "NYE#SLA"
   ],
   "answers": [
    {
     "dir": "across",
     "r": 0,
-    "c": 1,
-    "answer": "SPAM",
-    "freq": 347433
-   },
-   {
-    "dir": "across",
-    "r": 1,
-    "c": 0,
-    "answer": "WARREN",
-    "freq": 344892
-   },
-   {
-    "dir": "across",
-    "r": 2,
-    "c": 0,
-    "answer": "ALONSO",
-    "freq": 321775
-   },
-   {
-    "dir": "across",
-    "r": 3,
-    "c": 0,
-    "answer": "RAJ",
-    "freq": 328427
-   },
-   {
-    "dir": "across",
-    "r": 3,
-    "c": 4,
-    "answer": "SIA",
-    "freq": 325579
-   },
-   {
-    "dir": "across",
-    "r": 4,
-    "c": 1,
-    "answer": "DESIST",
-    "freq": 314332
-   },
-   {
-    "dir": "across",
-    "r": 5,
-    "c": 1,
-    "answer": "SCONES",
-    "freq": 304649
-   },
-   {
-    "dir": "across",
-    "r": 6,
-    "c": 2,
-    "answer": "TUGS",
-    "freq": 296946
-   },
-   {
-    "dir": "down",
-    "r": 1,
-    "c": 0,
-    "answer": "WAR",
-    "freq": 349386
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 1,
-    "answer": "SALADS",
-    "freq": 334233
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 2,
-    "answer": "PROJECT",
-    "freq": 349713
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 3,
-    "answer": "ARN",
-    "freq": 305437
-   },
-   {
-    "dir": "down",
-    "r": 4,
-    "c": 3,
-    "answer": "SOU",
-    "freq": 322025
-   },
-   {
-    "dir": "down",
-    "r": 0,
-    "c": 4,
-    "answer": "MESSING",
-    "freq": 326232
-   },
-   {
-    "dir": "down",
-    "r": 1,
-    "c": 5,
-    "answer": "NOISES",
-    "freq": 329866
-   },
-   {
-    "dir": "down",
-    "r": 3,
-    "c": 6,
-    "answer": "ATS",
-    "freq": 333095
-   }
-  ]
- },
- {
-  "size": 7,
-  "grid": [
-   "#BAAS##",
-   "#REBUS#",
-   "SIROCCO",
-   "EDO#CAW",
-   "EASTERN",
-   "#LOOSE#",
-   "##LESS#"
-  ],
-  "answers": [
-   {
-    "dir": "across",
-    "r": 0,
-    "c": 1,
-    "answer": "BAAS",
-    "freq": 279291
-   },
-   {
-    "dir": "across",
-    "r": 1,
-    "c": 1,
-    "answer": "REBUS",
-    "freq": 287633
-   },
-   {
-    "dir": "across",
-    "r": 2,
-    "c": 0,
-    "answer": "SIROCCO",
-    "freq": 260099
-   },
-   {
-    "dir": "across",
-    "r": 3,
     "c": 0,
     "answer": "EDO",
     "freq": 323401
    },
    {
     "dir": "across",
-    "r": 3,
+    "r": 0,
     "c": 4,
-    "answer": "CAW",
-    "freq": 296090
+    "answer": "VAS",
+    "freq": 320300
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 0,
+    "answer": "MEN",
+    "freq": 349560
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 4,
+    "answer": "IVA",
+    "freq": 327060
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "SNEAKER",
+    "freq": 320389
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 2,
+    "answer": "TUI",
+    "freq": 308658
    },
    {
     "dir": "across",
     "r": 4,
     "c": 0,
-    "answer": "EASTERN",
-    "freq": 347903
+    "answer": "CHIMNEY",
+    "freq": 334343
    },
    {
     "dir": "across",
     "r": 5,
-    "c": 1,
-    "answer": "LOOSE",
-    "freq": 344774
+    "c": 0,
+    "answer": "OAM",
+    "freq": 300186
+   },
+   {
+    "dir": "across",
+    "r": 5,
+    "c": 4,
+    "answer": "GEE",
+    "freq": 334413
    },
    {
     "dir": "across",
     "r": 6,
-    "c": 2,
-    "answer": "LESS",
-    "freq": 349466
+    "c": 0,
+    "answer": "NYE",
+    "freq": 327516
+   },
+   {
+    "dir": "across",
+    "r": 6,
+    "c": 4,
+    "answer": "SLA",
+    "freq": 329651
    },
    {
     "dir": "down",
-    "r": 2,
+    "r": 0,
     "c": 0,
-    "answer": "SEE",
-    "freq": 349937
+    "answer": "EMS",
+    "freq": 339583
+   },
+   {
+    "dir": "down",
+    "r": 4,
+    "c": 0,
+    "answer": "CON",
+    "freq": 347472
    },
    {
     "dir": "down",
     "r": 0,
     "c": 1,
-    "answer": "BRIDAL",
-    "freq": 342994
+    "answer": "DEN",
+    "freq": 345096
+   },
+   {
+    "dir": "down",
+    "r": 4,
+    "c": 1,
+    "answer": "HAY",
+    "freq": 340741
    },
    {
     "dir": "down",
     "r": 0,
     "c": 2,
-    "answer": "AEROSOL",
-    "freq": 332987
+    "answer": "ONETIME",
+    "freq": 300552
    },
    {
     "dir": "down",
-    "r": 0,
+    "r": 2,
     "c": 3,
-    "answer": "ABO",
-    "freq": 312105
-   },
-   {
-    "dir": "down",
-    "r": 4,
-    "c": 3,
-    "answer": "TOE",
-    "freq": 345260
+    "answer": "AUM",
+    "freq": 296937
    },
    {
     "dir": "down",
     "r": 0,
     "c": 4,
-    "answer": "SUCCESS",
-    "freq": 348615
+    "answer": "VIKINGS",
+    "freq": 334028
    },
    {
     "dir": "down",
-    "r": 1,
+    "r": 0,
     "c": 5,
-    "answer": "SCARES",
-    "freq": 319064
+    "answer": "AVE",
+    "freq": 347681
    },
    {
     "dir": "down",
-    "r": 2,
+    "r": 4,
+    "c": 5,
+    "answer": "EEL",
+    "freq": 323020
+   },
+   {
+    "dir": "down",
+    "r": 0,
     "c": 6,
-    "answer": "OWN",
-    "freq": 349707
+    "answer": "SAR",
+    "freq": 336212
+   },
+   {
+    "dir": "down",
+    "r": 4,
+    "c": 6,
+    "answer": "YEA",
+    "freq": 341844
    }
   ]
  },
  {
   "size": 7,
   "grid": [
-   "HAN#CHA",
-   "ANY#HIT",
-   "SAMURAI",
-   "##PRO##",
-   "JOHNNIE",
-   "AWE#INS",
-   "NET#COS"
+   "FOR#DAY",
+   "AWE#EVE",
+   "SNAPPER",
+   "##LIE##",
+   "ALIGNER",
+   "WIZ#DAO",
+   "ATE#SRI"
   ],
   "answers": [
    {
     "dir": "across",
     "r": 0,
     "c": 0,
-    "answer": "HAN",
-    "freq": 338063
+    "answer": "FOR",
+    "freq": 349994
    },
    {
     "dir": "across",
     "r": 0,
     "c": 4,
-    "answer": "CHA",
-    "freq": 338438
+    "answer": "DAY",
+    "freq": 349888
    },
    {
     "dir": "across",
     "r": 1,
-    "c": 0,
-    "answer": "ANY",
-    "freq": 349939
-   },
-   {
-    "dir": "across",
-    "r": 1,
-    "c": 4,
-    "answer": "HIT",
-    "freq": 348450
-   },
-   {
-    "dir": "across",
-    "r": 2,
-    "c": 0,
-    "answer": "SAMURAI",
-    "freq": 338287
-   },
-   {
-    "dir": "across",
-    "r": 3,
-    "c": 2,
-    "answer": "PRO",
-    "freq": 349222
-   },
-   {
-    "dir": "across",
-    "r": 4,
-    "c": 0,
-    "answer": "JOHNNIE",
-    "freq": 319876
-   },
-   {
-    "dir": "across",
-    "r": 5,
     "c": 0,
     "answer": "AWE",
     "freq": 333615
    },
    {
     "dir": "across",
+    "r": 1,
+    "c": 4,
+    "answer": "EVE",
+    "freq": 344993
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "SNAPPER",
+    "freq": 322174
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 2,
+    "answer": "LIE",
+    "freq": 345072
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 0,
+    "answer": "ALIGNER",
+    "freq": 263544
+   },
+   {
+    "dir": "across",
+    "r": 5,
+    "c": 0,
+    "answer": "WIZ",
+    "freq": 327250
+   },
+   {
+    "dir": "across",
     "r": 5,
     "c": 4,
-    "answer": "INS",
-    "freq": 344213
+    "answer": "DAO",
+    "freq": 323942
    },
    {
     "dir": "across",
     "r": 6,
     "c": 0,
-    "answer": "NET",
-    "freq": 349327
+    "answer": "ATE",
+    "freq": 341001
    },
    {
     "dir": "across",
     "r": 6,
     "c": 4,
-    "answer": "COS",
-    "freq": 341569
+    "answer": "SRI",
+    "freq": 345262
    },
    {
     "dir": "down",
     "r": 0,
     "c": 0,
-    "answer": "HAS",
-    "freq": 349961
+    "answer": "FAS",
+    "freq": 330077
    },
    {
     "dir": "down",
     "r": 4,
     "c": 0,
-    "answer": "JAN",
-    "freq": 349847
+    "answer": "AWA",
+    "freq": 313940
    },
    {
     "dir": "down",
     "r": 0,
     "c": 1,
-    "answer": "ANA",
-    "freq": 341468
+    "answer": "OWN",
+    "freq": 349707
    },
    {
     "dir": "down",
     "r": 4,
     "c": 1,
-    "answer": "OWE",
-    "freq": 336681
+    "answer": "LIT",
+    "freq": 341986
    },
    {
     "dir": "down",
     "r": 0,
     "c": 2,
-    "answer": "NYMPHET",
-    "freq": 254894
+    "answer": "REALIZE",
+    "freq": 345220
    },
    {
     "dir": "down",
     "r": 2,
     "c": 3,
-    "answer": "URN",
-    "freq": 331523
+    "answer": "PIG",
+    "freq": 342008
    },
    {
     "dir": "down",
     "r": 0,
     "c": 4,
-    "answer": "CHRONIC",
-    "freq": 345100
+    "answer": "DEPENDS",
+    "freq": 346171
    },
    {
     "dir": "down",
     "r": 0,
     "c": 5,
-    "answer": "HIA",
-    "freq": 290006
+    "answer": "AVE",
+    "freq": 347681
    },
    {
     "dir": "down",
     "r": 4,
     "c": 5,
-    "answer": "INO",
-    "freq": 308695
+    "answer": "EAR",
+    "freq": 345408
    },
    {
     "dir": "down",
     "r": 0,
     "c": 6,
-    "answer": "ATI",
-    "freq": 342659
+    "answer": "YER",
+    "freq": 330591
    },
    {
     "dir": "down",
     "r": 4,
     "c": 6,
-    "answer": "ESS",
-    "freq": 330320
+    "answer": "ROI",
+    "freq": 339179
+   }
+  ]
+ },
+ {
+  "size": 7,
+  "grid": [
+   "#WAAR##",
+   "SERVES#",
+   "PIRACY#",
+   "AGE#END",
+   "#HALIDE",
+   "#TRAVIS",
+   "##SPEC#"
+  ],
+  "answers": [
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 1,
+    "answer": "WAAR",
+    "freq": 282985
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 0,
+    "answer": "SERVES",
+    "freq": 345352
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "PIRACY",
+    "freq": 334607
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 0,
+    "answer": "AGE",
+    "freq": 349421
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 4,
+    "answer": "END",
+    "freq": 349684
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 1,
+    "answer": "HALIDE",
+    "freq": 311027
+   },
+   {
+    "dir": "across",
+    "r": 5,
+    "c": 1,
+    "answer": "TRAVIS",
+    "freq": 340414
+   },
+   {
+    "dir": "across",
+    "r": 6,
+    "c": 2,
+    "answer": "SPEC",
+    "freq": 343670
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 0,
+    "answer": "SPA",
+    "freq": 347491
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 1,
+    "answer": "WEIGHT",
+    "freq": 349114
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 2,
+    "answer": "ARREARS",
+    "freq": 326083
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 3,
+    "answer": "AVA",
+    "freq": 328568
+   },
+   {
+    "dir": "down",
+    "r": 4,
+    "c": 3,
+    "answer": "LAP",
+    "freq": 341393
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 4,
+    "answer": "RECEIVE",
+    "freq": 349092
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 5,
+    "answer": "SYNDIC",
+    "freq": 254662
+   },
+   {
+    "dir": "down",
+    "r": 3,
+    "c": 6,
+    "answer": "DES",
+    "freq": 347715
+   }
+  ]
+ },
+ {
+  "size": 7,
+  "grid": [
+   "ERA#SIL",
+   "MID#POE",
+   "STAGING",
+   "##PAR##",
+   "RITUALS",
+   "EYE#LOT",
+   "FOR#SAY"
+  ],
+  "answers": [
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 0,
+    "answer": "ERA",
+    "freq": 345828
+   },
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 4,
+    "answer": "SIL",
+    "freq": 326075
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 0,
+    "answer": "MID",
+    "freq": 347956
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 4,
+    "answer": "POE",
+    "freq": 334107
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "STAGING",
+    "freq": 334226
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 2,
+    "answer": "PAR",
+    "freq": 345781
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 0,
+    "answer": "RITUALS",
+    "freq": 331972
+   },
+   {
+    "dir": "across",
+    "r": 5,
+    "c": 0,
+    "answer": "EYE",
+    "freq": 348435
+   },
+   {
+    "dir": "across",
+    "r": 5,
+    "c": 4,
+    "answer": "LOT",
+    "freq": 349253
+   },
+   {
+    "dir": "across",
+    "r": 6,
+    "c": 0,
+    "answer": "FOR",
+    "freq": 349994
+   },
+   {
+    "dir": "across",
+    "r": 6,
+    "c": 4,
+    "answer": "SAY",
+    "freq": 349505
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 0,
+    "answer": "EMS",
+    "freq": 339583
+   },
+   {
+    "dir": "down",
+    "r": 4,
+    "c": 0,
+    "answer": "REF",
+    "freq": 346573
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 1,
+    "answer": "RIT",
+    "freq": 315531
+   },
+   {
+    "dir": "down",
+    "r": 4,
+    "c": 1,
+    "answer": "IYO",
+    "freq": 251646
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 2,
+    "answer": "ADAPTER",
+    "freq": 346596
+   },
+   {
+    "dir": "down",
+    "r": 2,
+    "c": 3,
+    "answer": "GAU",
+    "freq": 286088
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 4,
+    "answer": "SPIRALS",
+    "freq": 307490
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 5,
+    "answer": "ION",
+    "freq": 344614
+   },
+   {
+    "dir": "down",
+    "r": 4,
+    "c": 5,
+    "answer": "LOA",
+    "freq": 318806
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 6,
+    "answer": "LEG",
+    "freq": 345908
+   },
+   {
+    "dir": "down",
+    "r": 4,
+    "c": 6,
+    "answer": "STY",
+    "freq": 296610
    }
   ]
  }

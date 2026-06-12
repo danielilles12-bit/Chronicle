@@ -202,6 +202,12 @@ function paint() {
   });
   $('#cw-clue-label').textContent = `${slot.num} ${slot.dir === 'across' ? 'Across' : 'Down'}`;
   $('#cw-clue-text').textContent = slot.clue;
+  window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
+    cw: {
+      id: G.p.id, sel: G.sel, dir: G.dir, completed: G.completed,
+      entries: G.entries.slice(), sol: G.cells.map((c) => c.sol),
+    },
+  });
   // clue list states
   $$('#cw-cluelist li').forEach((li) => {
     const s = G.slots[li.dataset.dir].find((x) => x.num === +li.dataset.num);

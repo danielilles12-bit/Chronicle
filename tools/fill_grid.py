@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""Crossword construction: symmetric pattern generation + backtracking dictionary fill.
+"""Crossword construction: symmetric pattern generation + backtracking fill.
 
-Usage:
+Vocabulary, best first:
+  1. Crossword Nexus collaborative wordlist (scored; cached by wordlist_ext.py)
+     — trimmed to the best-scoring words per length.
+  2. Fallback: /usr/share/dict/words lowercase entries gated by corpus frequency.
+Curated history answers always get top priority. Finished grids are REJECTED
+if any answer scores below the quality gate.
+
   python3 tools/fill_grid.py --size 15 --count 3 --max-seconds 1500 --out tools/out/fulls.json
-
-Quality: vocabulary is /usr/share/dict/words restricted by corpus frequency
-(no free pass for short words), curated history answers get top priority, and
-finished grids are REJECTED if any answer falls below the quality gate.
 """
 import argparse
 import json
@@ -18,11 +20,26 @@ import urllib.request
 
 sys.path.insert(0, os.path.dirname(__file__))
 from history_words import HISTORY_WORDS  # noqa: E402
+from wordlist_ext import get_external_words  # noqa: E402
 
 CACHE = os.path.join(os.path.dirname(__file__), "cache")
 FREQ_URL = "https://norvig.com/ngrams/count_1w.txt"
 HISTORY = set(HISTORY_WORDS)
-HISTORY_BONUS = 10_000_000
+HISTORY_BONUS = 10 ** 13
+
+BAN = {
+    "YEE", "NAA", "SES", "AWS", "ULE", "TOS", "ANS", "EDS", "TES", "YAD",
+    "SHI", "SIA", "HIA", "INO", "ATI", "ABO", "NIG", "SEG", "LAZ", "SUZ",
+    "DHU", "AHO", "TOL", "ARN", "SAA", "CEP", "ORGIA", "BREBA", "ARTAL",
+    "ALYA", "ADDY", "ABUNA", "OFTER", "BOIST", "HILSA", "EUSOL", "IDOSE",
+    "ALEA", "KELL", "MERAK", "SAYA", "NOMOS", "RECTA", "UNIES", "LIGNE",
+    "AREAL", "MADI", "IYO", "GAU", "SIL", "OAM", "AUM", "WAAR", "NEAS",
+    "LOMA", "ELLES", "MEESE", "REDES", "ALWAY", "YAT", "ANAS", "ACYL",
+    "CORSE", "RIES", "OMER", "BES",
+}
+
+PER_LEN_CAP = {3: 1200, 4: 2500, 5: 4000, 6: 5000, 7: 5000, 8: 4000,
+               9: 3000, 10: 2500, 11: 2000, 12: 1500, 13: 1200, 14: 1000, 15: 1000}
 
 
 def load_freq():
@@ -42,35 +59,58 @@ def load_freq():
 
 
 def min_freq_for_len(n):
-    """Vocabulary admission threshold by word length (higher = more common)."""
     if n <= 4:
-        return 250_000   # top ~100k tokens
+        return 250_000
     if n <= 7:
-        return 200_000   # top ~150k
-    return 100_000       # top ~250k (long words are scarcer)
+        return 200_000
+    return 100_000
 
 
-def load_words(freq):
+def load_vocab(freq):
+    """Returns (words, score_fn, quality_fn, mode)."""
+    ext = get_external_words()
+    if ext:
+        buckets = {}
+        for w, s in ext.items():
+            if s >= 50 and w.isalpha() and 3 <= len(w) <= 15 and w not in BAN:
+                buckets.setdefault(len(w), []).append(w)
+        words = set()
+        for ln, lst in buckets.items():
+            lst.sort(key=lambda w: (ext[w], freq.get(w, 0)), reverse=True)
+            words.update(lst[:PER_LEN_CAP.get(ln, 1000)])
+        words |= {w for w in HISTORY if 3 <= len(w) <= 15}
+        words -= BAN
+
+        def score(w):
+            return ((HISTORY_BONUS if w in HISTORY else 0)
+                    + ext.get(w, 50) * 1_000_000 + min(freq.get(w, 0), 999_999))
+
+        def quality(w):
+            return ext.get(w, 60 if w in HISTORY else 0)
+
+        return words, score, quality, "xwordlist"
+
+    # fallback: lowercase dictionary words gated by web frequency
     with open("/usr/share/dict/words") as f:
-        dict_words = {w.strip().upper() for w in f if w.strip().isalpha()}
+        lower = {w.strip().upper() for w in f
+                 if w.strip().isalpha() and w.strip().islower()}
     words = set()
-    for w in dict_words:
+    for w in lower:
         if 3 <= len(w) <= 15 and freq.get(w, 0) >= min_freq_for_len(len(w)):
             words.add(w)
-    for w in dict_words:           # plurals only with strong usage evidence
+    for w in lower:
         p = w + "S"
         if 3 <= len(p) <= 15 and p not in words and freq.get(p, 0) >= 250_000:
             words.add(p)
-    for w in HISTORY:
-        if 3 <= len(w) <= 15:
-            words.add(w)
-    return words
+    words |= {w for w in HISTORY if 3 <= len(w) <= 15}
 
-
-def make_score(freq):
     def score(w):
         return (HISTORY_BONUS if w in HISTORY else 0) + freq.get(w, 1)
-    return score
+
+    def quality(w):
+        return freq.get(w, 0) // 4000   # roughly maps to a 0-90 scale
+
+    return words - BAN, score, quality, "freq"
 
 
 # ---------- pattern helpers ----------
@@ -154,7 +194,6 @@ def gen_pattern(n, blocks_target, rng, by_len):
         if blocks < blocks_target - 3:
             continue
         slots = build_slots(rows)
-        # every slot length must have a healthy candidate pool
         if any(len(by_len.get(s["len"], ())) < 150 for s in slots):
             continue
         longs = sum(1 for s in slots if s["len"] >= 8)
@@ -180,7 +219,6 @@ class Filler:
             lst.sort(key=score, reverse=True)
 
     def _pool(self, slot, grid):
-        """Set of words matching fixed letters, or None when unconstrained."""
         fixed = [(i, grid[cell]) for i, cell in enumerate(slot["cells"]) if grid[cell]]
         if not fixed:
             return None
@@ -214,16 +252,30 @@ class Filler:
         out = sorted((w for w in pool if w not in used), key=self.score, reverse=True)
         return out[:limit]
 
-    def fill(self, rows, seeds, deadline, max_nodes=250_000):
+    def fill(self, rows, seeds, deadline, pinned=None, max_nodes=250_000):
         slots = build_slots(rows)
         cell2slots = {}
         for idx, s in enumerate(slots):
             for cell in s["cells"]:
                 cell2slots.setdefault(cell, []).append(idx)
         grid = {cell: None for s in slots for cell in s["cells"]}
+        if pinned:
+            for cell, ch in pinned.items():
+                if cell in grid:
+                    grid[cell] = ch
         used = set()
         assigned = {}
         self.nodes = 0
+
+        def slot_word(idx):
+            return "".join(grid[c] or "." for c in slots[idx]["cells"])
+
+        # mark slots already complete via pins
+        for idx in range(len(slots)):
+            w = slot_word(idx)
+            if "." not in w:
+                assigned[idx] = w
+                used.add(w)
 
         def place(idx, word):
             changed = []
@@ -248,12 +300,13 @@ class Filler:
                         return False
             return True
 
-        # seed a few long history words, keeping the grid provably alive
         order = sorted(range(len(slots)), key=lambda i: -slots[i]["len"])
         placed = 0
         for idx in order:
             if placed >= 3 or slots[idx]["len"] < 8:
                 break
+            if idx in assigned:
+                continue
             for w in seeds:
                 if len(w) == slots[idx]["len"] and w not in used:
                     pool = self._pool(slots[idx], grid)
@@ -321,14 +374,18 @@ def main():
 
     rng = random.Random(args.seed)
     freq = load_freq()
-    words = load_words(freq)
-    score = make_score(freq)
-    print("vocab size:", len(words), file=sys.stderr)
+    words, score, quality, mode = load_vocab(freq)
+    print("vocab size:", len(words), "mode:", mode, file=sys.stderr)
     filler = Filler(words, score, rng)
 
     n = args.size
     blocks = args.blocks if args.blocks is not None else {15: 40, 11: 26, 7: 10, 5: 4}.get(n, max(4, n * n // 6))
-    gate = args.quality if args.quality is not None else (160_000 if n >= 11 else 235_000)
+    if args.quality is not None:
+        gate = args.quality
+    elif mode == "xwordlist":
+        gate = 52 if n >= 11 else 60
+    else:
+        gate = 40 if n >= 11 else 58
 
     results = []
     t_end = time.time() + args.max_seconds
@@ -347,15 +404,14 @@ def main():
             print("attempt %d: fail (nodes=%d)" % (attempt, filler.nodes), file=sys.stderr)
             continue
         answers = grid_answers(filled)
-        worst = min((freq.get(a[3], 0) for a in answers if a[3] not in HISTORY), default=0)
-        if worst < gate:
-            bad = [a[3] for a in answers if a[3] not in HISTORY and freq.get(a[3], 0) < gate]
+        bad = [a[3] for a in answers if a[3] not in HISTORY and quality(a[3]) < gate]
+        if bad:
             print("attempt %d: rejected (junk: %s)" % (attempt, bad[:6]), file=sys.stderr)
             continue
         results.append({
             "size": n,
             "grid": filled,
-            "answers": [{"dir": d, "r": r, "c": c, "answer": a, "freq": freq.get(a, 0)}
+            "answers": [{"dir": d, "r": r, "c": c, "answer": a, "q": quality(a)}
                         for d, r, c, a in answers],
         })
         print("attempt %d: SUCCESS (%d/%d)" % (attempt, len(results), args.count), file=sys.stderr)
