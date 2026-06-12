@@ -45,14 +45,31 @@ function tolerance(len) {
   return 2;
 }
 
+// Regnal numerals are tiny edit distances apart but name different people:
+// "Napoleon III" must never fuzzy-match "Napoleon I".
+const ROMANS = new Set(['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix',
+  'x', 'xi', 'xii', 'xiii', 'xiv', 'xv', 'xvi']);
+
+function splitNumeral(s) {
+  const parts = s.split(' ');
+  const last = parts[parts.length - 1];
+  if (parts.length > 1 && ROMANS.has(last)) {
+    return [parts.slice(0, -1).join(' '), last];
+  }
+  return [s, ''];
+}
+
 export function isMatch(guess, figure) {
   const g = normalize(guess);
   if (g.length < 2) return false;
+  const gNum = splitNumeral(g)[1];
   const cands = [figure.name].concat(figure.variants || []);
   for (const raw of cands) {
     const c = normalize(raw);
     if (!c) continue;
     if (g === c) return true;
+    const cNum = splitNumeral(c)[1];
+    if (gNum && cNum && gNum !== cNum) continue;
     const tol = tolerance(c.length);
     if (tol > 0 && damerau(g, c, tol) <= tol) return true;
   }

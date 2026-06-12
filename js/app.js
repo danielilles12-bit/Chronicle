@@ -1,5 +1,6 @@
 // Boot, data loading, view router, home screen.
 import * as store from './storage.js';
+import { isMatch } from './match.js';
 import { initCrossword, renderPuzzleList } from './crossword.js';
 import { initMapGame, renderMapStart } from './mapgame.js';
 
@@ -31,6 +32,28 @@ function render() {
   $$('.view').forEach((v) => { v.hidden = v.id !== id; });
   if (id === 'view-home') refreshHomeStats();
   document.dispatchEvent(new CustomEvent('viewchange', { detail: id }));
+}
+
+// Styled in-app replacement for window.confirm().
+export function appConfirm(message, yesLabel) {
+  return new Promise((resolve) => {
+    const sheet = $('#confirm-sheet');
+    const yes = $('#confirm-yes');
+    const no = $('#confirm-no');
+    $('#confirm-msg').textContent = message;
+    yes.textContent = yesLabel || 'Yes';
+    const finish = (val) => {
+      sheet.hidden = true;
+      yes.removeEventListener('click', onYes);
+      no.removeEventListener('click', onNo);
+      resolve(val);
+    };
+    const onYes = () => finish(true);
+    const onNo = () => finish(false);
+    yes.addEventListener('click', onYes);
+    no.addEventListener('click', onNo);
+    sheet.hidden = false;
+  });
 }
 
 // ---------- home ----------
@@ -101,7 +124,7 @@ async function boot() {
   refreshHomeStats();
 
   // Deterministic hooks for the automated test-suite.
-  window.__CHRONICLE_TEST__ = { data: DATA, store };
+  window.__CHRONICLE_TEST__ = { data: DATA, store, isMatch };
 
   if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
     navigator.serviceWorker.register('sw.js').catch(() => {});

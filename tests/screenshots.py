@@ -63,6 +63,7 @@ def main():
             shot(pg, "05-check-reveal-menu")
             pg.click("#cw-sheet [data-close-sheet]")
 
+            pg.wait_for_timeout(61_000)   # let the timer reach a believable solve time
             solve(pg)
             pg.wait_for_selector("#cw-done", state="visible")
             shot(pg, "06-crossword-complete")
@@ -118,7 +119,7 @@ def main():
 
             fail_on_errors(errors, "screenshots")
 
-        with page_on(p, "chromium") as (pg, errors):
+        with page_on(p, "chromium", device=None) as (pg, errors):
             pg.set_viewport_size({"width": 1280, "height": 800})
             pg.goto(base + "/")
             pg.wait_for_selector("#card-crossword")

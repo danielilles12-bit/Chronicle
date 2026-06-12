@@ -9,7 +9,7 @@
   {
     "id": "cleopatra", "name": "Cleopatra", "difficulty": "easy",
     "variants": ["cleopatra", "cleopatra vii"],
-    "occupation": "Last pharaoh of Ptolemaic Egypt",
+    "occupation": "Last active ruler of Ptolemaic Egypt",
     "birth": { "year": -69, "place": "Alexandria, Egypt", "lat": 31.2, "lon": 29.92 },
     "death": { "year": -30, "place": "Alexandria, Egypt", "lat": 31.2, "lon": 29.92 }
   },

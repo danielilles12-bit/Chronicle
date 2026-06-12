@@ -32,11 +32,10 @@ def server():
 
 
 @contextlib.contextmanager
-def page_on(p, engine="webkit", base=None):
-    """A page on an iPhone 13-sized context with console error capture."""
+def page_on(p, engine="webkit", base=None, device="iPhone 13"):
+    """A page with console error capture; device=None gives a plain desktop context."""
     browser = getattr(p, engine).launch()
-    device = dict(p.devices["iPhone 13"])
-    ctx = browser.new_context(**device)
+    ctx = browser.new_context(**dict(p.devices[device])) if device else browser.new_context()
     page = ctx.new_page()
     errors = []
     page.on("console", lambda m: errors.append("console: " + m.text) if m.type == "error" else None)

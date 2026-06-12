@@ -1,6 +1,6 @@
 // NYT-style crossword engine: selection, direction toggle, auto-advance,
 // clue bar, clue list, check/reveal, timer, correct-only completion.
-import { DATA, $, $$, show, back } from './app.js';
+import { DATA, $, $$, show, back, appConfirm } from './app.js';
 import * as store from './storage.js';
 
 let G = null;          // current game
@@ -302,30 +302,38 @@ function doCheck(scope) {
 }
 
 function doReveal(scope) {
-  if (scope === 'puzzle' && !window.confirm('Reveal the entire puzzle?')) return;
-  for (const i of scopeCells(scope)) {
-    if (G.entries[i] !== G.cells[i].sol) {
-      G.entries[i] = G.cells[i].sol;
-      G.revealed.add(i);
-      G.wrong.delete(i);
+  const go = () => {
+    for (const i of scopeCells(scope)) {
+      if (G.entries[i] !== G.cells[i].sol) {
+        G.entries[i] = G.cells[i].sol;
+        G.revealed.add(i);
+        G.wrong.delete(i);
+      }
     }
+    persist();
+    checkCompletion();
+    paint();
+  };
+  if (scope === 'puzzle') {
+    appConfirm('Reveal the entire puzzle?', 'Reveal it').then((ok) => { if (ok) go(); });
+  } else {
+    go();
   }
-  persist();
-  checkCompletion();
-  paint();
 }
 
 function restart() {
-  if (!window.confirm('Clear all your answers and restart this puzzle?')) return;
-  G.entries = G.cells.map(() => '');
-  G.wrong.clear();
-  G.revealed.clear();
-  G.elapsed = 0;
-  G.completed = false;
-  persist();
-  renderTimer();
-  startTimer();
-  selectSlot(G.slots.across[0], true);
+  appConfirm('Clear all your answers and restart this puzzle?', 'Clear it').then((ok) => {
+    if (!ok) return;
+    G.entries = G.cells.map(() => '');
+    G.wrong.clear();
+    G.revealed.clear();
+    G.elapsed = 0;
+    G.completed = false;
+    persist();
+    renderTimer();
+    startTimer();
+    selectSlot(G.slots.across[0], true);
+  });
 }
 
 // ---------- completion ----------

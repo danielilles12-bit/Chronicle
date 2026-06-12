@@ -80,9 +80,12 @@ def main():
                 elif r == 5:
                     pg.click("#hint-occ")
                     pg.click("#hint-ini")
-                    want = " ".join(w[0].upper() + "." for w in fig["name"].split())
+                    particles = {"of", "the", "van", "von", "da", "de", "la", "le", "di"}
+                    want = " ".join(w[0].upper() + "." for w in fig["name"].split()
+                                    if w.lower() not in particles)
                     chips = pg.locator(".hint-chip").all_text_contents()
                     assert any(want in c for c in chips), (want, chips)
+                    assert len(chips) == 2, "hint chips must not leak between rounds: %s" % chips
                     guess(pg, fig["name"])
                     pts = 50
                 elif r in (6, 7):
@@ -103,6 +106,9 @@ def main():
                     streak = 0
                 expected_total += pts
 
+                if r not in (4, 5):
+                    assert pg.locator(".hint-chip").count() == 0, \
+                        "stale hint chips visible in round %d" % (r + 1)
                 pg.wait_for_selector("#map-feedback", state="visible")
                 fb = pg.text_content("#map-feedback")
                 assert fig["name"] in fb, "feedback must name the figure"
@@ -118,6 +124,22 @@ def main():
             assert total == str(expected_total), (total, expected_total)
             assert pg.locator("#sum-rounds li").count() == 10
             print("session total:", total)
+
+            # forgiving-but-not-too-forgiving matching: regnal numerals matter
+            checks = pg.evaluate("""(() => {
+              const T = window.__CHRONICLE_TEST__;
+              const by = id => T.data.figures.find(f => f.id === id);
+              return {
+                wrongMonarch: T.isMatch('napoleon iii', by('napoleon')),
+                wrongCatherine: T.isMatch('catherine i', by('catherine')),
+                typoOk: T.isMatch('napoleon bonapart', by('napoleon')),
+                accentOk: T.isMatch('simón bolívar', by('bolivar')),
+                variantOk: T.isMatch('JFK', by('jfk')),
+              };
+            })()""")
+            assert checks["wrongMonarch"] is False, "Napoleon III must not match Napoleon I"
+            assert checks["wrongCatherine"] is False, "Catherine I must not match Catherine II"
+            assert checks["typoOk"] and checks["accentOk"] and checks["variantOk"], checks
 
             # best score persists
             pg.click("#sum-home")

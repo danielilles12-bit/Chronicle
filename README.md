@@ -39,8 +39,12 @@ after the first load.
   reloading offline pages, so the same flow there is best-effort. On a real
   iPhone, installed PWAs work offline (that's the whole point) — load the app
   once online first.
-- The "smaller" map-game scores (hints, typos) are by design — see scoring in
-  the app's start screen.
+- Map-game scoring in full: 100 points for an unaided correct answer; −25 per
+  hint, −10 per wrong guess, but a correct answer always pays at least 10;
+  "Reveal" scores 0; every consecutive correct answer from the second onward
+  adds a +10 streak bonus.
+- Pinch-zoom is disabled app-wide, which is standard for app-like games but is
+  a deliberate accessibility trade-off; all text is sized for readability.
 
 ## Put it on the web, free (one-time, ~10 minutes)
 

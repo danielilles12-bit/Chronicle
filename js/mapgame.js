@@ -1,5 +1,5 @@
 // "Map of a Life": guess the historical figure from birth/death geography.
-import { DATA, $, show, back, goHome, refreshHomeStats } from './app.js';
+import { DATA, $, show, back, goHome, refreshHomeStats, appConfirm } from './app.js';
 import * as store from './storage.js';
 import { isMatch } from './match.js';
 
@@ -40,7 +40,7 @@ function proj(lon, lat) {
 function setVb(box) {
   vb = box;
   $('#map-svg').setAttribute('viewBox', box.map((v) => v.toFixed(2)).join(' '));
-  scaleMarkers(box[2]);
+  scaleMarkers(box);
 }
 
 function targetBox(p1, p2) {
@@ -101,9 +101,10 @@ function drawMarkers(fig) {
   return [b, d];
 }
 
-function scaleMarkers(w) {
+function scaleMarkers(box) {
   const g = $('#mk');
   if (!g || !g.firstChild) return;
+  const w = box[2];
   const r = w * 0.016;
   const birth = g.querySelector('.mk-birth');
   const ring = g.querySelector('.mk-death-ring');
@@ -112,14 +113,22 @@ function scaleMarkers(w) {
   ring.setAttribute('r', r * 1.55);
   ring.setAttribute('stroke-width', r * 0.55);
   death.setAttribute('r', r * 0.55);
+  const bx = +birth.getAttribute('cx'), by = +birth.getAttribute('cy');
+  const dx = +death.getAttribute('cx'), dy = +death.getAttribute('cy');
+  // keep the two year labels apart: the higher point labels upward,
+  // the lower one downward (birth wins the tie)
+  const samePlace = Math.hypot(bx - dx, by - dy) < r * 3;
   g.querySelectorAll('.mk-label').forEach((t) => {
     const isBirth = t.dataset.anchor === 'b';
-    const cx = +(isBirth ? birth : death).getAttribute('cx');
-    const cy = +(isBirth ? birth : death).getAttribute('cy');
+    const cx = isBirth ? bx : dx;
+    const cy = isBirth ? by : dy;
+    const up = samePlace ? isBirth : (isBirth ? by <= dy : dy < by);
     t.setAttribute('font-size', (w * 0.034).toFixed(2));
     t.setAttribute('stroke-width', (w * 0.008).toFixed(2));
-    t.setAttribute('x', cx + r * 2);
-    t.setAttribute('y', cy + (isBirth ? -r * 1.4 : r * 2.6));
+    const nearRightEdge = cx > box[0] + box[2] * 0.78;
+    t.setAttribute('x', nearRightEdge ? cx - r * 2 : cx + r * 2);
+    t.setAttribute('text-anchor', nearRightEdge ? 'end' : 'start');
+    t.setAttribute('y', up ? cy - r * 1.6 : cy + r * 3.0);
   });
 }
 
@@ -156,6 +165,7 @@ function startRound() {
   $('#map-score').textContent = `${S.score} pts`;
   $('#map-feedback').hidden = true;
   $('#map-feedback').innerHTML = '';
+  $('#map-hint-chips').innerHTML = '';
   $('#map-guesses').innerHTML = '';
   $('#map-input').value = '';
   $('#map-input').disabled = false;
@@ -169,7 +179,7 @@ function startRound() {
 
   setVb([0, 0, MAP_W, MAP_H]);
   const [b, d] = drawMarkers(fig);
-  scaleMarkers(MAP_W);
+  scaleMarkers([0, 0, MAP_W, MAP_H]);
   animateTo(targetBox(b, d));
 
   window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
@@ -177,9 +187,11 @@ function startRound() {
   });
 }
 
+const NAME_PARTICLES = new Set(['of', 'the', 'van', 'von', 'da', 'de', 'la', 'le', 'di']);
+
 function initials(name) {
-  return name.split(/\s+/).filter(Boolean)
-    .map((w) => w[0].toUpperCase() + '.').join(' ');
+  const parts = name.split(/\s+/).filter((w) => w && !NAME_PARTICLES.has(w.toLowerCase()));
+  return parts.map((w) => w[0].toUpperCase() + '.').join(' ');
 }
 
 function figureBio(fig) {
@@ -227,6 +239,11 @@ function resolveRound(correct) {
 }
 
 function finishSession() {
+  if (S.done) {
+    show('view-mapsum');
+    return;
+  }
+  S.done = true;
   const m = store.getMap();
   m.sessions = (m.sessions || 0) + 1;
   m.bestScore = Math.max(m.bestScore || 0, S.score);
@@ -292,7 +309,7 @@ export function initMapGame() {
     const chip = document.createElement('div');
     chip.className = 'hint-chip';
     chip.textContent = round().occupation;
-    $('#map-guesses').parentNode.insertBefore(chip, $('#map-guesses'));
+    $('#map-hint-chips').appendChild(chip);
   });
 
   $('#hint-ini').addEventListener('click', () => {
@@ -302,7 +319,7 @@ export function initMapGame() {
     const chip = document.createElement('div');
     chip.className = 'hint-chip';
     chip.textContent = `Initials: ${initials(round().name)}`;
-    $('#map-guesses').parentNode.insertBefore(chip, $('#map-guesses'));
+    $('#map-hint-chips').appendChild(chip);
   });
 
   $('#map-reveal').addEventListener('click', () => {
@@ -316,6 +333,16 @@ export function initMapGame() {
     startRound();
   });
 
+  $('#map-quit').addEventListener('click', () => {
+    if (S && !S.done) {
+      appConfirm('Quit this session? The score so far will be lost.', 'Quit session')
+        .then((ok) => { if (ok) back(); });
+    } else {
+      back();
+    }
+  });
+
+  $('#sum-back').addEventListener('click', goHome);
   $('#sum-again').addEventListener('click', () => {
     back();              // drop the summary from the view trail
     startSession();

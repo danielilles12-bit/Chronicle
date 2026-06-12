@@ -160,7 +160,7 @@
       </svg>
       <h3 class="start-title">Ten lives, twenty dots.</h3>
       <p class="start-copy">Each round shows where a historical figure was <b class="b-green">born</b> and where they <b class="b-red">died</b>, with the years. Type their name — spelling needn’t be perfect.</p>
-      <p class="start-copy small">100 points for an unaided answer. Hints cost 25, wrong guesses 10. Reveal scores zero. Correct streaks earn a bonus.</p>
+      <p class="start-copy small">100 points for an unaided answer (a correct answer always pays at least 10). Hints cost 25, wrong guesses 10, revealing scores zero. Each consecutive correct answer from the second onward earns +10.</p>
       <p class="card-stat" id="map-best"></p>
       <button class="pill primary big" id="map-start">Start a session</button>
     </main>
@@ -169,7 +169,7 @@
   <!-- ============ MAP GAME: ROUND ============ -->
   <section class="view view-game" id="view-map" hidden>
     <header class="topbar safe-top">
-      <button class="iconbtn" data-back aria-label="Quit session">‹</button>
+      <button class="iconbtn" id="map-quit" aria-label="Quit session">‹</button>
       <h2 id="map-progress">Round 1 of 10</h2>
       <span class="topbar-right"><span id="map-score" aria-label="Score">0 pts</span></span>
     </header>
@@ -190,6 +190,7 @@
         <button class="pill small" id="hint-ini">Initials <span class="cost">−25</span></button>
         <button class="pill small ghost" id="map-reveal">Reveal <span class="cost">0 pts</span></button>
       </div>
+      <div id="map-hint-chips"></div>
       <div id="map-guesses"></div>
       <button class="pill primary big" id="map-next" hidden>Next round ›</button>
     </main>
@@ -198,7 +199,7 @@
   <!-- ============ MAP GAME: SUMMARY ============ -->
   <section class="view" id="view-mapsum" hidden>
     <header class="topbar safe-top">
-      <button class="iconbtn" data-back aria-label="Back">‹</button>
+      <button class="iconbtn" id="sum-back" aria-label="Back to home">‹</button>
       <h2>Session complete</h2>
       <span class="topbar-right"></span>
     </header>
@@ -213,6 +214,15 @@
     </main>
   </section>
 
+  <div id="confirm-sheet" class="sheet" hidden>
+    <div class="sheet-card">
+      <p id="confirm-msg" class="confirm-msg"></p>
+      <div class="sheet-row">
+        <button class="pill warn" id="confirm-yes">Yes</button>
+        <button class="pill ghost" id="confirm-no">Cancel</button>
+      </div>
+    </div>
+  </div>
 </div>
 <script type="module" src="js/app.js"></script>
 </body>
