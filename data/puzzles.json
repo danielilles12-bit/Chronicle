@@ -1,22 +1,101 @@
 [
   {
-    "id": "mini-placeholder", "format": "mini", "size": 5,
-    "title": "Mini 1 (placeholder)",
-    "grid": ["#WEST", "#ALYA", "EYING", "ONTO#", "NEED#"],
+    "id": "mini-1", "format": "mini", "size": 5, "title": "Mini 1",
+    "grid": ["HAN##", "ERODE", "REBEL", "SALEM", "##EDO"],
     "clues": {
       "across": [
-        { "num": 1, "row": 0, "col": 1, "answer": "WEST", "clue": "Direction of the setting sun" },
-        { "num": 5, "row": 1, "col": 1, "answer": "ALYA", "clue": "Placeholder entry" },
-        { "num": 6, "row": 2, "col": 0, "answer": "EYING", "clue": "Watching closely" },
-        { "num": 7, "row": 3, "col": 0, "answer": "ONTO", "clue": "Aware of, with \"be\"" },
-        { "num": 8, "row": 4, "col": 0, "answer": "NEED", "clue": "Require" }
+        { "num": 1, "row": 0, "col": 0, "answer": "HAN", "clue": "Dynasty that gave China's majority ethnic group its name" },
+        { "num": 4, "row": 1, "col": 0, "answer": "ERODE", "clue": "Wear away, as desert winds have done to the Sphinx" },
+        { "num": 7, "row": 2, "col": 0, "answer": "REBEL", "clue": "Spartacus, to Rome" },
+        { "num": 8, "row": 3, "col": 0, "answer": "SALEM", "clue": "Massachusetts town of the 1692 witch trials" },
+        { "num": 9, "row": 4, "col": 2, "answer": "EDO", "clue": "Tokyo, before 1868" }
       ],
       "down": [
-        { "num": 1, "row": 0, "col": 1, "answer": "WAYNE", "clue": "John of Hollywood westerns" },
-        { "num": 2, "row": 0, "col": 2, "answer": "ELITE", "clue": "Crack troops" },
-        { "num": 3, "row": 0, "col": 3, "answer": "SYNOD", "clue": "Church council" },
-        { "num": 4, "row": 0, "col": 4, "answer": "TAG", "clue": "Playground chase game" },
-        { "num": 6, "row": 2, "col": 0, "answer": "EON", "clue": "A very long age" }
+        { "num": 1, "row": 0, "col": 0, "answer": "HERS", "clue": "The queen's, not the king's" },
+        { "num": 2, "row": 0, "col": 1, "answer": "AREA", "clue": "Rome's empire covered about five million square kilometers of it at its peak" },
+        { "num": 3, "row": 0, "col": 2, "answer": "NOBLE", "clue": "Like dukes and earls" },
+        { "num": 5, "row": 1, "col": 3, "answer": "DEED", "clue": "What a land charter records" },
+        { "num": 6, "row": 1, "col": 4, "answer": "ELMO", "clue": "St. ___'s fire, the mast-top glow sailors read as an omen" }
+      ]
+    }
+  },
+  {
+    "id": "mini-2", "format": "mini", "size": 5, "title": "Mini 2",
+    "grid": ["#FOR#", "WIPED", "ALIAS", "SCULL", "#HMM#"],
+    "clues": {
+      "across": [
+        { "num": 1, "row": 0, "col": 1, "answer": "FOR", "clue": "In favor of, as a senator voting aye" },
+        { "num": 4, "row": 1, "col": 0, "answer": "WIPED", "clue": "Erased, as a chalkboard — or a dynasty" },
+        { "num": 6, "row": 2, "col": 0, "answer": "ALIAS", "clue": "Name an outlaw of the Old West rode under" },
+        { "num": 7, "row": 3, "col": 0, "answer": "SCULL", "clue": "Light racing boat, or the oar that moves it" },
+        { "num": 8, "row": 4, "col": 1, "answer": "HMM", "clue": "Sound of a historian pondering" }
+      ],
+      "down": [
+        { "num": 1, "row": 0, "col": 1, "answer": "FILCH", "clue": "Steal, as a pickpocket in Dickens's London might" },
+        { "num": 2, "row": 0, "col": 2, "answer": "OPIUM", "clue": "The ___ Wars, 19th-century clashes between Britain and Qing China" },
+        { "num": 3, "row": 0, "col": 3, "answer": "REALM", "clue": "A monarch's domain" },
+        { "num": 4, "row": 1, "col": 0, "answer": "WAS", "clue": "\"Is,\" once" },
+        { "num": 5, "row": 1, "col": 4, "answer": "DSL", "clue": "Initials that ended the dial-up internet era" }
+      ]
+    }
+  },
+  {
+    "id": "mini-3", "format": "mini", "size": 5, "title": "Mini 3",
+    "grid": ["HAMS#", "ATOP#", "NOVEL", "#LICE", "#LEST"],
+    "clues": {
+      "across": [
+        { "num": 1, "row": 0, "col": 0, "answer": "HAMS", "clue": "Cured legs hanging in a medieval larder" },
+        { "num": 5, "row": 1, "col": 0, "answer": "ATOP", "clue": "Perched on, as a citadel on a hill" },
+        { "num": 6, "row": 2, "col": 0, "answer": "NOVEL", "clue": "\"War and Peace,\" for one" },
+        { "num": 8, "row": 3, "col": 1, "answer": "LICE", "clue": "Trench pests of the First World War" },
+        { "num": 9, "row": 4, "col": 1, "answer": "LEST", "clue": "\"___ we forget\" (remembrance phrase)" }
+      ],
+      "down": [
+        { "num": 1, "row": 0, "col": 0, "answer": "HAN", "clue": "Chinese dynasty between the Qin and the Three Kingdoms" },
+        { "num": 2, "row": 0, "col": 1, "answer": "ATOLL", "clue": "Bikini, site of 1946–58 nuclear tests, is one" },
+        { "num": 3, "row": 0, "col": 2, "answer": "MOVIE", "clue": "\"Lawrence of Arabia,\" e.g." },
+        { "num": 4, "row": 0, "col": 3, "answer": "SPECS", "clue": "Glasses, like Gandhi's famous round pair" },
+        { "num": 7, "row": 2, "col": 4, "answer": "LET", "clue": "Permitted" }
+      ]
+    }
+  },
+  {
+    "id": "mini-4", "format": "mini", "size": 5, "title": "Mini 4",
+    "grid": ["#WRAP", "#AUTO", "ELBOW", "ODIN#", "NONE#"],
+    "clues": {
+      "across": [
+        { "num": 1, "row": 0, "col": 1, "answer": "WRAP", "clue": "Toga or sari, essentially" },
+        { "num": 5, "row": 1, "col": 1, "answer": "AUTO", "clue": "Ford's Model T, e.g., informally" },
+        { "num": 6, "row": 2, "col": 0, "answer": "ELBOW", "clue": "Joint a shield-bearer keeps bent" },
+        { "num": 7, "row": 3, "col": 0, "answer": "ODIN", "clue": "One-eyed chief god of the Vikings" },
+        { "num": 8, "row": 4, "col": 0, "answer": "NONE", "clue": "How many Roman emperors died on Elba" }
+      ],
+      "down": [
+        { "num": 1, "row": 0, "col": 1, "answer": "WALDO", "clue": "Ralph ___ Emerson" },
+        { "num": 2, "row": 0, "col": 2, "answer": "RUBIN", "clue": "___ \"Hurricane\" Carter, boxer at the center of a famous 1960s injustice" },
+        { "num": 3, "row": 0, "col": 3, "answer": "ATONE", "clue": "Make amends, as Henry II did after Becket's murder" },
+        { "num": 4, "row": 0, "col": 4, "answer": "POW", "clue": "Wartime captive, for short" },
+        { "num": 6, "row": 2, "col": 0, "answer": "EON", "clue": "Age upon age" }
+      ]
+    }
+  },
+  {
+    "id": "mini-5", "format": "mini", "size": 5, "title": "Mini 5",
+    "grid": ["#EON#", "MARIE", "OGDEN", "ELECT", "#ERE#"],
+    "clues": {
+      "across": [
+        { "num": 1, "row": 0, "col": 1, "answer": "EON", "clue": "Vast stretch of time" },
+        { "num": 4, "row": 1, "col": 0, "answer": "MARIE", "clue": "Curie who coined the term \"radioactivity\"" },
+        { "num": 6, "row": 2, "col": 0, "answer": "OGDEN", "clue": "Utah rail town nicknamed Junction City" },
+        { "num": 7, "row": 3, "col": 0, "answer": "ELECT", "clue": "Choose by ballot — which Athenians often skipped in favor of drawing lots" },
+        { "num": 8, "row": 4, "col": 1, "answer": "ERE", "clue": "Before, to Shakespeare" }
+      ],
+      "down": [
+        { "num": 1, "row": 0, "col": 1, "answer": "EAGLE", "clue": "Standard a Roman legion would die to protect" },
+        { "num": 2, "row": 0, "col": 2, "answer": "ORDER", "clue": "The Knights Templar were a military one" },
+        { "num": 3, "row": 0, "col": 3, "answer": "NIECE", "clue": "Queen Victoria, to King William IV" },
+        { "num": 4, "row": 1, "col": 0, "answer": "MOE", "clue": "Berg, the big-league catcher who spied for the U.S. in WWII" },
+        { "num": 5, "row": 1, "col": 4, "answer": "ENT", "clue": "Throat doc, briefly" }
       ]
     }
   }

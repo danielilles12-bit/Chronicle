@@ -72,7 +72,8 @@ def load_vocab(freq):
     if ext:
         buckets = {}
         for w, s in ext.items():
-            if s >= 50 and w.isalpha() and 3 <= len(w) <= 15 and w not in BAN:
+            if (s >= (60 if len(w) <= 4 else 50) and w.isalpha()
+                    and 3 <= len(w) <= 15 and w not in BAN):
                 buckets.setdefault(len(w), []).append(w)
         words = set()
         for ln, lst in buckets.items():
