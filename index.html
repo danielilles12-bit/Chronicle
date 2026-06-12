@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Chronicle — History Games</title>
+<meta name="description" content="Little games about big history: crosswords and Map of a Life.">
+<meta name="theme-color" content="#ffffff">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/favicon.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Chronicle">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- ============ HOME ============ -->
+  <section class="view" id="view-home">
+    <header class="masthead safe-top">
+      <h1>Chronicle</h1>
+      <p class="tagline">Little games about big history</p>
+      <p class="dateline" id="dateline"></p>
+    </header>
+    <main class="home-cards">
+      <button class="card" id="card-crossword" aria-label="Play the history crossword">
+        <svg class="card-glyph" viewBox="0 0 48 48" aria-hidden="true">
+          <rect x="2" y="2" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2"/>
+          <line x1="2" y1="17" x2="46" y2="17" stroke="currentColor" stroke-width="2"/>
+          <line x1="2" y1="32" x2="46" y2="32" stroke="currentColor" stroke-width="2"/>
+          <line x1="17" y1="2" x2="17" y2="46" stroke="currentColor" stroke-width="2"/>
+          <line x1="32" y1="2" x2="32" y2="46" stroke="currentColor" stroke-width="2"/>
+          <rect x="32" y="2" width="14" height="15" fill="currentColor"/>
+          <rect x="2" y="32" width="15" height="14" fill="currentColor"/>
+        </svg>
+        <div class="card-body">
+          <h2>The Crossword</h2>
+          <p>History, across and down. From a five-square mini to the full grid.</p>
+          <p class="card-stat" id="stat-crossword"></p>
+        </div>
+        <span class="card-go" aria-hidden="true">›</span>
+      </button>
+      <button class="card" id="card-map" aria-label="Play Map of a Life">
+        <svg class="card-glyph" viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="2"/>
+          <ellipse cx="24" cy="24" rx="10" ry="21" fill="none" stroke="currentColor" stroke-width="2"/>
+          <line x1="3" y1="24" x2="45" y2="24" stroke="currentColor" stroke-width="2"/>
+          <circle cx="15" cy="15" r="4.5" fill="#4a7c43"/>
+          <circle cx="34" cy="31" r="4.5" fill="#b4422e"/>
+        </svg>
+        <div class="card-body">
+          <h2>Map of a Life</h2>
+          <p>One life, two dots — born here, died there. Name the figure.</p>
+          <p class="card-stat" id="stat-map"></p>
+        </div>
+        <span class="card-go" aria-hidden="true">›</span>
+      </button>
+    </main>
+    <div id="ios-tip" hidden>
+      <p><b>Make it an app:</b> tap Share
+        <svg class="share-glyph" viewBox="0 0 14 18" aria-hidden="true"><path d="M7 1 L7 11 M3.5 4.5 L7 1 L10.5 4.5 M2 8 H1 V17 H13 V8 H12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>,
+        then “Add to Home&nbsp;Screen”.</p>
+      <button id="ios-tip-close" aria-label="Dismiss">×</button>
+    </div>
+    <footer class="home-foot">Works offline · Made for the home screen</footer>
+  </section>
+
+  <!-- ============ CROSSWORD LIST ============ -->
+  <section class="view" id="view-cwlist" hidden>
+    <header class="topbar safe-top">
+      <button class="iconbtn" data-back aria-label="Back">‹</button>
+      <h2>The Crossword</h2>
+      <span class="topbar-right"></span>
+    </header>
+    <main id="cwlist" class="scroll-main"></main>
+  </section>
+
+  <!-- ============ CROSSWORD PLAY ============ -->
+  <section class="view view-game" id="view-cw" hidden>
+    <header class="topbar safe-top">
+      <button class="iconbtn" data-back aria-label="Back to puzzles">‹</button>
+      <h2 id="cw-title"></h2>
+      <span class="topbar-right">
+        <span id="cw-timer" aria-label="Timer">0:00</span>
+        <button class="iconbtn" id="cw-cluelist-btn" aria-label="All clues">☰</button>
+        <button class="iconbtn" id="cw-menu-btn" aria-label="Check or reveal">✓</button>
+      </span>
+    </header>
+    <div id="cw-grid-wrap"><div id="cw-grid" role="grid"></div></div>
+    <div id="cw-cluebar">
+      <button class="cluebar-arrow" id="cw-prev" aria-label="Previous clue">‹</button>
+      <button id="cw-clue-current" aria-label="Current clue, tap to switch direction">
+        <span id="cw-clue-label"></span>
+        <span id="cw-clue-text"></span>
+      </button>
+      <button class="cluebar-arrow" id="cw-next" aria-label="Next clue">›</button>
+    </div>
+    <div id="cw-keyboard" aria-label="Keyboard"></div>
+
+    <div id="cw-sheet" class="sheet" hidden>
+      <div class="sheet-card">
+        <h3>Check</h3>
+        <div class="sheet-row">
+          <button class="pill" data-check="square">Square</button>
+          <button class="pill" data-check="word">Word</button>
+          <button class="pill" data-check="puzzle">Puzzle</button>
+        </div>
+        <h3>Reveal</h3>
+        <div class="sheet-row">
+          <button class="pill" data-reveal="square">Square</button>
+          <button class="pill" data-reveal="word">Word</button>
+          <button class="pill warn" data-reveal="puzzle">Puzzle</button>
+        </div>
+        <h3>Puzzle</h3>
+        <div class="sheet-row">
+          <button class="pill warn" id="cw-restart">Clear &amp; restart</button>
+        </div>
+        <button class="pill ghost sheet-close" data-close-sheet>Close</button>
+      </div>
+    </div>
+
+    <div id="cw-cluelist" class="sheet" hidden>
+      <div class="sheet-card tall">
+        <div class="tabs">
+          <button class="tab active" data-tab="across">Across</button>
+          <button class="tab" data-tab="down">Down</button>
+        </div>
+        <ol id="cw-cluelist-across" class="cluelist"></ol>
+        <ol id="cw-cluelist-down" class="cluelist" hidden></ol>
+        <button class="pill ghost sheet-close" data-close-sheet>Close</button>
+      </div>
+    </div>
+
+    <div id="cw-done" class="modal" hidden>
+      <div class="modal-card">
+        <div id="confetti" aria-hidden="true"></div>
+        <h2 id="cw-done-title">Well done!</h2>
+        <p id="cw-done-sub"></p>
+        <button class="pill primary" id="cw-done-back">Back to puzzles</button>
+      </div>
+    </div>
+    <div id="cw-toast" class="toast" hidden>Not quite — keep going.</div>
+  </section>
+
+  <!-- ============ MAP GAME: START ============ -->
+  <section class="view" id="view-mapstart" hidden>
+    <header class="topbar safe-top">
+      <button class="iconbtn" data-back aria-label="Back">‹</button>
+      <h2>Map of a Life</h2>
+      <span class="topbar-right"></span>
+    </header>
+    <main class="scroll-main center-main">
+      <svg class="start-glyph" viewBox="0 0 120 60" aria-hidden="true">
+        <circle cx="22" cy="38" r="8" fill="#4a7c43"/>
+        <path d="M30 36 C 55 8, 75 8, 96 24" fill="none" stroke="#bbb" stroke-width="2" stroke-dasharray="4 4"/>
+        <circle cx="98" cy="26" r="8" fill="#b4422e"/>
+      </svg>
+      <h3 class="start-title">Ten lives, twenty dots.</h3>
+      <p class="start-copy">Each round shows where a historical figure was <b class="b-green">born</b> and where they <b class="b-red">died</b>, with the years. Type their name — spelling needn’t be perfect.</p>
+      <p class="start-copy small">100 points for an unaided answer. Hints cost 25, wrong guesses 10. Reveal scores zero. Correct streaks earn a bonus.</p>
+      <p class="card-stat" id="map-best"></p>
+      <button class="pill primary big" id="map-start">Start a session</button>
+    </main>
+  </section>
+
+  <!-- ============ MAP GAME: ROUND ============ -->
+  <section class="view view-game" id="view-map" hidden>
+    <header class="topbar safe-top">
+      <button class="iconbtn" data-back aria-label="Quit session">‹</button>
+      <h2 id="map-progress">Round 1 of 10</h2>
+      <span class="topbar-right"><span id="map-score" aria-label="Score">0 pts</span></span>
+    </header>
+    <div id="map-panel">
+      <svg id="map-svg" role="img" aria-label="World map showing birth and death locations"></svg>
+      <div id="map-streak" hidden></div>
+    </div>
+    <main class="map-main">
+      <p id="map-question">Born <b class="b-green">here</b>, died <b class="b-red">there</b> — who is it?</p>
+      <div id="map-feedback" hidden></div>
+      <form id="map-form" autocomplete="off">
+        <input id="map-input" type="text" placeholder="Type a name…" autocomplete="off"
+               autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" aria-label="Your guess">
+        <button type="submit" class="pill primary" id="map-guess-btn">Guess</button>
+      </form>
+      <div id="map-hints">
+        <button class="pill small" id="hint-occ">Claim to fame <span class="cost">−25</span></button>
+        <button class="pill small" id="hint-ini">Initials <span class="cost">−25</span></button>
+        <button class="pill small ghost" id="map-reveal">Reveal <span class="cost">0 pts</span></button>
+      </div>
+      <div id="map-guesses"></div>
+      <button class="pill primary big" id="map-next" hidden>Next round ›</button>
+    </main>
+  </section>
+
+  <!-- ============ MAP GAME: SUMMARY ============ -->
+  <section class="view" id="view-mapsum" hidden>
+    <header class="topbar safe-top">
+      <button class="iconbtn" data-back aria-label="Back">‹</button>
+      <h2>Session complete</h2>
+      <span class="topbar-right"></span>
+    </header>
+    <main class="scroll-main">
+      <p class="sum-total"><span id="sum-total">0</span><span class="sum-total-label">points</span></p>
+      <p id="sum-remark" class="sum-remark"></p>
+      <ol id="sum-rounds" class="sum-list"></ol>
+      <div class="sum-actions">
+        <button class="pill primary big" id="sum-again">Play again</button>
+        <button class="pill ghost big" id="sum-home">Home</button>
+      </div>
+    </main>
+  </section>
+
+</div>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

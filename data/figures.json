@@ -1,0 +1,212 @@
+[
+  {
+    "id": "napoleon", "name": "Napoleon Bonaparte", "difficulty": "easy",
+    "variants": ["napoleon bonaparte", "napoleon", "bonaparte", "napoleon i"],
+    "occupation": "Emperor of the French and military commander",
+    "birth": { "year": 1769, "place": "Ajaccio, Corsica, France", "lat": 41.92, "lon": 8.74 },
+    "death": { "year": 1821, "place": "Longwood, Saint Helena", "lat": -15.95, "lon": -5.69 }
+  },
+  {
+    "id": "cleopatra", "name": "Cleopatra", "difficulty": "easy",
+    "variants": ["cleopatra", "cleopatra vii"],
+    "occupation": "Last pharaoh of Ptolemaic Egypt",
+    "birth": { "year": -69, "place": "Alexandria, Egypt", "lat": 31.2, "lon": 29.92 },
+    "death": { "year": -30, "place": "Alexandria, Egypt", "lat": 31.2, "lon": 29.92 }
+  },
+  {
+    "id": "caesar", "name": "Julius Caesar", "difficulty": "easy",
+    "variants": ["julius caesar", "caesar", "gaius julius caesar"],
+    "occupation": "Roman general and dictator",
+    "birth": { "year": -100, "place": "Rome, Italy", "lat": 41.89, "lon": 12.48 },
+    "death": { "year": -44, "place": "Rome, Italy", "lat": 41.89, "lon": 12.48 }
+  },
+  {
+    "id": "columbus", "name": "Christopher Columbus", "difficulty": "easy",
+    "variants": ["christopher columbus", "columbus", "cristoforo colombo"],
+    "occupation": "Genoese explorer who crossed the Atlantic for Spain",
+    "birth": { "year": 1451, "place": "Genoa, Italy", "lat": 44.41, "lon": 8.93 },
+    "death": { "year": 1506, "place": "Valladolid, Spain", "lat": 41.65, "lon": -4.72 }
+  },
+  {
+    "id": "einstein", "name": "Albert Einstein", "difficulty": "easy",
+    "variants": ["albert einstein", "einstein"],
+    "occupation": "Theoretical physicist, author of the theory of relativity",
+    "birth": { "year": 1879, "place": "Ulm, Germany", "lat": 48.4, "lon": 9.99 },
+    "death": { "year": 1955, "place": "Princeton, New Jersey, USA", "lat": 40.35, "lon": -74.66 }
+  },
+  {
+    "id": "leonardo", "name": "Leonardo da Vinci", "difficulty": "easy",
+    "variants": ["leonardo da vinci", "da vinci", "leonardo"],
+    "occupation": "Renaissance painter, engineer and polymath",
+    "birth": { "year": 1452, "place": "Vinci, Tuscany, Italy", "lat": 43.79, "lon": 10.92 },
+    "death": { "year": 1519, "place": "Amboise, France", "lat": 47.41, "lon": 0.99 }
+  },
+  {
+    "id": "jfk", "name": "John F. Kennedy", "difficulty": "easy",
+    "variants": ["john f kennedy", "jfk", "kennedy", "john kennedy", "john fitzgerald kennedy"],
+    "occupation": "35th President of the United States",
+    "birth": { "year": 1917, "place": "Brookline, Massachusetts, USA", "lat": 42.33, "lon": -71.12 },
+    "death": { "year": 1963, "place": "Dallas, Texas, USA", "lat": 32.78, "lon": -96.8 }
+  },
+  {
+    "id": "victoria", "name": "Queen Victoria", "difficulty": "easy",
+    "variants": ["queen victoria", "victoria"],
+    "occupation": "Queen of the United Kingdom for more than 63 years",
+    "birth": { "year": 1819, "place": "Kensington Palace, London, England", "lat": 51.51, "lon": -0.19 },
+    "death": { "year": 1901, "place": "Osborne House, Isle of Wight, England", "lat": 50.75, "lon": -1.27 }
+  },
+  {
+    "id": "mandela", "name": "Nelson Mandela", "difficulty": "easy",
+    "variants": ["nelson mandela", "mandela", "madiba"],
+    "occupation": "Anti-apartheid leader and President of South Africa",
+    "birth": { "year": 1918, "place": "Mvezo, South Africa", "lat": -31.96, "lon": 28.49 },
+    "death": { "year": 2013, "place": "Johannesburg, South Africa", "lat": -26.2, "lon": 28.05 }
+  },
+  {
+    "id": "gandhi", "name": "Mahatma Gandhi", "difficulty": "easy",
+    "variants": ["mahatma gandhi", "gandhi", "mohandas gandhi", "mohandas karamchand gandhi"],
+    "occupation": "Leader of India's independence movement",
+    "birth": { "year": 1869, "place": "Porbandar, India", "lat": 21.64, "lon": 69.61 },
+    "death": { "year": 1948, "place": "New Delhi, India", "lat": 28.61, "lon": 77.21 }
+  },
+  {
+    "id": "mozart", "name": "Wolfgang Amadeus Mozart", "difficulty": "medium",
+    "variants": ["wolfgang amadeus mozart", "mozart"],
+    "occupation": "Classical composer, child prodigy of the Salzburg court",
+    "birth": { "year": 1756, "place": "Salzburg, Austria", "lat": 47.8, "lon": 13.05 },
+    "death": { "year": 1791, "place": "Vienna, Austria", "lat": 48.21, "lon": 16.37 }
+  },
+  {
+    "id": "joanofarc", "name": "Joan of Arc", "difficulty": "medium",
+    "variants": ["joan of arc", "jeanne d'arc", "jeanne darc", "saint joan"],
+    "occupation": "Peasant girl who led French armies in the Hundred Years' War",
+    "birth": { "year": 1412, "approx": true, "place": "Domrémy, France", "lat": 48.44, "lon": 5.68 },
+    "death": { "year": 1431, "place": "Rouen, France", "lat": 49.44, "lon": 1.1 }
+  },
+  {
+    "id": "curie", "name": "Marie Curie", "difficulty": "medium",
+    "variants": ["marie curie", "curie", "maria sklodowska", "marie sklodowska curie"],
+    "occupation": "Physicist and chemist, winner of two Nobel Prizes",
+    "birth": { "year": 1867, "place": "Warsaw, Poland", "lat": 52.23, "lon": 21.01 },
+    "death": { "year": 1934, "place": "Sancellemoz sanatorium, Passy, France", "lat": 45.93, "lon": 6.71 }
+  },
+  {
+    "id": "darwin", "name": "Charles Darwin", "difficulty": "medium",
+    "variants": ["charles darwin", "darwin"],
+    "occupation": "Naturalist who proposed evolution by natural selection",
+    "birth": { "year": 1809, "place": "Shrewsbury, England", "lat": 52.71, "lon": -2.75 },
+    "death": { "year": 1882, "place": "Down House, Downe, Kent, England", "lat": 51.33, "lon": 0.05 }
+  },
+  {
+    "id": "vangogh", "name": "Vincent van Gogh", "difficulty": "medium",
+    "variants": ["vincent van gogh", "van gogh"],
+    "occupation": "Post-Impressionist painter",
+    "birth": { "year": 1853, "place": "Zundert, Netherlands", "lat": 51.47, "lon": 4.66 },
+    "death": { "year": 1890, "place": "Auvers-sur-Oise, France", "lat": 49.07, "lon": 2.17 }
+  },
+  {
+    "id": "marx", "name": "Karl Marx", "difficulty": "medium",
+    "variants": ["karl marx", "marx"],
+    "occupation": "Philosopher and economist, co-author of The Communist Manifesto",
+    "birth": { "year": 1818, "place": "Trier, Germany", "lat": 49.75, "lon": 6.64 },
+    "death": { "year": 1883, "place": "London, England", "lat": 51.51, "lon": -0.13 }
+  },
+  {
+    "id": "annefrank", "name": "Anne Frank", "difficulty": "medium",
+    "variants": ["anne frank", "anna frank"],
+    "occupation": "Jewish diarist who hid from the Nazis in Amsterdam",
+    "birth": { "year": 1929, "place": "Frankfurt, Germany", "lat": 50.11, "lon": 8.68 },
+    "death": { "year": 1945, "place": "Bergen-Belsen camp, Germany", "lat": 52.76, "lon": 9.91 }
+  },
+  {
+    "id": "marieantoinette", "name": "Marie Antoinette", "difficulty": "medium",
+    "variants": ["marie antoinette"],
+    "occupation": "Queen of France, executed during the Revolution",
+    "birth": { "year": 1755, "place": "Vienna, Austria", "lat": 48.21, "lon": 16.37 },
+    "death": { "year": 1793, "place": "Place de la Révolution, Paris, France", "lat": 48.87, "lon": 2.32 }
+  },
+  {
+    "id": "alexander", "name": "Alexander the Great", "difficulty": "medium",
+    "variants": ["alexander the great", "alexander", "alexander iii of macedon"],
+    "occupation": "King of Macedon who conquered the Persian Empire",
+    "birth": { "year": -356, "place": "Pella, Macedonia, Greece", "lat": 40.76, "lon": 22.52 },
+    "death": { "year": -323, "place": "Babylon (near Hillah, Iraq)", "lat": 32.54, "lon": 44.42 }
+  },
+  {
+    "id": "nightingale", "name": "Florence Nightingale", "difficulty": "medium",
+    "variants": ["florence nightingale", "nightingale"],
+    "occupation": "Founder of modern nursing",
+    "birth": { "year": 1820, "place": "Florence, Italy", "lat": 43.77, "lon": 11.25 },
+    "death": { "year": 1910, "place": "London, England", "lat": 51.51, "lon": -0.14 }
+  },
+  {
+    "id": "hannibal", "name": "Hannibal", "difficulty": "hard",
+    "variants": ["hannibal", "hannibal barca"],
+    "occupation": "Carthaginian general who crossed the Alps with elephants",
+    "birth": { "year": -247, "place": "Carthage (near Tunis), Tunisia", "lat": 36.85, "lon": 10.32 },
+    "death": { "year": -183, "approx": true, "place": "Libyssa, Bithynia (Gebze, Turkey)", "lat": 40.8, "lon": 29.43 }
+  },
+  {
+    "id": "saladin", "name": "Saladin", "difficulty": "hard",
+    "variants": ["saladin", "salah ad-din", "salah al-din"],
+    "occupation": "Sultan of Egypt and Syria who retook Jerusalem from the Crusaders",
+    "birth": { "year": 1137, "approx": true, "place": "Tikrit, Iraq", "lat": 34.61, "lon": 43.68 },
+    "death": { "year": 1193, "place": "Damascus, Syria", "lat": 33.51, "lon": 36.29 }
+  },
+  {
+    "id": "suleiman", "name": "Suleiman the Magnificent", "difficulty": "hard",
+    "variants": ["suleiman the magnificent", "suleiman", "suleyman", "suleiman i"],
+    "occupation": "Longest-reigning sultan of the Ottoman Empire",
+    "birth": { "year": 1494, "place": "Trabzon, Turkey", "lat": 41.0, "lon": 39.72 },
+    "death": { "year": 1566, "place": "Szigetvár, Hungary", "lat": 46.05, "lon": 17.8 }
+  },
+  {
+    "id": "toussaint", "name": "Toussaint Louverture", "difficulty": "hard",
+    "variants": ["toussaint louverture", "toussaint l'ouverture", "toussaint"],
+    "occupation": "Leader of the Haitian Revolution",
+    "birth": { "year": 1743, "approx": true, "place": "near Cap-Français, Saint-Domingue (Haiti)", "lat": 19.76, "lon": -72.2 },
+    "death": { "year": 1803, "place": "Fort de Joux, France", "lat": 46.86, "lon": 6.39 }
+  },
+  {
+    "id": "pocahontas", "name": "Pocahontas", "difficulty": "hard",
+    "variants": ["pocahontas", "matoaka", "rebecca rolfe"],
+    "occupation": "Powhatan woman who bridged her people and the English colonists",
+    "birth": { "year": 1596, "approx": true, "place": "Werowocomoco, Virginia (Powhatan lands)", "lat": 37.41, "lon": -76.59 },
+    "death": { "year": 1617, "place": "Gravesend, England", "lat": 51.44, "lon": 0.37 }
+  },
+  {
+    "id": "vascodagama", "name": "Vasco da Gama", "difficulty": "hard",
+    "variants": ["vasco da gama", "da gama", "gama"],
+    "occupation": "First European to reach India by sea",
+    "birth": { "year": 1469, "approx": true, "place": "Sines, Portugal", "lat": 37.96, "lon": -8.87 },
+    "death": { "year": 1524, "place": "Kochi (Cochin), India", "lat": 9.97, "lon": 76.28 }
+  },
+  {
+    "id": "cook", "name": "James Cook", "difficulty": "hard",
+    "variants": ["james cook", "captain cook", "cook", "captain james cook"],
+    "occupation": "Royal Navy explorer who charted the Pacific",
+    "birth": { "year": 1728, "place": "Marton, Yorkshire, England", "lat": 54.54, "lon": -1.2 },
+    "death": { "year": 1779, "place": "Kealakekua Bay, Hawaii", "lat": 19.48, "lon": -155.93 }
+  },
+  {
+    "id": "tamerlane", "name": "Tamerlane", "difficulty": "hard",
+    "variants": ["tamerlane", "timur", "timur the lame", "tamburlaine"],
+    "occupation": "Turco-Mongol conqueror who built an empire from Samarkand",
+    "birth": { "year": 1336, "place": "Kesh (Shahrisabz), Uzbekistan", "lat": 39.05, "lon": 66.83 },
+    "death": { "year": 1405, "place": "Otrar, Kazakhstan", "lat": 42.85, "lon": 68.3 }
+  },
+  {
+    "id": "catherine", "name": "Catherine the Great", "difficulty": "hard",
+    "variants": ["catherine the great", "catherine ii"],
+    "occupation": "Empress of Russia",
+    "birth": { "year": 1729, "place": "Stettin, Prussia (Szczecin, Poland)", "lat": 53.43, "lon": 14.55 },
+    "death": { "year": 1796, "place": "Saint Petersburg, Russia", "lat": 59.94, "lon": 30.31 }
+  },
+  {
+    "id": "bolivar", "name": "Simón Bolívar", "difficulty": "hard",
+    "variants": ["simon bolivar", "bolivar", "el libertador"],
+    "occupation": "Liberator of much of South America from Spanish rule",
+    "birth": { "year": 1783, "place": "Caracas, Venezuela", "lat": 10.49, "lon": -66.88 },
+    "death": { "year": 1830, "place": "Santa Marta, Colombia", "lat": 11.24, "lon": -74.21 }
+  }
+]

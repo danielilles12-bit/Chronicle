@@ -1,0 +1,23 @@
+[
+  {
+    "id": "mini-placeholder", "format": "mini", "size": 5,
+    "title": "Mini 1 (placeholder)",
+    "grid": ["#WEST", "#ALYA", "EYING", "ONTO#", "NEED#"],
+    "clues": {
+      "across": [
+        { "num": 1, "row": 0, "col": 1, "answer": "WEST", "clue": "Direction of the setting sun" },
+        { "num": 5, "row": 1, "col": 1, "answer": "ALYA", "clue": "Placeholder entry" },
+        { "num": 6, "row": 2, "col": 0, "answer": "EYING", "clue": "Watching closely" },
+        { "num": 7, "row": 3, "col": 0, "answer": "ONTO", "clue": "Aware of, with \"be\"" },
+        { "num": 8, "row": 4, "col": 0, "answer": "NEED", "clue": "Require" }
+      ],
+      "down": [
+        { "num": 1, "row": 0, "col": 1, "answer": "WAYNE", "clue": "John of Hollywood westerns" },
+        { "num": 2, "row": 0, "col": 2, "answer": "ELITE", "clue": "Crack troops" },
+        { "num": 3, "row": 0, "col": 3, "answer": "SYNOD", "clue": "Church council" },
+        { "num": 4, "row": 0, "col": 4, "answer": "TAG", "clue": "Playground chase game" },
+        { "num": 6, "row": 2, "col": 0, "answer": "EON", "clue": "A very long age" }
+      ]
+    }
+  }
+]

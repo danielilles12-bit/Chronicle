@@ -1,0 +1,822 @@
+[
+ {
+  "size": 5,
+  "grid": [
+   "#ADDY",
+   "#TRUE",
+   "TRACE",
+   "HIGH#",
+   "EASY#"
+  ],
+  "answers": [
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 1,
+    "answer": "ADDY",
+    "freq": 311135
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 1,
+    "answer": "TRUE",
+    "freq": 349170
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "TRACE",
+    "freq": 344498
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 0,
+    "answer": "HIGH",
+    "freq": 349837
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 0,
+    "answer": "EASY",
+    "freq": 349380
+   },
+   {
+    "dir": "down",
+    "r": 2,
+    "c": 0,
+    "answer": "THE",
+    "freq": 350000
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 1,
+    "answer": "ATRIA",
+    "freq": 294603
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 2,
+    "answer": "DRAGS",
+    "freq": 311321
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 3,
+    "answer": "DUCHY",
+    "freq": 300519
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 4,
+    "answer": "YEE",
+    "freq": 324417
+   }
+  ]
+ },
+ {
+  "size": 5,
+  "grid": [
+   "#YOU#",
+   "NORSE",
+   "AUGUR",
+   "ARIAS",
+   "#SAL#"
+  ],
+  "answers": [
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 1,
+    "answer": "YOU",
+    "freq": 349986
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 0,
+    "answer": "NORSE",
+    "freq": 317957
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "AUGUR",
+    "freq": 260582
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 0,
+    "answer": "ARIAS",
+    "freq": 317636
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 1,
+    "answer": "SAL",
+    "freq": 333716
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 0,
+    "answer": "NAA",
+    "freq": 312719
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 1,
+    "answer": "YOURS",
+    "freq": 346401
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 2,
+    "answer": "ORGIA",
+    "freq": 280387
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 3,
+    "answer": "USUAL",
+    "freq": 345849
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 4,
+    "answer": "ERS",
+    "freq": 335442
+   }
+  ]
+ },
+ {
+  "size": 5,
+  "grid": [
+   "AMES#",
+   "NEXT#",
+   "DRIED",
+   "#ALEA",
+   "#KELL"
+  ],
+  "answers": [
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 0,
+    "answer": "AMES",
+    "freq": 335919
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 0,
+    "answer": "NEXT",
+    "freq": 349880
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "DRIED",
+    "freq": 341383
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 1,
+    "answer": "ALEA",
+    "freq": 278358
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 1,
+    "answer": "KELL",
+    "freq": 302949
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 0,
+    "answer": "AND",
+    "freq": 349998
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 1,
+    "answer": "MERAK",
+    "freq": 254005
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 2,
+    "answer": "EXILE",
+    "freq": 335622
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 3,
+    "answer": "STEEL",
+    "freq": 348332
+   },
+   {
+    "dir": "down",
+    "r": 2,
+    "c": 4,
+    "answer": "DAL",
+    "freq": 333595
+   }
+  ]
+ },
+ {
+  "size": 5,
+  "grid": [
+   "##YOU",
+   "PAEAN",
+   "AWARD",
+   "TORSO",
+   "ELS##"
+  ],
+  "answers": [
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 2,
+    "answer": "YOU",
+    "freq": 349986
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 0,
+    "answer": "PAEAN",
+    "freq": 236830
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "AWARD",
+    "freq": 348634
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 0,
+    "answer": "TORSO",
+    "freq": 331143
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 0,
+    "answer": "ELS",
+    "freq": 326430
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 0,
+    "answer": "PATE",
+    "freq": 321036
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 1,
+    "answer": "AWOL",
+    "freq": 308711
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 2,
+    "answer": "YEARS",
+    "freq": 349829
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 3,
+    "answer": "OARS",
+    "freq": 311997
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 4,
+    "answer": "UNDO",
+    "freq": 341282
+   }
+  ]
+ },
+ {
+  "size": 5,
+  "grid": [
+   "##HAN",
+   "ASANA",
+   "SPLAT",
+   "HELLO",
+   "AWS##"
+  ],
+  "answers": [
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 2,
+    "answer": "HAN",
+    "freq": 338063
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 0,
+    "answer": "ASANA",
+    "freq": 277704
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "SPLAT",
+    "freq": 301542
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 0,
+    "answer": "HELLO",
+    "freq": 347581
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 0,
+    "answer": "AWS",
+    "freq": 319068
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 0,
+    "answer": "ASHA",
+    "freq": 316128
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 1,
+    "answer": "SPEW",
+    "freq": 300402
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 2,
+    "answer": "HALLS",
+    "freq": 339393
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 3,
+    "answer": "ANAL",
+    "freq": 348635
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 4,
+    "answer": "NATO",
+    "freq": 340625
+   }
+  ]
+ },
+ {
+  "size": 5,
+  "grid": [
+   "FOR##",
+   "OPIUM",
+   "BETTA",
+   "SNEAD",
+   "##SHI"
+  ],
+  "answers": [
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 0,
+    "answer": "FOR",
+    "freq": 349994
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 0,
+    "answer": "OPIUM",
+    "freq": 327734
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "BETTA",
+    "freq": 307466
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 0,
+    "answer": "SNEAD",
+    "freq": 277723
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 2,
+    "answer": "SHI",
+    "freq": 332946
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 0,
+    "answer": "FOBS",
+    "freq": 266439
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 1,
+    "answer": "OPEN",
+    "freq": 349718
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 2,
+    "answer": "RITES",
+    "freq": 328288
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 3,
+    "answer": "UTAH",
+    "freq": 347128
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 4,
+    "answer": "MADI",
+    "freq": 263407
+   }
+  ]
+ },
+ {
+  "size": 5,
+  "grid": [
+   "RAJ##",
+   "AREAL",
+   "TERRI",
+   "EARNS",
+   "##YEA"
+  ],
+  "answers": [
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 0,
+    "answer": "RAJ",
+    "freq": 328427
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 0,
+    "answer": "AREAL",
+    "freq": 295668
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "TERRI",
+    "freq": 336522
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 0,
+    "answer": "EARNS",
+    "freq": 330405
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 2,
+    "answer": "YEA",
+    "freq": 341844
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 0,
+    "answer": "RATE",
+    "freq": 349649
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 1,
+    "answer": "AREA",
+    "freq": 349748
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 2,
+    "answer": "JERRY",
+    "freq": 345161
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 3,
+    "answer": "ARNE",
+    "freq": 319460
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 4,
+    "answer": "LISA",
+    "freq": 345492
+   }
+  ]
+ },
+ {
+  "size": 5,
+  "grid": [
+   "#AND#",
+   "UNIES",
+   "LIGNE",
+   "ETHIC",
+   "#ATS#"
+  ],
+  "answers": [
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 1,
+    "answer": "AND",
+    "freq": 349998
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 0,
+    "answer": "UNIES",
+    "freq": 250545
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "LIGNE",
+    "freq": 327487
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 0,
+    "answer": "ETHIC",
+    "freq": 327774
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 1,
+    "answer": "ATS",
+    "freq": 333095
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 0,
+    "answer": "ULE",
+    "freq": 281191
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 1,
+    "answer": "ANITA",
+    "freq": 338364
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 2,
+    "answer": "NIGHT",
+    "freq": 349407
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 3,
+    "answer": "DENIS",
+    "freq": 336573
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 4,
+    "answer": "SEC",
+    "freq": 348026
+   }
+  ]
+ },
+ {
+  "size": 5,
+  "grid": [
+   "#YOU#",
+   "SPUNK",
+   "ERNIE",
+   "RECTA",
+   "#SES#"
+  ],
+  "answers": [
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 1,
+    "answer": "YOU",
+    "freq": 349986
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 0,
+    "answer": "SPUNK",
+    "freq": 305391
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "ERNIE",
+    "freq": 333732
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 0,
+    "answer": "RECTA",
+    "freq": 239259
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 1,
+    "answer": "SES",
+    "freq": 335430
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 0,
+    "answer": "SER",
+    "freq": 342071
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 1,
+    "answer": "YPRES",
+    "freq": 256585
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 2,
+    "answer": "OUNCE",
+    "freq": 336857
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 3,
+    "answer": "UNITS",
+    "freq": 348547
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 4,
+    "answer": "KEA",
+    "freq": 310312
+   }
+  ]
+ },
+ {
+  "size": 5,
+  "grid": [
+   "EON##",
+   "AROSE",
+   "RAMAN",
+   "LLOYD",
+   "##SAS"
+  ],
+  "answers": [
+   {
+    "dir": "across",
+    "r": 0,
+    "c": 0,
+    "answer": "EON",
+    "freq": 316453
+   },
+   {
+    "dir": "across",
+    "r": 1,
+    "c": 0,
+    "answer": "AROSE",
+    "freq": 335011
+   },
+   {
+    "dir": "across",
+    "r": 2,
+    "c": 0,
+    "answer": "RAMAN",
+    "freq": 324055
+   },
+   {
+    "dir": "across",
+    "r": 3,
+    "c": 0,
+    "answer": "LLOYD",
+    "freq": 342458
+   },
+   {
+    "dir": "across",
+    "r": 4,
+    "c": 2,
+    "answer": "SAS",
+    "freq": 341141
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 0,
+    "answer": "EARL",
+    "freq": 342047
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 1,
+    "answer": "ORAL",
+    "freq": 348051
+   },
+   {
+    "dir": "down",
+    "r": 0,
+    "c": 2,
+    "answer": "NOMOS",
+    "freq": 246501
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 3,
+    "answer": "SAYA",
+    "freq": 302351
+   },
+   {
+    "dir": "down",
+    "r": 1,
+    "c": 4,
+    "answer": "ENDS",
+    "freq": 347625
+   }
+  ]
+ }
+]

@@ -2,21 +2,20 @@
   "permissions": {
     "defaultMode": "acceptEdits",
     "allow": [
-      "Bash(git *)",
-      "Bash(python3 *)",
-      "Bash(pip3 *)",
-      "Bash(node *)",
-      "Bash(npm *)",
-      "Bash(npx *)",
-      "Bash(mkdir *)",
-      "Bash(touch *)",
-      "Bash(mv *)",
-      "Bash(cp *)",
-      "Bash(chmod *)",
-      "Bash(lsof *)",
-      "Bash(kill *)",
-      "Bash(pkill *)",
-      "WebSearch"
+      "Bash",
+      "WebSearch",
+      "Bash(cd:*)",
+      "Bash(git:*)",
+      "Bash(python3:*)",
+      "Bash(pip3:*)",
+      "Bash(mkdir:*)",
+      "Bash(touch:*)",
+      "Bash(mv:*)",
+      "Bash(cp:*)",
+      "Bash(chmod:*)",
+      "Bash(lsof:*)",
+      "Bash(kill:*)",
+      "Bash(pkill:*)"
     ]
   }
 }
