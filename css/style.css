@@ -181,6 +181,7 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 }
 .modal-card h2 { font-family: var(--serif); font-size: 30px; margin: 0 0 6px; }
 .modal-card p { color: var(--muted); margin: 0 0 18px; }
+.modal-card .pill { display: flex; width: 100%; margin-top: 10px; }
 
 .toast {
   position: fixed; left: 50%; bottom: 220px; transform: translateX(-50%);
@@ -206,7 +207,7 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 .mk-dot { stroke: #fff; stroke-width: .8; }
 .mk-birth { fill: var(--green); }
 .mk-death { fill: var(--red); }
-.mk-label { font-family: var(--sans); font-weight: 700; paint-order: stroke; stroke: #fff; stroke-width: 3; fill: var(--ink); }
+.mk-label { font-family: var(--sans); font-weight: 700; paint-order: stroke; stroke: #fff; fill: var(--ink); }
 #map-streak {
   position: absolute; top: 8px; right: 10px; background: var(--gold); color: #fff;
   font-size: 12px; font-weight: 700; border-radius: 999px; padding: 4px 10px;

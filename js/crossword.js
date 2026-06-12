@@ -473,6 +473,9 @@ export function initCrossword() {
     renderPuzzleList();
     back();
   });
+  $('#cw-done-stay').addEventListener('click', () => {
+    $('#cw-done').hidden = true;   // stay and admire the solved grid
+  });
 
   window.addEventListener('resize', sizeGrid);
   document.addEventListener('visibilitychange', () => {

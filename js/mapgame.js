@@ -138,6 +138,39 @@ export function renderMapStart() {
   $('#map-best').textContent = m.sessions
     ? `Your best: ${m.bestScore} pts · longest streak ${m.bestStreak}`
     : 'First session — good luck';
+  const saved = store.getSession();
+  $('#map-resume').hidden = !saved;
+  if (saved) {
+    $('#map-resume').textContent = `Resume — round ${saved.i + 1} of 10 (${saved.score} pts)`;
+  }
+}
+
+function persistSession() {
+  store.setSession({
+    ids: S.rounds.map((f) => f.id),
+    i: S.i, score: S.score, streak: S.streak, bestStreak: S.bestStreak,
+    results: S.results.map((r) => ({
+      id: r.fig.id, pts: r.pts, correct: r.correct, hints: r.hints, wrongs: r.wrongs,
+    })),
+  });
+}
+
+function resumeSession() {
+  const saved = store.getSession();
+  if (!saved) return;
+  const byId = (id) => DATA.figures.find((f) => f.id === id);
+  S = {
+    rounds: saved.ids.map(byId),
+    i: saved.i, score: saved.score, streak: saved.streak,
+    bestStreak: saved.bestStreak,
+    results: saved.results.map((r) => ({
+      fig: byId(r.id), pts: r.pts, correct: r.correct, hints: r.hints, wrongs: r.wrongs,
+    })),
+  };
+  renderWorld();
+  setVb([0, 0, MAP_W, MAP_H]);
+  show('view-map');
+  startRound();
 }
 
 function startSession() {
@@ -182,6 +215,7 @@ function startRound() {
   scaleMarkers([0, 0, MAP_W, MAP_H]);
   animateTo(targetBox(b, d));
 
+  persistSession();
   window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
     mapRound: { index: S.i, id: fig.id, name: fig.name },
   });
@@ -215,6 +249,7 @@ function resolveRound(correct) {
   const total = pts + bonus;
   S.score += total;
   S.results.push({ fig, pts: total, correct, hints: S.cur.hints, wrongs: S.cur.wrongs });
+  persistSession();
 
   const fb = $('#map-feedback');
   fb.className = correct ? 'good' : 'info';
@@ -244,6 +279,7 @@ function finishSession() {
     return;
   }
   S.done = true;
+  store.clearSession();
   const m = store.getMap();
   m.sessions = (m.sessions || 0) + 1;
   m.bestScore = Math.max(m.bestScore || 0, S.score);
@@ -336,11 +372,19 @@ export function initMapGame() {
   $('#map-quit').addEventListener('click', () => {
     if (S && !S.done) {
       appConfirm('Quit this session? The score so far will be lost.', 'Quit session')
-        .then((ok) => { if (ok) back(); });
+        .then((ok) => {
+          if (ok) {
+            store.clearSession();
+            renderMapStart();
+            back();
+          }
+        });
     } else {
       back();
     }
   });
+
+  $('#map-resume').addEventListener('click', resumeSession);
 
   $('#sum-back').addEventListener('click', goHome);
   $('#sum-again').addEventListener('click', () => {

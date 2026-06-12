@@ -18,7 +18,7 @@ FULLS = json.load(open(os.path.join(ROOT, "tools", "out", "fulls.json")))
 PUZZLES = [
     {
         "source": FULLS[0]["grid"],
-        "id": "full-1", "title": "Second Terms",
+        "id": "full-1", "title": "Across the Ages",
         "clues": {
             ("across", "ANG"): "Lee who directed 1995's Austen adaptation \"Sense and Sensibility\"",
             ("across", "CADDY"): "Tea ___, the Victorian pantry box",

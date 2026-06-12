@@ -12,9 +12,20 @@ export const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 const trail = ['view-home'];
 
 export function show(id) {
-  if (trail[trail.length - 1] !== id) trail.push(id);
+  if (trail[trail.length - 1] !== id) {
+    trail.push(id);
+    try { window.history.pushState({ depth: trail.length }, ''); } catch (e) { /* sandboxed contexts */ }
+  }
   render();
 }
+
+// Desktop nicety: the browser Back button walks the in-app view trail.
+window.addEventListener('popstate', () => {
+  if (trail.length > 1) {
+    trail.pop();
+    render();
+  }
+});
 
 export function back() {
   if (trail.length > 1) trail.pop();

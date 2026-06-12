@@ -34,6 +34,22 @@ export function setMap(m) {
   saveAll(d);
 }
 
+export function getSession() {
+  return loadAll().mapSession || null;
+}
+
+export function setSession(s) {
+  const d = loadAll();
+  d.mapSession = s;
+  saveAll(d);
+}
+
+export function clearSession() {
+  const d = loadAll();
+  delete d.mapSession;
+  saveAll(d);
+}
+
 export function getMisc() {
   return loadAll().misc || {};
 }
