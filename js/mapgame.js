@@ -92,6 +92,10 @@ function drawMarkers(fig) {
   const b = proj(fig.birth.lon, fig.birth.lat);
   const d = proj(fig.death.lon, fig.death.lat);
   const g = $('#mk');
+  // stash the TRUE projected positions; scaleMarkers reads these every frame
+  // so the overlap-separation math never compounds as we zoom.
+  g.dataset.bx = b[0]; g.dataset.by = b[1];
+  g.dataset.dx = d[0]; g.dataset.dy = d[1];
   g.innerHTML =
     `<circle class="mk-dot mk-birth" cx="${b[0]}" cy="${b[1]}" r="6"></circle>`
     + `<circle class="mk-ring mk-death-ring" cx="${d[0]}" cy="${d[1]}" r="9" fill="none" stroke="#b4422e"></circle>`
@@ -113,16 +117,40 @@ function scaleMarkers(box) {
   ring.setAttribute('r', r * 1.55);
   ring.setAttribute('stroke-width', r * 0.55);
   death.setAttribute('r', r * 0.55);
-  const bx = +birth.getAttribute('cx'), by = +birth.getAttribute('cy');
-  const dx = +death.getAttribute('cx'), dy = +death.getAttribute('cy');
-  // keep the two year labels apart: the higher point labels upward,
-  // the lower one downward (birth wins the tie)
-  const samePlace = Math.hypot(bx - dx, by - dy) < r * 3;
+
+  // True projected positions (never mutated).
+  const tbx = +g.dataset.bx, tby = +g.dataset.by;
+  const tdx = +g.dataset.dx, tdy = +g.dataset.dy;
+
+  // When birth and death are the same/near spot they stack into an
+  // unreadable blob. Push them apart to a minimum on-screen gap, keeping the
+  // real direction of travel when there is one (and a fixed up-left/down-right
+  // split when the two places are identical).
+  const minGap = r * 3.2;
+  const dist = Math.hypot(tdx - tbx, tdy - tby);
+  let bx = tbx, by = tby, dx = tdx, dy = tdy;
+  const overlap = dist < minGap;
+  if (overlap) {
+    const mx = (tbx + tdx) / 2, my = (tby + tdy) / 2;
+    let ux = 0.6, uy = 0.8;                      // identical-place default
+    if (dist > 0.01) { ux = (tdx - tbx) / dist; uy = (tdy - tby) / dist; }
+    const half = minGap / 2;
+    bx = mx - ux * half; by = my - uy * half;
+    dx = mx + ux * half; dy = my + uy * half;
+  }
+  birth.setAttribute('cx', bx); birth.setAttribute('cy', by);
+  ring.setAttribute('cx', dx); ring.setAttribute('cy', dy);
+  death.setAttribute('cx', dx); death.setAttribute('cy', dy);
+
+  // keep the two year labels apart: whichever marker ends up higher labels
+  // upward, the lower one downward (birth wins the tie). This runs on the
+  // *separated* positions, so each label sits on the outer side of its own
+  // marker and the two never cross — even when birth and death share a city.
   g.querySelectorAll('.mk-label').forEach((t) => {
     const isBirth = t.dataset.anchor === 'b';
     const cx = isBirth ? bx : dx;
     const cy = isBirth ? by : dy;
-    const up = samePlace ? isBirth : (isBirth ? by <= dy : dy < by);
+    const up = isBirth ? by <= dy : dy < by;
     t.setAttribute('font-size', (w * 0.034).toFixed(2));
     t.setAttribute('stroke-width', (w * 0.008).toFixed(2));
     const nearRightEdge = cx > box[0] + box[2] * 0.78;
