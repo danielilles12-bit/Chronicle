@@ -50,6 +50,33 @@ export function clearSession() {
   saveAll(d);
 }
 
+export function getReveal() {
+  const d = loadAll();
+  return d.reveal || { bestScore: 0, bestStreak: 0, sessions: 0 };
+}
+
+export function setReveal(r) {
+  const d = loadAll();
+  d.reveal = r;
+  saveAll(d);
+}
+
+export function getRevealSession() {
+  return loadAll().revealSession || null;
+}
+
+export function setRevealSession(s) {
+  const d = loadAll();
+  d.revealSession = s;
+  saveAll(d);
+}
+
+export function clearRevealSession() {
+  const d = loadAll();
+  delete d.revealSession;
+  saveAll(d);
+}
+
 export function getMisc() {
   return loadAll().misc || {};
 }

@@ -3,8 +3,9 @@ import * as store from './storage.js';
 import { isMatch } from './match.js';
 import { initCrossword, renderPuzzleList } from './crossword.js';
 import { initMapGame, renderMapStart } from './mapgame.js';
+import { initRevealGame, renderRevealStart } from './revealgame.js';
 
-export const DATA = { puzzles: null, figures: null, world: null };
+export const DATA = { puzzles: null, figures: null, world: null, reveal: null };
 export const $ = (sel) => document.querySelector(sel);
 export const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 
@@ -55,6 +56,7 @@ function render() {
   $$('.view').forEach((v) => { v.hidden = v.id !== id; });
   if (id === 'view-home') refreshHomeStats();
   if (id === 'view-mapstart') renderMapStart();   // keep Resume state fresh
+  if (id === 'view-revealstart') renderRevealStart();
   document.dispatchEvent(new CustomEvent('viewchange', { detail: id }));
 }
 
@@ -94,7 +96,13 @@ export function refreshHomeStats() {
   const m = store.getMap();
   $('#stat-map').textContent = m.sessions
     ? `Best: ${m.bestScore} pts · streak ${m.bestStreak}`
-    : '30 lives to guess';
+    : `${DATA.figures.length} lives to guess`;
+  const rv = store.getReveal();
+  if ($('#stat-reveal')) {
+    $('#stat-reveal').textContent = rv.sessions
+      ? `Best: ${rv.bestScore} pts · streak ${rv.bestStreak}`
+      : (DATA.reveal ? `${DATA.reveal.length} to identify` : '');
+  }
 }
 
 function initHome() {
@@ -108,6 +116,10 @@ function initHome() {
   $('#card-map').addEventListener('click', () => {
     renderMapStart();
     show('view-mapstart');
+  });
+  $('#card-reveal').addEventListener('click', () => {
+    renderRevealStart();
+    show('view-revealstart');
   });
   $$('[data-back]').forEach((b) => b.addEventListener('click', back));
 
@@ -126,8 +138,8 @@ function initHome() {
 // ---------- boot ----------
 async function boot() {
   try {
-    const [puzzles, figures, world] = await Promise.all(
-      ['data/puzzles.json', 'data/figures.json', 'data/worldmap.json'].map((u) =>
+    const [puzzles, figures, world, reveal] = await Promise.all(
+      ['data/puzzles.json', 'data/figures.json', 'data/worldmap.json', 'data/reveal.json'].map((u) =>
         fetch(u).then((r) => {
           if (!r.ok) throw new Error('failed to load ' + u);
           return r.json();
@@ -136,6 +148,7 @@ async function boot() {
     DATA.puzzles = puzzles;
     DATA.figures = figures;
     DATA.world = world;
+    DATA.reveal = reveal;
   } catch (e) {
     document.body.innerHTML = '<p style="padding:40px;text-align:center">'
       + 'Chronicle could not load its data. Please reload once you are online.</p>';
@@ -145,6 +158,7 @@ async function boot() {
   initHome();
   initCrossword();
   initMapGame();
+  initRevealGame();
   refreshHomeStats();
 
   // Deterministic hooks for the automated test-suite.

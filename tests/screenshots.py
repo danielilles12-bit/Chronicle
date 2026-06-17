@@ -117,6 +117,24 @@ def main():
             pg.wait_for_selector("#sum-total")
             shot(pg, "15-map-summary")
 
+            # ---- Zoom In ----
+            pg.click("#sum-home")
+            pg.wait_for_selector("#card-reveal")
+            pg.click("#card-reveal")
+            pg.wait_for_selector("#rv-start")
+            shot(pg, "17-zoomin-start")
+            pg.click("#rv-start")
+            pg.wait_for_selector("#rv-frame")
+            pg.wait_for_timeout(700)
+            shot(pg, "18-zoomin-crop")
+            ritems = pg.evaluate("window.__CHRONICLE_TEST__.data.reveal")
+            rr = pg.evaluate("window.__CHRONICLE_TEST__.revealRound")
+            rit = next(x for x in ritems if x["id"] == rr["id"])
+            pg.fill("#rv-input", rit["name"])
+            pg.click("#rv-guess-btn")
+            pg.wait_for_selector("#rv-feedback", state="visible")
+            shot(pg, "19-zoomin-revealed")
+
             fail_on_errors(errors, "screenshots")
 
         with page_on(p, "chromium", device=None) as (pg, errors):

@@ -1,0 +1,121 @@
+[
+  {
+    "id": "mona-lisa",
+    "name": "Mona Lisa",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "mona lisa",
+      "la gioconda",
+      "gioconda",
+      "la joconde"
+    ],
+    "blurb": "Leonardo da Vinci, c. 1503–1519 · Louvre, Paris",
+    "img": "assets/img/mona-lisa.jpg",
+    "fx": 0.8,
+    "fy": 0.31,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Leonardo da Vinci",
+    "source": "Wikimedia Commons: Mona Lisa, by Leonardo da Vinci, from C2RMF natural color.jpg"
+  },
+  {
+    "id": "tut-mask",
+    "name": "Mask of Tutankhamun",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "mask of tutankhamun",
+      "tutankhamun mask",
+      "tutankhamun",
+      "king tut",
+      "tut",
+      "death mask of tutankhamun"
+    ],
+    "blurb": "Burial mask of Tutankhamun, c. 1323 BC · Egyptian Museum, Cairo",
+    "img": "assets/img/tut-mask.jpg",
+    "fx": 0.3,
+    "fy": 0.42,
+    "frac": 0.28,
+    "license": "CC BY-SA 3.0",
+    "attribution": "en:User:MykReeve",
+    "source": "Wikimedia Commons: Tutanchamun Maske.jpg"
+  },
+  {
+    "id": "rosetta-stone",
+    "name": "Rosetta Stone",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "rosetta stone",
+      "the rosetta stone"
+    ],
+    "blurb": "196 BC · British Museum, London",
+    "img": "assets/img/rosetta-stone.jpg",
+    "fx": 0.5,
+    "fy": 0.45,
+    "frac": 0.26,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Awikimate",
+    "source": "Wikimedia Commons: Rosetta Stone - front face - corrected image.jpg"
+  },
+  {
+    "id": "napoleon",
+    "name": "Napoleon",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "napoleon",
+      "napoleon bonaparte",
+      "bonaparte",
+      "napoleon i"
+    ],
+    "blurb": "Emperor of the French (1769–1821) · portrait by Jacques-Louis David",
+    "img": "assets/img/napoleon.jpg",
+    "fx": 0.4,
+    "fy": 0.36,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Jacques-Louis David",
+    "source": "Wikimedia Commons: Jacques-Louis David - The Emperor Napoleon in His Study at the Tuileries - Google Art Project.jpg"
+  },
+  {
+    "id": "elizabeth-i",
+    "name": "Elizabeth I",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "elizabeth i",
+      "queen elizabeth i",
+      "elizabeth the first",
+      "elizabeth tudor"
+    ],
+    "blurb": "Queen of England (1533–1603)",
+    "img": "assets/img/elizabeth-i.jpg",
+    "fx": 0.45,
+    "fy": 0.6,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Attributed to William Segar / Attributed to George Gower / Formerly attributed to Nicholas Hilliard",
+    "source": "Wikimedia Commons: Elizabeth1England.jpg"
+  },
+  {
+    "id": "lincoln",
+    "name": "Abraham Lincoln",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "abraham lincoln",
+      "lincoln",
+      "abe lincoln"
+    ],
+    "blurb": "16th US President (1809–1865)",
+    "img": "assets/img/lincoln.jpg",
+    "fx": 0.5,
+    "fy": 0.7,
+    "frac": 0.34,
+    "license": "Public domain",
+    "attribution": "Alexander Gardner",
+    "source": "Wikimedia Commons: Abraham Lincoln O-77 matte collodion print.jpg"
+  }
+]

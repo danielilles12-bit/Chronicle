@@ -11,6 +11,7 @@ STEPS = [
     ("validator", os.path.join(ROOT, "tools", "validate_puzzles.py")),
     ("crosswords", os.path.join(HERE, "test_crosswords.py")),
     ("map game", os.path.join(HERE, "test_mapgame.py")),
+    ("zoom in", os.path.join(HERE, "test_reveal.py")),
     ("pwa/offline", os.path.join(HERE, "test_pwa.py")),
     ("screenshots", os.path.join(HERE, "screenshots.py")),
 ]

@@ -236,6 +236,35 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 }
 .hint-chip { font-size: 14px; background: #fdf6e3; border: 1px solid var(--gold); border-radius: 10px; padding: 8px 12px; }
 
+/* ---------- Zoom In game ---------- */
+#rv-panel { position: relative; background: var(--soft); border-bottom: 1px solid var(--rule); display: flex; justify-content: center; align-items: center; padding: 12px; }
+#rv-frame {
+  width: min(76vw, 38dvh); aspect-ratio: 1 / 1; border-radius: 12px;
+  background-repeat: no-repeat; background-color: #111;
+  box-shadow: 0 2px 10px rgba(0,0,0,.22); border: 1px solid var(--rule);
+}
+#rv-streak {
+  position: absolute; top: 14px; right: 16px; background: var(--gold); color: #fff;
+  font-size: 12px; font-weight: 700; border-radius: 999px; padding: 4px 10px;
+}
+#rv-prompt { margin: 0; font-size: 15px; font-weight: 700; }
+#rv-form { display: flex; gap: 8px; }
+#rv-input {
+  flex: 1; font: inherit; font-size: 17px; padding: 11px 14px;
+  border: 1.5px solid var(--ink); border-radius: 12px; min-width: 0; background: var(--paper);
+}
+#rv-input:focus { outline: 2px solid var(--sel); outline-offset: 1px; }
+#rv-input.shake { animation: shake .35s ease; }
+#rv-controls { display: flex; gap: 8px; flex-wrap: wrap; }
+#rv-guesses { display: flex; flex-wrap: wrap; gap: 6px; }
+#rv-feedback { border-radius: 12px; padding: 12px 14px; font-size: 15px; line-height: 1.45; }
+#rv-feedback.good { background: #e9f2e6; border: 1px solid var(--green); }
+#rv-feedback.info { background: var(--soft); border: 1px solid var(--rule); }
+#rv-feedback b.fig { font-family: var(--serif); font-size: 17px; }
+#rv-feedback .pts { font-weight: 800; color: var(--gold); }
+.rv-credit { color: var(--muted); font-size: 11px; }
+#rv-next { position: sticky; bottom: 2px; }
+
 /* ---------- Map start & summary ---------- */
 .start-glyph { width: 200px; margin: 10px auto 0; }
 .start-title { font-family: var(--serif); font-size: 26px; margin: 8px 0 0; }
