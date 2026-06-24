@@ -109,10 +109,15 @@ function initHome() {
   $('#dateline').textContent = new Date().toLocaleDateString('en-GB', {
     weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
   });
-  $('#card-crossword').addEventListener('click', () => {
-    renderPuzzleList();
-    show('view-cwlist');
-  });
+  // Crosswords are retained but hidden from the app for now; the card carries
+  // `hidden`. Guard so this is a no-op when the card isn't shown.
+  const cwCard = $('#card-crossword');
+  if (cwCard) {
+    cwCard.addEventListener('click', () => {
+      renderPuzzleList();
+      show('view-cwlist');
+    });
+  }
   $('#card-map').addEventListener('click', () => {
     renderMapStart();
     show('view-mapstart');

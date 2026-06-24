@@ -46,6 +46,16 @@ def page_on(p, engine="webkit", base=None, device="iPhone 13"):
         browser.close()
 
 
+def show_crossword(pg):
+    """Crosswords are retained but hidden from the home screen (the card carries
+    `hidden`). Tests still exercise the engine, so un-hide the card on demand.
+    Waiting on __CHRONICLE_TEST__ also guarantees boot finished and the card's
+    click handler is attached."""
+    pg.wait_for_function("window.__CHRONICLE_TEST__ !== undefined")
+    pg.evaluate("document.getElementById('card-crossword').hidden = false")
+    pg.wait_for_selector("#card-crossword:not([hidden])")
+
+
 def fail_on_errors(errors, label):
     if errors:
         print("FAIL [%s] console/page errors:" % label)

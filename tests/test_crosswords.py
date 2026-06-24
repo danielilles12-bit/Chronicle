@@ -8,7 +8,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
 from playwright.sync_api import sync_playwright  # noqa: E402
-from helpers import ROOT, server, page_on, fail_on_errors  # noqa: E402
+from helpers import ROOT, server, page_on, fail_on_errors, show_crossword  # noqa: E402
 
 
 def cw_state(pg):
@@ -48,7 +48,7 @@ def main():
     with server() as base, sync_playwright() as p:
         with page_on(p, "webkit") as (pg, errors):
             pg.goto(base + "/")
-            pg.wait_for_selector("#card-crossword")
+            show_crossword(pg)
 
             # --- solve every puzzle in the real UI ---
             for pz in puzzles:
@@ -74,7 +74,7 @@ def main():
         # --- interaction details on a fresh profile ---
         with page_on(p, "webkit") as (pg, errors):
             pg.goto(base + "/")
-            pg.wait_for_selector("#card-crossword")
+            show_crossword(pg)
             pg.click("#card-crossword")
             pg.wait_for_selector(".cwitem")
             first = puzzles[0]
@@ -128,14 +128,14 @@ def main():
         # --- persistence across reload ---
         with page_on(p, "webkit") as (pg, errors):
             pg.goto(base + "/")
-            pg.wait_for_selector("#card-crossword")
+            show_crossword(pg)
             pg.click("#card-crossword")
             open_puzzle(pg, puzzles[0]["id"])
             st = cw_state(pg)
             sel = st["sel"]
             pg.keyboard.press(st["sol"][sel])
             pg.reload()
-            pg.wait_for_selector("#card-crossword")
+            show_crossword(pg)
             pg.click("#card-crossword")
             state = pg.text_content('.cwitem[data-pid="%s"] .cw-state' % puzzles[0]["id"])
             assert "In progress" in state, "progress should survive reload, got: " + state

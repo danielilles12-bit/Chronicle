@@ -7,7 +7,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
 from playwright.sync_api import sync_playwright  # noqa: E402
-from helpers import ROOT, server, page_on, fail_on_errors  # noqa: E402
+from helpers import ROOT, server, page_on, fail_on_errors, show_crossword  # noqa: E402
 
 OUT = os.path.join(ROOT, "screenshots")
 
@@ -38,9 +38,10 @@ def main():
     with server() as base, sync_playwright() as p:
         with page_on(p, "webkit") as (pg, errors):
             pg.goto(base + "/?mapseed=7")
-            pg.wait_for_selector("#card-crossword")
+            pg.wait_for_selector("#card-map")
             shot(pg, "01-home")
 
+            show_crossword(pg)   # crosswords are hidden from home but still captured
             pg.click("#card-crossword")
             pg.wait_for_selector(".cwitem")
             shot(pg, "02-crossword-list")
@@ -140,7 +141,7 @@ def main():
         with page_on(p, "chromium", device=None) as (pg, errors):
             pg.set_viewport_size({"width": 1280, "height": 800})
             pg.goto(base + "/")
-            pg.wait_for_selector("#card-crossword")
+            pg.wait_for_selector("#card-map")
             shot(pg, "16-desktop-home")
             fail_on_errors(errors, "desktop shot")
 

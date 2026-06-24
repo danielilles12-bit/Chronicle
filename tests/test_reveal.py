@@ -65,10 +65,26 @@ def main():
                 typo: T.isMatch('napoleon bonapart', by('napoleon')),
                 tutShort: T.isMatch('king tut', by('tut-mask')),
                 liz1not2: T.isMatch('elizabeth ii', by('elizabeth-i')),
+                // new leniency: ordinals-as-words, dropped/extra words
+                ordinalWord: T.isMatch('queen elizabeth the first', by('elizabeth-i')),
+                byArtist: T.isMatch('the last supper by leonardo da vinci', by('last-supper')),
+                artistFirst: T.isMatch('leonardo da vinci the last supper', by('last-supper')),
+                extraWords: T.isMatch('the mona lisa painting', by('mona-lisa')),
+                altName: T.isMatch('sistine chapel ceiling', by('creation-of-adam')),
+                // guards that must still hold
+                partialNo: T.isMatch('lisa', by('mona-lisa')),
+                ordinalGuard: T.isMatch('queen elizabeth the second', by('elizabeth-i')),
               };
             })()""")
             assert checks["variant"] and checks["typo"] and checks["tutShort"], checks
             assert checks["liz1not2"] is False, "Elizabeth II must not match Elizabeth I"
+            assert checks["ordinalWord"], "'Queen Elizabeth the First' should match Elizabeth I"
+            assert checks["byArtist"], "title + 'by <artist>' should match"
+            assert checks["artistFirst"], "artist-first phrasing should match"
+            assert checks["extraWords"], "extra words around the title should match"
+            assert checks["altName"], "'Sistine Chapel ceiling' should match Creation of Adam"
+            assert checks["partialNo"] is False, "'Lisa' alone must not match Mona Lisa"
+            assert checks["ordinalGuard"] is False, "ordinal numerals must still be guarded"
 
             # an interrupted session resumes at the next unanswered round
             pg.click("#rv-start")

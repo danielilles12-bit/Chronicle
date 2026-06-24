@@ -39,9 +39,12 @@ def main():
             pg.on("pageerror", lambda e: errors.append(str(e)))
 
             pg.goto("http://127.0.0.1:%d/" % PORT)
-            pg.wait_for_selector("#card-crossword")
+            pg.wait_for_selector("#card-map")
             pg.screenshot(path="/tmp/smoke-home.png")
 
+            # crosswords are retained but hidden from home; un-hide to smoke-test
+            pg.wait_for_function("window.__CHRONICLE_TEST__ !== undefined")
+            pg.evaluate("document.getElementById('card-crossword').hidden = false")
             pg.click("#card-crossword")
             pg.wait_for_selector(".cwitem")
             pg.screenshot(path="/tmp/smoke-cwlist.png")

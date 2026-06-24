@@ -11,7 +11,7 @@ import urllib.request
 
 sys.path.insert(0, os.path.dirname(__file__))
 from playwright.sync_api import sync_playwright  # noqa: E402
-from helpers import server, page_on, fail_on_errors  # noqa: E402
+from helpers import server, page_on, fail_on_errors, show_crossword  # noqa: E402
 
 
 def check_manifest(base):
@@ -30,7 +30,7 @@ def offline_flow(p, engine, base):
     """Returns (sw_active, offline_ok). Raises on console errors."""
     with page_on(p, engine) as (pg, errors):
         pg.goto(base + "/")
-        pg.wait_for_selector("#card-crossword")
+        show_crossword(pg)
         assert pg.locator('link[rel="apple-touch-icon"]').count() == 1
         assert pg.locator('meta[name="apple-mobile-web-app-capable"]').count() == 1
         assert pg.locator('link[rel="manifest"]').count() == 1
@@ -49,7 +49,7 @@ def offline_flow(p, engine, base):
             pg.context.set_offline(True)
             try:
                 pg.reload()
-                pg.wait_for_selector("#card-crossword", timeout=15000)
+                show_crossword(pg)
                 pg.click("#card-crossword")
                 pg.wait_for_selector(".cwitem")
                 pg.click(".cwitem")
