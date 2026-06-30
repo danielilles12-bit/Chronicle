@@ -376,3 +376,22 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   background: var(--rule);
 }
 .conn-dot-on { background: var(--ink); }
+
+/* Chrono drag-to-reorder additions */
+.ch-handle {
+  font-size: 18px; color: var(--muted); cursor: grab; flex-shrink: 0;
+  user-select: none; touch-action: none;
+}
+.ch-handle:active { cursor: grabbing; }
+.ch-ghost { opacity: 0.25; pointer-events: none; }
+.ch-drop-before { border-top: 3px solid var(--gold); }
+.ch-drop-after  { border-bottom: 3px solid var(--gold); }
+.ch-item.ch-result-item { cursor: default; }
+.conn-shake { animation: shake .3s ease; }
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  20%      { transform: translateX(-6px); }
+  40%      { transform: translateX(6px); }
+  60%      { transform: translateX(-4px); }
+  80%      { transform: translateX(4px); }
+}

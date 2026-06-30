@@ -5,6 +5,7 @@ import * as store from './storage.js';
 const ROUNDS = 5;
 const ORDINALS = ['1st', '2nd', '3rd', '4th', '5th'];
 let S = null;
+let drag = null;
 
 // ---------- rng ----------
 function mulberry32(a) {
@@ -44,17 +45,13 @@ export function renderChronoStart() {
 function pickRounds(rng) {
   const all = DATA.chrono;
   const by = (d) => shuffled(all.filter((x) => x.difficulty === d), rng);
-  const easy = by('easy').slice(0, 2);
-  const medium = by('medium').slice(0, 2);
-  const hard = by('hard').slice(0, 1);
-  const picks = shuffled([...easy, ...medium, ...hard], rng).slice(0, ROUNDS);
-  // pad if not enough variety
+  const picks = [...by('easy').slice(0, 2), ...by('medium').slice(0, 2), ...by('hard').slice(0, 1)];
   if (picks.length < ROUNDS) {
     const used = new Set(picks.map((p) => p.id));
     const rest = shuffled(all.filter((p) => !used.has(p.id)), rng);
     while (picks.length < ROUNDS && rest.length) picks.push(rest.shift());
   }
-  return picks;
+  return shuffled(picks, rng).slice(0, ROUNDS);
 }
 
 // ---------- scoring ----------
@@ -64,15 +61,11 @@ function sortedIndices(puzzle) {
     .sort((a, b) => a.year - b.year)
     .map((x) => x.i);
 }
-
 function countCorrect(order, puzzle) {
   const correct = sortedIndices(puzzle);
   return order.filter((idx, pos) => idx === correct[pos]).length;
 }
-
-function ptsForCorrect(c) {
-  return [0, 10, 25, 50, 75, 100][c] || 0;
-}
+function ptsForCorrect(c) { return [0, 10, 25, 50, 75, 100][c] || 0; }
 
 // ---------- persist ----------
 function persist() {
@@ -83,22 +76,125 @@ function persist() {
   });
 }
 
+// ---------- drag-to-reorder ----------
+function getClientY(e) {
+  if (e.touches && e.touches.length) return e.touches[0].clientY;
+  if (e.changedTouches && e.changedTouches.length) return e.changedTouches[0].clientY;
+  return e.clientY;
+}
+
+// Returns the desired final position (0-4) for the dragged item given pointer Y.
+// = number of non-dragged items whose midpoint is above cy.
+function getTargetPos(cy) {
+  let count = 0;
+  document.querySelectorAll('#ch-list .ch-item').forEach((el) => {
+    if (parseInt(el.dataset.pos) === drag.fromPos) return;
+    const r = el.getBoundingClientRect();
+    if (r.top + r.height / 2 <= cy) count++;
+  });
+  return count;
+}
+
+function startDrag(e) {
+  if ($('#ch-submit').hidden) return; // round already resolved
+  const el = e.target.closest('.ch-item');
+  if (!el) return;
+  e.preventDefault();
+
+  const fromPos = parseInt(el.dataset.pos);
+  const rect = el.getBoundingClientRect();
+  const cy = getClientY(e);
+
+  // Floating clone
+  const clone = el.cloneNode(true);
+  Object.assign(clone.style, {
+    position: 'fixed',
+    left: rect.left + 'px',
+    top: rect.top + 'px',
+    width: rect.width + 'px',
+    margin: '0',
+    zIndex: '999',
+    pointerEvents: 'none',
+    boxShadow: '0 8px 28px rgba(0,0,0,.22)',
+    borderColor: '#9a7b2d',
+    background: 'var(--paper)',
+    opacity: '0.97',
+    transform: 'scale(1.02)',
+  });
+  document.body.appendChild(clone);
+  el.classList.add('ch-ghost');
+
+  drag = { fromPos, clone, offsetY: cy - rect.top, targetPos: fromPos };
+}
+
+function moveDrag(e) {
+  if (!drag) return;
+  e.preventDefault();
+  const cy = getClientY(e);
+  drag.clone.style.top = (cy - drag.offsetY) + 'px';
+
+  const targetPos = getTargetPos(cy);
+  drag.targetPos = targetPos;
+
+  // Drop-line indicator: find which non-dragged el to mark
+  const nonDrag = [...document.querySelectorAll('#ch-list .ch-item')]
+    .filter((el) => parseInt(el.dataset.pos) !== drag.fromPos);
+  nonDrag.forEach((el, i) => {
+    el.classList.toggle('ch-drop-before', i === targetPos);
+  });
+  // If dropping after the last item, mark the last one with ch-drop-after
+  if (targetPos >= nonDrag.length && nonDrag.length) {
+    nonDrag[nonDrag.length - 1].classList.remove('ch-drop-before');
+    nonDrag[nonDrag.length - 1].classList.add('ch-drop-after');
+  } else {
+    nonDrag.forEach((el) => el.classList.remove('ch-drop-after'));
+  }
+}
+
+function endDrag(e) {
+  if (!drag) return;
+  const { fromPos, targetPos, clone } = drag;
+  clone.remove();
+  document.querySelectorAll('#ch-list .ch-item').forEach((el) => {
+    el.classList.remove('ch-ghost', 'ch-drop-before', 'ch-drop-after');
+  });
+  drag = null;
+  if (fromPos !== targetPos) {
+    const moved = S.order.splice(fromPos, 1)[0];
+    S.order.splice(targetPos, 0, moved);
+    rebuildList(S.rounds[S.i]);
+  }
+}
+
 // ---------- render round ----------
+function rebuildList(puzzle) {
+  const list = $('#ch-list');
+  list.innerHTML = '';
+  S.order.forEach((itemIdx, pos) => {
+    const item = puzzle.items[itemIdx];
+    const div = document.createElement('div');
+    div.className = 'ch-item';
+    div.dataset.pos = pos;
+    div.innerHTML =
+      `<span class="ch-handle">⠿</span>` +
+      `<span class="ch-pos-label">${ORDINALS[pos]}</span>` +
+      `<span class="ch-label">${item.label}</span>`;
+    div.addEventListener('mousedown', startDrag);
+    div.addEventListener('touchstart', startDrag, { passive: false });
+    list.appendChild(div);
+  });
+}
+
 function renderRound() {
   const puzzle = S.rounds[S.i];
-  const rng = mulberry32((Date.now() & 0xffffffff) ^ S.i);
-  // S.order[pos] = item index from puzzle.items currently in that position
-  S.order = shuffled([0, 1, 2, 3, 4], rng);
-  S.selected = null;
+  const rng = mulberry32((Date.now() & 0xffffffff) ^ (S.i * 0x9e3779b9));
+  S.order = shuffled([0, 1, 2, 3, 4].slice(0, puzzle.items.length), rng);
 
   $('#ch-progress').textContent = `Round ${S.i + 1} of ${ROUNDS}`;
   $('#ch-score').textContent = `${S.score} pts`;
   $('#ch-puzzle-title').textContent = puzzle.title;
 
-  const list = $('#ch-list');
-  list.innerHTML = '';
-  list.className = 'ch-list';
-  rebuildList(puzzle, list);
+  rebuildList(puzzle);
 
   $('#ch-result').hidden = true;
   $('#ch-result').innerHTML = '';
@@ -106,37 +202,6 @@ function renderRound() {
   $('#ch-next').hidden = true;
 
   show('view-chrono');
-}
-
-function rebuildList(puzzle, list) {
-  list = list || $('#ch-list');
-  list.innerHTML = '';
-  S.order.forEach((itemIdx, pos) => {
-    const item = puzzle.items[itemIdx];
-    const div = document.createElement('div');
-    div.className = 'ch-item' + (S.selected === pos ? ' ch-selected' : '');
-    div.dataset.pos = pos;
-    div.innerHTML =
-      `<span class="ch-pos-label">${ORDINALS[pos]}</span>` +
-      `<span class="ch-label">${item.label}</span>`;
-    div.addEventListener('click', () => onTapItem(pos));
-    list.appendChild(div);
-  });
-}
-
-function onTapItem(pos) {
-  if ($('#ch-submit').hidden) return; // round already resolved
-  if (S.selected === null) {
-    S.selected = pos;
-  } else if (S.selected === pos) {
-    S.selected = null;
-  } else {
-    // swap
-    const a = S.selected, b = pos;
-    [S.order[a], S.order[b]] = [S.order[b], S.order[a]];
-    S.selected = null;
-  }
-  rebuildList(S.rounds[S.i]);
 }
 
 // ---------- submit ----------
@@ -148,29 +213,26 @@ function submitRound() {
   S.results.push({ puzzle, order: S.order.slice(), correct, pts });
   persist();
 
-  // rebuild list with result classes and year badges
+  // Rebuild list with result feedback + years
   const list = $('#ch-list');
   list.innerHTML = '';
   const correctOrder = sortedIndices(puzzle);
   S.order.forEach((itemIdx, pos) => {
     const item = puzzle.items[itemIdx];
-    const isCorrect = itemIdx === correctOrder[pos];
+    const ok = itemIdx === correctOrder[pos];
     const div = document.createElement('div');
-    div.className = 'ch-item ch-result-item' + (isCorrect ? ' ch-correct' : ' ch-wrong');
+    div.className = 'ch-item ch-result-item' + (ok ? ' ch-correct' : ' ch-wrong');
     div.innerHTML =
-      `<span class="ch-pos-label">${ORDINALS[pos]}</span>` +
+      `<span class="ch-check">${ok ? '✓' : '✗'}</span>` +
       `<span class="ch-label">${item.label}</span>` +
-      `<span class="ch-year">${item.year < 0 ? Math.abs(item.year) + ' BC' : item.year}</span>` +
-      `<span class="ch-check">${isCorrect ? '✓' : '✗'}</span>`;
+      `<span class="ch-year">${item.year < 0 ? Math.abs(item.year) + ' BC' : item.year}</span>`;
     list.appendChild(div);
   });
 
-  // show how many correct + pts earned
   const result = $('#ch-result');
   result.hidden = false;
-  const perfect = correct === 5;
-  result.className = 'ch-result' + (perfect ? ' ch-perfect' : correct >= 3 ? ' ch-good' : '');
-  result.innerHTML = perfect
+  result.className = 'ch-result' + (correct === 5 ? ' ch-perfect' : correct >= 3 ? ' ch-good' : '');
+  result.innerHTML = correct === 5
     ? `<b>Perfect!</b> All five in order · <span class="ch-pts">+${pts} pts</span>`
     : `<b>${correct} of 5 correct</b> · <span class="ch-pts">+${pts} pts</span>`;
 
@@ -222,7 +284,6 @@ function finishSession(score, results) {
     [450, 'A master of the timeline.'],
     [350, 'History flows through you.'],
     [250, 'A solid grasp of the ages.'],
-    [150, 'The timeline is coming into focus.'],
     [0, 'History is a work in progress.'],
   ];
   $('#ch-sum-remark').textContent = remarks.find((x) => score >= x[0])[1];
@@ -241,23 +302,25 @@ function finishSession(score, results) {
 
 // ---------- init ----------
 export function initChronoGame() {
+  // Document-level drag handlers (work even when pointer leaves item)
+  document.addEventListener('mousemove', moveDrag);
+  document.addEventListener('mouseup', endDrag);
+  document.addEventListener('touchmove', moveDrag, { passive: false });
+  document.addEventListener('touchend', endDrag);
+
   $('#ch-start').addEventListener('click', startSession);
   $('#ch-resume').addEventListener('click', resumeSession);
-
   $('#ch-submit').addEventListener('click', submitRound);
-
   $('#ch-next').addEventListener('click', () => {
     if (S.i === ROUNDS - 1) { finishSession(); return; }
     S.i++;
     renderRound();
   });
-
   $('#ch-quit').addEventListener('click', () => {
     store.clearChronoSession();
     renderChronoStart();
     back();
   });
-
   $('#ch-sum-back').addEventListener('click', goHome);
   $('#ch-sum-again').addEventListener('click', () => { back(); startSession(); });
   $('#ch-sum-home').addEventListener('click', goHome);
