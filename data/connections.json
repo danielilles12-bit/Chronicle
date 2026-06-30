@@ -1,0 +1,252 @@
+[
+  {
+    "id": "conn-001",
+    "title": "Crowned Heads",
+    "groups": [
+      {"colour": "yellow", "label": "Kings of England named Henry", "items": ["Henry V", "Henry VIII", "Henry II", "Henry VII"]},
+      {"colour": "green", "label": "Russian rulers", "items": ["Ivan the Terrible", "Peter the Great", "Catherine the Great", "Nicholas II"]},
+      {"colour": "blue", "label": "French kings named Louis", "items": ["The Sun King", "Louis XVI", "Saint Louis", "The Spider King"]},
+      {"colour": "purple", "label": "Titles meaning 'emperor'", "items": ["Kaiser", "Tsar", "Caesar", "Augustus"]}
+    ]
+  },
+  {
+    "id": "conn-002",
+    "title": "Last Stands",
+    "groups": [
+      {"colour": "yellow", "label": "Famous battles", "items": ["Waterloo", "Hastings", "Gettysburg", "Stalingrad"]},
+      {"colour": "green", "label": "Ancient Greek victories over Persia", "items": ["Marathon", "Salamis", "Plataea", "Thermopylae"]},
+      {"colour": "blue", "label": "Napoleon's defeats", "items": ["Leipzig", "Trafalgar", "Borodino", "Aspern"]},
+      {"colour": "purple", "label": "Sieges that ended an empire", "items": ["Constantinople", "Tenochtitlan", "Carthage", "Baghdad"]}
+    ]
+  },
+  {
+    "id": "conn-003",
+    "title": "Things Named for People",
+    "groups": [
+      {"colour": "yellow", "label": "Named after Alexander the Great", "items": ["Alexandria", "Kandahar", "Alexandroupoli", "Iskandariya"]},
+      {"colour": "green", "label": "Countries named after a person", "items": ["Colombia", "Bolivia", "Saudi Arabia", "Philippines"]},
+      {"colour": "blue", "label": "American capitals named after presidents", "items": ["Washington", "Jackson", "Lincoln", "Madison"]},
+      {"colour": "purple", "label": "Named after Constantine", "items": ["Constantinople", "Constanta", "Konstanz", "Constantine (city)"]}
+    ]
+  },
+  {
+    "id": "conn-004",
+    "title": "Died in Exile",
+    "groups": [
+      {"colour": "yellow", "label": "Napoleon's life", "items": ["Corsica", "Elba", "St Helena", "Waterloo"]},
+      {"colour": "green", "label": "Leaders who died far from home", "items": ["Kaiser Wilhelm II", "Trotsky", "Idi Amin", "Shah of Iran"]},
+      {"colour": "blue", "label": "Islands of imprisonment", "items": ["Robben Island", "Devil's Island", "Patmos", "Alcatraz"]},
+      {"colour": "purple", "label": "Deposed monarchs of 1917-1922", "items": ["Nicholas II", "Mehmed VI", "Charles I of Austria", "Constantine I of Greece"]}
+    ]
+  },
+  {
+    "id": "conn-005",
+    "title": "Renaissance Men",
+    "groups": [
+      {"colour": "yellow", "label": "Italian Renaissance painters", "items": ["Raphael", "Titian", "Botticelli", "Caravaggio"]},
+      {"colour": "green", "label": "Famous astronomers", "items": ["Galileo", "Kepler", "Copernicus", "Tycho Brahe"]},
+      {"colour": "blue", "label": "Sculptors of a David", "items": ["Michelangelo", "Donatello", "Bernini", "Verrocchio"]},
+      {"colour": "purple", "label": "Renaissance patrons & rulers", "items": ["Lorenzo de' Medici", "Pope Julius II", "Ludovico Sforza", "Federico da Montefeltro"]}
+    ]
+  },
+  {
+    "id": "conn-006",
+    "title": "Capital Changes",
+    "groups": [
+      {"colour": "yellow", "label": "Former capital cities", "items": ["Philadelphia", "Bonn", "Rio de Janeiro", "Kyoto"]},
+      {"colour": "green", "label": "Purpose-built capitals", "items": ["Brasilia", "Canberra", "Washington DC", "Abuja"]},
+      {"colour": "blue", "label": "Cities that were renamed", "items": ["Istanbul", "St Petersburg", "Mumbai", "Ho Chi Minh City"]},
+      {"colour": "purple", "label": "Same city, earlier name", "items": ["Byzantium", "Petrograd", "Bombay", "Saigon"]}
+    ]
+  },
+  {
+    "id": "conn-007",
+    "title": "Wartime Inventions",
+    "groups": [
+      {"colour": "yellow", "label": "Born in World War II", "items": ["Radar", "Jet engine", "Penicillin (mass-produced)", "Atomic bomb"]},
+      {"colour": "green", "label": "Cold War spinoffs", "items": ["GPS", "The internet (ARPANET)", "Satellites", "Microwave oven"]},
+      {"colour": "blue", "label": "World War I introductions", "items": ["Tanks", "Poison gas", "Trench coat", "Blood banks"]},
+      {"colour": "purple", "label": "Civilian uses of military tech", "items": ["Duct tape", "Super Glue", "Aviator sunglasses", "Canned food"]}
+    ]
+  },
+  {
+    "id": "conn-008",
+    "title": "Final Words",
+    "groups": [
+      {"colour": "yellow", "label": "Said to have been last words", "items": ["Et tu, Brute?", "I have not yet begun to fight", "Thomas Jefferson survives", "More light!"]},
+      {"colour": "green", "label": "Spoken on the gallows or block", "items": ["Such is life", "I die innocent", "It is a far better thing", "Off with his head"]},
+      {"colour": "blue", "label": "Battlefield last words", "items": ["Kiss me, Hardy", "They couldn't hit an elephant", "Don't give up the ship", "Hold the fort"]},
+      {"colour": "purple", "label": "Reputed dying quips of writers", "items": ["Either the wallpaper goes or I do", "I should never have switched from Scotch", "Drink to me", "On the contrary"]}
+    ]
+  },
+  {
+    "id": "conn-009",
+    "title": "Ancient Powers",
+    "groups": [
+      {"colour": "yellow", "label": "Ancient Egyptian rulers", "items": ["Tutankhamun", "Ramesses II", "Akhenaten", "Hatshepsut"]},
+      {"colour": "green", "label": "Roman emperors", "items": ["Augustus", "Nero", "Hadrian", "Marcus Aurelius"]},
+      {"colour": "blue", "label": "Greek philosophers", "items": ["Socrates", "Plato", "Aristotle", "Epicurus"]},
+      {"colour": "purple", "label": "Mesopotamian / Persian kings", "items": ["Hammurabi", "Cyrus", "Darius", "Nebuchadnezzar"]}
+    ]
+  },
+  {
+    "id": "conn-010",
+    "title": "Revolutions",
+    "groups": [
+      {"colour": "yellow", "label": "French Revolution figures", "items": ["Robespierre", "Danton", "Marat", "Marie Antoinette"]},
+      {"colour": "green", "label": "American Founding Fathers", "items": ["Jefferson", "Hamilton", "Franklin", "Madison"]},
+      {"colour": "blue", "label": "Russian Revolution figures", "items": ["Lenin", "Trotsky", "Kerensky", "Rasputin"]},
+      {"colour": "purple", "label": "Latin American liberators", "items": ["Bolivar", "San Martin", "Sucre", "O'Higgins"]}
+    ]
+  },
+  {
+    "id": "conn-011",
+    "title": "The Spoils of Empire",
+    "groups": [
+      {"colour": "yellow", "label": "Things Marco Polo was said to bring back", "items": ["Pasta", "Paper money", "Gunpowder tales", "Spices"]},
+      {"colour": "green", "label": "Crops from the Americas", "items": ["Potato", "Tomato", "Maize", "Chocolate"]},
+      {"colour": "blue", "label": "Spices that drove exploration", "items": ["Nutmeg", "Cloves", "Pepper", "Cinnamon"]},
+      {"colour": "purple", "label": "Silk Road exports from China", "items": ["Silk", "Porcelain", "Tea", "Lacquerware"]}
+    ]
+  },
+  {
+    "id": "conn-012",
+    "title": "Houses Divided",
+    "groups": [
+      {"colour": "yellow", "label": "English royal houses", "items": ["Tudor", "Stuart", "Windsor", "Plantagenet"]},
+      {"colour": "green", "label": "European royal dynasties", "items": ["Habsburg", "Bourbon", "Romanov", "Hohenzollern"]},
+      {"colour": "blue", "label": "Chinese dynasties", "items": ["Han", "Tang", "Ming", "Qing"]},
+      {"colour": "purple", "label": "Islamic caliphates / dynasties", "items": ["Umayyad", "Abbasid", "Fatimid", "Ottoman"]}
+    ]
+  },
+  {
+    "id": "conn-013",
+    "title": "Left-Handed Legends",
+    "groups": [
+      {"colour": "yellow", "label": "Said to have been left-handed", "items": ["Napoleon", "Leonardo da Vinci", "Julius Caesar", "Alexander the Great"]},
+      {"colour": "green", "label": "Left-handed US presidents", "items": ["Obama", "Reagan", "Truman", "Ford"]},
+      {"colour": "blue", "label": "Conquerors and generals", "items": ["Genghis Khan", "Hannibal", "Charlemagne", "Saladin"]},
+      {"colour": "purple", "label": "Renaissance polymaths", "items": ["Michelangelo", "Galileo", "Newton", "Benjamin Franklin"]}
+    ]
+  },
+  {
+    "id": "conn-014",
+    "title": "Gone Too Soon",
+    "groups": [
+      {"colour": "yellow", "label": "Died at 33", "items": ["Alexander the Great", "Jesus (traditional)", "Eva Peron", "Bruce Lee"]},
+      {"colour": "green", "label": "Members of the '27 Club'", "items": ["Jimi Hendrix", "Janis Joplin", "Jim Morrison", "Amy Winehouse"]},
+      {"colour": "blue", "label": "Assassinated young leaders", "items": ["Caligula", "JFK", "Lincoln", "Caesar"]},
+      {"colour": "purple", "label": "Died at 39", "items": ["Martin Luther King Jr", "Edgar Allan Poe", "Glenn Miller", "Lou Gehrig"]}
+    ]
+  },
+  {
+    "id": "conn-015",
+    "title": "Seven Seas",
+    "groups": [
+      {"colour": "yellow", "label": "Famous explorers", "items": ["Columbus", "Magellan", "Vasco da Gama", "Captain Cook"]},
+      {"colour": "green", "label": "Polar expeditions", "items": ["Amundsen", "Scott", "Shackleton", "Peary"]},
+      {"colour": "blue", "label": "Notorious pirates", "items": ["Blackbeard", "Henry Morgan", "Anne Bonny", "Calico Jack"]},
+      {"colour": "purple", "label": "Famous ships", "items": ["Endeavour", "Beagle", "Santa Maria", "Victory"]}
+    ]
+  },
+  {
+    "id": "conn-016",
+    "title": "Walls and Borders",
+    "groups": [
+      {"colour": "yellow", "label": "Famous walls", "items": ["Great Wall of China", "Berlin Wall", "Hadrian's Wall", "Wailing Wall"]},
+      {"colour": "green", "label": "Cold War divisions", "items": ["Iron Curtain", "38th Parallel", "Checkpoint Charlie", "Bamboo Curtain"]},
+      {"colour": "blue", "label": "Roman frontier defences", "items": ["Antonine Wall", "Limes Germanicus", "Rhine frontier", "Danube frontier"]},
+      {"colour": "purple", "label": "Lines drawn by treaty", "items": ["Tordesillas Line", "Sykes-Picot Line", "Mason-Dixon Line", "Durand Line"]}
+    ]
+  },
+  {
+    "id": "conn-017",
+    "title": "Code Names",
+    "groups": [
+      {"colour": "yellow", "label": "WWII military operations", "items": ["Overlord", "Barbarossa", "Market Garden", "Torch"]},
+      {"colour": "green", "label": "Secret projects", "items": ["Manhattan Project", "Enigma", "Ultra", "Bletchley Park"]},
+      {"colour": "blue", "label": "D-Day landing beaches", "items": ["Omaha", "Utah", "Gold", "Sword"]},
+      {"colour": "purple", "label": "Cold War spy operations", "items": ["Gold (Berlin Tunnel)", "Ajax", "Gladio", "Venona"]}
+    ]
+  },
+  {
+    "id": "conn-018",
+    "title": "Scientific Firsts",
+    "groups": [
+      {"colour": "yellow", "label": "Physicists", "items": ["Newton", "Einstein", "Faraday", "Bohr"]},
+      {"colour": "green", "label": "Pioneers of medicine", "items": ["Pasteur", "Fleming", "Jenner", "Lister"]},
+      {"colour": "blue", "label": "Women who won a Nobel in science", "items": ["Marie Curie", "Dorothy Hodgkin", "Barbara McClintock", "Rosalyn Yalow"]},
+      {"colour": "purple", "label": "Namesakes of scientific units", "items": ["Volta", "Ampere", "Ohm", "Watt"]}
+    ]
+  },
+  {
+    "id": "conn-019",
+    "title": "Dictators and Despots",
+    "groups": [
+      {"colour": "yellow", "label": "20th-century dictators", "items": ["Stalin", "Mussolini", "Franco", "Mao"]},
+      {"colour": "green", "label": "Roman 'mad' emperors", "items": ["Caligula", "Nero", "Commodus", "Domitian"]},
+      {"colour": "blue", "label": "Overthrown in a revolution", "items": ["Louis XVI", "Tsar Nicholas II", "Shah of Iran", "Batista"]},
+      {"colour": "purple", "label": "Self-proclaimed emperors", "items": ["Napoleon", "Bokassa", "Norton I", "Maximilian of Mexico"]}
+    ]
+  },
+  {
+    "id": "conn-020",
+    "title": "Documents That Changed History",
+    "groups": [
+      {"colour": "yellow", "label": "Founding American documents", "items": ["Declaration of Independence", "Constitution", "Bill of Rights", "Gettysburg Address"]},
+      {"colour": "green", "label": "Charters limiting royal power", "items": ["Magna Carta", "Bill of Rights 1689", "Petition of Right", "Habeas Corpus Act"]},
+      {"colour": "blue", "label": "Peace treaties", "items": ["Versailles", "Westphalia", "Tordesillas", "Utrecht"]},
+      {"colour": "purple", "label": "Manifestos and proclamations", "items": ["Communist Manifesto", "Emancipation Proclamation", "Ninety-five Theses", "Balfour Declaration"]}
+    ]
+  },
+  {
+    "id": "conn-021",
+    "title": "By Land and Sea",
+    "groups": [
+      {"colour": "yellow", "label": "Great rivers of history", "items": ["Nile", "Euphrates", "Indus", "Yellow River"]},
+      {"colour": "green", "label": "Famous mountain passes & crossings", "items": ["Rubicon", "Khyber Pass", "Hannibal's Alps", "Bering Strait"]},
+      {"colour": "blue", "label": "Man-made canals", "items": ["Suez", "Panama", "Grand Canal", "Erie Canal"]},
+      {"colour": "purple", "label": "Lost or sunken places", "items": ["Atlantis", "Pompeii", "Doggerland", "Port Royal"]}
+    ]
+  },
+  {
+    "id": "conn-022",
+    "title": "Plague, Fire and Flood",
+    "groups": [
+      {"colour": "yellow", "label": "Historic pandemics", "items": ["Black Death", "Spanish Flu", "Plague of Justinian", "Antonine Plague"]},
+      {"colour": "green", "label": "Great fires", "items": ["Great Fire of London", "Burning of Rome", "Chicago Fire", "Library of Alexandria"]},
+      {"colour": "blue", "label": "Famous volcanic eruptions", "items": ["Vesuvius", "Krakatoa", "Tambora", "Thera"]},
+      {"colour": "purple", "label": "Disasters blamed (wrongly) on someone", "items": ["Nero and the fire", "Mrs O'Leary's cow", "Marie Antoinette's cake", "Typhoid Mary"]}
+    ]
+  },
+  {
+    "id": "conn-023",
+    "title": "Words From the Past",
+    "groups": [
+      {"colour": "yellow", "label": "Named after a place", "items": ["Marathon", "Spartan", "Bohemian", "Laconic"]},
+      {"colour": "green", "label": "Named after a real person", "items": ["Sandwich", "Boycott", "Guillotine", "Saxophone"]},
+      {"colour": "blue", "label": "From Greek mythology", "items": ["Panic", "Echo", "Tantalize", "Nemesis"]},
+      {"colour": "purple", "label": "From Roman or military origin", "items": ["Decimate", "Salary", "Sinister", "Crucial"]}
+    ]
+  },
+  {
+    "id": "conn-024",
+    "title": "The Twentieth Century",
+    "groups": [
+      {"colour": "yellow", "label": "Cold War summits & crises", "items": ["Yalta", "Cuban Missile Crisis", "Berlin Airlift", "Reykjavik Summit"]},
+      {"colour": "green", "label": "Decolonization moments", "items": ["Indian Partition", "Suez Crisis", "Algerian War", "Wind of Change"]},
+      {"colour": "blue", "label": "Civil rights milestones", "items": ["March on Washington", "Selma", "Brown v. Board", "Montgomery Boycott"]},
+      {"colour": "purple", "label": "Began with a single shot or spark", "items": ["Sarajevo 1914", "Gulf of Tonkin", "Reichstag Fire", "Bloody Sunday"]}
+    ]
+  },
+  {
+    "id": "conn-025",
+    "title": "Legends and Leaders",
+    "groups": [
+      {"colour": "yellow", "label": "Warrior queens", "items": ["Boudica", "Cleopatra", "Zenobia", "Tomyris"]},
+      {"colour": "green", "label": "Medieval English legends", "items": ["King Arthur", "Robin Hood", "Lady Godiva", "Richard the Lionheart"]},
+      {"colour": "blue", "label": "Nomadic conquerors", "items": ["Attila", "Genghis Khan", "Tamerlane", "Hannibal"]},
+      {"colour": "purple", "label": "Founders of a faith or order", "items": ["Buddha", "Muhammad", "Zoroaster", "Confucius"]}
+    ]
+  }
+]

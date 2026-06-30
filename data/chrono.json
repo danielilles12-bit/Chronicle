@@ -1,0 +1,1317 @@
+[
+  {
+    "id": "chrono-001",
+    "title": "Wonders of the Ancient World",
+    "difficulty": "easy",
+    "items": [
+      {
+        "label": "Machu Picchu built",
+        "year": 1450,
+        "hint": "Abandoned barely a century later"
+      },
+      {
+        "label": "Great Wall of China begun",
+        "year": -220,
+        "hint": "Qin Shi Huang linked older walls into one"
+      },
+      {
+        "label": "Colosseum opens in Rome",
+        "year": 80,
+        "hint": "Inaugurated with 100 days of games"
+      },
+      {
+        "label": "Taj Mahal completed",
+        "year": 1653,
+        "hint": "A tomb for one beloved wife"
+      },
+      {
+        "label": "Great Pyramid of Giza built",
+        "year": -2560,
+        "hint": "The only ancient wonder still standing today"
+      }
+    ]
+  },
+  {
+    "id": "chrono-002",
+    "title": "Empires at Their Peak",
+    "difficulty": "easy",
+    "items": [
+      {
+        "label": "British Empire at greatest extent",
+        "year": 1920,
+        "hint": "A quarter of the world's land and people"
+      },
+      {
+        "label": "Aztec Empire at its height",
+        "year": 1500,
+        "hint": "Tenochtitlan was bigger than most European cities"
+      },
+      {
+        "label": "Roman Empire at greatest extent",
+        "year": 117,
+        "hint": "Under Trajan, from Britain to the Persian Gulf"
+      },
+      {
+        "label": "United States lands on the Moon",
+        "year": 1969,
+        "hint": "The empire that planted a flag off-world"
+      },
+      {
+        "label": "Mongol Empire at greatest extent",
+        "year": 1279,
+        "hint": "The largest contiguous land empire ever"
+      }
+    ]
+  },
+  {
+    "id": "chrono-003",
+    "title": "Famous Explorers Set Sail",
+    "difficulty": "easy",
+    "items": [
+      {
+        "label": "Cook charts the Pacific",
+        "year": 1770,
+        "hint": "First European to map eastern Australia"
+      },
+      {
+        "label": "Columbus reaches the Americas",
+        "year": 1492,
+        "hint": "He died still thinking it was Asia"
+      },
+      {
+        "label": "Magellan's expedition circles the globe",
+        "year": 1522,
+        "hint": "He didn't survive the trip himself"
+      },
+      {
+        "label": "Marco Polo reaches China",
+        "year": 1275,
+        "hint": "He served Kublai Khan for 17 years"
+      },
+      {
+        "label": "Amundsen reaches the South Pole",
+        "year": 1911,
+        "hint": "He beat Scott there by five weeks"
+      }
+    ]
+  },
+  {
+    "id": "chrono-004",
+    "title": "Things That Changed the World",
+    "difficulty": "easy",
+    "items": [
+      {
+        "label": "Gutenberg prints the Bible",
+        "year": 1455,
+        "hint": "Suddenly books could be made by the thousand"
+      },
+      {
+        "label": "First steam locomotive runs",
+        "year": 1804,
+        "hint": "Trevithick's engine hauled iron in Wales"
+      },
+      {
+        "label": "First powered flight by the Wright brothers",
+        "year": 1903,
+        "hint": "Twelve seconds that shrank the planet"
+      },
+      {
+        "label": "The World Wide Web goes public",
+        "year": 1991,
+        "hint": "Tim Berners-Lee gave it away for free"
+      },
+      {
+        "label": "Invention of writing in Sumer",
+        "year": -3200,
+        "hint": "It began as accounting, not poetry"
+      }
+    ]
+  },
+  {
+    "id": "chrono-005",
+    "title": "Iconic Buildings of the World",
+    "difficulty": "easy",
+    "items": [
+      {
+        "label": "Sydney Opera House opens",
+        "year": 1973,
+        "hint": "It ran ten years late and wildly over budget"
+      },
+      {
+        "label": "Eiffel Tower completed",
+        "year": 1889,
+        "hint": "Parisians once called it a monstrous eyesore"
+      },
+      {
+        "label": "Notre-Dame de Paris finished",
+        "year": 1345,
+        "hint": "It took almost 200 years to build"
+      },
+      {
+        "label": "Parthenon completed in Athens",
+        "year": -432,
+        "hint": "Built at the height of Athenian democracy"
+      },
+      {
+        "label": "Hagia Sophia completed",
+        "year": 537,
+        "hint": "Church, then mosque, then museum, then mosque again"
+      }
+    ]
+  },
+  {
+    "id": "chrono-006",
+    "title": "When the Great Religions Began",
+    "difficulty": "easy",
+    "items": [
+      {
+        "label": "Muhammad's flight to Medina",
+        "year": 622,
+        "hint": "Year one of the Islamic calendar"
+      },
+      {
+        "label": "Crucifixion of Jesus",
+        "year": 33,
+        "hint": "The event that splits the Western calendar"
+      },
+      {
+        "label": "Life of the Buddha",
+        "year": -500,
+        "hint": "A prince who gave up everything to seek enlightenment"
+      },
+      {
+        "label": "The Great Schism splits Christianity",
+        "year": 1054,
+        "hint": "East and West excommunicated each other"
+      },
+      {
+        "label": "Luther nails up his 95 Theses",
+        "year": 1517,
+        "hint": "He just wanted to debate, not start a Reformation"
+      }
+    ]
+  },
+  {
+    "id": "chrono-007",
+    "title": "Revolutions That Shook the World",
+    "difficulty": "easy",
+    "items": [
+      {
+        "label": "Storming of the Bastille",
+        "year": 1789,
+        "hint": "It held only seven prisoners that day"
+      },
+      {
+        "label": "Chinese Communist Revolution",
+        "year": 1949,
+        "hint": "Mao declared it from Tiananmen's gate"
+      },
+      {
+        "label": "American Declaration of Independence",
+        "year": 1776,
+        "hint": "Life, liberty and the pursuit of happiness"
+      },
+      {
+        "label": "Bolshevik Revolution in Russia",
+        "year": 1917,
+        "hint": "Lenin's name was an alias all along"
+      },
+      {
+        "label": "Fall of the Berlin Wall",
+        "year": 1989,
+        "hint": "Brought down by a confused press conference"
+      }
+    ]
+  },
+  {
+    "id": "chrono-008",
+    "title": "Plagues and Pandemics",
+    "difficulty": "easy",
+    "items": [
+      {
+        "label": "COVID-19 declared a pandemic",
+        "year": 2020,
+        "hint": "The world locked its doors at once"
+      },
+      {
+        "label": "Plague of Justinian",
+        "year": 541,
+        "hint": "It may have helped doom the Roman East"
+      },
+      {
+        "label": "The Black Death sweeps Europe",
+        "year": 1347,
+        "hint": "It killed perhaps half of Europe in a few years"
+      },
+      {
+        "label": "Spanish Flu pandemic",
+        "year": 1918,
+        "hint": "It killed more people than the war it followed"
+      },
+      {
+        "label": "HIV/AIDS first identified",
+        "year": 1981,
+        "hint": "First reported as a rare pneumonia cluster"
+      }
+    ]
+  },
+  {
+    "id": "chrono-009",
+    "title": "Ancient Civilizations Rise",
+    "difficulty": "easy",
+    "items": [
+      {
+        "label": "Augustus becomes first Roman emperor",
+        "year": -27,
+        "hint": "He found Rome brick and left it marble"
+      },
+      {
+        "label": "Alexander the Great conquers Persia",
+        "year": -331,
+        "hint": "He wept, they say, with no worlds left to conquer"
+      },
+      {
+        "label": "First Egyptian dynasty unites the land",
+        "year": -3100,
+        "hint": "Narmer joined Upper and Lower Egypt"
+      },
+      {
+        "label": "Golden Age of Athens under Pericles",
+        "year": -450,
+        "hint": "Democracy, drama and the Parthenon all at once"
+      },
+      {
+        "label": "Founding of Rome (traditional date)",
+        "year": -753,
+        "hint": "Raised, legend says, by a she-wolf"
+      }
+    ]
+  },
+  {
+    "id": "chrono-010",
+    "title": "Disasters That Made History",
+    "difficulty": "easy",
+    "items": [
+      {
+        "label": "Chernobyl meltdown",
+        "year": 1986,
+        "hint": "A safety test that went catastrophically wrong"
+      },
+      {
+        "label": "Titanic sinks",
+        "year": 1912,
+        "hint": "The 'unsinkable' ship lasted under three hours"
+      },
+      {
+        "label": "Great Fire of London",
+        "year": 1666,
+        "hint": "It started in a bakery on Pudding Lane"
+      },
+      {
+        "label": "Vesuvius buries Pompeii",
+        "year": 79,
+        "hint": "Frozen in ash for nearly 1,700 years"
+      },
+      {
+        "label": "Hindenburg disaster",
+        "year": 1937,
+        "hint": "Oh, the humanity!"
+      }
+    ]
+  },
+  {
+    "id": "chrono-011",
+    "title": "The Space Race",
+    "difficulty": "easy",
+    "items": [
+      {
+        "label": "Apollo 11 lands on the Moon",
+        "year": 1969,
+        "hint": "One small step, watched by 600 million"
+      },
+      {
+        "label": "Gagarin is first human in space",
+        "year": 1961,
+        "hint": "He orbited once and parachuted out"
+      },
+      {
+        "label": "Sputnik launched",
+        "year": 1957,
+        "hint": "A beeping metal ball that terrified America"
+      },
+      {
+        "label": "First spacewalk by Leonov",
+        "year": 1965,
+        "hint": "His suit ballooned and nearly trapped him outside"
+      },
+      {
+        "label": "Space Shuttle's first flight",
+        "year": 1981,
+        "hint": "The first reusable spacecraft"
+      }
+    ]
+  },
+  {
+    "id": "chrono-012",
+    "title": "Masterpieces of Art",
+    "difficulty": "easy",
+    "items": [
+      {
+        "label": "Rembrandt paints The Night Watch",
+        "year": 1642,
+        "hint": "It's not actually a night scene at all"
+      },
+      {
+        "label": "Van Gogh paints The Starry Night",
+        "year": 1889,
+        "hint": "Painted from the window of an asylum"
+      },
+      {
+        "label": "Leonardo completes the Mona Lisa",
+        "year": 1517,
+        "hint": "He carried it with him until he died"
+      },
+      {
+        "label": "Michelangelo finishes the Sistine Chapel ceiling",
+        "year": 1512,
+        "hint": "He painted it on his back for four years"
+      },
+      {
+        "label": "Picasso paints Guernica",
+        "year": 1937,
+        "hint": "A scream of protest against a bombing"
+      }
+    ]
+  },
+  {
+    "id": "chrono-013",
+    "title": "Kings and Queens of England",
+    "difficulty": "medium",
+    "items": [
+      {
+        "label": "William the Conqueror crowned",
+        "year": 1066,
+        "hint": "The last successful invasion of England"
+      },
+      {
+        "label": "Henry VIII breaks with Rome",
+        "year": 1534,
+        "hint": "All to marry wife number two"
+      },
+      {
+        "label": "Charles I executed",
+        "year": 1649,
+        "hint": "The only English king put on trial and beheaded"
+      },
+      {
+        "label": "Elizabeth I defeats the Spanish Armada",
+        "year": 1588,
+        "hint": "The weather did much of the fighting"
+      },
+      {
+        "label": "Victoria becomes queen",
+        "year": 1837,
+        "hint": "She was just 18 and reigned for 63 years"
+      }
+    ]
+  },
+  {
+    "id": "chrono-014",
+    "title": "Turning Points of the American Civil War",
+    "difficulty": "medium",
+    "items": [
+      {
+        "label": "Sherman's March to the Sea",
+        "year": 1864,
+        "hint": "Atlanta to Savannah, leaving ruin behind"
+      },
+      {
+        "label": "Confederates fire on Fort Sumter",
+        "year": 1861,
+        "hint": "The first shots, with no one killed"
+      },
+      {
+        "label": "Battle of Gettysburg",
+        "year": 1863,
+        "hint": "Three days that broke the Confederate tide"
+      },
+      {
+        "label": "Battle of Antietam",
+        "year": 1862,
+        "hint": "The bloodiest single day in American history"
+      },
+      {
+        "label": "Lee surrenders at Appomattox",
+        "year": 1865,
+        "hint": "Grant let the rebels keep their horses"
+      }
+    ]
+  },
+  {
+    "id": "chrono-015",
+    "title": "Scientific Breakthroughs",
+    "difficulty": "medium",
+    "items": [
+      {
+        "label": "Darwin publishes On the Origin of Species",
+        "year": 1859,
+        "hint": "He sat on the idea for 20 years"
+      },
+      {
+        "label": "Structure of DNA discovered",
+        "year": 1953,
+        "hint": "Watson and Crick, leaning on Franklin's photo"
+      },
+      {
+        "label": "Einstein's theory of general relativity",
+        "year": 1915,
+        "hint": "Gravity isn't a force but a bending of space"
+      },
+      {
+        "label": "Newton publishes the Principia",
+        "year": 1687,
+        "hint": "Gravity, math and the clockwork universe"
+      },
+      {
+        "label": "Copernicus places the Sun at the center",
+        "year": 1543,
+        "hint": "Published as he lay dying"
+      }
+    ]
+  },
+  {
+    "id": "chrono-016",
+    "title": "The Crusades",
+    "difficulty": "medium",
+    "items": [
+      {
+        "label": "Sack of Constantinople by crusaders",
+        "year": 1204,
+        "hint": "A crusade that never reached the Holy Land"
+      },
+      {
+        "label": "Saladin retakes Jerusalem",
+        "year": 1187,
+        "hint": "He spared the city that crusaders had not"
+      },
+      {
+        "label": "Fall of Acre ends the Crusader states",
+        "year": 1291,
+        "hint": "The last Christian foothold in the Levant falls"
+      },
+      {
+        "label": "Pope Urban II calls the First Crusade",
+        "year": 1095,
+        "hint": "'God wills it!' at Clermont"
+      },
+      {
+        "label": "Crusaders capture Jerusalem",
+        "year": 1099,
+        "hint": "A massacre followed the conquest"
+      }
+    ]
+  },
+  {
+    "id": "chrono-017",
+    "title": "Assassinations That Changed History",
+    "difficulty": "medium",
+    "items": [
+      {
+        "label": "John F. Kennedy shot in Dallas",
+        "year": 1963,
+        "hint": "A motorcade, a book depository, a nation in shock"
+      },
+      {
+        "label": "Abraham Lincoln shot at the theatre",
+        "year": 1865,
+        "hint": "Five days after the war effectively ended"
+      },
+      {
+        "label": "Julius Caesar stabbed in the Senate",
+        "year": -44,
+        "hint": "Et tu, Brute?"
+      },
+      {
+        "label": "Archduke Franz Ferdinand killed in Sarajevo",
+        "year": 1914,
+        "hint": "His driver took a fatal wrong turn"
+      },
+      {
+        "label": "Mahatma Gandhi assassinated",
+        "year": 1948,
+        "hint": "Shot by a Hindu nationalist months after independence"
+      }
+    ]
+  },
+  {
+    "id": "chrono-018",
+    "title": "Treaties and Peace Deals",
+    "difficulty": "medium",
+    "items": [
+      {
+        "label": "Magna Carta sealed",
+        "year": 1215,
+        "hint": "Barons forced a reluctant king to sign"
+      },
+      {
+        "label": "Yalta Conference divides postwar Europe",
+        "year": 1945,
+        "hint": "The Big Three carved up the map"
+      },
+      {
+        "label": "Maastricht Treaty creates the EU",
+        "year": 1992,
+        "hint": "It gave Europe a shared currency to come"
+      },
+      {
+        "label": "Peace of Westphalia",
+        "year": 1648,
+        "hint": "It ended the Thirty Years' War and made the modern state"
+      },
+      {
+        "label": "Treaty of Versailles",
+        "year": 1919,
+        "hint": "Its harsh terms sowed seeds of the next war"
+      }
+    ]
+  },
+  {
+    "id": "chrono-019",
+    "title": "Pioneers of Flight and Speed",
+    "difficulty": "medium",
+    "items": [
+      {
+        "label": "Chuck Yeager breaks the sound barrier",
+        "year": 1947,
+        "hint": "He flew with two broken ribs"
+      },
+      {
+        "label": "First Concorde commercial flight",
+        "year": 1976,
+        "hint": "London to New York in under four hours"
+      },
+      {
+        "label": "Lindbergh flies solo across the Atlantic",
+        "year": 1927,
+        "hint": "33 hours alone with no radio"
+      },
+      {
+        "label": "Wright brothers' first powered flight",
+        "year": 1903,
+        "hint": "Run by bicycle mechanics on a beach"
+      },
+      {
+        "label": "First hot air balloon flight",
+        "year": 1783,
+        "hint": "A sheep, a duck and a rooster flew first"
+      }
+    ]
+  },
+  {
+    "id": "chrono-020",
+    "title": "The Fall of Great Empires",
+    "difficulty": "medium",
+    "items": [
+      {
+        "label": "Fall of the Western Roman Empire",
+        "year": 476,
+        "hint": "A teenage emperor named Romulus deposed"
+      },
+      {
+        "label": "Fall of the Aztec Empire",
+        "year": 1521,
+        "hint": "Cortes and smallpox together undid it"
+      },
+      {
+        "label": "Dissolution of the Soviet Union",
+        "year": 1991,
+        "hint": "An empire that ended with a signature"
+      },
+      {
+        "label": "Fall of the last Chinese dynasty",
+        "year": 1912,
+        "hint": "A six-year-old emperor abdicated"
+      },
+      {
+        "label": "Constantinople falls to the Ottomans",
+        "year": 1453,
+        "hint": "Cannon finally broke the ancient walls"
+      }
+    ]
+  },
+  {
+    "id": "chrono-021",
+    "title": "Inventions That Changed Warfare",
+    "difficulty": "medium",
+    "items": [
+      {
+        "label": "Gunpowder weapons used in China",
+        "year": 1000,
+        "hint": "First it was meant to chase off evil spirits"
+      },
+      {
+        "label": "Tanks debut on the Somme",
+        "year": 1916,
+        "hint": "Codenamed 'tanks' to disguise them as water carriers"
+      },
+      {
+        "label": "The machine gun perfected by Maxim",
+        "year": 1884,
+        "hint": "One man's firepower equalled a whole unit"
+      },
+      {
+        "label": "The longbow dominates at Crécy",
+        "year": 1346,
+        "hint": "English archers humbled French knights"
+      },
+      {
+        "label": "First atomic bomb dropped",
+        "year": 1945,
+        "hint": "One plane, one bomb, one city gone"
+      }
+    ]
+  },
+  {
+    "id": "chrono-022",
+    "title": "Voyages of the Age of Sail",
+    "difficulty": "medium",
+    "items": [
+      {
+        "label": "Drake completes his circumnavigation",
+        "year": 1580,
+        "hint": "A pirate knighted on his own ship's deck"
+      },
+      {
+        "label": "The Mayflower reaches Plymouth",
+        "year": 1620,
+        "hint": "They had aimed for Virginia"
+      },
+      {
+        "label": "Cook's first Pacific voyage returns",
+        "year": 1771,
+        "hint": "He brought back Australia on his charts"
+      },
+      {
+        "label": "Vasco da Gama reaches India by sea",
+        "year": 1498,
+        "hint": "He opened the spice route around Africa"
+      },
+      {
+        "label": "Zheng He's treasure fleets set out",
+        "year": 1405,
+        "hint": "Chinese ships dwarfed anything Europe had"
+      }
+    ]
+  },
+  {
+    "id": "chrono-023",
+    "title": "Composers and Their Masterworks",
+    "difficulty": "medium",
+    "items": [
+      {
+        "label": "Mozart writes his final symphony, the Jupiter",
+        "year": 1788,
+        "hint": "His last and grandest, written in weeks"
+      },
+      {
+        "label": "Stravinsky's Rite of Spring causes a riot",
+        "year": 1913,
+        "hint": "The audience came to blows at the premiere"
+      },
+      {
+        "label": "Bach completes the Brandenburg Concertos",
+        "year": 1721,
+        "hint": "The dedicatee may never have had them played"
+      },
+      {
+        "label": "Beethoven premieres his Ninth Symphony",
+        "year": 1824,
+        "hint": "He was completely deaf by then"
+      },
+      {
+        "label": "Wagner completes the Ring cycle",
+        "year": 1874,
+        "hint": "Four operas spanning some 26 years of work"
+      }
+    ]
+  },
+  {
+    "id": "chrono-024",
+    "title": "Women Who Made History",
+    "difficulty": "medium",
+    "items": [
+      {
+        "label": "Marie Curie wins her first Nobel Prize",
+        "year": 1903,
+        "hint": "The only person to win in two sciences"
+      },
+      {
+        "label": "Joan of Arc burned at the stake",
+        "year": 1431,
+        "hint": "A teenage peasant who led armies"
+      },
+      {
+        "label": "Cleopatra dies",
+        "year": -30,
+        "hint": "The last pharaoh of Egypt, by an asp's bite"
+      },
+      {
+        "label": "Catherine the Great takes the Russian throne",
+        "year": 1762,
+        "hint": "She came to power by deposing her husband"
+      },
+      {
+        "label": "Rosa Parks refuses to give up her seat",
+        "year": 1955,
+        "hint": "One quiet act that lit a movement"
+      }
+    ]
+  },
+  {
+    "id": "chrono-025",
+    "title": "The Road to World War II",
+    "difficulty": "medium",
+    "items": [
+      {
+        "label": "Germany annexes Austria (the Anschluss)",
+        "year": 1938,
+        "hint": "Greeted by cheering crowds in Vienna"
+      },
+      {
+        "label": "Hitler becomes Chancellor of Germany",
+        "year": 1933,
+        "hint": "He was appointed, not elected, to the post"
+      },
+      {
+        "label": "Wall Street Crash",
+        "year": 1929,
+        "hint": "The boom ended on Black Tuesday"
+      },
+      {
+        "label": "Fall of France",
+        "year": 1940,
+        "hint": "Six weeks and the Maginot Line was bypassed"
+      },
+      {
+        "label": "Germany invades Poland",
+        "year": 1939,
+        "hint": "Two days later, war was declared"
+      }
+    ]
+  },
+  {
+    "id": "chrono-026",
+    "title": "Capitals of Lost Worlds",
+    "difficulty": "medium",
+    "items": [
+      {
+        "label": "Babylon flourishes under Hammurabi",
+        "year": -1750,
+        "hint": "Home to one of the first written law codes"
+      },
+      {
+        "label": "Tenochtitlan founded by the Aztecs",
+        "year": 1325,
+        "hint": "Built on an island where an eagle ate a snake"
+      },
+      {
+        "label": "Baghdad founded as Abbasid capital",
+        "year": 762,
+        "hint": "A round city built for the Caliph"
+      },
+      {
+        "label": "Angkor abandoned by the Khmer",
+        "year": 1431,
+        "hint": "The jungle swallowed the largest pre-modern city"
+      },
+      {
+        "label": "Carthage destroyed by Rome",
+        "year": -146,
+        "hint": "Its fields were said to be sown with salt"
+      }
+    ]
+  },
+  {
+    "id": "chrono-027",
+    "title": "Civil Rights Milestones",
+    "difficulty": "medium",
+    "items": [
+      {
+        "label": "Nelson Mandela released from prison",
+        "year": 1990,
+        "hint": "27 years jailed, then president four years later"
+      },
+      {
+        "label": "Brown v. Board of Education ruling",
+        "year": 1954,
+        "hint": "Separate schools ruled inherently unequal"
+      },
+      {
+        "label": "Slavery abolished in the British Empire",
+        "year": 1833,
+        "hint": "Owners, not the enslaved, were paid compensation"
+      },
+      {
+        "label": "US Emancipation Proclamation",
+        "year": 1863,
+        "hint": "It freed slaves only in rebel territory at first"
+      },
+      {
+        "label": "Women win the vote in the United States",
+        "year": 1920,
+        "hint": "The 19th Amendment, after 70 years of campaigning"
+      }
+    ]
+  },
+  {
+    "id": "chrono-028",
+    "title": "Mighty Battles of Antiquity",
+    "difficulty": "medium",
+    "items": [
+      {
+        "label": "Battle of Thermopylae",
+        "year": -480,
+        "hint": "300 Spartans against a vast Persian host"
+      },
+      {
+        "label": "Battle of Gaugamela",
+        "year": -331,
+        "hint": "Alexander shattered Darius's empire here"
+      },
+      {
+        "label": "Battle of Cannae",
+        "year": -216,
+        "hint": "Hannibal's double envelopment, still taught today"
+      },
+      {
+        "label": "Battle of Actium",
+        "year": -31,
+        "hint": "Octavian's victory ended the Roman Republic"
+      },
+      {
+        "label": "Battle of Marathon",
+        "year": -490,
+        "hint": "A runner's 26 miles gave the race its name"
+      }
+    ]
+  },
+  {
+    "id": "chrono-029",
+    "title": "Acts of Independence",
+    "difficulty": "medium",
+    "items": [
+      {
+        "label": "Most of Africa decolonizes",
+        "year": 1960,
+        "hint": "Seventeen nations born in a single 'Year of Africa'"
+      },
+      {
+        "label": "United States declares independence",
+        "year": 1776,
+        "hint": "Thirteen colonies break from Britain"
+      },
+      {
+        "label": "Greece wins independence from the Ottomans",
+        "year": 1830,
+        "hint": "Lord Byron died fighting for the cause"
+      },
+      {
+        "label": "India gains independence",
+        "year": 1947,
+        "hint": "Freedom came with a painful partition"
+      },
+      {
+        "label": "Haiti wins independence",
+        "year": 1804,
+        "hint": "The only successful slave revolt to found a nation"
+      }
+    ]
+  },
+  {
+    "id": "chrono-030",
+    "title": "Digital Revolutions",
+    "difficulty": "medium",
+    "items": [
+      {
+        "label": "First electronic computer ENIAC unveiled",
+        "year": 1946,
+        "hint": "It filled a room and weighed 30 tons"
+      },
+      {
+        "label": "The first email is sent",
+        "year": 1971,
+        "hint": "Ray Tomlinson chose the @ symbol"
+      },
+      {
+        "label": "Apple's first personal computer",
+        "year": 1976,
+        "hint": "Built in a garage and sold for $666.66"
+      },
+      {
+        "label": "The first iPhone released",
+        "year": 2007,
+        "hint": "It put the internet in everyone's pocket"
+      },
+      {
+        "label": "World Wide Web invented at CERN",
+        "year": 1989,
+        "hint": "A proposal his boss called 'vague but exciting'"
+      }
+    ]
+  },
+  {
+    "id": "chrono-031",
+    "title": "Five Days of the Battle of Waterloo Campaign",
+    "difficulty": "hard",
+    "items": [
+      {
+        "label": "Napoleon abdicates a second time",
+        "year": 1815,
+        "hint": "Then exiled to St Helena for good",
+        "month": 6
+      },
+      {
+        "label": "Battle of Ligny",
+        "year": 1815,
+        "hint": "Napoleon's last-ever battlefield victory",
+        "month": 6
+      },
+      {
+        "label": "Battle of Waterloo",
+        "year": 1815,
+        "hint": "Blucher's Prussians arrived just in time",
+        "month": 6
+      },
+      {
+        "label": "Napoleon escapes Elba",
+        "year": 1815,
+        "hint": "Beginning the Hundred Days",
+        "month": 3
+      },
+      {
+        "label": "Napoleon reaches Paris, king flees",
+        "year": 1815,
+        "hint": "Louis XVIII bolted for Belgium",
+        "month": 3
+      }
+    ]
+  },
+  {
+    "id": "chrono-032",
+    "title": "The Final Year of the Roman Republic",
+    "difficulty": "hard",
+    "items": [
+      {
+        "label": "Battle of Actium ends the wars",
+        "year": -31,
+        "hint": "Octavian alone is left standing"
+      },
+      {
+        "label": "Battle of Pharsalus",
+        "year": -48,
+        "hint": "Caesar crushes Pompey in Greece"
+      },
+      {
+        "label": "Assassination of Caesar",
+        "year": -44,
+        "hint": "Sixty senators, twenty-three wounds"
+      },
+      {
+        "label": "Caesar declared dictator for life",
+        "year": -44,
+        "hint": "A title that sealed his fate"
+      },
+      {
+        "label": "Caesar crosses the Rubicon",
+        "year": -49,
+        "hint": "'The die is cast'"
+      }
+    ]
+  },
+  {
+    "id": "chrono-033",
+    "title": "Tudor Succession Crisis",
+    "difficulty": "hard",
+    "items": [
+      {
+        "label": "Mary I dies",
+        "year": 1558,
+        "hint": "'Bloody Mary', her phantom pregnancy never real"
+      },
+      {
+        "label": "Elizabeth I crowned",
+        "year": 1559,
+        "hint": "The Virgin Queen begins her long reign"
+      },
+      {
+        "label": "Edward VI dies",
+        "year": 1553,
+        "hint": "A teenage king dead of likely tuberculosis"
+      },
+      {
+        "label": "Lady Jane Grey reigns nine days",
+        "year": 1553,
+        "hint": "Queen for less than a fortnight, then beheaded"
+      },
+      {
+        "label": "Henry VIII dies",
+        "year": 1547,
+        "hint": "Leaving a sickly boy of nine as king"
+      }
+    ]
+  },
+  {
+    "id": "chrono-034",
+    "title": "The October Revolution Unfolds",
+    "difficulty": "hard",
+    "items": [
+      {
+        "label": "Execution of the Romanov family",
+        "year": 1918,
+        "hint": "Shot in a cellar at Yekaterinburg",
+        "month": 7
+      },
+      {
+        "label": "Lenin returns to Russia in a sealed train",
+        "year": 1917,
+        "hint": "Germany smuggled him in as a weapon",
+        "month": 4
+      },
+      {
+        "label": "Bolsheviks storm the Winter Palace",
+        "year": 1917,
+        "hint": "The 'storming' met almost no resistance",
+        "month": 11
+      },
+      {
+        "label": "Tsar Nicholas II abdicates",
+        "year": 1917,
+        "hint": "Three centuries of Romanov rule end",
+        "month": 3
+      },
+      {
+        "label": "Russia exits WWI at Brest-Litovsk",
+        "year": 1918,
+        "hint": "A humiliating peace that gave away vast lands",
+        "month": 3
+      }
+    ]
+  },
+  {
+    "id": "chrono-035",
+    "title": "Six Weeks That Sparked the Great War",
+    "difficulty": "hard",
+    "items": [
+      {
+        "label": "Germany invades Belgium",
+        "year": 1914,
+        "hint": "The 'scrap of paper' guaranteeing neutrality",
+        "month": 8
+      },
+      {
+        "label": "Archduke assassinated in Sarajevo",
+        "year": 1914,
+        "hint": "A sandwich shop and a wrong turn",
+        "month": 6
+      },
+      {
+        "label": "Germany declares war on Russia",
+        "year": 1914,
+        "hint": "Alliances dragged everyone in within days",
+        "month": 8
+      },
+      {
+        "label": "Austria-Hungary declares war on Serbia",
+        "year": 1914,
+        "hint": "After an ultimatum designed to be refused",
+        "month": 7
+      },
+      {
+        "label": "Britain declares war on Germany",
+        "year": 1914,
+        "hint": "'The lamps are going out all over Europe'",
+        "month": 8
+      }
+    ]
+  },
+  {
+    "id": "chrono-036",
+    "title": "Early Renaissance Florence",
+    "difficulty": "hard",
+    "items": [
+      {
+        "label": "The Pazzi Conspiracy",
+        "year": 1478,
+        "hint": "Murder in the cathedral during Mass"
+      },
+      {
+        "label": "Birth of Leonardo da Vinci",
+        "year": 1452,
+        "hint": "Born out of wedlock near a Tuscan village"
+      },
+      {
+        "label": "Brunelleschi wins the dome competition",
+        "year": 1418,
+        "hint": "He refused to reveal how he'd build it"
+      },
+      {
+        "label": "Donatello casts his bronze David",
+        "year": 1440,
+        "hint": "The first free-standing nude since antiquity"
+      },
+      {
+        "label": "Cosimo de' Medici returns from exile to rule",
+        "year": 1434,
+        "hint": "He ran the city without ever holding office"
+      }
+    ]
+  },
+  {
+    "id": "chrono-037",
+    "title": "The Cuban Missile Crisis, Day by Day",
+    "difficulty": "hard",
+    "items": [
+      {
+        "label": "A U-2 is shot down over Cuba",
+        "year": 1962,
+        "hint": "The crisis's only combat death",
+        "month": 10,
+        "day": 27
+      },
+      {
+        "label": "U-2 spots Soviet missiles in Cuba",
+        "year": 1962,
+        "hint": "Photos that started thirteen tense days",
+        "month": 10,
+        "day": 14
+      },
+      {
+        "label": "Khrushchev agrees to remove the missiles",
+        "year": 1962,
+        "hint": "A secret deal on Turkey sweetened it",
+        "month": 10,
+        "day": 28
+      },
+      {
+        "label": "Soviet ships turn back at the line",
+        "year": 1962,
+        "hint": "'We're eyeball to eyeball, and the other fellow just blinked'",
+        "month": 10,
+        "day": 24
+      },
+      {
+        "label": "Kennedy announces a naval 'quarantine'",
+        "year": 1962,
+        "hint": "'Blockade' would have meant an act of war",
+        "month": 10,
+        "day": 22
+      }
+    ]
+  },
+  {
+    "id": "chrono-038",
+    "title": "The Reign of Terror Devours Its Own",
+    "difficulty": "hard",
+    "items": [
+      {
+        "label": "Marie Antoinette executed",
+        "year": 1793,
+        "hint": "'Let them eat cake' she never said",
+        "month": 10
+      },
+      {
+        "label": "Marat stabbed in his bath",
+        "year": 1793,
+        "hint": "Charlotte Corday's single knife thrust",
+        "month": 7
+      },
+      {
+        "label": "Robespierre executed, ending the Terror",
+        "year": 1794,
+        "hint": "The Incorruptible falls on Thermidor",
+        "month": 7
+      },
+      {
+        "label": "Louis XVI executed by guillotine",
+        "year": 1793,
+        "hint": "Citizen Capet meets the National Razor",
+        "month": 1
+      },
+      {
+        "label": "Danton sent to the guillotine",
+        "year": 1794,
+        "hint": "The revolution devouring its own children",
+        "month": 4
+      }
+    ]
+  },
+  {
+    "id": "chrono-039",
+    "title": "The Race to the South Pole",
+    "difficulty": "hard",
+    "items": [
+      {
+        "label": "Scott reaches the Pole, finds the rival's flag",
+        "year": 1912,
+        "hint": "'Great God! this is an awful place'",
+        "month": 1
+      },
+      {
+        "label": "Scott's last diary entry",
+        "year": 1912,
+        "hint": "Eleven miles from the supply depot",
+        "month": 3
+      },
+      {
+        "label": "Amundsen secretly diverts south",
+        "year": 1910,
+        "hint": "He'd told the world he was heading north",
+        "month": 9
+      },
+      {
+        "label": "Scott's Terra Nova party sets out from base",
+        "year": 1911,
+        "hint": "Hauling sledges by man-power, fatally slow",
+        "month": 11
+      },
+      {
+        "label": "Amundsen reaches the South Pole",
+        "year": 1911,
+        "hint": "First, with dogs and skis",
+        "month": 12
+      }
+    ]
+  },
+  {
+    "id": "chrono-040",
+    "title": "The Mongol Conquests of Genghis Khan",
+    "difficulty": "hard",
+    "items": [
+      {
+        "label": "Fall of Beijing (Zhongdu)",
+        "year": 1215,
+        "hint": "The Jin capital sacked and burned"
+      },
+      {
+        "label": "Mongols breach the Great Wall into Jin China",
+        "year": 1211,
+        "hint": "The start of a decades-long Chinese campaign"
+      },
+      {
+        "label": "Destruction of the Khwarazmian Empire",
+        "year": 1221,
+        "hint": "Vengeance for murdered Mongol envoys"
+      },
+      {
+        "label": "Temujin proclaimed Genghis Khan",
+        "year": 1206,
+        "hint": "The tribes of the steppe united under one ruler"
+      },
+      {
+        "label": "Death of Genghis Khan",
+        "year": 1227,
+        "hint": "His burial place is still unknown"
+      }
+    ]
+  }
+]

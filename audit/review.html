@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Map of a Life — Audit</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0f1117;
+  --surface: #1a1d2e;
+  --border: #2a2d3e;
+  --text: #e8eaf6;
+  --muted: #8890b0;
+  --green: #4ade80;
+  --yellow: #fbbf24;
+  --red: #f87171;
+  --blue: #60a5fa;
+  --purple: #a78bfa;
+  --accent: #6366f1;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ── */
+header {
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.app-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+.progress-wrap { flex: 1; min-width: 200px; }
+.progress-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+.progress-track {
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.2s;
+  width: 0%;
+}
+.progress-stats { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+/* ── Load status ── */
+#load-status {
+  font-size: 11px;
+  color: var(--yellow);
+  padding: 5px 24px;
+  background: #1c1600;
+  border-bottom: 1px solid #3a2e00;
+  display: none;
+}
+
+/* ── Main ── */
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 20px;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 36px;
+  max-width: 660px;
+  width: 100%;
+}
+
+/* ── Figure header ── */
+.fig-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.fig-header h2 {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.badges { display: flex; gap: 6px; flex-shrink: 0; flex-wrap: wrap; justify-content: flex-end; }
+.diff-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 7px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+.diff-easy   { background: #14532d; color: #86efac; }
+.diff-medium { background: #713f12; color: #fde68a; }
+.diff-hard   { background: #7f1d1d; color: #fca5a5; }
+.warn-tag {
+  font-size: 10px;
+  padding: 3px 7px;
+  border-radius: 4px;
+  background: #451a03;
+  color: #fdba74;
+  font-weight: 600;
+}
+
+.fig-meta { font-size: 14px; color: var(--muted); margin-bottom: 3px; }
+.sep { margin: 0 5px; }
+.fig-places { font-size: 12px; color: #5a6080; margin-bottom: 18px; }
+
+/* ── Fame badge ── */
+.fame-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 4px;
+  border: 1px solid;
+  letter-spacing: 0.12em;
+  margin-bottom: 14px;
+}
+
+/* ── Fame signals ── */
+.fame-signals {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+  padding: 14px 16px;
+  background: #13151f;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.signal { display: flex; flex-direction: column; gap: 4px; }
+.signal-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+.signal-label { font-size: 11px; color: var(--muted); }
+.signal-value { font-size: 17px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.bar-bg { height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 2px; }
+.wiki-link { font-size: 12px; color: var(--blue); text-decoration: none; opacity: 0.7; }
+.wiki-link:hover { opacity: 1; text-decoration: underline; }
+
+.loading { color: var(--muted); font-size: 13px; animation: pulse 1.4s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
+
+/* ── Action buttons ── */
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+.action-btn {
+  padding: 13px 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #13151f;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.12s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+.btn-label { font-size: 14px; }
+.btn-key   { font-size: 10px; opacity: 0.5; }
+
+.btn-keep { color: var(--green); }
+.btn-keep:hover  { background: #052e16; border-color: var(--green); }
+.btn-cut  { color: var(--red); }
+.btn-cut:hover   { background: #450a0a; border-color: var(--red); }
+.btn-skip { color: var(--yellow); }
+.btn-skip:hover  { background: #451a03; border-color: var(--yellow); }
+
+/* ── Footer ── */
+.footer-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 24px;
+  border-top: 1px solid var(--border);
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.undo-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+  padding: 6px 13px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.undo-btn:hover { border-color: var(--muted); color: var(--text); }
+.export-btn {
+  background: var(--accent);
+  border: none;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 7px 16px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+.export-btn:hover { opacity: 0.85; }
+.export-all-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 11px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.export-all-btn:hover { border-color: var(--muted); }
+.reset-btn {
+  background: none;
+  border: none;
+  color: #3a3a5a;
+  font-size: 11px;
+  cursor: pointer;
+  padding: 4px;
+}
+.reset-btn:hover { color: var(--red); }
+
+.key-guide {
+  font-size: 10px;
+  color: #3a3a5a;
+  text-align: center;
+  padding: 4px 0 6px;
+}
+
+/* ── Comment textarea ── */
+.comment-wrap { margin-bottom: 18px; }
+.comment-label {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 5px;
+  display: block;
+}
+.comment-box {
+  width: 100%;
+  background: #13151f;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 13px;
+  padding: 9px 12px;
+  resize: vertical;
+  min-height: 56px;
+  line-height: 1.45;
+  transition: border-color 0.12s;
+}
+.comment-box::placeholder { color: #4a4a6a; }
+.comment-box:focus { outline: none; border-color: var(--accent); }
+
+/* ── Done state ── */
+.done-card { text-align: center; padding: 20px; }
+.done-card h2 { font-size: 22px; margin-bottom: 10px; }
+.done-card p { color: var(--muted); margin-bottom: 22px; font-size: 14px; }
+.export-btn-big {
+  background: var(--green);
+  color: #052e16;
+  font-weight: 800;
+  font-size: 15px;
+  padding: 13px 24px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: block;
+  margin: 8px auto;
+  width: 100%;
+  max-width: 320px;
+}
+.export-btn-big:hover { opacity: 0.9; }
+.review-skip-btn {
+  background: none;
+  border: 1px solid var(--yellow);
+  color: var(--yellow);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 8px auto;
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="app-title" id="app-title">Map of a Life — Audit</div>
+  <div class="progress-wrap">
+    <div class="progress-top">
+      <span id="progress-text">—</span>
+      <span id="progress-pct">0%</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progress-bar"></div></div>
+    <div class="progress-stats" id="progress-stats">Loading…</div>
+  </div>
+</header>
+
+<div id="load-status"></div>
+
+<main>
+  <div class="card" id="card">
+    <div style="color:var(--muted);text-align:center;padding:40px">Loading…</div>
+  </div>
+</main>
+
+<div class="footer-actions">
+  <button class="undo-btn" onclick="undo()">← Undo (U)</button>
+  <div style="display:flex;gap:8px;align-items:center">
+    <button class="export-all-btn" onclick="exportAll()" title="Download all figures with keep/cut/skip/undecided tags">Export with tags</button>
+    <button class="export-btn" onclick="exportKept()">⬇ Export kept (E)</button>
+  </div>
+  <button class="reset-btn" onclick="resetAll()">Reset all</button>
+</div>
+
+<div class="key-guide">K = keep &nbsp;·&nbsp; X = cut &nbsp;·&nbsp; S or → = skip &nbsp;·&nbsp; U or ← = undo &nbsp;·&nbsp; E = export kept</div>
+
+<script>
+// ── Config ─────────────────────────────────────────────────
+const PV_START = '20250101';
+const PV_END   = '20251201';
+
+const PARAMS    = new URLSearchParams(location.search);
+const SRC_FILE  = PARAMS.get('src') || '../data/figures.json';
+const SRC_LABEL = SRC_FILE.split('/').pop().replace('.json','');
+const LS_PREFIX = 'mapaudit_' + SRC_LABEL + '_'; // separate localStorage per file
+
+// ── State ──────────────────────────────────────────────────
+let figures      = [];
+let cursor       = 0;
+let decisions    = {};   // id → 'keep' | 'cut' | 'skip'
+let comments     = {};   // id → string
+let qids         = {};   // name → QID string
+let sitelinks    = {};   // QID → number
+let pageviews    = {};   // id → number | null
+let pvStatus     = {};   // id → 'pending' | 'done' | 'error'
+let fameDataDone = false;
+
+// ── Persistence ────────────────────────────────────────────
+function saveState() {
+  try {
+    localStorage.setItem(LS_PREFIX+'d', JSON.stringify(decisions));
+    localStorage.setItem(LS_PREFIX+'c', String(cursor));
+    localStorage.setItem(LS_PREFIX+'notes', JSON.stringify(comments));
+  } catch(e) {}
+}
+
+function loadState() {
+  try {
+    const d = localStorage.getItem(LS_PREFIX+'d');
+    if (d) decisions = JSON.parse(d);
+    const c = localStorage.getItem(LS_PREFIX+'c');
+    if (c !== null) cursor = parseInt(c, 10) || 0;
+    const n = localStorage.getItem(LS_PREFIX+'notes');
+    if (n) comments = JSON.parse(n);
+  } catch(e) {}
+}
+
+// ── Utilities ──────────────────────────────────────────────
+function chunk(arr, n) {
+  const out = [];
+  for (let i = 0; i < arr.length; i += n) out.push(arr.slice(i, i + n));
+  return out;
+}
+
+function fmt(n) {
+  if (n == null) return '—';
+  if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M';
+  if (n >= 1000)    return Math.round(n / 1000) + 'K';
+  return String(n);
+}
+
+function bar(val, max, color) {
+  const pct = Math.min(100, Math.round((val / max) * 100));
+  return `<div class="bar-bg"><div class="bar-fill" style="width:${pct}%;background:${color}"></div></div>`;
+}
+
+function fameBadge(pv, sl) {
+  const ps = pv > 2000000 ? 3 : pv > 500000 ? 2 : pv > 100000 ? 1 : 0;
+  const ss = sl > 120 ? 3 : sl > 60 ? 2 : sl > 25 ? 1 : 0;
+  const t  = ps + ss;
+  if (t >= 5) return ['ICONIC',       '#4ade80', '#052e16'];
+  if (t >= 3) return ['WELL-KNOWN',   '#86efac', '#032617'];
+  if (t >= 2) return ['RECOGNISABLE', '#fbbf24', '#451a03'];
+  if (t >= 1) return ['OBSCURE',      '#f97316', '#3c1200'];
+  return             ['VERY OBSCURE', '#f87171', '#450a0a'];
+}
+
+function isLiterary(occ) {
+  const terms = ['poet','author','novelist','essayist','playwright','critic','journalist','writer'];
+  return terms.some(t => (occ || '').toLowerCase().includes(t));
+}
+
+// ── Status bar ─────────────────────────────────────────────
+function setStatus(msg) {
+  const el = document.getElementById('load-status');
+  if (msg) { el.textContent = msg; el.style.display = 'block'; }
+  else      { el.style.display = 'none'; }
+}
+
+// ── Wikipedia batch QID fetch ──────────────────────────────
+async function fetchAllQIDs() {
+  const titleToName = {};
+  for (const f of figures) titleToName[f.name.replace(/ /g, '_')] = f.name;
+
+  const allTitles = figures.map(f => f.name.replace(/ /g, '_'));
+  const chunks = chunk(allTitles, 50);
+  const result = {};
+  let done = 0;
+
+  for (const ch of chunks) {
+    try {
+      const url = 'https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*'
+                + '&prop=pageprops&ppprop=wikibase_item&redirects=1'
+                + '&titles=' + encodeURIComponent(ch.join('|'));
+      const data = await (await fetch(url)).json();
+
+      const normMap  = {};
+      for (const n of (data.query?.normalized || [])) normMap[n.from] = n.to;
+      const redirMap = {};
+      for (const r of (data.query?.redirects  || [])) redirMap[r.from] = r.to;
+      const titleQID = {};
+      for (const p of Object.values(data.query?.pages || {})) {
+        if (p.pageprops?.wikibase_item) titleQID[p.title] = p.pageprops.wikibase_item;
+      }
+
+      for (const inputTitle of ch) {
+        let t = inputTitle;
+        if (normMap[t])  t = normMap[t];
+        if (redirMap[t]) t = redirMap[t];
+        const q    = titleQID[t];
+        const name = titleToName[inputTitle];
+        if (q && name) result[name] = q;
+      }
+    } catch(e) {}
+
+    done += ch.length;
+    setStatus(`Fetching Wikipedia QIDs… ${done} / ${figures.length}`);
+  }
+  return result;
+}
+
+// ── Wikidata batch sitelinks fetch ─────────────────────────
+async function fetchAllSitelinks() {
+  const allQIDs  = [...new Set(Object.values(qids).filter(Boolean))];
+  const chunks   = chunk(allQIDs, 50);
+  const result   = {};
+  let done = 0;
+
+  for (const ch of chunks) {
+    try {
+      const url = 'https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&origin=*'
+                + '&ids=' + ch.join('|') + '&props=sitelinks';
+      const data = await (await fetch(url)).json();
+      for (const [qid, entity] of Object.entries(data.entities || {})) {
+        if (!entity.missing) result[qid] = Object.keys(entity.sitelinks || {}).length;
+      }
+    } catch(e) {}
+
+    done += ch.length;
+    setStatus(`Fetching Wikidata sitelinks… ${done} / ${allQIDs.length}`);
+  }
+  return result;
+}
+
+// ── Per-figure pageviews (lazy) ────────────────────────────
+async function fetchPageviews(fig) {
+  if (pvStatus[fig.id]) return;
+  pvStatus[fig.id] = 'pending';
+  try {
+    const title = encodeURIComponent(fig.name.replace(/ /g, '_'));
+    const url = `https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/all-agents/${title}/monthly/${PV_START}/${PV_END}`;
+    const data = await (await fetch(url)).json();
+    pageviews[fig.id] = (data.items || []).reduce((s, m) => s + m.views, 0);
+    pvStatus[fig.id]  = 'done';
+  } catch(e) {
+    pageviews[fig.id] = null;
+    pvStatus[fig.id]  = 'error';
+  }
+  if (figures[cursor] && figures[cursor].id === fig.id) renderCard();
+}
+
+function prefetch(from, count) {
+  for (const fig of figures.slice(from, from + count)) {
+    if (!pvStatus[fig.id]) fetchPageviews(fig);
+  }
+}
+
+// ── Rendering ──────────────────────────────────────────────
+function renderCard() {
+  if (cursor >= figures.length) { renderDone(); return; }
+
+  const fig  = figures[cursor];
+  const qid  = qids[fig.name];
+  const sl   = qid != null ? sitelinks[qid] : undefined;
+  const pv   = pageviews[fig.id];
+  const pvSt = pvStatus[fig.id];
+
+  // Years
+  const by  = fig.birth?.year;
+  const dy  = fig.death?.year;
+  const yr  = by !== undefined
+    ? `${by < 0 ? Math.abs(by) + ' BC' : by} – ${dy != null ? (dy < 0 ? Math.abs(dy) + ' BC' : dy) : 'present'}`
+    : '';
+
+  // Wikipedia link
+  const wikiTitle = fig.name.replace(/ /g, '_');
+  const wikiUrl   = `https://en.wikipedia.org/wiki/${encodeURIComponent(wikiTitle)}`;
+
+  // Fame badge (only once both signals loaded)
+  let badge = '';
+  if (pv != null && sl !== undefined) {
+    const [label, col, bg] = fameBadge(pv, sl);
+    badge = `<div class="fame-badge" style="color:${col};background:${bg};border-color:${col}55">${label}</div>`;
+  }
+
+  // Pageviews row
+  const pvText = pvSt === 'pending' ? '<span class="loading">loading…</span>'
+               : pv != null ? fmt(pv) : '—';
+  const pvBarEl = pv ? bar(pv, 5000000, 'var(--blue)') : '';
+
+  // Sitelinks row
+  const slText = sl !== undefined ? sl
+               : (qid ? '<span class="loading">…</span>' : '—');
+  const slBarEl = sl ? bar(sl, 250, 'var(--purple)') : '';
+
+  // Badges
+  const diffBadge = `<span class="diff-badge diff-${fig.difficulty}">${fig.difficulty}</span>`;
+  const litWarn   = isLiterary(fig.occupation) ? '<span class="warn-tag">⚠ literary</span>' : '';
+
+  // Birth/death places
+  const birthPlace = fig.birth?.place || '';
+  const deathPlace = fig.death?.place || '';
+  const placesStr  = [
+    birthPlace ? 'Born: ' + birthPlace : '',
+    deathPlace && deathPlace !== birthPlace ? 'Died: ' + deathPlace : ''
+  ].filter(Boolean).join(' · ');
+
+  document.getElementById('card').innerHTML = `
+    <div class="fig-header">
+      <h2>${fig.name}</h2>
+      <div class="badges">${diffBadge}${litWarn}</div>
+    </div>
+    <div class="fig-meta">
+      <span>${yr}</span>
+      ${fig.occupation ? `<span class="sep">·</span><span>${fig.occupation}</span>` : ''}
+    </div>
+    <div class="fig-places">${placesStr}</div>
+
+    ${badge}
+
+    <div class="fame-signals">
+      <div class="signal">
+        <div class="signal-row">
+          <span class="signal-label">📊 Wikipedia views (2025)</span>
+          <span class="signal-value">${pvText}</span>
+        </div>
+        ${pvBarEl}
+      </div>
+      <div class="signal">
+        <div class="signal-row">
+          <span class="signal-label">🌐 Languages on Wikidata</span>
+          <span class="signal-value">${slText}</span>
+        </div>
+        ${slBarEl}
+      </div>
+      <div class="signal">
+        <a href="${wikiUrl}" target="_blank" class="wiki-link">→ Open Wikipedia article</a>
+      </div>
+    </div>
+
+    <div class="comment-wrap">
+      <label class="comment-label" for="comment-box">Notes</label>
+      <textarea id="comment-box" class="comment-box" placeholder="Add a note about this figure…" rows="2">${(comments[fig.id] || '').replace(/</g, '&lt;')}</textarea>
+    </div>
+
+    <div class="actions">
+      <button class="action-btn btn-keep" onclick="decide('keep')">
+        <span class="btn-label">✓ KEEP</span><span class="btn-key">K</span>
+      </button>
+      <button class="action-btn btn-cut" onclick="decide('cut')">
+        <span class="btn-label">✗ CUT</span><span class="btn-key">X</span>
+      </button>
+      <button class="action-btn btn-skip" onclick="decide('skip')">
+        <span class="btn-label">→ SKIP</span><span class="btn-key">S</span>
+      </button>
+    </div>
+  `;
+
+  // Save comment on every keystroke so async re-renders don't lose typing
+  document.getElementById('comment-box').addEventListener('input', e => {
+    const val = e.target.value;
+    if (val) comments[fig.id] = val;
+    else delete comments[fig.id];
+    saveState();
+  });
+
+  updateProgress();
+}
+
+function renderDone() {
+  const kept = figures.filter(f => decisions[f.id] === 'keep').length;
+  const cut  = figures.filter(f => decisions[f.id] === 'cut').length;
+  const skip = figures.filter(f => decisions[f.id] === 'skip').length;
+  const und  = figures.length - kept - cut - skip;
+  document.getElementById('card').innerHTML = `
+    <div class="done-card">
+      <h2>Review complete!</h2>
+      <p>✓ ${kept} kept &nbsp;·&nbsp; ✗ ${cut} cut &nbsp;·&nbsp; → ${skip} skipped &nbsp;·&nbsp; ? ${und} undecided</p>
+      <button class="export-btn-big" onclick="exportKept()">⬇ Download figures_curated.json (${kept} figures)</button>
+      ${skip > 0 ? `<button class="review-skip-btn" onclick="reviewSkipped()">Review ${skip} skipped figures →</button>` : ''}
+    </div>
+  `;
+  updateProgress();
+}
+
+function updateProgress() {
+  const total    = figures.length;
+  const kept     = Object.values(decisions).filter(d => d === 'keep').length;
+  const cut      = Object.values(decisions).filter(d => d === 'cut').length;
+  const skip     = Object.values(decisions).filter(d => d === 'skip').length;
+  const reviewed = kept + cut + skip;
+  const pct      = total ? Math.round((reviewed / total) * 100) : 0;
+  const pos      = Math.min(cursor + 1, total);
+
+  document.getElementById('progress-text').textContent  = `${pos} / ${total}`;
+  document.getElementById('progress-pct').textContent   = pct + '%';
+  document.getElementById('progress-bar').style.width   = pct + '%';
+  document.getElementById('progress-stats').textContent =
+    `✓ ${kept} kept  ✗ ${cut} cut  → ${skip} skipped`;
+}
+
+// ── Actions ────────────────────────────────────────────────
+function decide(d) {
+  if (cursor >= figures.length) return;
+  decisions[figures[cursor].id] = d;
+  saveState();
+  advance();
+}
+
+function advance() {
+  cursor++;
+  // Skip past already-decided figures (keep/cut — not skip, those we'll revisit)
+  while (cursor < figures.length) {
+    const dec = decisions[figures[cursor].id];
+    if (!dec || dec === 'skip') break;
+    cursor++;
+  }
+  saveState();
+  prefetch(cursor, 12);
+  renderCard();
+}
+
+function undo() {
+  // Find the most recently decided figure before the current cursor
+  let i = cursor - 1;
+  while (i >= 0 && !decisions[figures[i].id]) i--;
+  if (i < 0) return;
+  delete decisions[figures[i].id];
+  cursor = i;
+  saveState();
+  renderCard();
+}
+
+function reviewSkipped() {
+  const idx = figures.findIndex(f => decisions[f.id] === 'skip');
+  if (idx === -1) return;
+  cursor = idx;
+  saveState();
+  renderCard();
+}
+
+function resetAll() {
+  if (!confirm('Reset all decisions and notes? This cannot be undone.')) return;
+  decisions = {};
+  comments  = {};
+  cursor    = 0;
+  localStorage.removeItem(LS_PREFIX+'d');
+  localStorage.removeItem(LS_PREFIX+'c');
+  localStorage.removeItem(LS_PREFIX+'notes');
+  renderCard();
+}
+
+// ── Export ─────────────────────────────────────────────────
+function exportKept() {
+  dl(figures.filter(f => decisions[f.id] === 'keep').map(f => {
+    const note = comments[f.id];
+    return note ? { ...f, _note: note } : f;
+  }), 'figures_curated.json');
+}
+
+function exportAll() {
+  dl(figures.map(f => {
+    const note = comments[f.id];
+    return { ...f, _audit: decisions[f.id] || 'undecided', ...(note ? { _note: note } : {}) };
+  }), 'figures_with_decisions.json');
+}
+
+function dl(data, name) {
+  const a    = document.createElement('a');
+  a.href     = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }));
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+// ── Keyboard ───────────────────────────────────────────────
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  switch (e.key) {
+    case 'k': case 'K': decide('keep'); break;
+    case 'x': case 'X': case 'c': case 'C': decide('cut'); break;
+    case 's': case 'S': case 'ArrowRight': decide('skip'); break;
+    case 'u': case 'U': case 'ArrowLeft':  undo(); break;
+    case 'e': case 'E': exportKept(); break;
+  }
+});
+
+// ── Init ───────────────────────────────────────────────────
+async function init() {
+  document.getElementById('app-title').textContent = 'Map of a Life — Audit · ' + SRC_LABEL;
+  setStatus('Loading ' + SRC_LABEL + '…');
+  try {
+    figures = await (await fetch(SRC_FILE)).json();
+  } catch(e) {
+    document.getElementById('card').innerHTML =
+      `<p style="color:var(--red);padding:20px">
+        Could not load figures.json.<br>
+        Open this page via a local server, or use:<br>
+        <code style="font-size:12px">python3 -m http.server 8080</code><br>
+        then visit <code>http://localhost:8080/audit/review.html</code>
+      </p>`;
+    setStatus('');
+    return;
+  }
+
+  loadState();
+  if (cursor >= figures.length) cursor = figures.length - 1;
+
+  // Advance past already-decided figures to find starting position
+  while (cursor < figures.length) {
+    const dec = decisions[figures[cursor].id];
+    if (!dec || dec === 'skip') break;
+    cursor++;
+  }
+
+  renderCard();
+  prefetch(cursor, 20);
+
+  // Background: fetch all QIDs then sitelinks
+  qids       = await fetchAllQIDs();
+  sitelinks  = await fetchAllSitelinks();
+  fameDataDone = true;
+  setStatus('');
+  renderCard(); // Re-render now that sitelinks are ready
+}
+
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zoom In — Audit</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0f1117;
+  --surface: #1a1d2e;
+  --border: #2a2d3e;
+  --text: #e8eaf6;
+  --muted: #8890b0;
+  --green: #4ade80;
+  --yellow: #fbbf24;
+  --red: #f87171;
+  --blue: #60a5fa;
+  --purple: #a78bfa;
+  --accent: #6366f1;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+header h1 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.progress-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.progress-bar-wrap {
+  flex: 1;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+  min-width: 80px;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+  transition: width 0.25s ease;
+}
+.count-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--border);
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+}
+.count-pill.green { background: rgba(74,222,128,0.15); color: var(--green); }
+.count-pill.red   { background: rgba(248,113,113,0.15); color: var(--red); }
+.count-pill.muted { background: var(--border); color: var(--muted); }
+
+/* ── STATUS BAR ── */
+#status-bar {
+  background: var(--yellow);
+  color: #1a1200;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 6px 16px;
+  display: none;
+}
+
+/* ── MAIN ── */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 28px 16px 100px;
+}
+.card {
+  width: 100%;
+  max-width: 700px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* Images: side-by-side full + crop */
+.images-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  background: #0a0b10;
+  padding: 8px 8px 0;
+}
+.img-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.img-panel-label {
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+}
+.full-img-container {
+  background: #0a0b10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 280px;
+  overflow: hidden;
+  position: relative;
+}
+.full-img-container img {
+  max-width: 100%;
+  max-height: 280px;
+  object-fit: contain;
+  display: block;
+}
+.crop-canvas-container {
+  background: #0a0b10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 280px;
+}
+#crop-canvas {
+  max-width: 100%;
+  max-height: 280px;
+  image-rendering: auto;
+}
+/* Yellow crop-area rectangle drawn over the full image — interactive */
+#crop-rect {
+  position: absolute;
+  border: 2px solid #fbbf24;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.6);
+  pointer-events: auto;
+  cursor: move;
+  display: none;
+  overflow: visible;
+}
+.crop-corner {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #fbbf24;
+  border: 1px solid rgba(0,0,0,0.5);
+  pointer-events: auto;
+}
+.crop-corner.tl { top: -5px;    left: -5px;   cursor: nw-resize; }
+.crop-corner.tr { top: -5px;    right: -5px;  cursor: ne-resize; }
+.crop-corner.bl { bottom: -5px; left: -5px;   cursor: sw-resize; }
+.crop-corner.br { bottom: -5px; right: -5px;  cursor: se-resize; }
+/* Adjustment indicator bar */
+.adj-bar {
+  background: rgba(251,191,36,0.1);
+  border-top: 1px solid rgba(251,191,36,0.25);
+  padding: 5px 12px;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--yellow);
+  font-weight: 600;
+}
+.adj-bar button {
+  background: none;
+  border: 1px solid rgba(251,191,36,0.4);
+  color: var(--yellow);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.adj-bar button:hover { background: rgba(251,191,36,0.12); }
+.img-error {
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Body */
+.card-body {
+  padding: 22px 24px 26px;
+}
+.card-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+.badge-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+.badge-easy   { background: rgba(74,222,128,0.18); color: var(--green); border: 1px solid rgba(74,222,128,0.3); }
+.badge-medium { background: rgba(251,191,36,0.18); color: var(--yellow); border: 1px solid rgba(251,191,36,0.3); }
+.badge-hard   { background: rgba(248,113,113,0.18); color: var(--red); border: 1px solid rgba(248,113,113,0.3); }
+.badge-artefact { background: rgba(96,165,250,0.18); color: var(--blue); border: 1px solid rgba(96,165,250,0.3); }
+.badge-portrait { background: rgba(167,139,250,0.18); color: var(--purple); border: 1px solid rgba(167,139,250,0.3); }
+
+.card-blurb {
+  font-size: 0.95rem;
+  color: var(--text);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.card-meta {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+.card-meta span { margin-right: 10px; }
+
+/* Notes */
+.notes-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.notes-textarea {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.88rem;
+  padding: 10px 12px;
+  resize: vertical;
+  min-height: 72px;
+  transition: border-color 0.15s;
+  margin-bottom: 22px;
+}
+.notes-textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* Action buttons */
+.action-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+.action-btn {
+  flex: 1;
+  max-width: 180px;
+  padding: 13px 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+.action-btn:hover { opacity: 0.88; }
+.action-btn:active { transform: scale(0.97); }
+.btn-keep { background: rgba(74,222,128,0.22); color: var(--green); border: 2px solid rgba(74,222,128,0.45); }
+.btn-cut  { background: rgba(248,113,113,0.22); color: var(--red);   border: 2px solid rgba(248,113,113,0.45); }
+.btn-skip { background: rgba(136,144,176,0.18); color: var(--muted); border: 2px solid rgba(136,144,176,0.3); }
+.key-hint { font-size: 0.7rem; opacity: 0.65; }
+
+/* Decision overlay on card image */
+.decision-stamp {
+  display: none;
+  position: absolute;
+  top: 10px; right: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+.card-image-wrap {
+  position: relative;
+}
+.stamp-keep { background: var(--green); color: #031508; display: block; }
+.stamp-cut  { background: var(--red);   color: #1a0101; display: block; }
+.stamp-skip { background: var(--muted); color: #0f1117; display: block; }
+
+/* ── FOOTER ── */
+footer {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+.footer-btn {
+  background: var(--border);
+  color: var(--text);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s, background 0.15s;
+}
+.footer-btn:hover { opacity: 0.8; }
+.footer-btn.danger { color: var(--red); }
+.footer-btn.export-kept { background: rgba(74,222,128,0.18); color: var(--green); border: 1px solid rgba(74,222,128,0.3); }
+.footer-btn.export-all  { background: rgba(99,102,241,0.18); color: var(--accent); border: 1px solid rgba(99,102,241,0.3); }
+
+/* Key guide */
+.key-guide {
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-align: center;
+  padding: 4px 16px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+kbd {
+  background: var(--border);
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-family: monospace;
+  font-size: 0.72rem;
+}
+
+/* ── COMPLETION SCREEN ── */
+#completion {
+  display: none;
+  width: 100%;
+  max-width: 700px;
+}
+.completion-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 40px 32px;
+  text-align: center;
+}
+.completion-card h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.completion-card .sub {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 28px;
+}
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 30px;
+}
+.summary-cell {
+  background: var(--bg);
+  border-radius: 10px;
+  padding: 16px 8px;
+}
+.summary-cell .num {
+  font-size: 2rem;
+  font-weight: 800;
+  display: block;
+}
+.summary-cell .lbl {
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.summary-cell.g .num { color: var(--green); }
+.summary-cell.r .num { color: var(--red); }
+.summary-cell.y .num { color: var(--yellow); }
+.summary-cell.m .num { color: var(--muted); }
+.completion-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.comp-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.comp-btn:hover { opacity: 0.85; }
+.comp-btn.primary { background: var(--green); color: #031508; }
+.comp-btn.secondary { background: var(--border); color: var(--text); }
+.comp-btn.export-all { background: rgba(99,102,241,0.25); color: var(--accent); border: 1px solid rgba(99,102,241,0.4); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Zoom In — Audit</h1>
+  <div class="progress-row">
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="prog-fill" style="width:0%"></div>
+    </div>
+    <span id="prog-text" style="white-space:nowrap">0 / 0</span>
+    <span class="count-pill green" id="pill-keep">✓ 0 kept</span>
+    <span class="count-pill red"   id="pill-cut">✗ 0 cut</span>
+    <span class="count-pill muted" id="pill-skip">→ 0 skip</span>
+  </div>
+</header>
+
+<div id="status-bar">Loading…</div>
+
+<main id="main">
+  <!-- Card injected here by JS -->
+  <div class="card" id="card" style="display:none">
+    <div class="card-image-wrap">
+      <div class="images-row">
+        <div class="img-panel">
+          <div class="img-panel-label">Full image</div>
+          <div class="full-img-container" id="full-img-container">
+            <img id="card-img" src="" alt="">
+            <div id="crop-rect">
+              <div class="crop-corner tl" data-corner="tl"></div>
+              <div class="crop-corner tr" data-corner="tr"></div>
+              <div class="crop-corner bl" data-corner="bl"></div>
+              <div class="crop-corner br" data-corner="br"></div>
+            </div>
+            <div class="img-error" id="img-err" style="display:none">Image not found</div>
+          </div>
+        </div>
+        <div class="img-panel">
+          <div class="img-panel-label">Player sees (crop)</div>
+          <div class="crop-canvas-container">
+            <canvas id="crop-canvas"></canvas>
+            <div class="img-error" id="crop-err" style="display:none">No crop data</div>
+          </div>
+        </div>
+      </div>
+      <div class="adj-bar" id="adj-bar">
+        <span>Crop adjusted</span>
+        <button onclick="resetAdj()">↺ Reset to original</button>
+      </div>
+      <div class="decision-stamp" id="decision-stamp"></div>
+    </div>
+    <div class="card-body">
+      <div class="card-name" id="card-name"></div>
+      <div class="badge-row" id="badge-row"></div>
+      <div class="card-blurb" id="card-blurb"></div>
+      <div class="card-meta" id="card-meta"></div>
+      <label class="notes-label" for="notes-ta">Notes</label>
+      <textarea class="notes-textarea" id="notes-ta" placeholder="Optional notes about this item…" rows="3"></textarea>
+      <div class="action-row">
+        <button class="action-btn btn-keep" id="btn-keep" onclick="decide('keep')">
+          ✓ KEEP <span class="key-hint">[K]</span>
+        </button>
+        <button class="action-btn btn-cut" id="btn-cut" onclick="decide('cut')">
+          ✗ CUT <span class="key-hint">[X]</span>
+        </button>
+        <button class="action-btn btn-skip" id="btn-skip" onclick="decide('skip')">
+          → SKIP <span class="key-hint">[S]</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Completion screen -->
+  <div id="completion">
+    <div class="completion-card">
+      <h2>Review complete!</h2>
+      <p class="sub" id="comp-sub"></p>
+      <div class="summary-grid">
+        <div class="summary-cell g"><span class="num" id="comp-keep">0</span><span class="lbl">Kept</span></div>
+        <div class="summary-cell r"><span class="num" id="comp-cut">0</span><span class="lbl">Cut</span></div>
+        <div class="summary-cell y"><span class="num" id="comp-skip">0</span><span class="lbl">Skipped</span></div>
+        <div class="summary-cell m"><span class="num" id="comp-undecided">0</span><span class="lbl">Undecided</span></div>
+      </div>
+      <div class="completion-btns">
+        <button class="comp-btn primary" onclick="exportKept()">⬇ Download kept items</button>
+        <button class="comp-btn export-all" onclick="exportAll()">⬇ Export with tags</button>
+        <button class="comp-btn secondary" id="btn-review-skipped" onclick="reviewSkipped()" style="display:none">↩ Review skipped</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <button class="footer-btn" onclick="undo()">↩ Undo <kbd>U</kbd></button>
+  <button class="footer-btn export-all" onclick="exportAll()">⬇ Export with tags</button>
+  <button class="footer-btn export-kept" onclick="exportKept()">⬇ Export kept <kbd>E</kbd></button>
+  <button class="footer-btn danger" onclick="resetAll()">⟳ Reset</button>
+</footer>
+
+<div class="key-guide">
+  <kbd>K</kbd> keep &nbsp;|&nbsp;
+  <kbd>X</kbd>/<kbd>C</kbd> cut &nbsp;|&nbsp;
+  <kbd>S</kbd>/<kbd>→</kbd> skip &nbsp;|&nbsp;
+  <kbd>U</kbd>/<kbd>←</kbd> undo &nbsp;|&nbsp;
+  <kbd>E</kbd> export kept
+</div>
+
+<script>
+// ── SOURCE & STORAGE KEYS ──
+const _srcParam = new URLSearchParams(location.search).get('src') || '../data/reveal.json';
+const _srcSlug  = _srcParam.replace(/[^a-z0-9]/gi, '_').replace(/_+/g, '_').toLowerCase();
+const KEYS = {
+  decisions:   'zoominaudit_d_'   + _srcSlug,
+  notes:       'zoominaudit_n_'   + _srcSlug,
+  adjustments: 'zoominaudit_adj_' + _srcSlug,
+};
+
+// ── STATE ──
+let items = [];
+let decisions = {};    // id → 'keep'|'cut'|'skip'
+let notes = {};        // id → string
+let adjustments = {};  // id → { fx, fy, frac }
+let cursor = 0;
+let textareaFocused = false;
+let lastRP = null;     // render params needed by drag math
+let dragState = null;
+
+// ── LOAD ──
+async function init() {
+  setStatus('Loading…');
+  try {
+    const r = await fetch(_srcParam);
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    items = await r.json();
+  } catch (e) {
+    setStatus(`Failed to load data: ${e.message}`, true);
+    return;
+  }
+  hideStatus();
+
+  // Restore from localStorage
+  try { decisions   = JSON.parse(localStorage.getItem(KEYS.decisions)   || '{}'); } catch(e) { decisions   = {}; }
+  try { notes       = JSON.parse(localStorage.getItem(KEYS.notes)       || '{}'); } catch(e) { notes       = {}; }
+  try { adjustments = JSON.parse(localStorage.getItem(KEYS.adjustments) || '{}'); } catch(e) { adjustments = {}; }
+
+  // Restore cursor to first undecided
+  cursor = 0;
+  for (let i = 0; i < items.length; i++) {
+    const d = decisions[items[i].id];
+    if (d === 'keep' || d === 'cut') {
+      // already decided — skip past
+    } else {
+      cursor = i;
+      break;
+    }
+    // if all decided, cursor stays past end
+    if (i === items.length - 1) cursor = items.length;
+  }
+
+  updateProgress();
+  renderCurrent();
+}
+
+// ── RENDER ──
+function renderCurrent() {
+  if (cursor >= items.length) {
+    showCompletion();
+    return;
+  }
+  const item = items[cursor];
+  document.getElementById('card').style.display = 'block';
+  document.getElementById('completion').style.display = 'none';
+
+  // Images
+  const img = document.getElementById('card-img');
+  const err = document.getElementById('img-err');
+  const canvas = document.getElementById('crop-canvas');
+  const cropErr = document.getElementById('crop-err');
+  img.style.display = 'block';
+  err.style.display = 'none';
+  canvas.style.display = 'block';
+  cropErr.style.display = 'none';
+  document.getElementById('crop-rect').style.display = 'none';
+  document.getElementById('adj-bar').style.display = adjustments[item.id] ? 'flex' : 'none';
+
+  img.onload = function() { drawCrop(this, item); };
+  img.onerror = function() {
+    this.style.display = 'none';
+    err.style.display = 'block';
+    canvas.style.display = 'none';
+    cropErr.style.display = 'block';
+  };
+  img.src = '../' + item.img;
+  img.alt = item.name;
+  if (img.complete && img.naturalWidth > 0) drawCrop(img, item);
+
+  // Decision stamp
+  const stamp = document.getElementById('decision-stamp');
+  const d = decisions[item.id];
+  stamp.className = 'decision-stamp';
+  stamp.textContent = '';
+  if (d === 'keep') { stamp.classList.add('stamp-keep'); stamp.textContent = '✓ Keep'; }
+  else if (d === 'cut')  { stamp.classList.add('stamp-cut');  stamp.textContent = '✗ Cut'; }
+  else if (d === 'skip') { stamp.classList.add('stamp-skip'); stamp.textContent = '→ Skip'; }
+
+  // Name
+  document.getElementById('card-name').textContent = item.name;
+
+  // Badges
+  const br = document.getElementById('badge-row');
+  br.innerHTML = '';
+  const diffBadge = document.createElement('span');
+  diffBadge.className = `badge badge-${item.difficulty}`;
+  diffBadge.textContent = item.difficulty;
+  br.appendChild(diffBadge);
+
+  const kindBadge = document.createElement('span');
+  kindBadge.className = `badge badge-${item.kind}`;
+  kindBadge.textContent = item.kind;
+  br.appendChild(kindBadge);
+
+  // Blurb
+  document.getElementById('card-blurb').textContent = item.blurb || '';
+
+  // Meta
+  const metaEl = document.getElementById('card-meta');
+  let metaParts = [];
+  if (item.attribution) metaParts.push(`<span>By: ${esc(item.attribution)}</span>`);
+  if (item.license)     metaParts.push(`<span>License: ${esc(item.license)}</span>`);
+  if (item.source)      metaParts.push(`<span>Source: ${esc(item.source)}</span>`);
+  metaEl.innerHTML = metaParts.join('');
+
+  // Notes
+  const ta = document.getElementById('notes-ta');
+  ta.value = notes[item.id] || '';
+
+  updateProgress();
+}
+
+function getVals(item) {
+  const a = adjustments[item.id];
+  return a ? { fx: a.fx, fy: a.fy, frac: a.frac } : { fx: item.fx, fy: item.fy, frac: item.frac };
+}
+
+function saveAdj() {
+  localStorage.setItem(KEYS.adjustments, JSON.stringify(adjustments));
+}
+
+function resetAdj() {
+  if (cursor >= items.length) return;
+  const item = items[cursor];
+  delete adjustments[item.id];
+  saveAdj();
+  document.getElementById('adj-bar').style.display = 'none';
+  const img = document.getElementById('card-img');
+  if (img.complete && img.naturalWidth > 0) drawCrop(img, item);
+}
+
+function drawCrop(imgEl, item) {
+  const canvas = document.getElementById('crop-canvas');
+  const ctx = canvas.getContext('2d');
+  const iw = imgEl.naturalWidth;
+  const ih = imgEl.naturalHeight;
+  if (!iw || !ih) return;
+
+  const { fx, fy, frac } = getVals(item);
+  const short = Math.min(iw, ih);
+  const cropPx = frac * short;
+  let sx = fx * iw - cropPx / 2;
+  let sy = fy * ih - cropPx / 2;
+  sx = Math.max(0, Math.min(iw - cropPx, sx));
+  sy = Math.max(0, Math.min(ih - cropPx, sy));
+
+  const OUT = 280;
+  canvas.width = OUT;
+  canvas.height = OUT;
+  ctx.drawImage(imgEl, sx, sy, cropPx, cropPx, 0, 0, OUT, OUT);
+
+  // Position crop-rect overlay
+  const container = document.getElementById('full-img-container');
+  const cw = container.clientWidth;
+  const ch = container.clientHeight;
+  const imgRatio = iw / ih;
+  const conRatio = cw / ch;
+  let rw, rh, rx, ry;
+  if (imgRatio > conRatio) {
+    rw = cw; rh = cw / imgRatio; rx = 0;            ry = (ch - rh) / 2;
+  } else {
+    rh = ch; rw = ch * imgRatio; rx = (cw - rw) / 2; ry = 0;
+  }
+  const scaleX = rw / iw;
+  const scaleY = rh / ih;
+  const rect = document.getElementById('crop-rect');
+  rect.style.left   = Math.round(rx + sx * scaleX) + 'px';
+  rect.style.top    = Math.round(ry + sy * scaleY) + 'px';
+  rect.style.width  = Math.round(cropPx * scaleX) + 'px';
+  rect.style.height = Math.round(cropPx * scaleY) + 'px';
+  rect.style.display = 'block';
+
+  lastRP = { iw, ih, short, scaleX, scaleY, rx, ry, imgEl };
+  document.getElementById('adj-bar').style.display = adjustments[item.id] ? 'flex' : 'none';
+}
+
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── DRAG-TO-ADJUST CROP ──
+document.getElementById('crop-rect').addEventListener('mousedown', function(e) {
+  if (e.target.dataset.corner) return;
+  if (!lastRP || cursor >= items.length) return;
+  e.preventDefault();
+  const v = getVals(items[cursor]);
+  dragState = { type: 'move', startMX: e.clientX, startMY: e.clientY,
+                startFx: v.fx, startFy: v.fy, startFrac: v.frac };
+});
+
+document.querySelectorAll('.crop-corner').forEach(function(el) {
+  el.addEventListener('mousedown', function(e) {
+    if (!lastRP || cursor >= items.length) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const v = getVals(items[cursor]);
+    dragState = { type: 'resize', startFx: v.fx, startFy: v.fy };
+  });
+});
+
+document.addEventListener('mousemove', function(e) {
+  if (!dragState || !lastRP || cursor >= items.length) return;
+  const { iw, ih, short, scaleX, scaleY, rx, ry, imgEl } = lastRP;
+  const item = items[cursor];
+  const v = getVals(item);
+  const container = document.getElementById('full-img-container');
+  const cr = container.getBoundingClientRect();
+  const msx = e.clientX - cr.left;
+  const msy = e.clientY - cr.top;
+  let newFx = v.fx, newFy = v.fy, newFrac = v.frac;
+
+  if (dragState.type === 'move') {
+    const dxImg = (e.clientX - dragState.startMX) / scaleX;
+    const dyImg = (e.clientY - dragState.startMY) / scaleY;
+    newFx = dragState.startFx + dxImg / iw;
+    newFy = dragState.startFy + dyImg / ih;
+    const half = dragState.startFrac * short / 2;
+    newFx = Math.max(half / iw, Math.min(1 - half / iw, newFx));
+    newFy = Math.max(half / ih, Math.min(1 - half / ih, newFy));
+    newFrac = dragState.startFrac;
+  } else {
+    const cx = rx + dragState.startFx * iw * scaleX;
+    const cy = ry + dragState.startFy * ih * scaleY;
+    const halfPx = Math.max(Math.abs(msx - cx) / scaleX, Math.abs(msy - cy) / scaleY);
+    newFrac = Math.max(0.04, Math.min(0.9, (halfPx * 2) / short));
+    newFx = dragState.startFx;
+    newFy = dragState.startFy;
+  }
+
+  adjustments[item.id] = { fx: newFx, fy: newFy, frac: newFrac };
+  saveAdj();
+  drawCrop(imgEl, item);
+});
+
+document.addEventListener('mouseup', function() { dragState = null; });
+
+// ── DECISIONS ──
+function decide(choice) {
+  if (cursor >= items.length) return;
+  const item = items[cursor];
+  decisions[item.id] = choice;
+  saveDecisions();
+
+  // Advance cursor
+  cursor++;
+  // Skip past already-decided (keep/cut) items — but NOT skip items (revisit those)
+  while (cursor < items.length) {
+    const d = decisions[items[cursor].id];
+    if (d === 'keep' || d === 'cut') cursor++;
+    else break;
+  }
+  renderCurrent();
+  updateProgress();
+}
+
+// ── UNDO ──
+function undo() {
+  // Find the most recently decided item before current cursor
+  // Walk backwards from cursor-1 looking for a decided item
+  let target = -1;
+  for (let i = cursor - 1; i >= 0; i--) {
+    const d = decisions[items[i].id];
+    if (d === 'keep' || d === 'cut' || d === 'skip') {
+      target = i;
+      break;
+    }
+  }
+  if (target === -1) {
+    // nothing to undo
+    return;
+  }
+  const item = items[target];
+  delete decisions[item.id];
+  saveDecisions();
+  cursor = target;
+  document.getElementById('card').style.display = 'block';
+  document.getElementById('completion').style.display = 'none';
+  renderCurrent();
+  updateProgress();
+}
+
+// ── REVIEW SKIPPED ──
+function reviewSkipped() {
+  // Find first skipped item
+  for (let i = 0; i < items.length; i++) {
+    if (decisions[items[i].id] === 'skip') {
+      cursor = i;
+      // Remove skip decision so it gets reviewed
+      delete decisions[items[i].id];
+      saveDecisions();
+      document.getElementById('card').style.display = 'block';
+      document.getElementById('completion').style.display = 'none';
+      renderCurrent();
+      updateProgress();
+      return;
+    }
+  }
+}
+
+// ── PROGRESS ──
+function updateProgress() {
+  let keep = 0, cut = 0, skip = 0, decided = 0;
+  for (const item of items) {
+    const d = decisions[item.id];
+    if (d === 'keep')  { keep++;  decided++; }
+    if (d === 'cut')   { cut++;   decided++; }
+    if (d === 'skip')  { skip++; }
+  }
+  const reviewed = decided + skip;
+  const total = items.length;
+  const pct = total ? Math.round(reviewed / total * 100) : 0;
+
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-text').textContent = `${reviewed} / ${total} · ${pct}% reviewed`;
+  document.getElementById('pill-keep').textContent = `✓ ${keep} kept`;
+  document.getElementById('pill-cut').textContent  = `✗ ${cut} cut`;
+  document.getElementById('pill-skip').textContent = `→ ${skip} skip`;
+}
+
+// ── COMPLETION SCREEN ──
+function showCompletion() {
+  document.getElementById('card').style.display = 'none';
+  document.getElementById('completion').style.display = 'block';
+
+  let keep = 0, cut = 0, skip = 0, undecided = 0;
+  for (const item of items) {
+    const d = decisions[item.id];
+    if (d === 'keep')  keep++;
+    else if (d === 'cut')   cut++;
+    else if (d === 'skip')  skip++;
+    else undecided++;
+  }
+
+  document.getElementById('comp-keep').textContent      = keep;
+  document.getElementById('comp-cut').textContent       = cut;
+  document.getElementById('comp-skip').textContent      = skip;
+  document.getElementById('comp-undecided').textContent = undecided;
+
+  let subParts = [`${items.length} items reviewed`];
+  if (undecided > 0) subParts.push(`${undecided} still undecided`);
+  document.getElementById('comp-sub').textContent = subParts.join(' · ');
+
+  const skipBtn = document.getElementById('btn-review-skipped');
+  skipBtn.style.display = skip > 0 ? 'inline-flex' : 'none';
+}
+
+// ── EXPORTS ──
+function exportKept() {
+  const kept = items
+    .filter(item => decisions[item.id] === 'keep')
+    .map(item => {
+      const copy = { ...item };
+      const adj = adjustments[item.id];
+      if (adj) { copy.fx = adj.fx; copy.fy = adj.fy; copy.frac = adj.frac; }
+      if (notes[item.id] && notes[item.id].trim()) copy._note = notes[item.id].trim();
+      return copy;
+    });
+  download('reveal_curated.json', JSON.stringify(kept, null, 2));
+}
+
+function exportAll() {
+  const all = items.map(item => {
+    const copy = { ...item };
+    copy._audit = decisions[item.id] || 'undecided';
+    const adj = adjustments[item.id];
+    if (adj) { copy.fx = adj.fx; copy.fy = adj.fy; copy.frac = adj.frac; }
+    if (notes[item.id] && notes[item.id].trim()) copy._note = notes[item.id].trim();
+    return copy;
+  });
+  download('reveal_with_decisions.json', JSON.stringify(all, null, 2));
+}
+
+function download(filename, text) {
+  const blob = new Blob([text], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// ── RESET ──
+function resetAll() {
+  if (!confirm('Reset ALL decisions, notes, and crop adjustments? This cannot be undone.')) return;
+  localStorage.removeItem(KEYS.decisions);
+  localStorage.removeItem(KEYS.notes);
+  localStorage.removeItem(KEYS.adjustments);
+  decisions = {};
+  notes = {};
+  adjustments = {};
+  cursor = 0;
+  document.getElementById('card').style.display = 'block';
+  document.getElementById('completion').style.display = 'none';
+  renderCurrent();
+  updateProgress();
+}
+
+// ── STORAGE ──
+function saveDecisions() {
+  localStorage.setItem(KEYS.decisions, JSON.stringify(decisions));
+}
+function saveNotes() {
+  localStorage.setItem(KEYS.notes, JSON.stringify(notes));
+}
+
+// ── NOTES AUTO-SAVE ──
+document.getElementById('notes-ta').addEventListener('input', function() {
+  if (cursor < items.length) {
+    notes[items[cursor].id] = this.value;
+    saveNotes();
+  }
+});
+document.getElementById('notes-ta').addEventListener('focus', () => { textareaFocused = true; });
+document.getElementById('notes-ta').addEventListener('blur',  () => { textareaFocused = false; });
+
+// ── KEYBOARD ──
+document.addEventListener('keydown', function(e) {
+  if (textareaFocused) return;
+  // Ignore modifier combos (Cmd+K etc.)
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  switch (e.key) {
+    case 'k': case 'K': e.preventDefault(); decide('keep'); break;
+    case 'x': case 'X': case 'c': case 'C': e.preventDefault(); decide('cut'); break;
+    case 's': case 'S': case 'ArrowRight': e.preventDefault(); decide('skip'); break;
+    case 'u': case 'U': case 'ArrowLeft':  e.preventDefault(); undo(); break;
+    case 'e': case 'E': e.preventDefault(); exportKept(); break;
+  }
+});
+
+// ── STATUS BAR ──
+function setStatus(msg, persist) {
+  const bar = document.getElementById('status-bar');
+  bar.textContent = msg;
+  bar.style.display = 'block';
+  if (!persist) setTimeout(hideStatus, 2000);
+}
+function hideStatus() {
+  document.getElementById('status-bar').style.display = 'none';
+}
+
+// ── BOOT ──
+init();
+</script>
+</body>
+</html>

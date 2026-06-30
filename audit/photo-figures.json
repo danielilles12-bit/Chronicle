@@ -1,0 +1,931 @@
+[
+  {
+    "id": "rasputin",
+    "name": "Grigori Rasputin",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "grigori rasputin",
+      "rasputin",
+      "grigory rasputin"
+    ],
+    "blurb": "Russian mystic and faith healer (1869–1916) · photograph c. 1916",
+    "img": "assets/img/rasputin.jpg",
+    "fx": 0.5,
+    "fy": 0.34,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Grigori Rasputin 1916.jpg"
+  },
+  {
+    "id": "frederick-douglass",
+    "name": "Frederick Douglass",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "frederick douglass",
+      "douglass"
+    ],
+    "blurb": "American abolitionist and statesman (1818–1895) · photograph c. 1879",
+    "img": "assets/img/frederick-douglass.jpg",
+    "fx": 0.5,
+    "fy": 0.36,
+    "frac": 0.26,
+    "license": "Public domain",
+    "attribution": "George Kendall Warren",
+    "source": "Wikimedia Commons: Frederick Douglass (circa 1879).jpg"
+  },
+  {
+    "id": "sitting-bull",
+    "name": "Sitting Bull",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "sitting bull",
+      "tatanka iyotake"
+    ],
+    "blurb": "Hunkpapa Lakota leader (c. 1831–1890) · photograph by David F. Barry, c. 1883",
+    "img": "assets/img/sitting-bull.jpg",
+    "fx": 0.5,
+    "fy": 0.32,
+    "frac": 0.25,
+    "license": "Public domain",
+    "attribution": "David F. Barry",
+    "source": "Wikimedia Commons: Sitting Bull by D F Barry ca 1883 Dakota Territory.jpg"
+  },
+  {
+    "id": "geronimo",
+    "name": "Geronimo",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "geronimo",
+      "goyathlay",
+      "goyaale"
+    ],
+    "blurb": "Apache leader and medicine man (1829–1909) · photograph 1898",
+    "img": "assets/img/geronimo.jpg",
+    "fx": 0.5,
+    "fy": 0.35,
+    "frac": 0.25,
+    "license": "Public domain",
+    "attribution": "Wellcome Collection",
+    "source": "Wikimedia Commons: Portrait of Geronimo, the Apache chief, 1898 Wellcome L0036038.jpg"
+  },
+  {
+    "id": "florence-nightingale",
+    "name": "Florence Nightingale",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "florence nightingale",
+      "nightingale",
+      "the lady with the lamp"
+    ],
+    "blurb": "Founder of modern nursing (1820–1910) · photograph by H. Hering",
+    "img": "assets/img/florence-nightingale.jpg",
+    "fx": 0.5,
+    "fy": 0.36,
+    "frac": 0.26,
+    "license": "Public domain",
+    "attribution": "Henry Hering / National Portrait Gallery",
+    "source": "Wikimedia Commons: Florence Nightingale (H Hering NPG x82368).jpg"
+  },
+  {
+    "id": "nikola-tesla",
+    "name": "Nikola Tesla",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "nikola tesla",
+      "tesla"
+    ],
+    "blurb": "Inventor and electrical engineer (1856–1943) · photograph",
+    "img": "assets/img/nikola-tesla.jpg",
+    "fx": 0.5,
+    "fy": 0.34,
+    "frac": 0.25,
+    "license": "Public domain",
+    "attribution": "Napoleon Sarony",
+    "source": "Wikimedia Commons: N.Tesla.JPG"
+  },
+  {
+    "id": "thomas-edison",
+    "name": "Thomas Edison",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "thomas edison",
+      "edison",
+      "thomas alva edison"
+    ],
+    "blurb": "American inventor (1847–1931) · photograph",
+    "img": "assets/img/thomas-edison.jpg",
+    "fx": 0.5,
+    "fy": 0.35,
+    "frac": 0.26,
+    "license": "Public domain",
+    "attribution": "Louis Bachrach",
+    "source": "Wikimedia Commons: Thomas Edison2.jpg"
+  },
+  {
+    "id": "mark-twain",
+    "name": "Mark Twain",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "mark twain",
+      "twain",
+      "samuel clemens",
+      "samuel langhorne clemens"
+    ],
+    "blurb": "American author (1835–1910) · photograph by A. F. Bradley, 1907",
+    "img": "assets/img/mark-twain.jpg",
+    "fx": 0.5,
+    "fy": 0.32,
+    "frac": 0.25,
+    "license": "Public domain",
+    "attribution": "A. F. Bradley",
+    "source": "Wikimedia Commons: Mark Twain by AF Bradley.jpg"
+  },
+  {
+    "id": "oscar-wilde",
+    "name": "Oscar Wilde",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "oscar wilde",
+      "wilde"
+    ],
+    "blurb": "Irish poet and playwright (1854–1900) · photograph by Napoleon Sarony, 1882",
+    "img": "assets/img/oscar-wilde.jpg",
+    "fx": 0.5,
+    "fy": 0.3,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Napoleon Sarony",
+    "source": "Wikimedia Commons: Oscar Wilde portrait.jpg"
+  },
+  {
+    "id": "nietzsche",
+    "name": "Friedrich Nietzsche",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "friedrich nietzsche",
+      "nietzsche"
+    ],
+    "blurb": "German philosopher (1844–1900) · photograph by Gustav Schultze, 1882",
+    "img": "assets/img/nietzsche.jpg",
+    "fx": 0.5,
+    "fy": 0.36,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Gustav Schultze",
+    "source": "Wikimedia Commons: Nietzsche187a.jpg"
+  },
+  {
+    "id": "theodore-roosevelt",
+    "name": "Theodore Roosevelt",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "theodore roosevelt",
+      "teddy roosevelt",
+      "roosevelt",
+      "tr"
+    ],
+    "blurb": "26th US President (1858–1919) · photograph 1904",
+    "img": "assets/img/theodore-roosevelt.jpg",
+    "fx": 0.5,
+    "fy": 0.34,
+    "frac": 0.27,
+    "license": "Public domain",
+    "attribution": "Pach Brothers",
+    "source": "Wikimedia Commons: President Theodore Roosevelt, 1904.jpg"
+  },
+  {
+    "id": "kaiser-wilhelm-ii",
+    "name": "Kaiser Wilhelm II",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "kaiser wilhelm ii",
+      "wilhelm ii",
+      "kaiser wilhelm",
+      "william ii"
+    ],
+    "blurb": "Last German Emperor (1859–1941) · photograph 1902",
+    "img": "assets/img/kaiser-wilhelm-ii.jpg",
+    "fx": 0.5,
+    "fy": 0.32,
+    "frac": 0.25,
+    "license": "Public domain",
+    "attribution": "T. H. Voigt",
+    "source": "Wikimedia Commons: Kaiser Wilhelm II of Germany - 1902.jpg"
+  },
+  {
+    "id": "nicholas-ii",
+    "name": "Tsar Nicholas II",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "nicholas ii",
+      "tsar nicholas ii",
+      "czar nicholas ii",
+      "nicholas the second"
+    ],
+    "blurb": "Last Emperor of Russia (1868–1918) · photograph 1898",
+    "img": "assets/img/nicholas-ii.jpg",
+    "fx": 0.5,
+    "fy": 0.34,
+    "frac": 0.25,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Tsar Nicholas II -1898.jpg"
+  },
+  {
+    "id": "woodrow-wilson",
+    "name": "Woodrow Wilson",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "woodrow wilson",
+      "wilson",
+      "thomas woodrow wilson"
+    ],
+    "blurb": "28th US President (1856–1924) · photograph 1919",
+    "img": "assets/img/woodrow-wilson.jpg",
+    "fx": 0.5,
+    "fy": 0.34,
+    "frac": 0.26,
+    "license": "Public domain",
+    "attribution": "Harris & Ewing",
+    "source": "Wikimedia Commons: Thomas Woodrow Wilson, Harris & Ewing bw photo portrait, 1919.jpg"
+  },
+  {
+    "id": "fdr",
+    "name": "Franklin D. Roosevelt",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "franklin d roosevelt",
+      "franklin roosevelt",
+      "fdr",
+      "roosevelt"
+    ],
+    "blurb": "32nd US President (1882–1945) · colour portrait 1944",
+    "img": "assets/img/fdr.jpg",
+    "fx": 0.5,
+    "fy": 0.33,
+    "frac": 0.32,
+    "license": "Public domain",
+    "attribution": "Leon Perskie",
+    "source": "Wikimedia Commons: FDR 1944 Color Portrait.jpg"
+  },
+  {
+    "id": "trotsky",
+    "name": "Leon Trotsky",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "leon trotsky",
+      "trotsky",
+      "lev trotsky"
+    ],
+    "blurb": "Russian revolutionary (1879–1940) · photographic portrait",
+    "img": "assets/img/trotsky.jpg",
+    "fx": 0.5,
+    "fy": 0.36,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Portrait of Leon Trotsky.jpg"
+  },
+  {
+    "id": "lenin",
+    "name": "Vladimir Lenin",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "vladimir lenin",
+      "lenin"
+    ],
+    "blurb": "Russian revolutionary leader (1870–1924) · photograph 1920",
+    "img": "assets/img/lenin.jpg",
+    "fx": 0.5,
+    "fy": 0.35,
+    "frac": 0.26,
+    "license": "Public domain",
+    "attribution": "Pavel Zhukov",
+    "source": "Wikimedia Commons: Lenin 1920.jpg"
+  },
+  {
+    "id": "ataturk",
+    "name": "Mustafa Kemal Atatürk",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "mustafa kemal ataturk",
+      "ataturk",
+      "atatürk",
+      "mustafa kemal"
+    ],
+    "blurb": "Founder of the Republic of Turkey (1881–1938) · photographic portrait",
+    "img": "assets/img/ataturk.jpg",
+    "fx": 0.5,
+    "fy": 0.34,
+    "frac": 0.25,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Atatürk Kemal.jpg"
+  },
+  {
+    "id": "ho-chi-minh",
+    "name": "Ho Chi Minh",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "ho chi minh",
+      "ho chi-minh",
+      "uncle ho"
+    ],
+    "blurb": "Vietnamese revolutionary leader (1890–1969) · photograph 1946",
+    "img": "assets/img/ho-chi-minh.jpg",
+    "fx": 0.5,
+    "fy": 0.33,
+    "frac": 0.25,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Ho Chi Minh 1946.jpg"
+  },
+  {
+    "id": "mussolini",
+    "name": "Benito Mussolini",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "benito mussolini",
+      "mussolini",
+      "il duce"
+    ],
+    "blurb": "Italian Fascist dictator (1883–1945) · photograph 1937",
+    "img": "assets/img/mussolini.jpg",
+    "fx": 0.5,
+    "fy": 0.2,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Benito Mussolini in 1937.jpg"
+  },
+  {
+    "id": "eva-peron",
+    "name": "Eva Perón",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "eva peron",
+      "eva perón",
+      "evita",
+      "maria eva duarte"
+    ],
+    "blurb": "First Lady of Argentina (1919–1952) · colour portrait",
+    "img": "assets/img/eva-peron.jpg",
+    "fx": 0.5,
+    "fy": 0.33,
+    "frac": 0.25,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Evita color.jpg"
+  },
+  {
+    "id": "emmeline-pankhurst",
+    "name": "Emmeline Pankhurst",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "emmeline pankhurst",
+      "pankhurst"
+    ],
+    "blurb": "British suffragette leader (1858–1928) · photograph 1913",
+    "img": "assets/img/emmeline-pankhurst.jpg",
+    "fx": 0.5,
+    "fy": 0.3,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Matzene Studio, Chicago",
+    "source": "Wikimedia Commons: Emmeline Pankhurst, seated (1913).jpg"
+  },
+  {
+    "id": "susan-b-anthony",
+    "name": "Susan B. Anthony",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "susan b anthony",
+      "susan anthony",
+      "anthony"
+    ],
+    "blurb": "American suffragist (1820–1906) · photograph c. 1855",
+    "img": "assets/img/susan-b-anthony.png",
+    "fx": 0.5,
+    "fy": 0.34,
+    "frac": 0.26,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Susan B Anthony c1855.png"
+  },
+  {
+    "id": "robert-e-lee",
+    "name": "Robert E. Lee",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "robert e lee",
+      "robert e. lee",
+      "lee",
+      "robert edward lee"
+    ],
+    "blurb": "Confederate general (1807–1870) · photographic portrait",
+    "img": "assets/img/robert-e-lee.jpg",
+    "fx": 0.5,
+    "fy": 0.34,
+    "frac": 0.26,
+    "license": "Public domain",
+    "attribution": "Julian Vannerson",
+    "source": "Wikimedia Commons: Robert Edward Lee.jpg"
+  },
+  {
+    "id": "ulysses-grant",
+    "name": "Ulysses S. Grant",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "ulysses s grant",
+      "ulysses grant",
+      "grant",
+      "ulysses s. grant"
+    ],
+    "blurb": "Union general and 18th US President (1822–1885) · photograph c. 1870–1880",
+    "img": "assets/img/ulysses-grant.jpg",
+    "fx": 0.5,
+    "fy": 0.34,
+    "frac": 0.26,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Ulysses Grant 1870-1880.jpg"
+  },
+  {
+    "id": "buffalo-bill",
+    "name": "Buffalo Bill",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "buffalo bill",
+      "buffalo bill cody",
+      "william cody",
+      "william f cody"
+    ],
+    "blurb": "Frontiersman and showman (1846–1917) · photograph (Library of Congress)",
+    "img": "assets/img/buffalo-bill.jpg",
+    "fx": 0.5,
+    "fy": 0.33,
+    "frac": 0.25,
+    "license": "Public domain",
+    "attribution": "Library of Congress",
+    "source": "Wikimedia Commons: Cody-Buffalo-Bill-LOC.jpg"
+  },
+  {
+    "id": "jp-morgan",
+    "name": "J. P. Morgan",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "j p morgan",
+      "jp morgan",
+      "john pierpont morgan",
+      "morgan"
+    ],
+    "blurb": "American financier (1837–1913) · photograph by Edward Steichen",
+    "img": "assets/img/jp-morgan.jpg",
+    "fx": 0.5,
+    "fy": 0.34,
+    "frac": 0.26,
+    "license": "Public domain",
+    "attribution": "Edward Steichen",
+    "source": "Wikimedia Commons: JP Morgan.jpg"
+  },
+  {
+    "id": "cecil-rhodes",
+    "name": "Cecil Rhodes",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "cecil rhodes",
+      "rhodes"
+    ],
+    "blurb": "British imperialist and mining magnate (1853–1902) · photographic portrait",
+    "img": "assets/img/cecil-rhodes.jpg",
+    "fx": 0.5,
+    "fy": 0.34,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Cecil Rhodes ww.jpg"
+  },
+  {
+    "id": "alexander-fleming",
+    "name": "Alexander Fleming",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "alexander fleming",
+      "fleming",
+      "sir alexander fleming"
+    ],
+    "blurb": "Discoverer of penicillin (1881–1955) · photograph 1945",
+    "img": "assets/img/alexander-fleming.jpg",
+    "fx": 0.5,
+    "fy": 0.35,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Official photograph",
+    "source": "Wikimedia Commons: Alexander Fleming 1945.jpg"
+  },
+  {
+    "id": "friedrich-engels",
+    "name": "Friedrich Engels",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "friedrich engels",
+      "engels"
+    ],
+    "blurb": "German philosopher and co-author of the Communist Manifesto (1820–1895)",
+    "img": "assets/img/friedrich-engels.jpg",
+    "fx": 0.5,
+    "fy": 0.34,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Friedrich Engels portrait (cropped).jpg"
+  },
+  {
+    "id": "harriet-tubman",
+    "name": "Harriet Tubman",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "harriet tubman",
+      "tubman"
+    ],
+    "blurb": "Abolitionist and Underground Railroad conductor (c. 1822–1913) · photograph c. 1868–69",
+    "img": "assets/img/harriet-tubman.jpg",
+    "fx": 0.5,
+    "fy": 0.3,
+    "frac": 0.25,
+    "license": "Public domain",
+    "attribution": "Benjamin F. Powelson",
+    "source": "Wikimedia Commons: Harriet Tubman c1868-69.jpg"
+  },
+  {
+    "id": "pancho-villa",
+    "name": "Pancho Villa",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "pancho villa",
+      "villa",
+      "francisco villa",
+      "doroteo arango"
+    ],
+    "blurb": "Mexican revolutionary general (1878–1923) · photographic portrait",
+    "img": "assets/img/pancho-villa.jpg",
+    "fx": 0.5,
+    "fy": 0.32,
+    "frac": 0.25,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Pancho Villa bandolier crop.jpg"
+  },
+  {
+    "id": "emiliano-zapata",
+    "name": "Emiliano Zapata",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "emiliano zapata",
+      "zapata"
+    ],
+    "blurb": "Mexican revolutionary leader (1879–1919) · photographic portrait",
+    "img": "assets/img/emiliano-zapata.jpg",
+    "fx": 0.5,
+    "fy": 0.32,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Emiliano Zapata.jpg"
+  },
+  {
+    "id": "sun-yat-sen",
+    "name": "Sun Yat-sen",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "sun yat-sen",
+      "sun yat sen",
+      "sun zhongshan",
+      "sun yixian"
+    ],
+    "blurb": "Founding father of the Republic of China (1866–1925) · photograph",
+    "img": "assets/img/sun-yat-sen.jpg",
+    "fx": 0.5,
+    "fy": 0.3,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Sun Yat Sen portrait 2.jpg"
+  },
+  {
+    "id": "jefferson-davis",
+    "name": "Jefferson Davis",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "jefferson davis",
+      "davis"
+    ],
+    "blurb": "President of the Confederate States (1808–1889) · photograph (NARA)",
+    "img": "assets/img/jefferson-davis.jpg",
+    "fx": 0.5,
+    "fy": 0.33,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "National Archives",
+    "source": "Wikimedia Commons: Jefferson Davis - NARA - 528293.jpg"
+  },
+  {
+    "id": "william-sherman",
+    "name": "William T. Sherman",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "william t sherman",
+      "william tecumseh sherman",
+      "sherman"
+    ],
+    "blurb": "Union general (1820–1891) · photographic portrait",
+    "img": "assets/img/william-sherman.jpg",
+    "fx": 0.5,
+    "fy": 0.33,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Mathew Brady studio",
+    "source": "Wikimedia Commons: William Tecumseh Sherman.jpg"
+  },
+  {
+    "id": "stonewall-jackson",
+    "name": "Stonewall Jackson",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "stonewall jackson",
+      "thomas jackson",
+      "thomas jonathan jackson",
+      "jackson"
+    ],
+    "blurb": "Confederate general (1824–1863) · photograph by Routzahn, 1862",
+    "img": "assets/img/stonewall-jackson.png",
+    "fx": 0.5,
+    "fy": 0.33,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Nathaniel Routzahn",
+    "source": "Wikimedia Commons: Stonewall Jackson by Routzahn, 1862.png"
+  },
+  {
+    "id": "clara-barton",
+    "name": "Clara Barton",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "clara barton",
+      "barton"
+    ],
+    "blurb": "Founder of the American Red Cross (1821–1912) · photograph 1865",
+    "img": "assets/img/clara-barton.jpg",
+    "fx": 0.5,
+    "fy": 0.32,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Mathew Brady",
+    "source": "Wikimedia Commons: Clara Barton 1865.jpg"
+  },
+  {
+    "id": "booker-t-washington",
+    "name": "Booker T. Washington",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "booker t washington",
+      "booker washington",
+      "washington"
+    ],
+    "blurb": "American educator and reformer (1856–1915) · photographic portrait",
+    "img": "assets/img/booker-t-washington.jpg",
+    "fx": 0.5,
+    "fy": 0.32,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Harris & Ewing",
+    "source": "Wikimedia Commons: Booker T Washington retouched flattened-crop.jpg"
+  },
+  {
+    "id": "web-du-bois",
+    "name": "W. E. B. Du Bois",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "w e b du bois",
+      "web du bois",
+      "du bois",
+      "william edward burghardt du bois"
+    ],
+    "blurb": "Sociologist and civil rights activist (1868–1963) · photograph by James E. Purdy, 1907",
+    "img": "assets/img/web-du-bois.jpg",
+    "fx": 0.5,
+    "fy": 0.33,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "James E. Purdy",
+    "source": "Wikimedia Commons: W.E.B. Du Bois by James E. Purdy, 1907.jpg"
+  },
+  {
+    "id": "wilbur-wright",
+    "name": "Wilbur Wright",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "wilbur wright",
+      "wright"
+    ],
+    "blurb": "Aviation pioneer (1867–1912) · photographic portrait",
+    "img": "assets/img/wilbur-wright.jpg",
+    "fx": 0.5,
+    "fy": 0.34,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Wilbur Wright-crop.jpg"
+  },
+  {
+    "id": "helen-keller",
+    "name": "Helen Keller",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "helen keller",
+      "keller"
+    ],
+    "blurb": "American author and disability rights advocate (1880–1968) · photographic portrait",
+    "img": "assets/img/helen-keller.jpg",
+    "fx": 0.5,
+    "fy": 0.34,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Helen KellerA.jpg"
+  },
+  {
+    "id": "walt-whitman",
+    "name": "Walt Whitman",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "walt whitman",
+      "whitman"
+    ],
+    "blurb": "American poet (1819–1892) · photograph by George C. Cox",
+    "img": "assets/img/walt-whitman.jpg",
+    "fx": 0.5,
+    "fy": 0.32,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "George Collins Cox",
+    "source": "Wikimedia Commons: Walt Whitman - George Collins Cox.jpg"
+  },
+  {
+    "id": "leo-tolstoy",
+    "name": "Leo Tolstoy",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "leo tolstoy",
+      "tolstoy",
+      "lev tolstoy"
+    ],
+    "blurb": "Russian novelist (1828–1910) · photograph 1897",
+    "img": "assets/img/leo-tolstoy.jpg",
+    "fx": 0.5,
+    "fy": 0.32,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "F. W. Taylor",
+    "source": "Wikimedia Commons: Leo Tolstoy 1897, black and white, 37767u.jpg"
+  },
+  {
+    "id": "dostoevsky",
+    "name": "Fyodor Dostoevsky",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "fyodor dostoevsky",
+      "dostoevsky",
+      "dostoyevsky",
+      "fyodor dostoyevsky"
+    ],
+    "blurb": "Russian novelist (1821–1881) · photograph 1872",
+    "img": "assets/img/dostoevsky.jpg",
+    "fx": 0.5,
+    "fy": 0.3,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Dostoevsky 1872.jpg"
+  },
+  {
+    "id": "anton-chekhov",
+    "name": "Anton Chekhov",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "anton chekhov",
+      "chekhov"
+    ],
+    "blurb": "Russian playwright and short-story writer (1860–1904) · photograph 1889",
+    "img": "assets/img/anton-chekhov.jpg",
+    "fx": 0.5,
+    "fy": 0.3,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Anton Chekhov 1889.jpg"
+  },
+  {
+    "id": "richard-wagner",
+    "name": "Richard Wagner",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "richard wagner",
+      "wagner"
+    ],
+    "blurb": "German composer (1813–1883) · photographic portrait c. 1862",
+    "img": "assets/img/richard-wagner.jpg",
+    "fx": 0.5,
+    "fy": 0.32,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Richard Wagner by Caesar Willich ca 1862.jpg"
+  },
+  {
+    "id": "tchaikovsky",
+    "name": "Pyotr Tchaikovsky",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "pyotr tchaikovsky",
+      "tchaikovsky",
+      "peter tchaikovsky",
+      "pyotr ilyich tchaikovsky"
+    ],
+    "blurb": "Russian composer (1840–1893) · photograph by Reutlinger",
+    "img": "assets/img/tchaikovsky.jpg",
+    "fx": 0.5,
+    "fy": 0.32,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Charles Reutlinger",
+    "source": "Wikimedia Commons: Tchaikovsky by Reutlinger (cropped).jpg"
+  },
+  {
+    "id": "claude-monet",
+    "name": "Claude Monet",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "claude monet",
+      "monet"
+    ],
+    "blurb": "French Impressionist painter (1840–1926) · photograph by Nadar, 1899",
+    "img": "assets/img/claude-monet.jpg",
+    "fx": 0.5,
+    "fy": 0.32,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Nadar",
+    "source": "Wikimedia Commons: Claude Monet 1899 Nadar crop.jpg"
+  }
+]

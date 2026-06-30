@@ -1,0 +1,1416 @@
+[
+  {
+    "id": "napoleon",
+    "name": "Napoleon",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "napoleon",
+      "napoleon bonaparte",
+      "bonaparte",
+      "napoleon i"
+    ],
+    "blurb": "Emperor of the French (1769–1821) · portrait by Jacques-Louis David",
+    "img": "assets/img/napoleon.jpg",
+    "fx": 0.37018840925351787,
+    "fy": 0.38142857142857145,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Jacques-Louis David",
+    "source": "Wikimedia Commons: Jacques-Louis David - The Emperor Napoleon in His Study at the Tuileries - Google Art Project.jpg"
+  },
+  {
+    "id": "elizabeth-i",
+    "name": "Elizabeth I",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "elizabeth i",
+      "queen elizabeth i",
+      "elizabeth the first",
+      "elizabeth tudor"
+    ],
+    "blurb": "Queen of England (1533–1603)",
+    "img": "assets/img/elizabeth-i.jpg",
+    "fx": 0.5150138696255201,
+    "fy": 0.3821428571428571,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Attributed to William Segar",
+    "source": "Wikimedia Commons: Elizabeth1England.jpg"
+  },
+  {
+    "id": "lincoln",
+    "name": "Abraham Lincoln",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "abraham lincoln",
+      "lincoln",
+      "abe lincoln"
+    ],
+    "blurb": "16th US President (1809–1865)",
+    "img": "assets/img/lincoln.jpg",
+    "fx": 0.5,
+    "fy": 0.7,
+    "frac": 0.34,
+    "license": "Public domain",
+    "attribution": "Alexander Gardner",
+    "source": "Wikimedia Commons: Abraham Lincoln O-77 matte collodion print.jpg"
+  },
+  {
+    "id": "george-washington",
+    "name": "George Washington",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "george washington",
+      "washington",
+      "president washington"
+    ],
+    "blurb": "1st US President (1732–1799) · portrait by Gilbert Stuart",
+    "img": "assets/img/george-washington.jpg",
+    "fx": 0.7403714632876236,
+    "fy": 0.3942857142857143,
+    "frac": 0.3350876583926402,
+    "license": "Public domain",
+    "attribution": "Gilbert Stuart",
+    "source": "Wikimedia Commons: Gilbert Stuart Williamstown Portrait of George Washington.jpg"
+  },
+  {
+    "id": "henry-viii",
+    "name": "Henry VIII",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "henry viii",
+      "king henry viii",
+      "henry the eighth"
+    ],
+    "blurb": "King of England (1491–1547) · portrait after Hans Holbein the Younger",
+    "img": "assets/img/henry-viii.jpg",
+    "fx": 0.45,
+    "fy": 0.62,
+    "frac": 0.5275653923541248,
+    "license": "Public domain",
+    "attribution": "After Hans Holbein the Younger",
+    "source": "Wikimedia Commons: After Hans Holbein the Younger - Portrait of Henry VIII - Google Art Project.jpg"
+  },
+  {
+    "id": "queen-victoria",
+    "name": "Queen Victoria",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "queen victoria",
+      "victoria",
+      "queen victoria of england"
+    ],
+    "blurb": "Queen of Great Britain (1819–1901) · portrait by Franz Xaver Winterhalter",
+    "img": "assets/img/queen-victoria.jpg",
+    "fx": 0.5164835164835165,
+    "fy": 0.21642857142857144,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Franz Xaver Winterhalter",
+    "source": "Wikimedia Commons: Queen Victoria - Winterhalter 1859.jpg"
+  },
+  {
+    "id": "marie-antoinette",
+    "name": "Marie Antoinette",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "marie antoinette",
+      "marie-antoinette",
+      "queen of france marie antoinette"
+    ],
+    "blurb": "Queen of France (1755–1793) · portrait by Élisabeth Vigée Le Brun",
+    "img": "assets/img/marie-antoinette.jpg",
+    "fx": 0.5337381916329285,
+    "fy": 0.4642857142857143,
+    "frac": 0.33738191632928477,
+    "license": "Public domain",
+    "attribution": "Élisabeth Vigée Le Brun",
+    "source": "Wikimedia Commons: Élisabeth Vigée-Lebrun - Marie Antoinette with a Rose.jpg"
+  },
+  {
+    "id": "einstein",
+    "name": "Albert Einstein",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "albert einstein",
+      "einstein"
+    ],
+    "blurb": "Theoretical physicist (1879–1955) · photograph 1951",
+    "img": "assets/img/einstein.jpg",
+    "fx": 0.39952502740226525,
+    "fy": 0.7142857142857143,
+    "frac": 0.22835221044939713,
+    "license": "Public domain",
+    "attribution": "Arthur Sasse / UPI",
+    "source": "Wikimedia Commons: Albert Einstein sticks his tongue.jpg"
+  },
+  {
+    "id": "che-guevara",
+    "name": "Che Guevara",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "che guevara",
+      "che",
+      "ernesto guevara",
+      "ernesto che guevara"
+    ],
+    "blurb": "Revolutionary (1928–1967) · Guerrillero Heroico by Alberto Korda, 1960",
+    "img": "assets/img/che-guevara.jpg",
+    "fx": 0.35527544351073764,
+    "fy": 0.23,
+    "frac": 0.2894491129785247,
+    "license": "Public domain",
+    "attribution": "Alberto Korda",
+    "source": "Wikimedia Commons: Che Guevara, Guerrillero Heroico.jpg"
+  },
+  {
+    "id": "darwin",
+    "name": "Charles Darwin",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "charles darwin",
+      "darwin"
+    ],
+    "blurb": "Naturalist and biologist (1809–1882) · photograph by Julia Margaret Cameron",
+    "img": "assets/img/darwin.jpg",
+    "fx": 0.5,
+    "fy": 0.42,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Julia Margaret Cameron",
+    "source": "Wikimedia Commons: Charles Darwin aged 51.jpg",
+    "_image_fix": true
+  },
+  {
+    "id": "marie-curie",
+    "name": "Marie Curie",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "marie curie",
+      "marie skłodowska curie",
+      "madame curie"
+    ],
+    "blurb": "Physicist and chemist (1867–1934) · Nobel Prize portrait, 1903",
+    "img": "assets/img/marie-curie.jpg",
+    "fx": 0.6017879270667373,
+    "fy": 0.28214285714285714,
+    "frac": 0.41600283235970964,
+    "license": "Public domain",
+    "attribution": "Henri Manuel",
+    "source": "Wikimedia Commons: Marie Curie 1903.jpg"
+  },
+  {
+    "id": "mozart",
+    "name": "Wolfgang Amadeus Mozart",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "mozart",
+      "wolfgang amadeus mozart",
+      "wolfgang mozart"
+    ],
+    "blurb": "Composer (1756–1791) · portrait by Joseph Croce, 1789–90",
+    "img": "assets/img/mozart.jpg",
+    "fx": 0.27106227106227115,
+    "fy": 0.4285714285714286,
+    "frac": 0.39835164835164805,
+    "license": "Public domain",
+    "attribution": "Attributed to Joseph Croce",
+    "source": "Wikimedia Commons: Wolfgang-amadeus-mozart 1.jpg"
+  },
+  {
+    "id": "karl-marx",
+    "name": "Karl Marx",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "karl marx",
+      "marx"
+    ],
+    "blurb": "Philosopher and economist (1818–1883) · photograph by John Jabez Edwin Mayall, 1875",
+    "img": "assets/img/karl-marx.jpg",
+    "fx": 0.5666120106579217,
+    "fy": 0.3778571428571429,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "John Jabez Edwin Mayall",
+    "source": "Wikimedia Commons: Karl Marx 001.jpg"
+  },
+  {
+    "id": "van-gogh-self",
+    "name": "Van Gogh Self-Portrait",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "van gogh",
+      "vincent van gogh",
+      "van gogh self portrait",
+      "self portrait with straw hat"
+    ],
+    "blurb": "Vincent van Gogh (1853–1890) · self-portrait with straw hat, 1887",
+    "img": "assets/img/van-gogh-self.jpg",
+    "fx": 0.5270904822105833,
+    "fy": 0.4128571428571428,
+    "frac": 0.17067003792667512,
+    "license": "Public domain",
+    "attribution": "Vincent van Gogh",
+    "source": "Wikimedia Commons: Van Gogh Self-Portrait with Straw Hat 1887-Metropolitan.jpg"
+  },
+  {
+    "id": "shakespeare",
+    "name": "William Shakespeare",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "william shakespeare",
+      "shakespeare"
+    ],
+    "blurb": "Playwright and poet (1564–1616) · Chandos portrait, c. 1600–1610",
+    "img": "assets/img/shakespeare.jpg",
+    "fx": 0.49088921282798836,
+    "fy": 0.17,
+    "frac": 0.3370991253644315,
+    "license": "Public domain",
+    "attribution": "Attributed to John Taylor",
+    "source": "Wikimedia Commons: William Shakespeare by John Taylor, edited.jpg"
+  },
+  {
+    "id": "beethoven",
+    "name": "Ludwig van Beethoven",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "beethoven",
+      "ludwig van beethoven"
+    ],
+    "blurb": "Composer (1770–1827) · portrait by Joseph Karl Stieler, 1820",
+    "img": "assets/img/beethoven.jpg",
+    "fx": 0.6375279353618704,
+    "fy": 0.2092857142857143,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Joseph Karl Stieler",
+    "source": "Wikimedia Commons: Beethoven.jpg"
+  },
+  {
+    "id": "freud",
+    "name": "Sigmund Freud",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "sigmund freud",
+      "freud"
+    ],
+    "blurb": "Neurologist and founder of psychoanalysis (1856–1939)",
+    "img": "assets/img/freud.jpg",
+    "fx": 0.3639455782312925,
+    "fy": 0.47,
+    "frac": 0.5053449951409136,
+    "license": "Public domain",
+    "attribution": "Max Halberstadt",
+    "source": "Wikimedia Commons: Sigmund Freud, by Max Halberstadt (cropped).jpg"
+  },
+  {
+    "id": "galileo",
+    "name": "Galileo Galilei",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "galileo galilei",
+      "galileo"
+    ],
+    "blurb": "Astronomer and physicist (1564–1642) · portrait by Justus Sustermans, 1636",
+    "img": "assets/img/galileo.jpg",
+    "fx": 0.15964784897440554,
+    "fy": 0.65,
+    "frac": 0.789616990379379,
+    "license": "Public domain",
+    "attribution": "Justus Sustermans",
+    "source": "Wikimedia Commons: Justus Sustermans - Portrait of Galileo Galilei, 1636.jpg"
+  },
+  {
+    "id": "da-vinci-self",
+    "name": "Leonardo da Vinci",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "leonardo da vinci",
+      "da vinci",
+      "leonardo da vinci self portrait"
+    ],
+    "blurb": "Polymath and artist (1452–1519) · presumed self-portrait in red chalk, c. 1512",
+    "img": "assets/img/da-vinci-self.jpg",
+    "fx": 0.6065261269342902,
+    "fy": 0.37500000000000006,
+    "frac": 0.37003812514016593,
+    "license": "Public domain",
+    "attribution": "Leonardo da Vinci",
+    "source": "Wikimedia Commons: Leonardo self.jpg"
+  },
+  {
+    "id": "thomas-jefferson",
+    "name": "Thomas Jefferson",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "thomas jefferson",
+      "jefferson",
+      "president jefferson"
+    ],
+    "blurb": "3rd US President (1743–1826) · portrait by Rembrandt Peale, 1800",
+    "img": "assets/img/thomas-jefferson.jpg",
+    "fx": 0.49146612049837857,
+    "fy": 0.23571428571428574,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Rembrandt Peale",
+    "source": "Wikimedia Commons: Thomas Jefferson by Rembrandt Peale, 1800.jpg"
+  },
+  {
+    "id": "frida-kahlo",
+    "name": "Frida Kahlo",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "frida kahlo",
+      "kahlo"
+    ],
+    "blurb": "Painter (1907–1954) · photograph by Guillermo Kahlo",
+    "img": "assets/img/frida-kahlo.jpg",
+    "fx": 0.4464553437566931,
+    "fy": 0.2864285714285714,
+    "frac": 0.21417862497322762,
+    "license": "Public domain",
+    "attribution": "Guillermo Kahlo",
+    "source": "Wikimedia Commons: Frida Kahlo, by Guillermo Kahlo.jpg"
+  },
+  {
+    "id": "winston-churchill",
+    "name": "Winston Churchill",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "winston churchill",
+      "churchill",
+      "sir winston churchill"
+    ],
+    "blurb": "British Prime Minister (1874–1965) · wartime portrait",
+    "img": "assets/img/winston-churchill.jpg",
+    "fx": 0.4121021465581051,
+    "fy": 0.35571428571428565,
+    "frac": 0.20447816432272384,
+    "license": "Public domain",
+    "attribution": "New York Times Paris Bureau Collection",
+    "source": "Wikimedia Commons: Churchill portrait NYP 45063.jpg"
+  },
+  {
+    "id": "louis-xiv",
+    "name": "Louis XIV",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "louis xiv",
+      "louis the fourteenth",
+      "louis xiv of france",
+      "the sun king"
+    ],
+    "blurb": "King of France (1638–1715) · portrait by Hyacinthe Rigaud, 1701",
+    "img": "assets/img/louis-xiv.jpg",
+    "fx": 0.2971372984991662,
+    "fy": 0.48571428571428577,
+    "frac": 0.32234574763757656,
+    "license": "Public domain",
+    "attribution": "Hyacinthe Rigaud",
+    "source": "Wikimedia Commons: Louis XIV Rigaud Condé Chantilly.jpg"
+  },
+  {
+    "id": "genghis-khan",
+    "name": "Genghis Khan",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "genghis khan",
+      "chinggis khaan",
+      "temüjin"
+    ],
+    "blurb": "Founder of the Mongol Empire (c. 1162–1227) · Chinese silk portrait, 14th century",
+    "img": "assets/img/genghis-khan.jpg",
+    "fx": 0.6179887456888727,
+    "fy": 0.4557142857142857,
+    "frac": 0.18152114721365037,
+    "license": "Public domain",
+    "attribution": "Chinese imperial court painter",
+    "source": "Wikimedia Commons: YuanEmperorAlbumGenghisPortrait.jpg"
+  },
+  {
+    "id": "peter-great",
+    "name": "Peter the Great",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "peter the great",
+      "peter i",
+      "tsar peter",
+      "peter i of russia"
+    ],
+    "blurb": "Tsar of Russia (1672–1725) · portrait by Godfrey Kneller, 1698",
+    "img": "assets/img/peter-great.jpg",
+    "fx": 0.5095238095238095,
+    "fy": 0.22714285714285715,
+    "frac": 0.3514285714285713,
+    "license": "Public domain",
+    "attribution": "Godfrey Kneller",
+    "source": "Wikimedia Commons: Peter I by Kneller (cropped).jpg"
+  },
+  {
+    "id": "joseph-stalin",
+    "name": "Joseph Stalin",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "joseph stalin",
+      "stalin",
+      "iosif stalin"
+    ],
+    "blurb": "Leader of the Soviet Union (1878–1953) · official portrait",
+    "img": "assets/img/joseph-stalin.jpg",
+    "fx": 0.47104247104247104,
+    "fy": 0.39642857142857146,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Official Soviet portrait",
+    "source": "Wikimedia Commons: Joseph Stalin official portrait.jpg"
+  },
+  {
+    "id": "gandhi",
+    "name": "Mahatma Gandhi",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "mahatma gandhi",
+      "gandhi",
+      "mohandas gandhi"
+    ],
+    "blurb": "Independence leader (1869–1948) · photograph, 1942",
+    "img": "assets/img/gandhi.jpg",
+    "fx": 0.2733990147783251,
+    "fy": 0.5235714285714286,
+    "frac": 0.43251231527093587,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Gandhi smiling 1942.jpg"
+  },
+  {
+    "id": "catherine-great",
+    "name": "Catherine the Great",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "catherine the great",
+      "catherine ii",
+      "catherine ii of russia",
+      "empress catherine"
+    ],
+    "blurb": "Empress of Russia (1729–1796) · portrait by Fyodor Rokotov, c. 1763",
+    "img": "assets/img/catherine-great.jpg",
+    "fx": 0.3375,
+    "fy": 0.45,
+    "frac": 0.9,
+    "license": "Public domain",
+    "attribution": "Fyodor Rokotov",
+    "source": "Wikimedia Commons: Catherine II by Rokotov (Hermitage, 2021-01-12) 03.jpg"
+  },
+  {
+    "id": "alexander-hamilton",
+    "name": "Alexander Hamilton",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "alexander hamilton",
+      "hamilton"
+    ],
+    "blurb": "Founding Father of the USA (1755–1804) · portrait by John Trumbull, 1832",
+    "img": "assets/img/alexander-hamilton.jpg",
+    "fx": 0.4232436337366805,
+    "fy": 0.3785714285714286,
+    "frac": 0.20769369694780565,
+    "license": "Public domain",
+    "attribution": "John Trumbull",
+    "source": "Wikimedia Commons: John Trumbull - Alexander Hamilton (1757-1804) - 1832.11 - Yale University Art Gallery.jpg"
+  },
+  {
+    "id": "horatio-nelson",
+    "name": "Horatio Nelson",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "horatio nelson",
+      "admiral nelson",
+      "lord nelson",
+      "viscount nelson"
+    ],
+    "blurb": "British Admiral (1758–1805) · portrait after Lemuel Francis Abbott",
+    "img": "assets/img/horatio-nelson.jpg",
+    "fx": 0.5644050935137286,
+    "fy": 0.32,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "After Lemuel Francis Abbott",
+    "source": "Wikimedia Commons: Horatio Nelson by George Baxter, after Lemuel Francis Abbott (2).jpg"
+  },
+  {
+    "id": "joan-of-arc",
+    "name": "Joan of Arc",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "joan of arc",
+      "jeanne d'arc",
+      "the maid of orleans"
+    ],
+    "blurb": "Military leader (c. 1412–1431) · painting by Jean Auguste Dominique Ingres, 1854",
+    "img": "assets/img/joan-of-arc.jpg",
+    "fx": 0.55,
+    "fy": 0.55,
+    "frac": 0.9,
+    "license": "Public domain",
+    "attribution": "Jean Auguste Dominique Ingres",
+    "source": "Wikimedia Commons: Ingres - Jeanne d'Arc au sacre de Charles VII (autoportrait).jpg",
+    "_image_fix": true
+  },
+  {
+    "id": "mary-queen-of-scots",
+    "name": "Mary, Queen of Scots",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "mary queen of scots",
+      "mary i of scotland",
+      "mary stuart"
+    ],
+    "blurb": "Queen of Scotland (1542–1587) · attributed to François Clouet's circle",
+    "img": "assets/img/mary-queen-of-scots.jpg",
+    "fx": 0.7966269841269841,
+    "fy": 0.20214285714285715,
+    "frac": 0.4067460317460318,
+    "license": "Public domain",
+    "attribution": "Follower of François Clouet",
+    "source": "Wikimedia Commons: Follower of François Clouet - Portrait of Mary, Queen of Scots.jpg"
+  },
+  {
+    "id": "wellington",
+    "name": "Duke of Wellington",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "duke of wellington",
+      "wellington",
+      "arthur wellesley",
+      "iron duke"
+    ],
+    "blurb": "British general and statesman (1769–1852) · portrait by Francisco Goya, 1812",
+    "img": "assets/img/wellington.jpg",
+    "fx": 0.5,
+    "fy": 0.33571428571428574,
+    "frac": 0.3057426444523217,
+    "license": "Public domain",
+    "attribution": "Francisco Goya",
+    "source": "Wikimedia Commons: Francisco Goya - Portrait of the Duke of Wellington.jpg"
+  },
+  {
+    "id": "christopher-columbus",
+    "name": "Christopher Columbus",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "christopher columbus",
+      "columbus",
+      "cristoforo colombo"
+    ],
+    "blurb": "Explorer (1451–1506) · portrait, c. 1519",
+    "img": "assets/img/christopher-columbus.jpg",
+    "fx": 0.43081978554133527,
+    "fy": 0.09086,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Unknown painter",
+    "source": "Wikimedia Commons: Portrait of a Man, Said to be Christopher Columbus.jpg"
+  },
+  {
+    "id": "julius-caesar",
+    "name": "Julius Caesar",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "julius caesar",
+      "gaius julius caesar"
+    ],
+    "blurb": "Roman general and statesman (100–44 BC) · marble bust, British Museum",
+    "img": "assets/img/julius-caesar.jpg",
+    "fx": 0.5,
+    "fy": 0.42,
+    "frac": 0.22,
+    "license": "CC BY-SA 2.0",
+    "attribution": "Jules Verne Times (Wikimedia Commons)",
+    "source": "Wikimedia Commons: Damaged ancient Roman marble bust (likely of Julius Caesar), British Museum, London.jpg",
+    "_image_fix": true
+  },
+  {
+    "id": "augustus-caesar",
+    "name": "Augustus",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "augustus",
+      "caesar augustus",
+      "augustus caesar",
+      "octavian",
+      "emperor augustus"
+    ],
+    "blurb": "First Roman Emperor (63 BC–14 AD) · Augustus of Prima Porta, Vatican Museums",
+    "img": "assets/img/augustus-caesar.jpg",
+    "fx": 0.4034749034749035,
+    "fy": 0.30571428571428577,
+    "frac": 0.48262548262548255,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Till Niermann",
+    "source": "Wikimedia Commons: Statue-Augustus.jpg"
+  },
+  {
+    "id": "charlemagne",
+    "name": "Charlemagne",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "charlemagne",
+      "charles the great",
+      "charles i",
+      "karl der grosse"
+    ],
+    "blurb": "Frankish king and emperor (747–814 AD) · painting by Albrecht Dürer, c. 1512",
+    "img": "assets/img/charlemagne.jpg",
+    "fx": 0.5,
+    "fy": 0.42,
+    "frac": 0.7201646090534981,
+    "license": "Public domain",
+    "attribution": "Albrecht Dürer",
+    "source": "Wikimedia Commons: Charlemagne-by-Durer.jpg"
+  },
+  {
+    "id": "mao-zedong",
+    "name": "Mao Zedong",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "mao zedong",
+      "mao tse-tung",
+      "chairman mao",
+      "mao"
+    ],
+    "blurb": "Founder of the People's Republic of China (1893–1976) · official portrait",
+    "img": "assets/img/mao-zedong.jpg",
+    "fx": 0.5428571428571428,
+    "fy": 0.27,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Official Chinese portrait",
+    "source": "Wikimedia Commons: Mao Zedong 1950 Portrait (3x4 cropped).jpg"
+  },
+  {
+    "id": "bismarck",
+    "name": "Otto von Bismarck",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "otto von bismarck",
+      "bismarck",
+      "the iron chancellor"
+    ],
+    "blurb": "Prussian statesman (1815–1898) · portrait by Franz von Lenbach, 1890",
+    "img": "assets/img/bismarck.jpg",
+    "fx": 0.4555792466240227,
+    "fy": 0.2807142857142857,
+    "frac": 0.14125799573560757,
+    "license": "Public domain",
+    "attribution": "Franz von Lenbach",
+    "source": "Wikimedia Commons: Franz von Lenbach - Otto von Bismarck (1890).jpg",
+    "_image_fix": true
+  },
+  {
+    "id": "anne-boleyn",
+    "name": "Anne Boleyn",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "anne boleyn",
+      "queen anne boleyn"
+    ],
+    "blurb": "Queen of England (c. 1501–1536) · miniature portrait by Lucas Horenbout",
+    "img": "assets/img/anne-boleyn.jpg",
+    "fx": 0.525,
+    "fy": 0.47,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Attributed to Lucas Horenbout",
+    "source": "Wikimedia Commons: Portrait miniature possibly of Anne Boleyn, by Lucas Horenbout.jpg"
+  },
+  {
+    "id": "ramesses-ii",
+    "name": "Ramesses II",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "ramesses ii",
+      "ramesses the great",
+      "ramses ii",
+      "ramses the great"
+    ],
+    "blurb": "Pharaoh of Egypt (c. 1303–1213 BC) · colossal statues at Abu Simbel",
+    "img": "assets/img/ramesses-ii.jpg",
+    "fx": 0.3032544378698224,
+    "fy": 0.7399357949016231,
+    "frac": 0.22930392277491315,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Diego Delso",
+    "source": "Wikimedia Commons: Templo de Ramsés II, Abu Simbel, Egipto, 2022-04-02, DD 03.jpg",
+    "_image_fix": true
+  },
+  {
+    "id": "cleopatra",
+    "name": "Cleopatra",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "cleopatra",
+      "cleopatra vii",
+      "cleopatra the great"
+    ],
+    "blurb": "Queen of Egypt (69–30 BC) · marble portrait bust, Metropolitan Museum",
+    "img": "assets/img/cleopatra.jpg",
+    "fx": 0.4761904761904762,
+    "fy": 0.4285714285714286,
+    "frac": 0.22,
+    "license": "CC0",
+    "attribution": "Metropolitan Museum of Art",
+    "source": "Wikimedia Commons: Portrait Bust of a Woman (called Cleopatra).jpg",
+    "_image_fix": true
+  },
+  {
+    "id": "simon-bolivar",
+    "name": "Simón Bolívar",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "simon bolivar",
+      "simón bolívar",
+      "el libertador"
+    ],
+    "blurb": "Independence leader (1783–1830) · portrait by José Gil de Castro, 1825",
+    "img": "assets/img/simon-bolivar.jpg",
+    "fx": 0.47822299651567945,
+    "fy": 0.16285714285714287,
+    "frac": 0.11868466898954694,
+    "license": "Public domain",
+    "attribution": "José Gil de Castro",
+    "source": "Wikimedia Commons: Simón Bolívar, 1825.jpg"
+  },
+  {
+    "id": "attila",
+    "name": "Attila the Hun",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "attila the hun",
+      "attila",
+      "attila the scourge of god"
+    ],
+    "blurb": "King of the Huns (c. 406–453 AD) · engraving, c. 1789",
+    "img": "assets/img/attila.jpg",
+    "fx": 0.5,
+    "fy": 0.42,
+    "frac": 0.2,
+    "license": "CC BY 4.0",
+    "attribution": "Wellcome Collection",
+    "source": "Wikimedia Commons: Attila the Hun. Drawing, c. 1789. Wellcome V0009107.jpg",
+    "_image_fix": true
+  },
+  {
+    "id": "marcus-aurelius",
+    "name": "Marcus Aurelius",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "marcus aurelius",
+      "emperor marcus aurelius",
+      "marcus aurelius antoninus"
+    ],
+    "blurb": "Roman Emperor and philosopher (121–180 AD) · equestrian statue, Capitoline Museums, Rome",
+    "img": "assets/img/marcus-aurelius.jpg",
+    "fx": 0.47491974317817015,
+    "fy": 0.44642857142857145,
+    "frac": 0.26,
+    "license": "CC BY 2.0",
+    "attribution": "MM",
+    "source": "Wikimedia Commons: Marcus Aurelius Capitoline Hill September 2015-1.jpg"
+  },
+  {
+    "id": "rasputin",
+    "name": "Grigori Rasputin",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "grigori rasputin",
+      "rasputin",
+      "grigory rasputin"
+    ],
+    "blurb": "Russian mystic and faith healer (1869–1916) · photograph c. 1916",
+    "img": "assets/img/rasputin.jpg",
+    "fx": 0.7049689440993789,
+    "fy": 0.24000000000000002,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Grigori Rasputin 1916.jpg"
+  },
+  {
+    "id": "frederick-douglass",
+    "name": "Frederick Douglass",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "frederick douglass",
+      "douglass"
+    ],
+    "blurb": "American abolitionist and statesman (1818–1895) · photograph c. 1879",
+    "img": "assets/img/frederick-douglass.jpg",
+    "fx": 0.5820625042740888,
+    "fy": 0.31,
+    "frac": 0.26,
+    "license": "Public domain",
+    "attribution": "George Kendall Warren",
+    "source": "Wikimedia Commons: Frederick Douglass (circa 1879).jpg"
+  },
+  {
+    "id": "sitting-bull",
+    "name": "Sitting Bull",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "sitting bull",
+      "tatanka iyotake"
+    ],
+    "blurb": "Hunkpapa Lakota leader (c. 1831–1890) · photograph by David F. Barry, c. 1883",
+    "img": "assets/img/sitting-bull.jpg",
+    "fx": 0.5,
+    "fy": 0.2235714285714286,
+    "frac": 0.25,
+    "license": "Public domain",
+    "attribution": "David F. Barry",
+    "source": "Wikimedia Commons: Sitting Bull by D F Barry ca 1883 Dakota Territory.jpg"
+  },
+  {
+    "id": "geronimo",
+    "name": "Geronimo",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "geronimo",
+      "goyathlay",
+      "goyaale"
+    ],
+    "blurb": "Apache leader and medicine man (1829–1909) · photograph 1898",
+    "img": "assets/img/geronimo.jpg",
+    "fx": 0.30050223214285715,
+    "fy": 0.5,
+    "frac": 0.25,
+    "license": "Public domain",
+    "attribution": "Wellcome Collection",
+    "source": "Wikimedia Commons: Portrait of Geronimo, the Apache chief, 1898 Wellcome L0036038.jpg"
+  },
+  {
+    "id": "nikola-tesla",
+    "name": "Nikola Tesla",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "nikola tesla",
+      "tesla"
+    ],
+    "blurb": "Inventor and electrical engineer (1856–1943) · photograph",
+    "img": "assets/img/nikola-tesla.jpg",
+    "fx": 0.630625,
+    "fy": 0.4792857142857143,
+    "frac": 0.25,
+    "license": "Public domain",
+    "attribution": "Napoleon Sarony",
+    "source": "Wikimedia Commons: N.Tesla.JPG"
+  },
+  {
+    "id": "thomas-edison",
+    "name": "Thomas Edison",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "thomas edison",
+      "edison",
+      "thomas alva edison"
+    ],
+    "blurb": "American inventor (1847–1931) · photograph",
+    "img": "assets/img/thomas-edison.jpg",
+    "fx": 0.66453125,
+    "fy": 0.10158730158730159,
+    "frac": 0.26,
+    "license": "Public domain",
+    "attribution": "Louis Bachrach",
+    "source": "Wikimedia Commons: Thomas Edison2.jpg"
+  },
+  {
+    "id": "mark-twain",
+    "name": "Mark Twain",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "mark twain",
+      "twain",
+      "samuel clemens",
+      "samuel langhorne clemens"
+    ],
+    "blurb": "American author (1835–1910) · photograph by A. F. Bradley, 1907",
+    "img": "assets/img/mark-twain.jpg",
+    "fx": 0.46992630385487527,
+    "fy": 0.46285714285714286,
+    "frac": 0.25,
+    "license": "Public domain",
+    "attribution": "A. F. Bradley",
+    "source": "Wikimedia Commons: Mark Twain by AF Bradley.jpg"
+  },
+  {
+    "id": "oscar-wilde",
+    "name": "Oscar Wilde",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "oscar wilde",
+      "wilde"
+    ],
+    "blurb": "Irish poet and playwright (1854–1900) · photograph by Napoleon Sarony, 1882",
+    "img": "assets/img/oscar-wilde.jpg",
+    "fx": 0.5322015655577299,
+    "fy": 0.1607142857142857,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Napoleon Sarony",
+    "source": "Wikimedia Commons: Oscar Wilde portrait.jpg"
+  },
+  {
+    "id": "theodore-roosevelt",
+    "name": "Theodore Roosevelt",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "theodore roosevelt",
+      "teddy roosevelt",
+      "roosevelt",
+      "tr"
+    ],
+    "blurb": "26th US President (1858–1919) · photograph 1904",
+    "img": "assets/img/theodore-roosevelt.jpg",
+    "fx": 0.42929400824369157,
+    "fy": 0.26500000000000007,
+    "frac": 0.1979767769176636,
+    "license": "Public domain",
+    "attribution": "Pach Brothers",
+    "source": "Wikimedia Commons: President Theodore Roosevelt, 1904.jpg"
+  },
+  {
+    "id": "kaiser-wilhelm-ii",
+    "name": "Kaiser Wilhelm II",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "kaiser wilhelm ii",
+      "wilhelm ii",
+      "kaiser wilhelm",
+      "william ii"
+    ],
+    "blurb": "Last German Emperor (1859–1941) · photograph 1902",
+    "img": "assets/img/kaiser-wilhelm-ii.jpg",
+    "fx": 0.4537193080357143,
+    "fy": 0.3842857142857143,
+    "frac": 0.25,
+    "license": "Public domain",
+    "attribution": "T. H. Voigt",
+    "source": "Wikimedia Commons: Kaiser Wilhelm II of Germany - 1902.jpg"
+  },
+  {
+    "id": "nicholas-ii",
+    "name": "Tsar Nicholas II",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "nicholas ii",
+      "tsar nicholas ii",
+      "czar nicholas ii",
+      "nicholas the second"
+    ],
+    "blurb": "Last Emperor of Russia (1868–1918) · photograph 1898",
+    "img": "assets/img/nicholas-ii.jpg",
+    "fx": 0.3174888392857143,
+    "fy": 0.3685714285714286,
+    "frac": 0.25,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Tsar Nicholas II -1898.jpg"
+  },
+  {
+    "id": "woodrow-wilson",
+    "name": "Woodrow Wilson",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "woodrow wilson",
+      "wilson",
+      "thomas woodrow wilson"
+    ],
+    "blurb": "28th US President (1856–1924) · photograph 1919",
+    "img": "assets/img/woodrow-wilson.jpg",
+    "fx": 0.5108203125,
+    "fy": 0.23285714285714287,
+    "frac": 0.1623046875,
+    "license": "Public domain",
+    "attribution": "Harris & Ewing",
+    "source": "Wikimedia Commons: Thomas Woodrow Wilson, Harris & Ewing bw photo portrait, 1919.jpg"
+  },
+  {
+    "id": "fdr",
+    "name": "Franklin D. Roosevelt",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "franklin d roosevelt",
+      "franklin roosevelt",
+      "fdr",
+      "roosevelt"
+    ],
+    "blurb": "32nd US President (1882–1945) · colour portrait 1944",
+    "img": "assets/img/fdr.jpg",
+    "fx": 0.47940848214285714,
+    "fy": 0.2835714285714286,
+    "frac": 0.18532366071428572,
+    "license": "Public domain",
+    "attribution": "Leon Perskie",
+    "source": "Wikimedia Commons: FDR 1944 Color Portrait.jpg"
+  },
+  {
+    "id": "trotsky",
+    "name": "Leon Trotsky",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "leon trotsky",
+      "trotsky",
+      "lev trotsky"
+    ],
+    "blurb": "Russian revolutionary (1879–1940) · photographic portrait",
+    "img": "assets/img/trotsky.jpg",
+    "fx": 0.5,
+    "fy": 0.3671428571428571,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Portrait of Leon Trotsky.jpg"
+  },
+  {
+    "id": "lenin",
+    "name": "Vladimir Lenin",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "vladimir lenin",
+      "lenin"
+    ],
+    "blurb": "Russian revolutionary leader (1870–1924) · photograph 1920",
+    "img": "assets/img/lenin.jpg",
+    "fx": 0.435078125,
+    "fy": 0.12499999999999997,
+    "frac": 0.26,
+    "license": "Public domain",
+    "attribution": "Pavel Zhukov",
+    "source": "Wikimedia Commons: Lenin 1920.jpg"
+  },
+  {
+    "id": "ataturk",
+    "name": "Mustafa Kemal Atatürk",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "mustafa kemal ataturk",
+      "ataturk",
+      "atatürk",
+      "mustafa kemal"
+    ],
+    "blurb": "Founder of the Republic of Turkey (1881–1938) · photographic portrait",
+    "img": "assets/img/ataturk.jpg",
+    "fx": 0.4300625,
+    "fy": 0.11071428571428571,
+    "frac": 0.30972321428571425,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Atatürk Kemal.jpg"
+  },
+  {
+    "id": "ho-chi-minh",
+    "name": "Ho Chi Minh",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "ho chi minh",
+      "ho chi-minh",
+      "uncle ho"
+    ],
+    "blurb": "Vietnamese revolutionary leader (1890–1969) · photograph 1946",
+    "img": "assets/img/ho-chi-minh.jpg",
+    "fx": 0.5097011144883485,
+    "fy": 0.5228571428571429,
+    "frac": 0.41617781155015204,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Ho Chi Minh 1946.jpg"
+  },
+  {
+    "id": "mussolini",
+    "name": "Benito Mussolini",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "benito mussolini",
+      "mussolini",
+      "il duce"
+    ],
+    "blurb": "Italian Fascist dictator (1883–1945) · photograph 1937",
+    "img": "assets/img/mussolini.jpg",
+    "fx": 0.5687732342007435,
+    "fy": 0.275,
+    "frac": 0.43228890069038767,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Benito Mussolini in 1937.jpg"
+  },
+  {
+    "id": "eva-peron",
+    "name": "Eva Perón",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "eva peron",
+      "eva perón",
+      "evita",
+      "maria eva duarte"
+    ],
+    "blurb": "First Lady of Argentina (1919–1952) · colour portrait",
+    "img": "assets/img/eva-peron.jpg",
+    "fx": 0.3221774193548387,
+    "fy": 0.2228571428571429,
+    "frac": 0.4356653225806451,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Evita color.jpg"
+  },
+  {
+    "id": "emmeline-pankhurst",
+    "name": "Emmeline Pankhurst",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "emmeline pankhurst",
+      "pankhurst"
+    ],
+    "blurb": "British suffragette leader (1858–1928) · photograph 1913",
+    "img": "assets/img/emmeline-pankhurst.jpg",
+    "fx": 0.6836830357142858,
+    "fy": 0.20357142857142857,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Matzene Studio, Chicago",
+    "source": "Wikimedia Commons: Emmeline Pankhurst, seated (1913).jpg"
+  },
+  {
+    "id": "robert-e-lee",
+    "name": "Robert E. Lee",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "robert e lee",
+      "robert e. lee",
+      "lee",
+      "robert edward lee"
+    ],
+    "blurb": "Confederate general (1807–1870) · photographic portrait",
+    "img": "assets/img/robert-e-lee.jpg",
+    "fx": 0.3626004464285714,
+    "fy": 0.18642857142857147,
+    "frac": 0.26,
+    "license": "Public domain",
+    "attribution": "Julian Vannerson",
+    "source": "Wikimedia Commons: Robert Edward Lee.jpg"
+  },
+  {
+    "id": "ulysses-grant",
+    "name": "Ulysses S. Grant",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "ulysses s grant",
+      "ulysses grant",
+      "grant",
+      "ulysses s. grant"
+    ],
+    "blurb": "Union general and 18th US President (1822–1885) · photograph c. 1870–1880",
+    "img": "assets/img/ulysses-grant.jpg",
+    "fx": 0.5908649553571428,
+    "fy": 0.38642857142857145,
+    "frac": 0.26,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Ulysses Grant 1870-1880.jpg"
+  },
+  {
+    "id": "cecil-rhodes",
+    "name": "Cecil Rhodes",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "cecil rhodes",
+      "rhodes"
+    ],
+    "blurb": "British imperialist and mining magnate (1853–1902) · photographic portrait",
+    "img": "assets/img/cecil-rhodes.jpg",
+    "fx": 0.5,
+    "fy": 0.4685714285714286,
+    "frac": 0.3077343749999998,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Cecil Rhodes ww.jpg"
+  },
+  {
+    "id": "alexander-fleming",
+    "name": "Alexander Fleming",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "alexander fleming",
+      "fleming",
+      "sir alexander fleming"
+    ],
+    "blurb": "Discoverer of penicillin (1881–1955) · photograph 1945",
+    "img": "assets/img/alexander-fleming.jpg",
+    "fx": 0.5353571428571429,
+    "fy": 0.4928571428571428,
+    "frac": 0.4899489795918368,
+    "license": "Public domain",
+    "attribution": "Official photograph",
+    "source": "Wikimedia Commons: Alexander Fleming 1945.jpg"
+  },
+  {
+    "id": "friedrich-engels",
+    "name": "Friedrich Engels",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "friedrich engels",
+      "engels"
+    ],
+    "blurb": "German philosopher and co-author of the Communist Manifesto (1820–1895)",
+    "img": "assets/img/friedrich-engels.jpg",
+    "fx": 0.5857142857142857,
+    "fy": 0.365,
+    "frac": 0.3904761904761905,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Friedrich Engels portrait (cropped).jpg"
+  },
+  {
+    "id": "harriet-tubman",
+    "name": "Harriet Tubman",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "harriet tubman",
+      "tubman"
+    ],
+    "blurb": "Abolitionist and Underground Railroad conductor (c. 1822–1913) · photograph c. 1868–69",
+    "img": "assets/img/harriet-tubman.jpg",
+    "fx": 0.46566406250000003,
+    "fy": 0.30357142857142855,
+    "frac": 0.2002929687500002,
+    "license": "Public domain",
+    "attribution": "Benjamin F. Powelson",
+    "source": "Wikimedia Commons: Harriet Tubman c1868-69.jpg"
+  },
+  {
+    "id": "jefferson-davis",
+    "name": "Jefferson Davis",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "jefferson davis",
+      "davis"
+    ],
+    "blurb": "President of the Confederate States (1808–1889) · photograph (NARA)",
+    "img": "assets/img/jefferson-davis.jpg",
+    "fx": 0.5589453125,
+    "fy": 0.3728571428571429,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "National Archives",
+    "source": "Wikimedia Commons: Jefferson Davis - NARA - 528293.jpg"
+  },
+  {
+    "id": "helen-keller",
+    "name": "Helen Keller",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "helen keller",
+      "keller"
+    ],
+    "blurb": "American author and disability rights advocate (1880–1968) · photographic portrait",
+    "img": "assets/img/helen-keller.jpg",
+    "fx": 0.5667131696428571,
+    "fy": 0.38642857142857145,
+    "frac": 0.5052410714285714,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Helen KellerA.jpg"
+  },
+  {
+    "id": "leo-tolstoy",
+    "name": "Leo Tolstoy",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "leo tolstoy",
+      "tolstoy",
+      "lev tolstoy"
+    ],
+    "blurb": "Russian novelist (1828–1910) · photograph 1897",
+    "img": "assets/img/leo-tolstoy.jpg",
+    "fx": 0.5389732142857143,
+    "fy": 0.2914285714285714,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "F. W. Taylor",
+    "source": "Wikimedia Commons: Leo Tolstoy 1897, black and white, 37767u.jpg"
+  }
+]

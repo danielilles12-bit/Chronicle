@@ -1,0 +1,5109 @@
+[
+  {
+    "id": "richard-i",
+    "name": "Richard I",
+    "difficulty": "easy",
+    "variants": [
+      "richard i",
+      "richard the lionheart",
+      "richard lionheart",
+      "coeur de lion",
+      "richard the lion-heart"
+    ],
+    "occupation": "King of England and crusader",
+    "birth": {
+      "year": 1157,
+      "place": "Oxford, England",
+      "lat": 51.75,
+      "lon": -1.26
+    },
+    "death": {
+      "year": 1199,
+      "place": "Châlus, France",
+      "lat": 45.64,
+      "lon": 1.08
+    }
+  },
+  {
+    "id": "eleanor-of-aquitaine",
+    "name": "Eleanor of Aquitaine",
+    "difficulty": "medium",
+    "variants": [
+      "eleanor of aquitaine",
+      "eleanor",
+      "aliénor d'aquitaine"
+    ],
+    "occupation": "Queen of France and England",
+    "birth": {
+      "year": 1122,
+      "place": "Poitiers, France",
+      "lat": 46.58,
+      "lon": 0.34
+    },
+    "death": {
+      "year": 1204,
+      "place": "Fontevraud, France",
+      "lat": 47.18,
+      "lon": 0.05
+    }
+  },
+  {
+    "id": "henry-ii-england",
+    "name": "Henry II of England",
+    "difficulty": "medium",
+    "variants": [
+      "henry ii of england",
+      "henry ii",
+      "henry plantagenet"
+    ],
+    "occupation": "King of England, first Plantagenet",
+    "birth": {
+      "year": 1133,
+      "place": "Le Mans, France",
+      "lat": 48.0,
+      "lon": 0.2
+    },
+    "death": {
+      "year": 1189,
+      "place": "Chinon, France",
+      "lat": 47.17,
+      "lon": 0.24
+    }
+  },
+  {
+    "id": "louis-ix",
+    "name": "Louis IX of France",
+    "difficulty": "medium",
+    "variants": [
+      "louis ix",
+      "saint louis",
+      "louis ix of france",
+      "louis the saint"
+    ],
+    "occupation": "King of France who died on crusade",
+    "birth": {
+      "year": 1214,
+      "place": "Poissy, France",
+      "lat": 48.93,
+      "lon": 2.04
+    },
+    "death": {
+      "year": 1270,
+      "place": "Tunis, Tunisia",
+      "lat": 36.82,
+      "lon": 10.17
+    }
+  },
+  {
+    "id": "godfrey-of-bouillon",
+    "name": "Godfrey of Bouillon",
+    "difficulty": "medium",
+    "variants": [
+      "godfrey of bouillon",
+      "godfrey",
+      "godefroy de bouillon"
+    ],
+    "occupation": "Crusader leader and first ruler of Jerusalem",
+    "birth": {
+      "year": 1060,
+      "place": "Boulogne-sur-Mer, France",
+      "lat": 50.73,
+      "lon": 1.61
+    },
+    "death": {
+      "year": 1100,
+      "place": "Jerusalem",
+      "lat": 31.78,
+      "lon": 35.22
+    }
+  },
+  {
+    "id": "harold-ii",
+    "name": "Harold II of England",
+    "difficulty": "medium",
+    "variants": [
+      "harold ii",
+      "harold godwinson",
+      "harold ii of england",
+      "king harold"
+    ],
+    "occupation": "Last crowned Anglo-Saxon king, killed at Hastings",
+    "birth": {
+      "year": 1022,
+      "place": "Wessex, England",
+      "lat": 51.06,
+      "lon": -1.79
+    },
+    "death": {
+      "year": 1066,
+      "place": "Hastings, England",
+      "lat": 50.85,
+      "lon": 0.57
+    }
+  },
+  {
+    "id": "cnut-the-great",
+    "name": "Cnut the Great",
+    "difficulty": "medium",
+    "variants": [
+      "cnut the great",
+      "cnut",
+      "canute",
+      "king canute",
+      "knut"
+    ],
+    "occupation": "King of England, Denmark and Norway",
+    "birth": {
+      "year": 995,
+      "place": "Denmark",
+      "lat": 56.0,
+      "lon": 9.5
+    },
+    "death": {
+      "year": 1035,
+      "place": "Shaftesbury, England",
+      "lat": 51.0,
+      "lon": -2.2
+    }
+  },
+  {
+    "id": "edward-the-black-prince",
+    "name": "Edward the Black Prince",
+    "difficulty": "medium",
+    "variants": [
+      "edward the black prince",
+      "the black prince",
+      "black prince",
+      "edward of woodstock"
+    ],
+    "occupation": "English prince and military commander",
+    "birth": {
+      "year": 1330,
+      "place": "Woodstock, England",
+      "lat": 51.85,
+      "lon": -1.35
+    },
+    "death": {
+      "year": 1376,
+      "place": "Westminster, London, England",
+      "lat": 51.5,
+      "lon": -0.13
+    }
+  },
+  {
+    "id": "edward-the-confessor",
+    "name": "Edward the Confessor",
+    "difficulty": "medium",
+    "variants": [
+      "edward the confessor",
+      "edward confessor",
+      "saint edward"
+    ],
+    "occupation": "Anglo-Saxon King of England",
+    "birth": {
+      "year": 1003,
+      "place": "Islip, England",
+      "lat": 51.83,
+      "lon": -1.24
+    },
+    "death": {
+      "year": 1066,
+      "place": "Westminster, London, England",
+      "lat": 51.5,
+      "lon": -0.13
+    }
+  },
+  {
+    "id": "thomas-becket",
+    "name": "Thomas Becket",
+    "difficulty": "medium",
+    "variants": [
+      "thomas becket",
+      "becket",
+      "thomas à becket",
+      "saint thomas becket"
+    ],
+    "occupation": "Archbishop of Canterbury murdered in his cathedral",
+    "birth": {
+      "year": 1119,
+      "place": "London, England",
+      "lat": 51.51,
+      "lon": -0.13
+    },
+    "death": {
+      "year": 1170,
+      "place": "Canterbury, England",
+      "lat": 51.28,
+      "lon": 1.08
+    }
+  },
+  {
+    "id": "william-wallace",
+    "name": "William Wallace",
+    "difficulty": "easy",
+    "variants": [
+      "william wallace",
+      "wallace",
+      "braveheart"
+    ],
+    "occupation": "Scottish knight who led resistance to England",
+    "birth": {
+      "year": 1270,
+      "place": "Elderslie, Scotland",
+      "lat": 55.84,
+      "lon": -4.47
+    },
+    "death": {
+      "year": 1305,
+      "place": "London, England",
+      "lat": 51.51,
+      "lon": -0.1
+    }
+  },
+  {
+    "id": "robert-the-bruce",
+    "name": "Robert the Bruce",
+    "difficulty": "medium",
+    "variants": [
+      "robert the bruce",
+      "robert bruce",
+      "robert i of scotland",
+      "the bruce"
+    ],
+    "occupation": "King of Scots, victor at Bannockburn",
+    "birth": {
+      "year": 1274,
+      "place": "Turnberry, Scotland",
+      "lat": 55.31,
+      "lon": -4.84
+    },
+    "death": {
+      "year": 1329,
+      "place": "Cardross, Scotland",
+      "lat": 55.95,
+      "lon": -4.66
+    }
+  },
+  {
+    "id": "el-cid",
+    "name": "El Cid",
+    "difficulty": "medium",
+    "variants": [
+      "el cid",
+      "rodrigo díaz de vivar",
+      "el cid campeador",
+      "cid"
+    ],
+    "occupation": "Castilian knight and conqueror of Valencia",
+    "birth": {
+      "year": 1043,
+      "place": "Vivar del Cid, Spain",
+      "lat": 42.4,
+      "lon": -3.69
+    },
+    "death": {
+      "year": 1099,
+      "place": "Valencia, Spain",
+      "lat": 39.47,
+      "lon": -0.38
+    }
+  },
+  {
+    "id": "pope-urban-ii",
+    "name": "Pope Urban II",
+    "difficulty": "medium",
+    "variants": [
+      "pope urban ii",
+      "urban ii",
+      "urban the second"
+    ],
+    "occupation": "Pope who launched the First Crusade",
+    "birth": {
+      "year": 1035,
+      "place": "Châtillon-sur-Marne, France",
+      "lat": 49.1,
+      "lon": 3.78
+    },
+    "death": {
+      "year": 1099,
+      "place": "Rome, Italy",
+      "lat": 41.89,
+      "lon": 12.48
+    }
+  },
+  {
+    "id": "frederick-ii-hre",
+    "name": "Frederick II",
+    "difficulty": "medium",
+    "variants": [
+      "frederick ii",
+      "frederick ii hre",
+      "stupor mundi",
+      "federico ii"
+    ],
+    "occupation": "Holy Roman Emperor known as Stupor Mundi",
+    "birth": {
+      "year": 1194,
+      "place": "Jesi, Italy",
+      "lat": 43.52,
+      "lon": 13.24
+    },
+    "death": {
+      "year": 1250,
+      "place": "Castel Fiorentino, Italy",
+      "lat": 41.42,
+      "lon": 15.41
+    }
+  },
+  {
+    "id": "otto-the-great",
+    "name": "Otto the Great",
+    "difficulty": "medium",
+    "variants": [
+      "otto the great",
+      "otto i",
+      "otto i hre"
+    ],
+    "occupation": "First Holy Roman Emperor of the Ottonian line",
+    "birth": {
+      "year": 912,
+      "place": "Wallhausen, Germany",
+      "lat": 51.45,
+      "lon": 11.18
+    },
+    "death": {
+      "year": 973,
+      "place": "Memleben, Germany",
+      "lat": 51.27,
+      "lon": 11.42
+    }
+  },
+  {
+    "id": "henry-iv-hre",
+    "name": "Henry IV",
+    "difficulty": "hard",
+    "variants": [
+      "henry iv",
+      "henry iv hre",
+      "heinrich iv"
+    ],
+    "occupation": "Holy Roman Emperor of the Investiture Controversy",
+    "birth": {
+      "year": 1050,
+      "place": "Goslar, Germany",
+      "lat": 51.91,
+      "lon": 10.43
+    },
+    "death": {
+      "year": 1106,
+      "place": "Liège, Belgium",
+      "lat": 50.63,
+      "lon": 5.57
+    }
+  },
+  {
+    "id": "matilda-of-tuscany",
+    "name": "Matilda of Tuscany",
+    "difficulty": "hard",
+    "variants": [
+      "matilda of tuscany",
+      "matilda of canossa",
+      "countess matilda"
+    ],
+    "occupation": "Powerful Italian noblewoman of the Investiture Controversy",
+    "birth": {
+      "year": 1046,
+      "place": "Mantua, Italy",
+      "lat": 45.16,
+      "lon": 10.79
+    },
+    "death": {
+      "year": 1115,
+      "place": "Bondeno, Italy",
+      "lat": 44.89,
+      "lon": 11.42
+    }
+  },
+  {
+    "id": "edward-i",
+    "name": "Edward I of England",
+    "difficulty": "medium",
+    "variants": [
+      "edward i",
+      "edward i of england",
+      "longshanks",
+      "edward longshanks",
+      "hammer of the scots"
+    ],
+    "occupation": "King of England known as Longshanks",
+    "birth": {
+      "year": 1239,
+      "place": "Westminster, London, England",
+      "lat": 51.5,
+      "lon": -0.13
+    },
+    "death": {
+      "year": 1307,
+      "place": "Burgh by Sands, England",
+      "lat": 54.92,
+      "lon": -3.05
+    }
+  },
+  {
+    "id": "edward-ii",
+    "name": "Edward II of England",
+    "difficulty": "medium",
+    "variants": [
+      "edward ii",
+      "edward ii of england",
+      "edward of caernarfon"
+    ],
+    "occupation": "Deposed and murdered King of England",
+    "birth": {
+      "year": 1284,
+      "place": "Caernarfon, Wales",
+      "lat": 53.14,
+      "lon": -4.27
+    },
+    "death": {
+      "year": 1327,
+      "place": "Berkeley Castle, England",
+      "lat": 51.69,
+      "lon": -2.46
+    }
+  },
+  {
+    "id": "edward-iii",
+    "name": "Edward III of England",
+    "difficulty": "medium",
+    "variants": [
+      "edward iii",
+      "edward iii of england"
+    ],
+    "occupation": "King of England who began the Hundred Years' War",
+    "birth": {
+      "year": 1312,
+      "place": "Windsor, England",
+      "lat": 51.48,
+      "lon": -0.61
+    },
+    "death": {
+      "year": 1377,
+      "place": "Sheen, London, England",
+      "lat": 51.46,
+      "lon": -0.29
+    }
+  },
+  {
+    "id": "henry-v",
+    "name": "Henry V of England",
+    "difficulty": "easy",
+    "variants": [
+      "henry v",
+      "henry v of england",
+      "victor of agincourt"
+    ],
+    "occupation": "King of England, victor at Agincourt",
+    "birth": {
+      "year": 1386,
+      "place": "Monmouth, Wales",
+      "lat": 51.81,
+      "lon": -2.72
+    },
+    "death": {
+      "year": 1422,
+      "place": "Vincennes, France",
+      "lat": 48.85,
+      "lon": 2.44
+    }
+  },
+  {
+    "id": "richard-iii",
+    "name": "Richard III of England",
+    "difficulty": "easy",
+    "variants": [
+      "richard iii",
+      "richard iii of england"
+    ],
+    "occupation": "Last Plantagenet king, killed at Bosworth",
+    "birth": {
+      "year": 1452,
+      "place": "Fotheringhay, England",
+      "lat": 52.52,
+      "lon": -0.43
+    },
+    "death": {
+      "year": 1485,
+      "place": "Bosworth Field, England",
+      "lat": 52.59,
+      "lon": -1.41
+    }
+  },
+  {
+    "id": "henry-vii",
+    "name": "Henry VII of England",
+    "difficulty": "medium",
+    "variants": [
+      "henry vii",
+      "henry vii of england",
+      "henry tudor"
+    ],
+    "occupation": "First Tudor king of England",
+    "birth": {
+      "year": 1457,
+      "place": "Pembroke, Wales",
+      "lat": 51.67,
+      "lon": -4.91
+    },
+    "death": {
+      "year": 1509,
+      "place": "Richmond, London, England",
+      "lat": 51.46,
+      "lon": -0.3
+    }
+  },
+  {
+    "id": "henry-viii",
+    "name": "Henry VIII of England",
+    "difficulty": "easy",
+    "variants": [
+      "henry viii",
+      "henry viii of england",
+      "king henry viii"
+    ],
+    "occupation": "King of England with six wives",
+    "birth": {
+      "year": 1491,
+      "place": "Greenwich, London, England",
+      "lat": 51.48,
+      "lon": 0.0
+    },
+    "death": {
+      "year": 1547,
+      "place": "Westminster, London, England",
+      "lat": 51.5,
+      "lon": -0.13
+    }
+  },
+  {
+    "id": "mary-i",
+    "name": "Mary I of England",
+    "difficulty": "medium",
+    "variants": [
+      "mary i",
+      "mary i of england",
+      "bloody mary",
+      "mary tudor"
+    ],
+    "occupation": "Catholic Queen of England known as Bloody Mary",
+    "birth": {
+      "year": 1516,
+      "place": "Greenwich, London, England",
+      "lat": 51.48,
+      "lon": 0.0
+    },
+    "death": {
+      "year": 1558,
+      "place": "London, England",
+      "lat": 51.51,
+      "lon": -0.13
+    }
+  },
+  {
+    "id": "mary-queen-of-scots",
+    "name": "Mary, Queen of Scots",
+    "difficulty": "easy",
+    "variants": [
+      "mary queen of scots",
+      "mary stuart",
+      "mary i of scotland"
+    ],
+    "occupation": "Queen of Scots, executed in England",
+    "birth": {
+      "year": 1542,
+      "place": "Linlithgow, Scotland",
+      "lat": 55.98,
+      "lon": -3.6
+    },
+    "death": {
+      "year": 1587,
+      "place": "Fotheringhay, England",
+      "lat": 52.52,
+      "lon": -0.43
+    }
+  },
+  {
+    "id": "charles-i-england",
+    "name": "Charles I of England",
+    "difficulty": "easy",
+    "variants": [
+      "charles i",
+      "charles i of england",
+      "king charles i"
+    ],
+    "occupation": "King of England executed in the Civil War",
+    "birth": {
+      "year": 1600,
+      "place": "Dunfermline, Scotland",
+      "lat": 56.07,
+      "lon": -3.46
+    },
+    "death": {
+      "year": 1649,
+      "place": "Whitehall, London, England",
+      "lat": 51.5,
+      "lon": -0.13
+    }
+  },
+  {
+    "id": "charles-ii-england",
+    "name": "Charles II of England",
+    "difficulty": "medium",
+    "variants": [
+      "charles ii",
+      "charles ii of england",
+      "the merry monarch"
+    ],
+    "occupation": "Restored King of England",
+    "birth": {
+      "year": 1630,
+      "place": "London, England",
+      "lat": 51.5,
+      "lon": -0.14
+    },
+    "death": {
+      "year": 1685,
+      "place": "London, England",
+      "lat": 51.5,
+      "lon": -0.14
+    }
+  },
+  {
+    "id": "oliver-cromwell",
+    "name": "Oliver Cromwell",
+    "difficulty": "easy",
+    "variants": [
+      "oliver cromwell",
+      "cromwell",
+      "lord protector"
+    ],
+    "occupation": "Lord Protector of England",
+    "birth": {
+      "year": 1599,
+      "place": "Huntingdon, England",
+      "lat": 52.33,
+      "lon": -0.18
+    },
+    "death": {
+      "year": 1658,
+      "place": "Westminster, London, England",
+      "lat": 51.5,
+      "lon": -0.13
+    }
+  },
+  {
+    "id": "thomas-more",
+    "name": "Thomas More",
+    "difficulty": "easy",
+    "variants": [
+      "thomas more",
+      "sir thomas more",
+      "saint thomas more"
+    ],
+    "occupation": "English statesman and author, executed by Henry VIII",
+    "birth": {
+      "year": 1478,
+      "place": "London, England",
+      "lat": 51.51,
+      "lon": -0.1
+    },
+    "death": {
+      "year": 1535,
+      "place": "Tower of London, England",
+      "lat": 51.51,
+      "lon": -0.08
+    }
+  },
+  {
+    "id": "thomas-cromwell",
+    "name": "Thomas Cromwell",
+    "difficulty": "medium",
+    "variants": [
+      "thomas cromwell",
+      "earl of essex"
+    ],
+    "occupation": "Chief minister to Henry VIII, beheaded",
+    "birth": {
+      "year": 1485,
+      "place": "Putney, London, England",
+      "lat": 51.46,
+      "lon": -0.22
+    },
+    "death": {
+      "year": 1540,
+      "place": "Tower of London, England",
+      "lat": 51.51,
+      "lon": -0.08
+    }
+  },
+  {
+    "id": "thomas-wolsey",
+    "name": "Cardinal Wolsey",
+    "difficulty": "medium",
+    "variants": [
+      "cardinal wolsey",
+      "thomas wolsey",
+      "wolsey"
+    ],
+    "occupation": "Cardinal and chief minister to Henry VIII",
+    "birth": {
+      "year": 1473,
+      "place": "Ipswich, England",
+      "lat": 52.06,
+      "lon": 1.16
+    },
+    "death": {
+      "year": 1530,
+      "place": "Leicester, England",
+      "lat": 52.64,
+      "lon": -1.13
+    }
+  },
+  {
+    "id": "anne-boleyn",
+    "name": "Anne Boleyn",
+    "difficulty": "easy",
+    "variants": [
+      "anne boleyn",
+      "boleyn"
+    ],
+    "occupation": "Second wife of Henry VIII, beheaded",
+    "birth": {
+      "year": 1501,
+      "place": "Blickling, England",
+      "lat": 52.81,
+      "lon": 1.23
+    },
+    "death": {
+      "year": 1536,
+      "place": "Tower of London, England",
+      "lat": 51.51,
+      "lon": -0.08
+    }
+  },
+  {
+    "id": "lady-jane-grey",
+    "name": "Lady Jane Grey",
+    "difficulty": "medium",
+    "variants": [
+      "lady jane grey",
+      "jane grey",
+      "the nine days queen"
+    ],
+    "occupation": "The 'Nine Days' Queen of England, executed",
+    "birth": {
+      "year": 1537,
+      "place": "Bradgate, England",
+      "lat": 52.7,
+      "lon": -1.23
+    },
+    "death": {
+      "year": 1554,
+      "place": "Tower of London, England",
+      "lat": 51.51,
+      "lon": -0.08
+    }
+  },
+  {
+    "id": "walter-raleigh",
+    "name": "Walter Raleigh",
+    "difficulty": "easy",
+    "variants": [
+      "walter raleigh",
+      "sir walter raleigh",
+      "raleigh"
+    ],
+    "occupation": "English explorer and courtier, beheaded",
+    "birth": {
+      "year": 1552,
+      "place": "East Budleigh, England",
+      "lat": 50.66,
+      "lon": -3.31
+    },
+    "death": {
+      "year": 1618,
+      "place": "Westminster, London, England",
+      "lat": 51.5,
+      "lon": -0.13
+    }
+  },
+  {
+    "id": "francis-drake",
+    "name": "Francis Drake",
+    "difficulty": "easy",
+    "variants": [
+      "francis drake",
+      "sir francis drake",
+      "drake"
+    ],
+    "occupation": "English sea captain who circumnavigated the globe",
+    "birth": {
+      "year": 1540,
+      "place": "Tavistock, England",
+      "lat": 50.55,
+      "lon": -4.14
+    },
+    "death": {
+      "year": 1596,
+      "place": "Portobelo, Panama",
+      "lat": 9.55,
+      "lon": -79.65
+    }
+  },
+  {
+    "id": "guy-fawkes",
+    "name": "Guy Fawkes",
+    "difficulty": "easy",
+    "variants": [
+      "guy fawkes",
+      "fawkes",
+      "guido fawkes"
+    ],
+    "occupation": "Conspirator of the Gunpowder Plot",
+    "birth": {
+      "year": 1570,
+      "place": "York, England",
+      "lat": 53.96,
+      "lon": -1.08
+    },
+    "death": {
+      "year": 1606,
+      "place": "Westminster, London, England",
+      "lat": 51.5,
+      "lon": -0.13
+    }
+  },
+  {
+    "id": "mehmed-ii",
+    "name": "Mehmed II",
+    "difficulty": "medium",
+    "variants": [
+      "mehmed ii",
+      "mehmed the conqueror",
+      "mehmet ii",
+      "fatih sultan mehmet"
+    ],
+    "occupation": "Ottoman sultan who conquered Constantinople",
+    "birth": {
+      "year": 1432,
+      "place": "Edirne, Turkey",
+      "lat": 41.68,
+      "lon": 26.56
+    },
+    "death": {
+      "year": 1481,
+      "place": "Gebze, Turkey",
+      "lat": 40.8,
+      "lon": 29.43
+    }
+  },
+  {
+    "id": "vlad-the-impaler",
+    "name": "Vlad the Impaler",
+    "difficulty": "medium",
+    "variants": [
+      "vlad the impaler",
+      "vlad iii",
+      "vlad dracula",
+      "vlad tepes",
+      "dracula"
+    ],
+    "occupation": "Voivode of Wallachia, inspiration for Dracula",
+    "birth": {
+      "year": 1431,
+      "place": "Sighișoara, Romania",
+      "lat": 46.22,
+      "lon": 24.79
+    },
+    "death": {
+      "year": 1476,
+      "place": "Bucharest, Romania",
+      "lat": 44.43,
+      "lon": 26.1
+    }
+  },
+  {
+    "id": "charles-v-hre",
+    "name": "Charles V",
+    "difficulty": "medium",
+    "variants": [
+      "charles v",
+      "charles v hre",
+      "carlos v",
+      "charles quint",
+      "emperor charles v"
+    ],
+    "occupation": "Holy Roman Emperor who abdicated to a monastery",
+    "birth": {
+      "year": 1500,
+      "place": "Ghent, Belgium",
+      "lat": 51.05,
+      "lon": 3.72
+    },
+    "death": {
+      "year": 1558,
+      "place": "Yuste, Spain",
+      "lat": 40.12,
+      "lon": -5.74
+    }
+  },
+  {
+    "id": "philip-ii-spain",
+    "name": "Philip II of Spain",
+    "difficulty": "medium",
+    "variants": [
+      "philip ii of spain",
+      "philip ii",
+      "felipe ii"
+    ],
+    "occupation": "King of Spain who launched the Armada",
+    "birth": {
+      "year": 1527,
+      "place": "Valladolid, Spain",
+      "lat": 41.65,
+      "lon": -4.72
+    },
+    "death": {
+      "year": 1598,
+      "place": "El Escorial, Spain",
+      "lat": 40.59,
+      "lon": -4.15
+    }
+  },
+  {
+    "id": "ferdinand-of-aragon",
+    "name": "Ferdinand II of Aragon",
+    "difficulty": "medium",
+    "variants": [
+      "ferdinand ii of aragon",
+      "ferdinand of aragon",
+      "fernando ii",
+      "ferdinand the catholic"
+    ],
+    "occupation": "King of Aragon who unified Spain with Isabella",
+    "birth": {
+      "year": 1452,
+      "place": "Sos del Rey Católico, Spain",
+      "lat": 42.5,
+      "lon": -1.21
+    },
+    "death": {
+      "year": 1516,
+      "place": "Madrigalejo, Spain",
+      "lat": 39.14,
+      "lon": -5.62
+    }
+  },
+  {
+    "id": "isabella-of-castile",
+    "name": "Isabella I of Castile",
+    "difficulty": "medium",
+    "variants": [
+      "isabella i of castile",
+      "isabella of castile",
+      "isabel la católica",
+      "queen isabella"
+    ],
+    "occupation": "Queen of Castile who sponsored Columbus",
+    "birth": {
+      "year": 1451,
+      "place": "Madrigal de las Altas Torres, Spain",
+      "lat": 41.09,
+      "lon": -4.99
+    },
+    "death": {
+      "year": 1504,
+      "place": "Medina del Campo, Spain",
+      "lat": 41.31,
+      "lon": -4.91
+    }
+  },
+  {
+    "id": "henry-iv-france",
+    "name": "Henry IV of France",
+    "difficulty": "medium",
+    "variants": [
+      "henry iv of france",
+      "henri iv",
+      "henry of navarre",
+      "good king henry"
+    ],
+    "occupation": "King of France, assassinated in Paris",
+    "birth": {
+      "year": 1553,
+      "place": "Pau, France",
+      "lat": 43.3,
+      "lon": -0.37
+    },
+    "death": {
+      "year": 1610,
+      "place": "Paris, France",
+      "lat": 48.86,
+      "lon": 2.35
+    }
+  },
+  {
+    "id": "francis-i-france",
+    "name": "Francis I of France",
+    "difficulty": "medium",
+    "variants": [
+      "francis i of france",
+      "francis i",
+      "françois ier"
+    ],
+    "occupation": "Renaissance King of France",
+    "birth": {
+      "year": 1494,
+      "place": "Cognac, France",
+      "lat": 45.69,
+      "lon": -0.33
+    },
+    "death": {
+      "year": 1547,
+      "place": "Rambouillet, France",
+      "lat": 48.64,
+      "lon": 1.83
+    }
+  },
+  {
+    "id": "louis-xvi",
+    "name": "Louis XVI",
+    "difficulty": "easy",
+    "variants": [
+      "louis xvi",
+      "louis xvi of france",
+      "king louis xvi"
+    ],
+    "occupation": "King of France guillotined in the Revolution",
+    "birth": {
+      "year": 1754,
+      "place": "Versailles, France",
+      "lat": 48.8,
+      "lon": 2.13
+    },
+    "death": {
+      "year": 1793,
+      "place": "Paris, France",
+      "lat": 48.86,
+      "lon": 2.34
+    }
+  },
+  {
+    "id": "cardinal-richelieu",
+    "name": "Cardinal Richelieu",
+    "difficulty": "medium",
+    "variants": [
+      "cardinal richelieu",
+      "richelieu",
+      "armand jean du plessis"
+    ],
+    "occupation": "Chief minister to Louis XIII of France",
+    "birth": {
+      "year": 1585,
+      "place": "Paris, France",
+      "lat": 48.86,
+      "lon": 2.35
+    },
+    "death": {
+      "year": 1642,
+      "place": "Paris, France",
+      "lat": 48.86,
+      "lon": 2.35
+    }
+  },
+  {
+    "id": "talleyrand",
+    "name": "Talleyrand",
+    "difficulty": "medium",
+    "variants": [
+      "talleyrand",
+      "charles maurice de talleyrand",
+      "talleyrand-périgord"
+    ],
+    "occupation": "French diplomat who served many regimes",
+    "birth": {
+      "year": 1754,
+      "place": "Paris, France",
+      "lat": 48.86,
+      "lon": 2.35
+    },
+    "death": {
+      "year": 1838,
+      "place": "Paris, France",
+      "lat": 48.86,
+      "lon": 2.35
+    }
+  },
+  {
+    "id": "metternich",
+    "name": "Klemens von Metternich",
+    "difficulty": "medium",
+    "variants": [
+      "metternich",
+      "klemens von metternich",
+      "prince metternich"
+    ],
+    "occupation": "Austrian statesman of the Congress of Vienna",
+    "birth": {
+      "year": 1773,
+      "place": "Koblenz, Germany",
+      "lat": 50.36,
+      "lon": 7.59
+    },
+    "death": {
+      "year": 1859,
+      "place": "Vienna, Austria",
+      "lat": 48.21,
+      "lon": 16.37
+    }
+  },
+  {
+    "id": "george-washington",
+    "name": "George Washington",
+    "difficulty": "easy",
+    "variants": [
+      "george washington",
+      "washington",
+      "president washington"
+    ],
+    "occupation": "First President of the United States",
+    "birth": {
+      "year": 1732,
+      "place": "Westmoreland County, Virginia",
+      "lat": 38.19,
+      "lon": -76.93
+    },
+    "death": {
+      "year": 1799,
+      "place": "Mount Vernon, Virginia",
+      "lat": 38.71,
+      "lon": -77.09
+    }
+  },
+  {
+    "id": "alexander-hamilton",
+    "name": "Alexander Hamilton",
+    "difficulty": "easy",
+    "variants": [
+      "alexander hamilton",
+      "hamilton"
+    ],
+    "occupation": "US founding father killed in a duel",
+    "birth": {
+      "year": 1755,
+      "place": "Charlestown, Nevis",
+      "lat": 17.13,
+      "lon": -62.62
+    },
+    "death": {
+      "year": 1804,
+      "place": "New York City, New York",
+      "lat": 40.71,
+      "lon": -74.01
+    }
+  },
+  {
+    "id": "william-pitt-younger",
+    "name": "William Pitt the Younger",
+    "difficulty": "medium",
+    "variants": [
+      "william pitt the younger",
+      "pitt the younger",
+      "william pitt"
+    ],
+    "occupation": "Britain's youngest Prime Minister",
+    "birth": {
+      "year": 1759,
+      "place": "Hayes, England",
+      "lat": 51.38,
+      "lon": 0.01
+    },
+    "death": {
+      "year": 1806,
+      "place": "Putney, London, England",
+      "lat": 51.46,
+      "lon": -0.22
+    }
+  },
+  {
+    "id": "horatio-nelson",
+    "name": "Horatio Nelson",
+    "difficulty": "easy",
+    "variants": [
+      "horatio nelson",
+      "nelson",
+      "lord nelson",
+      "admiral nelson"
+    ],
+    "occupation": "British admiral killed at Trafalgar",
+    "birth": {
+      "year": 1758,
+      "place": "Burnham Thorpe, England",
+      "lat": 52.93,
+      "lon": 0.74
+    },
+    "death": {
+      "year": 1805,
+      "place": "Cape Trafalgar, Spain",
+      "lat": 36.18,
+      "lon": -6.04
+    }
+  },
+  {
+    "id": "duke-of-wellington",
+    "name": "Duke of Wellington",
+    "difficulty": "easy",
+    "variants": [
+      "duke of wellington",
+      "wellington",
+      "arthur wellesley",
+      "the iron duke"
+    ],
+    "occupation": "British general who defeated Napoleon at Waterloo",
+    "birth": {
+      "year": 1769,
+      "place": "Dublin, Ireland",
+      "lat": 53.35,
+      "lon": -6.26
+    },
+    "death": {
+      "year": 1852,
+      "place": "Walmer, England",
+      "lat": 51.2,
+      "lon": 1.4
+    }
+  },
+  {
+    "id": "gustavus-adolphus",
+    "name": "Gustavus Adolphus",
+    "difficulty": "medium",
+    "variants": [
+      "gustavus adolphus",
+      "gustav ii adolf",
+      "gustavus adolphus of sweden",
+      "lion of the north"
+    ],
+    "occupation": "King of Sweden killed at Lützen",
+    "birth": {
+      "year": 1594,
+      "place": "Stockholm, Sweden",
+      "lat": 59.33,
+      "lon": 18.07
+    },
+    "death": {
+      "year": 1632,
+      "place": "Lützen, Germany",
+      "lat": 51.25,
+      "lon": 12.14
+    }
+  },
+  {
+    "id": "charles-xii-sweden",
+    "name": "Charles XII of Sweden",
+    "difficulty": "medium",
+    "variants": [
+      "charles xii of sweden",
+      "charles xii",
+      "karl xii"
+    ],
+    "occupation": "Warrior King of Sweden",
+    "birth": {
+      "year": 1682,
+      "place": "Stockholm, Sweden",
+      "lat": 59.33,
+      "lon": 18.07
+    },
+    "death": {
+      "year": 1718,
+      "place": "Fredriksten, Norway",
+      "lat": 59.12,
+      "lon": 11.39
+    }
+  },
+  {
+    "id": "marshal-ney",
+    "name": "Marshal Ney",
+    "difficulty": "medium",
+    "variants": [
+      "marshal ney",
+      "michel ney",
+      "ney"
+    ],
+    "occupation": "Napoleonic marshal shot after Waterloo",
+    "birth": {
+      "year": 1769,
+      "place": "Saarlouis, Germany",
+      "lat": 49.31,
+      "lon": 6.75
+    },
+    "death": {
+      "year": 1815,
+      "place": "Paris, France",
+      "lat": 48.84,
+      "lon": 2.34
+    }
+  },
+  {
+    "id": "john-paul-jones",
+    "name": "John Paul Jones",
+    "difficulty": "medium",
+    "variants": [
+      "john paul jones",
+      "paul jones"
+    ],
+    "occupation": "Father of the American Navy",
+    "birth": {
+      "year": 1747,
+      "place": "Kirkbean, Scotland",
+      "lat": 54.92,
+      "lon": -3.6
+    },
+    "death": {
+      "year": 1792,
+      "place": "Paris, France",
+      "lat": 48.86,
+      "lon": 2.35
+    }
+  },
+  {
+    "id": "tecumseh",
+    "name": "Tecumseh",
+    "difficulty": "medium",
+    "variants": [
+      "tecumseh"
+    ],
+    "occupation": "Shawnee chief who resisted American expansion",
+    "birth": {
+      "year": 1768,
+      "place": "Springfield, Ohio",
+      "lat": 39.92,
+      "lon": -83.81
+    },
+    "death": {
+      "year": 1813,
+      "place": "Chatham-Kent, Ontario, Canada",
+      "lat": 42.4,
+      "lon": -82.18
+    }
+  },
+  {
+    "id": "pompey",
+    "name": "Pompey the Great",
+    "difficulty": "medium",
+    "variants": [
+      "pompey",
+      "pompey the great",
+      "gnaeus pompeius magnus",
+      "pompeius"
+    ],
+    "occupation": "Roman general assassinated in Egypt",
+    "birth": {
+      "year": -106,
+      "place": "Picenum, Italy",
+      "lat": 43.13,
+      "lon": 13.45
+    },
+    "death": {
+      "year": -48,
+      "place": "Pelusium, Egypt",
+      "lat": 31.04,
+      "lon": 32.54
+    }
+  },
+  {
+    "id": "mark-antony",
+    "name": "Mark Antony",
+    "difficulty": "medium",
+    "variants": [
+      "mark antony",
+      "marcus antonius",
+      "antony",
+      "marc antony"
+    ],
+    "occupation": "Roman general who died with Cleopatra",
+    "birth": {
+      "year": -83,
+      "place": "Rome, Italy",
+      "lat": 41.89,
+      "lon": 12.48
+    },
+    "death": {
+      "year": -30,
+      "place": "Alexandria, Egypt",
+      "lat": 31.2,
+      "lon": 29.92
+    }
+  },
+  {
+    "id": "scipio-africanus",
+    "name": "Scipio Africanus",
+    "difficulty": "hard",
+    "variants": [
+      "scipio africanus",
+      "scipio",
+      "publius cornelius scipio"
+    ],
+    "occupation": "Roman general who defeated Hannibal",
+    "birth": {
+      "year": -236,
+      "place": "Rome, Italy",
+      "lat": 41.89,
+      "lon": 12.48
+    },
+    "death": {
+      "year": -183,
+      "place": "Liternum, Italy",
+      "lat": 40.93,
+      "lon": 14.04
+    }
+  },
+  {
+    "id": "philip-ii-macedon",
+    "name": "Philip II of Macedon",
+    "difficulty": "medium",
+    "variants": [
+      "philip ii of macedon",
+      "philip of macedon",
+      "philip ii macedon"
+    ],
+    "occupation": "King of Macedon, father of Alexander",
+    "birth": {
+      "year": -382,
+      "place": "Pella, Greece",
+      "lat": 40.76,
+      "lon": 22.52
+    },
+    "death": {
+      "year": -336,
+      "place": "Aigai, Greece",
+      "lat": 40.48,
+      "lon": 22.32
+    }
+  },
+  {
+    "id": "pyrrhus",
+    "name": "Pyrrhus of Epirus",
+    "difficulty": "hard",
+    "variants": [
+      "pyrrhus",
+      "pyrrhus of epirus",
+      "king pyrrhus"
+    ],
+    "occupation": "King of Epirus of 'Pyrrhic victory' fame",
+    "birth": {
+      "year": -319,
+      "place": "Epirus, Greece",
+      "lat": 39.66,
+      "lon": 20.85
+    },
+    "death": {
+      "year": -272,
+      "place": "Argos, Greece",
+      "lat": 37.63,
+      "lon": 22.73
+    }
+  },
+  {
+    "id": "leonidas",
+    "name": "Leonidas I",
+    "difficulty": "easy",
+    "variants": [
+      "leonidas",
+      "leonidas i",
+      "king leonidas",
+      "leonidas of sparta"
+    ],
+    "occupation": "Spartan king who died at Thermopylae",
+    "birth": {
+      "year": -540,
+      "place": "Sparta, Greece",
+      "lat": 37.08,
+      "lon": 22.42
+    },
+    "death": {
+      "year": -480,
+      "place": "Thermopylae, Greece",
+      "lat": 38.8,
+      "lon": 22.54
+    }
+  },
+  {
+    "id": "pericles",
+    "name": "Pericles",
+    "difficulty": "medium",
+    "variants": [
+      "pericles"
+    ],
+    "occupation": "Statesman of Golden Age Athens",
+    "birth": {
+      "year": -495,
+      "place": "Athens, Greece",
+      "lat": 37.97,
+      "lon": 23.72
+    },
+    "death": {
+      "year": -429,
+      "place": "Athens, Greece",
+      "lat": 37.97,
+      "lon": 23.72
+    }
+  },
+  {
+    "id": "themistocles",
+    "name": "Themistocles",
+    "difficulty": "hard",
+    "variants": [
+      "themistocles"
+    ],
+    "occupation": "Athenian victor of Salamis who died in Persian exile",
+    "birth": {
+      "year": -524,
+      "place": "Athens, Greece",
+      "lat": 37.97,
+      "lon": 23.72
+    },
+    "death": {
+      "year": -459,
+      "place": "Magnesia, Turkey",
+      "lat": 37.85,
+      "lon": 27.52
+    }
+  },
+  {
+    "id": "xerxes-i",
+    "name": "Xerxes I",
+    "difficulty": "medium",
+    "variants": [
+      "xerxes",
+      "xerxes i",
+      "xerxes the great"
+    ],
+    "occupation": "Persian king who invaded Greece",
+    "birth": {
+      "year": -519,
+      "place": "Persia",
+      "lat": 29.94,
+      "lon": 52.89
+    },
+    "death": {
+      "year": -465,
+      "place": "Persepolis, Iran",
+      "lat": 29.94,
+      "lon": 52.89
+    }
+  },
+  {
+    "id": "darius-i",
+    "name": "Darius the Great",
+    "difficulty": "medium",
+    "variants": [
+      "darius i",
+      "darius the great",
+      "darius"
+    ],
+    "occupation": "King of the Persian Empire",
+    "birth": {
+      "year": -550,
+      "place": "Persia",
+      "lat": 29.94,
+      "lon": 52.89
+    },
+    "death": {
+      "year": -486,
+      "place": "Persepolis, Iran",
+      "lat": 29.94,
+      "lon": 52.89
+    }
+  },
+  {
+    "id": "spartacus",
+    "name": "Spartacus",
+    "difficulty": "easy",
+    "variants": [
+      "spartacus"
+    ],
+    "occupation": "Gladiator who led a slave revolt against Rome",
+    "birth": {
+      "year": -103,
+      "place": "Thrace",
+      "lat": 42.14,
+      "lon": 24.75
+    },
+    "death": {
+      "year": -71,
+      "place": "Lucania, Italy",
+      "lat": 40.4,
+      "lon": 15.8
+    }
+  },
+  {
+    "id": "sulla",
+    "name": "Sulla",
+    "difficulty": "hard",
+    "variants": [
+      "sulla",
+      "lucius cornelius sulla"
+    ],
+    "occupation": "Roman general and dictator",
+    "birth": {
+      "year": -138,
+      "place": "Rome, Italy",
+      "lat": 41.89,
+      "lon": 12.48
+    },
+    "death": {
+      "year": -78,
+      "place": "Puteoli, Italy",
+      "lat": 40.82,
+      "lon": 14.12
+    }
+  },
+  {
+    "id": "crassus",
+    "name": "Crassus",
+    "difficulty": "hard",
+    "variants": [
+      "crassus",
+      "marcus licinius crassus"
+    ],
+    "occupation": "Roman triumvir killed at Carrhae",
+    "birth": {
+      "year": -115,
+      "place": "Rome, Italy",
+      "lat": 41.89,
+      "lon": 12.48
+    },
+    "death": {
+      "year": -53,
+      "place": "Carrhae, Turkey",
+      "lat": 36.86,
+      "lon": 39.03
+    }
+  },
+  {
+    "id": "brutus",
+    "name": "Marcus Junius Brutus",
+    "difficulty": "medium",
+    "variants": [
+      "brutus",
+      "marcus junius brutus",
+      "marcus brutus"
+    ],
+    "occupation": "Assassin of Julius Caesar",
+    "birth": {
+      "year": -85,
+      "place": "Rome, Italy",
+      "lat": 41.89,
+      "lon": 12.48
+    },
+    "death": {
+      "year": -42,
+      "place": "Philippi, Greece",
+      "lat": 41.01,
+      "lon": 24.29
+    }
+  },
+  {
+    "id": "nero",
+    "name": "Nero",
+    "difficulty": "easy",
+    "variants": [
+      "nero",
+      "emperor nero"
+    ],
+    "occupation": "Roman emperor who 'fiddled while Rome burned'",
+    "birth": {
+      "year": 37,
+      "place": "Antium, Italy",
+      "lat": 41.45,
+      "lon": 12.63
+    },
+    "death": {
+      "year": 68,
+      "place": "Rome, Italy",
+      "lat": 41.89,
+      "lon": 12.48
+    }
+  },
+  {
+    "id": "caligula",
+    "name": "Caligula",
+    "difficulty": "easy",
+    "variants": [
+      "caligula",
+      "emperor caligula",
+      "gaius caligula"
+    ],
+    "occupation": "Tyrannical Roman emperor, assassinated",
+    "birth": {
+      "year": 12,
+      "place": "Antium, Italy",
+      "lat": 41.45,
+      "lon": 12.63
+    },
+    "death": {
+      "year": 41,
+      "place": "Rome, Italy",
+      "lat": 41.89,
+      "lon": 12.48
+    }
+  },
+  {
+    "id": "trajan",
+    "name": "Trajan",
+    "difficulty": "medium",
+    "variants": [
+      "trajan",
+      "emperor trajan",
+      "marcus ulpius traianus"
+    ],
+    "occupation": "Roman emperor of the empire's greatest extent",
+    "birth": {
+      "year": 53,
+      "place": "Italica, Spain",
+      "lat": 37.44,
+      "lon": -6.05
+    },
+    "death": {
+      "year": 117,
+      "place": "Selinus, Turkey",
+      "lat": 36.18,
+      "lon": 32.49
+    }
+  },
+  {
+    "id": "hadrian",
+    "name": "Hadrian",
+    "difficulty": "medium",
+    "variants": [
+      "hadrian",
+      "emperor hadrian",
+      "publius aelius hadrianus"
+    ],
+    "occupation": "Roman emperor who built Hadrian's Wall",
+    "birth": {
+      "year": 76,
+      "place": "Italica, Spain",
+      "lat": 37.44,
+      "lon": -6.05
+    },
+    "death": {
+      "year": 138,
+      "place": "Baiae, Italy",
+      "lat": 40.82,
+      "lon": 14.08
+    }
+  },
+  {
+    "id": "vespasian",
+    "name": "Vespasian",
+    "difficulty": "hard",
+    "variants": [
+      "vespasian",
+      "emperor vespasian"
+    ],
+    "occupation": "Roman emperor who began the Colosseum",
+    "birth": {
+      "year": 9,
+      "place": "Falacrinae, Italy",
+      "lat": 42.65,
+      "lon": 13.13
+    },
+    "death": {
+      "year": 79,
+      "place": "Aquae Cutiliae, Italy",
+      "lat": 42.4,
+      "lon": 13.0
+    }
+  },
+  {
+    "id": "diocletian",
+    "name": "Diocletian",
+    "difficulty": "medium",
+    "variants": [
+      "diocletian",
+      "emperor diocletian"
+    ],
+    "occupation": "Roman emperor who divided the empire and retired",
+    "birth": {
+      "year": 244,
+      "place": "Salona, Croatia",
+      "lat": 43.54,
+      "lon": 16.48
+    },
+    "death": {
+      "year": 311,
+      "place": "Split, Croatia",
+      "lat": 43.51,
+      "lon": 16.44
+    }
+  },
+  {
+    "id": "julian-the-apostate",
+    "name": "Julian the Apostate",
+    "difficulty": "hard",
+    "variants": [
+      "julian the apostate",
+      "julian",
+      "emperor julian"
+    ],
+    "occupation": "Roman emperor killed on campaign in Persia",
+    "birth": {
+      "year": 331,
+      "place": "Constantinople",
+      "lat": 41.01,
+      "lon": 28.97
+    },
+    "death": {
+      "year": 363,
+      "place": "Maranga, Mesopotamia",
+      "lat": 33.1,
+      "lon": 44.2
+    }
+  },
+  {
+    "id": "attila",
+    "name": "Attila the Hun",
+    "difficulty": "easy",
+    "variants": [
+      "attila",
+      "attila the hun",
+      "the hun"
+    ],
+    "occupation": "King of the Huns, 'Scourge of God'",
+    "birth": {
+      "year": 406,
+      "place": "Pannonia",
+      "lat": 47.0,
+      "lon": 19.0
+    },
+    "death": {
+      "year": 453,
+      "place": "Pannonia",
+      "lat": 47.5,
+      "lon": 21.0
+    }
+  },
+  {
+    "id": "alaric",
+    "name": "Alaric I",
+    "difficulty": "hard",
+    "variants": [
+      "alaric",
+      "alaric i",
+      "king alaric"
+    ],
+    "occupation": "Visigoth king who sacked Rome in 410",
+    "birth": {
+      "year": 370,
+      "place": "Peuce Island, Romania",
+      "lat": 45.2,
+      "lon": 29.4
+    },
+    "death": {
+      "year": 410,
+      "place": "Cosenza, Italy",
+      "lat": 39.3,
+      "lon": 16.25
+    }
+  },
+  {
+    "id": "theodoric-the-great",
+    "name": "Theodoric the Great",
+    "difficulty": "hard",
+    "variants": [
+      "theodoric the great",
+      "theodoric",
+      "theoderic"
+    ],
+    "occupation": "Ostrogothic king of Italy",
+    "birth": {
+      "year": 454,
+      "place": "Pannonia",
+      "lat": 47.7,
+      "lon": 17.6
+    },
+    "death": {
+      "year": 526,
+      "place": "Ravenna, Italy",
+      "lat": 44.42,
+      "lon": 12.2
+    }
+  },
+  {
+    "id": "justinian-i",
+    "name": "Justinian I",
+    "difficulty": "medium",
+    "variants": [
+      "justinian i",
+      "justinian",
+      "justinian the great",
+      "emperor justinian"
+    ],
+    "occupation": "Byzantine emperor and lawgiver",
+    "birth": {
+      "year": 482,
+      "place": "Tauresium, North Macedonia",
+      "lat": 41.99,
+      "lon": 21.56
+    },
+    "death": {
+      "year": 565,
+      "place": "Constantinople",
+      "lat": 41.01,
+      "lon": 28.97
+    }
+  },
+  {
+    "id": "theodora",
+    "name": "Theodora",
+    "difficulty": "medium",
+    "variants": [
+      "theodora",
+      "empress theodora"
+    ],
+    "occupation": "Byzantine empress and wife of Justinian",
+    "birth": {
+      "year": 500,
+      "place": "Constantinople",
+      "lat": 41.01,
+      "lon": 28.97
+    },
+    "death": {
+      "year": 548,
+      "place": "Constantinople",
+      "lat": 41.01,
+      "lon": 28.97
+    }
+  },
+  {
+    "id": "belisarius",
+    "name": "Belisarius",
+    "difficulty": "hard",
+    "variants": [
+      "belisarius",
+      "general belisarius"
+    ],
+    "occupation": "Byzantine general who reconquered the West",
+    "birth": {
+      "year": 505,
+      "place": "Germane, Balkans",
+      "lat": 42.0,
+      "lon": 22.4
+    },
+    "death": {
+      "year": 565,
+      "place": "Constantinople",
+      "lat": 41.01,
+      "lon": 28.97
+    }
+  },
+  {
+    "id": "constantine-xi",
+    "name": "Constantine XI",
+    "difficulty": "hard",
+    "variants": [
+      "constantine xi",
+      "constantine palaiologos",
+      "last byzantine emperor"
+    ],
+    "occupation": "Last Byzantine emperor, fell with Constantinople",
+    "birth": {
+      "year": 1405,
+      "place": "Constantinople",
+      "lat": 41.01,
+      "lon": 28.97
+    },
+    "death": {
+      "year": 1453,
+      "place": "Constantinople",
+      "lat": 41.01,
+      "lon": 28.97
+    }
+  },
+  {
+    "id": "basil-ii",
+    "name": "Basil II",
+    "difficulty": "hard",
+    "variants": [
+      "basil ii",
+      "basil the bulgar slayer",
+      "basil bulgaroktonos"
+    ],
+    "occupation": "Byzantine emperor, the 'Bulgar Slayer'",
+    "birth": {
+      "year": 958,
+      "place": "Constantinople",
+      "lat": 41.01,
+      "lon": 28.97
+    },
+    "death": {
+      "year": 1025,
+      "place": "Constantinople",
+      "lat": 41.01,
+      "lon": 28.97
+    }
+  },
+  {
+    "id": "clovis-i",
+    "name": "Clovis I",
+    "difficulty": "hard",
+    "variants": [
+      "clovis i",
+      "clovis",
+      "king clovis"
+    ],
+    "occupation": "First king to unite the Franks",
+    "birth": {
+      "year": 466,
+      "place": "Tournai, Belgium",
+      "lat": 50.61,
+      "lon": 3.39
+    },
+    "death": {
+      "year": 511,
+      "place": "Paris, France",
+      "lat": 48.86,
+      "lon": 2.35
+    }
+  },
+  {
+    "id": "charles-martel",
+    "name": "Charles Martel",
+    "difficulty": "medium",
+    "variants": [
+      "charles martel",
+      "martel",
+      "charles the hammer"
+    ],
+    "occupation": "Frankish leader, victor at Tours",
+    "birth": {
+      "year": 688,
+      "place": "Herstal, Belgium",
+      "lat": 50.66,
+      "lon": 5.63
+    },
+    "death": {
+      "year": 741,
+      "place": "Quierzy, France",
+      "lat": 49.52,
+      "lon": 3.13
+    }
+  },
+  {
+    "id": "harun-al-rashid",
+    "name": "Harun al-Rashid",
+    "difficulty": "medium",
+    "variants": [
+      "harun al-rashid",
+      "harun al rashid",
+      "haroun al-rashid"
+    ],
+    "occupation": "Abbasid caliph of the Arabian Nights era",
+    "birth": {
+      "year": 763,
+      "place": "Rey, Iran",
+      "lat": 35.59,
+      "lon": 51.43
+    },
+    "death": {
+      "year": 809,
+      "place": "Tus, Iran",
+      "lat": 36.5,
+      "lon": 59.55
+    }
+  },
+  {
+    "id": "william-marshal",
+    "name": "William Marshal",
+    "difficulty": "hard",
+    "variants": [
+      "william marshal",
+      "the marshal",
+      "earl of pembroke"
+    ],
+    "occupation": "English knight, 'greatest knight' of his age",
+    "birth": {
+      "year": 1146,
+      "place": "Wiltshire, England",
+      "lat": 51.35,
+      "lon": -1.99
+    },
+    "death": {
+      "year": 1219,
+      "place": "Caversham, England",
+      "lat": 51.47,
+      "lon": -0.97
+    }
+  },
+  {
+    "id": "simon-de-montfort",
+    "name": "Simon de Montfort",
+    "difficulty": "hard",
+    "variants": [
+      "simon de montfort",
+      "de montfort",
+      "earl of leicester"
+    ],
+    "occupation": "Baron who founded England's first parliament",
+    "birth": {
+      "year": 1208,
+      "place": "Montfort-l'Amaury, France",
+      "lat": 48.77,
+      "lon": 1.81
+    },
+    "death": {
+      "year": 1265,
+      "place": "Evesham, England",
+      "lat": 52.09,
+      "lon": -1.95
+    }
+  },
+  {
+    "id": "owain-glyndwr",
+    "name": "Owain Glyndŵr",
+    "difficulty": "hard",
+    "variants": [
+      "owain glyndwr",
+      "owen glendower",
+      "glyndwr"
+    ],
+    "occupation": "Welsh leader of the last revolt against England",
+    "birth": {
+      "year": 1359,
+      "place": "Sycharth, Wales",
+      "lat": 52.83,
+      "lon": -3.13
+    },
+    "death": {
+      "year": 1415,
+      "place": "Herefordshire, England",
+      "lat": 52.08,
+      "lon": -2.72
+    }
+  },
+  {
+    "id": "saint-patrick",
+    "name": "Saint Patrick",
+    "difficulty": "easy",
+    "variants": [
+      "saint patrick",
+      "st patrick",
+      "patrick"
+    ],
+    "occupation": "Patron saint of Ireland",
+    "birth": {
+      "year": 387,
+      "place": "Roman Britain",
+      "lat": 54.9,
+      "lon": -3.0
+    },
+    "death": {
+      "year": 461,
+      "place": "Saul, Ireland",
+      "lat": 54.34,
+      "lon": -5.66
+    }
+  },
+  {
+    "id": "venerable-bede",
+    "name": "The Venerable Bede",
+    "difficulty": "medium",
+    "variants": [
+      "venerable bede",
+      "the venerable bede",
+      "bede",
+      "saint bede"
+    ],
+    "occupation": "English monk and historian",
+    "birth": {
+      "year": 673,
+      "place": "Monkton, England",
+      "lat": 54.95,
+      "lon": -1.45
+    },
+    "death": {
+      "year": 735,
+      "place": "Jarrow, England",
+      "lat": 54.98,
+      "lon": -1.49
+    }
+  },
+  {
+    "id": "jan-hus",
+    "name": "Jan Hus",
+    "difficulty": "medium",
+    "variants": [
+      "jan hus",
+      "john hus",
+      "hus"
+    ],
+    "occupation": "Czech reformer burned at the stake",
+    "birth": {
+      "year": 1369,
+      "place": "Husinec, Czech Republic",
+      "lat": 49.06,
+      "lon": 13.99
+    },
+    "death": {
+      "year": 1415,
+      "place": "Constance, Germany",
+      "lat": 47.66,
+      "lon": 9.18
+    }
+  },
+  {
+    "id": "girolamo-savonarola",
+    "name": "Girolamo Savonarola",
+    "difficulty": "medium",
+    "variants": [
+      "girolamo savonarola",
+      "savonarola"
+    ],
+    "occupation": "Friar who ruled Florence, burned at the stake",
+    "birth": {
+      "year": 1452,
+      "place": "Ferrara, Italy",
+      "lat": 44.84,
+      "lon": 11.62
+    },
+    "death": {
+      "year": 1498,
+      "place": "Florence, Italy",
+      "lat": 43.77,
+      "lon": 11.26
+    }
+  },
+  {
+    "id": "huldrych-zwingli",
+    "name": "Huldrych Zwingli",
+    "difficulty": "hard",
+    "variants": [
+      "huldrych zwingli",
+      "ulrich zwingli",
+      "zwingli"
+    ],
+    "occupation": "Swiss reformer killed in battle",
+    "birth": {
+      "year": 1484,
+      "place": "Wildhaus, Switzerland",
+      "lat": 47.2,
+      "lon": 9.35
+    },
+    "death": {
+      "year": 1531,
+      "place": "Kappel am Albis, Switzerland",
+      "lat": 47.23,
+      "lon": 8.53
+    }
+  },
+  {
+    "id": "william-tyndale",
+    "name": "William Tyndale",
+    "difficulty": "medium",
+    "variants": [
+      "william tyndale",
+      "tyndale"
+    ],
+    "occupation": "Bible translator burned at the stake",
+    "birth": {
+      "year": 1494,
+      "place": "Gloucestershire, England",
+      "lat": 51.7,
+      "lon": -2.3
+    },
+    "death": {
+      "year": 1536,
+      "place": "Vilvoorde, Belgium",
+      "lat": 50.93,
+      "lon": 4.43
+    }
+  },
+  {
+    "id": "john-knox",
+    "name": "John Knox",
+    "difficulty": "medium",
+    "variants": [
+      "john knox",
+      "knox"
+    ],
+    "occupation": "Leader of the Scottish Reformation",
+    "birth": {
+      "year": 1514,
+      "place": "Haddington, Scotland",
+      "lat": 55.96,
+      "lon": -2.78
+    },
+    "death": {
+      "year": 1572,
+      "place": "Edinburgh, Scotland",
+      "lat": 55.95,
+      "lon": -3.19
+    }
+  },
+  {
+    "id": "david-livingstone",
+    "name": "David Livingstone",
+    "difficulty": "easy",
+    "variants": [
+      "david livingstone",
+      "livingstone"
+    ],
+    "occupation": "Scottish missionary explorer of Africa",
+    "birth": {
+      "year": 1813,
+      "place": "Blantyre, Scotland",
+      "lat": 55.79,
+      "lon": -4.09
+    },
+    "death": {
+      "year": 1873,
+      "place": "Chitambo, Zambia",
+      "lat": -12.3,
+      "lon": 30.55
+    }
+  },
+  {
+    "id": "robert-falcon-scott",
+    "name": "Robert Falcon Scott",
+    "difficulty": "medium",
+    "variants": [
+      "robert falcon scott",
+      "scott of the antarctic",
+      "captain scott",
+      "robert scott"
+    ],
+    "occupation": "British explorer who died returning from the South Pole",
+    "birth": {
+      "year": 1868,
+      "place": "Devonport, England",
+      "lat": 50.37,
+      "lon": -4.18
+    },
+    "death": {
+      "year": 1912,
+      "place": "Ross Ice Shelf, Antarctica",
+      "lat": -79.8,
+      "lon": 169.0
+    }
+  },
+  {
+    "id": "henry-hudson",
+    "name": "Henry Hudson",
+    "difficulty": "medium",
+    "variants": [
+      "henry hudson",
+      "hudson"
+    ],
+    "occupation": "English explorer cast adrift by mutineers",
+    "birth": {
+      "year": 1565,
+      "place": "London, England",
+      "lat": 51.51,
+      "lon": -0.13
+    },
+    "death": {
+      "year": 1611,
+      "place": "Hudson Bay, Canada",
+      "lat": 51.5,
+      "lon": -80.0
+    }
+  },
+  {
+    "id": "hernando-de-soto",
+    "name": "Hernando de Soto",
+    "difficulty": "medium",
+    "variants": [
+      "hernando de soto",
+      "de soto",
+      "hernando desoto"
+    ],
+    "occupation": "Spanish explorer who died on the Mississippi",
+    "birth": {
+      "year": 1500,
+      "place": "Jerez de los Caballeros, Spain",
+      "lat": 38.32,
+      "lon": -6.78
+    },
+    "death": {
+      "year": 1542,
+      "place": "Mississippi River, United States",
+      "lat": 33.5,
+      "lon": -91.1
+    }
+  },
+  {
+    "id": "francisco-pizarro",
+    "name": "Francisco Pizarro",
+    "difficulty": "easy",
+    "variants": [
+      "francisco pizarro",
+      "pizarro"
+    ],
+    "occupation": "Conqueror of the Inca Empire, assassinated in Lima",
+    "birth": {
+      "year": 1478,
+      "place": "Trujillo, Spain",
+      "lat": 39.46,
+      "lon": -5.88
+    },
+    "death": {
+      "year": 1541,
+      "place": "Lima, Peru",
+      "lat": -12.05,
+      "lon": -77.04
+    }
+  },
+  {
+    "id": "amerigo-vespucci",
+    "name": "Amerigo Vespucci",
+    "difficulty": "medium",
+    "variants": [
+      "amerigo vespucci",
+      "vespucci"
+    ],
+    "occupation": "Explorer for whom America is named",
+    "birth": {
+      "year": 1454,
+      "place": "Florence, Italy",
+      "lat": 43.77,
+      "lon": 11.26
+    },
+    "death": {
+      "year": 1512,
+      "place": "Seville, Spain",
+      "lat": 37.39,
+      "lon": -5.99
+    }
+  },
+  {
+    "id": "john-cabot",
+    "name": "John Cabot",
+    "difficulty": "medium",
+    "variants": [
+      "john cabot",
+      "cabot",
+      "giovanni caboto"
+    ],
+    "occupation": "Explorer who reached North America for England",
+    "birth": {
+      "year": 1450,
+      "place": "Gaeta, Italy",
+      "lat": 41.21,
+      "lon": 13.57
+    },
+    "death": {
+      "year": 1500,
+      "place": "Atlantic Ocean",
+      "lat": 47.0,
+      "lon": -30.0
+    }
+  },
+  {
+    "id": "mansa-musa",
+    "name": "Mansa Musa",
+    "difficulty": "medium",
+    "variants": [
+      "mansa musa",
+      "musa",
+      "musa i of mali"
+    ],
+    "occupation": "Emperor of Mali, among history's richest men",
+    "birth": {
+      "year": 1280,
+      "place": "Mali Empire",
+      "lat": 13.0,
+      "lon": -8.0
+    },
+    "death": {
+      "year": 1337,
+      "place": "Niani, Mali",
+      "lat": 11.38,
+      "lon": -8.4
+    }
+  },
+  {
+    "id": "montezuma-ii",
+    "name": "Montezuma II",
+    "difficulty": "medium",
+    "variants": [
+      "montezuma ii",
+      "montezuma",
+      "moctezuma",
+      "moctezuma ii"
+    ],
+    "occupation": "Aztec emperor at the time of the Spanish conquest",
+    "birth": {
+      "year": 1466,
+      "place": "Tenochtitlan, Mexico",
+      "lat": 19.43,
+      "lon": -99.13
+    },
+    "death": {
+      "year": 1520,
+      "place": "Tenochtitlan, Mexico",
+      "lat": 19.43,
+      "lon": -99.13
+    }
+  },
+  {
+    "id": "atahualpa",
+    "name": "Atahualpa",
+    "difficulty": "medium",
+    "variants": [
+      "atahualpa"
+    ],
+    "occupation": "Last Inca emperor, executed by Pizarro",
+    "birth": {
+      "year": 1502,
+      "place": "Cusco, Peru",
+      "lat": -13.53,
+      "lon": -71.97
+    },
+    "death": {
+      "year": 1533,
+      "place": "Cajamarca, Peru",
+      "lat": -7.16,
+      "lon": -78.51
+    }
+  },
+  {
+    "id": "kublai-khan",
+    "name": "Kublai Khan",
+    "difficulty": "medium",
+    "variants": [
+      "kublai khan",
+      "kublai",
+      "khubilai khan"
+    ],
+    "occupation": "Mongol emperor and founder of China's Yuan dynasty",
+    "birth": {
+      "year": 1215,
+      "place": "Mongolia",
+      "lat": 47.9,
+      "lon": 106.9
+    },
+    "death": {
+      "year": 1294,
+      "place": "Khanbaliq, Beijing, China",
+      "lat": 39.9,
+      "lon": 116.4
+    }
+  },
+  {
+    "id": "shah-jahan",
+    "name": "Shah Jahan",
+    "difficulty": "medium",
+    "variants": [
+      "shah jahan",
+      "shahjahan"
+    ],
+    "occupation": "Mughal emperor who built the Taj Mahal",
+    "birth": {
+      "year": 1592,
+      "place": "Lahore, Pakistan",
+      "lat": 31.55,
+      "lon": 74.34
+    },
+    "death": {
+      "year": 1666,
+      "place": "Agra, India",
+      "lat": 27.18,
+      "lon": 78.02
+    }
+  },
+  {
+    "id": "aurangzeb",
+    "name": "Aurangzeb",
+    "difficulty": "medium",
+    "variants": [
+      "aurangzeb"
+    ],
+    "occupation": "Last great Mughal emperor",
+    "birth": {
+      "year": 1618,
+      "place": "Dahod, India",
+      "lat": 22.83,
+      "lon": 74.26
+    },
+    "death": {
+      "year": 1707,
+      "place": "Ahmadnagar, India",
+      "lat": 19.09,
+      "lon": 74.74
+    }
+  },
+  {
+    "id": "tipu-sultan",
+    "name": "Tipu Sultan",
+    "difficulty": "medium",
+    "variants": [
+      "tipu sultan",
+      "tipu",
+      "tiger of mysore"
+    ],
+    "occupation": "Ruler of Mysore killed fighting the British",
+    "birth": {
+      "year": 1751,
+      "place": "Devanahalli, India",
+      "lat": 13.25,
+      "lon": 77.71
+    },
+    "death": {
+      "year": 1799,
+      "place": "Srirangapatna, India",
+      "lat": 12.42,
+      "lon": 76.69
+    }
+  },
+  {
+    "id": "robert-clive",
+    "name": "Robert Clive",
+    "difficulty": "medium",
+    "variants": [
+      "robert clive",
+      "clive of india",
+      "clive"
+    ],
+    "occupation": "British conqueror of Bengal",
+    "birth": {
+      "year": 1725,
+      "place": "Moreton Say, England",
+      "lat": 52.91,
+      "lon": -2.58
+    },
+    "death": {
+      "year": 1774,
+      "place": "London, England",
+      "lat": 51.51,
+      "lon": -0.14
+    }
+  },
+  {
+    "id": "matthew-flinders",
+    "name": "Matthew Flinders",
+    "difficulty": "hard",
+    "variants": [
+      "matthew flinders",
+      "flinders"
+    ],
+    "occupation": "Navigator who charted and named Australia",
+    "birth": {
+      "year": 1774,
+      "place": "Donington, England",
+      "lat": 52.91,
+      "lon": -0.2
+    },
+    "death": {
+      "year": 1814,
+      "place": "London, England",
+      "lat": 51.51,
+      "lon": -0.13
+    }
+  },
+  {
+    "id": "abel-tasman",
+    "name": "Abel Tasman",
+    "difficulty": "medium",
+    "variants": [
+      "abel tasman",
+      "tasman"
+    ],
+    "occupation": "Dutch explorer of Australia and New Zealand",
+    "birth": {
+      "year": 1603,
+      "place": "Lutjegast, Netherlands",
+      "lat": 53.25,
+      "lon": 6.31
+    },
+    "death": {
+      "year": 1659,
+      "place": "Batavia, Indonesia",
+      "lat": -6.13,
+      "lon": 106.81
+    }
+  },
+  {
+    "id": "vitus-bering",
+    "name": "Vitus Bering",
+    "difficulty": "hard",
+    "variants": [
+      "vitus bering",
+      "bering"
+    ],
+    "occupation": "Danish explorer of the Bering Strait",
+    "birth": {
+      "year": 1681,
+      "place": "Horsens, Denmark",
+      "lat": 55.86,
+      "lon": 9.85
+    },
+    "death": {
+      "year": 1741,
+      "place": "Bering Island, Russia",
+      "lat": 55.0,
+      "lon": 166.3
+    }
+  },
+  {
+    "id": "lewis-and-clark-meriwether",
+    "name": "Meriwether Lewis",
+    "difficulty": "medium",
+    "variants": [
+      "meriwether lewis",
+      "lewis"
+    ],
+    "occupation": "American explorer of the Lewis and Clark Expedition",
+    "birth": {
+      "year": 1774,
+      "place": "Charlottesville, Virginia",
+      "lat": 38.03,
+      "lon": -78.48
+    },
+    "death": {
+      "year": 1809,
+      "place": "Hohenwald, Tennessee",
+      "lat": 35.55,
+      "lon": -87.55
+    }
+  },
+  {
+    "id": "henry-stanley",
+    "name": "Henry Morton Stanley",
+    "difficulty": "medium",
+    "variants": [
+      "henry morton stanley",
+      "henry stanley",
+      "stanley"
+    ],
+    "occupation": "Explorer who found Livingstone in Africa",
+    "birth": {
+      "year": 1841,
+      "place": "Denbigh, Wales",
+      "lat": 53.18,
+      "lon": -3.42
+    },
+    "death": {
+      "year": 1904,
+      "place": "London, England",
+      "lat": 51.51,
+      "lon": -0.13
+    }
+  },
+  {
+    "id": "ernest-shackleton",
+    "name": "Ernest Shackleton",
+    "difficulty": "medium",
+    "variants": [
+      "ernest shackleton",
+      "shackleton"
+    ],
+    "occupation": "Antarctic explorer who died in South Georgia",
+    "birth": {
+      "year": 1874,
+      "place": "Kilkea, Ireland",
+      "lat": 52.96,
+      "lon": -6.85
+    },
+    "death": {
+      "year": 1922,
+      "place": "South Georgia",
+      "lat": -54.28,
+      "lon": -36.51
+    }
+  },
+  {
+    "id": "danton",
+    "name": "Georges Danton",
+    "difficulty": "medium",
+    "variants": [
+      "georges danton",
+      "danton"
+    ],
+    "occupation": "French revolutionary guillotined in the Terror",
+    "birth": {
+      "year": 1759,
+      "place": "Arcis-sur-Aube, France",
+      "lat": 48.53,
+      "lon": 4.14
+    },
+    "death": {
+      "year": 1794,
+      "place": "Paris, France",
+      "lat": 48.86,
+      "lon": 2.34
+    }
+  },
+  {
+    "id": "jean-paul-marat",
+    "name": "Jean-Paul Marat",
+    "difficulty": "medium",
+    "variants": [
+      "jean-paul marat",
+      "marat",
+      "jean paul marat"
+    ],
+    "occupation": "French revolutionary murdered in his bath",
+    "birth": {
+      "year": 1743,
+      "place": "Boudry, Switzerland",
+      "lat": 46.95,
+      "lon": 6.84
+    },
+    "death": {
+      "year": 1793,
+      "place": "Paris, France",
+      "lat": 48.86,
+      "lon": 2.35
+    }
+  },
+  {
+    "id": "lafayette",
+    "name": "Marquis de Lafayette",
+    "difficulty": "medium",
+    "variants": [
+      "marquis de lafayette",
+      "lafayette",
+      "gilbert du motier"
+    ],
+    "occupation": "French hero of the American Revolution",
+    "birth": {
+      "year": 1757,
+      "place": "Chavaniac, France",
+      "lat": 45.13,
+      "lon": 3.7
+    },
+    "death": {
+      "year": 1834,
+      "place": "Paris, France",
+      "lat": 48.86,
+      "lon": 2.35
+    }
+  },
+  {
+    "id": "giuseppe-garibaldi",
+    "name": "Giuseppe Garibaldi",
+    "difficulty": "medium",
+    "variants": [
+      "giuseppe garibaldi",
+      "garibaldi"
+    ],
+    "occupation": "Hero of Italian unification",
+    "birth": {
+      "year": 1807,
+      "place": "Nice, France",
+      "lat": 43.7,
+      "lon": 7.27
+    },
+    "death": {
+      "year": 1882,
+      "place": "Caprera, Italy",
+      "lat": 41.21,
+      "lon": 9.46
+    }
+  },
+  {
+    "id": "giuseppe-mazzini",
+    "name": "Giuseppe Mazzini",
+    "difficulty": "hard",
+    "variants": [
+      "giuseppe mazzini",
+      "mazzini"
+    ],
+    "occupation": "Italian nationalist and revolutionary",
+    "birth": {
+      "year": 1805,
+      "place": "Genoa, Italy",
+      "lat": 44.41,
+      "lon": 8.93
+    },
+    "death": {
+      "year": 1872,
+      "place": "Pisa, Italy",
+      "lat": 43.72,
+      "lon": 10.4
+    }
+  },
+  {
+    "id": "klemens-kosciuszko",
+    "name": "Tadeusz Kościuszko",
+    "difficulty": "medium",
+    "variants": [
+      "tadeusz kosciuszko",
+      "kosciuszko",
+      "kościuszko"
+    ],
+    "occupation": "Polish hero of the American and Polish revolutions",
+    "birth": {
+      "year": 1746,
+      "place": "Mereszowszczyzna, Belarus",
+      "lat": 52.9,
+      "lon": 25.4
+    },
+    "death": {
+      "year": 1817,
+      "place": "Solothurn, Switzerland",
+      "lat": 47.21,
+      "lon": 7.54
+    }
+  },
+  {
+    "id": "emiliano-zapata",
+    "name": "Emiliano Zapata",
+    "difficulty": "medium",
+    "variants": [
+      "emiliano zapata",
+      "zapata"
+    ],
+    "occupation": "Mexican revolutionary leader, assassinated",
+    "birth": {
+      "year": 1879,
+      "place": "Anenecuilco, Mexico",
+      "lat": 18.78,
+      "lon": -98.86
+    },
+    "death": {
+      "year": 1919,
+      "place": "Chinameca, Mexico",
+      "lat": 18.6,
+      "lon": -98.93
+    }
+  },
+  {
+    "id": "pancho-villa",
+    "name": "Pancho Villa",
+    "difficulty": "medium",
+    "variants": [
+      "pancho villa",
+      "villa",
+      "francisco villa"
+    ],
+    "occupation": "Mexican revolutionary general, assassinated",
+    "birth": {
+      "year": 1878,
+      "place": "San Juan del Río, Mexico",
+      "lat": 24.78,
+      "lon": -104.46
+    },
+    "death": {
+      "year": 1923,
+      "place": "Parral, Mexico",
+      "lat": 26.93,
+      "lon": -105.66
+    }
+  },
+  {
+    "id": "jose-de-san-martin",
+    "name": "José de San Martín",
+    "difficulty": "medium",
+    "variants": [
+      "josé de san martín",
+      "san martin",
+      "jose de san martin"
+    ],
+    "occupation": "Liberator of Argentina, Chile and Peru",
+    "birth": {
+      "year": 1778,
+      "place": "Yapeyú, Argentina",
+      "lat": -29.47,
+      "lon": -56.81
+    },
+    "death": {
+      "year": 1850,
+      "place": "Boulogne-sur-Mer, France",
+      "lat": 50.73,
+      "lon": 1.61
+    }
+  },
+  {
+    "id": "bernardo-ohiggins",
+    "name": "Bernardo O'Higgins",
+    "difficulty": "hard",
+    "variants": [
+      "bernardo o'higgins",
+      "o'higgins",
+      "bernardo ohiggins"
+    ],
+    "occupation": "Liberator and first leader of Chile",
+    "birth": {
+      "year": 1778,
+      "place": "Chillán, Chile",
+      "lat": -36.61,
+      "lon": -72.1
+    },
+    "death": {
+      "year": 1842,
+      "place": "Lima, Peru",
+      "lat": -12.05,
+      "lon": -77.04
+    }
+  },
+  {
+    "id": "miguel-hidalgo",
+    "name": "Miguel Hidalgo",
+    "difficulty": "hard",
+    "variants": [
+      "miguel hidalgo",
+      "hidalgo",
+      "miguel hidalgo y costilla"
+    ],
+    "occupation": "Priest who launched Mexico's independence, executed",
+    "birth": {
+      "year": 1753,
+      "place": "Pénjamo, Mexico",
+      "lat": 20.43,
+      "lon": -101.72
+    },
+    "death": {
+      "year": 1811,
+      "place": "Chihuahua, Mexico",
+      "lat": 28.63,
+      "lon": -106.08
+    }
+  },
+  {
+    "id": "geronimo",
+    "name": "Geronimo",
+    "difficulty": "easy",
+    "variants": [
+      "geronimo"
+    ],
+    "occupation": "Apache leader who resisted US and Mexican armies",
+    "birth": {
+      "year": 1829,
+      "place": "No-Doyohn Canyon, Arizona",
+      "lat": 32.9,
+      "lon": -109.2
+    },
+    "death": {
+      "year": 1909,
+      "place": "Fort Sill, Oklahoma",
+      "lat": 34.66,
+      "lon": -98.4
+    }
+  },
+  {
+    "id": "sitting-bull",
+    "name": "Sitting Bull",
+    "difficulty": "easy",
+    "variants": [
+      "sitting bull"
+    ],
+    "occupation": "Lakota leader, victor at Little Bighorn",
+    "birth": {
+      "year": 1831,
+      "place": "Grand River, South Dakota",
+      "lat": 45.7,
+      "lon": -100.7
+    },
+    "death": {
+      "year": 1890,
+      "place": "Standing Rock, South Dakota",
+      "lat": 45.74,
+      "lon": -100.83
+    }
+  },
+  {
+    "id": "crazy-horse",
+    "name": "Crazy Horse",
+    "difficulty": "medium",
+    "variants": [
+      "crazy horse"
+    ],
+    "occupation": "Lakota war leader at Little Bighorn",
+    "birth": {
+      "year": 1840,
+      "place": "Black Hills, South Dakota",
+      "lat": 44.0,
+      "lon": -103.5
+    },
+    "death": {
+      "year": 1877,
+      "place": "Fort Robinson, Nebraska",
+      "lat": 42.67,
+      "lon": -103.47
+    }
+  },
+  {
+    "id": "stonewall-jackson",
+    "name": "Stonewall Jackson",
+    "difficulty": "medium",
+    "variants": [
+      "stonewall jackson",
+      "thomas jackson",
+      "thomas stonewall jackson"
+    ],
+    "occupation": "Confederate general killed at Chancellorsville",
+    "birth": {
+      "year": 1824,
+      "place": "Clarksburg, West Virginia",
+      "lat": 39.28,
+      "lon": -80.34
+    },
+    "death": {
+      "year": 1863,
+      "place": "Guinea Station, Virginia",
+      "lat": 38.16,
+      "lon": -77.39
+    }
+  },
+  {
+    "id": "william-tecumseh-sherman",
+    "name": "William Tecumseh Sherman",
+    "difficulty": "medium",
+    "variants": [
+      "william tecumseh sherman",
+      "william sherman",
+      "general sherman",
+      "sherman"
+    ],
+    "occupation": "Union general of the March to the Sea",
+    "birth": {
+      "year": 1820,
+      "place": "Lancaster, Ohio",
+      "lat": 39.71,
+      "lon": -82.6
+    },
+    "death": {
+      "year": 1891,
+      "place": "New York City, New York",
+      "lat": 40.71,
+      "lon": -74.01
+    }
+  },
+  {
+    "id": "john-brown",
+    "name": "John Brown",
+    "difficulty": "medium",
+    "variants": [
+      "john brown"
+    ],
+    "occupation": "Abolitionist hanged after Harpers Ferry",
+    "birth": {
+      "year": 1800,
+      "place": "Torrington, Connecticut",
+      "lat": 41.8,
+      "lon": -73.12
+    },
+    "death": {
+      "year": 1859,
+      "place": "Charles Town, West Virginia",
+      "lat": 39.29,
+      "lon": -77.86
+    }
+  },
+  {
+    "id": "frederick-douglass",
+    "name": "Frederick Douglass",
+    "difficulty": "easy",
+    "variants": [
+      "frederick douglass",
+      "douglass"
+    ],
+    "occupation": "Abolitionist and former enslaved orator",
+    "birth": {
+      "year": 1818,
+      "place": "Talbot County, Maryland",
+      "lat": 38.75,
+      "lon": -76.1
+    },
+    "death": {
+      "year": 1895,
+      "place": "Washington, D.C.",
+      "lat": 38.91,
+      "lon": -77.04
+    }
+  },
+  {
+    "id": "john-wilkes-booth",
+    "name": "John Wilkes Booth",
+    "difficulty": "medium",
+    "variants": [
+      "john wilkes booth",
+      "booth",
+      "wilkes booth"
+    ],
+    "occupation": "Assassin of Abraham Lincoln",
+    "birth": {
+      "year": 1838,
+      "place": "Bel Air, Maryland",
+      "lat": 39.54,
+      "lon": -76.35
+    },
+    "death": {
+      "year": 1865,
+      "place": "Port Royal, Virginia",
+      "lat": 38.17,
+      "lon": -77.19
+    }
+  },
+  {
+    "id": "davy-crockett",
+    "name": "Davy Crockett",
+    "difficulty": "easy",
+    "variants": [
+      "davy crockett",
+      "david crockett",
+      "crockett"
+    ],
+    "occupation": "American frontiersman who died at the Alamo",
+    "birth": {
+      "year": 1786,
+      "place": "Greene County, Tennessee",
+      "lat": 36.21,
+      "lon": -82.7
+    },
+    "death": {
+      "year": 1836,
+      "place": "San Antonio, Texas",
+      "lat": 29.43,
+      "lon": -98.49
+    }
+  },
+  {
+    "id": "billy-the-kid",
+    "name": "Billy the Kid",
+    "difficulty": "medium",
+    "variants": [
+      "billy the kid",
+      "william bonney",
+      "henry mccarty"
+    ],
+    "occupation": "Outlaw of the American Old West",
+    "birth": {
+      "year": 1859,
+      "place": "New York City, New York",
+      "lat": 40.71,
+      "lon": -74.01
+    },
+    "death": {
+      "year": 1881,
+      "place": "Fort Sumner, New Mexico",
+      "lat": 34.47,
+      "lon": -104.25
+    }
+  },
+  {
+    "id": "wyatt-earp",
+    "name": "Wyatt Earp",
+    "difficulty": "medium",
+    "variants": [
+      "wyatt earp",
+      "earp"
+    ],
+    "occupation": "Lawman of the O.K. Corral gunfight",
+    "birth": {
+      "year": 1848,
+      "place": "Monmouth, Illinois",
+      "lat": 40.91,
+      "lon": -90.65
+    },
+    "death": {
+      "year": 1929,
+      "place": "Los Angeles, California",
+      "lat": 34.05,
+      "lon": -118.24
+    }
+  },
+  {
+    "id": "kit-carson",
+    "name": "Kit Carson",
+    "difficulty": "hard",
+    "variants": [
+      "kit carson",
+      "christopher carson"
+    ],
+    "occupation": "American frontiersman and scout",
+    "birth": {
+      "year": 1809,
+      "place": "Madison County, Kentucky",
+      "lat": 37.7,
+      "lon": -84.3
+    },
+    "death": {
+      "year": 1868,
+      "place": "Fort Lyon, Colorado",
+      "lat": 38.08,
+      "lon": -103.13
+    }
+  },
+  {
+    "id": "montcalm",
+    "name": "Marquis de Montcalm",
+    "difficulty": "hard",
+    "variants": [
+      "marquis de montcalm",
+      "montcalm"
+    ],
+    "occupation": "French general killed at the Plains of Abraham",
+    "birth": {
+      "year": 1712,
+      "place": "Candiac, France",
+      "lat": 43.93,
+      "lon": 4.15
+    },
+    "death": {
+      "year": 1759,
+      "place": "Quebec City, Canada",
+      "lat": 46.81,
+      "lon": -71.21
+    }
+  },
+  {
+    "id": "james-wolfe",
+    "name": "James Wolfe",
+    "difficulty": "medium",
+    "variants": [
+      "james wolfe",
+      "general wolfe",
+      "wolfe"
+    ],
+    "occupation": "British general killed taking Quebec",
+    "birth": {
+      "year": 1727,
+      "place": "Westerham, England",
+      "lat": 51.27,
+      "lon": 0.07
+    },
+    "death": {
+      "year": 1759,
+      "place": "Quebec City, Canada",
+      "lat": 46.81,
+      "lon": -71.21
+    }
+  },
+  {
+    "id": "frederick-the-great",
+    "name": "Frederick the Great",
+    "difficulty": "easy",
+    "variants": [
+      "frederick the great",
+      "frederick ii of prussia",
+      "fredrick the great",
+      "alter fritz"
+    ],
+    "occupation": "Warrior King of Prussia",
+    "birth": {
+      "year": 1712,
+      "place": "Berlin, Germany",
+      "lat": 52.52,
+      "lon": 13.41
+    },
+    "death": {
+      "year": 1786,
+      "place": "Potsdam, Germany",
+      "lat": 52.4,
+      "lon": 13.07
+    }
+  },
+  {
+    "id": "maria-theresa",
+    "name": "Maria Theresa",
+    "difficulty": "medium",
+    "variants": [
+      "maria theresa",
+      "maria theresia"
+    ],
+    "occupation": "Empress and ruler of the Habsburg domains",
+    "birth": {
+      "year": 1717,
+      "place": "Vienna, Austria",
+      "lat": 48.21,
+      "lon": 16.37
+    },
+    "death": {
+      "year": 1780,
+      "place": "Vienna, Austria",
+      "lat": 48.21,
+      "lon": 16.37
+    }
+  },
+  {
+    "id": "franz-joseph",
+    "name": "Franz Joseph I",
+    "difficulty": "medium",
+    "variants": [
+      "franz joseph i",
+      "franz joseph",
+      "francis joseph"
+    ],
+    "occupation": "Emperor of Austria-Hungary for 68 years",
+    "birth": {
+      "year": 1830,
+      "place": "Vienna, Austria",
+      "lat": 48.19,
+      "lon": 16.31
+    },
+    "death": {
+      "year": 1916,
+      "place": "Vienna, Austria",
+      "lat": 48.19,
+      "lon": 16.31
+    }
+  },
+  {
+    "id": "archduke-franz-ferdinand",
+    "name": "Archduke Franz Ferdinand",
+    "difficulty": "easy",
+    "variants": [
+      "archduke franz ferdinand",
+      "franz ferdinand",
+      "archduke ferdinand"
+    ],
+    "occupation": "Heir whose assassination sparked WWI",
+    "birth": {
+      "year": 1863,
+      "place": "Graz, Austria",
+      "lat": 47.07,
+      "lon": 15.44
+    },
+    "death": {
+      "year": 1914,
+      "place": "Sarajevo, Bosnia",
+      "lat": 43.86,
+      "lon": 18.41
+    }
+  },
+  {
+    "id": "tsar-nicholas-ii",
+    "name": "Nicholas II",
+    "difficulty": "easy",
+    "variants": [
+      "nicholas ii",
+      "tsar nicholas ii",
+      "nicholas ii of russia",
+      "czar nicholas"
+    ],
+    "occupation": "Last Tsar of Russia, executed by Bolsheviks",
+    "birth": {
+      "year": 1868,
+      "place": "Pushkin, Russia",
+      "lat": 59.72,
+      "lon": 30.42
+    },
+    "death": {
+      "year": 1918,
+      "place": "Yekaterinburg, Russia",
+      "lat": 56.84,
+      "lon": 60.6
+    }
+  },
+  {
+    "id": "rasputin",
+    "name": "Grigori Rasputin",
+    "difficulty": "easy",
+    "variants": [
+      "grigori rasputin",
+      "rasputin"
+    ],
+    "occupation": "Mystic at the Russian imperial court, murdered",
+    "birth": {
+      "year": 1869,
+      "place": "Pokrovskoye, Russia",
+      "lat": 57.5,
+      "lon": 66.7
+    },
+    "death": {
+      "year": 1916,
+      "place": "Saint Petersburg, Russia",
+      "lat": 59.93,
+      "lon": 30.34
+    }
+  },
+  {
+    "id": "catherine-de-medici",
+    "name": "Catherine de' Medici",
+    "difficulty": "medium",
+    "variants": [
+      "catherine de' medici",
+      "catherine de medici",
+      "catherine de medicis"
+    ],
+    "occupation": "Queen of France and power behind three kings",
+    "birth": {
+      "year": 1519,
+      "place": "Florence, Italy",
+      "lat": 43.77,
+      "lon": 11.26
+    },
+    "death": {
+      "year": 1589,
+      "place": "Blois, France",
+      "lat": 47.59,
+      "lon": 1.34
+    }
+  },
+  {
+    "id": "lorenzo-de-medici",
+    "name": "Lorenzo de' Medici",
+    "difficulty": "medium",
+    "variants": [
+      "lorenzo de' medici",
+      "lorenzo de medici",
+      "lorenzo the magnificent"
+    ],
+    "occupation": "Ruler of Renaissance Florence",
+    "birth": {
+      "year": 1449,
+      "place": "Florence, Italy",
+      "lat": 43.77,
+      "lon": 11.26
+    },
+    "death": {
+      "year": 1492,
+      "place": "Careggi, Italy",
+      "lat": 43.82,
+      "lon": 11.25
+    }
+  },
+  {
+    "id": "cesare-borgia",
+    "name": "Cesare Borgia",
+    "difficulty": "medium",
+    "variants": [
+      "cesare borgia",
+      "borgia"
+    ],
+    "occupation": "Ruthless Italian prince and Machiavelli's model",
+    "birth": {
+      "year": 1475,
+      "place": "Rome, Italy",
+      "lat": 41.89,
+      "lon": 12.48
+    },
+    "death": {
+      "year": 1507,
+      "place": "Viana, Spain",
+      "lat": 42.51,
+      "lon": -2.37
+    }
+  },
+  {
+    "id": "pope-alexander-vi",
+    "name": "Pope Alexander VI",
+    "difficulty": "medium",
+    "variants": [
+      "pope alexander vi",
+      "alexander vi",
+      "rodrigo borgia"
+    ],
+    "occupation": "Borgia pope of the Renaissance",
+    "birth": {
+      "year": 1431,
+      "place": "Xàtiva, Spain",
+      "lat": 38.99,
+      "lon": -0.52
+    },
+    "death": {
+      "year": 1503,
+      "place": "Rome, Italy",
+      "lat": 41.89,
+      "lon": 12.48
+    }
+  },
+  {
+    "id": "pope-leo-x",
+    "name": "Pope Leo X",
+    "difficulty": "hard",
+    "variants": [
+      "pope leo x",
+      "leo x",
+      "giovanni de' medici"
+    ],
+    "occupation": "Medici pope who faced Luther's Reformation",
+    "birth": {
+      "year": 1475,
+      "place": "Florence, Italy",
+      "lat": 43.77,
+      "lon": 11.26
+    },
+    "death": {
+      "year": 1521,
+      "place": "Rome, Italy",
+      "lat": 41.89,
+      "lon": 12.48
+    }
+  },
+  {
+    "id": "wat-tyler",
+    "name": "Wat Tyler",
+    "difficulty": "hard",
+    "variants": [
+      "wat tyler"
+    ],
+    "occupation": "Leader of England's Peasants' Revolt",
+    "birth": {
+      "year": 1341,
+      "place": "Kent, England",
+      "lat": 51.27,
+      "lon": 0.52
+    },
+    "death": {
+      "year": 1381,
+      "place": "Smithfield, London, England",
+      "lat": 51.52,
+      "lon": -0.1
+    }
+  },
+  {
+    "id": "richard-neville-warwick",
+    "name": "Warwick the Kingmaker",
+    "difficulty": "hard",
+    "variants": [
+      "warwick the kingmaker",
+      "richard neville",
+      "the kingmaker",
+      "earl of warwick"
+    ],
+    "occupation": "Powerful noble of the Wars of the Roses",
+    "birth": {
+      "year": 1428,
+      "place": "Salisbury, England",
+      "lat": 51.07,
+      "lon": -1.79
+    },
+    "death": {
+      "year": 1471,
+      "place": "Barnet, England",
+      "lat": 51.65,
+      "lon": -0.2
+    }
+  },
+  {
+    "id": "charles-the-bold",
+    "name": "Charles the Bold",
+    "difficulty": "hard",
+    "variants": [
+      "charles the bold",
+      "charles the bold of burgundy",
+      "duke of burgundy"
+    ],
+    "occupation": "Last Duke of Burgundy, killed at Nancy",
+    "birth": {
+      "year": 1433,
+      "place": "Dijon, France",
+      "lat": 47.32,
+      "lon": 5.04
+    },
+    "death": {
+      "year": 1477,
+      "place": "Nancy, France",
+      "lat": 48.69,
+      "lon": 6.18
+    }
+  },
+  {
+    "id": "john-of-gaunt",
+    "name": "John of Gaunt",
+    "difficulty": "hard",
+    "variants": [
+      "john of gaunt",
+      "duke of lancaster"
+    ],
+    "occupation": "Powerful son of Edward III",
+    "birth": {
+      "year": 1340,
+      "place": "Ghent, Belgium",
+      "lat": 51.05,
+      "lon": 3.72
+    },
+    "death": {
+      "year": 1399,
+      "place": "Leicester, England",
+      "lat": 52.64,
+      "lon": -1.13
+    }
+  },
+  {
+    "id": "anne-of-cleves",
+    "name": "Anne of Cleves",
+    "difficulty": "medium",
+    "variants": [
+      "anne of cleves"
+    ],
+    "occupation": "Fourth wife of Henry VIII",
+    "birth": {
+      "year": 1515,
+      "place": "Düsseldorf, Germany",
+      "lat": 51.23,
+      "lon": 6.77
+    },
+    "death": {
+      "year": 1557,
+      "place": "Chelsea, London, England",
+      "lat": 51.48,
+      "lon": -0.17
+    }
+  },
+  {
+    "id": "catherine-of-aragon",
+    "name": "Catherine of Aragon",
+    "difficulty": "medium",
+    "variants": [
+      "catherine of aragon",
+      "katherine of aragon"
+    ],
+    "occupation": "First wife of Henry VIII",
+    "birth": {
+      "year": 1485,
+      "place": "Alcalá de Henares, Spain",
+      "lat": 40.48,
+      "lon": -3.36
+    },
+    "death": {
+      "year": 1536,
+      "place": "Kimbolton, England",
+      "lat": 52.3,
+      "lon": -0.39
+    }
+  },
+  {
+    "id": "william-of-orange",
+    "name": "William the Silent",
+    "difficulty": "medium",
+    "variants": [
+      "william the silent",
+      "william of orange",
+      "william i of orange",
+      "willem van oranje"
+    ],
+    "occupation": "Leader of the Dutch revolt, assassinated",
+    "birth": {
+      "year": 1533,
+      "place": "Dillenburg, Germany",
+      "lat": 50.74,
+      "lon": 8.28
+    },
+    "death": {
+      "year": 1584,
+      "place": "Delft, Netherlands",
+      "lat": 52.01,
+      "lon": 4.36
+    }
+  },
+  {
+    "id": "william-iii",
+    "name": "William III of England",
+    "difficulty": "medium",
+    "variants": [
+      "william iii",
+      "william iii of england",
+      "william of orange",
+      "king william iii"
+    ],
+    "occupation": "Dutch prince who became King of England",
+    "birth": {
+      "year": 1650,
+      "place": "The Hague, Netherlands",
+      "lat": 52.08,
+      "lon": 4.31
+    },
+    "death": {
+      "year": 1702,
+      "place": "London, England",
+      "lat": 51.5,
+      "lon": -0.14
+    }
+  },
+  {
+    "id": "cardinal-mazarin",
+    "name": "Cardinal Mazarin",
+    "difficulty": "hard",
+    "variants": [
+      "cardinal mazarin",
+      "mazarin",
+      "jules mazarin"
+    ],
+    "occupation": "Chief minister of France after Richelieu",
+    "birth": {
+      "year": 1602,
+      "place": "Pescina, Italy",
+      "lat": 42.02,
+      "lon": 13.66
+    },
+    "death": {
+      "year": 1661,
+      "place": "Vincennes, France",
+      "lat": 48.85,
+      "lon": 2.44
+    }
+  },
+  {
+    "id": "john-churchill-marlborough",
+    "name": "Duke of Marlborough",
+    "difficulty": "medium",
+    "variants": [
+      "duke of marlborough",
+      "john churchill",
+      "marlborough"
+    ],
+    "occupation": "British general, victor at Blenheim",
+    "birth": {
+      "year": 1650,
+      "place": "Ashe, England",
+      "lat": 50.78,
+      "lon": -3.0
+    },
+    "death": {
+      "year": 1722,
+      "place": "Windsor, England",
+      "lat": 51.48,
+      "lon": -0.61
+    }
+  },
+  {
+    "id": "prince-eugene-of-savoy",
+    "name": "Prince Eugene of Savoy",
+    "difficulty": "hard",
+    "variants": [
+      "prince eugene of savoy",
+      "prince eugene",
+      "eugene of savoy"
+    ],
+    "occupation": "Habsburg general who fought the Ottomans",
+    "birth": {
+      "year": 1663,
+      "place": "Paris, France",
+      "lat": 48.86,
+      "lon": 2.35
+    },
+    "death": {
+      "year": 1736,
+      "place": "Vienna, Austria",
+      "lat": 48.21,
+      "lon": 16.37
+    }
+  },
+  {
+    "id": "jan-sobieski",
+    "name": "Jan III Sobieski",
+    "difficulty": "medium",
+    "variants": [
+      "jan iii sobieski",
+      "jan sobieski",
+      "john iii sobieski",
+      "sobieski"
+    ],
+    "occupation": "King of Poland who relieved Vienna in 1683",
+    "birth": {
+      "year": 1629,
+      "place": "Olesko, Ukraine",
+      "lat": 49.97,
+      "lon": 24.9
+    },
+    "death": {
+      "year": 1696,
+      "place": "Wilanów, Poland",
+      "lat": 52.17,
+      "lon": 21.09
+    }
+  },
+  {
+    "id": "selim-i",
+    "name": "Selim I",
+    "difficulty": "hard",
+    "variants": [
+      "selim i",
+      "selim the grim",
+      "yavuz selim"
+    ],
+    "occupation": "Ottoman sultan who conquered Egypt and Syria",
+    "birth": {
+      "year": 1470,
+      "place": "Amasya, Turkey",
+      "lat": 40.65,
+      "lon": 35.83
+    },
+    "death": {
+      "year": 1520,
+      "place": "Çorlu, Turkey",
+      "lat": 41.16,
+      "lon": 27.8
+    }
+  },
+  {
+    "id": "barbarossa-pirate",
+    "name": "Barbarossa Hayreddin",
+    "difficulty": "hard",
+    "variants": [
+      "barbarossa hayreddin",
+      "hayreddin barbarossa"
+    ],
+    "occupation": "Ottoman admiral and Barbary corsair",
+    "birth": {
+      "year": 1478,
+      "place": "Lesbos, Greece",
+      "lat": 39.1,
+      "lon": 26.55
+    },
+    "death": {
+      "year": 1546,
+      "place": "Istanbul, Turkey",
+      "lat": 41.01,
+      "lon": 28.97
+    }
+  },
+  {
+    "id": "haile-selassie",
+    "name": "Haile Selassie",
+    "difficulty": "medium",
+    "variants": [
+      "haile selassie",
+      "selassie"
+    ],
+    "occupation": "Emperor of Ethiopia",
+    "birth": {
+      "year": 1892,
+      "place": "Ejersa Goro, Ethiopia",
+      "lat": 9.27,
+      "lon": 42.0
+    },
+    "death": {
+      "year": 1975,
+      "place": "Addis Ababa, Ethiopia",
+      "lat": 9.03,
+      "lon": 38.74
+    }
+  },
+  {
+    "id": "menelik-ii",
+    "name": "Menelik II",
+    "difficulty": "hard",
+    "variants": [
+      "menelik ii",
+      "menelik"
+    ],
+    "occupation": "Emperor who defeated Italy at Adwa",
+    "birth": {
+      "year": 1844,
+      "place": "Ankober, Ethiopia",
+      "lat": 9.59,
+      "lon": 39.73
+    },
+    "death": {
+      "year": 1913,
+      "place": "Addis Ababa, Ethiopia",
+      "lat": 9.03,
+      "lon": 38.74
+    }
+  },
+  {
+    "id": "tokugawa-ieyasu",
+    "name": "Tokugawa Ieyasu",
+    "difficulty": "medium",
+    "variants": [
+      "tokugawa ieyasu",
+      "ieyasu",
+      "tokugawa"
+    ],
+    "occupation": "Founder of the Tokugawa shogunate",
+    "birth": {
+      "year": 1543,
+      "place": "Okazaki, Japan",
+      "lat": 34.95,
+      "lon": 137.17
+    },
+    "death": {
+      "year": 1616,
+      "place": "Sunpu, Japan",
+      "lat": 34.98,
+      "lon": 138.38
+    }
+  },
+  {
+    "id": "oda-nobunaga",
+    "name": "Oda Nobunaga",
+    "difficulty": "medium",
+    "variants": [
+      "oda nobunaga",
+      "nobunaga"
+    ],
+    "occupation": "Warlord who began Japan's unification, died at Honnō-ji",
+    "birth": {
+      "year": 1534,
+      "place": "Nagoya, Japan",
+      "lat": 35.18,
+      "lon": 136.91
+    },
+    "death": {
+      "year": 1582,
+      "place": "Kyoto, Japan",
+      "lat": 35.01,
+      "lon": 135.77
+    }
+  },
+  {
+    "id": "toyotomi-hideyoshi",
+    "name": "Toyotomi Hideyoshi",
+    "difficulty": "medium",
+    "variants": [
+      "toyotomi hideyoshi",
+      "hideyoshi"
+    ],
+    "occupation": "Warlord who unified Japan",
+    "birth": {
+      "year": 1537,
+      "place": "Nagoya, Japan",
+      "lat": 35.18,
+      "lon": 136.91
+    },
+    "death": {
+      "year": 1598,
+      "place": "Kyoto, Japan",
+      "lat": 34.95,
+      "lon": 135.76
+    }
+  },
+  {
+    "id": "miyamoto-musashi",
+    "name": "Miyamoto Musashi",
+    "difficulty": "medium",
+    "variants": [
+      "miyamoto musashi",
+      "musashi"
+    ],
+    "occupation": "Legendary Japanese swordsman",
+    "birth": {
+      "year": 1584,
+      "place": "Mimasaka, Japan",
+      "lat": 35.0,
+      "lon": 134.2
+    },
+    "death": {
+      "year": 1645,
+      "place": "Kumamoto, Japan",
+      "lat": 32.8,
+      "lon": 130.71
+    }
+  },
+  {
+    "id": "kangxi-emperor",
+    "name": "Kangxi Emperor",
+    "difficulty": "medium",
+    "variants": [
+      "kangxi emperor",
+      "kangxi"
+    ],
+    "occupation": "Long-reigning Qing emperor of China",
+    "birth": {
+      "year": 1654,
+      "place": "Beijing, China",
+      "lat": 39.9,
+      "lon": 116.4
+    },
+    "death": {
+      "year": 1722,
+      "place": "Beijing, China",
+      "lat": 39.9,
+      "lon": 116.4
+    }
+  },
+  {
+    "id": "empress-dowager-cixi",
+    "name": "Empress Dowager Cixi",
+    "difficulty": "medium",
+    "variants": [
+      "empress dowager cixi",
+      "cixi",
+      "empress cixi"
+    ],
+    "occupation": "Power behind China's late Qing throne",
+    "birth": {
+      "year": 1835,
+      "place": "Beijing, China",
+      "lat": 39.9,
+      "lon": 116.4
+    },
+    "death": {
+      "year": 1908,
+      "place": "Beijing, China",
+      "lat": 39.9,
+      "lon": 116.4
+    }
+  },
+  {
+    "id": "chiang-kai-shek",
+    "name": "Chiang Kai-shek",
+    "difficulty": "medium",
+    "variants": [
+      "chiang kai-shek",
+      "chiang kai shek",
+      "chiang kaishek"
+    ],
+    "occupation": "Nationalist leader of China and Taiwan",
+    "birth": {
+      "year": 1887,
+      "place": "Xikou, China",
+      "lat": 29.67,
+      "lon": 121.24
+    },
+    "death": {
+      "year": 1975,
+      "place": "Taipei, Taiwan",
+      "lat": 25.03,
+      "lon": 121.57
+    }
+  },
+  {
+    "id": "emperor-meiji",
+    "name": "Emperor Meiji",
+    "difficulty": "medium",
+    "variants": [
+      "emperor meiji",
+      "meiji",
+      "meiji emperor",
+      "mutsuhito"
+    ],
+    "occupation": "Emperor who modernised Japan",
+    "birth": {
+      "year": 1852,
+      "place": "Kyoto, Japan",
+      "lat": 35.01,
+      "lon": 135.77
+    },
+    "death": {
+      "year": 1912,
+      "place": "Tokyo, Japan",
+      "lat": 35.68,
+      "lon": 139.76
+    }
+  },
+  {
+    "id": "ramesses-ii",
+    "name": "Ramesses II",
+    "difficulty": "easy",
+    "variants": [
+      "ramesses ii",
+      "ramses ii",
+      "ramesses the great",
+      "rameses"
+    ],
+    "occupation": "Greatest pharaoh of the New Kingdom",
+    "birth": {
+      "year": -1303,
+      "place": "Pi-Ramesses, Egypt",
+      "lat": 30.8,
+      "lon": 31.83
+    },
+    "death": {
+      "year": -1213,
+      "place": "Pi-Ramesses, Egypt",
+      "lat": 30.8,
+      "lon": 31.83
+    }
+  },
+  {
+    "id": "hatshepsut",
+    "name": "Hatshepsut",
+    "difficulty": "medium",
+    "variants": [
+      "hatshepsut"
+    ],
+    "occupation": "Female pharaoh of ancient Egypt",
+    "birth": {
+      "year": -1507,
+      "place": "Thebes, Egypt",
+      "lat": 25.72,
+      "lon": 32.61
+    },
+    "death": {
+      "year": -1458,
+      "place": "Thebes, Egypt",
+      "lat": 25.72,
+      "lon": 32.61
+    }
+  },
+  {
+    "id": "akhenaten",
+    "name": "Akhenaten",
+    "difficulty": "medium",
+    "variants": [
+      "akhenaten",
+      "akhenaton",
+      "amenhotep iv"
+    ],
+    "occupation": "Pharaoh who introduced sun worship",
+    "birth": {
+      "year": -1380,
+      "place": "Thebes, Egypt",
+      "lat": 25.72,
+      "lon": 32.61
+    },
+    "death": {
+      "year": -1336,
+      "place": "Amarna, Egypt",
+      "lat": 27.65,
+      "lon": 30.9
+    }
+  },
+  {
+    "id": "nebuchadnezzar-ii",
+    "name": "Nebuchadnezzar II",
+    "difficulty": "medium",
+    "variants": [
+      "nebuchadnezzar ii",
+      "nebuchadnezzar"
+    ],
+    "occupation": "King of Babylon who built the Hanging Gardens",
+    "birth": {
+      "year": -634,
+      "place": "Babylon, Iraq",
+      "lat": 32.54,
+      "lon": 44.42
+    },
+    "death": {
+      "year": -562,
+      "place": "Babylon, Iraq",
+      "lat": 32.54,
+      "lon": 44.42
+    }
+  },
+  {
+    "id": "hammurabi",
+    "name": "Hammurabi",
+    "difficulty": "medium",
+    "variants": [
+      "hammurabi"
+    ],
+    "occupation": "Babylonian king and lawgiver",
+    "birth": {
+      "year": -1810,
+      "place": "Babylon, Iraq",
+      "lat": 32.54,
+      "lon": 44.42
+    },
+    "death": {
+      "year": -1750,
+      "place": "Babylon, Iraq",
+      "lat": 32.54,
+      "lon": 44.42
+    }
+  },
+  {
+    "id": "david-king",
+    "name": "King David",
+    "difficulty": "easy",
+    "variants": [
+      "king david",
+      "david"
+    ],
+    "occupation": "Biblical King of Israel",
+    "birth": {
+      "year": -1040,
+      "place": "Bethlehem",
+      "lat": 31.7,
+      "lon": 35.2
+    },
+    "death": {
+      "year": -970,
+      "place": "Jerusalem",
+      "lat": 31.78,
+      "lon": 35.22
+    }
+  },
+  {
+    "id": "solomon-king",
+    "name": "King Solomon",
+    "difficulty": "easy",
+    "variants": [
+      "king solomon",
+      "solomon"
+    ],
+    "occupation": "Biblical King of Israel renowned for wisdom",
+    "birth": {
+      "year": -1010,
+      "place": "Jerusalem",
+      "lat": 31.78,
+      "lon": 35.22
+    },
+    "death": {
+      "year": -931,
+      "place": "Jerusalem",
+      "lat": 31.78,
+      "lon": 35.22
+    }
+  },
+  {
+    "id": "herod-the-great",
+    "name": "Herod the Great",
+    "difficulty": "medium",
+    "variants": [
+      "herod the great",
+      "herod",
+      "king herod"
+    ],
+    "occupation": "Roman client King of Judea",
+    "birth": {
+      "year": -72,
+      "place": "Idumea",
+      "lat": 31.5,
+      "lon": 35.1
+    },
+    "death": {
+      "year": -4,
+      "place": "Jericho",
+      "lat": 31.86,
+      "lon": 35.46
+    }
+  },
+  {
+    "id": "pontius-pilate",
+    "name": "Pontius Pilate",
+    "difficulty": "medium",
+    "variants": [
+      "pontius pilate",
+      "pilate"
+    ],
+    "occupation": "Roman prefect who condemned Jesus",
+    "birth": {
+      "year": -10,
+      "place": "Italy",
+      "lat": 42.0,
+      "lon": 12.5
+    },
+    "death": {
+      "year": 39,
+      "place": "Judea",
+      "lat": 31.78,
+      "lon": 35.22
+    }
+  },
+  {
+    "id": "saint-helena",
+    "name": "Saint Helena",
+    "difficulty": "hard",
+    "variants": [
+      "saint helena",
+      "helena",
+      "helena of constantinople"
+    ],
+    "occupation": "Mother of Constantine who sought the True Cross",
+    "birth": {
+      "year": 246,
+      "place": "Drepanon, Turkey",
+      "lat": 40.72,
+      "lon": 29.51
+    },
+    "death": {
+      "year": 330,
+      "place": "Constantinople",
+      "lat": 41.01,
+      "lon": 28.97
+    }
+  },
+  {
+    "id": "william-tell",
+    "name": "William Tell",
+    "difficulty": "medium",
+    "variants": [
+      "william tell",
+      "wilhelm tell",
+      "tell"
+    ],
+    "occupation": "Legendary Swiss folk hero and marksman",
+    "birth": {
+      "year": 1280,
+      "place": "Bürglen, Switzerland",
+      "lat": 46.87,
+      "lon": 8.66
+    },
+    "death": {
+      "year": 1354,
+      "place": "Uri, Switzerland",
+      "lat": 46.83,
+      "lon": 8.62
+    }
+  },
+  {
+    "id": "leif-erikson",
+    "name": "Leif Erikson",
+    "difficulty": "medium",
+    "variants": [
+      "leif erikson",
+      "leif ericson",
+      "leif eriksson"
+    ],
+    "occupation": "Norse explorer who reached North America",
+    "birth": {
+      "year": 970,
+      "place": "Iceland",
+      "lat": 64.96,
+      "lon": -19.02
+    },
+    "death": {
+      "year": 1020,
+      "place": "Greenland",
+      "lat": 61.0,
+      "lon": -45.0
+    }
+  },
+  {
+    "id": "ragnar-lothbrok",
+    "name": "Ragnar Lothbrok",
+    "difficulty": "medium",
+    "variants": [
+      "ragnar lothbrok",
+      "ragnar",
+      "ragnar lodbrok"
+    ],
+    "occupation": "Legendary Viking raider and king",
+    "birth": {
+      "year": 790,
+      "place": "Denmark",
+      "lat": 56.0,
+      "lon": 9.5
+    },
+    "death": {
+      "year": 865,
+      "place": "Northumbria, England",
+      "lat": 53.96,
+      "lon": -1.08
+    }
+  },
+  {
+    "id": "harald-hardrada",
+    "name": "Harald Hardrada",
+    "difficulty": "medium",
+    "variants": [
+      "harald hardrada",
+      "harald hardrade",
+      "hardrada",
+      "harald iii of norway"
+    ],
+    "occupation": "Viking King of Norway killed at Stamford Bridge",
+    "birth": {
+      "year": 1015,
+      "place": "Ringerike, Norway",
+      "lat": 60.17,
+      "lon": 10.26
+    },
+    "death": {
+      "year": 1066,
+      "place": "Stamford Bridge, England",
+      "lat": 53.99,
+      "lon": -0.92
+    }
+  },
+  {
+    "id": "rollo",
+    "name": "Rollo of Normandy",
+    "difficulty": "hard",
+    "variants": [
+      "rollo of normandy",
+      "rollo",
+      "rollon"
+    ],
+    "occupation": "Viking founder of Normandy",
+    "birth": {
+      "year": 860,
+      "place": "Scandinavia",
+      "lat": 60.0,
+      "lon": 8.0
+    },
+    "death": {
+      "year": 930,
+      "place": "Rouen, France",
+      "lat": 49.44,
+      "lon": 1.1
+    }
+  },
+  {
+    "id": "boudica",
+    "name": "Boudica",
+    "difficulty": "easy",
+    "variants": [
+      "boudica",
+      "boudicca",
+      "boadicea"
+    ],
+    "occupation": "Celtic queen who revolted against Rome",
+    "birth": {
+      "year": 30,
+      "place": "Britain",
+      "lat": 52.5,
+      "lon": 1.0
+    },
+    "death": {
+      "year": 61,
+      "place": "Britain",
+      "lat": 52.5,
+      "lon": -1.2
+    }
+  },
+  {
+    "id": "vercingetorix",
+    "name": "Vercingetorix",
+    "difficulty": "medium",
+    "variants": [
+      "vercingetorix"
+    ],
+    "occupation": "Gallic chieftain who fought Caesar",
+    "birth": {
+      "year": -82,
+      "place": "Auvergne, France",
+      "lat": 45.78,
+      "lon": 3.08
+    },
+    "death": {
+      "year": -46,
+      "place": "Rome, Italy",
+      "lat": 41.89,
+      "lon": 12.48
+    }
+  },
+  {
+    "id": "mithridates-vi",
+    "name": "Mithridates VI",
+    "difficulty": "hard",
+    "variants": [
+      "mithridates vi",
+      "mithridates",
+      "mithridates the great"
+    ],
+    "occupation": "King of Pontus and great enemy of Rome",
+    "birth": {
+      "year": -135,
+      "place": "Sinop, Turkey",
+      "lat": 42.03,
+      "lon": 35.15
+    },
+    "death": {
+      "year": -63,
+      "place": "Panticapaeum, Crimea",
+      "lat": 45.35,
+      "lon": 36.47
+    }
+  },
+  {
+    "id": "sennacherib",
+    "name": "Sennacherib",
+    "difficulty": "hard",
+    "variants": [
+      "sennacherib"
+    ],
+    "occupation": "Assyrian king who besieged Jerusalem",
+    "birth": {
+      "year": -745,
+      "place": "Assyria",
+      "lat": 36.36,
+      "lon": 43.15
+    },
+    "death": {
+      "year": -681,
+      "place": "Nineveh, Iraq",
+      "lat": 36.36,
+      "lon": 43.15
+    }
+  },
+  {
+    "id": "chandragupta-maurya",
+    "name": "Chandragupta Maurya",
+    "difficulty": "hard",
+    "variants": [
+      "chandragupta maurya",
+      "chandragupta"
+    ],
+    "occupation": "Founder of India's Maurya Empire",
+    "birth": {
+      "year": -340,
+      "place": "Pataliputra, India",
+      "lat": 25.61,
+      "lon": 85.14
+    },
+    "death": {
+      "year": -297,
+      "place": "Shravanabelagola, India",
+      "lat": 12.86,
+      "lon": 76.49
+    }
+  },
+  {
+    "id": "harsha",
+    "name": "Harsha",
+    "difficulty": "hard",
+    "variants": [
+      "harsha",
+      "harshavardhana"
+    ],
+    "occupation": "Emperor who united northern India",
+    "birth": {
+      "year": 590,
+      "place": "Thanesar, India",
+      "lat": 29.97,
+      "lon": 76.82
+    },
+    "death": {
+      "year": 647,
+      "place": "Kannauj, India",
+      "lat": 27.06,
+      "lon": 79.92
+    }
+  },
+  {
+    "id": "wu-zetian",
+    "name": "Wu Zetian",
+    "difficulty": "medium",
+    "variants": [
+      "wu zetian",
+      "empress wu",
+      "wu zhao"
+    ],
+    "occupation": "Only female emperor in Chinese history",
+    "birth": {
+      "year": 624,
+      "place": "Lizhou, China",
+      "lat": 32.43,
+      "lon": 105.84
+    },
+    "death": {
+      "year": 705,
+      "place": "Luoyang, China",
+      "lat": 34.62,
+      "lon": 112.45
+    }
+  },
+  {
+    "id": "saint-boniface",
+    "name": "Saint Boniface",
+    "difficulty": "hard",
+    "variants": [
+      "saint boniface",
+      "boniface",
+      "apostle of the germans"
+    ],
+    "occupation": "Missionary martyr who Christianised Germany",
+    "birth": {
+      "year": 675,
+      "place": "Crediton, England",
+      "lat": 50.79,
+      "lon": -3.66
+    },
+    "death": {
+      "year": 754,
+      "place": "Dokkum, Netherlands",
+      "lat": 53.32,
+      "lon": 5.99
+    }
+  },
+  {
+    "id": "thomas-paine",
+    "name": "Thomas Paine",
+    "difficulty": "medium",
+    "variants": [
+      "thomas paine",
+      "paine",
+      "tom paine"
+    ],
+    "occupation": "Revolutionary writer of Common Sense",
+    "birth": {
+      "year": 1737,
+      "place": "Thetford, England",
+      "lat": 52.41,
+      "lon": 0.75
+    },
+    "death": {
+      "year": 1809,
+      "place": "New York City, New York",
+      "lat": 40.71,
+      "lon": -74.01
+    }
+  },
+  {
+    "id": "patrick-henry",
+    "name": "Patrick Henry",
+    "difficulty": "medium",
+    "variants": [
+      "patrick henry"
+    ],
+    "occupation": "American patriot orator",
+    "birth": {
+      "year": 1736,
+      "place": "Hanover County, Virginia",
+      "lat": 37.76,
+      "lon": -77.37
+    },
+    "death": {
+      "year": 1799,
+      "place": "Brookneal, Virginia",
+      "lat": 37.05,
+      "lon": -78.94
+    }
+  },
+  {
+    "id": "paul-revere",
+    "name": "Paul Revere",
+    "difficulty": "medium",
+    "variants": [
+      "paul revere",
+      "revere"
+    ],
+    "occupation": "Patriot of the famous midnight ride",
+    "birth": {
+      "year": 1735,
+      "place": "Boston, Massachusetts",
+      "lat": 42.36,
+      "lon": -71.06
+    },
+    "death": {
+      "year": 1818,
+      "place": "Boston, Massachusetts",
+      "lat": 42.36,
+      "lon": -71.06
+    }
+  },
+  {
+    "id": "marquis-de-sade",
+    "name": "Marquis de Sade",
+    "difficulty": "medium",
+    "variants": [
+      "marquis de sade",
+      "de sade",
+      "sade"
+    ],
+    "occupation": "French aristocrat and notorious writer",
+    "birth": {
+      "year": 1740,
+      "place": "Paris, France",
+      "lat": 48.86,
+      "lon": 2.35
+    },
+    "death": {
+      "year": 1814,
+      "place": "Charenton, France",
+      "lat": 48.82,
+      "lon": 2.41
+    }
+  },
+  {
+    "id": "captain-bligh",
+    "name": "William Bligh",
+    "difficulty": "medium",
+    "variants": [
+      "william bligh",
+      "captain bligh",
+      "bligh"
+    ],
+    "occupation": "Captain of HMS Bounty mutiny fame",
+    "birth": {
+      "year": 1754,
+      "place": "Plymouth, England",
+      "lat": 50.38,
+      "lon": -4.14
+    },
+    "death": {
+      "year": 1817,
+      "place": "London, England",
+      "lat": 51.51,
+      "lon": -0.13
+    }
+  },
+  {
+    "id": "edward-teach-blackbeard",
+    "name": "Blackbeard",
+    "difficulty": "easy",
+    "variants": [
+      "blackbeard",
+      "edward teach",
+      "edward thatch",
+      "teach"
+    ],
+    "occupation": "Notorious pirate killed off North Carolina",
+    "birth": {
+      "year": 1680,
+      "place": "Bristol, England",
+      "lat": 51.45,
+      "lon": -2.59
+    },
+    "death": {
+      "year": 1718,
+      "place": "Ocracoke, North Carolina",
+      "lat": 35.11,
+      "lon": -75.98
+    }
+  },
+  {
+    "id": "captain-kidd",
+    "name": "Captain Kidd",
+    "difficulty": "medium",
+    "variants": [
+      "captain kidd",
+      "william kidd",
+      "kidd"
+    ],
+    "occupation": "Privateer turned pirate, hanged in London",
+    "birth": {
+      "year": 1645,
+      "place": "Dundee, Scotland",
+      "lat": 56.46,
+      "lon": -2.97
+    },
+    "death": {
+      "year": 1701,
+      "place": "London, England",
+      "lat": 51.51,
+      "lon": -0.05
+    }
+  },
+  {
+    "id": "bartholomew-roberts",
+    "name": "Bartholomew Roberts",
+    "difficulty": "hard",
+    "variants": [
+      "bartholomew roberts",
+      "black bart",
+      "barti ddu"
+    ],
+    "occupation": "Most successful pirate of the Golden Age",
+    "birth": {
+      "year": 1682,
+      "place": "Casnewydd Bach, Wales",
+      "lat": 51.86,
+      "lon": -4.93
+    },
+    "death": {
+      "year": 1722,
+      "place": "Cape Lopez, Gabon",
+      "lat": -0.62,
+      "lon": 8.7
+    }
+  },
+  {
+    "id": "henry-morgan",
+    "name": "Henry Morgan",
+    "difficulty": "medium",
+    "variants": [
+      "henry morgan",
+      "captain morgan",
+      "morgan"
+    ],
+    "occupation": "Welsh privateer who became governor of Jamaica",
+    "birth": {
+      "year": 1635,
+      "place": "Llanrhymny, Wales",
+      "lat": 51.53,
+      "lon": -3.13
+    },
+    "death": {
+      "year": 1688,
+      "place": "Port Royal, Jamaica",
+      "lat": 17.94,
+      "lon": -76.84
+    }
+  },
+  {
+    "id": "anne-bonny",
+    "name": "Anne Bonny",
+    "difficulty": "hard",
+    "variants": [
+      "anne bonny",
+      "bonny"
+    ],
+    "occupation": "Irish-born female pirate of the Caribbean",
+    "birth": {
+      "year": 1697,
+      "place": "Kinsale, Ireland",
+      "lat": 51.71,
+      "lon": -8.52
+    },
+    "death": {
+      "year": 1782,
+      "place": "Charleston, South Carolina",
+      "lat": 32.78,
+      "lon": -79.93
+    }
+  },
+  {
+    "id": "grace-omalley",
+    "name": "Grace O'Malley",
+    "difficulty": "hard",
+    "variants": [
+      "grace o'malley",
+      "grace omalley",
+      "granuaile",
+      "pirate queen"
+    ],
+    "occupation": "Irish pirate queen who met Elizabeth I",
+    "birth": {
+      "year": 1530,
+      "place": "Clew Bay, Ireland",
+      "lat": 53.81,
+      "lon": -9.6
+    },
+    "death": {
+      "year": 1603,
+      "place": "Rockfleet Castle, Ireland",
+      "lat": 53.85,
+      "lon": -9.6
+    }
+  },
+  {
+    "id": "kit-marlowe",
+    "name": "Christopher Marlowe",
+    "difficulty": "medium",
+    "variants": [
+      "christopher marlowe",
+      "marlowe",
+      "kit marlowe"
+    ],
+    "occupation": "Playwright killed in a tavern brawl",
+    "birth": {
+      "year": 1564,
+      "place": "Canterbury, England",
+      "lat": 51.28,
+      "lon": 1.08
+    },
+    "death": {
+      "year": 1593,
+      "place": "Deptford, London, England",
+      "lat": 51.48,
+      "lon": -0.03
+    }
+  },
+  {
+    "id": "tycho-brahe",
+    "name": "Tycho Brahe",
+    "difficulty": "medium",
+    "variants": [
+      "tycho brahe",
+      "tycho",
+      "brahe"
+    ],
+    "occupation": "Danish astronomer with a metal nose",
+    "birth": {
+      "year": 1546,
+      "place": "Knutstorp, Sweden",
+      "lat": 55.96,
+      "lon": 13.0
+    },
+    "death": {
+      "year": 1601,
+      "place": "Prague, Czech Republic",
+      "lat": 50.08,
+      "lon": 14.44
+    }
+  },
+  {
+    "id": "captain-john-smith",
+    "name": "John Smith",
+    "difficulty": "medium",
+    "variants": [
+      "john smith",
+      "captain john smith"
+    ],
+    "occupation": "English leader of the Jamestown colony",
+    "birth": {
+      "year": 1580,
+      "place": "Willoughby, England",
+      "lat": 53.21,
+      "lon": 0.19
+    },
+    "death": {
+      "year": 1631,
+      "place": "London, England",
+      "lat": 51.51,
+      "lon": -0.13
+    }
+  },
+  {
+    "id": "queen-nzinga",
+    "name": "Queen Nzinga",
+    "difficulty": "hard",
+    "variants": [
+      "queen nzinga",
+      "nzinga",
+      "ana nzinga",
+      "njinga"
+    ],
+    "occupation": "Queen who resisted Portuguese colonisation of Angola",
+    "birth": {
+      "year": 1583,
+      "place": "Kabasa, Angola",
+      "lat": -9.3,
+      "lon": 14.9
+    },
+    "death": {
+      "year": 1663,
+      "place": "Kabasa, Angola",
+      "lat": -9.3,
+      "lon": 14.9
+    }
+  },
+  {
+    "id": "jean-jacques-dessalines",
+    "name": "Jean-Jacques Dessalines",
+    "difficulty": "hard",
+    "variants": [
+      "jean-jacques dessalines",
+      "dessalines",
+      "jean jacques dessalines"
+    ],
+    "occupation": "Founder of independent Haiti, assassinated",
+    "birth": {
+      "year": 1758,
+      "place": "Grande-Rivière-du-Nord, Haiti",
+      "lat": 19.58,
+      "lon": -72.16
+    },
+    "death": {
+      "year": 1806,
+      "place": "Port-au-Prince, Haiti",
+      "lat": 18.59,
+      "lon": -72.31
+    }
+  },
+  {
+    "id": "kamehameha",
+    "name": "Kamehameha I",
+    "difficulty": "medium",
+    "variants": [
+      "kamehameha i",
+      "kamehameha",
+      "kamehameha the great"
+    ],
+    "occupation": "King who unified the Hawaiian Islands",
+    "birth": {
+      "year": 1736,
+      "place": "Kohala, Hawaii",
+      "lat": 20.23,
+      "lon": -155.79
+    },
+    "death": {
+      "year": 1819,
+      "place": "Kailua-Kona, Hawaii",
+      "lat": 19.64,
+      "lon": -155.99
+    }
+  },
+  {
+    "id": "cuauhtemoc",
+    "name": "Cuauhtemoc",
+    "difficulty": "hard",
+    "variants": [
+      "cuauhtémoc",
+      "cuauhtemoc"
+    ],
+    "occupation": "Last Aztec emperor, executed by Cortés",
+    "birth": {
+      "year": 1496,
+      "place": "Tenochtitlan, Mexico",
+      "lat": 19.43,
+      "lon": -99.13
+    },
+    "death": {
+      "year": 1525,
+      "place": "Itzamkanac, Mexico",
+      "lat": 18.4,
+      "lon": -91.5
+    }
+  }
+]

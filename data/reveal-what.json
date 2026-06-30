@@ -1,0 +1,783 @@
+[
+  {
+    "id": "mona-lisa",
+    "name": "Mona Lisa",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "mona lisa",
+      "la gioconda",
+      "gioconda",
+      "la joconde"
+    ],
+    "blurb": "Leonardo da Vinci, c. 1503–1519 · Louvre, Paris",
+    "img": "assets/img/mona-lisa.jpg",
+    "fx": 0.8,
+    "fy": 0.31,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Leonardo da Vinci",
+    "source": "Wikimedia Commons: Mona Lisa, by Leonardo da Vinci, from C2RMF natural color.jpg"
+  },
+  {
+    "id": "tut-mask",
+    "name": "Mask of Tutankhamun",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "mask of tutankhamun",
+      "tutankhamun mask",
+      "tutankhamun",
+      "king tut",
+      "tut",
+      "death mask of tutankhamun"
+    ],
+    "blurb": "Burial mask of Tutankhamun, c. 1323 BC · Egyptian Museum, Cairo",
+    "img": "assets/img/tut-mask.jpg",
+    "fx": 0.3,
+    "fy": 0.42,
+    "frac": 0.28,
+    "license": "CC BY-SA 3.0",
+    "attribution": "en:User:MykReeve",
+    "source": "Wikimedia Commons: Tutanchamun Maske.jpg"
+  },
+  {
+    "id": "rosetta-stone",
+    "name": "Rosetta Stone",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "rosetta stone",
+      "the rosetta stone"
+    ],
+    "blurb": "196 BC · British Museum, London",
+    "img": "assets/img/rosetta-stone.jpg",
+    "fx": 0.5,
+    "fy": 0.45,
+    "frac": 0.26,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Awikimate",
+    "source": "Wikimedia Commons: Rosetta Stone - front face - corrected image.jpg"
+  },
+  {
+    "id": "starry-night",
+    "name": "The Starry Night",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "the starry night",
+      "starry night",
+      "la nuit étoilée"
+    ],
+    "blurb": "Vincent van Gogh, 1889 · Museum of Modern Art, New York",
+    "img": "assets/img/starry-night.jpg",
+    "fx": 0.85,
+    "fy": 0.18,
+    "frac": 0.18,
+    "license": "Public domain",
+    "attribution": "Vincent van Gogh",
+    "source": "Wikimedia Commons: Van Gogh - Starry Night - Google Art Project.jpg"
+  },
+  {
+    "id": "birth-of-venus",
+    "name": "The Birth of Venus",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "the birth of venus",
+      "birth of venus",
+      "la nascita di venere"
+    ],
+    "blurb": "Sandro Botticelli, c. 1484–1486 · Uffizi Gallery, Florence",
+    "img": "assets/img/birth-of-venus.jpg",
+    "fx": 0.257396449704142,
+    "fy": 0.6597300182762427,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Sandro Botticelli",
+    "source": "Wikimedia Commons: Sandro Botticelli - La nascita di Venere - Google Art Project - edited.jpg"
+  },
+  {
+    "id": "girl-pearl-earring",
+    "name": "Girl with a Pearl Earring",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "girl with a pearl earring",
+      "girl with the pearl earring",
+      "la jeune fille à la perle",
+      "the girl with the pearl earring"
+    ],
+    "blurb": "Johannes Vermeer, c. 1665 · Mauritshuis, The Hague",
+    "img": "assets/img/girl-pearl-earring.jpg",
+    "fx": 0.6115551537070525,
+    "fy": 0.14,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Johannes Vermeer",
+    "source": "Wikimedia Commons: Girl with a Pearl Earring.jpg"
+  },
+  {
+    "id": "the-scream",
+    "name": "The Scream",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "the scream",
+      "skrik",
+      "der schrei der natur"
+    ],
+    "blurb": "Edvard Munch, 1893 · National Museum, Oslo",
+    "img": "assets/img/the-scream.jpg",
+    "fx": 0.5104259094942325,
+    "fy": 0.745,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Edvard Munch",
+    "source": "Wikimedia Commons: Edvard Munch, 1893, The Scream, oil, tempera and pastel on cardboard.jpg"
+  },
+  {
+    "id": "guernica",
+    "name": "Guernica",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "guernica",
+      "guernica by picasso"
+    ],
+    "blurb": "Pablo Picasso, 1937 · Museo Reina Sofía, Madrid",
+    "img": "assets/img/guernica.jpg",
+    "fx": 0.1,
+    "fy": 0.42,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Pablo Picasso",
+    "source": "Wikimedia Commons: Guernica.jpg",
+    "_image_fix": true
+  },
+  {
+    "id": "great-wave",
+    "name": "The Great Wave off Kanagawa",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "the great wave",
+      "the great wave off kanagawa",
+      "great wave off kanagawa",
+      "kanagawa oki nami ura",
+      "hokusai",
+      "hokusai painting",
+      "hokusai wave"
+    ],
+    "blurb": "Katsushika Hokusai, c. 1831 · Metropolitan Museum of Art, New York",
+    "img": "assets/img/great-wave.jpg",
+    "fx": 0.6018934911242604,
+    "fy": 0.43138932142980724,
+    "frac": 0.26,
+    "license": "Public domain",
+    "attribution": "Katsushika Hokusai",
+    "source": "Wikimedia Commons: Great Wave off Kanagawa2.jpg"
+  },
+  {
+    "id": "american-gothic",
+    "name": "American Gothic",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "american gothic",
+      "american gothic by grant wood"
+    ],
+    "blurb": "Grant Wood, 1930 · Art Institute of Chicago",
+    "img": "assets/img/american-gothic.jpg",
+    "fx": 0.45561126373626376,
+    "fy": 0.28785714285714287,
+    "frac": 0.26,
+    "license": "Public domain",
+    "attribution": "Grant Wood",
+    "source": "Wikimedia Commons: Grant DeVolson Wood - American Gothic.jpg"
+  },
+  {
+    "id": "las-meninas",
+    "name": "Las Meninas",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "las meninas",
+      "the maids of honour",
+      "the ladies-in-waiting"
+    ],
+    "blurb": "Diego Velázquez, 1656 · Museo del Prado, Madrid",
+    "img": "assets/img/las-meninas.jpg",
+    "fx": 0.5065635286372614,
+    "fy": 0.7535714285714286,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Diego Velázquez",
+    "source": "Wikimedia Commons: Las Meninas, by Diego Velázquez, from Prado in Google Earth.jpg"
+  },
+  {
+    "id": "school-of-athens",
+    "name": "The School of Athens",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "the school of athens",
+      "school of athens",
+      "la scuola di atene"
+    ],
+    "blurb": "Raphael, 1509–1511 · Apostolic Palace, Vatican City",
+    "img": "assets/img/school-of-athens.jpg",
+    "fx": 0.5089940828402366,
+    "fy": 0.37124382358323677,
+    "frac": 0.18,
+    "license": "Public domain",
+    "attribution": "Raphael",
+    "source": "Wikimedia Commons: \"The School of Athens\" by Raffaello Sanzio da Urbino.jpg"
+  },
+  {
+    "id": "sunflowers",
+    "name": "Sunflowers",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "sunflowers",
+      "sunflowers by van gogh",
+      "les tournesols"
+    ],
+    "blurb": "Vincent van Gogh, 1888 · National Gallery, London",
+    "img": "assets/img/sunflowers.jpg",
+    "fx": 0.89,
+    "fy": 0.845,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Vincent van Gogh",
+    "source": "Wikimedia Commons: Vincent van Gogh - Sunflowers - VGM F458.jpg"
+  },
+  {
+    "id": "arnolfini-portrait",
+    "name": "The Arnolfini Portrait",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "the arnolfini portrait",
+      "arnolfini portrait",
+      "arnolfini wedding",
+      "the arnolfini wedding"
+    ],
+    "blurb": "Jan van Eyck, 1434 · National Gallery, London",
+    "img": "assets/img/arnolfini-portrait.jpg",
+    "fx": 0.5589407856165722,
+    "fy": 0.8807142857142857,
+    "frac": 0.16,
+    "license": "Public domain",
+    "attribution": "Jan van Eyck",
+    "source": "Wikimedia Commons: Van Eyck - Arnolfini Portrait.jpg"
+  },
+  {
+    "id": "liberty-leading",
+    "name": "Liberty Leading the People",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "liberty leading the people",
+      "la liberté guidant le peuple",
+      "liberty guides the people"
+    ],
+    "blurb": "Eugène Delacroix, 1830 · Louvre, Paris",
+    "img": "assets/img/liberty-leading.jpg",
+    "fx": 0.55,
+    "fy": 0.32,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Eugène Delacroix",
+    "source": "Wikimedia Commons: Eugène Delacroix - La liberté guidant le peuple.jpg"
+  },
+  {
+    "id": "sunday-grande-jatte",
+    "name": "A Sunday on La Grande Jatte",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "a sunday on la grande jatte",
+      "sunday afternoon on the island of la grande jatte",
+      "la grande jatte",
+      "sunday on the grande jatte"
+    ],
+    "blurb": "Georges Seurat, 1884–1886 · Art Institute of Chicago",
+    "img": "assets/img/sunday-grande-jatte.jpg",
+    "fx": 0.55,
+    "fy": 0.55,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Georges Seurat",
+    "source": "Wikimedia Commons: A Sunday on La Grande Jatte, Georges Seurat, 1884.jpg"
+  },
+  {
+    "id": "creation-of-adam",
+    "name": "The Creation of Adam",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "the creation of adam",
+      "creation of adam",
+      "la creazione di adamo",
+      "sistine chapel ceiling",
+      "sistine chapel",
+      "sistine ceiling"
+    ],
+    "blurb": "Michelangelo, c. 1512 · Sistine Chapel, Vatican City",
+    "img": "assets/img/creation-of-adam.jpg",
+    "fx": 0.21420118343195266,
+    "fy": 0.5716270230024688,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Michelangelo",
+    "source": "Wikimedia Commons: Michelangelo - Creation of Adam (cropped).jpg"
+  },
+  {
+    "id": "last-supper",
+    "name": "The Last Supper",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "the last supper",
+      "last supper",
+      "il cenacolo",
+      "cenacolo"
+    ],
+    "blurb": "Leonardo da Vinci, c. 1495–1498 · Santa Maria delle Grazie, Milan",
+    "img": "assets/img/last-supper.jpg",
+    "fx": 0.85,
+    "fy": 0.52,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Leonardo da Vinci",
+    "source": "Wikimedia Commons: Leonardo da Vinci (1452-1519) - The Last Supper (1495-1498).jpg"
+  },
+  {
+    "id": "venus-de-milo",
+    "name": "Venus de Milo",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "venus de milo",
+      "aphrodite of melos",
+      "venus of milo"
+    ],
+    "blurb": "c. 150–125 BC · Louvre, Paris",
+    "img": "assets/img/venus-de-milo.jpg",
+    "fx": 0.32023010546500486,
+    "fy": 0.5964285714285714,
+    "frac": 0.4674017257909876,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Gérard Janot",
+    "source": "Wikimedia Commons: Venus de Milo Louvre Ma399 n4.jpg"
+  },
+  {
+    "id": "michelangelo-david",
+    "name": "David",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "david",
+      "michelangelo's david",
+      "david by michelangelo"
+    ],
+    "blurb": "Michelangelo, 1501–1504 · Galleria dell'Accademia, Florence",
+    "img": "assets/img/michelangelo-david.jpg",
+    "fx": 0.5717374517374518,
+    "fy": 0.8553571428571429,
+    "frac": 0.31507507507507504,
+    "license": "Public domain",
+    "attribution": "Jörg Bittner Unna",
+    "source": "Wikimedia Commons: 'David' by Michelangelo JBU0001.JPG"
+  },
+  {
+    "id": "winged-victory",
+    "name": "Winged Victory of Samothrace",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "winged victory of samothrace",
+      "nike of samothrace",
+      "winged victory",
+      "nike of samothrake"
+    ],
+    "blurb": "c. 200–190 BC · Louvre, Paris",
+    "img": "assets/img/winged-victory.jpg",
+    "fx": 0.89,
+    "fy": 0.17000000000000004,
+    "frac": 0.5202597402597402,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Gérard Janot",
+    "source": "Wikimedia Commons: Nike of Samothrake Louvre Ma2369 n4.jpg"
+  },
+  {
+    "id": "the-thinker",
+    "name": "The Thinker",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "the thinker",
+      "le penseur"
+    ],
+    "blurb": "Auguste Rodin, 1904 · Musée Rodin, Paris",
+    "img": "assets/img/the-thinker.jpg",
+    "fx": 0.42334754797441365,
+    "fy": 0.6521428571428571,
+    "frac": 0.28,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Andrew Horne",
+    "source": "Wikimedia Commons: The Thinker, Auguste Rodin.jpg"
+  },
+  {
+    "id": "laocoon",
+    "name": "Laocoön and His Sons",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "laocoon and his sons",
+      "laocoön and his sons",
+      "laocoon",
+      "laocoön"
+    ],
+    "blurb": "c. 40–30 BC · Vatican Museums, Rome",
+    "img": "assets/img/laocoon.jpg",
+    "fx": 0.7869571428571429,
+    "fy": 0.4642857142857143,
+    "frac": 0.26696329254727486,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Livioandronico2013",
+    "source": "Wikimedia Commons: Laocoon and His Sons.jpg"
+  },
+  {
+    "id": "bust-nefertiti",
+    "name": "Bust of Nefertiti",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "bust of nefertiti",
+      "nefertiti bust",
+      "nefertiti"
+    ],
+    "blurb": "c. 1345 BC · Neues Museum, Berlin",
+    "img": "assets/img/bust-nefertiti.jpg",
+    "fx": 0.7823677055009411,
+    "fy": 0.22,
+    "frac": 0.27190964233423964,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Philip Pikart",
+    "source": "Wikimedia Commons: Nofretete Neues Museum.jpg"
+  },
+  {
+    "id": "terracotta-warrior",
+    "name": "Terracotta Army",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "terracotta army",
+      "terra cotta warriors",
+      "terracotta warriors",
+      "qin shi huang's terracotta army"
+    ],
+    "blurb": "c. 210–209 BC · Mausoleum of the First Qin Emperor, Xi'an",
+    "img": "assets/img/terracotta-warrior.jpg",
+    "fx": 0.37869822485207105,
+    "fy": 0.5033077456154379,
+    "frac": 0.14432716740409038,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Maros M r az",
+    "source": "Wikimedia Commons: Terracotta Army, View of Pit 1.jpg"
+  },
+  {
+    "id": "easter-island-moai",
+    "name": "Easter Island Moai",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "easter island moai",
+      "moai",
+      "easter island statues",
+      "rapa nui statues"
+    ],
+    "blurb": "c. 1250–1500 AD · Rapa Nui (Easter Island), Chile",
+    "img": "assets/img/easter-island-moai.jpg",
+    "fx": 0.4285714285714286,
+    "fy": 0.7421428571428571,
+    "frac": 0.26,
+    "license": "CC BY-SA 2.0",
+    "attribution": "Aurbina",
+    "source": "Wikimedia Commons: Moai Rano raraku.jpg"
+  },
+  {
+    "id": "liberty-bell",
+    "name": "Liberty Bell",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "liberty bell",
+      "the liberty bell"
+    ],
+    "blurb": "1752 · Liberty Bell Center, Philadelphia",
+    "img": "assets/img/liberty-bell.jpg",
+    "fx": 0.475763429927131,
+    "fy": 0.9248371428571428,
+    "frac": 0.17557024233180815,
+    "license": "CC BY-SA 2.0",
+    "attribution": "Smallbones",
+    "source": "Wikimedia Commons: Liberty Bell 2008.jpg"
+  },
+  {
+    "id": "sutton-hoo-helmet",
+    "name": "Sutton Hoo Helmet",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "sutton hoo helmet",
+      "the sutton hoo helmet"
+    ],
+    "blurb": "c. 625 AD · British Museum, London",
+    "img": "assets/img/sutton-hoo-helmet.jpg",
+    "fx": 0.6092325227963526,
+    "fy": 0.5778571428571428,
+    "frac": 0.24,
+    "license": "CC BY-SA 2.5",
+    "attribution": "Gernot Keller",
+    "source": "Wikimedia Commons: Sutton Hoo helmet reconstructed.jpg"
+  },
+  {
+    "id": "lewis-chessmen",
+    "name": "Lewis Chessmen",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "lewis chessmen",
+      "the lewis chessmen",
+      "lewis chess pieces"
+    ],
+    "blurb": "c. 1150–1200 AD · British Museum, London",
+    "img": "assets/img/lewis-chessmen.jpg",
+    "fx": 0.4748785798023782,
+    "fy": 0.3414285714285714,
+    "frac": 0.24,
+    "license": "CC BY 2.0",
+    "attribution": "Rob Roy",
+    "source": "Wikimedia Commons: The Warder, Lewis Chessmen, British Museum.jpg"
+  },
+  {
+    "id": "aztec-sun-stone",
+    "name": "Aztec Sun Stone",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "aztec sun stone",
+      "aztec calendar stone",
+      "stone of the sun",
+      "aztec calendar"
+    ],
+    "blurb": "c. 1427–1479 AD · National Museum of Anthropology, Mexico City",
+    "img": "assets/img/aztec-sun-stone.jpg",
+    "fx": 0.39349112426035504,
+    "fy": 0.5088846242692396,
+    "frac": 0.2132309824617517,
+    "license": "CC BY-SA 2.0",
+    "attribution": "Rosemanios",
+    "source": "Wikimedia Commons: Aztec Sun Stone or Calendar Stone.jpg"
+  },
+  {
+    "id": "stonehenge",
+    "name": "Stonehenge",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "stonehenge",
+      "stone henge"
+    ],
+    "blurb": "c. 3000–1500 BC · Wiltshire, England",
+    "img": "assets/img/stonehenge.jpg",
+    "fx": 0.1125,
+    "fy": 0.8103550295857989,
+    "frac": 0.3,
+    "license": "CC BY-SA 2.0",
+    "attribution": "Dave Souza",
+    "source": "Wikimedia Commons: Stonehenge2007 07 30.jpg"
+  },
+  {
+    "id": "colosseum",
+    "name": "The Colosseum",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "the colosseum",
+      "colosseum",
+      "coliseum",
+      "the coliseum",
+      "flavian amphitheatre"
+    ],
+    "blurb": "c. 70–80 AD · Rome, Italy",
+    "img": "assets/img/colosseum.jpg",
+    "fx": 0.73698224852071,
+    "fy": 0.8777692485384793,
+    "frac": 0.2123425200348275,
+    "license": "CC BY-SA 2.0",
+    "attribution": "Wikipedia user Diliff",
+    "source": "Wikimedia Commons: Rome Colosseum exterior 2.jpg"
+  },
+  {
+    "id": "venus-willendorf",
+    "name": "Venus of Willendorf",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "venus of willendorf",
+      "the venus of willendorf",
+      "willendorf venus"
+    ],
+    "blurb": "c. 28,000–25,000 BC · Natural History Museum, Vienna",
+    "img": "assets/img/venus-willendorf.jpg",
+    "fx": 0.3759398496240601,
+    "fy": 0.5307142857142857,
+    "frac": 0.7518796992481201,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Don Hitchcock",
+    "source": "Wikimedia Commons: Venus von Willendorf 01.jpg"
+  },
+  {
+    "id": "magna-carta",
+    "name": "Magna Carta",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "magna carta",
+      "magna charta",
+      "the magna carta",
+      "the great charter"
+    ],
+    "blurb": "1215 AD · British Library, London",
+    "img": "assets/img/magna-carta.jpg",
+    "fx": 0.16272189349112426,
+    "fy": 0.7823267054036285,
+    "frac": 0.435346589192743,
+    "license": "CC BY 4.0",
+    "attribution": "British Library",
+    "source": "Wikimedia Commons: Magna Carta (British Library Cotton MS Augustus II.106).jpg"
+  },
+  {
+    "id": "elgin-marbles",
+    "name": "Elgin Marbles",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "elgin marbles",
+      "the elgin marbles",
+      "parthenon marbles",
+      "the parthenon marbles"
+    ],
+    "blurb": "c. 447–438 BC · British Museum, London",
+    "img": "assets/img/elgin-marbles.jpg",
+    "fx": 0.3079881656804734,
+    "fy": 0.5657790927021696,
+    "frac": 0.6224852071005915,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Wikipedia user Thermos",
+    "source": "Wikimedia Commons: Part of the central section-East frieze-Elgin Marbles-British Museum.jpg"
+  },
+  {
+    "id": "imperial-state-crown",
+    "name": "Imperial State Crown",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "imperial state crown",
+      "the imperial state crown",
+      "crown jewels"
+    ],
+    "blurb": "1937 · Tower of London, London",
+    "img": "assets/img/imperial-state-crown.jpg",
+    "fx": 0.5126496879743633,
+    "fy": 0.5028571428571429,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Mark Fosh",
+    "source": "Wikimedia Commons: ImperialStateCrown.jpg"
+  },
+  {
+    "id": "lascaux",
+    "name": "Lascaux Cave Paintings",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "lascaux cave paintings",
+      "lascaux paintings",
+      "lascaux",
+      "cave of lascaux"
+    ],
+    "blurb": "c. 17,000 BC · Lascaux Cave, Dordogne, France",
+    "img": "assets/img/lascaux.jpg",
+    "fx": 0.6840236686390533,
+    "fy": 0.4996860743484348,
+    "frac": 0.5594697140792267,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Prof saxx",
+    "source": "Wikimedia Commons: Lascaux painting.jpg"
+  },
+  {
+    "id": "sistine-ceiling",
+    "name": "Sistine Chapel Ceiling",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "sistine chapel ceiling",
+      "the sistine chapel ceiling",
+      "sistine chapel",
+      "michelangelo sistine chapel"
+    ],
+    "blurb": "Michelangelo, 1508–1512 · Sistine Chapel, Vatican City",
+    "img": "assets/img/sistine-ceiling.jpg",
+    "fx": 0.41331360946745554,
+    "fy": 0.45,
+    "frac": 0.9,
+    "license": "Public domain",
+    "attribution": "Michelangelo",
+    "source": "Wikimedia Commons: CAPPELLA SISTINA Ceiling.jpg"
+  },
+  {
+    "id": "hammurabi-stele",
+    "name": "Code of Hammurabi",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "code of hammurabi",
+      "hammurabi code",
+      "stele of hammurabi",
+      "hammurabi stele"
+    ],
+    "blurb": "c. 1754 BC · Louvre, Paris",
+    "img": "assets/img/hammurabi-stele.jpg",
+    "fx": 0.5,
+    "fy": 0.35571428571428576,
+    "frac": 0.5766062602965403,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Mbzt",
+    "source": "Wikimedia Commons: P1050763 Louvre code Hammurabi face rwk.JPG"
+  },
+  {
+    "id": "trajan-column",
+    "name": "Trajan's Column",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "trajan's column",
+      "trajans column",
+      "column of trajan"
+    ],
+    "blurb": "113 AD · Trajan's Forum, Rome",
+    "img": "assets/img/trajan-column.jpg",
+    "fx": 0.48,
+    "fy": 0.42,
+    "frac": 0.8507916200223892,
+    "license": "CC BY 2.0",
+    "attribution": "Flickr user Jean-Pierre Dalbéra",
+    "source": "Wikimedia Commons: Trajan's Column (48423812647).jpg"
+  }
+]
