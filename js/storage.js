@@ -86,3 +86,27 @@ export function setMisc(patch) {
   d.misc = Object.assign(d.misc || {}, patch);
   saveAll(d);
 }
+
+export function getChrono() {
+  const d = loadAll();
+  return d.chrono || { bestScore: 0, sessions: 0 };
+}
+export function setChrono(c) { const d = loadAll(); d.chrono = c; saveAll(d); }
+export function getChronoSession() { return loadAll().chronoSession || null; }
+export function setChronoSession(s) { const d = loadAll(); d.chronoSession = s; saveAll(d); }
+export function clearChronoSession() { const d = loadAll(); delete d.chronoSession; saveAll(d); }
+
+export function getConn(id) {
+  const d = loadAll();
+  return (d.conns && d.conns[id]) || null;
+}
+export function setConn(id, state) {
+  const d = loadAll();
+  if (!d.conns) d.conns = {};
+  d.conns[id] = state;
+  saveAll(d);
+}
+export function getConnStats() {
+  return loadAll().connStats || { solved: 0 };
+}
+export function setConnStats(s) { const d = loadAll(); d.connStats = s; saveAll(d); }

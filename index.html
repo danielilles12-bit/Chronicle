@@ -73,6 +73,34 @@
         </div>
         <span class="card-go" aria-hidden="true">›</span>
       </button>
+      <button class="card" id="card-chrono" aria-label="Play Chrono">
+        <svg class="card-glyph" viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="26" r="18" fill="none" stroke="currentColor" stroke-width="2"/>
+          <line x1="24" y1="26" x2="24" y2="13" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="24" y1="26" x2="32" y2="31" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line x1="20" y1="4" x2="28" y2="4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div class="card-body">
+          <h2>Chrono</h2>
+          <p>Five historical events — sort them oldest to newest.</p>
+          <p class="card-stat" id="stat-chrono"></p>
+        </div>
+        <span class="card-go" aria-hidden="true">›</span>
+      </button>
+      <button class="card" id="card-conn" aria-label="Play Connections">
+        <svg class="card-glyph" viewBox="0 0 48 48" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="3" fill="currentColor" opacity=".25"/>
+          <rect x="27" y="3" width="18" height="18" rx="3" fill="currentColor" opacity=".5"/>
+          <rect x="3" y="27" width="18" height="18" rx="3" fill="currentColor" opacity=".75"/>
+          <rect x="27" y="27" width="18" height="18" rx="3" fill="currentColor"/>
+        </svg>
+        <div class="card-body">
+          <h2>Connections</h2>
+          <p>Group 16 history clues into four hidden categories.</p>
+          <p class="card-stat" id="stat-conn"></p>
+        </div>
+        <span class="card-go" aria-hidden="true">›</span>
+      </button>
     </main>
     <div id="ios-tip" hidden>
       <p><b>Make it an app:</b> tap Share
@@ -297,6 +325,117 @@
       <div class="sum-actions">
         <button class="pill primary big" id="rv-sum-again">Play again</button>
         <button class="pill ghost big" id="rv-sum-home">Home</button>
+      </div>
+    </main>
+  </section>
+
+  <!-- ============ CHRONO: START ============ -->
+  <section class="view" id="view-chronostart" hidden>
+    <header class="topbar safe-top">
+      <button class="iconbtn" data-back aria-label="Back">‹</button>
+      <h2>Chrono</h2>
+      <span class="topbar-right"></span>
+    </header>
+    <main class="scroll-main center-main">
+      <svg class="start-glyph" viewBox="0 0 200 80" aria-hidden="true">
+        <line x1="20" y1="40" x2="180" y2="40" stroke="#e6e6e6" stroke-width="2"/>
+        <circle cx="40" cy="40" r="8" fill="#9a7b2d"/>
+        <circle cx="90" cy="40" r="8" fill="#9a7b2d"/>
+        <circle cx="140" cy="40" r="8" fill="#9a7b2d"/>
+        <circle cx="165" cy="40" r="8" fill="#9a7b2d"/>
+        <circle cx="185" cy="40" r="8" fill="#9a7b2d" opacity=".4"/>
+        <text x="40" y="62" text-anchor="middle" font-size="9" fill="#6e6e6e">44 BC</text>
+        <text x="90" y="62" text-anchor="middle" font-size="9" fill="#6e6e6e">1066</text>
+        <text x="140" y="62" text-anchor="middle" font-size="9" fill="#6e6e6e">1492</text>
+        <text x="165" y="62" text-anchor="middle" font-size="9" fill="#6e6e6e">1789</text>
+        <text x="185" y="62" text-anchor="middle" font-size="9" fill="#6e6e6e" opacity=".4">?</text>
+      </svg>
+      <h3 class="start-title">Sort the timeline.</h3>
+      <p class="start-copy">Each round gives you five historical events out of order. Tap two to swap them, then submit. Closest to perfect scores the most.</p>
+      <p class="start-copy small">5 rounds · up to 100 pts each · 500 max</p>
+      <p class="card-stat" id="ch-best"></p>
+      <button class="pill primary big" id="ch-start">Start a session</button>
+      <button class="pill big" id="ch-resume" hidden>Resume session</button>
+    </main>
+  </section>
+
+  <!-- ============ CHRONO: PLAY ============ -->
+  <section class="view" id="view-chrono" hidden>
+    <header class="topbar safe-top">
+      <button class="iconbtn" id="ch-quit" aria-label="Quit">‹</button>
+      <h2 id="ch-progress">Round 1 of 5</h2>
+      <span class="topbar-right"><span id="ch-score">0 pts</span></span>
+    </header>
+    <main class="scroll-main">
+      <p id="ch-puzzle-title" class="ch-puzzle-title"></p>
+      <p class="ch-instruction">Tap two events to swap · oldest first</p>
+      <div id="ch-list" class="ch-list"></div>
+      <div id="ch-result" class="ch-result" hidden></div>
+      <button class="pill primary big" id="ch-submit">Submit order</button>
+      <button class="pill primary big" id="ch-next" hidden>Next ›</button>
+    </main>
+  </section>
+
+  <!-- ============ CHRONO: SUMMARY ============ -->
+  <section class="view" id="view-chronosum" hidden>
+    <header class="topbar safe-top">
+      <button class="iconbtn" id="ch-sum-back" aria-label="Back">‹</button>
+      <h2>Session complete</h2>
+      <span class="topbar-right"></span>
+    </header>
+    <main class="scroll-main">
+      <p class="sum-total"><span id="ch-sum-total">0</span><span class="sum-total-label">points</span></p>
+      <p id="ch-sum-remark" class="sum-remark"></p>
+      <ol id="ch-sum-rounds" class="sum-list"></ol>
+      <div class="sum-actions">
+        <button class="pill primary big" id="ch-sum-again">Play again</button>
+        <button class="pill ghost big" id="ch-sum-home">Home</button>
+      </div>
+    </main>
+  </section>
+
+  <!-- ============ CONNECTIONS: LIST ============ -->
+  <section class="view" id="view-connlist" hidden>
+    <header class="topbar safe-top">
+      <button class="iconbtn" data-back aria-label="Back">‹</button>
+      <h2>Connections</h2>
+      <span class="topbar-right"></span>
+    </header>
+    <main id="conn-list-main" class="scroll-main"></main>
+  </section>
+
+  <!-- ============ CONNECTIONS: PLAY ============ -->
+  <section class="view" id="view-conn" hidden>
+    <header class="topbar safe-top">
+      <button class="iconbtn" id="conn-quit" aria-label="Back">‹</button>
+      <h2 id="conn-puzzle-title"></h2>
+      <span class="topbar-right"><span id="conn-mistakes" class="conn-mistakes-dots"></span></span>
+    </header>
+    <main class="scroll-main">
+      <div id="conn-found"></div>
+      <div id="conn-grid" class="conn-grid"></div>
+      <p id="conn-feedback" class="conn-feedback" hidden></p>
+      <div class="conn-actions">
+        <button class="pill small ghost" id="conn-shuffle">Shuffle</button>
+        <button class="pill small ghost" id="conn-deselect">Deselect all</button>
+        <button class="pill small primary" id="conn-submit" disabled>Submit</button>
+      </div>
+    </main>
+  </section>
+
+  <!-- ============ CONNECTIONS: SUMMARY ============ -->
+  <section class="view" id="view-connsum" hidden>
+    <header class="topbar safe-top">
+      <button class="iconbtn" id="conn-sum-back" aria-label="Back">‹</button>
+      <h2 id="conn-sum-title"></h2>
+      <span class="topbar-right"></span>
+    </header>
+    <main class="scroll-main">
+      <p id="conn-sum-msg" class="sum-remark" style="text-align:center;font-size:17px;margin-top:16px;font-weight:600"></p>
+      <div id="conn-sum-groups" style="margin-top:12px;display:flex;flex-direction:column;gap:8px"></div>
+      <div class="sum-actions" style="margin-top:20px">
+        <button class="pill primary big" id="conn-sum-list">All puzzles</button>
+        <button class="pill ghost big" id="conn-sum-back2" style="display:none"></button>
       </div>
     </main>
   </section>

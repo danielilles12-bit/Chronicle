@@ -4,8 +4,10 @@ import { isMatch } from './match.js';
 import { initCrossword, renderPuzzleList } from './crossword.js';
 import { initMapGame, renderMapStart } from './mapgame.js';
 import { initRevealGame, renderRevealStart } from './revealgame.js';
+import { initChronoGame, renderChronoStart } from './chronogame.js';
+import { initConnectionsGame, renderConnList } from './connectionsgame.js';
 
-export const DATA = { puzzles: null, figures: null, world: null, reveal: null };
+export const DATA = { puzzles: null, figures: null, world: null, reveal: null, chrono: null, connections: null };
 export const $ = (sel) => document.querySelector(sel);
 export const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 
@@ -55,8 +57,9 @@ function render() {
   const id = trail[trail.length - 1];
   $$('.view').forEach((v) => { v.hidden = v.id !== id; });
   if (id === 'view-home') refreshHomeStats();
-  if (id === 'view-mapstart') renderMapStart();   // keep Resume state fresh
+  if (id === 'view-mapstart') renderMapStart();
   if (id === 'view-revealstart') renderRevealStart();
+  if (id === 'view-chronostart') renderChronoStart();
   document.dispatchEvent(new CustomEvent('viewchange', { detail: id }));
 }
 
@@ -103,6 +106,18 @@ export function refreshHomeStats() {
       ? `Best: ${rv.bestScore} pts · streak ${rv.bestStreak}`
       : (DATA.reveal ? `${DATA.reveal.length} to identify` : '');
   }
+  const ch = store.getChrono();
+  if ($('#stat-chrono')) {
+    $('#stat-chrono').textContent = ch.sessions
+      ? `Best: ${ch.bestScore} pts`
+      : (DATA.chrono ? `${DATA.chrono.length} puzzles` : '');
+  }
+  const cs = store.getConnStats();
+  if ($('#stat-conn')) {
+    $('#stat-conn').textContent = cs.solved
+      ? `${cs.solved} of ${DATA.connections ? DATA.connections.length : '?'} solved`
+      : (DATA.connections ? `${DATA.connections.length} puzzles` : '');
+  }
 }
 
 function initHome() {
@@ -126,6 +141,14 @@ function initHome() {
     renderRevealStart();
     show('view-revealstart');
   });
+  $('#card-chrono').addEventListener('click', () => {
+    renderChronoStart();
+    show('view-chronostart');
+  });
+  $('#card-conn').addEventListener('click', () => {
+    renderConnList();
+    show('view-connlist');
+  });
   $$('[data-back]').forEach((b) => b.addEventListener('click', back));
 
   const isIOS = /iP(hone|ad|od)/.test(navigator.userAgent);
@@ -143,8 +166,9 @@ function initHome() {
 // ---------- boot ----------
 async function boot() {
   try {
-    const [puzzles, figures, world, reveal] = await Promise.all(
-      ['data/puzzles.json', 'data/figures.json', 'data/worldmap.json', 'data/reveal.json'].map((u) =>
+    const [puzzles, figures, world, reveal, chrono, connections] = await Promise.all(
+      ['data/puzzles.json', 'data/figures.json', 'data/worldmap.json', 'data/reveal.json',
+       'data/chrono.json', 'data/connections.json'].map((u) =>
         fetch(u).then((r) => {
           if (!r.ok) throw new Error('failed to load ' + u);
           return r.json();
@@ -154,6 +178,8 @@ async function boot() {
     DATA.figures = figures;
     DATA.world = world;
     DATA.reveal = reveal;
+    DATA.chrono = chrono;
+    DATA.connections = connections;
   } catch (e) {
     document.body.innerHTML = '<p style="padding:40px;text-align:center">'
       + 'Chronicle could not load its data. Please reload once you are online.</p>';
@@ -164,6 +190,8 @@ async function boot() {
   initCrossword();
   initMapGame();
   initRevealGame();
+  initChronoGame();
+  initConnectionsGame();
   refreshHomeStats();
 
   // Deterministic hooks for the automated test-suite.

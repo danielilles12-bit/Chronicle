@@ -1,6 +1,6 @@
 // Chronicle service worker: precache everything, serve cache-first.
 // Bump VERSION on every deploy to refresh clients.
-const VERSION = 'chronicle-v7';
+const VERSION = 'chronicle-v8';
 
 const ASSETS = [
   './',
@@ -16,6 +16,8 @@ const ASSETS = [
   './data/figures.json',
   './data/worldmap.json',
   './data/reveal.json',
+  './data/chrono.json',
+  './data/connections.json',
   './manifest.webmanifest',
   './icons/icon-192.png',
   './icons/icon-512.png',
