@@ -14,8 +14,8 @@
     "title": "Last Stands",
     "groups": [
       {"colour": "yellow", "label": "Famous battles", "items": ["Waterloo", "Hastings", "Gettysburg", "Stalingrad"]},
-      {"colour": "green", "label": "Ancient Greek victories over Persia", "items": ["Marathon", "Salamis", "Plataea", "Thermopylae"]},
-      {"colour": "blue", "label": "Napoleon's defeats", "items": ["Leipzig", "Trafalgar", "Borodino", "Aspern"]},
+      {"colour": "green", "label": "Greek battles against Persia", "items": ["Marathon", "Salamis", "Plataea", "Thermopylae"]},
+      {"colour": "blue", "label": "Napoleon's defeats", "items": ["Leipzig", "Trafalgar", "Berezina", "Aspern"]},
       {"colour": "purple", "label": "Sieges that ended an empire", "items": ["Constantinople", "Tenochtitlan", "Carthage", "Baghdad"]}
     ]
   },
@@ -73,10 +73,10 @@
     "id": "conn-008",
     "title": "Final Words",
     "groups": [
-      {"colour": "yellow", "label": "Said to have been last words", "items": ["Et tu, Brute?", "I have not yet begun to fight", "Thomas Jefferson survives", "More light!"]},
+      {"colour": "yellow", "label": "Said to have been last words", "items": ["Et tu, Brute?", "This is no time to make new enemies", "Thomas Jefferson survives", "More light!"]},
       {"colour": "green", "label": "Spoken on the gallows or block", "items": ["Such is life", "I die innocent", "It is a far better thing", "Off with his head"]},
       {"colour": "blue", "label": "Battlefield last words", "items": ["Kiss me, Hardy", "They couldn't hit an elephant", "Don't give up the ship", "Hold the fort"]},
-      {"colour": "purple", "label": "Reputed dying quips of writers", "items": ["Either the wallpaper goes or I do", "I should never have switched from Scotch", "Drink to me", "On the contrary"]}
+      {"colour": "purple", "label": "Reputed dying quips", "items": ["Either the wallpaper goes or I do", "I should never have switched from Scotch", "Drink to me", "On the contrary"]}
     ]
   },
   {
@@ -126,17 +126,17 @@
       {"colour": "yellow", "label": "Said to have been left-handed", "items": ["Napoleon", "Leonardo da Vinci", "Julius Caesar", "Alexander the Great"]},
       {"colour": "green", "label": "Left-handed US presidents", "items": ["Obama", "Reagan", "Truman", "Ford"]},
       {"colour": "blue", "label": "Conquerors and generals", "items": ["Genghis Khan", "Hannibal", "Charlemagne", "Saladin"]},
-      {"colour": "purple", "label": "Renaissance polymaths", "items": ["Michelangelo", "Galileo", "Newton", "Benjamin Franklin"]}
+      {"colour": "purple", "label": "Polymaths", "items": ["Michelangelo", "Galileo", "Newton", "Benjamin Franklin"]}
     ]
   },
   {
     "id": "conn-014",
     "title": "Gone Too Soon",
     "groups": [
-      {"colour": "yellow", "label": "Died at 33", "items": ["Alexander the Great", "Jesus (traditional)", "Eva Peron", "Bruce Lee"]},
+      {"colour": "yellow", "label": "Died in their early 30s", "items": ["Alexander the Great", "Jesus (traditional)", "Eva Peron", "Bruce Lee"]},
       {"colour": "green", "label": "Members of the '27 Club'", "items": ["Jimi Hendrix", "Janis Joplin", "Jim Morrison", "Amy Winehouse"]},
-      {"colour": "blue", "label": "Assassinated young leaders", "items": ["Caligula", "JFK", "Lincoln", "Caesar"]},
-      {"colour": "purple", "label": "Died at 39", "items": ["Martin Luther King Jr", "Edgar Allan Poe", "Glenn Miller", "Lou Gehrig"]}
+      {"colour": "blue", "label": "Assassinated leaders", "items": ["Caligula", "JFK", "Lincoln", "Caesar"]},
+      {"colour": "purple", "label": "Died at 40", "items": ["Edgar Allan Poe", "Glenn Miller", "John Lennon", "Franz Kafka"]}
     ]
   },
   {
@@ -245,7 +245,7 @@
     "groups": [
       {"colour": "yellow", "label": "Warrior queens", "items": ["Boudica", "Cleopatra", "Zenobia", "Tomyris"]},
       {"colour": "green", "label": "Medieval English legends", "items": ["King Arthur", "Robin Hood", "Lady Godiva", "Richard the Lionheart"]},
-      {"colour": "blue", "label": "Nomadic conquerors", "items": ["Attila", "Genghis Khan", "Tamerlane", "Hannibal"]},
+      {"colour": "blue", "label": "Barbarian conquerors", "items": ["Attila", "Genghis Khan", "Tamerlane", "Odoacer"]},
       {"colour": "purple", "label": "Founders of a faith or order", "items": ["Buddha", "Muhammad", "Zoroaster", "Confucius"]}
     ]
   }
