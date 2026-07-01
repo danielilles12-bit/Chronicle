@@ -7,20 +7,46 @@ const COLOUR_ORDER = ['yellow', 'green', 'blue', 'purple'];
 let S = null;
 let currentPuzzle = null;
 
+// ---------- scoring ----------
+// NYT-Connections-style mistake penalty: mirrors the "floor + linear penalty"
+// shape used in mapgame.js / revealgame.js (Math.max(floor, 100 - k*mistakes)).
+// 0 mistakes = 100 pts, each mistake costs 20, floor is 20 pts if still solved.
+// Running out of mistakes before finishing (game-over) scores 0.
+function calcScore(solved, mistakes) {
+  if (!solved) return 0;
+  return Math.max(20, 100 - 20 * mistakes);
+}
+
+// ---------- injected styles (scoped to Connections; no css/*.css edits) ----------
+function ensureConnScoreStyles() {
+  if ($('#conn-score-styles')) return;
+  const style = document.createElement('style');
+  style.id = 'conn-score-styles';
+  style.textContent = `
+    .conn-score-live { font-size: 13px; font-weight: 700; color: var(--ink, #1a1a1a); margin-right: 8px; letter-spacing: .01em; }
+    .conn-sum-score { text-align: center; font-size: 34px; font-weight: 800; margin-top: 6px; }
+    .conn-sum-score small { display: block; font-size: 13px; font-weight: 600; opacity: .65; margin-top: 2px; }
+    .cw-score { font-size: 12px; font-weight: 600; opacity: .7; }
+  `;
+  document.head.appendChild(style);
+}
+
 // ---------- puzzle list ----------
 export function renderConnList() {
+  ensureConnScoreStyles();
   const main = $('#conn-list-main');
   main.innerHTML = '';
   DATA.connections.forEach((puzzle) => {
     const saved = store.getConn(puzzle.id);
     const btn = document.createElement('button');
     btn.className = 'cwitem';
-    const status = saved ? (saved.perfect ? '✓ Perfect' : `✓ Solved`) : '';
-    const statusClass = saved ? 'cw-state done' : 'cw-state';
+    const status = saved ? (saved.perfect ? '✓ Perfect' : saved.solved ? '✓ Solved' : 'Try again') : '';
+    const statusClass = saved && saved.solved ? 'cw-state done' : 'cw-state';
+    const scoreLine = saved && saved.solved && typeof saved.score === 'number' ? `<span class="cw-score">${saved.score} pts</span>` : '';
     btn.innerHTML =
       `<span class="cw-size">${puzzle.groups.length}×4</span>` +
       `<span class="cw-name">${puzzle.title}</span>` +
-      `<span class="${statusClass}">${status}</span>`;
+      `<span class="${statusClass}">${status}${scoreLine}</span>`;
     btn.addEventListener('click', () => startPuzzle(puzzle));
     main.appendChild(btn);
   });
@@ -36,7 +62,24 @@ function shuffleArray(arr) {
   return a;
 }
 
+function ensureLiveScoreEl() {
+  let el = $('#conn-score-live');
+  if (!el) {
+    el = document.createElement('span');
+    el.id = 'conn-score-live';
+    el.className = 'conn-score-live';
+    const mistakesEl = $('#conn-mistakes');
+    mistakesEl.parentNode.insertBefore(el, mistakesEl);
+  }
+  return el;
+}
+
+function updateLiveScore() {
+  ensureLiveScoreEl().textContent = `${calcScore(true, S.mistakes)} pts`;
+}
+
 function startPuzzle(puzzle) {
+  ensureConnScoreStyles();
   currentPuzzle = puzzle;
   // Build flat tile list from all groups
   const tiles = [];
@@ -64,6 +107,7 @@ function renderConnGame() {
   renderFound();
   renderGrid();
   updateMistakesDisplay();
+  updateLiveScore();
   $('#conn-submit').disabled = S.selected.size !== 4;
   $('#conn-feedback').hidden = true;
 }
@@ -93,6 +137,24 @@ function renderGrid() {
     div.addEventListener('click', () => onTapTile(i));
     grid.appendChild(div);
   });
+  fitConnTiles();
+}
+
+// Shrink each tile's font until its whole-word text fits — no mid-word breaks.
+// A long single word ("Constantinople") rides down to a smaller size on one
+// line; a multi-word tile ("Saudi Arabia") wraps only at the space.
+function fitConnTiles() {
+  for (const el of $$('#conn-grid .conn-tile')) {
+    let size = 13;
+    el.style.fontSize = size + 'px';
+    let guard = 0;
+    while ((el.scrollHeight > el.clientHeight + 0.5 || el.scrollWidth > el.clientWidth + 0.5)
+           && size > 7 && guard < 30) {
+      size -= 0.5;
+      el.style.fontSize = size + 'px';
+      guard++;
+    }
+  }
 }
 
 function onTapTile(i) {
@@ -115,6 +177,7 @@ function updateMistakesDisplay() {
     dot.className = 'conn-dot' + (i < left ? ' conn-dot-on' : '');
     el.appendChild(dot);
   }
+  updateLiveScore();
 }
 
 function submitGuess() {
@@ -171,9 +234,14 @@ function submitGuess() {
 function finishPuzzle() {
   const perfect = S.found.size === S.puzzle.groups.length && S.mistakes === 0;
   const solved = S.found.size === S.puzzle.groups.length;
-  store.setConn(currentPuzzle.id, { solved, perfect, mistakes: S.mistakes });
+  const score = calcScore(solved, S.mistakes);
+  store.setConn(currentPuzzle.id, { solved, perfect, mistakes: S.mistakes, score });
+
   const stats = store.getConnStats();
   if (solved) stats.solved = (stats.solved || 0) + 1;
+  stats.sessions = (stats.sessions || 0) + 1;
+  stats.bestScore = Math.max(stats.bestScore || 0, score);
+  stats.totalScore = (stats.totalScore || 0) + score;
   store.setConnStats(stats);
   refreshHomeStats();
 
@@ -183,6 +251,9 @@ function finishPuzzle() {
     solved ? `Solved with ${S.mistakes} mistake${S.mistakes === 1 ? '' : 's'}` :
     `${S.found.size} of 4 groups found`;
   $('#conn-sum-msg').textContent = msg;
+
+  ensureConnSumScoreEl().innerHTML =
+    `${score} pts<small>${solved ? `${S.mistakes} mistake${S.mistakes === 1 ? '' : 's'}` : 'game over'}</small>`;
 
   const reveal = $('#conn-sum-groups');
   reveal.innerHTML = '';
@@ -199,6 +270,18 @@ function finishPuzzle() {
   show('view-connsum');
 }
 
+function ensureConnSumScoreEl() {
+  let el = $('#conn-sum-score');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'conn-sum-score';
+    el.className = 'conn-sum-score';
+    const msgEl = $('#conn-sum-msg');
+    msgEl.parentNode.insertBefore(el, msgEl);
+  }
+  return el;
+}
+
 function shuffleTiles() {
   const remaining = S.tiles.filter((t) => !S.found.has(t.colour));
   const shuffled = shuffleArray(remaining);
@@ -211,6 +294,19 @@ function shuffleTiles() {
 
 // ---------- init ----------
 export function initConnectionsGame() {
+  ensureConnScoreStyles();
+  // Re-fit tile fonts when the board first becomes visible and on rot/resize
+  // (the grid is rendered while its view is still hidden, so sizes read as 0).
+  document.addEventListener('viewchange', (e) => {
+    if (e.detail === 'view-conn') fitConnTiles();
+  });
+  let rzTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(rzTimer);
+    rzTimer = setTimeout(() => {
+      if ($('#conn-grid') && $('#conn-grid').children.length) fitConnTiles();
+    }, 120);
+  });
   $('#conn-shuffle').addEventListener('click', shuffleTiles);
   $('#conn-deselect').addEventListener('click', () => {
     S.selected = new Set();

@@ -50,30 +50,32 @@ export function clearSession() {
   saveAll(d);
 }
 
-export function getReveal() {
+// Zoom In keeps separate best-scores and in-progress sessions per mode
+// ('who' = portraits, 'what' = artefacts), since they are now two games.
+export function getReveal(mode = 'who') {
   const d = loadAll();
-  return d.reveal || { bestScore: 0, bestStreak: 0, sessions: 0 };
+  return d['reveal_' + mode] || { bestScore: 0, bestStreak: 0, sessions: 0 };
 }
 
-export function setReveal(r) {
+export function setReveal(mode, r) {
   const d = loadAll();
-  d.reveal = r;
+  d['reveal_' + mode] = r;
   saveAll(d);
 }
 
-export function getRevealSession() {
-  return loadAll().revealSession || null;
+export function getRevealSession(mode = 'who') {
+  return loadAll()['revealSession_' + mode] || null;
 }
 
-export function setRevealSession(s) {
+export function setRevealSession(mode, s) {
   const d = loadAll();
-  d.revealSession = s;
+  d['revealSession_' + mode] = s;
   saveAll(d);
 }
 
-export function clearRevealSession() {
+export function clearRevealSession(mode = 'who') {
   const d = loadAll();
-  delete d.revealSession;
+  delete d['revealSession_' + mode];
   saveAll(d);
 }
 

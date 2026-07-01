@@ -335,17 +335,20 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 
 /* ---------- Connections ---------- */
 .conn-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr);
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 8px; margin: 10px 0;
 }
 .conn-tile {
   aspect-ratio: 1 / 1; border-radius: 8px;
   background: var(--soft); border: 2px solid transparent;
   display: flex; align-items: center; justify-content: center;
-  text-align: center; font-size: 12px; font-weight: 700;
+  text-align: center; font-size: 13px; font-weight: 700;
   padding: 6px; cursor: pointer; user-select: none;
   transition: background .1s, transform .1s;
-  line-height: 1.2;
+  line-height: 1.15;
+  /* Whole words only: never break mid-word. JS (fitConnTiles) shrinks the font
+     so long single words fit on one line; multi-word tiles wrap at spaces. */
+  min-width: 0; overflow: hidden; overflow-wrap: normal; word-break: normal; hyphens: manual;
 }
 .conn-tile:active { transform: scale(.94); }
 .conn-selected { background: #1a1a1a; color: #fff; }

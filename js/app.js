@@ -4,7 +4,6 @@ import { isMatch } from './match.js';
 import { initCrossword, renderPuzzleList } from './crossword.js';
 import { initMapGame, renderMapStart } from './mapgame.js';
 import { initRevealGame, renderRevealStart } from './revealgame.js';
-import { initChronoGame, renderChronoStart } from './chronogame.js';
 import { initConnectionsGame, renderConnList } from './connectionsgame.js';
 
 export const DATA = { puzzles: null, figures: null, world: null, reveal: null, chrono: null, connections: null };
@@ -59,7 +58,6 @@ function render() {
   if (id === 'view-home') refreshHomeStats();
   if (id === 'view-mapstart') renderMapStart();
   if (id === 'view-revealstart') renderRevealStart();
-  if (id === 'view-chronostart') renderChronoStart();
   document.dispatchEvent(new CustomEvent('viewchange', { detail: id }));
 }
 
@@ -100,17 +98,19 @@ export function refreshHomeStats() {
   $('#stat-map').textContent = m.sessions
     ? `Best: ${m.bestScore} pts · streak ${m.bestStreak}`
     : `${DATA.figures.length} lives to guess`;
-  const rv = store.getReveal();
-  if ($('#stat-reveal')) {
-    $('#stat-reveal').textContent = rv.sessions
-      ? `Best: ${rv.bestScore} pts · streak ${rv.bestStreak}`
-      : (DATA.reveal ? `${DATA.reveal.length} to identify` : '');
+  const whoCount = DATA.reveal ? DATA.reveal.filter((x) => x.kind === 'portrait').length : 0;
+  const whatCount = DATA.reveal ? DATA.reveal.filter((x) => x.kind !== 'portrait').length : 0;
+  const rvWho = store.getReveal('who');
+  if ($('#stat-reveal-who')) {
+    $('#stat-reveal-who').textContent = rvWho.sessions
+      ? `Best: ${rvWho.bestScore} pts · streak ${rvWho.bestStreak}`
+      : `${whoCount} faces to name`;
   }
-  const ch = store.getChrono();
-  if ($('#stat-chrono')) {
-    $('#stat-chrono').textContent = ch.sessions
-      ? `Best: ${ch.bestScore} pts`
-      : (DATA.chrono ? `${DATA.chrono.length} puzzles` : '');
+  const rvWhat = store.getReveal('what');
+  if ($('#stat-reveal-what')) {
+    $('#stat-reveal-what').textContent = rvWhat.sessions
+      ? `Best: ${rvWhat.bestScore} pts · streak ${rvWhat.bestStreak}`
+      : `${whatCount} artefacts to name`;
   }
   const cs = store.getConnStats();
   if ($('#stat-conn')) {
@@ -137,13 +137,13 @@ function initHome() {
     renderMapStart();
     show('view-mapstart');
   });
-  $('#card-reveal').addEventListener('click', () => {
-    renderRevealStart();
+  $('#card-reveal-who').addEventListener('click', () => {
+    renderRevealStart('who');
     show('view-revealstart');
   });
-  $('#card-chrono').addEventListener('click', () => {
-    renderChronoStart();
-    show('view-chronostart');
+  $('#card-reveal-what').addEventListener('click', () => {
+    renderRevealStart('what');
+    show('view-revealstart');
   });
   $('#card-conn').addEventListener('click', () => {
     renderConnList();
@@ -166,9 +166,9 @@ function initHome() {
 // ---------- boot ----------
 async function boot() {
   try {
-    const [puzzles, figures, world, reveal, chrono, connections] = await Promise.all(
+    const [puzzles, figures, world, reveal, connections] = await Promise.all(
       ['data/puzzles.json', 'data/figures.json', 'data/worldmap.json', 'data/reveal.json',
-       'data/chrono.json', 'data/connections.json'].map((u) =>
+       'data/connections.json'].map((u) =>
         fetch(u).then((r) => {
           if (!r.ok) throw new Error('failed to load ' + u);
           return r.json();
@@ -178,7 +178,6 @@ async function boot() {
     DATA.figures = figures;
     DATA.world = world;
     DATA.reveal = reveal;
-    DATA.chrono = chrono;
     DATA.connections = connections;
   } catch (e) {
     document.body.innerHTML = '<p style="padding:40px;text-align:center">'
@@ -190,7 +189,6 @@ async function boot() {
   initCrossword();
   initMapGame();
   initRevealGame();
-  initChronoGame();
   initConnectionsGame();
   refreshHomeStats();
 

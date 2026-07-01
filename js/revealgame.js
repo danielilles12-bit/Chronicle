@@ -9,6 +9,11 @@ const MAXSTAGE = 4;            // 0 = tightest crop … 4 = almost the whole ima
 const ROUNDS = 10;
 
 let S = null;
+let MODE = 'who';               // 'who' = portraits, 'what' = artefacts
+
+function pool() {
+  return DATA.reveal.filter((x) => (MODE === 'who' ? x.kind === 'portrait' : x.kind !== 'portrait'));
+}
 
 // ---------- rng (shared shape with mapgame) ----------
 function mulberry32(a) {
@@ -75,12 +80,15 @@ function showCrop(item, stage) {
 }
 
 // ---------- session ----------
-export function renderRevealStart() {
-  const r = store.getReveal();
+export function renderRevealStart(mode) {
+  if (mode) MODE = mode;
+  const title = $('#rv-start-title');
+  if (title) title.textContent = MODE === 'who' ? 'Zoom In: Who' : 'Zoom In: What';
+  const r = store.getReveal(MODE);
   $('#rv-best').textContent = r.sessions
     ? `Your best: ${r.bestScore} pts · longest streak ${r.bestStreak}`
     : 'First session — good luck';
-  const saved = store.getRevealSession();
+  const saved = store.getRevealSession(MODE);
   const valid = saved && saved.ids && saved.results;
   $('#rv-resume').hidden = !valid;
   if (valid) {
@@ -93,7 +101,7 @@ export function renderRevealStart() {
 function byId(id) { return DATA.reveal.find((x) => x.id === id); }
 
 function persist() {
-  store.setRevealSession({
+  store.setRevealSession(MODE, {
     ids: S.rounds.map((x) => x.id),
     score: S.score, streak: S.streak, bestStreak: S.bestStreak,
     cur: S.cur && S.cur.open ? { stage: S.cur.stage } : null,
@@ -102,7 +110,7 @@ function persist() {
 }
 
 function pickRounds(rng) {
-  const items = DATA.reveal;
+  const items = pool();
   const by = (d) => shuffled(items.filter((x) => x.difficulty === d), rng);
   const want = { easy: 4, medium: 3, hard: 3 };
   const picks = [];
@@ -116,7 +124,7 @@ function pickRounds(rng) {
 }
 
 function startSession() {
-  const saved = store.getRevealSession();
+  const saved = store.getRevealSession(MODE);
   if (saved && saved.ids && saved.results && saved.results.length >= saved.ids.length) {
     resumeSession();             // a finished-but-unviewed session: bank it first
     return;
@@ -128,10 +136,10 @@ function startSession() {
 }
 
 function resumeSession() {
-  const saved = store.getRevealSession();
+  const saved = store.getRevealSession(MODE);
   if (!saved || !saved.ids || !saved.results) return;
   if (saved.ids.some((id) => !byId(id)) || saved.results.some((r) => !byId(r.id))) {
-    store.clearRevealSession();
+    store.clearRevealSession(MODE);
     renderRevealStart();
     return;
   }
@@ -236,12 +244,12 @@ function resolveRound(correct) {
 function finishSession() {
   if (S.done) { show('view-revealsum'); return; }
   S.done = true;
-  store.clearRevealSession();
-  const r = store.getReveal();
+  store.clearRevealSession(MODE);
+  const r = store.getReveal(MODE);
   r.sessions = (r.sessions || 0) + 1;
   r.bestScore = Math.max(r.bestScore || 0, S.score);
   r.bestStreak = Math.max(r.bestStreak || 0, S.bestStreak);
-  store.setReveal(r);
+  store.setReveal(MODE, r);
   refreshHomeStats();
 
   $('#rv-sum-total').textContent = S.score;
