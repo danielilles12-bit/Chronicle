@@ -2195,5 +2195,46 @@
     "license": "CC BY 2.0",
     "attribution": "Flickr user Jean-Pierre Dalbéra",
     "source": "Wikimedia Commons: Trajan's Column (48423812647).jpg"
+  },
+  {
+    "id": "stonewall-jackson",
+    "name": "Stonewall Jackson",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "stonewall jackson",
+      "thomas jackson",
+      "thomas j jackson",
+      "thomas jonathan jackson",
+      "stonewall"
+    ],
+    "blurb": "Confederate general (1824–1863)",
+    "img": "assets/img/stonewall-jackson.jpg",
+    "fx": 0.45,
+    "fy": 0.68,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons"
+  },
+  {
+    "id": "susan-b-anthony",
+    "name": "Susan B. Anthony",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "susan b anthony",
+      "susan anthony",
+      "susan brownell anthony",
+      "susan b. anthony"
+    ],
+    "blurb": "Women’s suffrage leader (1820–1906)",
+    "img": "assets/img/susan-b-anthony.jpg",
+    "fx": 0.52,
+    "fy": 0.7,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "G. E. Perine & Co.",
+    "source": "Engraving by G. E. Perine & Co., New York"
   }
 ]
