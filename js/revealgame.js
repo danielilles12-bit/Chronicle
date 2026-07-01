@@ -1,11 +1,16 @@
-// "Zoom In" — guess the famous artefact or portrait from a cropped fragment
-// that widens with every wrong guess. Mirrors the Map of a Life session shape
-// (10 rounds, persisted, resumable) so the two games behave consistently.
+// "Zoom In" — guess the famous face or artefact as the image slowly zooms out.
+// Each round opens on a tight crop (centred on the item's fx/fy) and widens to a
+// generous reveal over 15 seconds; the less that's shown when you answer, the
+// higher the score. Mirrors the Map of a Life session shape (10 rounds,
+// persisted, resumable) so the games behave consistently.
 import { DATA, $, show, back, goHome, appConfirm, refreshHomeStats } from './app.js';
 import * as store from './storage.js';
 import { isMatch } from './match.js';
 
-const MAXSTAGE = 4;            // 0 = tightest crop … 4 = almost the whole image
+const DURATION_MS = 15000;      // the crop widens from tight → open over 15s
+const START_MIN = 0.15;         // clamp the opening crop to a fair band:
+const START_MAX = 0.28;         // never a near-complete giveaway, never pure texture
+const END_FRAC = 0.9;           // widest in-play reveal before the full answer
 const ROUNDS = 10;
 
 let S = null;
@@ -40,19 +45,27 @@ function shuffled(arr, rng) {
 // ---------- image cropping ----------
 const dims = {};               // img path -> {w,h}, cached after first load
 
-function fracAt(item, stage) {
-  return item.frac + (0.85 - item.frac) * (stage / MAXSTAGE);
+// Opening tightness, clamped so no round starts on a giveaway or on pure texture.
+function startFrac(item) {
+  return Math.max(START_MIN, Math.min(START_MAX, item.frac));
+}
+// Shown fraction of the image's short side at progress p (0 = start … 1 = end).
+function fracFor(item, p) {
+  const s = startFrac(item);
+  return s + (END_FRAC - s) * p;
 }
 
-function paintCrop(item, stage) {
+// Paint a square crop of `frac` of the short side, centred on the item's focal
+// point (clamped to the image), scaled to fill the square frame.
+function paintFrac(item, frac) {
   const frame = $('#rv-frame');
   const wh = dims[item.img];
   frame.style.backgroundImage = `url("${item.img}")`;
   frame.style.backgroundColor = '#111';
-  if (!wh) return;                                  // re-painted on load
+  if (!wh) return;                                  // painted for real once dims load
   const { w: W, h: H } = wh;
-  const side = fracAt(item, stage) * Math.min(W, H);
-  const D = frame.getBoundingClientRect().width || 320;
+  const side = frac * Math.min(W, H);
+  const D = (S && S.cur && S.cur.D) || frame.getBoundingClientRect().width || 320;
   const scale = D / side;
   const cx = Math.max(side / 2, Math.min(W - side / 2, item.fx * W));
   const cy = Math.max(side / 2, Math.min(H - side / 2, item.fy * H));
@@ -68,15 +81,54 @@ function paintFull(item) {
   frame.style.backgroundPosition = 'center';
 }
 
-function showCrop(item, stage) {
-  if (dims[item.img]) { paintCrop(item, stage); return; }
+function ensureDims(item, cb) {
+  if (dims[item.img]) { cb(); return; }
   const img = new Image();
-  img.onload = () => {
-    dims[item.img] = { w: img.naturalWidth, h: img.naturalHeight };
-    if (S && S.cur && S.cur.open && round() === item) paintCrop(item, stage);
-  };
+  img.onload = () => { dims[item.img] = { w: img.naturalWidth, h: img.naturalHeight }; cb(); };
+  img.onerror = () => { dims[item.img] = { w: 1000, h: 1000 }; cb(); };
   img.src = item.img;
-  paintCrop(item, stage);       // sets bg now; positions once dims are known
+}
+
+// ---------- the zoom-out clock ----------
+function updateTimer(p) {
+  const fill = $('#rv-timerfill');
+  if (!fill) return;
+  fill.style.width = `${Math.max(0, (1 - p) * 100).toFixed(1)}%`;
+  fill.style.background = p > 0.85 ? '#c0392b' : p > 0.6 ? '#d99a2b' : '#4a7c43';
+}
+
+function tick(now) {
+  if (!S || !S.cur || !S.cur.open) return;
+  const p = Math.min(1, (now - S.cur.start) / DURATION_MS);
+  S.cur.p = p;
+  paintFrac(round(), fracFor(round(), p));
+  updateTimer(p);
+  if (p >= 1) { resolveRound(false); return; }      // time's up → scores zero
+  S.cur.raf = requestAnimationFrame(tick);
+}
+
+function startZoom(item) {
+  const frame = $('#rv-frame');
+  S.cur.D = frame.getBoundingClientRect().width || 320;
+  S.cur.start = performance.now();
+  S.cur.p = 0;
+  paintFrac(item, fracFor(item, 0));
+  updateTimer(0);
+  S.cur.raf = requestAnimationFrame(tick);
+}
+
+function stopZoom() {
+  if (S && S.cur && S.cur.raf) { cancelAnimationFrame(S.cur.raf); S.cur.raf = null; }
+}
+
+// Test hook: force the round to a given progress (skips real-time animation).
+function debugSetProgress(p) {
+  if (!S || !S.cur || !S.cur.open) return;
+  stopZoom();
+  S.cur.start = performance.now() - p * DURATION_MS;
+  S.cur.p = p;
+  paintFrac(round(), fracFor(round(), p));
+  updateTimer(p);
 }
 
 // ---------- session ----------
@@ -100,12 +152,13 @@ export function renderRevealStart(mode) {
 
 function byId(id) { return DATA.reveal.find((x) => x.id === id); }
 
+// A timed round can't be resumed mid-clock, so we only persist completed rounds;
+// resuming restarts the current round's timer fresh.
 function persist() {
   store.setRevealSession(MODE, {
     ids: S.rounds.map((x) => x.id),
     score: S.score, streak: S.streak, bestStreak: S.bestStreak,
-    cur: S.cur && S.cur.open ? { stage: S.cur.stage } : null,
-    results: S.results.map((r) => ({ id: r.item.id, pts: r.pts, correct: r.correct, stage: r.stage })),
+    results: S.results.map((r) => ({ id: r.item.id, pts: r.pts, correct: r.correct })),
   });
 }
 
@@ -148,8 +201,7 @@ function resumeSession() {
     rounds: saved.ids.map(byId),
     i: Math.min(next, saved.ids.length - 1),
     score: saved.score, streak: saved.streak, bestStreak: saved.bestStreak,
-    results: saved.results.map((r) => ({ item: byId(r.id), pts: r.pts, correct: r.correct, stage: r.stage })),
-    pendingCur: saved.cur || null,
+    results: saved.results.map((r) => ({ item: byId(r.id), pts: r.pts, correct: r.correct })),
   };
   if (next >= saved.ids.length) { finishSession(); return; }
   show('view-reveal');
@@ -160,9 +212,7 @@ function round() { return S.rounds[S.i]; }
 
 function startRound() {
   const item = round();
-  const carried = S.pendingCur;
-  S.pendingCur = null;
-  S.cur = { stage: carried ? carried.stage : 0, open: true };
+  S.cur = { open: true, p: 0, start: 0, raf: null, D: 0 };
   $('#rv-progress').textContent = `Round ${S.i + 1} of ${S.rounds.length}`;
   $('#rv-score').textContent = `${S.score} pts`;
   $('#rv-prompt').textContent = item.kind === 'portrait' ? 'Who is this?' : 'What is this?';
@@ -177,34 +227,31 @@ function startRound() {
   $('#rv-next').hidden = true;
   $('#rv-streak').hidden = S.streak < 2;
   if (S.streak >= 2) $('#rv-streak').textContent = `${S.streak} in a row`;
-  updateMoreButton();
-  showCrop(item, S.cur.stage);
+  updateTimer(0);
+  // Dark frame while the image loads, then open tight and start the zoom.
+  const frame = $('#rv-frame');
+  frame.style.backgroundColor = '#111';
+  frame.style.backgroundImage = 'none';
+  ensureDims(item, () => {
+    if (S && S.cur && S.cur.open && round() === item) startZoom(item);
+  });
   persist();
   window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
     revealRound: { index: S.i, id: item.id, name: item.name, kind: item.kind },
+    revealDebug: { setProgress: debugSetProgress, getP: () => (S && S.cur ? S.cur.p : null) },
   });
 }
 
-function updateMoreButton() {
-  const atFull = S.cur.stage >= MAXSTAGE;
-  $('#rv-more').disabled = atFull;
-  $('#rv-more').textContent = atFull ? 'Fully revealed' : 'Show more';
-}
-
-function advance() {
-  if (S.cur.stage < MAXSTAGE) S.cur.stage++;
-  paintCrop(round(), S.cur.stage);
-  updateMoreButton();
-  persist();
-}
-
 function resolveRound(correct) {
+  stopZoom();
   const item = round();
+  if (!S.cur.open) return;        // guard against a guess landing with time-up
   S.cur.open = false;
+  const p = S.cur.p || 0;
   let pts = 0;
   let bonus = 0;
   if (correct) {
-    pts = Math.max(20, 100 - 20 * S.cur.stage);
+    pts = Math.max(20, Math.round(100 - 80 * p));   // 100 (tight) → 20 (fully open)
     S.streak++;
     S.bestStreak = Math.max(S.bestStreak, S.streak);
     if (S.streak >= 2) bonus = 10;
@@ -213,10 +260,11 @@ function resolveRound(correct) {
   }
   const total = pts + bonus;
   S.score += total;
-  S.results.push({ item, pts: total, correct, stage: S.cur.stage });
+  S.results.push({ item, pts: total, correct, p });
   persist();
 
   paintFull(item);
+  updateTimer(1);
   const credit = item.license && item.license !== 'Public domain'
     ? ` <small class="rv-credit">${item.license}</small>` : '';
   const fb = $('#rv-feedback');
@@ -282,12 +330,13 @@ export function initRevealGame() {
 
   $('#rv-form').addEventListener('submit', (e) => {
     e.preventDefault();
-    if (!S || !S.cur.open) return;
+    if (!S || !S.cur || !S.cur.open) return;
     const guess = $('#rv-input').value.trim();
     if (!guess) return;
     if (isMatch(guess, round())) {
       resolveRound(true);
     } else {
+      // A wrong guess doesn't widen the frame — the running clock is the penalty.
       const chip = document.createElement('span');
       chip.className = 'guess-chip';
       chip.textContent = guess;
@@ -298,17 +347,11 @@ export function initRevealGame() {
       void inp.offsetWidth;
       inp.classList.add('shake');
       inp.focus();
-      advance();          // a wrong guess widens the frame (the penalty)
     }
   });
 
-  $('#rv-more').addEventListener('click', () => {
-    if (!S || !S.cur.open || S.cur.stage >= MAXSTAGE) return;
-    advance();
-  });
-
   $('#rv-reveal').addEventListener('click', () => {
-    if (!S || !S.cur.open) return;
+    if (!S || !S.cur || !S.cur.open) return;
     resolveRound(false);
   });
 
@@ -321,7 +364,7 @@ export function initRevealGame() {
   $('#rv-quit').addEventListener('click', () => {
     if (S && !S.done) {
       appConfirm('Quit this session? The score so far will be lost.', 'Quit session')
-        .then((ok) => { if (ok) { store.clearRevealSession(); renderRevealStart(); back(); } });
+        .then((ok) => { if (ok) { stopZoom(); store.clearRevealSession(MODE); renderRevealStart(); back(); } });
     } else {
       back();
     }

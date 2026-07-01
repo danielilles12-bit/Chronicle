@@ -237,12 +237,17 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 .hint-chip { font-size: 14px; background: #fdf6e3; border: 1px solid var(--gold); border-radius: 10px; padding: 8px 12px; }
 
 /* ---------- Zoom In game ---------- */
-#rv-panel { position: relative; background: var(--soft); border-bottom: 1px solid var(--rule); display: flex; justify-content: center; align-items: center; padding: 12px; }
+#rv-panel { position: relative; background: var(--soft); border-bottom: 1px solid var(--rule); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px; padding: 12px; }
 #rv-frame {
   width: min(76vw, 38dvh); aspect-ratio: 1 / 1; border-radius: 12px;
   background-repeat: no-repeat; background-color: #111;
   box-shadow: 0 2px 10px rgba(0,0,0,.22); border: 1px solid var(--rule);
 }
+#rv-timerbar {
+  width: min(76vw, 38dvh); height: 6px; border-radius: 999px;
+  background: rgba(0,0,0,.10); overflow: hidden;
+}
+#rv-timerfill { height: 100%; width: 100%; background: #4a7c43; }
 #rv-streak {
   position: absolute; top: 14px; right: 16px; background: var(--gold); color: #fff;
   font-size: 12px; font-weight: 700; border-radius: 999px; padding: 4px 10px;

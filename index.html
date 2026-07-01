@@ -275,9 +275,9 @@
         <circle cx="80" cy="36" r="16" fill="rgba(74,124,67,0.12)" stroke="#4a7c43" stroke-width="3"/>
         <line x1="92" y1="48" x2="105" y2="58" stroke="#4a7c43" stroke-width="4" stroke-linecap="round"/>
       </svg>
-      <h3 class="start-title">Name it from a sliver.</h3>
-      <p class="start-copy">Each round opens on a tiny crop of a famous <b>artefact</b> or <b>portrait</b>. Every wrong guess reveals a little more — name it while the clue is still tight.</p>
-      <p class="start-copy small">100 points from the first crop. Each reveal lowers the value (down to 20); giving up scores zero. Two correct in a row earns +10.</p>
+      <h3 class="start-title">Beat the zoom.</h3>
+      <p class="start-copy">Each round opens tight on a famous <b>face</b> or <b>artefact</b>, then slowly zooms out over <b>15 seconds</b>. Name it as early as you can.</p>
+      <p class="start-copy small">The less that's revealed when you nail it, the higher the score — 100 down to 20. Let the clock run out and you score zero. Two right in a row earns +10.</p>
       <p class="card-stat" id="rv-best"></p>
       <button class="pill primary big" id="rv-start">Start a session</button>
       <button class="pill big" id="rv-resume" hidden>Resume session</button>
@@ -293,6 +293,7 @@
     </header>
     <div id="rv-panel">
       <div id="rv-frame" role="img" aria-label="A cropped fragment to identify"></div>
+      <div id="rv-timerbar" aria-hidden="true"><div id="rv-timerfill"></div></div>
       <div id="rv-streak" hidden></div>
     </div>
     <main class="map-main">
@@ -304,8 +305,7 @@
         <button type="submit" class="pill primary" id="rv-guess-btn">Guess</button>
       </form>
       <div id="rv-controls">
-        <button class="pill small" id="rv-more">Show more</button>
-        <button class="pill small ghost" id="rv-reveal">Reveal <span class="cost">0 pts</span></button>
+        <button class="pill small ghost" id="rv-reveal">I give up <span class="cost">0 pts</span></button>
       </div>
       <div id="rv-guesses"></div>
       <button class="pill primary big" id="rv-next" hidden>Next ›</button>
