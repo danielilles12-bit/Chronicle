@@ -135,7 +135,7 @@ function debugSetProgress(p) {
 export function renderRevealStart(mode) {
   if (mode) MODE = mode;
   const title = $('#rv-start-title');
-  if (title) title.textContent = MODE === 'who' ? 'Face Value' : 'Zoom In: What';
+  if (title) title.textContent = MODE === 'who' ? 'Face Value' : 'Relic';
   const r = store.getReveal(MODE);
   $('#rv-best').textContent = r.sessions
     ? `Your best: ${r.bestScore} pts · longest streak ${r.bestStreak}`

@@ -1,7 +1,7 @@
 {
   "name": "Chronicle — History Games",
   "short_name": "Chronicle",
-  "description": "Little games about big history: Lifeline, Face Value, Zoom In and Thread.",
+  "description": "Little games about big history: Lifeline, Face Value, Relic and Thread.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
