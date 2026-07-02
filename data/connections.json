@@ -1148,5 +1148,1885 @@
         ]
       }
     ]
+  },
+  {
+    "id": "conn-026",
+    "title": "Named After a Name",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Foods named after real people",
+        "items": [
+          "Peach Melba",
+          "Caesar Salad",
+          "Nachos",
+          "Pavlova"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Currencies named after real people",
+        "items": [
+          "Bolivar",
+          "Lempira",
+          "Sucre",
+          "Colon"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "English words that started as a person's name",
+        "items": [
+          "Boycott",
+          "Silhouette",
+          "Guillotine",
+          "Sideburns"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Ancient civilizations hiding an everyday word",
+        "items": [
+          "Athens",
+          "Babylon",
+          "Carthage",
+          "Macedonia"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-027",
+    "title": "That Never Happened",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Subjects of a famous debunked myth",
+        "items": [
+          "Vikings",
+          "Columbus",
+          "Marie Antoinette",
+          "Einstein"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Royal impostors who nearly got away with it",
+        "items": [
+          "Perkin Warbeck",
+          "Lambert Simnel",
+          "False Dmitry",
+          "Anna Anderson"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Scientific credit that went to someone else",
+        "items": [
+          "Rosalind Franklin",
+          "Hedy Lamarr",
+          "Ada Lovelace",
+          "Lise Meitner"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Betrayed their own side",
+        "items": [
+          "Ephialtes",
+          "Benedict Arnold",
+          "Marcus Brutus",
+          "Vidkun Quisling"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-028",
+    "title": "Firsts and Pastimes",
+    "difficulty": "easy",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Aviation firsts",
+        "items": [
+          "Wright Brothers",
+          "Louis Blériot",
+          "Charles Lindbergh",
+          "Chuck Yeager"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Ancient Olympic events",
+        "items": [
+          "Stadion",
+          "Pankration",
+          "Discus Throw",
+          "Chariot Racing"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Sports that began as royal pastimes",
+        "items": [
+          "Real Tennis",
+          "Polo",
+          "Golf",
+          "Jousting"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Invented writing independently",
+        "items": [
+          "Sumer",
+          "Egypt",
+          "China",
+          "Maya"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-029",
+    "title": "Cities of Gold",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Great pre-Columbian American cities",
+        "items": [
+          "Tenochtitlan",
+          "Cusco",
+          "Tikal",
+          "Cahokia"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Deciphered a lost ancient script",
+        "items": [
+          "Champollion",
+          "Rawlinson",
+          "Ventris",
+          "Grotefend"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Islamic Golden Age polymaths",
+        "items": [
+          "Al-Khwarizmi",
+          "Ibn Sina",
+          "Ibn al-Haytham",
+          "Al-Biruni"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Credited with inventing a script single-handedly",
+        "items": [
+          "Sequoyah",
+          "Sejong",
+          "Wulfila",
+          "Mesrop Mashtots"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-030",
+    "title": "Rule Like a King",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Famous hoaxes and fakes",
+        "items": [
+          "Piltdown Man",
+          "Getty Kouros",
+          "Vinland Map",
+          "Hitler Diaries"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Reached by Zheng He's treasure fleet",
+        "items": [
+          "Calicut",
+          "Hormuz",
+          "Aden",
+          "Mogadishu"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Seized power without a hereditary crown",
+        "items": [
+          "Napoleon Bonaparte",
+          "Oliver Cromwell",
+          "Genghis Khan",
+          "Simon Bolivar"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Women who took a title meaning 'king'",
+        "items": [
+          "Hatshepsut",
+          "Jadwiga",
+          "Wu Zetian",
+          "Njinga"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-031",
+    "title": "Trial by Combat",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Types of Roman gladiator",
+        "items": [
+          "Retiarius",
+          "Secutor",
+          "Murmillo",
+          "Thraex"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Flood-myth survivors",
+        "items": [
+          "Noah",
+          "Utnapishtim",
+          "Deucalion",
+          "Manu"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Fought a famous pistol duel",
+        "items": [
+          "Aaron Burr",
+          "Alexander Pushkin",
+          "Evariste Galois",
+          "Andrew Jackson"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Spelled entirely with Roman numerals",
+        "items": [
+          "Mix",
+          "Civic",
+          "Livid",
+          "Mimic"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-032",
+    "title": "Taken",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Stolen artworks that were recovered",
+        "items": [
+          "Mona Lisa",
+          "The Scream",
+          "Duke of Wellington",
+          "Saliera"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Led a slave uprising",
+        "items": [
+          "Spartacus",
+          "Toussaint Louverture",
+          "Nat Turner",
+          "Samuel Sharpe"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Wrote a famous eyewitness account",
+        "items": [
+          "Pliny the Younger",
+          "Samuel Pepys",
+          "Bernal Diaz",
+          "Anne Frank"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Vanished and never found",
+        "items": [
+          "Amber Room",
+          "Peking Man",
+          "Just Judges",
+          "Honjo Masamune"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-033",
+    "title": "War Horses",
+    "difficulty": "easy",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Animal war heroes of the World Wars",
+        "items": [
+          "Wojtek",
+          "Cher Ami",
+          "Sergeant Stubby",
+          "Unsinkable Sam"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Horses of famous leaders",
+        "items": [
+          "Bucephalus",
+          "Incitatus",
+          "Marengo",
+          "Copenhagen"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Commanders who fielded war elephants",
+        "items": [
+          "Hannibal",
+          "Pyrrhus",
+          "Porus",
+          "Chandragupta"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Real wars with absurd names",
+        "items": [
+          "Emu War",
+          "Pig War",
+          "Pastry War",
+          "Football War"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-034",
+    "title": "Time and Place",
+    "difficulty": "easy",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Months named after Roman gods",
+        "items": [
+          "January",
+          "March",
+          "May",
+          "June"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Weekdays named after Norse gods",
+        "items": [
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Namesakes of Queen Victoria",
+        "items": [
+          "Victoria Falls",
+          "Lake Victoria",
+          "Victoria Cross",
+          "Victoria Sponge"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Named after the wrong place",
+        "items": [
+          "Panama Hat",
+          "Arabic Numerals",
+          "French Fries",
+          "Guinea Pig"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-035",
+    "title": "Give and Take",
+    "difficulty": "easy",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "English words from Nahuatl",
+        "items": [
+          "Chocolate",
+          "Tomato",
+          "Avocado",
+          "Coyote"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "English words from Hindi",
+        "items": [
+          "Shampoo",
+          "Pajamas",
+          "Bungalow",
+          "Loot"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Historic trade routes",
+        "items": [
+          "Silk Road",
+          "Amber Road",
+          "Incense Route",
+          "Grand Trunk Road"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "English words from Chinese",
+        "items": [
+          "Ketchup",
+          "Kowtow",
+          "Gung-ho",
+          "Tea"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-036",
+    "title": "Ahead of Their Time",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Became monarch as a small child",
+        "items": [
+          "Tutankhamun",
+          "Puyi",
+          "Mary Stuart",
+          "Louis XIV"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Famous only after death",
+        "items": [
+          "Van Gogh",
+          "Gregor Mendel",
+          "Emily Dickinson",
+          "Franz Kafka"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Won two Nobel Prizes",
+        "items": [
+          "Marie Curie",
+          "Linus Pauling",
+          "John Bardeen",
+          "Frederick Sanger"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Killed by their own machines",
+        "items": [
+          "Franz Reichelt",
+          "Otto Lilienthal",
+          "William Bullock",
+          "Thomas Midgley"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-037",
+    "title": "Dug Up",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Rediscovered 'lost' cities",
+        "items": [
+          "Angkor",
+          "Great Zimbabwe",
+          "Palenque",
+          "Heracleion"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Aligned to stage a famous solar light show",
+        "items": [
+          "Stonehenge",
+          "Newgrange",
+          "Abu Simbel",
+          "El Castillo"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Naturally preserved ancient bodies",
+        "items": [
+          "Otzi",
+          "Tollund Man",
+          "Lindow Man",
+          "Lady Dai"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Famous preserved body parts",
+        "items": [
+          "Galileo's Finger",
+          "Einstein's Brain",
+          "Buddha's Tooth",
+          "Descartes' Skull"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-038",
+    "title": "Seats of Learning",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "The medieval quadrivium",
+        "items": [
+          "Arithmetic",
+          "Geometry",
+          "Music",
+          "Astronomy"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Great stores of knowledge, destroyed",
+        "items": [
+          "Library of Alexandria",
+          "House of Wisdom",
+          "Nalanda",
+          "Maya Codices"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "European universities founded before 1250",
+        "items": [
+          "Bologna",
+          "Oxford",
+          "Cambridge",
+          "Paris"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Institutions founded by women",
+        "items": [
+          "Al-Qarawiyyin",
+          "American Red Cross",
+          "Girl Scouts",
+          "Bethune-Cookman"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-039",
+    "title": "Undercover",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Battlefield nursing pioneers",
+        "items": [
+          "Florence Nightingale",
+          "Mary Seacole",
+          "Clara Barton",
+          "Edith Cavell"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Groundbreaking women in mathematics",
+        "items": [
+          "Hypatia",
+          "Emmy Noether",
+          "Katherine Johnson",
+          "Sophie Germain"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Celebrities who were also spies",
+        "items": [
+          "Josephine Baker",
+          "Julia Child",
+          "Roald Dahl",
+          "Moe Berg"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Enlisted in armies disguised as men",
+        "items": [
+          "Deborah Sampson",
+          "Hannah Snell",
+          "Cathay Williams",
+          "Sarah Edmonds"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-040",
+    "title": "Great Minds",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "China's Four Great Inventions",
+        "items": [
+          "Papermaking",
+          "Printing",
+          "Gunpowder",
+          "Compass"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Phrases coined in famous speeches",
+        "items": [
+          "Iron Curtain",
+          "Blood and Iron",
+          "Cross of Gold",
+          "Finest Hour"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "US presidents awarded the Nobel Peace Prize",
+        "items": [
+          "Theodore Roosevelt",
+          "Woodrow Wilson",
+          "Jimmy Carter",
+          "Barack Obama"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "All born in 1809",
+        "items": [
+          "Abraham Lincoln",
+          "Charles Darwin",
+          "Louis Braille",
+          "Edgar Allan Poe"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-041",
+    "title": "Set in Stone",
+    "difficulty": "easy",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Lost Wonders of the Ancient World",
+        "items": [
+          "Colossus of Rhodes",
+          "Lighthouse of Alexandria",
+          "Hanging Gardens",
+          "Temple of Artemis"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Carved from solid rock",
+        "items": [
+          "Petra",
+          "Lalibela",
+          "Ellora",
+          "Mount Rushmore"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Landmarks moved to another continent",
+        "items": [
+          "London Bridge",
+          "Cleopatra's Needle",
+          "Pergamon Altar",
+          "Temple of Dendur"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Grand creations that famously flopped",
+        "items": [
+          "Tsar Bell",
+          "Spruce Goose",
+          "Maginot Line",
+          "Vasa"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-042",
+    "title": "Captive Audience",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Imprisoned in the Tower of London",
+        "items": [
+          "Anne Boleyn",
+          "Walter Raleigh",
+          "Guy Fawkes",
+          "Thomas More"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Held for ransom",
+        "items": [
+          "Julius Caesar",
+          "Richard the Lionheart",
+          "Atahualpa",
+          "Cervantes"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Pulled off a famous escape",
+        "items": [
+          "Casanova",
+          "Winston Churchill",
+          "Frederick Douglass",
+          "Napoleon III"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Held absolute power and walked away",
+        "items": [
+          "Cincinnatus",
+          "Sulla",
+          "Diocletian",
+          "George Washington"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-043",
+    "title": "Forged and Lost",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "West African empires of the Saharan trade",
+        "items": [
+          "Ghana Empire",
+          "Mali Empire",
+          "Songhai",
+          "Kanem-Bornu"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Lost ancient technologies",
+        "items": [
+          "Antikythera Mechanism",
+          "Greek Fire",
+          "Damascus Steel",
+          "Roman Concrete"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Legendary named swords",
+        "items": [
+          "Excalibur",
+          "Joyeuse",
+          "Kusanagi",
+          "Zulfiqar"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Famously misleading names",
+        "items": [
+          "October Revolution",
+          "Hundred Years' War",
+          "Holy Roman Empire",
+          "Bunker Hill"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-044",
+    "title": "Fun and Games",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Ancient board games",
+        "items": [
+          "Senet",
+          "Go",
+          "Patolli",
+          "Mancala"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Rulers known as 'the Great'",
+        "items": [
+          "Ashoka",
+          "Cyrus",
+          "Alfred",
+          "Ramesses"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Medieval merchant republics",
+        "items": [
+          "Venice",
+          "Genoa",
+          "Novgorod",
+          "Ragusa"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "All debuted in 1889",
+        "items": [
+          "Eiffel Tower",
+          "Nintendo",
+          "Starry Night",
+          "Moulin Rouge"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-045",
+    "title": "Votes and Notes",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "On US currency but never president",
+        "items": [
+          "Benjamin Franklin",
+          "Alexander Hamilton",
+          "Sacagawea",
+          "Susan B. Anthony"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "First places to grant women's suffrage",
+        "items": [
+          "New Zealand",
+          "Finland",
+          "Wyoming",
+          "Australia"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Made or broke wartime codes",
+        "items": [
+          "Alan Turing",
+          "Joan Clarke",
+          "Elizebeth Friedman",
+          "Code Talkers"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Places the Vikings reached",
+        "items": [
+          "Newfoundland",
+          "Constantinople",
+          "Kyiv",
+          "Seville"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-046",
+    "title": "Cold War Shadows",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Soviet moles exposed in the West",
+        "items": [
+          "Kim Philby",
+          "Aldrich Ames",
+          "Klaus Fuchs",
+          "Robert Hanssen"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "US-backed Cold War covert operations",
+        "items": [
+          "Operation Ajax",
+          "Operation Mongoose",
+          "Operation Gladio",
+          "Operation Paperclip"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Espionage tradecraft terms",
+        "items": [
+          "Dead Drop",
+          "Microdot",
+          "Honeytrap",
+          "Cutout"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Ordinary objects that hid spy gear",
+        "items": [
+          "Hollow Nickel",
+          "Poison Umbrella",
+          "Shoe Transmitter",
+          "Lipstick Pistol"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-047",
+    "title": "The Space Race",
+    "difficulty": "easy",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Soviet space firsts",
+        "items": [
+          "Sputnik",
+          "Laika",
+          "Yuri Gagarin",
+          "Valentina Tereshkova"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Fatal space disasters",
+        "items": [
+          "Apollo 1",
+          "Challenger",
+          "Columbia",
+          "Soyuz 11"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "NASA crewed spaceflight programs",
+        "items": [
+          "Mercury",
+          "Gemini",
+          "Artemis",
+          "Skylab"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Nicknames the Mercury astronauts gave their capsules",
+        "items": [
+          "Friendship 7",
+          "Freedom 7",
+          "Liberty Bell 7",
+          "Faith 7"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-048",
+    "title": "To the Ends of the Earth",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Polar explorers",
+        "items": [
+          "Fridtjof Nansen",
+          "John Franklin",
+          "James Clark Ross",
+          "Richard Byrd"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Ships lost in polar ice",
+        "items": [
+          "Endurance",
+          "Terror",
+          "Erebus",
+          "Jeannette"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Sea-ice terms",
+        "items": [
+          "Growler",
+          "Bergy Bit",
+          "Pack Ice",
+          "Ice Floe"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Antarctic research stations",
+        "items": [
+          "Vostok",
+          "McMurdo",
+          "Halley",
+          "Concordia"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-049",
+    "title": "Women Who Wrote History",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Leaders of the abolition and civil rights movement",
+        "items": [
+          "Harriet Tubman",
+          "Sojourner Truth",
+          "Ida B. Wells",
+          "Rosa Parks"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Queens who met the executioner",
+        "items": [
+          "Mary Queen of Scots",
+          "Lady Jane Grey",
+          "Marie Antoinette",
+          "Anne Boleyn"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Scientists denied full credit in their lifetime",
+        "items": [
+          "Jocelyn Bell Burnell",
+          "Chien-Shiung Wu",
+          "Nettie Stevens",
+          "Vera Rubin"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "First women to fly solo across a major distance",
+        "items": [
+          "Amelia Earhart",
+          "Amy Johnson",
+          "Beryl Markham",
+          "Jean Batten"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-050",
+    "title": "Kingdoms of Africa",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Pre-colonial African empires",
+        "items": [
+          "Mali Empire",
+          "Aksum",
+          "Great Zimbabwe",
+          "Kingdom of Kongo"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Rulers of Mali",
+        "items": [
+          "Mansa Musa",
+          "Sundiata Keita",
+          "Mansa Suleyman",
+          "Mari Djata II"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Trans-Saharan trade goods",
+        "items": [
+          "Gold Dust",
+          "Salt Bars",
+          "Kola Nuts",
+          "Ivory"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Seized by a colonial army and taken to Europe",
+        "items": [
+          "Benin Bronzes",
+          "Asante Gold",
+          "Maqdala Treasures",
+          "Koh-i-Noor"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-051",
+    "title": "Lost at Sea",
+    "difficulty": "easy",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Ocean liners that sank with heavy loss of life",
+        "items": [
+          "Titanic",
+          "Lusitania",
+          "Empress of Ireland",
+          "Wilhelm Gustloff"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Legendary lost or vanishing vessels",
+        "items": [
+          "Flying Dutchman",
+          "Mary Celeste",
+          "USS Cyclops",
+          "Waratah"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Devastating harbour explosions",
+        "items": [
+          "Halifax Explosion",
+          "Port Chicago",
+          "Texas City Disaster",
+          "Beirut Blast"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Shipping terms that became everyday English phrases",
+        "items": [
+          "Above Board",
+          "Loose Cannon",
+          "Three Sheets",
+          "Taken Aback"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-052",
+    "title": "The Price of Everything",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Goods once used as currency",
+        "items": [
+          "Cowrie Shells",
+          "Tea Bricks",
+          "Wampum",
+          "Tobacco"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Financial manias and currency collapses",
+        "items": [
+          "Weimar Hyperinflation",
+          "Tulip Mania",
+          "South Sea Bubble",
+          "Zimbabwe Dollar"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Money powers of medieval and Renaissance Europe",
+        "items": [
+          "Hanseatic League",
+          "Fugger Bank",
+          "Medici Bank",
+          "Knights Templar"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Places named after a trade good",
+        "items": [
+          "Gold Coast",
+          "Argentina",
+          "Tin Islands",
+          "Ivory Coast"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-053",
+    "title": "The Healers",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Called the father of a medical field",
+        "items": [
+          "Ignaz Semmelweis",
+          "John Snow",
+          "Ambroise Paré",
+          "Andreas Vesalius"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Diseases eventually eradicated or nearly so",
+        "items": [
+          "Smallpox",
+          "Rinderpest",
+          "Polio",
+          "Guinea Worm"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Landmark moments in the history of surgery",
+        "items": [
+          "First Anaesthetic Operation",
+          "First Heart Transplant",
+          "First Blood Transfusion",
+          "First Antiseptic Surgery"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Traced to a single contaminated source",
+        "items": [
+          "Broad Street Pump",
+          "Typhoid Mary",
+          "Camelford Water Poisoning",
+          "Minamata Disease"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-054",
+    "title": "Buried and Found",
+    "difficulty": "easy",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Found by soldiers, shepherds, farmers or teenagers",
+        "items": [
+          "Rosetta Stone",
+          "Dead Sea Scrolls",
+          "Terracotta Army",
+          "Lascaux Caves"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Sealed by a volcanic eruption",
+        "items": [
+          "Pompeii",
+          "Herculaneum",
+          "Akrotiri",
+          "Plymouth"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Undisturbed tombs when archaeologists opened them",
+        "items": [
+          "Tutankhamun",
+          "Sutton Hoo",
+          "Vergina Tomb",
+          "Griffin Warrior Tomb"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "A landmark discovery credited to a woman",
+        "items": [
+          "Mary Anning",
+          "Mary Leakey",
+          "Maria Sautuola",
+          "Harriet Boyd"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-055",
+    "title": "On the Table",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Old World crops that conquered the Americas",
+        "items": [
+          "Wheat",
+          "Coffee",
+          "Sugarcane",
+          "Bananas"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Foods that carry a place name",
+        "items": [
+          "Hamburger",
+          "Frankfurter",
+          "Cheddar",
+          "Tangerine"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Rations invented for soldiers and voyagers",
+        "items": [
+          "Hardtack",
+          "Pemmican",
+          "Margarine",
+          "Bouillon Cubes"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Sparked riots or rebellions when taxed or scarce",
+        "items": [
+          "Salt",
+          "Bread",
+          "Tea",
+          "Whiskey"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-056",
+    "title": "Games of Empire",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Olympic moments remembered for politics",
+        "items": [
+          "Owens in Berlin",
+          "Black Power Salute",
+          "Munich Massacre",
+          "Blood in the Water"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Boycotted Olympic Games",
+        "items": [
+          "Moscow 1980",
+          "Los Angeles 1984",
+          "Melbourne 1956",
+          "Montreal 1976"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Ancient sports still contested today",
+        "items": [
+          "Wrestling",
+          "Javelin",
+          "Boxing",
+          "Long Jump"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Cold War showdowns outside the battlefield",
+        "items": [
+          "Fischer vs Spassky",
+          "Miracle on Ice",
+          "Nureyev Defection",
+          "Kitchen Debate"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-057",
+    "title": "Sound of the Century",
+    "difficulty": "easy",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Cultural earthquakes of the 1960s",
+        "items": [
+          "Beatlemania",
+          "Woodstock",
+          "Summer of Love",
+          "First Moonwalk"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Broadcasts watched by hundreds of millions since 1980",
+        "items": [
+          "Live Aid",
+          "Diana's Funeral",
+          "Royal Wedding",
+          "World Cup Final"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Technologies that reshaped how people heard music",
+        "items": [
+          "Phonograph",
+          "Transistor Radio",
+          "Walkman",
+          "MTV"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Banned from the airwaves in their own decade",
+        "items": [
+          "God Save the Queen",
+          "Relax",
+          "Je t'aime",
+          "Elvis's Hips"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-058",
+    "title": "Empires of Asia",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Korean kingdoms and dynasties",
+        "items": [
+          "Silla",
+          "Goguryeo",
+          "Baekje",
+          "Joseon"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Khanates carved from the Mongol Empire",
+        "items": [
+          "Golden Horde",
+          "Chagatai Khanate",
+          "Ilkhanate",
+          "Yuan Dynasty"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Mughal emperors",
+        "items": [
+          "Babur",
+          "Akbar",
+          "Shah Jahan",
+          "Aurangzeb"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Built to honour the dead",
+        "items": [
+          "Taj Mahal",
+          "Terracotta Army",
+          "Great Pyramid",
+          "Ming Tombs"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-059",
+    "title": "New World Liberators",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Liberators of Spanish America",
+        "items": [
+          "Bernardo O'Higgins",
+          "Simon Bolivar",
+          "San Martin",
+          "Miguel Hidalgo"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Indigenous leaders who resisted colonial expansion",
+        "items": [
+          "Tecumseh",
+          "Sitting Bull",
+          "Cuauhtemoc",
+          "Geronimo"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Haitian Revolution leaders",
+        "items": [
+          "Toussaint Louverture",
+          "Jean-Jacques Dessalines",
+          "Henri Christophe",
+          "Alexandre Pétion"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Reclaimed an indigenous name after independence",
+        "items": [
+          "Haiti",
+          "Zimbabwe",
+          "Burkina Faso",
+          "Sri Lanka"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-060",
+    "title": "The Iron Curtain",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Uprisings crushed behind the Iron Curtain",
+        "items": [
+          "Hungary 1956",
+          "Prague Spring",
+          "East Germany 1953",
+          "Poland 1981"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Cold War flashpoints and false alarms",
+        "items": [
+          "Cuban Missile Crisis",
+          "Able Archer 83",
+          "Berlin Blockade",
+          "Petrov Incident"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Leaders who thawed superpower relations",
+        "items": [
+          "Gorbachev",
+          "Reagan",
+          "Nixon",
+          "Khrushchev"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Their fall or collapse defined 1989-91",
+        "items": [
+          "Berlin Wall",
+          "Ceausescu",
+          "Soviet Union",
+          "Warsaw Pact"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-061",
+    "title": "Everyday Revolutions",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Machines that transformed housework",
+        "items": [
+          "Washing Machine",
+          "Refrigerator",
+          "Vacuum Cleaner",
+          "Sewing Machine"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Once sold as medicine before being banned or restricted",
+        "items": [
+          "Cocaine",
+          "Heroin",
+          "Radium",
+          "Laudanum"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Postwar consumer status symbols",
+        "items": [
+          "Television Set",
+          "Family Car",
+          "Nylon Stockings",
+          "Suburban House"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Foods and fuel rationed in Britain into the 1950s",
+        "items": [
+          "Sugar",
+          "Petrol",
+          "Tea",
+          "Sweets"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-062",
+    "title": "Merchants of the Deep",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Trading powers of the Indian Ocean",
+        "items": [
+          "Chola Empire",
+          "Srivijaya",
+          "Majapahit",
+          "Swahili Coast"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Chartered trading companies",
+        "items": [
+          "Dutch East India",
+          "British East India",
+          "Hudson's Bay Company",
+          "Royal African Company"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Pirates of seas beyond the Caribbean",
+        "items": [
+          "Zheng Yi Sao",
+          "Hayreddin Barbarossa",
+          "Grace O'Malley",
+          "Klaus Störtebeker"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Waterways that made a trading city rich",
+        "items": [
+          "Bosphorus",
+          "Strait of Malacca",
+          "Grand Canal",
+          "Rhine"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-063",
+    "title": "First of Her Kind",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Their country's first woman head of government",
+        "items": [
+          "Sirimavo Bandaranaike",
+          "Indira Gandhi",
+          "Golda Meir",
+          "Margaret Thatcher"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Queens who ruled in their own right, not as a consort",
+        "items": [
+          "Elizabeth I",
+          "Catherine the Great",
+          "Queen Victoria",
+          "Isabella of Castile"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Took a role forbidden to women, by disguise or stealth",
+        "items": [
+          "Pope Joan",
+          "Hua Mulan",
+          "James Barry",
+          "Kathrine Switzer"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "First of their kind to win a Nobel Prize",
+        "items": [
+          "Marie Curie",
+          "Ralph Bunche",
+          "Malala Yousafzai",
+          "Wangari Maathai"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-064",
+    "title": "Under the Rubble",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Lost cities rediscovered centuries later",
+        "items": [
+          "Machu Picchu",
+          "Troy",
+          "Knossos",
+          "Mohenjo-daro"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Archaeologists who made a career-defining find",
+        "items": [
+          "Howard Carter",
+          "Heinrich Schliemann",
+          "Hiram Bingham",
+          "Arthur Evans"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Ancient scripts eventually deciphered",
+        "items": [
+          "Linear B",
+          "Cuneiform",
+          "Hieroglyphs",
+          "Oracle Bones"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Reburied and forgotten under jungle growth",
+        "items": [
+          "Angkor Wat",
+          "Tikal",
+          "Calakmul",
+          "Copan"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-065",
+    "title": "The People's Game",
+    "difficulty": "easy",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Sports born in the pre-Columbian Americas",
+        "items": [
+          "Pok-ta-pok",
+          "Ulama",
+          "Chunkey",
+          "Lacrosse"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "World Cups remembered for politics as much as football",
+        "items": [
+          "Argentina 1978",
+          "West Germany 1974",
+          "Italy 1934",
+          "South Africa 2010"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Sports codified in Victorian England",
+        "items": [
+          "Rugby",
+          "Association Football",
+          "Squash",
+          "Field Hockey"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Diplomatic thaws credited to a sporting exchange",
+        "items": [
+          "Ping-Pong Diplomacy",
+          "Cricket Diplomacy",
+          "Basketball Diplomacy",
+          "Rugby Diplomacy"
+        ]
+      }
+    ]
   }
 ]

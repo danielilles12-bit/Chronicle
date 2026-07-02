@@ -1453,5 +1453,966 @@
     "license": "Public domain",
     "attribution": "G. E. Perine & Co.",
     "source": "Engraving by G. E. Perine & Co., New York"
+  },
+  {
+    "id": "confucius",
+    "name": "Confucius",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "confucius",
+      "kongzi",
+      "kong fuzi",
+      "master kong"
+    ],
+    "blurb": "Chinese philosopher and teacher (c. 551–479 BC) · ink and color on silk portrait by Ma Yuan, Southern Song Dynasty, Palace Museum, Beijing",
+    "img": "assets/img/confucius.jpg",
+    "fx": 0.32,
+    "fy": 0.72,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Ma Yuan",
+    "source": "Wikimedia Commons: Ma Yuan-Confucius.png"
+  },
+  {
+    "id": "akhenaten",
+    "name": "Akhenaten",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "akhenaten",
+      "amenhotep iv",
+      "amenhotep the fourth"
+    ],
+    "blurb": "Egyptian pharaoh who broke with tradition to worship the sun disk Aten (r. c. 1353–1336 BC) · limestone bust showing his distinctive elongated skull, Kestner Museum, Hannover",
+    "img": "assets/img/akhenaten.jpg",
+    "fx": 0.85,
+    "fy": 0.1,
+    "frac": 0.2,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Einsamer Schütze",
+    "source": "Wikimedia Commons: Kestner Museum 07.jpg"
+  },
+  {
+    "id": "hatshepsut",
+    "name": "Hatshepsut",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "hatshepsut",
+      "hatchepsut",
+      "maatkare hatshepsut"
+    ],
+    "blurb": "Female pharaoh of Egypt's 18th Dynasty (r. c. 1479–1458 BC) · large kneeling granite statue wearing pharaonic regalia, Metropolitan Museum of Art",
+    "img": "assets/img/hatshepsut.jpg",
+    "fx": 0.5,
+    "fy": 0.92,
+    "frac": 0.2,
+    "license": "CC0",
+    "attribution": "Metropolitan Museum of Art",
+    "source": "Wikimedia Commons: Large Kneeling Statue of Hatshepsut MET DP116049.jpg"
+  },
+  {
+    "id": "alexander-great",
+    "name": "Alexander the Great",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "alexander the great",
+      "alexander iii of macedon",
+      "alexander of macedon"
+    ],
+    "blurb": "King of Macedon and conqueror of the Persian Empire (356–323 BC) · marble bust known as the \"Inopos,\" Louvre Museum",
+    "img": "assets/img/alexander-great.jpg",
+    "fx": 0.6,
+    "fy": 0.75,
+    "frac": 0.2,
+    "license": "CC0",
+    "attribution": "Unknown (ancient sculptor)",
+    "source": "Wikimedia Commons: Alexandre le Grand, dit l'Inopos - Musée du Louvre AGER Ma 855 ; MR 235 ; N 1716 bis ; N 1414.jpg"
+  },
+  {
+    "id": "saladin",
+    "name": "Saladin",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "saladin",
+      "salah ad-din",
+      "salah al-din",
+      "salah ad-din yusuf"
+    ],
+    "blurb": "Sultan of Egypt and Syria who reunified the Muslim world and recaptured Jerusalem (r. 1174–1193) · posthumous oil portrait by Cristofano dell'Altissimo, Uffizi Gallery",
+    "img": "assets/img/saladin.jpg",
+    "fx": 0.5,
+    "fy": 0.88,
+    "frac": 0.2,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Cristofano dell'Altissimo",
+    "source": "Wikimedia Commons: Cristofano dell'altissimo, saladino, ante 1568.JPG"
+  },
+  {
+    "id": "suleiman-magnificent",
+    "name": "Suleiman the Magnificent",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "suleiman the magnificent",
+      "suleiman i",
+      "suleiman the lawgiver"
+    ],
+    "blurb": "Ottoman Sultan at the height of the empire's power (r. 1520–1566) · posthumous profile oil portrait by Cristofano dell'Altissimo, Uffizi Gallery, Florence",
+    "img": "assets/img/suleiman-magnificent.jpg",
+    "fx": 0.15,
+    "fy": 0.15,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Cristofano dell'Altissimo",
+    "source": "Wikimedia Commons: Suleiman the Magnificent by Dell'Altissimo.jpg"
+  },
+  {
+    "id": "kublai-khan",
+    "name": "Kublai Khan",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "kublai khan",
+      "kublai",
+      "emperor shizu",
+      "khubilai khan"
+    ],
+    "blurb": "Mongol emperor and founder of the Yuan Dynasty (1215–1294) · album-leaf portrait by court painter Araniko, National Palace Museum, Taipei",
+    "img": "assets/img/kublai-khan.jpg",
+    "fx": 0.5,
+    "fy": 0.15,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Araniko",
+    "source": "Wikimedia Commons: YuanEmperorAlbumKhubilaiPortrait.jpg"
+  },
+  {
+    "id": "empress-theodora",
+    "name": "Empress Theodora",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "theodora",
+      "empress theodora"
+    ],
+    "blurb": "Byzantine Empress (c. 500–548) · Byzantine mosaic detail, Basilica of San Vitale, Ravenna",
+    "img": "assets/img/empress-theodora.jpg",
+    "fx": 0.47,
+    "fy": 0.5,
+    "frac": 0.2,
+    "license": "CC BY-SA 4.0",
+    "attribution": "José Luiz Bernardes Ribeiro",
+    "source": "Wikimedia Commons: Theodora (detail) - Mosaic of Theodora - San Vitale - Ravenna 2016.jpg"
+  },
+  {
+    "id": "justinian-i",
+    "name": "Justinian I",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "justinian",
+      "justinian i",
+      "justinian the great"
+    ],
+    "blurb": "Byzantine Emperor (482–565) · Byzantine mosaic detail, Basilica of San Vitale, Ravenna",
+    "img": "assets/img/justinian-i.jpg",
+    "fx": 0.44,
+    "fy": 0.6,
+    "frac": 0.19,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Volodymyr Vlasenko",
+    "source": "Wikimedia Commons: Emperor Justinian and his retinue. Detail of the mosaic in the Basilica of San Vitale. Ravena, Italy.jpg"
+  },
+  {
+    "id": "ashoka-great",
+    "name": "Ashoka the Great",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "ashoka",
+      "ashoka the great",
+      "emperor ashoka",
+      "asoka"
+    ],
+    "blurb": "Mauryan Emperor of India (c. 304–232 BC) · modern commemorative statue, Metta Budharam Temple, Bodhgaya, Bihar",
+    "img": "assets/img/ashoka-great.jpg",
+    "fx": 0.42,
+    "fy": 0.68,
+    "frac": 0.2,
+    "license": "CC0",
+    "attribution": "K. Venkataramana",
+    "source": "Wikimedia Commons: Statue of King Ashoka at Metta Budharam Temple, Bodhgaya, Bihar, India.jpg"
+  },
+  {
+    "id": "martin-luther-king-jr",
+    "name": "Martin Luther King Jr.",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "martin luther king",
+      "martin luther king jr",
+      "mlk",
+      "dr king"
+    ],
+    "blurb": "US civil rights leader (1929–1968) · photograph by Dick DeMarsico, Library of Congress",
+    "img": "assets/img/martin-luther-king-jr.jpg",
+    "fx": 0.72,
+    "fy": 0.9,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Dick DeMarsico",
+    "source": "Wikimedia Commons: Martin Luther King Jr NYWTS.jpg"
+  },
+  {
+    "id": "nelson-mandela",
+    "name": "Nelson Mandela",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "nelson mandela",
+      "mandela",
+      "madiba"
+    ],
+    "blurb": "President of South Africa (1918–2013) · photograph, Johannesburg 2008",
+    "img": "assets/img/nelson-mandela.jpg",
+    "fx": 0.3,
+    "fy": 0.85,
+    "frac": 0.2,
+    "license": "CC BY 2.0",
+    "attribution": "South Africa The Good News",
+    "source": "Wikimedia Commons: Nelson Mandela-2008 (edit).jpg"
+  },
+  {
+    "id": "malcolm-x",
+    "name": "Malcolm X",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "malcolm x",
+      "malcolm little",
+      "el-hajj malik el-shabazz"
+    ],
+    "blurb": "American civil rights leader (1925–1965) · photograph by Herman Hiller, Library of Congress",
+    "img": "assets/img/malcolm-x.jpg",
+    "fx": 0.25,
+    "fy": 0.92,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Herman Hiller",
+    "source": "Wikimedia Commons: Malcolm X NYWTS 4.jpg"
+  },
+  {
+    "id": "rosa-parks",
+    "name": "Rosa Parks",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "rosa parks",
+      "rosa louise parks"
+    ],
+    "blurb": "American civil rights activist (1913–2005) · photograph, Rosa Parks papers, Library of Congress",
+    "img": "assets/img/rosa-parks.jpg",
+    "fx": 0.65,
+    "fy": 0.88,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "photographer unknown",
+    "source": "Wikimedia Commons: Rosa Parks, November 1956 (cropped).jpg"
+  },
+  {
+    "id": "anne-frank",
+    "name": "Anne Frank",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "anne frank",
+      "annelies marie frank"
+    ],
+    "blurb": "Diarist (1929–1945) · school photograph, Amsterdam, December 1941",
+    "img": "assets/img/anne-frank.jpg",
+    "fx": 0.2,
+    "fy": 0.65,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "photographer unknown",
+    "source": "Wikimedia Commons: Anne Frank lacht naar de schoolfotograaf.jpg"
+  },
+  {
+    "id": "benjamin-franklin",
+    "name": "Benjamin Franklin",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "benjamin franklin",
+      "ben franklin",
+      "franklin"
+    ],
+    "blurb": "American Founding Father (1706–1790) · portrait by Joseph-Siffred Duplessis, c. 1785",
+    "img": "assets/img/benjamin-franklin.jpg",
+    "fx": 0.85,
+    "fy": 0.15,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Joseph-Siffred Duplessis",
+    "source": "Wikimedia Commons: Joseph Siffrein Duplessis - Benjamin Franklin - Google Art Project.jpg"
+  },
+  {
+    "id": "john-f-kennedy",
+    "name": "John F. Kennedy",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "john f kennedy",
+      "jfk",
+      "john kennedy",
+      "john fitzgerald kennedy"
+    ],
+    "blurb": "US President (1917–1963) · White House photograph by Cecil W. Stoughton, 1963",
+    "img": "assets/img/john-f-kennedy.jpg",
+    "fx": 0.15,
+    "fy": 0.92,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Cecil W. Stoughton",
+    "source": "Wikimedia Commons: John F. Kennedy, White House color photo portrait.jpg"
+  },
+  {
+    "id": "martin-luther",
+    "name": "Martin Luther",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "martin luther",
+      "luther"
+    ],
+    "blurb": "Protestant reformer (1483–1546) · portrait by Lucas Cranach the Elder, 1528",
+    "img": "assets/img/martin-luther.jpg",
+    "fx": 0.4,
+    "fy": 0.08,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Lucas Cranach the Elder",
+    "source": "Wikimedia Commons: Lucas Cranach d.Ä. - Martin Luther, 1528 (Veste Coburg).jpg"
+  },
+  {
+    "id": "queen-elizabeth-ii",
+    "name": "Queen Elizabeth II",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "queen elizabeth ii",
+      "elizabeth ii",
+      "the queen",
+      "queen elizabeth"
+    ],
+    "blurb": "Queen of the United Kingdom (1926–2022) · official portrait by Donald McKague, 1958",
+    "img": "assets/img/queen-elizabeth-ii.jpg",
+    "fx": 0.35,
+    "fy": 0.9,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Donald McKague",
+    "source": "Wikimedia Commons: Queen Elizabeth II official portrait for 1959 tour (retouched).jpg"
+  },
+  {
+    "id": "muhammad-ali",
+    "name": "Muhammad Ali",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "muhammad ali",
+      "cassius clay",
+      "ali"
+    ],
+    "blurb": "American boxer (1942–2016) · photograph by Ira Rosenberg, 1967",
+    "img": "assets/img/muhammad-ali.jpg",
+    "fx": 0.5,
+    "fy": 0.9,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Ira Rosenberg",
+    "source": "Wikimedia Commons: Muhammad Ali NYWTS.jpg"
+  },
+  {
+    "id": "toussaint-louverture",
+    "name": "Toussaint Louverture",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "toussaint louverture",
+      "toussaint l'ouverture",
+      "toussaint-louverture"
+    ],
+    "blurb": "Haitian revolutionary leader (c. 1743–1803) · painting by Alexandre-François-Louis, comte de Girardin",
+    "img": "assets/img/toussaint-louverture.jpg",
+    "fx": 0.437,
+    "fy": 0.837,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Alexandre-François-Louis, comte de Girardin",
+    "source": "Wikimedia Commons: Toussaint Louverture - Girardin.jpg"
+  },
+  {
+    "id": "haile-selassie",
+    "name": "Haile Selassie",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "haile selassie",
+      "haile selassie i",
+      "ras tafari"
+    ],
+    "blurb": "Emperor of Ethiopia (1892–1975) · press photo by Associated Press, 1953",
+    "img": "assets/img/haile-selassie.jpg",
+    "fx": 0.476,
+    "fy": 0.845,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Associated Press",
+    "source": "Wikimedia Commons: Haile Selassie - 1953.jpg"
+  },
+  {
+    "id": "shaka-zulu",
+    "name": "Shaka Zulu",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "shaka zulu",
+      "shaka",
+      "shaka kasenzangakhona"
+    ],
+    "blurb": "Zulu king (c. 1787–1828) · sketch by James King, 1824, published in Nathaniel Isaacs' Travels and Adventures in Eastern Africa (1836)",
+    "img": "assets/img/shaka-zulu.jpg",
+    "fx": 0.405,
+    "fy": 0.43,
+    "frac": 0.19,
+    "license": "Public domain",
+    "attribution": "James King",
+    "source": "Wikimedia Commons: KingShaka.jpg"
+  },
+  {
+    "id": "wu-zetian",
+    "name": "Wu Zetian",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "wu zetian",
+      "empress wu",
+      "wu zhao"
+    ],
+    "blurb": "Only female Emperor of China, ruled 690–705 (624–705) · painting, artist unknown",
+    "img": "assets/img/wu-zetian.jpg",
+    "fx": 0.5,
+    "fy": 0.82,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Unknown",
+    "source": "Wikimedia Commons: 則天大聖皇帝像圖.jpg"
+  },
+  {
+    "id": "empress-dowager-cixi",
+    "name": "Empress Dowager Cixi",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "cixi",
+      "dowager empress cixi",
+      "empress cixi",
+      "tzu hsi"
+    ],
+    "blurb": "Regent Empress Dowager of China (1835–1908) · photo by Yu Xunling, court photographer, c. 1890",
+    "img": "assets/img/empress-dowager-cixi.jpg",
+    "fx": 0.55,
+    "fy": 0.75,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Yu Xunling",
+    "source": "Wikimedia Commons: Empress Dowager Cixi (c. 1890).jpg"
+  },
+  {
+    "id": "akbar-great",
+    "name": "Akbar the Great",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "akbar",
+      "akbar i",
+      "akbar the great",
+      "jalaluddin muhammad akbar"
+    ],
+    "blurb": "Mughal Emperor of India (1542–1605) · Mughal miniature painting, artist unknown",
+    "img": "assets/img/akbar-great.jpg",
+    "fx": 0.6,
+    "fy": 0.75,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Unknown",
+    "source": "Wikimedia Commons: Emperor Akbar, Los Angeles County Museum of Art.jpg"
+  },
+  {
+    "id": "tokugawa-ieyasu",
+    "name": "Tokugawa Ieyasu",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "tokugawa",
+      "ieyasu",
+      "tokugawa ieyasu"
+    ],
+    "blurb": "Japanese shogun, founder of the Tokugawa shogunate (1543–1616) · painting traditionally attributed to Kano Tan'yu",
+    "img": "assets/img/tokugawa-ieyasu.jpg",
+    "fx": 0.5,
+    "fy": 0.85,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Traditionally attributed to Kano Tan'yu",
+    "source": "Wikimedia Commons: Tokugawa Ieyasu.jpg"
+  },
+  {
+    "id": "zheng-he",
+    "name": "Zheng He",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "zheng he",
+      "cheng ho",
+      "admiral zheng he"
+    ],
+    "blurb": "Chinese admiral and explorer (1371–1433) who led Ming dynasty treasure fleet voyages across Asia and Africa · commemorative portrait, artist unknown, published c. 1600",
+    "img": "assets/img/zheng-he.jpg",
+    "fx": 0.8,
+    "fy": 0.35,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Unknown",
+    "source": "Wikimedia Commons: Portrait of Zheng He, published about 1600.jpg"
+  },
+  {
+    "id": "rani-lakshmibai",
+    "name": "Rani Lakshmibai",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "rani lakshmibai",
+      "rani of jhansi",
+      "lakshmibai",
+      "laxmibai"
+    ],
+    "blurb": "Queen of Jhansi and leading figure of the Indian Rebellion of 1857 (1828–1858) · historical painting, artist unknown",
+    "img": "assets/img/rani-lakshmibai.jpg",
+    "fx": 0.27,
+    "fy": 0.78,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Unknown",
+    "source": "Wikimedia Commons: Rani Lakshmibai from a painting.jpg"
+  },
+  {
+    "id": "samori-ture",
+    "name": "Samori Ture",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "samori ture",
+      "samory toure",
+      "samori toure",
+      "almamy samori ture"
+    ],
+    "blurb": "West African resistance leader and founder of the Wassoulou Empire (c. 1830–1900) · photograph by François-Edmond Fortier",
+    "img": "assets/img/samori-ture.jpg",
+    "fx": 0.66,
+    "fy": 0.89,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "François-Edmond Fortier",
+    "source": "Wikimedia Commons: Almamy Samory Touré-2.jpg"
+  },
+  {
+    "id": "vasco-da-gama",
+    "name": "Vasco da Gama",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "vasco da gama",
+      "vasco de gama",
+      "da gama"
+    ],
+    "blurb": "Portuguese explorer who opened the first sea route from Europe to India (c. 1460s–1524) · portrait attributed to Gregório Lopes, c. 1524",
+    "img": "assets/img/vasco-da-gama.jpg",
+    "fx": 0.12,
+    "fy": 0.88,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Gregório Lopes",
+    "source": "Wikimedia Commons: Gregório Lopes - Vasco da Gama (ca 1524).jpg"
+  },
+  {
+    "id": "ferdinand-magellan",
+    "name": "Ferdinand Magellan",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "ferdinand magellan",
+      "magellan",
+      "fernao de magalhaes",
+      "fernando de magallanes"
+    ],
+    "blurb": "Portuguese explorer whose expedition achieved the first circumnavigation of the globe (c. 1480–1521) · engraving by Crispijn van de Passe the Elder, 1598",
+    "img": "assets/img/ferdinand-magellan.jpg",
+    "fx": 0.5,
+    "fy": 0.75,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Unknown artistUnknown artist",
+    "source": "Wikimedia Commons: Retrato de Hernando de Magallanes.jpg"
+  },
+  {
+    "id": "hernan-cortes",
+    "name": "Hernán Cortés",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "hernan cortes",
+      "hernán cortés",
+      "cortes",
+      "cortés"
+    ],
+    "blurb": "Spanish conquistador who led the conquest of the Aztec Empire (1485–1547) · 19th-century painting by José Salomé Pina, after a 16th-century original",
+    "img": "assets/img/hernan-cortes.jpg",
+    "fx": 0.32,
+    "fy": 0.85,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "José Salomé Pina",
+    "source": "Wikimedia Commons: Hernán Cortés Monroy y Pizarro.jpg"
+  },
+  {
+    "id": "montezuma-ii",
+    "name": "Montezuma II",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "montezuma",
+      "montezuma ii",
+      "moctezuma",
+      "moctezuma ii",
+      "moctezuma xocoyotzin"
+    ],
+    "blurb": "Ninth ruler of the Aztec Empire, met by Cortés in 1519 (c. 1466–1520) · colonial-era painting attributed to Antonio Rodríguez, c. 1680",
+    "img": "assets/img/montezuma-ii.jpg",
+    "fx": 0.47,
+    "fy": 0.85,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Antonio Rodríguez (attributed)",
+    "source": "Wikimedia Commons: Moctezuma Xocoyotzin.png"
+  },
+  {
+    "id": "pocahontas",
+    "name": "Pocahontas",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "pocahontas",
+      "matoaka",
+      "rebecca rolfe"
+    ],
+    "blurb": "Powhatan woman known for her ties to the early Jamestown colony (c. 1596–1617) · engraving by Simon van de Passe, 1616 — the only portrait made from life",
+    "img": "assets/img/pocahontas.jpg",
+    "fx": 0.5,
+    "fy": 0.8,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Simon van de Passe",
+    "source": "Wikimedia Commons: Pocahontas by Simon van de Passe 1616.jpg"
+  },
+  {
+    "id": "amelia-earhart",
+    "name": "Amelia Earhart",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "amelia earhart",
+      "earhart"
+    ],
+    "blurb": "American aviator and the first woman to fly solo across the Atlantic (1897–1937) · photograph, c. 1935",
+    "img": "assets/img/amelia-earhart.jpg",
+    "fx": 0.35,
+    "fy": 0.83,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Unknown",
+    "source": "Wikimedia Commons: Amelia Earhart 1935.jpg"
+  },
+  {
+    "id": "sacagawea",
+    "name": "Sacagawea",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "sacagawea",
+      "sacajawea"
+    ],
+    "blurb": "Lemhi Shoshone guide and interpreter on the Lewis and Clark Expedition (c. 1788–1812) · no contemporary portrait exists — shown here on the U.S. Sacagawea dollar coin, a modern commemorative depiction",
+    "img": "assets/img/sacagawea.jpg",
+    "fx": 0.42,
+    "fy": 0.65,
+    "frac": 0.22,
+    "license": "CC BY-SA 4.0",
+    "attribution": "金帝 (Kintei)",
+    "source": "Wikimedia Commons: サカガウィア・ダラー.jpg"
+  },
+  {
+    "id": "benito-juarez",
+    "name": "Benito Juárez",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "benito juarez",
+      "benito juárez",
+      "juarez",
+      "juárez"
+    ],
+    "blurb": "President of Mexico who resisted the French intervention (1806–1872) · photograph, c. 1860",
+    "img": "assets/img/benito-juarez.jpg",
+    "fx": 0.5,
+    "fy": 0.35,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Unknown",
+    "source": "Wikimedia Commons: Benito Juárez standing photo.jpg"
+  },
+  {
+    "id": "jose-marti",
+    "name": "José Martí",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "jose marti",
+      "josé martí",
+      "marti",
+      "martí"
+    ],
+    "blurb": "Cuban poet and independence leader who died fighting Spanish rule (1853–1895) · photograph by Juan Bautista Valdés, Kingston, Jamaica, 1892",
+    "img": "assets/img/jose-marti.jpg",
+    "fx": 0.48,
+    "fy": 0.85,
+    "frac": 0.2,
+    "license": "CC0",
+    "attribution": "Juan Bautista Valdés",
+    "source": "Wikimedia Commons: José Martí retrato más conocido Jamaica 1892.jpg"
+  },
+  {
+    "id": "el-cid",
+    "name": "El Cid",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "el cid",
+      "rodrigo diaz de vivar",
+      "rodrigo díaz de vivar",
+      "cid campeador"
+    ],
+    "blurb": "Castilian knight and mercenary commander famed for his campaigns against the Moors (c. 1043–1099) · no contemporary portrait exists — shown here as the 1955 bronze equestrian monument in Burgos, Spain",
+    "img": "assets/img/el-cid.jpg",
+    "fx": 0.5,
+    "fy": 0.12,
+    "frac": 0.22,
+    "license": "CC BY-SA 2.0",
+    "attribution": "Juan Cristóbal González Quesada (sculptor); photo by ElCaminodeSantiago09 2006",
+    "source": "Wikimedia Commons: Monumento al Cid (Burgos) 01.jpg"
+  },
+  {
+    "id": "gautama-buddha",
+    "name": "Gautama Buddha",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "buddha",
+      "gautama buddha",
+      "siddhartha gautama",
+      "the buddha"
+    ],
+    "blurb": "Founder of Buddhism (c. 5th century BC) · traditional depiction, standing Gandhara-style Buddha statue",
+    "img": "assets/img/gautama-buddha.jpg",
+    "fx": 0.508,
+    "fy": 0.521,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Marie-Lan Nguyen (User:Jastrow)",
+    "source": "Wikimedia Commons: Standing Buddha Guimet MA6284.jpg"
+  },
+  {
+    "id": "queen-nzinga",
+    "name": "Queen Nzinga",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "nzinga",
+      "queen nzinga",
+      "njinga",
+      "nzinga mbandi",
+      "ana de sousa nzinga mbande"
+    ],
+    "blurb": "Queen of Ndongo and Matamba, Angola (c. 1583–1663) · 1830s hand-colored lithograph by Achille Devéria",
+    "img": "assets/img/queen-nzinga.jpg",
+    "fx": 0.532,
+    "fy": 0.65,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Achille Devéria",
+    "source": "Wikimedia Commons: Ann Zingha.jpg"
+  },
+  {
+    "id": "mary-wollstonecraft",
+    "name": "Mary Wollstonecraft",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "mary wollstonecraft",
+      "wollstonecraft"
+    ],
+    "blurb": "English writer and philosopher (1759–1797) · portrait by John Opie",
+    "img": "assets/img/mary-wollstonecraft.jpg",
+    "fx": 0.43,
+    "fy": 0.68,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "John Opie",
+    "source": "Wikimedia Commons: Mary Wollstonecraft by John Opie from the National Portrait Gallery.jpg"
+  },
+  {
+    "id": "sojourner-truth",
+    "name": "Sojourner Truth",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "sojourner truth"
+    ],
+    "blurb": "American abolitionist and women's rights activist (c. 1797–1883) · photograph by Randall Studio, c. 1870",
+    "img": "assets/img/sojourner-truth.jpg",
+    "fx": 0.74,
+    "fy": 0.65,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Randall Studio",
+    "source": "Wikimedia Commons: Sojourner Truth, 1870 (cropped, restored).jpg"
+  },
+  {
+    "id": "ida-b-wells",
+    "name": "Ida B. Wells",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "ida b wells",
+      "ida wells",
+      "ida b. wells",
+      "ida wells-barnett",
+      "ida bell wells"
+    ],
+    "blurb": "American investigative journalist and civil rights leader (1862–1931) · photograph",
+    "img": "assets/img/ida-b-wells.jpg",
+    "fx": 0.2,
+    "fy": 0.63,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Mary Garrity (restoration by Adam Cuerden)",
+    "source": "Wikimedia Commons: Mary Garrity - Ida B. Wells-Barnett - Google Art Project - restoration crop.jpg"
+  },
+  {
+    "id": "rabindranath-tagore",
+    "name": "Rabindranath Tagore",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "rabindranath tagore",
+      "tagore"
+    ],
+    "blurb": "Bengali polymath and Nobel laureate in Literature (1861–1941) · photograph",
+    "img": "assets/img/rabindranath-tagore.jpg",
+    "fx": 0.75,
+    "fy": 0.85,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Unknown author",
+    "source": "Wikimedia Commons: Rabindranath Tagore.jpg"
+  },
+  {
+    "id": "jawaharlal-nehru",
+    "name": "Jawaharlal Nehru",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "jawaharlal nehru",
+      "nehru"
+    ],
+    "blurb": "First Prime Minister of India (1889–1964) · photograph",
+    "img": "assets/img/jawaharlal-nehru.jpg",
+    "fx": 0.5,
+    "fy": 0.6,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Keystone View Company/FPG",
+    "source": "Wikimedia Commons: Jawaharlal Nehru, circa 1925.jpg"
+  },
+  {
+    "id": "saint-augustine",
+    "name": "Saint Augustine",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "saint augustine",
+      "augustine of hippo",
+      "st augustine",
+      "st. augustine"
+    ],
+    "blurb": "Theologian and philosopher, Bishop of Hippo (354–430) · later artistic depiction, painting by Sandro Botticelli (c. 1480)",
+    "img": "assets/img/saint-augustine.jpg",
+    "fx": 0.203,
+    "fy": 0.584,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Sandro Botticelli",
+    "source": "Wikimedia Commons: Sandro Botticelli 050.jpg"
+  },
+  {
+    "id": "boudica",
+    "name": "Boudica",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "boudica",
+      "boudicca",
+      "boadicea"
+    ],
+    "blurb": "Queen of the Iceni, Britain (d. c. 60/61 AD) · later imagined depiction, statue \"Boadicea and Her Daughters\" by Thomas Thornycroft, unveiled 1902 near Westminster Bridge",
+    "img": "assets/img/boudica.jpg",
+    "fx": 0.609,
+    "fy": 0.586,
+    "frac": 0.2,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Jason Halsall (DigitalFuture123)",
+    "source": "Wikimedia Commons: BoadiceaStatue.jpg"
+  },
+  {
+    "id": "vercingetorix",
+    "name": "Vercingetorix",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "vercingetorix"
+    ],
+    "blurb": "Gallic chieftain who fought Julius Caesar (c. 82–46 BC) · later imagined depiction, painting \"Vercingetorix Throws Down His Arms at the Feet of Julius Caesar\" by Lionel Royer, 1899",
+    "img": "assets/img/vercingetorix.jpg",
+    "fx": 0.2945,
+    "fy": 0.442,
+    "frac": 0.18,
+    "license": "Public domain",
+    "attribution": "Lionel Royer (1852–1926)",
+    "source": "Wikimedia Commons: Lionel Royer - Vercingetorix Throwing down His Weapons at the feet of Julius Caesar.jpg"
   }
 ]

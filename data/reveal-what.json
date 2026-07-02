@@ -762,5 +762,946 @@
     "license": "CC BY 2.0",
     "attribution": "Flickr user Jean-Pierre Dalbéra",
     "source": "Wikimedia Commons: Trajan's Column (48423812647).jpg"
+  },
+  {
+    "id": "alhambra-lions",
+    "name": "Court of the Lions",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "court of the lions",
+      "alhambra",
+      "patio de los leones",
+      "lion fountain alhambra"
+    ],
+    "blurb": "Fountain courtyard of the Alhambra (14th century) · Granada, Spain",
+    "img": "assets/img/alhambra-lions.jpg",
+    "fx": 0.5,
+    "fy": 0.6,
+    "frac": 0.2,
+    "license": "CC0",
+    "attribution": "Jebulon",
+    "source": "Wikimedia Commons: Fountain patio de los Leones Alhambra Granada Spain.jpg"
+  },
+  {
+    "id": "angkor-wat",
+    "name": "Angkor Wat",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "angkor wat",
+      "angkor"
+    ],
+    "blurb": "Khmer temple complex (12th century) · Siem Reap, Cambodia",
+    "img": "assets/img/angkor-wat.jpg",
+    "fx": 0.5,
+    "fy": 0.75,
+    "frac": 0.2,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Jakub Hałun",
+    "source": "Wikimedia Commons: 20171128 Angkor Wat 5562 DxO.jpg"
+  },
+  {
+    "id": "bayon-temple",
+    "name": "Bayon Temple",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "bayon",
+      "bayon temple",
+      "angkor thom"
+    ],
+    "blurb": "Temple of smiling stone faces (late 12th century) · Angkor Thom, Cambodia",
+    "img": "assets/img/bayon-temple.jpg",
+    "fx": 0.5,
+    "fy": 0.55,
+    "frac": 0.2,
+    "license": "CC BY 2.0",
+    "attribution": "Photo Dharma from Penang, Malaysia",
+    "source": "Wikimedia Commons: Angkor - Bayon - 004 Tower Faces (8581824754).jpg"
+  },
+  {
+    "id": "benin-bronzes",
+    "name": "Benin Bronzes",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "benin bronzes",
+      "benin bronze",
+      "benin plaques"
+    ],
+    "blurb": "Brass plaques from the Kingdom of Benin (13th–16th century) · British Museum, London",
+    "img": "assets/img/benin-bronzes.jpg",
+    "fx": 0.5,
+    "fy": 0.5,
+    "frac": 0.22,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Photograph by Mike Peel (www.mikepeel.net).",
+    "source": "Wikimedia Commons: At the British Museum 2024 017.jpg"
+  },
+  {
+    "id": "borobudur",
+    "name": "Borobudur",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "borobudur"
+    ],
+    "blurb": "World's largest Buddhist temple (9th century) · Central Java, Indonesia",
+    "img": "assets/img/borobudur.jpg",
+    "fx": 0.5,
+    "fy": 0.6,
+    "frac": 0.2,
+    "license": "CC BY-SA 3.0",
+    "attribution": "CEphoto, Uwe Aranas",
+    "source": "Wikimedia Commons: Borobudur-Temple-Park Indonesia Stupas-of-Borobudur-04.jpg"
+  },
+  {
+    "id": "chichen-itza",
+    "name": "Chichén Itzá",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "chichen itza",
+      "el castillo",
+      "chichen itza pyramid",
+      "temple of kukulcan"
+    ],
+    "blurb": "El Castillo, the Temple of Kukulcán (8th–12th century) · Yucatán, Mexico",
+    "img": "assets/img/chichen-itza.jpg",
+    "fx": 0.5,
+    "fy": 0.7,
+    "frac": 0.2,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Daniel Schwen",
+    "source": "Wikimedia Commons: Chichen Itza 3.jpg"
+  },
+  {
+    "id": "forbidden-city",
+    "name": "The Forbidden City",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "forbidden city",
+      "palace museum beijing"
+    ],
+    "blurb": "Chinese imperial palace (1420) · Beijing, China",
+    "img": "assets/img/forbidden-city.jpg",
+    "fx": 0.5,
+    "fy": 0.6,
+    "frac": 0.2,
+    "license": "CC BY-SA 3.0",
+    "attribution": "CEphoto, Uwe Aranas",
+    "source": "Wikimedia Commons: Beijing China Forbidden-City-03.jpg"
+  },
+  {
+    "id": "golden-pavilion",
+    "name": "The Golden Pavilion",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "golden pavilion",
+      "kinkaku-ji",
+      "kinkakuji",
+      "kinkaku"
+    ],
+    "blurb": "Zen temple covered in gold leaf (1397, rebuilt 1955) · Kyoto, Japan",
+    "img": "assets/img/golden-pavilion.jpg",
+    "fx": 0.5,
+    "fy": 0.75,
+    "frac": 0.2,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Basile Morin",
+    "source": "Wikimedia Commons: Water reflection of Kinkaku-ji Temple a sunny day, Kyoto, Japan.jpg"
+  },
+  {
+    "id": "great-buddha-kamakura",
+    "name": "Great Buddha of Kamakura",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "great buddha of kamakura",
+      "kamakura buddha",
+      "daibutsu",
+      "great buddha"
+    ],
+    "blurb": "Bronze Amida Buddha (1252) · Kōtoku-in, Kamakura, Japan",
+    "img": "assets/img/great-buddha-kamakura.jpg",
+    "fx": 0.5,
+    "fy": 0.55,
+    "frac": 0.2,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Dirk Beyer",
+    "source": "Wikimedia Commons: Kamakura Budda Daibutsu front 1885.jpg"
+  },
+  {
+    "id": "great-mosque-cordoba",
+    "name": "Great Mosque of Córdoba",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "great mosque of cordoba",
+      "mezquita",
+      "cordoba mosque",
+      "mosque of cordoba"
+    ],
+    "blurb": "Striped double arches of the Mezquita (8th–10th century) · Córdoba, Spain",
+    "img": "assets/img/great-mosque-cordoba.jpg",
+    "fx": 0.5,
+    "fy": 0.5,
+    "frac": 0.2,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Alvaro.vinuela.carnicero",
+    "source": "Wikimedia Commons: Mezquita cordoba arcos flotantes.jpg"
+  },
+  {
+    "id": "great-pyramid-giza",
+    "name": "Great Pyramid of Giza",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "great pyramid",
+      "great pyramid of giza",
+      "pyramid of khufu",
+      "pyramids of giza",
+      "giza pyramid"
+    ],
+    "blurb": "Tomb of Pharaoh Khufu (c. 2560 BC) · 1904 balloon photograph by Eduard Spelterini",
+    "img": "assets/img/great-pyramid-giza.jpg",
+    "fx": 0.5,
+    "fy": 0.65,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Eduard Spelterini",
+    "source": "Wikimedia Commons: Spelterini Pyramids.jpg"
+  },
+  {
+    "id": "great-sphinx",
+    "name": "Great Sphinx of Giza",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "great sphinx",
+      "sphinx",
+      "sphinx of giza"
+    ],
+    "blurb": "Limestone guardian with a lion's body (c. 2500 BC) · Giza, Egypt",
+    "img": "assets/img/great-sphinx.jpg",
+    "fx": 0.5,
+    "fy": 0.65,
+    "frac": 0.2,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Petar Milošević",
+    "source": "Wikimedia Commons: Great Sphinx (أبو الهول).jpg"
+  },
+  {
+    "id": "great-wall-china",
+    "name": "Great Wall of China",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "great wall of china",
+      "great wall"
+    ],
+    "blurb": "Fortifications spanning northern China (7th century BC – 17th century AD)",
+    "img": "assets/img/great-wall-china.jpg",
+    "fx": 0.5,
+    "fy": 0.5,
+    "frac": 0.2,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Jakub Hałun",
+    "source": "Wikimedia Commons: 20090529 Great Wall 8185.jpg"
+  },
+  {
+    "id": "hagia-sophia",
+    "name": "Hagia Sophia",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "hagia sophia",
+      "ayasofya",
+      "saint sophia"
+    ],
+    "blurb": "Byzantine cathedral, later mosque (537 AD) · Istanbul, Turkey",
+    "img": "assets/img/hagia-sophia.jpg",
+    "fx": 0.5,
+    "fy": 0.6,
+    "frac": 0.2,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Arild Vågen",
+    "source": "Wikimedia Commons: Hagia Sophia Mars 2013.jpg"
+  },
+  {
+    "id": "himeji-castle",
+    "name": "Himeji Castle",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "himeji castle",
+      "himeji",
+      "white heron castle"
+    ],
+    "blurb": "Japan's grandest samurai-era castle (1609) · Himeji, Japan",
+    "img": "assets/img/himeji-castle.jpg",
+    "fx": 0.5,
+    "fy": 0.6,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Gorgo",
+    "source": "Wikimedia Commons: Himeji Castle 0804 1.jpg"
+  },
+  {
+    "id": "ishtar-gate",
+    "name": "Ishtar Gate",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "ishtar gate",
+      "gate of ishtar",
+      "gate of babylon",
+      "ishtar gate of babylon"
+    ],
+    "blurb": "Glazed-brick gate of Babylon (c. 575 BC) · Pergamon Museum, Berlin",
+    "img": "assets/img/ishtar-gate.jpg",
+    "fx": 0.3,
+    "fy": 0.6,
+    "frac": 0.2,
+    "license": "CC0",
+    "attribution": "Sinoulpgc",
+    "source": "Wikimedia Commons: Pergamon museum Ishtar Gate.jpg"
+  },
+  {
+    "id": "machu-picchu",
+    "name": "Machu Picchu",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "machu picchu",
+      "machu pichu"
+    ],
+    "blurb": "Inca citadel in the Andes (c. 1450) · Cusco Region, Peru",
+    "img": "assets/img/machu-picchu.jpg",
+    "fx": 0.5,
+    "fy": 0.6,
+    "frac": 0.2,
+    "license": "CC BY-SA 4.0",
+    "attribution": "PIERRE ANDRE LECLERCQ",
+    "source": "Wikimedia Commons: Machu Picchu with Huayna Picchu Pérou (3).jpg"
+  },
+  {
+    "id": "olmec-colossal-head",
+    "name": "Olmec Colossal Head",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "olmec colossal head",
+      "olmec head",
+      "olmec heads"
+    ],
+    "blurb": "Giant basalt head of an Olmec ruler (1200–400 BC) · Mexico",
+    "img": "assets/img/olmec-colossal-head.jpg",
+    "fx": 0.5,
+    "fy": 0.55,
+    "frac": 0.22,
+    "license": "CC0",
+    "attribution": "Gary Todd",
+    "source": "Wikimedia Commons: Olmec Colossal Head, San Lorenzo, Veracruz, 1200-600 BC.jpg"
+  },
+  {
+    "id": "petra-treasury",
+    "name": "Petra",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "petra",
+      "the treasury",
+      "al-khazneh",
+      "treasury petra",
+      "petra treasury"
+    ],
+    "blurb": "Al-Khazneh, the Treasury carved in rock (1st century AD) · Petra, Jordan",
+    "img": "assets/img/petra-treasury.jpg",
+    "fx": 0.5,
+    "fy": 0.6,
+    "frac": 0.2,
+    "license": "CC BY-SA 2.0",
+    "attribution": "Al_Khazneh_Petra.jpg: Graham Racher from London, UK\nderivative work: MrPanyGoff",
+    "source": "Wikimedia Commons: Al Khazneh Petra edit 2.jpg"
+  },
+  {
+    "id": "potala-palace",
+    "name": "Potala Palace",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "potala palace",
+      "potala"
+    ],
+    "blurb": "Former palace of the Dalai Lamas (1649) · Lhasa, Tibet",
+    "img": "assets/img/potala-palace.jpg",
+    "fx": 0.5,
+    "fy": 0.5,
+    "frac": 0.2,
+    "license": "CC BY-SA 2.5",
+    "attribution": "Luca Galuzzi (Lucag)",
+    "source": "Wikimedia Commons: Potala Palace, former residence of Dalai Lama, 2006.jpg"
+  },
+  {
+    "id": "taj-mahal",
+    "name": "Taj Mahal",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "taj mahal",
+      "taj"
+    ],
+    "blurb": "Marble mausoleum for Mumtaz Mahal (1653) · Agra, India",
+    "img": "assets/img/taj-mahal.jpg",
+    "fx": 0.5,
+    "fy": 0.82,
+    "frac": 0.18,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Dhirad, picture edited by J. A. Knudsen",
+    "source": "Wikimedia Commons: Taj Mahal in March 2004.jpg"
+  },
+  {
+    "id": "bayeux-tapestry",
+    "name": "Bayeux Tapestry",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "bayeux tapestry",
+      "bayeux"
+    ],
+    "blurb": "Embroidered chronicle of the Norman Conquest (11th century) · Bayeux, France",
+    "img": "assets/img/bayeux-tapestry.jpg",
+    "fx": 0.5,
+    "fy": 0.5,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Myrabella",
+    "source": "Wikimedia Commons: Bayeux Tapestry scene57 Harold death.jpg"
+  },
+  {
+    "id": "book-of-kells",
+    "name": "Book of Kells",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "book of kells",
+      "kells"
+    ],
+    "blurb": "Illuminated Gospel manuscript (c. 800 AD) · Trinity College, Dublin",
+    "img": "assets/img/book-of-kells.jpg",
+    "fx": 0.5,
+    "fy": 0.5,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Unknown",
+    "source": "Wikimedia Commons: KellsFol034rChiRhoMonogram.jpg"
+  },
+  {
+    "id": "vitruvian-man",
+    "name": "Vitruvian Man",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "vitruvian man",
+      "the vitruvian man"
+    ],
+    "blurb": "Leonardo da Vinci's study of human proportions (c. 1490) · Venice",
+    "img": "assets/img/vitruvian-man.jpg",
+    "fx": 0.5,
+    "fy": 0.4,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Leonardo da Vinci",
+    "source": "Wikimedia Commons: Da Vinci Vitruve Luc Viatour.jpg"
+  },
+  {
+    "id": "mount-rushmore",
+    "name": "Mount Rushmore",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "mount rushmore",
+      "rushmore"
+    ],
+    "blurb": "Four presidents carved in granite (1927–1941) · South Dakota, USA",
+    "img": "assets/img/mount-rushmore.jpg",
+    "fx": 0.3,
+    "fy": 0.85,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Dean Franklin",
+    "source": "Wikimedia Commons: Dean Franklin - 06.04.03 Mount Rushmore Monument (by-sa).jpg"
+  },
+  {
+    "id": "nazca-lines",
+    "name": "Nazca Lines",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "nazca lines",
+      "nasca lines",
+      "nazca"
+    ],
+    "blurb": "Giant desert geoglyphs (500 BC – 500 AD) · Nazca Desert, Peru",
+    "img": "assets/img/nazca-lines.jpg",
+    "fx": 0.5,
+    "fy": 0.5,
+    "frac": 0.22,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Diego Delso",
+    "source": "Wikimedia Commons: Líneas de Nazca, Nazca, Perú, 2015-07-29, DD 52.JPG"
+  },
+  {
+    "id": "dome-of-the-rock",
+    "name": "Dome of the Rock",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "dome of the rock",
+      "qubbat al-sakhra"
+    ],
+    "blurb": "Islamic shrine with a golden dome (691 AD) · Jerusalem",
+    "img": "assets/img/dome-of-the-rock.jpg",
+    "fx": 0.5,
+    "fy": 0.65,
+    "frac": 0.2,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Godot13",
+    "source": "Wikimedia Commons: Jerusalem-2013-Temple Mount-Dome of the Rock & Chain 02.jpg"
+  },
+  {
+    "id": "blue-mosque",
+    "name": "The Blue Mosque",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "blue mosque",
+      "sultan ahmed mosque",
+      "sultanahmet mosque"
+    ],
+    "blurb": "Ottoman imperial mosque with six minarets (1616) · Istanbul, Turkey",
+    "img": "assets/img/blue-mosque.jpg",
+    "fx": 0.5,
+    "fy": 0.6,
+    "frac": 0.2,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Moonik",
+    "source": "Wikimedia Commons: Exterior of Sultan Ahmed I Mosque in Istanbul, Turkey 002.jpg"
+  },
+  {
+    "id": "neuschwanstein-castle",
+    "name": "Neuschwanstein Castle",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "neuschwanstein",
+      "neuschwanstein castle"
+    ],
+    "blurb": "Ludwig II's fairy-tale castle (1886) · Bavaria, Germany",
+    "img": "assets/img/neuschwanstein-castle.jpg",
+    "fx": 0.5,
+    "fy": 0.6,
+    "frac": 0.2,
+    "license": "CC0",
+    "attribution": "Wilfredor",
+    "source": "Wikimedia Commons: Neuschwanstein Castle 2024-02.jpg"
+  },
+  {
+    "id": "eiffel-tower",
+    "name": "Eiffel Tower",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "eiffel tower",
+      "tour eiffel",
+      "eiffel"
+    ],
+    "blurb": "Gustave Eiffel's iron tower (1889) · Paris, France",
+    "img": "assets/img/eiffel-tower.jpg",
+    "fx": 0.5,
+    "fy": 0.75,
+    "frac": 0.2,
+    "license": "CC BY-SA 4.0",
+    "attribution": "King of Hearts",
+    "source": "Wikimedia Commons: Eiffel Tower Paris June 2010.jpg"
+  },
+  {
+    "id": "statue-of-liberty",
+    "name": "Statue of Liberty",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "statue of liberty",
+      "lady liberty",
+      "liberty statue"
+    ],
+    "blurb": "Liberty Enlightening the World (1886) · New York Harbor, USA",
+    "img": "assets/img/statue-of-liberty.jpg",
+    "fx": 0.5,
+    "fy": 0.6,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "PrasanthR at Malayalam Wikipedia",
+    "source": "Wikimedia Commons: Statue of Liberty Closeup of the Torch.JPG"
+  },
+  {
+    "id": "brandenburg-gate",
+    "name": "Brandenburg Gate",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "brandenburg gate",
+      "brandenburger tor"
+    ],
+    "blurb": "Neoclassical gate topped by the Quadriga (1791) · Berlin, Germany",
+    "img": "assets/img/brandenburg-gate.jpg",
+    "fx": 0.38,
+    "fy": 0.78,
+    "frac": 0.2,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Thomas Wolf, www.foto-tw.de",
+    "source": "Wikimedia Commons: Brandenburger Tor abends.jpg"
+  },
+  {
+    "id": "leaning-tower-pisa",
+    "name": "Leaning Tower of Pisa",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "leaning tower of pisa",
+      "tower of pisa",
+      "pisa tower",
+      "leaning tower"
+    ],
+    "blurb": "Famously tilted bell tower (1372) · Pisa, Italy",
+    "img": "assets/img/leaning-tower-pisa.jpg",
+    "fx": 0.5,
+    "fy": 0.55,
+    "frac": 0.2,
+    "license": "CC BY-SA 4.0",
+    "attribution": "MHoser",
+    "source": "Wikimedia Commons: The Duomo and Tower of Pisa at sunrise.jpg"
+  },
+  {
+    "id": "parthenon",
+    "name": "The Parthenon",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "parthenon",
+      "acropolis"
+    ],
+    "blurb": "Temple of Athena on the Acropolis (438 BC) · Athens, Greece",
+    "img": "assets/img/parthenon.jpg",
+    "fx": 0.5,
+    "fy": 0.55,
+    "frac": 0.2,
+    "license": "CC BY-SA 3.0",
+    "attribution": "A.Savin",
+    "source": "Wikimedia Commons: Attica 06-13 Athens 50 View from Philopappos - Acropolis Hill.jpg"
+  },
+  {
+    "id": "notre-dame-paris",
+    "name": "Notre-Dame de Paris",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "notre dame",
+      "notre-dame",
+      "notre dame de paris",
+      "notre dame cathedral"
+    ],
+    "blurb": "Gothic cathedral of Paris (1163–1345) · Paris, France",
+    "img": "assets/img/notre-dame-paris.jpg",
+    "fx": 0.5,
+    "fy": 0.65,
+    "frac": 0.2,
+    "license": "CC BY-SA 3.0",
+    "attribution": "DXR",
+    "source": "Wikimedia Commons: Cathédrale Notre-Dame de Paris, 20 March 2014.jpg"
+  },
+  {
+    "id": "big-ben",
+    "name": "Big Ben",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "big ben",
+      "elizabeth tower",
+      "westminster clock tower"
+    ],
+    "blurb": "Clock tower of the Palace of Westminster (1859) · London, England",
+    "img": "assets/img/big-ben.jpg",
+    "fx": 0.5,
+    "fy": 0.4,
+    "frac": 0.18,
+    "license": "CC BY 4.0",
+    "attribution": "Julian Herzog (Website)",
+    "source": "Wikimedia Commons: Big Ben Elizabeth Tower London 2023 01.jpg"
+  },
+  {
+    "id": "st-basils-cathedral",
+    "name": "Saint Basil's Cathedral",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "saint basils cathedral",
+      "st basils cathedral",
+      "st basil's",
+      "saint basil's",
+      "st basils"
+    ],
+    "blurb": "Ivan the Terrible's many-coloured cathedral (1561) · Moscow, Russia",
+    "img": "assets/img/st-basils-cathedral.jpg",
+    "fx": 0.5,
+    "fy": 0.85,
+    "frac": 0.2,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Petar Milošević",
+    "source": "Wikimedia Commons: Sant Vasily cathedral in Moscow.JPG"
+  },
+  {
+    "id": "sagrada-familia",
+    "name": "Sagrada Família",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "sagrada familia",
+      "la sagrada familia"
+    ],
+    "blurb": "Gaudí's unfinished basilica (begun 1882) · Barcelona, Spain",
+    "img": "assets/img/sagrada-familia.jpg",
+    "fx": 0.5,
+    "fy": 0.6,
+    "frac": 0.2,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Alvesgaspar",
+    "source": "Wikimedia Commons: Sagrada Familia March 2015-14a.jpg"
+  },
+  {
+    "id": "golden-gate-bridge",
+    "name": "Golden Gate Bridge",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "golden gate bridge",
+      "golden gate"
+    ],
+    "blurb": "Art Deco suspension bridge (1937) · San Francisco, USA",
+    "img": "assets/img/golden-gate-bridge.jpg",
+    "fx": 0.5,
+    "fy": 0.5,
+    "frac": 0.2,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Brocken Inaglory",
+    "source": "Wikimedia Commons: Golden Gate Bridge at sunset 1.jpg"
+  },
+  {
+    "id": "tower-bridge",
+    "name": "Tower Bridge",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "tower bridge",
+      "london bridge"
+    ],
+    "blurb": "Bascule bridge over the Thames (1894) · London, England",
+    "img": "assets/img/tower-bridge.jpg",
+    "fx": 0.5,
+    "fy": 0.75,
+    "frac": 0.2,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Diliff",
+    "source": "Wikimedia Commons: Tower Bridge London Dusk Feb 2006.jpg"
+  },
+  {
+    "id": "mont-saint-michel",
+    "name": "Mont-Saint-Michel",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "mont saint michel",
+      "mont-saint-michel",
+      "mont st michel"
+    ],
+    "blurb": "Abbey rising from a tidal island (8th–16th century) · Normandy, France",
+    "img": "assets/img/mont-saint-michel.jpg",
+    "fx": 0.5,
+    "fy": 0.55,
+    "frac": 0.2,
+    "license": "CC BY-SA 4.0",
+    "attribution": "W. Bulach",
+    "source": "Wikimedia Commons: 00 0572 Mont Saint Michel abbey.jpg"
+  },
+  {
+    "id": "mask-of-agamemnon",
+    "name": "Mask of Agamemnon",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "mask of agamemnon",
+      "agamemnon mask",
+      "agamemnon"
+    ],
+    "blurb": "Gold funeral mask from Mycenae (16th century BC) · Athens, Greece",
+    "img": "assets/img/mask-of-agamemnon.jpg",
+    "fx": 0.5,
+    "fy": 0.5,
+    "frac": 0.22,
+    "license": "CC0",
+    "attribution": "Jebulon",
+    "source": "Wikimedia Commons: Agamemnon mask NAMA Athens Greece.jpg"
+  },
+  {
+    "id": "antikythera-mechanism",
+    "name": "Antikythera Mechanism",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "antikythera mechanism",
+      "antikythera"
+    ],
+    "blurb": "Ancient Greek astronomical computer (2nd century BC) · Athens, Greece",
+    "img": "assets/img/antikythera-mechanism.jpg",
+    "fx": 0.5,
+    "fy": 0.5,
+    "frac": 0.22,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Joyofmuseums",
+    "source": "Wikimedia Commons: Antikythera Mechanism - National Archaeological Museum, Athens by Joy of Museum.jpg"
+  },
+  {
+    "id": "gutenberg-bible",
+    "name": "Gutenberg Bible",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "gutenberg bible",
+      "gutenberg"
+    ],
+    "blurb": "First major book printed with movable type (1455) · Mainz, Germany",
+    "img": "assets/img/gutenberg-bible.jpg",
+    "fx": 0.5,
+    "fy": 0.5,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Miscellaneous Items in High Demand, PPOC, Library of Congress",
+    "source": "Wikimedia Commons: An illuminated page of the...Gutenberg Bible... LCCN2006680004.jpg"
+  },
+  {
+    "id": "wright-flyer",
+    "name": "Wright Flyer",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "wright flyer",
+      "wright brothers plane",
+      "first airplane",
+      "kitty hawk"
+    ],
+    "blurb": "The first powered flight (December 17, 1903) · Kitty Hawk, North Carolina",
+    "img": "assets/img/wright-flyer.jpg",
+    "fx": 0.5,
+    "fy": 0.55,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "John T. Daniels",
+    "source": "Wikimedia Commons: First flight3.jpg"
+  },
+  {
+    "id": "pieta-michelangelo",
+    "name": "Michelangelo's Pietà",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "pieta",
+      "the pieta",
+      "michelangelo's pieta"
+    ],
+    "blurb": "Mary cradling the dead Christ (1499) · St. Peter's Basilica, Vatican",
+    "img": "assets/img/pieta-michelangelo.jpg",
+    "fx": 0.5,
+    "fy": 0.6,
+    "frac": 0.2,
+    "license": "CC BY 2.5",
+    "attribution": "Stanislav Traykov",
+    "source": "Wikimedia Commons: Michelangelo's Pieta 5450 cropncleaned edit.jpg"
+  },
+  {
+    "id": "standard-of-ur",
+    "name": "Standard of Ur",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "standard of ur",
+      "royal standard of ur"
+    ],
+    "blurb": "Sumerian mosaic box (c. 2500 BC) · British Museum, London",
+    "img": "assets/img/standard-of-ur.jpg",
+    "fx": 0.5,
+    "fy": 0.5,
+    "frac": 0.22,
+    "license": "CC BY-SA 3.0",
+    "attribution": "BabelStone",
+    "source": "Wikimedia Commons: Standard of Ur front view.jpg"
+  },
+  {
+    "id": "dead-sea-scrolls",
+    "name": "Dead Sea Scrolls",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "dead sea scrolls",
+      "great isaiah scroll",
+      "dead sea scroll"
+    ],
+    "blurb": "Ancient Hebrew manuscripts (3rd century BC – 1st century AD) · Jerusalem",
+    "img": "assets/img/dead-sea-scrolls.jpg",
+    "fx": 0.5,
+    "fy": 0.5,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Photography by Ardon Bar Hama (see [2], author of original document is unknown.",
+    "source": "Wikimedia Commons: Great Isaiah Scroll Ch53.jpg"
+  },
+  {
+    "id": "temple-of-heaven",
+    "name": "Temple of Heaven",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "temple of heaven",
+      "tiantan"
+    ],
+    "blurb": "Imperial altar of prayer for good harvests (1420) · Beijing, China",
+    "img": "assets/img/temple-of-heaven.jpg",
+    "fx": 0.5,
+    "fy": 0.5,
+    "frac": 0.2,
+    "license": "CC0",
+    "attribution": "Balon Greyjoy",
+    "source": "Wikimedia Commons: 20200110 Temple of Heaven-1.jpg"
+  },
+  {
+    "id": "hope-diamond",
+    "name": "Hope Diamond",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "hope diamond",
+      "the hope diamond"
+    ],
+    "blurb": "45-carat deep-blue diamond · Smithsonian, Washington DC",
+    "img": "assets/img/hope-diamond.jpg",
+    "fx": 0.5,
+    "fy": 0.5,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Unknown authorUnknown author",
+    "source": "Wikimedia Commons: The Hope Diamond - SIA.jpg"
   }
 ]

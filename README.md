@@ -17,7 +17,7 @@ after the first load.
   square is correct
 - Your progress is saved automatically, even if you close the app
 
-**Map of a Life** — guess the historical figure from geography:
+**Lifeline** (formerly Map of a Life) — guess the historical figure from geography:
 - A green dot marks where they were born (with the year); a red ring marks
   where they died (with the year)
 - Type the name — spelling doesn't have to be perfect, and nicknames like

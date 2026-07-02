@@ -7878,5 +7878,2211 @@
       "lat": 40.12,
       "lon": -5.74
     }
+  },
+  {
+    "id": "marco-polo",
+    "name": "Marco Polo",
+    "difficulty": "easy",
+    "variants": [
+      "marco polo",
+      "polo"
+    ],
+    "occupation": "Venetian merchant and traveler",
+    "birth": {
+      "year": 1254,
+      "place": "Venice, Italy",
+      "lat": 45.44,
+      "lon": 12.33
+    },
+    "death": {
+      "year": 1324,
+      "place": "Venice, Italy",
+      "lat": 45.44,
+      "lon": 12.33
+    }
+  },
+  {
+    "id": "ibn-battuta",
+    "name": "Ibn Battuta",
+    "difficulty": "easy",
+    "variants": [
+      "ibn battuta",
+      "ibn batuta"
+    ],
+    "occupation": "Moroccan explorer and scholar",
+    "birth": {
+      "year": 1304,
+      "place": "Tangier, Morocco",
+      "lat": 35.76,
+      "lon": -5.83
+    },
+    "death": {
+      "year": 1369,
+      "place": "Fez, Morocco",
+      "lat": 34.03,
+      "lon": -5.0
+    }
+  },
+  {
+    "id": "xuanzang",
+    "name": "Xuanzang",
+    "difficulty": "medium",
+    "variants": [
+      "xuanzang",
+      "hsuan-tsang",
+      "hsuan tsang",
+      "tripitaka"
+    ],
+    "occupation": "Chinese Buddhist monk and pilgrim",
+    "birth": {
+      "year": 602,
+      "place": "Luoyang, China",
+      "lat": 34.62,
+      "lon": 112.45
+    },
+    "death": {
+      "year": 664,
+      "place": "Xi'an, China",
+      "lat": 34.34,
+      "lon": 108.94
+    }
+  },
+  {
+    "id": "wu-zetian",
+    "name": "Wu Zetian",
+    "difficulty": "medium",
+    "variants": [
+      "wu zetian",
+      "empress wu",
+      "wu zhao"
+    ],
+    "occupation": "Empress of China",
+    "birth": {
+      "year": 624,
+      "place": "Wenshui, China",
+      "lat": 37.43,
+      "lon": 112.02
+    },
+    "death": {
+      "year": 705,
+      "place": "Luoyang, China",
+      "lat": 34.62,
+      "lon": 112.45
+    }
+  },
+  {
+    "id": "zhu-yuanzhang",
+    "name": "Hongwu Emperor",
+    "difficulty": "hard",
+    "variants": [
+      "hongwu emperor",
+      "zhu yuanzhang",
+      "hongwu"
+    ],
+    "occupation": "Founder of the Ming dynasty",
+    "birth": {
+      "year": 1328,
+      "place": "Fengyang, China",
+      "lat": 32.87,
+      "lon": 117.57
+    },
+    "death": {
+      "year": 1398,
+      "place": "Nanjing, China",
+      "lat": 32.06,
+      "lon": 118.8
+    }
+  },
+  {
+    "id": "toyotomi-hideyoshi",
+    "name": "Toyotomi Hideyoshi",
+    "difficulty": "easy",
+    "variants": [
+      "toyotomi hideyoshi",
+      "hideyoshi"
+    ],
+    "occupation": "Japanese warlord and unifier of Japan",
+    "birth": {
+      "year": 1537,
+      "place": "Nagoya, Japan",
+      "lat": 35.18,
+      "lon": 136.91
+    },
+    "death": {
+      "year": 1598,
+      "place": "Kyoto, Japan",
+      "lat": 35.01,
+      "lon": 135.77
+    }
+  },
+  {
+    "id": "tokugawa-ieyasu",
+    "name": "Tokugawa Ieyasu",
+    "difficulty": "easy",
+    "variants": [
+      "tokugawa ieyasu",
+      "ieyasu"
+    ],
+    "occupation": "Japanese shogun",
+    "birth": {
+      "year": 1543,
+      "place": "Okazaki, Japan",
+      "lat": 34.95,
+      "lon": 137.17
+    },
+    "death": {
+      "year": 1616,
+      "place": "Shizuoka, Japan",
+      "lat": 34.98,
+      "lon": 138.38
+    }
+  },
+  {
+    "id": "shaka-zulu",
+    "name": "Shaka Zulu",
+    "difficulty": "easy",
+    "variants": [
+      "shaka zulu",
+      "shaka",
+      "shaka kasenzangakhona"
+    ],
+    "occupation": "Founder of the Zulu Kingdom",
+    "birth": {
+      "year": 1787,
+      "place": "Melmoth, South Africa",
+      "lat": -28.58,
+      "lon": 31.38
+    },
+    "death": {
+      "year": 1828,
+      "place": "KwaDukuza, South Africa",
+      "lat": -29.33,
+      "lon": 31.29
+    }
+  },
+  {
+    "id": "chandragupta-maurya",
+    "name": "Chandragupta Maurya",
+    "difficulty": "hard",
+    "variants": [
+      "chandragupta maurya",
+      "chandragupta"
+    ],
+    "occupation": "Founder of the Maurya Empire",
+    "birth": {
+      "year": -345,
+      "place": "Patna, India",
+      "lat": 25.61,
+      "lon": 85.13
+    },
+    "death": {
+      "year": -297,
+      "place": "Shravanabelagola, India",
+      "lat": 12.86,
+      "lon": 76.49
+    }
+  },
+  {
+    "id": "aurangzeb",
+    "name": "Aurangzeb",
+    "difficulty": "easy",
+    "variants": [
+      "aurangzeb",
+      "alamgir"
+    ],
+    "occupation": "Mughal emperor",
+    "birth": {
+      "year": 1618,
+      "place": "Dahod, India",
+      "lat": 22.83,
+      "lon": 74.26
+    },
+    "death": {
+      "year": 1707,
+      "place": "Ahmednagar, India",
+      "lat": 19.09,
+      "lon": 74.75
+    }
+  },
+  {
+    "id": "bartolomeu-dias",
+    "name": "Bartolomeu Dias",
+    "difficulty": "easy",
+    "variants": [
+      "bartolomeu dias",
+      "bartholomew diaz",
+      "bartolomeu diaz"
+    ],
+    "occupation": "Portuguese navigator",
+    "birth": {
+      "year": 1450,
+      "place": "Lisbon, Portugal",
+      "lat": 38.72,
+      "lon": -9.14
+    },
+    "death": {
+      "year": 1500,
+      "place": "Cape of Good Hope, South Africa",
+      "lat": -34.36,
+      "lon": 18.47
+    }
+  },
+  {
+    "id": "henry-the-navigator",
+    "name": "Henry the Navigator",
+    "difficulty": "medium",
+    "variants": [
+      "henry the navigator",
+      "prince henry"
+    ],
+    "occupation": "Portuguese prince and patron of exploration",
+    "birth": {
+      "year": 1394,
+      "place": "Porto, Portugal",
+      "lat": 41.15,
+      "lon": -8.61
+    },
+    "death": {
+      "year": 1460,
+      "place": "Sagres, Portugal",
+      "lat": 37.01,
+      "lon": -8.94
+    }
+  },
+  {
+    "id": "el-cid",
+    "name": "El Cid",
+    "difficulty": "easy",
+    "variants": [
+      "el cid",
+      "rodrigo diaz de vivar",
+      "cid campeador"
+    ],
+    "occupation": "Castilian military leader",
+    "birth": {
+      "year": 1043,
+      "place": "Vivar, Spain",
+      "lat": 42.39,
+      "lon": -3.64
+    },
+    "death": {
+      "year": 1099,
+      "place": "Valencia, Spain",
+      "lat": 39.47,
+      "lon": -0.38
+    }
+  },
+  {
+    "id": "ibn-khaldun",
+    "name": "Ibn Khaldun",
+    "difficulty": "medium",
+    "variants": [
+      "ibn khaldun"
+    ],
+    "occupation": "Arab historian and philosopher",
+    "birth": {
+      "year": 1332,
+      "place": "Tunis, Tunisia",
+      "lat": 36.81,
+      "lon": 10.18
+    },
+    "death": {
+      "year": 1406,
+      "place": "Cairo, Egypt",
+      "lat": 30.04,
+      "lon": 31.24
+    }
+  },
+  {
+    "id": "rumi",
+    "name": "Rumi",
+    "difficulty": "easy",
+    "variants": [
+      "rumi",
+      "jalal ad-din muhammad rumi",
+      "mevlana"
+    ],
+    "occupation": "Persian poet and Sufi mystic",
+    "birth": {
+      "year": 1207,
+      "place": "Balkh, Afghanistan",
+      "lat": 36.76,
+      "lon": 66.9
+    },
+    "death": {
+      "year": 1273,
+      "place": "Konya, Turkey",
+      "lat": 37.87,
+      "lon": 32.49
+    }
+  },
+  {
+    "id": "averroes",
+    "name": "Averroes",
+    "difficulty": "hard",
+    "variants": [
+      "averroes",
+      "ibn rushd"
+    ],
+    "occupation": "Andalusian philosopher and jurist",
+    "birth": {
+      "year": 1126,
+      "place": "Cordoba, Spain",
+      "lat": 37.89,
+      "lon": -4.77
+    },
+    "death": {
+      "year": 1198,
+      "place": "Marrakesh, Morocco",
+      "lat": 31.63,
+      "lon": -8.0
+    }
+  },
+  {
+    "id": "vasco-nunez-de-balboa",
+    "name": "Vasco Núñez de Balboa",
+    "difficulty": "medium",
+    "variants": [
+      "vasco nunez de balboa",
+      "balboa",
+      "vasco de balboa"
+    ],
+    "occupation": "Spanish conquistador",
+    "birth": {
+      "year": 1475,
+      "place": "Jerez de los Caballeros, Spain",
+      "lat": 38.32,
+      "lon": -6.77
+    },
+    "death": {
+      "year": 1519,
+      "place": "Acla, Panama",
+      "lat": 8.83,
+      "lon": -77.63
+    }
+  },
+  {
+    "id": "alexander-nevsky",
+    "name": "Alexander Nevsky",
+    "difficulty": "medium",
+    "variants": [
+      "alexander nevsky",
+      "aleksandr nevsky"
+    ],
+    "occupation": "Russian prince and military commander",
+    "birth": {
+      "year": 1220,
+      "place": "Pereslavl-Zalessky, Russia",
+      "lat": 56.73,
+      "lon": 38.85
+    },
+    "death": {
+      "year": 1263,
+      "place": "Gorodets, Russia",
+      "lat": 56.65,
+      "lon": 43.47
+    }
+  },
+  {
+    "id": "themistocles",
+    "name": "Themistocles",
+    "difficulty": "medium",
+    "variants": [
+      "themistocles"
+    ],
+    "occupation": "Athenian statesman and general",
+    "birth": {
+      "year": -524,
+      "place": "Athens, Greece",
+      "lat": 37.98,
+      "lon": 23.73
+    },
+    "death": {
+      "year": -459,
+      "place": "Manisa, Turkey",
+      "lat": 38.61,
+      "lon": 27.43
+    }
+  },
+  {
+    "id": "demosthenes",
+    "name": "Demosthenes",
+    "difficulty": "medium",
+    "variants": [
+      "demosthenes"
+    ],
+    "occupation": "Athenian orator and statesman",
+    "birth": {
+      "year": -384,
+      "place": "Athens, Greece",
+      "lat": 37.98,
+      "lon": 23.73
+    },
+    "death": {
+      "year": -322,
+      "place": "Poros, Greece",
+      "lat": 37.5,
+      "lon": 23.45
+    }
+  },
+  {
+    "id": "ptolemy-i-soter",
+    "name": "Ptolemy I Soter",
+    "difficulty": "hard",
+    "variants": [
+      "ptolemy i soter",
+      "ptolemy i",
+      "ptolemy soter"
+    ],
+    "occupation": "Macedonian general and founder of Ptolemaic Egypt",
+    "birth": {
+      "year": -367,
+      "place": "Eordaea, Greece",
+      "lat": 40.55,
+      "lon": 21.7
+    },
+    "death": {
+      "year": -282,
+      "place": "Alexandria, Egypt",
+      "lat": 31.2,
+      "lon": 29.92
+    }
+  },
+  {
+    "id": "selim-i",
+    "name": "Selim I",
+    "difficulty": "medium",
+    "variants": [
+      "selim i",
+      "selim the grim",
+      "yavuz sultan selim"
+    ],
+    "occupation": "Ottoman sultan",
+    "birth": {
+      "year": 1470,
+      "place": "Amasya, Turkey",
+      "lat": 40.65,
+      "lon": 35.83
+    },
+    "death": {
+      "year": 1520,
+      "place": "Corlu, Turkey",
+      "lat": 41.16,
+      "lon": 27.8
+    }
+  },
+  {
+    "id": "osman-i",
+    "name": "Osman I",
+    "difficulty": "medium",
+    "variants": [
+      "osman i",
+      "osman gazi",
+      "osman bey"
+    ],
+    "occupation": "Founder of the Ottoman Empire",
+    "birth": {
+      "year": 1258,
+      "place": "Sogut, Turkey",
+      "lat": 40.02,
+      "lon": 30.18
+    },
+    "death": {
+      "year": 1326,
+      "place": "Bursa, Turkey",
+      "lat": 40.19,
+      "lon": 29.06
+    }
+  },
+  {
+    "id": "babur",
+    "name": "Babur",
+    "difficulty": "easy",
+    "variants": [
+      "babur",
+      "zahir ud-din muhammad babur"
+    ],
+    "occupation": "Founder of the Mughal Empire",
+    "birth": {
+      "year": 1483,
+      "place": "Andijan, Uzbekistan",
+      "lat": 40.75,
+      "lon": 72.36
+    },
+    "death": {
+      "year": 1530,
+      "place": "Agra, India",
+      "lat": 27.18,
+      "lon": 78.02
+    }
+  },
+  {
+    "id": "willem-barentsz",
+    "name": "Willem Barentsz",
+    "difficulty": "hard",
+    "variants": [
+      "willem barentsz",
+      "willem barents",
+      "william barents"
+    ],
+    "occupation": "Dutch navigator and explorer",
+    "birth": {
+      "year": 1550,
+      "place": "Terschelling, Netherlands",
+      "lat": 53.36,
+      "lon": 5.28
+    },
+    "death": {
+      "year": 1597,
+      "place": "Novaya Zemlya, Russia",
+      "lat": 76.25,
+      "lon": 62.2
+    }
+  },
+  {
+    "id": "afonso-de-albuquerque",
+    "name": "Afonso de Albuquerque",
+    "difficulty": "medium",
+    "variants": [
+      "afonso de albuquerque",
+      "alfonso de albuquerque"
+    ],
+    "occupation": "Portuguese admiral and viceroy of India",
+    "birth": {
+      "year": 1453,
+      "place": "Alhandra, Portugal",
+      "lat": 38.92,
+      "lon": -9.02
+    },
+    "death": {
+      "year": 1515,
+      "place": "Goa, India",
+      "lat": 15.3,
+      "lon": 74.08
+    }
+  },
+  {
+    "id": "nicolaus-copernicus",
+    "name": "Nicolaus Copernicus",
+    "difficulty": "easy",
+    "variants": [
+      "nicolaus copernicus",
+      "copernicus"
+    ],
+    "occupation": "Astronomer",
+    "birth": {
+      "year": 1473,
+      "place": "Torun, Poland",
+      "lat": 53.01,
+      "lon": 18.61
+    },
+    "death": {
+      "year": 1543,
+      "place": "Frombork, Poland",
+      "lat": 54.35,
+      "lon": 19.67
+    }
+  },
+  {
+    "id": "tycho-brahe",
+    "name": "Tycho Brahe",
+    "difficulty": "medium",
+    "variants": [
+      "tycho brahe"
+    ],
+    "occupation": "Danish astronomer",
+    "birth": {
+      "year": 1546,
+      "place": "Knudstrup, Sweden",
+      "lat": 55.93,
+      "lon": 13.28
+    },
+    "death": {
+      "year": 1601,
+      "place": "Prague, Czech Republic",
+      "lat": 50.09,
+      "lon": 14.42
+    }
+  },
+  {
+    "id": "johannes-kepler",
+    "name": "Johannes Kepler",
+    "difficulty": "easy",
+    "variants": [
+      "johannes kepler",
+      "kepler"
+    ],
+    "occupation": "Astronomer and mathematician",
+    "birth": {
+      "year": 1571,
+      "place": "Weil der Stadt, Germany",
+      "lat": 48.75,
+      "lon": 8.87
+    },
+    "death": {
+      "year": 1630,
+      "place": "Regensburg, Germany",
+      "lat": 49.02,
+      "lon": 12.1
+    }
+  },
+  {
+    "id": "guru-nanak",
+    "name": "Guru Nanak",
+    "difficulty": "easy",
+    "variants": [
+      "guru nanak",
+      "nanak",
+      "guru nanak dev"
+    ],
+    "occupation": "Founder of Sikhism",
+    "birth": {
+      "year": 1469,
+      "place": "Nankana Sahib, Pakistan",
+      "lat": 31.45,
+      "lon": 73.71
+    },
+    "death": {
+      "year": 1539,
+      "place": "Kartarpur, Pakistan",
+      "lat": 32.09,
+      "lon": 75.02
+    }
+  },
+  {
+    "id": "buddha",
+    "name": "Buddha",
+    "difficulty": "easy",
+    "variants": [
+      "buddha",
+      "siddhartha gautama",
+      "gautama buddha",
+      "the buddha"
+    ],
+    "occupation": "Founder of Buddhism",
+    "birth": {
+      "year": -563,
+      "place": "Lumbini, Nepal",
+      "lat": 27.47,
+      "lon": 83.27
+    },
+    "death": {
+      "year": -483,
+      "place": "Kushinagar, India",
+      "lat": 26.74,
+      "lon": 83.89
+    }
+  },
+  {
+    "id": "maimonides",
+    "name": "Maimonides",
+    "difficulty": "medium",
+    "variants": [
+      "maimonides",
+      "moses maimonides",
+      "rambam"
+    ],
+    "occupation": "Jewish philosopher and physician",
+    "birth": {
+      "year": 1135,
+      "place": "Cordoba, Spain",
+      "lat": 37.89,
+      "lon": -4.77
+    },
+    "death": {
+      "year": 1204,
+      "place": "Cairo, Egypt",
+      "lat": 30.01,
+      "lon": 31.24
+    }
+  },
+  {
+    "id": "william-tyndale",
+    "name": "William Tyndale",
+    "difficulty": "hard",
+    "variants": [
+      "william tyndale",
+      "tyndale"
+    ],
+    "occupation": "English Bible translator",
+    "birth": {
+      "year": 1494,
+      "place": "Gloucestershire, England",
+      "lat": 51.86,
+      "lon": -2.24
+    },
+    "death": {
+      "year": 1536,
+      "place": "Vilvoorde, Belgium",
+      "lat": 50.93,
+      "lon": 4.43
+    }
+  },
+  {
+    "id": "girolamo-savonarola",
+    "name": "Girolamo Savonarola",
+    "difficulty": "medium",
+    "variants": [
+      "girolamo savonarola",
+      "savonarola"
+    ],
+    "occupation": "Italian friar and reformer",
+    "birth": {
+      "year": 1452,
+      "place": "Ferrara, Italy",
+      "lat": 44.84,
+      "lon": 11.62
+    },
+    "death": {
+      "year": 1498,
+      "place": "Florence, Italy",
+      "lat": 43.77,
+      "lon": 11.26
+    }
+  },
+  {
+    "id": "huldrych-zwingli",
+    "name": "Huldrych Zwingli",
+    "difficulty": "hard",
+    "variants": [
+      "huldrych zwingli",
+      "ulrich zwingli",
+      "zwingli"
+    ],
+    "occupation": "Swiss Protestant reformer",
+    "birth": {
+      "year": 1484,
+      "place": "Wildhaus, Switzerland",
+      "lat": 47.2,
+      "lon": 9.35
+    },
+    "death": {
+      "year": 1531,
+      "place": "Kappel am Albis, Switzerland",
+      "lat": 47.22,
+      "lon": 8.53
+    }
+  },
+  {
+    "id": "andreas-vesalius",
+    "name": "Andreas Vesalius",
+    "difficulty": "medium",
+    "variants": [
+      "andreas vesalius",
+      "vesalius"
+    ],
+    "occupation": "Anatomist",
+    "birth": {
+      "year": 1514,
+      "place": "Brussels, Belgium",
+      "lat": 50.85,
+      "lon": 4.35
+    },
+    "death": {
+      "year": 1564,
+      "place": "Zakynthos, Greece",
+      "lat": 37.78,
+      "lon": 20.8
+    }
+  },
+  {
+    "id": "kamehameha-i",
+    "name": "Kamehameha I",
+    "difficulty": "easy",
+    "variants": [
+      "kamehameha i",
+      "kamehameha the great",
+      "kamehameha"
+    ],
+    "occupation": "First king of the Hawaiian Islands",
+    "birth": {
+      "year": 1758,
+      "place": "Kohala, Hawaii",
+      "lat": 20.23,
+      "lon": -155.8
+    },
+    "death": {
+      "year": 1819,
+      "place": "Kailua-Kona, Hawaii",
+      "lat": 19.64,
+      "lon": -155.996
+    }
+  },
+  {
+    "id": "piri-reis",
+    "name": "Piri Reis",
+    "difficulty": "hard",
+    "variants": [
+      "piri reis"
+    ],
+    "occupation": "Ottoman admiral and cartographer",
+    "birth": {
+      "year": 1465,
+      "place": "Gallipoli, Turkey",
+      "lat": 40.36,
+      "lon": 26.42
+    },
+    "death": {
+      "year": 1553,
+      "place": "Cairo, Egypt",
+      "lat": 30.04,
+      "lon": 31.24
+    }
+  },
+  {
+    "id": "hayreddin-barbarossa",
+    "name": "Hayreddin Barbarossa",
+    "difficulty": "medium",
+    "variants": [
+      "hayreddin barbarossa",
+      "barbarossa",
+      "khair ad-din"
+    ],
+    "occupation": "Ottoman admiral",
+    "birth": {
+      "year": 1478,
+      "place": "Lesbos, Greece",
+      "lat": 39.11,
+      "lon": 26.55
+    },
+    "death": {
+      "year": 1546,
+      "place": "Istanbul, Turkey",
+      "lat": 41.01,
+      "lon": 28.98
+    }
+  },
+  {
+    "id": "yi-sun-sin",
+    "name": "Yi Sun-sin",
+    "difficulty": "easy",
+    "variants": [
+      "yi sun-sin",
+      "yi sun sin",
+      "admiral yi"
+    ],
+    "occupation": "Korean admiral",
+    "birth": {
+      "year": 1545,
+      "place": "Seoul, South Korea",
+      "lat": 37.57,
+      "lon": 126.98
+    },
+    "death": {
+      "year": 1598,
+      "place": "Namhae, South Korea",
+      "lat": 34.98,
+      "lon": 127.98
+    }
+  },
+  {
+    "id": "christine-de-pizan",
+    "name": "Christine de Pizan",
+    "difficulty": "medium",
+    "variants": [
+      "christine de pizan",
+      "christine de pisan"
+    ],
+    "occupation": "Medieval writer and poet",
+    "birth": {
+      "year": 1364,
+      "place": "Venice, Italy",
+      "lat": 45.44,
+      "lon": 12.33
+    },
+    "death": {
+      "year": 1430,
+      "place": "Poissy, France",
+      "lat": 48.93,
+      "lon": 2.05
+    }
+  },
+  {
+    "id": "yongle-emperor",
+    "name": "Yongle Emperor",
+    "difficulty": "hard",
+    "variants": [
+      "yongle emperor",
+      "zhu di"
+    ],
+    "occupation": "Emperor of the Ming dynasty",
+    "birth": {
+      "year": 1360,
+      "place": "Nanjing, China",
+      "lat": 32.06,
+      "lon": 118.8
+    },
+    "death": {
+      "year": 1424,
+      "place": "Duolun, China",
+      "lat": 42.18,
+      "lon": 116.48
+    }
+  },
+  {
+    "id": "bayezid-i",
+    "name": "Bayezid I",
+    "difficulty": "medium",
+    "variants": [
+      "bayezid i",
+      "bayezid the thunderbolt",
+      "yildirim bayezid"
+    ],
+    "occupation": "Ottoman sultan",
+    "birth": {
+      "year": 1360,
+      "place": "Edirne, Turkey",
+      "lat": 41.68,
+      "lon": 26.56
+    },
+    "death": {
+      "year": 1403,
+      "place": "Aksehir, Turkey",
+      "lat": 38.36,
+      "lon": 31.42
+    }
+  },
+  {
+    "id": "roxelana",
+    "name": "Roxelana",
+    "difficulty": "easy",
+    "variants": [
+      "roxelana",
+      "hurrem sultan"
+    ],
+    "occupation": "Ottoman empress consort",
+    "birth": {
+      "year": 1505,
+      "place": "Rohatyn, Ukraine",
+      "lat": 49.41,
+      "lon": 24.61
+    },
+    "death": {
+      "year": 1558,
+      "place": "Istanbul, Turkey",
+      "lat": 41.01,
+      "lon": 28.98
+    }
+  },
+  {
+    "id": "nasir-al-din-al-tusi",
+    "name": "Nasir al-Din al-Tusi",
+    "difficulty": "hard",
+    "variants": [
+      "nasir al-din al-tusi",
+      "al-tusi",
+      "nasir al-din tusi"
+    ],
+    "occupation": "Persian astronomer and mathematician",
+    "birth": {
+      "year": 1201,
+      "place": "Tus, Iran",
+      "lat": 36.49,
+      "lon": 59.52
+    },
+    "death": {
+      "year": 1274,
+      "place": "Baghdad, Iraq",
+      "lat": 33.31,
+      "lon": 44.36
+    }
+  },
+  {
+    "id": "francisco-vazquez-de-coronado",
+    "name": "Francisco Vázquez de Coronado",
+    "difficulty": "medium",
+    "variants": [
+      "francisco vazquez de coronado",
+      "coronado",
+      "francisco de coronado"
+    ],
+    "occupation": "Spanish conquistador",
+    "birth": {
+      "year": 1510,
+      "place": "Salamanca, Spain",
+      "lat": 40.96,
+      "lon": -5.67
+    },
+    "death": {
+      "year": 1554,
+      "place": "Mexico City, Mexico",
+      "lat": 19.43,
+      "lon": -99.13
+    }
+  },
+  {
+    "id": "peter-abelard",
+    "name": "Peter Abelard",
+    "difficulty": "hard",
+    "variants": [
+      "peter abelard",
+      "abelard"
+    ],
+    "occupation": "French philosopher and theologian",
+    "birth": {
+      "year": 1079,
+      "place": "Le Pallet, France",
+      "lat": 47.14,
+      "lon": -1.34
+    },
+    "death": {
+      "year": 1142,
+      "place": "Chalon-sur-Saone, France",
+      "lat": 46.78,
+      "lon": 4.85
+    }
+  },
+  {
+    "id": "guru-gobind-singh",
+    "name": "Guru Gobind Singh",
+    "difficulty": "medium",
+    "variants": [
+      "guru gobind singh",
+      "gobind singh"
+    ],
+    "occupation": "Tenth Sikh Guru",
+    "birth": {
+      "year": 1666,
+      "place": "Patna, India",
+      "lat": 25.61,
+      "lon": 85.13
+    },
+    "death": {
+      "year": 1708,
+      "place": "Nanded, India",
+      "lat": 19.15,
+      "lon": 77.32
+    }
+  },
+  {
+    "id": "baldwin-i-of-jerusalem",
+    "name": "Baldwin I of Jerusalem",
+    "difficulty": "hard",
+    "variants": [
+      "baldwin i of jerusalem",
+      "baldwin i",
+      "baldwin of boulogne"
+    ],
+    "occupation": "First Crusader King of Jerusalem",
+    "birth": {
+      "year": 1060,
+      "place": "Boulogne-sur-Mer, France",
+      "lat": 50.73,
+      "lon": 1.61
+    },
+    "death": {
+      "year": 1118,
+      "place": "Al-Arish, Egypt",
+      "lat": 31.13,
+      "lon": 33.8
+    }
+  },
+  {
+    "id": "simon-de-montfort",
+    "name": "Simon de Montfort",
+    "difficulty": "medium",
+    "variants": [
+      "simon de montfort",
+      "simon de montfort 6th earl of leicester"
+    ],
+    "occupation": "English nobleman and rebel leader",
+    "birth": {
+      "year": 1208,
+      "place": "Montfort-l'Amaury, France",
+      "lat": 48.77,
+      "lon": 1.8
+    },
+    "death": {
+      "year": 1265,
+      "place": "Evesham, England",
+      "lat": 52.1,
+      "lon": -1.92
+    }
+  },
+  {
+    "id": "toussaint-louverture",
+    "name": "Toussaint Louverture",
+    "difficulty": "easy",
+    "variants": [
+      "toussaint louverture",
+      "toussaint l'ouverture",
+      "toussaint breda"
+    ],
+    "occupation": "Leader of the Haitian Revolution",
+    "birth": {
+      "year": 1743,
+      "place": "Cap-Haïtien, Haiti",
+      "lat": 19.75,
+      "lon": -72.2
+    },
+    "death": {
+      "year": 1803,
+      "place": "Fort de Joux, France",
+      "lat": 46.87,
+      "lon": 6.37
+    }
+  },
+  {
+    "id": "giuseppe-mazzini",
+    "name": "Giuseppe Mazzini",
+    "difficulty": "hard",
+    "variants": [
+      "giuseppe mazzini",
+      "mazzini"
+    ],
+    "occupation": "Italian nationalist revolutionary",
+    "birth": {
+      "year": 1805,
+      "place": "Genoa, Italy",
+      "lat": 44.41,
+      "lon": 8.93
+    },
+    "death": {
+      "year": 1872,
+      "place": "Pisa, Italy",
+      "lat": 43.71,
+      "lon": 10.4
+    }
+  },
+  {
+    "id": "lajos-kossuth",
+    "name": "Lajos Kossuth",
+    "difficulty": "hard",
+    "variants": [
+      "lajos kossuth",
+      "kossuth"
+    ],
+    "occupation": "Hungarian revolutionary statesman",
+    "birth": {
+      "year": 1802,
+      "place": "Monok, Hungary",
+      "lat": 48.21,
+      "lon": 21.15
+    },
+    "death": {
+      "year": 1894,
+      "place": "Turin, Italy",
+      "lat": 45.07,
+      "lon": 7.69
+    }
+  },
+  {
+    "id": "jose-marti",
+    "name": "José Martí",
+    "difficulty": "medium",
+    "variants": [
+      "jose marti",
+      "josé martí"
+    ],
+    "occupation": "Cuban poet and independence leader",
+    "birth": {
+      "year": 1853,
+      "place": "Havana, Cuba",
+      "lat": 23.13,
+      "lon": -82.38
+    },
+    "death": {
+      "year": 1895,
+      "place": "Dos Ríos, Cuba",
+      "lat": 20.35,
+      "lon": -76.36
+    }
+  },
+  {
+    "id": "sun-yat-sen",
+    "name": "Sun Yat-sen",
+    "difficulty": "easy",
+    "variants": [
+      "sun yat-sen",
+      "sun yat sen",
+      "sun zhongshan"
+    ],
+    "occupation": "Revolutionary and first president of the Republic of China",
+    "birth": {
+      "year": 1866,
+      "place": "Cuiheng, China",
+      "lat": 22.43,
+      "lon": 113.52
+    },
+    "death": {
+      "year": 1925,
+      "place": "Beijing, China",
+      "lat": 39.9,
+      "lon": 116.41
+    }
+  },
+  {
+    "id": "rosa-luxemburg",
+    "name": "Rosa Luxemburg",
+    "difficulty": "medium",
+    "variants": [
+      "rosa luxemburg"
+    ],
+    "occupation": "Revolutionary socialist theorist",
+    "birth": {
+      "year": 1871,
+      "place": "Zamość, Poland",
+      "lat": 50.72,
+      "lon": 23.25
+    },
+    "death": {
+      "year": 1919,
+      "place": "Berlin, Germany",
+      "lat": 52.52,
+      "lon": 13.4
+    }
+  },
+  {
+    "id": "wernher-von-braun",
+    "name": "Wernher von Braun",
+    "difficulty": "medium",
+    "variants": [
+      "wernher von braun",
+      "von braun"
+    ],
+    "occupation": "Rocket engineer",
+    "birth": {
+      "year": 1912,
+      "place": "Wyrzysk, Poland",
+      "lat": 53.15,
+      "lon": 17.27
+    },
+    "death": {
+      "year": 1977,
+      "place": "Alexandria, Virginia, United States",
+      "lat": 38.8,
+      "lon": -77.05
+    }
+  },
+  {
+    "id": "hedy-lamarr",
+    "name": "Hedy Lamarr",
+    "difficulty": "medium",
+    "variants": [
+      "hedy lamarr"
+    ],
+    "occupation": "Actress and inventor",
+    "birth": {
+      "year": 1914,
+      "place": "Vienna, Austria",
+      "lat": 48.21,
+      "lon": 16.37
+    },
+    "death": {
+      "year": 2000,
+      "place": "Casselberry, Florida, United States",
+      "lat": 28.66,
+      "lon": -81.32
+    }
+  },
+  {
+    "id": "diego-rivera",
+    "name": "Diego Rivera",
+    "difficulty": "easy",
+    "variants": [
+      "diego rivera"
+    ],
+    "occupation": "Muralist painter",
+    "birth": {
+      "year": 1886,
+      "place": "Guanajuato, Mexico",
+      "lat": 21.02,
+      "lon": -101.26
+    },
+    "death": {
+      "year": 1957,
+      "place": "Mexico City, Mexico",
+      "lat": 19.43,
+      "lon": -99.13
+    }
+  },
+  {
+    "id": "paul-gauguin",
+    "name": "Paul Gauguin",
+    "difficulty": "medium",
+    "variants": [
+      "paul gauguin",
+      "gauguin"
+    ],
+    "occupation": "Post-Impressionist painter",
+    "birth": {
+      "year": 1848,
+      "place": "Paris, France",
+      "lat": 48.85,
+      "lon": 2.35
+    },
+    "death": {
+      "year": 1903,
+      "place": "Hiva Oa, French Polynesia",
+      "lat": -9.78,
+      "lon": -139.03
+    }
+  },
+  {
+    "id": "igor-stravinsky",
+    "name": "Igor Stravinsky",
+    "difficulty": "medium",
+    "variants": [
+      "igor stravinsky",
+      "stravinsky"
+    ],
+    "occupation": "Composer",
+    "birth": {
+      "year": 1882,
+      "place": "Oranienbaum, Russia",
+      "lat": 59.91,
+      "lon": 29.77
+    },
+    "death": {
+      "year": 1971,
+      "place": "New York City, United States",
+      "lat": 40.71,
+      "lon": -74.01
+    }
+  },
+  {
+    "id": "sergei-rachmaninoff",
+    "name": "Sergei Rachmaninoff",
+    "difficulty": "medium",
+    "variants": [
+      "sergei rachmaninoff",
+      "rachmaninoff",
+      "rachmaninov"
+    ],
+    "occupation": "Composer and pianist",
+    "birth": {
+      "year": 1873,
+      "place": "Semyonovo, Russia",
+      "lat": 58.11,
+      "lon": 31.49
+    },
+    "death": {
+      "year": 1943,
+      "place": "Beverly Hills, California, United States",
+      "lat": 34.07,
+      "lon": -118.4
+    }
+  },
+  {
+    "id": "joseph-conrad",
+    "name": "Joseph Conrad",
+    "difficulty": "hard",
+    "variants": [
+      "joseph conrad"
+    ],
+    "occupation": "Novelist",
+    "birth": {
+      "year": 1857,
+      "place": "Berdychiv, Ukraine",
+      "lat": 49.9,
+      "lon": 28.6
+    },
+    "death": {
+      "year": 1924,
+      "place": "Bishopsbourne, England",
+      "lat": 51.23,
+      "lon": 1.14
+    }
+  },
+  {
+    "id": "t-e-lawrence",
+    "name": "T. E. Lawrence",
+    "difficulty": "easy",
+    "variants": [
+      "t. e. lawrence",
+      "t e lawrence",
+      "lawrence of arabia"
+    ],
+    "occupation": "Military officer and writer",
+    "birth": {
+      "year": 1888,
+      "place": "Tremadog, Wales",
+      "lat": 52.94,
+      "lon": -4.14
+    },
+    "death": {
+      "year": 1935,
+      "place": "Dorset, England",
+      "lat": 50.8,
+      "lon": -2.15
+    }
+  },
+  {
+    "id": "patrice-lumumba",
+    "name": "Patrice Lumumba",
+    "difficulty": "medium",
+    "variants": [
+      "patrice lumumba",
+      "lumumba"
+    ],
+    "occupation": "First prime minister of the Congo",
+    "birth": {
+      "year": 1925,
+      "place": "Onalua, Democratic Republic of the Congo",
+      "lat": -4.0,
+      "lon": 23.4
+    },
+    "death": {
+      "year": 1961,
+      "place": "Katanga, Democratic Republic of the Congo",
+      "lat": -11.66,
+      "lon": 27.48
+    }
+  },
+  {
+    "id": "anwar-sadat",
+    "name": "Anwar Sadat",
+    "difficulty": "easy",
+    "variants": [
+      "anwar sadat",
+      "anwar el-sadat"
+    ],
+    "occupation": "President of Egypt",
+    "birth": {
+      "year": 1918,
+      "place": "Mit Abu al-Kum, Egypt",
+      "lat": 30.85,
+      "lon": 31.25
+    },
+    "death": {
+      "year": 1981,
+      "place": "Cairo, Egypt",
+      "lat": 30.04,
+      "lon": 31.24
+    }
+  },
+  {
+    "id": "malcolm-x",
+    "name": "Malcolm X",
+    "difficulty": "easy",
+    "variants": [
+      "malcolm x"
+    ],
+    "occupation": "Human rights activist",
+    "birth": {
+      "year": 1925,
+      "place": "Omaha, Nebraska, United States",
+      "lat": 41.26,
+      "lon": -95.93
+    },
+    "death": {
+      "year": 1965,
+      "place": "New York City, United States",
+      "lat": 40.71,
+      "lon": -74.01
+    }
+  },
+  {
+    "id": "amelia-earhart",
+    "name": "Amelia Earhart",
+    "difficulty": "easy",
+    "variants": [
+      "amelia earhart"
+    ],
+    "occupation": "Aviation pioneer",
+    "birth": {
+      "year": 1897,
+      "place": "Atchison, Kansas, United States",
+      "lat": 39.56,
+      "lon": -95.13
+    },
+    "death": {
+      "year": 1937,
+      "place": "near Howland Island, Pacific Ocean",
+      "lat": 0.81,
+      "lon": -176.62
+    }
+  },
+  {
+    "id": "percy-fawcett",
+    "name": "Percy Fawcett",
+    "difficulty": "hard",
+    "variants": [
+      "percy fawcett",
+      "percy harrison fawcett"
+    ],
+    "occupation": "Explorer",
+    "birth": {
+      "year": 1867,
+      "place": "Torquay, England",
+      "lat": 50.46,
+      "lon": -3.53
+    },
+    "death": {
+      "year": 1925,
+      "place": "Mato Grosso, Brazil",
+      "lat": -11.5,
+      "lon": -54.0
+    }
+  },
+  {
+    "id": "robert-falcon-scott",
+    "name": "Robert Falcon Scott",
+    "difficulty": "easy",
+    "variants": [
+      "robert falcon scott",
+      "captain scott",
+      "scott of the antarctic"
+    ],
+    "occupation": "Royal Navy officer and polar explorer",
+    "birth": {
+      "year": 1868,
+      "place": "Devonport, England",
+      "lat": 50.37,
+      "lon": -4.18
+    },
+    "death": {
+      "year": 1912,
+      "place": "Ross Ice Shelf, Antarctica",
+      "lat": -79.5,
+      "lon": 169.0
+    }
+  },
+  {
+    "id": "josephine-baker",
+    "name": "Josephine Baker",
+    "difficulty": "easy",
+    "variants": [
+      "josephine baker"
+    ],
+    "occupation": "Entertainer and civil rights activist",
+    "birth": {
+      "year": 1906,
+      "place": "St. Louis, Missouri, United States",
+      "lat": 38.63,
+      "lon": -90.2
+    },
+    "death": {
+      "year": 1975,
+      "place": "Paris, France",
+      "lat": 48.85,
+      "lon": 2.35
+    }
+  },
+  {
+    "id": "w-e-b-du-bois",
+    "name": "W. E. B. Du Bois",
+    "difficulty": "easy",
+    "variants": [
+      "w. e. b. du bois",
+      "web du bois",
+      "w.e.b. du bois"
+    ],
+    "occupation": "Sociologist and civil rights activist",
+    "birth": {
+      "year": 1868,
+      "place": "Great Barrington, Massachusetts, United States",
+      "lat": 42.2,
+      "lon": -73.36
+    },
+    "death": {
+      "year": 1963,
+      "place": "Accra, Ghana",
+      "lat": 5.61,
+      "lon": -0.21
+    }
+  },
+  {
+    "id": "james-baldwin",
+    "name": "James Baldwin",
+    "difficulty": "medium",
+    "variants": [
+      "james baldwin"
+    ],
+    "occupation": "Novelist and essayist",
+    "birth": {
+      "year": 1924,
+      "place": "New York City, United States",
+      "lat": 40.71,
+      "lon": -74.01
+    },
+    "death": {
+      "year": 1987,
+      "place": "Saint-Paul-de-Vence, France",
+      "lat": 43.7,
+      "lon": 7.12
+    }
+  },
+  {
+    "id": "subhas-chandra-bose",
+    "name": "Subhas Chandra Bose",
+    "difficulty": "hard",
+    "variants": [
+      "subhas chandra bose",
+      "subhas bose",
+      "netaji"
+    ],
+    "occupation": "Indian nationalist leader",
+    "birth": {
+      "year": 1897,
+      "place": "Cuttack, India",
+      "lat": 20.46,
+      "lon": 85.88
+    },
+    "death": {
+      "year": 1945,
+      "place": "Taipei, Taiwan",
+      "lat": 25.03,
+      "lon": 121.57
+    }
+  },
+  {
+    "id": "yitzhak-rabin",
+    "name": "Yitzhak Rabin",
+    "difficulty": "easy",
+    "variants": [
+      "yitzhak rabin"
+    ],
+    "occupation": "Prime Minister of Israel",
+    "birth": {
+      "year": 1922,
+      "place": "Jerusalem",
+      "lat": 31.78,
+      "lon": 35.22
+    },
+    "death": {
+      "year": 1995,
+      "place": "Tel Aviv, Israel",
+      "lat": 32.08,
+      "lon": 34.78
+    }
+  },
+  {
+    "id": "robert-koch",
+    "name": "Robert Koch",
+    "difficulty": "hard",
+    "variants": [
+      "robert koch"
+    ],
+    "occupation": "Microbiologist",
+    "birth": {
+      "year": 1843,
+      "place": "Clausthal, Germany",
+      "lat": 51.81,
+      "lon": 10.34
+    },
+    "death": {
+      "year": 1910,
+      "place": "Baden-Baden, Germany",
+      "lat": 48.76,
+      "lon": 8.24
+    }
+  },
+  {
+    "id": "ludwig-wittgenstein",
+    "name": "Ludwig Wittgenstein",
+    "difficulty": "hard",
+    "variants": [
+      "ludwig wittgenstein",
+      "wittgenstein"
+    ],
+    "occupation": "Philosopher",
+    "birth": {
+      "year": 1889,
+      "place": "Vienna, Austria",
+      "lat": 48.21,
+      "lon": 16.37
+    },
+    "death": {
+      "year": 1951,
+      "place": "Cambridge, England",
+      "lat": 52.21,
+      "lon": 0.12
+    }
+  },
+  {
+    "id": "marc-chagall",
+    "name": "Marc Chagall",
+    "difficulty": "medium",
+    "variants": [
+      "marc chagall",
+      "chagall"
+    ],
+    "occupation": "Modernist painter",
+    "birth": {
+      "year": 1887,
+      "place": "Vitebsk, Belarus",
+      "lat": 55.19,
+      "lon": 30.2
+    },
+    "death": {
+      "year": 1985,
+      "place": "Saint-Paul-de-Vence, France",
+      "lat": 43.7,
+      "lon": 7.12
+    }
+  },
+  {
+    "id": "olaudah-equiano",
+    "name": "Olaudah Equiano",
+    "difficulty": "hard",
+    "variants": [
+      "olaudah equiano",
+      "equiano"
+    ],
+    "occupation": "Writer and abolitionist",
+    "birth": {
+      "year": 1745,
+      "place": "Essaka, Nigeria",
+      "lat": 6.44,
+      "lon": 7.51
+    },
+    "death": {
+      "year": 1797,
+      "place": "London, England",
+      "lat": 51.51,
+      "lon": -0.13
+    }
+  },
+  {
+    "id": "louis-riel",
+    "name": "Louis Riel",
+    "difficulty": "hard",
+    "variants": [
+      "louis riel"
+    ],
+    "occupation": "Métis political leader",
+    "birth": {
+      "year": 1844,
+      "place": "Winnipeg, Canada",
+      "lat": 49.9,
+      "lon": -97.14
+    },
+    "death": {
+      "year": 1885,
+      "place": "Regina, Canada",
+      "lat": 50.45,
+      "lon": -104.62
+    }
+  },
+  {
+    "id": "rudolf-nureyev",
+    "name": "Rudolf Nureyev",
+    "difficulty": "medium",
+    "variants": [
+      "rudolf nureyev",
+      "nureyev"
+    ],
+    "occupation": "Ballet dancer",
+    "birth": {
+      "year": 1938,
+      "place": "Irkutsk, Russia",
+      "lat": 52.3,
+      "lon": 104.3
+    },
+    "death": {
+      "year": 1993,
+      "place": "Paris, France",
+      "lat": 48.85,
+      "lon": 2.35
+    }
+  },
+  {
+    "id": "kwame-nkrumah",
+    "name": "Kwame Nkrumah",
+    "difficulty": "medium",
+    "variants": [
+      "kwame nkrumah",
+      "nkrumah"
+    ],
+    "occupation": "First president of Ghana",
+    "birth": {
+      "year": 1909,
+      "place": "Nkroful, Ghana",
+      "lat": 4.97,
+      "lon": -2.32
+    },
+    "death": {
+      "year": 1972,
+      "place": "Bucharest, Romania",
+      "lat": 44.44,
+      "lon": 26.1
+    }
+  },
+  {
+    "id": "haile-selassie",
+    "name": "Haile Selassie",
+    "difficulty": "medium",
+    "variants": [
+      "haile selassie",
+      "haile selassie i"
+    ],
+    "occupation": "Emperor of Ethiopia",
+    "birth": {
+      "year": 1892,
+      "place": "Ejersa Goro, Ethiopia",
+      "lat": 9.48,
+      "lon": 42.23
+    },
+    "death": {
+      "year": 1975,
+      "place": "Addis Ababa, Ethiopia",
+      "lat": 9.03,
+      "lon": 38.74
+    }
+  },
+  {
+    "id": "nina-simone",
+    "name": "Nina Simone",
+    "difficulty": "easy",
+    "variants": [
+      "nina simone"
+    ],
+    "occupation": "Singer and civil rights activist",
+    "birth": {
+      "year": 1933,
+      "place": "Tryon, North Carolina, United States",
+      "lat": 35.21,
+      "lon": -82.24
+    },
+    "death": {
+      "year": 2003,
+      "place": "Carry-le-Rouet, France",
+      "lat": 43.33,
+      "lon": 5.15
+    }
+  },
+  {
+    "id": "jimi-hendrix",
+    "name": "Jimi Hendrix",
+    "difficulty": "easy",
+    "variants": [
+      "jimi hendrix"
+    ],
+    "occupation": "Guitarist and singer",
+    "birth": {
+      "year": 1942,
+      "place": "Seattle, Washington, United States",
+      "lat": 47.61,
+      "lon": -122.33
+    },
+    "death": {
+      "year": 1970,
+      "place": "London, England",
+      "lat": 51.51,
+      "lon": -0.13
+    }
+  },
+  {
+    "id": "simon-wiesenthal",
+    "name": "Simon Wiesenthal",
+    "difficulty": "medium",
+    "variants": [
+      "simon wiesenthal"
+    ],
+    "occupation": "Nazi hunter and Holocaust survivor",
+    "birth": {
+      "year": 1908,
+      "place": "Buchach, Ukraine",
+      "lat": 49.06,
+      "lon": 25.38
+    },
+    "death": {
+      "year": 2005,
+      "place": "Vienna, Austria",
+      "lat": 48.21,
+      "lon": 16.37
+    }
+  },
+  {
+    "id": "marcus-garvey",
+    "name": "Marcus Garvey",
+    "difficulty": "medium",
+    "variants": [
+      "marcus garvey"
+    ],
+    "occupation": "Pan-Africanist political activist",
+    "birth": {
+      "year": 1887,
+      "place": "Saint Ann's Bay, Jamaica",
+      "lat": 18.44,
+      "lon": -77.2
+    },
+    "death": {
+      "year": 1940,
+      "place": "London, England",
+      "lat": 51.51,
+      "lon": -0.13
+    }
+  },
+  {
+    "id": "golda-meir",
+    "name": "Golda Meir",
+    "difficulty": "easy",
+    "variants": [
+      "golda meir"
+    ],
+    "occupation": "Prime Minister of Israel",
+    "birth": {
+      "year": 1898,
+      "place": "Kyiv, Ukraine",
+      "lat": 50.45,
+      "lon": 30.52
+    },
+    "death": {
+      "year": 1978,
+      "place": "Jerusalem",
+      "lat": 31.78,
+      "lon": 35.22
+    }
+  },
+  {
+    "id": "alexander-solzhenitsyn",
+    "name": "Alexander Solzhenitsyn",
+    "difficulty": "medium",
+    "variants": [
+      "alexander solzhenitsyn",
+      "aleksandr solzhenitsyn",
+      "solzhenitsyn"
+    ],
+    "occupation": "Novelist and dissident",
+    "birth": {
+      "year": 1918,
+      "place": "Kislovodsk, Russia",
+      "lat": 43.91,
+      "lon": 42.73
+    },
+    "death": {
+      "year": 2008,
+      "place": "Moscow, Russia",
+      "lat": 55.76,
+      "lon": 37.62
+    }
+  },
+  {
+    "id": "george-mallory",
+    "name": "George Mallory",
+    "difficulty": "hard",
+    "variants": [
+      "george mallory"
+    ],
+    "occupation": "Mountaineer",
+    "birth": {
+      "year": 1886,
+      "place": "Mobberley, England",
+      "lat": 53.32,
+      "lon": -2.31
+    },
+    "death": {
+      "year": 1924,
+      "place": "Mount Everest, Tibet",
+      "lat": 27.99,
+      "lon": 86.93
+    }
+  },
+  {
+    "id": "isadora-duncan",
+    "name": "Isadora Duncan",
+    "difficulty": "easy",
+    "variants": [
+      "isadora duncan"
+    ],
+    "occupation": "Dancer",
+    "birth": {
+      "year": 1877,
+      "place": "San Francisco, California, United States",
+      "lat": 37.77,
+      "lon": -122.42
+    },
+    "death": {
+      "year": 1927,
+      "place": "Nice, France",
+      "lat": 43.7,
+      "lon": 7.27
+    }
+  },
+  {
+    "id": "ayrton-senna",
+    "name": "Ayrton Senna",
+    "difficulty": "easy",
+    "variants": [
+      "ayrton senna",
+      "senna"
+    ],
+    "occupation": "Formula One racing driver",
+    "birth": {
+      "year": 1960,
+      "place": "São Paulo, Brazil",
+      "lat": -23.55,
+      "lon": -46.63
+    },
+    "death": {
+      "year": 1994,
+      "place": "Imola, Italy",
+      "lat": 44.36,
+      "lon": 11.71
+    }
+  },
+  {
+    "id": "idi-amin",
+    "name": "Idi Amin",
+    "difficulty": "easy",
+    "variants": [
+      "idi amin"
+    ],
+    "occupation": "President of Uganda",
+    "birth": {
+      "year": 1925,
+      "place": "Koboko, Uganda",
+      "lat": 3.42,
+      "lon": 30.96
+    },
+    "death": {
+      "year": 2003,
+      "place": "Jeddah, Saudi Arabia",
+      "lat": 21.54,
+      "lon": 39.17
+    }
+  },
+  {
+    "id": "bruce-lee",
+    "name": "Bruce Lee",
+    "difficulty": "easy",
+    "variants": [
+      "bruce lee"
+    ],
+    "occupation": "Martial artist and actor",
+    "birth": {
+      "year": 1940,
+      "place": "San Francisco, California, United States",
+      "lat": 37.77,
+      "lon": -122.42
+    },
+    "death": {
+      "year": 1973,
+      "place": "Hong Kong",
+      "lat": 22.32,
+      "lon": 114.17
+    }
+  },
+  {
+    "id": "george-gershwin",
+    "name": "George Gershwin",
+    "difficulty": "easy",
+    "variants": [
+      "george gershwin"
+    ],
+    "occupation": "Composer",
+    "birth": {
+      "year": 1898,
+      "place": "Brooklyn, New York, United States",
+      "lat": 40.68,
+      "lon": -73.94
+    },
+    "death": {
+      "year": 1937,
+      "place": "Hollywood, California, United States",
+      "lat": 34.1,
+      "lon": -118.33
+    }
+  },
+  {
+    "id": "lee-harvey-oswald",
+    "name": "Lee Harvey Oswald",
+    "difficulty": "easy",
+    "variants": [
+      "lee harvey oswald",
+      "oswald"
+    ],
+    "occupation": "Assassin of John F. Kennedy",
+    "birth": {
+      "year": 1939,
+      "place": "New Orleans, Louisiana, United States",
+      "lat": 29.95,
+      "lon": -90.07
+    },
+    "death": {
+      "year": 1963,
+      "place": "Dallas, Texas, United States",
+      "lat": 32.78,
+      "lon": -96.8
+    }
+  },
+  {
+    "id": "anastasio-somoza-debayle",
+    "name": "Anastasio Somoza Debayle",
+    "difficulty": "hard",
+    "variants": [
+      "anastasio somoza debayle",
+      "anastasio somoza",
+      "somoza"
+    ],
+    "occupation": "President and dictator of Nicaragua",
+    "birth": {
+      "year": 1925,
+      "place": "León, Nicaragua",
+      "lat": 12.44,
+      "lon": -86.88
+    },
+    "death": {
+      "year": 1980,
+      "place": "Asunción, Paraguay",
+      "lat": -25.28,
+      "lon": -57.59
+    }
+  },
+  {
+    "id": "frantz-fanon",
+    "name": "Frantz Fanon",
+    "difficulty": "hard",
+    "variants": [
+      "frantz fanon"
+    ],
+    "occupation": "Psychiatrist and anti-colonial writer",
+    "birth": {
+      "year": 1925,
+      "place": "Fort-de-France, Martinique",
+      "lat": 14.6,
+      "lon": -61.08
+    },
+    "death": {
+      "year": 1961,
+      "place": "Bethesda, Maryland, United States",
+      "lat": 38.98,
+      "lon": -77.1
+    }
+  },
+  {
+    "id": "anna-pavlova",
+    "name": "Anna Pavlova",
+    "difficulty": "medium",
+    "variants": [
+      "anna pavlova"
+    ],
+    "occupation": "Ballerina",
+    "birth": {
+      "year": 1881,
+      "place": "St. Petersburg, Russia",
+      "lat": 59.94,
+      "lon": 30.31
+    },
+    "death": {
+      "year": 1931,
+      "place": "The Hague, Netherlands",
+      "lat": 52.08,
+      "lon": 4.29
+    }
+  },
+  {
+    "id": "erich-maria-remarque",
+    "name": "Erich Maria Remarque",
+    "difficulty": "medium",
+    "variants": [
+      "erich maria remarque",
+      "remarque"
+    ],
+    "occupation": "Novelist",
+    "birth": {
+      "year": 1898,
+      "place": "Osnabrück, Germany",
+      "lat": 52.28,
+      "lon": 8.05
+    },
+    "death": {
+      "year": 1970,
+      "place": "Locarno, Switzerland",
+      "lat": 46.17,
+      "lon": 8.8
+    }
   }
 ]
