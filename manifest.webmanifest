@@ -1,7 +1,7 @@
 {
   "name": "Chronicle — History Games",
   "short_name": "Chronicle",
-  "description": "Little games about big history: crosswords and Map of a Life.",
+  "description": "Little games about big history: Lifeline, Face Value, Zoom In and Thread.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

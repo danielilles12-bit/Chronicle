@@ -776,9 +776,9 @@
     },
     "death": {
       "year": -478,
-      "place": "Si River, People's Republic of China",
-      "lat": 35.23,
-      "lon": 116.65
+      "place": "Qufu, People's Republic of China",
+      "lat": 35.6,
+      "lon": 116.98
     },
     "difficulty": "easy"
   },
@@ -4487,7 +4487,7 @@
     },
     "death": {
       "year": -529,
-      "place": "Syr Darya, Tajikistan",
+      "place": "Syr Darya, Uzbekistan",
       "lat": 40.9,
       "lon": 71.76
     },
@@ -5617,9 +5617,9 @@
     "occupation": "Politician",
     "birth": {
       "year": 347,
-      "place": "Italica, Ancient Rome",
-      "lat": 37.44,
-      "lon": -6.04
+      "place": "Cauca (Coca), Spain",
+      "lat": 41.22,
+      "lon": -4.52
     },
     "death": {
       "year": 395,
@@ -7757,28 +7757,6 @@
       "place": "Jericho",
       "lat": 31.86,
       "lon": 35.46
-    }
-  },
-  {
-    "id": "pontius-pilate",
-    "name": "Pontius Pilate",
-    "difficulty": "medium",
-    "variants": [
-      "pontius pilate",
-      "pilate"
-    ],
-    "occupation": "Roman prefect who condemned Jesus",
-    "birth": {
-      "year": -10,
-      "place": "Italy",
-      "lat": 42,
-      "lon": 12.5
-    },
-    "death": {
-      "year": 39,
-      "place": "Judea",
-      "lat": 31.78,
-      "lon": 35.22
     }
   },
   {
