@@ -10086,5 +10086,671 @@
       "lat": 46.17,
       "lon": 8.8
     }
+  },
+  {
+    "id": "benjamin-disraeli",
+    "name": "Benjamin Disraeli",
+    "difficulty": "hard",
+    "variants": [
+      "benjamin disraeli",
+      "disraeli",
+      "dizzy"
+    ],
+    "occupation": "prime minister and novelist",
+    "birth": {
+      "year": 1804,
+      "place": "London, United Kingdom",
+      "lat": 51.51,
+      "lon": -0.13
+    },
+    "death": {
+      "year": 1881,
+      "place": "Hughenden, United Kingdom",
+      "lat": 51.65,
+      "lon": -0.75
+    }
+  },
+  {
+    "id": "lord-beaverbrook",
+    "name": "Lord Beaverbrook",
+    "difficulty": "hard",
+    "variants": [
+      "lord beaverbrook",
+      "beaverbrook",
+      "max aitken"
+    ],
+    "occupation": "press baron and wartime minister",
+    "birth": {
+      "year": 1879,
+      "place": "Maple, Canada",
+      "lat": 43.85,
+      "lon": -79.51
+    },
+    "death": {
+      "year": 1964,
+      "place": "Leatherhead, United Kingdom",
+      "lat": 51.3,
+      "lon": -0.33
+    }
+  },
+  {
+    "id": "emperor-pedro-ii",
+    "name": "Pedro II of Brazil",
+    "difficulty": "hard",
+    "variants": [
+      "pedro ii",
+      "pedro ii of brazil",
+      "dom pedro ii"
+    ],
+    "occupation": "emperor in exile",
+    "birth": {
+      "year": 1825,
+      "place": "Rio de Janeiro, Brazil",
+      "lat": -22.91,
+      "lon": -43.17
+    },
+    "death": {
+      "year": 1891,
+      "place": "Paris, France",
+      "lat": 48.86,
+      "lon": 2.35
+    }
+  },
+  {
+    "id": "thomas-cochrane",
+    "name": "Thomas Cochrane",
+    "difficulty": "hard",
+    "variants": [
+      "thomas cochrane",
+      "lord cochrane",
+      "cochrane"
+    ],
+    "occupation": "naval commander and liberator",
+    "birth": {
+      "year": 1775,
+      "place": "Annsfield, United Kingdom",
+      "lat": 55.76,
+      "lon": -3.97
+    },
+    "death": {
+      "year": 1860,
+      "place": "London, United Kingdom",
+      "lat": 51.51,
+      "lon": -0.13
+    }
+  },
+  {
+    "id": "lafayette",
+    "name": "Marquis de Lafayette",
+    "difficulty": "hard",
+    "variants": [
+      "marquis de lafayette",
+      "lafayette",
+      "gilbert du motier"
+    ],
+    "occupation": "revolutionary aristocrat",
+    "birth": {
+      "year": 1757,
+      "place": "Chavaniac-Lafayette, France",
+      "lat": 45.16,
+      "lon": 3.58
+    },
+    "death": {
+      "year": 1834,
+      "place": "Paris, France",
+      "lat": 48.86,
+      "lon": 2.35
+    }
+  },
+  {
+    "id": "samuel-baker",
+    "name": "Samuel Baker",
+    "difficulty": "hard",
+    "variants": [
+      "samuel baker",
+      "sir samuel baker"
+    ],
+    "occupation": "nile explorer",
+    "birth": {
+      "year": 1821,
+      "place": "London, United Kingdom",
+      "lat": 51.51,
+      "lon": -0.13
+    },
+    "death": {
+      "year": 1893,
+      "place": "Newton Abbot, United Kingdom",
+      "lat": 50.53,
+      "lon": -3.61
+    }
+  },
+  {
+    "id": "mary-kingsley",
+    "name": "Mary Kingsley",
+    "difficulty": "hard",
+    "variants": [
+      "mary kingsley",
+      "mary henrietta kingsley"
+    ],
+    "occupation": "west africa explorer",
+    "birth": {
+      "year": 1862,
+      "place": "London, United Kingdom",
+      "lat": 51.51,
+      "lon": -0.13
+    },
+    "death": {
+      "year": 1900,
+      "place": "Simonstown, South Africa",
+      "lat": -34.19,
+      "lon": 18.43
+    }
+  },
+  {
+    "id": "roger-casement",
+    "name": "Roger Casement",
+    "difficulty": "hard",
+    "variants": [
+      "roger casement",
+      "sir roger casement"
+    ],
+    "occupation": "human-rights investigator and rebel",
+    "birth": {
+      "year": 1864,
+      "place": "Dublin, Ireland",
+      "lat": 53.35,
+      "lon": -6.26
+    },
+    "death": {
+      "year": 1916,
+      "place": "London, United Kingdom",
+      "lat": 51.51,
+      "lon": -0.13
+    }
+  },
+  {
+    "id": "roger-williams",
+    "name": "Roger Williams",
+    "difficulty": "hard",
+    "variants": [
+      "roger williams"
+    ],
+    "occupation": "religious dissenter and founder",
+    "birth": {
+      "year": 1603,
+      "place": "London, United Kingdom",
+      "lat": 51.51,
+      "lon": -0.13
+    },
+    "death": {
+      "year": 1683,
+      "place": "Providence, United States",
+      "lat": 41.82,
+      "lon": -71.41
+    },
+    "note": "Birth year is conventionally given as c.1603."
+  },
+  {
+    "id": "john-winthrop",
+    "name": "John Winthrop",
+    "difficulty": "hard",
+    "variants": [
+      "john winthrop"
+    ],
+    "occupation": "puritan governor",
+    "birth": {
+      "year": 1588,
+      "place": "Edwardstone, United Kingdom",
+      "lat": 52.05,
+      "lon": 0.82
+    },
+    "death": {
+      "year": 1649,
+      "place": "Boston, United States",
+      "lat": 42.36,
+      "lon": -71.06
+    }
+  },
+  {
+    "id": "william-penn",
+    "name": "William Penn",
+    "difficulty": "hard",
+    "variants": [
+      "william penn"
+    ],
+    "occupation": "quaker founder",
+    "birth": {
+      "year": 1644,
+      "place": "London, United Kingdom",
+      "lat": 51.51,
+      "lon": -0.13
+    },
+    "death": {
+      "year": 1718,
+      "place": "Ruscombe, United Kingdom",
+      "lat": 51.47,
+      "lon": -0.86
+    }
+  },
+  {
+    "id": "john-smith",
+    "name": "John Smith",
+    "difficulty": "hard",
+    "variants": [
+      "john smith",
+      "captain john smith"
+    ],
+    "occupation": "colonial adventurer",
+    "birth": {
+      "year": 1580,
+      "place": "Willoughby, United Kingdom",
+      "lat": 53.23,
+      "lon": 0.19
+    },
+    "death": {
+      "year": 1631,
+      "place": "London, United Kingdom",
+      "lat": 51.51,
+      "lon": -0.13
+    }
+  },
+  {
+    "id": "john-hanning-speke",
+    "name": "John Hanning Speke",
+    "difficulty": "hard",
+    "variants": [
+      "john hanning speke",
+      "speke"
+    ],
+    "occupation": "nile explorer",
+    "birth": {
+      "year": 1827,
+      "place": "Bideford, United Kingdom",
+      "lat": 51.02,
+      "lon": -4.21
+    },
+    "death": {
+      "year": 1864,
+      "place": "Corsham, United Kingdom",
+      "lat": 51.43,
+      "lon": -2.19
+    }
+  },
+  {
+    "id": "richard-francis-burton",
+    "name": "Richard Francis Burton",
+    "difficulty": "hard",
+    "variants": [
+      "richard francis burton",
+      "richard burton",
+      "sir richard burton"
+    ],
+    "occupation": "explorer and translator",
+    "birth": {
+      "year": 1821,
+      "place": "Torquay, United Kingdom",
+      "lat": 50.46,
+      "lon": -3.53
+    },
+    "death": {
+      "year": 1890,
+      "place": "Trieste, Italy",
+      "lat": 45.65,
+      "lon": 13.77
+    }
+  },
+  {
+    "id": "freya-stark",
+    "name": "Freya Stark",
+    "difficulty": "hard",
+    "variants": [
+      "freya stark",
+      "dame freya stark"
+    ],
+    "occupation": "arabia travel writer",
+    "birth": {
+      "year": 1893,
+      "place": "Paris, France",
+      "lat": 48.86,
+      "lon": 2.35
+    },
+    "death": {
+      "year": 1993,
+      "place": "Asolo, Italy",
+      "lat": 45.79,
+      "lon": 11.91
+    }
+  },
+  {
+    "id": "wilfred-thesiger",
+    "name": "Wilfred Thesiger",
+    "difficulty": "hard",
+    "variants": [
+      "wilfred thesiger",
+      "mubarak bin london"
+    ],
+    "occupation": "desert explorer",
+    "birth": {
+      "year": 1910,
+      "place": "Addis Ababa, Ethiopia",
+      "lat": 9.03,
+      "lon": 38.74
+    },
+    "death": {
+      "year": 2003,
+      "place": "London, United Kingdom",
+      "lat": 51.51,
+      "lon": -0.13
+    }
+  },
+  {
+    "id": "gertrude-bell",
+    "name": "Gertrude Bell",
+    "difficulty": "hard",
+    "variants": [
+      "gertrude bell"
+    ],
+    "occupation": "archaeologist and mapmaker of iraq",
+    "birth": {
+      "year": 1868,
+      "place": "Washington, United Kingdom",
+      "lat": 54.9,
+      "lon": -1.52
+    },
+    "death": {
+      "year": 1926,
+      "place": "Baghdad, Iraq",
+      "lat": 33.32,
+      "lon": 44.36
+    }
+  },
+  {
+    "id": "arthur-evans",
+    "name": "Arthur Evans",
+    "difficulty": "hard",
+    "variants": [
+      "arthur evans",
+      "sir arthur evans"
+    ],
+    "occupation": "archaeologist of knossos",
+    "birth": {
+      "year": 1851,
+      "place": "Nash Mills, United Kingdom",
+      "lat": 51.74,
+      "lon": -0.45
+    },
+    "death": {
+      "year": 1941,
+      "place": "Oxford, United Kingdom",
+      "lat": 51.75,
+      "lon": -1.26
+    }
+  },
+  {
+    "id": "mary-leakey",
+    "name": "Mary Leakey",
+    "difficulty": "hard",
+    "variants": [
+      "mary leakey",
+      "mary nicol"
+    ],
+    "occupation": "paleoarchaeologist",
+    "birth": {
+      "year": 1913,
+      "place": "London, United Kingdom",
+      "lat": 51.51,
+      "lon": -0.13
+    },
+    "death": {
+      "year": 1996,
+      "place": "Nairobi, Kenya",
+      "lat": -1.29,
+      "lon": 36.82
+    }
+  },
+  {
+    "id": "louis-leakey",
+    "name": "Louis Leakey",
+    "difficulty": "hard",
+    "variants": [
+      "louis leakey"
+    ],
+    "occupation": "paleoanthropologist",
+    "birth": {
+      "year": 1903,
+      "place": "Kabete, Kenya",
+      "lat": -1.25,
+      "lon": 36.72
+    },
+    "death": {
+      "year": 1972,
+      "place": "London, United Kingdom",
+      "lat": 51.51,
+      "lon": -0.13
+    }
+  },
+  {
+    "id": "abd-el-kader",
+    "name": "Abd el-Kader",
+    "difficulty": "hard",
+    "variants": [
+      "abd el-kader",
+      "abd al-qadir",
+      "emir abdelkader"
+    ],
+    "occupation": "algerian resistance leader",
+    "birth": {
+      "year": 1808,
+      "place": "Mascara, Algeria",
+      "lat": 35.4,
+      "lon": 0.14
+    },
+    "death": {
+      "year": 1883,
+      "place": "Damascus, Syria",
+      "lat": 33.51,
+      "lon": 36.29
+    }
+  },
+  {
+    "id": "tewodros-ii",
+    "name": "Tewodros II",
+    "difficulty": "hard",
+    "variants": [
+      "tewodros ii",
+      "theodore ii",
+      "emperor tewodros"
+    ],
+    "occupation": "ethiopian emperor",
+    "birth": {
+      "year": 1818,
+      "place": "Qwara, Ethiopia",
+      "lat": 12.37,
+      "lon": 35.83
+    },
+    "death": {
+      "year": 1868,
+      "place": "Magdala, Ethiopia",
+      "lat": 11.32,
+      "lon": 39.2
+    },
+    "note": "Birth details are often approximate."
+  },
+  {
+    "id": "menelik-ii",
+    "name": "Menelik II",
+    "difficulty": "hard",
+    "variants": [
+      "menelik ii",
+      "emperor menelik"
+    ],
+    "occupation": "ethiopian emperor",
+    "birth": {
+      "year": 1844,
+      "place": "Ankober, Ethiopia",
+      "lat": 9.58,
+      "lon": 39.73
+    },
+    "death": {
+      "year": 1913,
+      "place": "Addis Ababa, Ethiopia",
+      "lat": 9.03,
+      "lon": 38.74
+    }
+  },
+  {
+    "id": "fridtjof-nansen",
+    "name": "Fridtjof Nansen",
+    "difficulty": "hard",
+    "variants": [
+      "fridtjof nansen",
+      "nansen"
+    ],
+    "occupation": "polar explorer and humanitarian",
+    "birth": {
+      "year": 1861,
+      "place": "Oslo, Norway",
+      "lat": 59.91,
+      "lon": 10.75
+    },
+    "death": {
+      "year": 1930,
+      "place": "Lysaker, Norway",
+      "lat": 59.91,
+      "lon": 10.64
+    }
+  },
+  {
+    "id": "john-franklin",
+    "name": "John Franklin",
+    "difficulty": "hard",
+    "variants": [
+      "john franklin",
+      "sir john franklin"
+    ],
+    "occupation": "arctic explorer",
+    "birth": {
+      "year": 1786,
+      "place": "Spilsby, United Kingdom",
+      "lat": 53.17,
+      "lon": 0.09
+    },
+    "death": {
+      "year": 1847,
+      "place": "King William Island, Canada",
+      "lat": 69.08,
+      "lon": -97.75
+    }
+  },
+  {
+    "id": "robert-peary",
+    "name": "Robert Peary",
+    "difficulty": "hard",
+    "variants": [
+      "robert peary",
+      "peary"
+    ],
+    "occupation": "polar explorer",
+    "birth": {
+      "year": 1856,
+      "place": "Cresson, United States",
+      "lat": 40.46,
+      "lon": -78.59
+    },
+    "death": {
+      "year": 1920,
+      "place": "Washington, United States",
+      "lat": 38.91,
+      "lon": -77.04
+    }
+  },
+  {
+    "id": "matthew-henson",
+    "name": "Matthew Henson",
+    "difficulty": "hard",
+    "variants": [
+      "matthew henson"
+    ],
+    "occupation": "polar explorer",
+    "birth": {
+      "year": 1866,
+      "place": "Nanjemoy, United States",
+      "lat": 38.46,
+      "lon": -77.21
+    },
+    "death": {
+      "year": 1955,
+      "place": "New York City, United States",
+      "lat": 40.71,
+      "lon": -74.01
+    }
+  },
+  {
+    "id": "john-reed",
+    "name": "John Reed",
+    "difficulty": "hard",
+    "variants": [
+      "john reed",
+      "jack reed"
+    ],
+    "occupation": "revolutionary journalist",
+    "birth": {
+      "year": 1887,
+      "place": "Portland, United States",
+      "lat": 45.52,
+      "lon": -122.68
+    },
+    "death": {
+      "year": 1920,
+      "place": "Moscow, Russia",
+      "lat": 55.76,
+      "lon": 37.62
+    }
+  },
+  {
+    "id": "lafcadio-hearn",
+    "name": "Lafcadio Hearn",
+    "difficulty": "hard",
+    "variants": [
+      "lafcadio hearn",
+      "koizumi yakumo",
+      "hearn"
+    ],
+    "occupation": "writer and folklorist",
+    "birth": {
+      "year": 1850,
+      "place": "Lefkada, Greece",
+      "lat": 38.83,
+      "lon": 20.71
+    },
+    "death": {
+      "year": 1904,
+      "place": "Tokyo, Japan",
+      "lat": 35.68,
+      "lon": 139.76
+    }
+  },
+  {
+    "id": "william-adams",
+    "name": "William Adams",
+    "difficulty": "hard",
+    "variants": [
+      "william adams",
+      "miura anjin",
+      "anjin"
+    ],
+    "occupation": "navigator and samurai retainer",
+    "birth": {
+      "year": 1564,
+      "place": "Gillingham, United Kingdom",
+      "lat": 51.39,
+      "lon": 0.55
+    },
+    "death": {
+      "year": 1620,
+      "place": "Hirado, Japan",
+      "lat": 33.37,
+      "lon": 129.55
+    }
   }
 ]
