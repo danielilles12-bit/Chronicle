@@ -105,28 +105,28 @@ export function refreshHomeStats() {
 const GAME_ROWS = [
   {
     key: 'thread', label: 'Thread', tagline: 'Group 16 clues into four hidden categories.',
-    glyph: 'assets/brand/svg/game-icon-thread-full.svg',
+    glyph: 'assets/brand/svg/game-icon-thread-primary.svg',
     tintStrong: 'color-mix(in srgb, var(--ch-burgundy) 10%, var(--ch-cream))',
     tintSoft: 'color-mix(in srgb, var(--ch-burgundy) 6%, var(--ch-cream))',
     launchDaily: startThreadDaily, launchPractice: startThreadPractice,
   },
   {
     key: 'map', label: 'Lifeline', tagline: 'Born here, died there. Name the figure.',
-    glyph: 'assets/brand/svg/game-icon-lifeline-full.svg',
+    glyph: 'assets/brand/svg/game-icon-lifeline-primary.svg',
     tintStrong: 'color-mix(in srgb, var(--ch-forest) 10%, var(--ch-cream))',
     tintSoft: 'color-mix(in srgb, var(--ch-forest) 6%, var(--ch-cream))',
     launchDaily: startMapDaily, launchPractice: startMapPractice,
   },
   {
     key: 'who', label: 'Face Value', tagline: 'A famous face, one sliver at a time.',
-    glyph: 'assets/brand/svg/game-icon-face-value-full.svg',
+    glyph: 'assets/brand/svg/game-icon-face-value-primary.svg',
     tintStrong: 'color-mix(in srgb, var(--ch-gold) 12%, var(--ch-cream))',
     tintSoft: 'color-mix(in srgb, var(--ch-gold) 7%, var(--ch-cream))',
     launchDaily: (n) => startRevealDaily('who', n), launchPractice: (n) => startRevealPractice('who', n),
   },
   {
     key: 'what', label: 'Relic', tagline: 'A famous artefact, one sliver at a time.',
-    glyph: 'assets/brand/svg/game-icon-relic-full.svg',
+    glyph: 'assets/brand/svg/game-icon-relic-primary.svg',
     tintStrong: 'color-mix(in srgb, var(--ch-sage) 14%, var(--ch-cream))',
     tintSoft: 'color-mix(in srgb, var(--ch-sage) 8%, var(--ch-cream))',
     launchDaily: (n) => startRevealDaily('what', n), launchPractice: (n) => startRevealPractice('what', n),

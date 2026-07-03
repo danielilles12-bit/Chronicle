@@ -78,7 +78,7 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 .hero-text { flex: 1; min-width: 0; }
 .hero-name { font-family: var(--ch-font-display); font-weight: 400; margin: 0 0 4px; font-size: 24px; color: var(--ch-text-primary); }
 .hero-tagline { margin: 0; color: var(--ch-text-secondary); font-size: 13px; line-height: 1.35; font-style: italic; }
-.hero-glyph { display: none; }
+.hero-glyph { width: 56px; height: 56px; flex: none; border-radius: 12px; }
 .hero-bottom { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
 .hero-edition {
   font-size: 11px; text-transform: uppercase; letter-spacing: var(--ch-tracking-smallcaps);

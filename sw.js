@@ -1,6 +1,6 @@
 // Chronicle service worker: precache everything, serve cache-first.
 // Bump VERSION on every deploy to refresh clients.
-const VERSION = 'chronicle-v28';
+const VERSION = 'chronicle-v29';
 
 const ASSETS = [
   './',
@@ -33,6 +33,10 @@ const ASSETS = [
   './data/reveal.json',
   './data/reveal-who.json',
   './data/reveal-what.json',
+  './assets/brand/svg/game-icon-thread-primary.svg',
+  './assets/brand/svg/game-icon-relic-primary.svg',
+  './assets/brand/svg/game-icon-face-value-primary.svg',
+  './assets/brand/svg/game-icon-lifeline-primary.svg',
   './data/connections.json',
   './manifest.webmanifest',
   './icons/icon-192.png',
