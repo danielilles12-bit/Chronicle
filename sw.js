@@ -1,6 +1,6 @@
 // Chronicle service worker: precache everything, serve cache-first.
 // Bump VERSION on every deploy to refresh clients.
-const VERSION = 'chronicle-v24';
+const VERSION = 'chronicle-v25';
 
 const ASSETS = [
   './',
@@ -61,7 +61,7 @@ self.addEventListener('fetch', (e) => {
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
   if (url.origin !== location.origin) return;
-  if (url.pathname.startsWith('/audit/')) return; // never cache dev tools
+  if (url.pathname.includes('/audit/')) return; // never cache dev tools (path-prefix agnostic: GH Pages serves under /Chronicle/)
   e.respondWith(
     caches.match(req, { ignoreSearch: true }).then((hit) => {
       if (hit) return hit;
