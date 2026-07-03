@@ -20,7 +20,7 @@
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 [hidden] { display: none !important; }
-html, body { margin: 0; padding: 0; height: 100%; }
+html, body { margin: 0; padding: 0; height: 100%; overflow-x: hidden; }
 body {
   font-family: var(--ch-font-text);
   background: var(--paper);
@@ -40,36 +40,77 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 
 /* ---------- Home ---------- */
 #view-home { background-color: var(--ch-paper); background-image: url('../assets/brand/svg/parchment-grain-tile.svg'); background-size: 512px 512px; }
-.masthead { text-align: center; padding: 30px 20px 14px; border-bottom: var(--ch-rule); margin: 0 20px; }
-.masthead-seal { width: 34px; height: 34px; display: block; margin: 0 auto 6px; }
+.masthead { text-align: center; padding: 14px 20px 10px; border-bottom: var(--ch-rule); margin: 0 20px; }
+.masthead-seal { width: 44px; height: 44px; display: block; margin: 0 auto 6px; border-radius: 11px; }
 .masthead h1 {
-  font-family: var(--ch-font-display); font-size: 46px; letter-spacing: -0.01em; margin: 0;
-  font-weight: 400; color: var(--ch-text-primary);
+  font-family: var(--ch-font-display); font-size: 32px; letter-spacing: -0.01em; margin: 0;
+  font-weight: 400; line-height: 1; color: var(--ch-text-primary);
 }
-.tagline {
-  margin: 8px 0 4px; color: var(--ch-text-label); font-size: 12px; font-family: var(--ch-font-ui);
-  text-transform: uppercase; letter-spacing: var(--ch-tracking-smallcaps); font-weight: 700;
-}
-.dateline { margin: 2px 0 0; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); }
+.dateline { margin: 5px 0 0; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); }
 
-/* ---------- Today strip ---------- */
-.today-strip { margin: 16px 20px 0; }
-.today-head { display: flex; align-items: baseline; justify-content: space-between; }
-.today-head h3 { font-family: var(--ch-font-ui); font-size: 12px; margin: 0; text-transform: uppercase; letter-spacing: var(--ch-tracking-smallcaps); font-weight: 700; color: var(--ch-text-label); }
-.today-archive-link { font-size: 13px; font-weight: 700; color: var(--ch-burgundy); font-family: var(--ch-font-ui); }
-.today-tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 8px; }
-.today-tile {
-  display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
-  border: 1px solid var(--ch-line); border-radius: var(--ch-radius-card); padding: 11px 13px;
-  background: var(--ch-cream); text-align: left; box-shadow: var(--ch-shadow-card);
+/* ---------- Game rows (NYT-Games-style: hero + day-card strip + Archive) --
+   Built by js/app.js (renderGameRows). Each row carries its own accent tint
+   via inline custom properties (--row-tint-strong/--row-tint-soft) computed
+   once from GAME_ROWS so the CSS below stays purely structural. */
+.home-rows { flex: 1; padding: 10px 0 14px; display: flex; flex-direction: column; gap: 18px; }
+.game-row { display: flex; flex-direction: column; }
+.game-strip {
+  display: flex; gap: 10px; overflow-x: auto; overflow-y: hidden;
+  padding: 0 20px 10px; scroll-snap-type: x proximity;
+  scrollbar-width: none; -ms-overflow-style: none;
 }
-.today-tile:active { background: var(--ch-parchment); }
-.today-name { font-weight: 700; font-size: 14px; font-family: var(--ch-font-ui); color: var(--ch-text-primary); }
-.today-status { font-size: 12px; color: var(--muted); font-family: var(--ch-font-ui); }
-.today-tile.today-progress { border-color: var(--ch-gold); }
-.today-tile.today-progress .today-status { color: var(--ch-gold); font-weight: 600; }
-.today-tile.today-done { border-color: var(--ch-forest); background: #EEF1E9; }
-.today-tile.today-done .today-status { color: var(--ch-forest); font-weight: 700; }
+.game-strip::-webkit-scrollbar { display: none; }
+/* .day-cards is just a semantic wrapper around the day-card buttons in the
+   markup; display:contents lifts its children to be direct flex items of
+   .game-strip (siblings of .hero-card) without an extra nested flex layer. */
+.day-cards { display: contents; }
+
+.hero-card {
+  flex: 0 0 82%; max-width: 82%; scroll-snap-align: start;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 14px;
+  text-align: left; border: 1px solid var(--ch-line); border-radius: var(--ch-radius-card);
+  padding: 16px 18px; background: var(--row-tint-strong, var(--ch-cream));
+  box-shadow: var(--ch-shadow-card); min-height: 118px;
+  transition: transform .12s ease;
+}
+.hero-card:active { transform: scale(.985); }
+.hero-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.hero-text { flex: 1; min-width: 0; }
+.hero-name { font-family: var(--ch-font-display); font-weight: 400; margin: 0 0 4px; font-size: 24px; color: var(--ch-text-primary); }
+.hero-tagline { margin: 0; color: var(--ch-text-secondary); font-size: 13px; line-height: 1.35; font-style: italic; }
+.hero-glyph { width: 88px; height: 88px; flex: none; }
+.hero-bottom { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.hero-edition {
+  font-size: 11px; text-transform: uppercase; letter-spacing: var(--ch-tracking-smallcaps);
+  font-weight: 700; color: var(--ch-text-label); font-family: var(--ch-font-ui); white-space: nowrap;
+}
+.hero-status { font-size: 12px; font-weight: 700; color: var(--ch-text-muted); font-family: var(--ch-font-ui); white-space: nowrap; }
+.hero-card.row-done .hero-status { color: var(--ch-forest); }
+.hero-card.row-progress .hero-status { color: var(--ch-gold); }
+
+.day-card {
+  flex: 0 0 27%; max-width: 27%; scroll-snap-align: start;
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 4px;
+  text-align: left; border: 1px solid var(--ch-line); border-radius: var(--ch-radius-card);
+  padding: 12px 14px; background: var(--row-tint-soft, var(--ch-cream)); min-height: 118px;
+}
+.day-card:active { transform: scale(.97); }
+.day-weekday { font-family: var(--ch-font-display); font-weight: 400; font-size: 17px; color: var(--ch-text-primary); line-height: 1.15; }
+.day-status { font-size: 11px; font-family: var(--ch-font-ui); color: var(--ch-text-muted); text-transform: uppercase; letter-spacing: .5px; }
+.day-card.day-done .day-status { color: var(--ch-forest); font-weight: 700; }
+
+.row-archive {
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  width: calc(100% - 40px); margin: 0 20px; padding: 9px 0;
+  background: var(--row-tint-soft, var(--ch-parchment)); border: 1px solid var(--ch-line); border-top: none;
+  border-radius: 0 0 var(--ch-radius-card) var(--ch-radius-card);
+  font-size: 12px; font-weight: 700; letter-spacing: var(--ch-tracking-smallcaps); text-transform: uppercase;
+  color: var(--ch-text-label); font-family: var(--ch-font-ui);
+}
+.row-archive:active { background: var(--ch-parchment); }
+.row-archive-glyph { width: 14px; height: 14px; color: var(--ch-gold); }
+
+.home-foot { text-align: center; color: var(--ch-text-muted); font-size: 12px; padding: 4px 0 calc(16px + env(safe-area-inset-bottom)); font-family: var(--ch-font-ui); }
 
 /* ---------- Archive ---------- */
 .archive-filters { display: flex; gap: 6px; overflow-x: auto; padding: 10px 20px; border-bottom: 1px solid var(--ch-line); background: var(--ch-paper); }
@@ -81,21 +122,7 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 .archive-dot.done { background: var(--ch-forest); }
 .archive-dot.progress { background: var(--ch-gold); }
 
-.home-cards { flex: 1; display: flex; flex-direction: column; gap: 14px; padding: 22px 20px; }
-.card {
-  display: flex; align-items: center; gap: 16px; text-align: left;
-  border: 1px solid var(--ch-line); border-radius: var(--ch-radius-card); padding: 18px;
-  background: var(--ch-cream); box-shadow: var(--ch-shadow-card);
-  transition: transform .12s ease, box-shadow .12s ease;
-}
-.card:active { transform: scale(.985); background: var(--ch-parchment); }
-.card-glyph { width: 46px; height: 46px; flex: none; color: var(--ch-gold); }
-.card-body { flex: 1; }
-.card h2 { font-family: var(--ch-font-display); font-weight: 400; margin: 0 0 4px; font-size: 22px; color: var(--ch-text-primary); }
-.card p { margin: 0; color: var(--ch-text-secondary); font-size: 14px; line-height: 1.4; font-style: italic; }
-.card-stat { margin-top: 6px !important; font-size: 11px !important; font-family: var(--ch-font-ui); text-transform: uppercase; letter-spacing: 1px; color: var(--ch-text-label) !important; min-height: 14px; font-style: normal; }
-.card-go { font-size: 26px; color: var(--ch-gold); }
-.home-foot { text-align: center; color: var(--ch-text-muted); font-size: 12px; padding: 12px 0 calc(16px + env(safe-area-inset-bottom)); font-family: var(--ch-font-ui); }
+.conn-list-intro { margin: 12px 20px 0; color: var(--ch-text-secondary); font-size: 14px; font-style: italic; line-height: 1.4; }
 
 #ios-tip {
   margin: 0 20px 10px; padding: 12px 38px 12px 14px; position: relative;

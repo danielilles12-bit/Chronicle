@@ -90,50 +90,51 @@ export function appConfirm(message, yesLabel) {
 
 // ---------- home ----------
 export function refreshHomeStats() {
-  if (!DATA.puzzles) return;
-  const solved = DATA.puzzles.filter((p) => {
-    const s = store.getPuzzle(p.id);
-    return s && s.completed;
-  }).length;
-  const total = DATA.puzzles.length;
-  $('#stat-crossword').textContent = solved
-    ? `${solved} of ${total} solved`
-    : `${total} puzzle${total === 1 ? '' : 's'} waiting`;
-  const m = store.getMap();
-  $('#stat-map').textContent = m.sessions
-    ? `Best: ${m.bestScore} pts · streak ${m.bestStreak}`
-    : `${DATA.figures.length} lives to guess`;
-  const whoCount = DATA.reveal ? DATA.reveal.filter((x) => x.kind === 'portrait').length : 0;
-  const whatCount = DATA.reveal ? DATA.reveal.filter((x) => x.kind !== 'portrait').length : 0;
-  const rvWho = store.getReveal('who');
-  if ($('#stat-reveal-who')) {
-    $('#stat-reveal-who').textContent = rvWho.sessions
-      ? `Best: ${rvWho.bestScore} pts · streak ${rvWho.bestStreak}`
-      : `${whoCount} faces to name`;
-  }
-  const rvWhat = store.getReveal('what');
-  if ($('#stat-reveal-what')) {
-    $('#stat-reveal-what').textContent = rvWhat.sessions
-      ? `Best: ${rvWhat.bestScore} pts · streak ${rvWhat.bestStreak}`
-      : `${whatCount} artefacts to name`;
-  }
-  const cs = store.getConnStats();
-  if ($('#stat-conn')) {
-    $('#stat-conn').textContent = cs.solved
-      ? `${cs.solved} of ${DATA.connections ? DATA.connections.length : '?'} solved`
-      : (DATA.connections ? `${DATA.connections.length} puzzles` : '');
-  }
+  // Stats (best score/streak) still live in storage and back the hero/day
+  // cards' status lines; the old dedicated stat-line elements under each big
+  // description card are gone with that layout, so there is nothing left to
+  // paint here for now. A future stats screen reads the same storage getters.
 }
 
-// ---------- Today strip ----------
+// ---------- Game rows (hero + day-card strip + Archive bar) ----------
 // One row per game, in the fixed presentation order Thread, Lifeline,
 // Face Value, Relic. `launchDaily`/`launchPractice` take the edition index.
-const TODAY_GAMES = [
-  { key: 'thread', label: 'Thread', launchDaily: startThreadDaily, launchPractice: startThreadPractice },
-  { key: 'map', label: 'Lifeline', launchDaily: startMapDaily, launchPractice: startMapPractice },
-  { key: 'who', label: 'Face Value', launchDaily: (n) => startRevealDaily('who', n), launchPractice: (n) => startRevealPractice('who', n) },
-  { key: 'what', label: 'Relic', launchDaily: (n) => startRevealDaily('what', n), launchPractice: (n) => startRevealPractice('what', n) },
+// Per-row accent tints are Archive Codex versions of NYT's per-game colour
+// coding (spec "Per-row accent tints"): a strong tint for the hero card, a
+// slightly lighter one (lower mix %) for day cards + the Archive bar.
+const GAME_ROWS = [
+  {
+    key: 'thread', label: 'Thread', tagline: 'Group 16 clues into four hidden categories.',
+    glyph: 'assets/brand/svg/game-icon-thread-full.svg',
+    tintStrong: 'color-mix(in srgb, var(--ch-burgundy) 10%, var(--ch-cream))',
+    tintSoft: 'color-mix(in srgb, var(--ch-burgundy) 6%, var(--ch-cream))',
+    launchDaily: startThreadDaily, launchPractice: startThreadPractice,
+  },
+  {
+    key: 'map', label: 'Lifeline', tagline: 'Born here, died there. Name the figure.',
+    glyph: 'assets/brand/svg/game-icon-lifeline-full.svg',
+    tintStrong: 'color-mix(in srgb, var(--ch-forest) 10%, var(--ch-cream))',
+    tintSoft: 'color-mix(in srgb, var(--ch-forest) 6%, var(--ch-cream))',
+    launchDaily: startMapDaily, launchPractice: startMapPractice,
+  },
+  {
+    key: 'who', label: 'Face Value', tagline: 'A famous face, one sliver at a time.',
+    glyph: 'assets/brand/svg/game-icon-face-value-full.svg',
+    tintStrong: 'color-mix(in srgb, var(--ch-gold) 12%, var(--ch-cream))',
+    tintSoft: 'color-mix(in srgb, var(--ch-gold) 7%, var(--ch-cream))',
+    launchDaily: (n) => startRevealDaily('who', n), launchPractice: (n) => startRevealPractice('who', n),
+  },
+  {
+    key: 'what', label: 'Relic', tagline: 'A famous artefact, one sliver at a time.',
+    glyph: 'assets/brand/svg/game-icon-relic-full.svg',
+    tintStrong: 'color-mix(in srgb, var(--ch-sage) 14%, var(--ch-cream))',
+    tintSoft: 'color-mix(in srgb, var(--ch-sage) 8%, var(--ch-cream))',
+    launchDaily: (n) => startRevealDaily('what', n), launchPractice: (n) => startRevealPractice('what', n),
+  },
 ];
+// Kept for the Archive picker (practice-game buttons) and archive-row dots,
+// which key off the same game list/order.
+const TODAY_GAMES = GAME_ROWS;
 
 function statusLabel(status, score) {
   if (status === 'done') return `Done · ${score} pts`;
@@ -141,35 +142,101 @@ function statusLabel(status, score) {
   return 'Not started';
 }
 
-export function refreshTodayStrip() {
-  const strip = $('#today-strip');
-  if (!strip || !DATA.figures) return; // boot not finished yet
-  const n = daily.todayIndex();
-  $('#today-label').textContent = daily.editionLabel(n);
-  TODAY_GAMES.forEach((g) => {
-    const tile = $(`#today-${g.key}`);
-    if (!tile) return;
-    const status = daily.dailyStatus(g.key, n);
-    const entry = status === 'done' ? store.getDailyEntry(g.key, n) : null;
-    tile.querySelector('.today-status').textContent = statusLabel(status, entry && entry.score);
-    tile.classList.toggle('today-done', status === 'done');
-    tile.classList.toggle('today-progress', status === 'in-progress');
-  });
-}
+// Build the static shell for all four rows once. Called on boot; content
+// (edition label, status, day-card weekdays) is filled in by
+// refreshGameRows(), which also runs every time Home is revisited so a
+// rollover past local midnight or a completed daily is picked up live.
+function renderGameRows() {
+  const root = $('#home-rows');
+  if (!root || root.dataset.built) return;
+  root.innerHTML = GAME_ROWS.map((g) => `
+    <section class="game-row" data-row="${g.key}">
+      <div class="game-strip" data-strip="${g.key}"
+           style="--row-tint-strong:${g.tintStrong};--row-tint-soft:${g.tintSoft}">
+        <button class="hero-card" data-hero="${g.key}" aria-label="Play today's ${g.label}">
+          <div class="hero-top">
+            <div class="hero-text">
+              <h2 class="hero-name">${g.label}</h2>
+              <p class="hero-tagline">${g.tagline}</p>
+            </div>
+            <img class="hero-glyph" src="${g.glyph}" alt="" aria-hidden="true">
+          </div>
+          <div class="hero-bottom">
+            <span class="hero-edition" data-edition></span>
+            <span class="hero-status" data-status></span>
+          </div>
+        </button>
+        <div class="day-cards" data-days></div>
+      </div>
+      <button class="row-archive" data-archive="${g.key}" aria-label="Open the Archive">
+        <span>Archive</span>
+        <svg class="row-archive-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6 H20 V19 A1 1 0 0 1 19 20 H5 A1 1 0 0 1 4 19 Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2.5 6 H21.5 L20 3 H4 Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9.5 10.5 H14.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+    </section>
+  `).join('');
+  root.dataset.built = '1';
 
-function initDaily() {
-  TODAY_GAMES.forEach((g) => {
-    const tile = $(`#today-${g.key}`);
-    if (!tile) return;
-    tile.addEventListener('click', () => g.launchDaily(daily.todayIndex()));
-  });
-  const archiveLink = $('#today-archive-link');
-  if (archiveLink) {
-    archiveLink.addEventListener('click', () => {
+  GAME_ROWS.forEach((g) => {
+    $(`[data-hero="${g.key}"]`).addEventListener('click', () => g.launchDaily(daily.todayIndex()));
+    $(`[data-archive="${g.key}"]`).addEventListener('click', () => {
       renderArchive();
       show('view-archive');
     });
-  }
+  });
+}
+
+// 'done' | 'in-progress' | 'not-started' for a past (aired) edition, for the
+// day cards. v1 note (spec "Cautions"): this reads the daily ledger only —
+// practice completions leave no persistent record in any game engine
+// (mapgame.js/revealgame.js/connectionsgame.js all no-op storage on practice
+// finish "no ledger, no trace"), so a day card cannot distinguish "played in
+// practice" from "not played" today. Showing daily results only, as the spec
+// allows for v1.
+function dayCardStatus(gameKey, editionIndex) {
+  return daily.dailyStatus(gameKey, editionIndex);
+}
+
+const MAX_DAY_CARDS = 7;
+
+export function refreshGameRows() {
+  if (!$('#home-rows') || !DATA.figures) return; // boot not finished yet
+  renderGameRows();
+  const today = daily.todayIndex();
+  GAME_ROWS.forEach((g) => {
+    const status = daily.dailyStatus(g.key, today);
+    const entry = status === 'done' ? store.getDailyEntry(g.key, today) : null;
+    const hero = $(`[data-hero="${g.key}"]`);
+    hero.querySelector('[data-edition]').textContent = daily.editionLabel(today).replace('Edition #', 'EDITION #').toUpperCase();
+    hero.querySelector('[data-status]').textContent = statusLabel(status, entry && entry.score);
+    hero.classList.toggle('row-done', status === 'done');
+    hero.classList.toggle('row-progress', status === 'in-progress');
+
+    // Past (aired) editions only, newest first, capped at 7 — or fewer in the
+    // first week of the app's life.
+    const days = [];
+    for (let n = today - 1; n >= 0 && days.length < MAX_DAY_CARDS; n--) days.push(n);
+    const wrap = $(`[data-strip="${g.key}"] [data-days]`);
+    wrap.innerHTML = days.map((n) => {
+      const st = dayCardStatus(g.key, n);
+      const dayEntry = st === 'done' ? store.getDailyEntry(g.key, n) : null;
+      const label = st === 'done' ? `✓ ${dayEntry ? dayEntry.score : 0}` : '—';
+      return `<button class="day-card${st === 'done' ? ' day-done' : ''}" data-day="${g.key}" data-n="${n}">
+        <span class="day-weekday">${daily.weekdayName(n)}</span>
+        <span class="day-status">${label}</span>
+      </button>`;
+    }).join('');
+    wrap.querySelectorAll('[data-day]').forEach((btn) => {
+      btn.addEventListener('click', () => g.launchPractice(+btn.dataset.n));
+    });
+  });
+}
+
+// Back-compat name used by boot()/render(); the Today-strip concept is gone,
+// replaced by the per-row hero + day cards, but the refresh still happens on
+// every Home visit for the same rollover reason (see render()).
+export function refreshTodayStrip() { refreshGameRows(); }
+
+function initDaily() {
   initArchive();
 }
 
@@ -262,8 +329,13 @@ function initHome() {
   $('#dateline').textContent = new Date().toLocaleDateString('en-GB', {
     weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
   });
-  // Crosswords are retained but hidden from the app for now; the card carries
-  // `hidden`. Guard so this is a no-op when the card isn't shown.
+  // Crosswords are retained but hidden from the app for now, same as before
+  // this rebuild; the card carries `hidden`. Guard so this is a no-op when
+  // the card isn't shown. The other three games' free-play "Start a session"
+  // views (view-mapstart/view-revealstart) get the same treatment as part of
+  // this redesign: their views and logic are untouched, but Home no longer
+  // links to them directly — free play is reached via Archive → practice
+  // (spec "Removals/moves"), so they're hidden routes like the crossword.
   const cwCard = $('#card-crossword');
   if (cwCard) {
     cwCard.addEventListener('click', () => {
@@ -271,22 +343,6 @@ function initHome() {
       show('view-cwlist');
     });
   }
-  $('#card-map').addEventListener('click', () => {
-    renderMapStart();
-    show('view-mapstart');
-  });
-  $('#card-reveal-who').addEventListener('click', () => {
-    renderRevealStart('who');
-    show('view-revealstart');
-  });
-  $('#card-reveal-what').addEventListener('click', () => {
-    renderRevealStart('what');
-    show('view-revealstart');
-  });
-  $('#card-conn').addEventListener('click', () => {
-    renderConnList();
-    show('view-connlist');
-  });
   $$('[data-back]').forEach((b) => b.addEventListener('click', back));
 
   const isIOS = /iP(hone|ad|od)/.test(navigator.userAgent);
