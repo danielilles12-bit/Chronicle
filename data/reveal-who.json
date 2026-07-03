@@ -2414,5 +2414,334 @@
     "license": "Public domain",
     "attribution": "Lionel Royer (1852–1926)",
     "source": "Wikimedia Commons: Lionel Royer - Vercingetorix Throwing down His Weapons at the feet of Julius Caesar.jpg"
+  },
+  {
+    "id": "ronald-reagan",
+    "name": "Ronald Reagan",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "ronald reagan",
+      "reagan",
+      "president reagan"
+    ],
+    "blurb": "40th U.S. President and actor (1911-2004) · official portrait photo by Michael Evans",
+    "img": "assets/img/ronald-reagan.jpg",
+    "fx": 0.64,
+    "fy": 0.4,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Michael Evans",
+    "source": "Wikimedia Commons: Ronald Reagan 1981 presidential portrait.jpg"
+  },
+  {
+    "id": "pope-pius-xii",
+    "name": "Pope Pius XII",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "pope pius xii",
+      "pius xii",
+      "eugenio pacelli",
+      "pope pius 12"
+    ],
+    "blurb": "Pope during World War II (1876-1958) · photo, April 1958",
+    "img": "assets/img/pope-pius-xii.jpg",
+    "fx": 0.56,
+    "fy": 0.29,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Unknown / U.S. Navy Medicine",
+    "source": "Wikimedia Commons: Pope Pius XII, April 1958.jpg"
+  },
+  {
+    "id": "pope-leo-xiii",
+    "name": "Pope Leo XIII",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "pope leo xiii",
+      "leo xiii",
+      "pope leo 13",
+      "vincenzo pecci"
+    ],
+    "blurb": "Pope known for Rerum Novarum (1810-1903) · photograph, 1887",
+    "img": "assets/img/pope-leo-xiii.jpg",
+    "fx": 0.6,
+    "fy": 0.85,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Attributed to Enrico Canè",
+    "source": "Wikimedia Commons: Leo XIII, 1887.jpg"
+  },
+  {
+    "id": "elizabeth-cady-stanton",
+    "name": "Elizabeth Cady Stanton",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "elizabeth cady stanton",
+      "elizabeth stanton",
+      "cady stanton"
+    ],
+    "blurb": "Womens rights leader and Seneca Falls organiser (1815-1902) · photo by Charles D. Mosher, 1880",
+    "img": "assets/img/elizabeth-cady-stanton.jpg",
+    "fx": 0.53,
+    "fy": 0.46,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Charles Delevan Mosher",
+    "source": "Wikimedia Commons: Elizabeth Cady Stanton, 1880.tif"
+  },
+  {
+    "id": "clara-barton",
+    "name": "Clara Barton",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "clara barton"
+    ],
+    "blurb": "Founder of the American Red Cross (1821-1912) · photo by James E. Purdy, 1904",
+    "img": "assets/img/clara-barton-portrait.jpg",
+    "fx": 0.5,
+    "fy": 0.52,
+    "frac": 0.16,
+    "license": "Public domain",
+    "attribution": "James E. Purdy",
+    "source": "Wikimedia Commons: Clara Barton 1904.jpg"
+  },
+  {
+    "id": "jane-austen",
+    "name": "Jane Austen",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "jane austen"
+    ],
+    "blurb": "English novelist (1775-1817) · watercolour sketch by her sister Cassandra Austen, c.1810",
+    "img": "assets/img/jane-austen.jpg",
+    "fx": 0.46,
+    "fy": 0.46,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Cassandra Austen",
+    "source": "Wikimedia Commons: CassandraAusten-JaneAusten(c.1810) hires.jpg"
+  },
+  {
+    "id": "george-eliot",
+    "name": "George Eliot",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "george eliot",
+      "mary ann evans",
+      "marian evans"
+    ],
+    "blurb": "English novelist, pen name of Mary Ann Evans (1819-1880) · portrait by François D Albert Durade",
+    "img": "assets/img/george-eliot.jpg",
+    "fx": 0.55,
+    "fy": 0.47,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "François D Albert Durade",
+    "source": "Wikimedia Commons: George Eliot, por François DAlbert Durade.jpg"
+  },
+  {
+    "id": "mary-shelley",
+    "name": "Mary Shelley",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "mary shelley",
+      "mary wollstonecraft shelley"
+    ],
+    "blurb": "Author of Frankenstein (1797-1851) · portrait by Richard Rothwell",
+    "img": "assets/img/mary-shelley.jpg",
+    "fx": 0.53,
+    "fy": 0.52,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Richard Rothwell",
+    "source": "Wikimedia Commons: Mary Wollstonecraft Shelley Rothwell.tif"
+  },
+  {
+    "id": "virginia-woolf",
+    "name": "Virginia Woolf",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "virginia woolf"
+    ],
+    "blurb": "English modernist novelist (1882-1941) · photo by George Charles Beresford, 1902",
+    "img": "assets/img/virginia-woolf.jpg",
+    "fx": 0.42,
+    "fy": 0.57,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "George Charles Beresford",
+    "source": "Wikimedia Commons: George Charles Beresford - Virginia Woolf in 1902 - Restoration.jpg"
+  },
+  {
+    "id": "sylvia-plath",
+    "name": "Sylvia Plath",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "sylvia plath"
+    ],
+    "blurb": "American poet, author of The Bell Jar (1932-1963) · press photo, 1953",
+    "img": "assets/img/sylvia-plath.jpg",
+    "fx": 0.48,
+    "fy": 0.55,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Associated Press (distributor)",
+    "source": "Wikimedia Commons: Sylvia Plath - The Boston Globe (1953) (cropped).png"
+  },
+  {
+    "id": "toni-morrison",
+    "name": "Toni Morrison",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "toni morrison",
+      "chloe anthony wofford"
+    ],
+    "blurb": "Nobel Prize-winning novelist, author of Beloved (1931-2019) · photo by Bernard Gotfryd",
+    "img": "assets/img/toni-morrison.jpg",
+    "fx": 0.55,
+    "fy": 0.68,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Bernard Gotfryd",
+    "source": "Wikimedia Commons: Toni Morrison (author, at her upstate New York home).jpg"
+  },
+  {
+    "id": "billie-holiday",
+    "name": "Billie Holiday",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "billie holiday",
+      "lady day"
+    ],
+    "blurb": "Jazz singer known for Strange Fruit (1915-1959) · photo by William P. Gottlieb, Downbeat, 1947",
+    "img": "assets/img/billie-holiday.jpg",
+    "fx": 0.45,
+    "fy": 0.62,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "William P. Gottlieb",
+    "source": "Wikimedia Commons: Billie Holiday, Downbeat, New York, N.Y., ca. Feb. 1947 (William P. Gottlieb 04251).jpg"
+  },
+  {
+    "id": "ella-fitzgerald",
+    "name": "Ella Fitzgerald",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "ella fitzgerald",
+      "the first lady of song"
+    ],
+    "blurb": "Jazz vocalist known as the First Lady of Song (1917-1996) · photo by William P. Gottlieb",
+    "img": "assets/img/ella-fitzgerald.jpg",
+    "fx": 0.53,
+    "fy": 0.68,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "William P. Gottlieb",
+    "source": "Wikimedia Commons: Ella Fitzgerald (Gottlieb 02871).jpg"
+  },
+  {
+    "id": "aretha-franklin",
+    "name": "Aretha Franklin",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "aretha franklin",
+      "the queen of soul"
+    ],
+    "blurb": "Singer known as the Queen of Soul (1942-2018) · publicity photo, Atlantic Records, 1968",
+    "img": "assets/img/aretha-franklin.jpg",
+    "fx": 0.5,
+    "fy": 0.7,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Atlantic Records",
+    "source": "Wikimedia Commons: Aretha Franklin 1968.jpg"
+  },
+  {
+    "id": "louis-pasteur",
+    "name": "Louis Pasteur",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "louis pasteur",
+      "pasteur"
+    ],
+    "blurb": "Chemist and microbiologist, pioneer of pasteurisation and vaccination (1822-1895) · photo by Paul Nadar",
+    "img": "assets/img/louis-pasteur.jpg",
+    "fx": 0.5,
+    "fy": 0.46,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Paul Nadar",
+    "source": "Wikimedia Commons: Louis Pasteur, foto av Paul Nadar, Crisco edit.jpg"
+  },
+  {
+    "id": "joseph-lister",
+    "name": "Joseph Lister",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "joseph lister",
+      "lord lister",
+      "baron lister"
+    ],
+    "blurb": "Surgeon who pioneered antiseptic surgery (1827-1912) · photo, 1902",
+    "img": "assets/img/joseph-lister.jpg",
+    "fx": 0.5,
+    "fy": 0.65,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Joseph Lister 1902.jpg"
+  },
+  {
+    "id": "alexander-graham-bell",
+    "name": "Alexander Graham Bell",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "alexander graham bell",
+      "alexander bell"
+    ],
+    "blurb": "Inventor credited with the first practical telephone (1847-1922) · photo, 1895",
+    "img": "assets/img/alexander-graham-bell.jpg",
+    "fx": 0.6,
+    "fy": 0.63,
+    "frac": 0.15,
+    "license": "CC0",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Alexander Graham Bell 1895 NPG 77 363.jpg"
+  },
+  {
+    "id": "samuel-morse",
+    "name": "Samuel Morse",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "samuel morse",
+      "samuel f b morse",
+      "samuel fb morse"
+    ],
+    "blurb": "Inventor of the telegraph and Morse code (1791-1872) · photo by Mathew Brady",
+    "img": "assets/img/samuel-morse.jpg",
+    "fx": 0.55,
+    "fy": 0.6,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Mathew Brady",
+    "source": "Wikimedia Commons: Samuel Morse portrait.jpg"
   }
 ]

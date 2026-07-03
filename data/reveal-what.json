@@ -1387,8 +1387,7 @@
     "kind": "artefact",
     "difficulty": "easy",
     "variants": [
-      "parthenon",
-      "acropolis"
+      "parthenon"
     ],
     "blurb": "Temple of Athena on the Acropolis (438 BC) · Athens, Greece",
     "img": "assets/img/parthenon.jpg",
@@ -1698,5 +1697,1238 @@
     "license": "Public domain",
     "attribution": "Unknown authorUnknown author",
     "source": "Wikimedia Commons: The Hope Diamond - SIA.jpg"
+  },
+  {
+    "id": "acropolis-athens",
+    "name": "Acropolis of Athens",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "acropolis of athens",
+      "acropolis",
+      "athenian acropolis"
+    ],
+    "blurb": "Citadel with the Parthenon (5th century BC) · Athens, Greece",
+    "img": "assets/img/acropolis-athens.jpg",
+    "fx": 0.5,
+    "fy": 0.45,
+    "frac": 0.2,
+    "license": "CC0",
+    "attribution": "George E. Koronaios",
+    "source": "Wikimedia Commons: The Acropolis of Athens from Philopappos Hill on June 16, 2020.jpg"
+  },
+  {
+    "id": "tower-of-london",
+    "name": "Tower of London",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "tower of london",
+      "the tower",
+      "white tower"
+    ],
+    "blurb": "Royal castle founded 1066–1078 · London, England",
+    "img": "assets/img/tower-of-london.jpg",
+    "fx": 0.565,
+    "fy": 0.55,
+    "frac": 0.16,
+    "license": "CC BY-SA 4.0",
+    "attribution": "DAVID ILIFF",
+    "source": "Wikimedia Commons: London, Tower of London -- 2016 -- 4791.jpg"
+  },
+  {
+    "id": "westminster-abbey",
+    "name": "Westminster Abbey",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "westminster abbey",
+      "collegiate church of st peter westminster"
+    ],
+    "blurb": "Gothic royal church, mainly 13th–16th century · London, England",
+    "img": "assets/img/westminster-abbey.jpg",
+    "fx": 0.45,
+    "fy": 0.32,
+    "frac": 0.16,
+    "license": "CC BY-SA 2.0",
+    "attribution": "Hugh Llewelyn",
+    "source": "Wikimedia Commons: Westminster Abbey (St. Peter) (47537372181).jpg"
+  },
+  {
+    "id": "buckingham-palace",
+    "name": "Buckingham Palace",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "buckingham palace"
+    ],
+    "blurb": "London residence of the British monarch, remodelled 1913 · London, England",
+    "img": "assets/img/buckingham-palace.jpg",
+    "fx": 0.5,
+    "fy": 0.4,
+    "frac": 0.16,
+    "license": "CC BY 4.0",
+    "attribution": "APK",
+    "source": "Wikimedia Commons: Buckingham Palace east front facade.jpg"
+  },
+  {
+    "id": "arc-de-triomphe",
+    "name": "Arc de Triomphe",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "arc de triomphe",
+      "arc de triomphe de l'etoile"
+    ],
+    "blurb": "Napoleonic triumphal arch, completed 1836 · Paris, France",
+    "img": "assets/img/arc-de-triomphe.jpg",
+    "fx": 0.45,
+    "fy": 0.5,
+    "frac": 0.16,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Benh LIEU SONG",
+    "source": "Wikimedia Commons: Arc Triomphe.jpg"
+  },
+  {
+    "id": "palace-of-versailles",
+    "name": "Palace of Versailles",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "palace of versailles",
+      "versailles",
+      "chateau de versailles"
+    ],
+    "blurb": "Royal palace expanded under Louis XIV, 17th century · Versailles, France",
+    "img": "assets/img/versailles.jpg",
+    "fx": 0.65,
+    "fy": 0.35,
+    "frac": 0.16,
+    "license": "CC BY 2.0",
+    "attribution": "sybarite48",
+    "source": "Wikimedia Commons: Garden facade of the Palace of Versailles 2.jpg"
+  },
+  {
+    "id": "chartres-cathedral",
+    "name": "Chartres Cathedral",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "chartres cathedral",
+      "cathedral of our lady of chartres",
+      "notre-dame de chartres"
+    ],
+    "blurb": "Gothic cathedral with mismatched spires, mainly 13th century · Chartres, France",
+    "img": "assets/img/chartres-cathedral.jpg",
+    "fx": 0.5,
+    "fy": 0.4,
+    "frac": 0.16,
+    "license": "CC BY 2.0",
+    "attribution": "Elliott Brown",
+    "source": "Wikimedia Commons: Cathedral Notre Dame, Chartres (3729893669).jpg"
+  },
+  {
+    "id": "milan-cathedral",
+    "name": "Milan Cathedral",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "milan cathedral",
+      "duomo di milano",
+      "duomo of milan"
+    ],
+    "blurb": "Gothic cathedral with 135 spires, begun 1386 · Milan, Italy",
+    "img": "assets/img/milan-cathedral.jpg",
+    "fx": 0.62,
+    "fy": 0.35,
+    "frac": 0.16,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Jiuguang Wang",
+    "source": "Wikimedia Commons: Milan Cathedral from Piazza del Duomo.jpg"
+  },
+  {
+    "id": "st-peters-basilica",
+    "name": "St Peter's Basilica",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "st peter's basilica",
+      "saint peter's basilica",
+      "basilica di san pietro"
+    ],
+    "blurb": "Renaissance basilica, completed 1626 · Vatican City",
+    "img": "assets/img/st-peters-basilica.jpg",
+    "fx": 0.51,
+    "fy": 0.28,
+    "frac": 0.2,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Staselnik",
+    "source": "Wikimedia Commons: Facade of Saint Peter's Basilica.jpg"
+  },
+  {
+    "id": "pantheon-rome",
+    "name": "Pantheon Rome",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "pantheon",
+      "pantheon rome",
+      "roman pantheon"
+    ],
+    "blurb": "Former Roman temple, rebuilt c. AD 113–125 · Rome, Italy",
+    "img": "assets/img/pantheon-rome.jpg",
+    "fx": 0.53,
+    "fy": 0.45,
+    "frac": 0.16,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Rabax63",
+    "source": "Wikimedia Commons: Pantheon Rom 1 cropped.jpg"
+  },
+  {
+    "id": "pompeii-forum",
+    "name": "Pompeii Forum",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "pompeii forum",
+      "forum of pompeii",
+      "pompeii"
+    ],
+    "blurb": "Civic square of the buried Roman city, destroyed AD 79 · Pompeii, Italy",
+    "img": "assets/img/pompeii-forum.jpg",
+    "fx": 0.45,
+    "fy": 0.42,
+    "frac": 0.16,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Wknight94",
+    "source": "Wikimedia Commons: Forum in Pompeii 2.jpg"
+  },
+  {
+    "id": "herculaneum-frescoes",
+    "name": "Herculaneum Frescoes",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "herculaneum frescoes",
+      "herculaneum fresco",
+      "herculaneum wall paintings"
+    ],
+    "blurb": "Roman wall paintings buried by Vesuvius, 1st century AD · Naples Archaeological Museum",
+    "img": "assets/img/herculaneum-frescoes.jpg",
+    "fx": 0.5,
+    "fy": 0.55,
+    "frac": 0.18,
+    "license": "CC BY-SA 4.0",
+    "attribution": "ArchaiOptix",
+    "source": "Wikimedia Commons: Wall painting - architecture - Herculaneum (ins or II basilica-augusteum) - Napoli MAN 8534.jpg"
+  },
+  {
+    "id": "delphi-temple",
+    "name": "Delphi Temple",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "delphi temple",
+      "temple of apollo at delphi",
+      "temple of apollo delphi"
+    ],
+    "blurb": "Sanctuary of the Delphic oracle, 4th century BC · Delphi, Greece",
+    "img": "assets/img/delphi-temple.jpg",
+    "fx": 0.42,
+    "fy": 0.5,
+    "frac": 0.16,
+    "license": "CC0",
+    "attribution": "Jebulon",
+    "source": "Wikimedia Commons: Delphes, Grèce. Temple d'Apollon. Six colonnes.jpg"
+  },
+  {
+    "id": "olympia-stadium",
+    "name": "Olympia Stadium",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "olympia stadium",
+      "stadium at olympia",
+      "ancient olympic stadium"
+    ],
+    "blurb": "Arched entrance to the original Olympic Games stadium, 5th century BC · Olympia, Greece",
+    "img": "assets/img/olympia-stadium.jpg",
+    "fx": 0.55,
+    "fy": 0.42,
+    "frac": 0.16,
+    "license": "CC BY 2.0",
+    "attribution": "Erik Drost",
+    "source": "Wikimedia Commons: Ancient Olympic Stadium Entrance (5987161338).jpg"
+  },
+  {
+    "id": "mycenae-lion-gate",
+    "name": "Mycenae Lion Gate",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "mycenae lion gate",
+      "lion gate",
+      "lion gate mycenae"
+    ],
+    "blurb": "Monumental citadel gateway relief, c. 1250 BC · Mycenae, Greece",
+    "img": "assets/img/mycenae-lion-gate.jpg",
+    "fx": 0.5,
+    "fy": 0.4,
+    "frac": 0.16,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Orlovic",
+    "source": "Wikimedia Commons: Lions Gate detail.JPG"
+  },
+  {
+    "id": "knossos-palace",
+    "name": "Knossos Palace",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "knossos palace",
+      "palace of knossos",
+      "knossos"
+    ],
+    "blurb": "Minoan Bronze Age palace complex with griffin frescoes, c. 1700 BC · Crete, Greece",
+    "img": "assets/img/knossos-palace.jpg",
+    "fx": 0.45,
+    "fy": 0.55,
+    "frac": 0.18,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Rigorius",
+    "source": "Wikimedia Commons: Knossos Throne-room 20230604 110755.jpg"
+  },
+  {
+    "id": "temple-poseidon",
+    "name": "Temple of Poseidon",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "temple of poseidon",
+      "temple of poseidon sounion",
+      "sounion temple"
+    ],
+    "blurb": "Doric marble temple on a sea cliff, 5th century BC · Cape Sounion, Greece",
+    "img": "assets/img/temple-poseidon.jpg",
+    "fx": 0.4,
+    "fy": 0.4,
+    "frac": 0.16,
+    "license": "CC0",
+    "attribution": "Jebulon",
+    "source": "Wikimedia Commons: Temple of Poseidon perspective at Cape Sounion Greece.jpg"
+  },
+  {
+    "id": "roman-forum",
+    "name": "Roman Forum",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "roman forum",
+      "forum romanum",
+      "temple of saturn"
+    ],
+    "blurb": "Ruins of the Temple of Saturn in the civic heart of ancient Rome, 4th century BC · Rome, Italy",
+    "img": "assets/img/roman-forum.jpg",
+    "fx": 0.45,
+    "fy": 0.4,
+    "frac": 0.16,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Nicholas Hartmann",
+    "source": "Wikimedia Commons: Roman Forum Temple of Saturn.jpg"
+  },
+  {
+    "id": "baths-caracalla",
+    "name": "Baths of Caracalla",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "baths of caracalla",
+      "terme di caracalla"
+    ],
+    "blurb": "Monumental public bathing complex, completed AD 216 · Rome, Italy",
+    "img": "assets/img/baths-caracalla.jpg",
+    "fx": 0.55,
+    "fy": 0.6,
+    "frac": 0.16,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Pascal Reusch",
+    "source": "Wikimedia Commons: Baths of Caracalla 2.JPG"
+  },
+  {
+    "id": "pont-du-gard-aqueduct",
+    "name": "Pont du Gard Aqueduct",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "pont du gard",
+      "pont du gard aqueduct"
+    ],
+    "blurb": "Three-tiered Roman aqueduct bridge, 1st century AD · near Nimes, France",
+    "img": "assets/img/pont-du-gard-aqueduct.jpg",
+    "fx": 0.5,
+    "fy": 0.28,
+    "frac": 0.15,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Krzysztof Golik",
+    "source": "Wikimedia Commons: Pont du Gard (30).jpg"
+  },
+  {
+    "id": "hadrians-villa",
+    "name": "Hadrian's Villa",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "hadrian's villa",
+      "hadrians villa",
+      "villa adriana",
+      "canopus tivoli"
+    ],
+    "blurb": "Emperor Hadrian's retreat with the arched Canopus pool, 2nd century AD · Tivoli, Italy",
+    "img": "assets/img/hadrians-villa.jpg",
+    "fx": 0.4,
+    "fy": 0.45,
+    "frac": 0.16,
+    "license": "CC BY-SA 2.0",
+    "attribution": "Carole Raddato",
+    "source": "Wikimedia Commons: The Canopus, Hadrian's Villa, Tivoli (14759103250).jpg"
+  },
+  {
+    "id": "arena-verona",
+    "name": "Arena of Verona",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "arena of verona",
+      "verona arena",
+      "arena di verona"
+    ],
+    "blurb": "Roman amphitheatre still used for opera, 1st century AD · Verona, Italy",
+    "img": "assets/img/arena-verona.jpg",
+    "fx": 0.25,
+    "fy": 0.4,
+    "frac": 0.16,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Zairon",
+    "source": "Wikimedia Commons: Verona Arena 01.jpg"
+  },
+  {
+    "id": "florence-cathedral-dome",
+    "name": "Florence Cathedral Dome",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "florence cathedral dome",
+      "brunelleschi's dome",
+      "duomo florence dome",
+      "santa maria del fiore dome"
+    ],
+    "blurb": "Brunelleschi's self-supporting dome, completed 1436 · Florence, Italy",
+    "img": "assets/img/florence-cathedral-dome.jpg",
+    "fx": 0.5,
+    "fy": 0.5,
+    "frac": 0.18,
+    "license": "CC BY 2.5",
+    "attribution": "Sailko",
+    "source": "Wikimedia Commons: Cupola di santa maria del fiore dal campanile di giotto, 01.JPG"
+  },
+  {
+    "id": "ponte-vecchio",
+    "name": "Ponte Vecchio",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "ponte vecchio",
+      "old bridge florence"
+    ],
+    "blurb": "Medieval stone bridge lined with shops, rebuilt 1345 · Florence, Italy",
+    "img": "assets/img/ponte-vecchio.jpg",
+    "fx": 0.35,
+    "fy": 0.75,
+    "frac": 0.15,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Diego Delso",
+    "source": "Wikimedia Commons: Ponte Vecchio sobre el río Arno, Florencia, Italia, 2022-09-19, DD 02.jpg"
+  },
+  {
+    "id": "lycurgus-cup",
+    "name": "Lycurgus Cup",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "lycurgus cup"
+    ],
+    "blurb": "Roman dichroic glass cage-cup that changes colour in light, 4th century AD · British Museum, London",
+    "img": "assets/img/lycurgus-cup.jpg",
+    "fx": 0.45,
+    "fy": 0.35,
+    "frac": 0.16,
+    "license": "CC BY 4.0",
+    "attribution": "Chappsnet",
+    "source": "Wikimedia Commons: Front of 4th century CE Roman Lycurgus Cup, British Museum (1958,1202.1).jpg"
+  },
+  {
+    "id": "portland-vase",
+    "name": "Portland Vase",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "portland vase"
+    ],
+    "blurb": "Roman cameo-glass vase with white figures on cobalt blue, 1st century AD · British Museum, London",
+    "img": "assets/img/portland-vase.jpg",
+    "fx": 0.42,
+    "fy": 0.62,
+    "frac": 0.16,
+    "license": "CC BY 2.5",
+    "attribution": "Marie-Lan Nguyen",
+    "source": "Wikimedia Commons: Portland Vase BM Gem4036 n1 resized white-balanced white bg.png"
+  },
+  {
+    "id": "warren-cup",
+    "name": "Warren Cup",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "warren cup"
+    ],
+    "blurb": "Roman silver drinking cup with relief scenes, early 1st century AD · British Museum, London",
+    "img": "assets/img/warren-cup.jpg",
+    "fx": 0.65,
+    "fy": 0.4,
+    "frac": 0.16,
+    "license": "CC BY 2.0",
+    "attribution": "Ashley Van Haeften",
+    "source": "Wikimedia Commons: Warren Cup - musical instruments.jpg"
+  },
+  {
+    "id": "mildenhall-treasure",
+    "name": "Mildenhall Treasure",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "mildenhall treasure",
+      "mildenhall great dish",
+      "great dish mildenhall"
+    ],
+    "blurb": "Roman silver hoard with the Oceanus Great Dish, 4th century AD · British Museum, London",
+    "img": "assets/img/mildenhall-treasure.jpg",
+    "fx": 0.28,
+    "fy": 0.28,
+    "frac": 0.15,
+    "license": "CC0",
+    "attribution": "Daderot",
+    "source": "Wikimedia Commons: Mildenhall Great Dish, Late Roman period, silver - British Museum - DSC01383.jpg"
+  },
+  {
+    "id": "staffordshire-hoard",
+    "name": "Staffordshire Hoard",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "staffordshire hoard"
+    ],
+    "blurb": "Largest hoard of Anglo-Saxon gold and silver metalwork, 7th century AD · England",
+    "img": "assets/img/staffordshire-hoard.jpg",
+    "fx": 0.5,
+    "fy": 0.42,
+    "frac": 0.16,
+    "license": "CC BY 2.0",
+    "attribution": "Jon Callas",
+    "source": "Wikimedia Commons: Sheet Gold Plaque, Staffordshire Hoard.jpg"
+  },
+  {
+    "id": "alfred-jewel",
+    "name": "Alfred Jewel",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "alfred jewel"
+    ],
+    "blurb": "Anglo-Saxon gold and enamel aestel inscribed for King Alfred, 9th century AD · Ashmolean Museum, Oxford",
+    "img": "assets/img/alfred-jewel.jpg",
+    "fx": 0.5,
+    "fy": 0.35,
+    "frac": 0.16,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Geni",
+    "source": "Wikimedia Commons: Alfred Jewel Ashmolean 2014.JPG"
+  },
+  {
+    "id": "lindisfarne-gospels",
+    "name": "Lindisfarne Gospels",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "lindisfarne gospels"
+    ],
+    "blurb": "Illuminated Latin gospel book with carpet pages, c. AD 700 · British Library, London",
+    "img": "assets/img/lindisfarne-gospels.jpg",
+    "fx": 0.5,
+    "fy": 0.45,
+    "frac": 0.16,
+    "license": "Public domain",
+    "attribution": "Eadfrith of Lindisfarne",
+    "source": "Wikimedia Commons: Meister des Book of Lindisfarne 002.jpg"
+  },
+  {
+    "id": "utrecht-psalter",
+    "name": "Utrecht Psalter",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "utrecht psalter"
+    ],
+    "blurb": "Carolingian psalter with vivid pen-sketch illustrations, c. AD 820–835 · Utrecht University Library",
+    "img": "assets/img/utrecht-psalter.jpg",
+    "fx": 0.4,
+    "fy": 0.28,
+    "frac": 0.16,
+    "license": "Public domain",
+    "attribution": "Unknown monks, c. 800",
+    "source": "Wikimedia Commons: Utrecht Psalter.jpg"
+  },
+  {
+    "id": "winchester-bible",
+    "name": "Winchester Bible",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "winchester bible"
+    ],
+    "blurb": "Largest surviving 12th-century English illuminated bible, c. 1160–1175 · Winchester Cathedral",
+    "img": "assets/img/winchester-bible.jpg",
+    "fx": 0.42,
+    "fy": 0.35,
+    "frac": 0.16,
+    "license": "Public domain",
+    "attribution": "Unknown Winchester miniaturist",
+    "source": "Wikimedia Commons: God addressing Jeremiah, Winchester Bible, 1160-75 (22797800517).jpg"
+  },
+  {
+    "id": "codex-sinaiticus",
+    "name": "Codex Sinaiticus",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "codex sinaiticus"
+    ],
+    "blurb": "One of the oldest complete Greek Bibles, in distinctive four-column script, 4th century AD · British Library, London",
+    "img": "assets/img/codex-sinaiticus.jpg",
+    "fx": 0.42,
+    "fy": 0.35,
+    "frac": 0.18,
+    "license": "Public domain",
+    "attribution": "Unknown scribe",
+    "source": "Wikimedia Commons: Codex Sinaiticus Matthew 1,1-2,5.JPG"
+  },
+  {
+    "id": "codex-gigas",
+    "name": "Codex Gigas",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "codex gigas",
+      "devils bible",
+      "devil's bible"
+    ],
+    "blurb": "Giant medieval manuscript known as the 'Devil's Bible' for its full-page devil portrait, 13th century · National Library of Sweden",
+    "img": "assets/img/codex-gigas.jpg",
+    "fx": 0.5,
+    "fy": 0.2,
+    "frac": 0.16,
+    "license": "CC0",
+    "attribution": "Herman the Recluse",
+    "source": "Wikimedia Commons: Codex-Gigas-Devil-enhanced.jpg"
+  },
+  {
+    "id": "hereford-mappa-mundi",
+    "name": "Hereford Mappa Mundi",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "hereford mappa mundi",
+      "mappa mundi"
+    ],
+    "blurb": "Largest surviving medieval world map on a single sheet, c. 1300 · Hereford Cathedral, England",
+    "img": "assets/img/hereford-mappa-mundi.jpg",
+    "fx": 0.5,
+    "fy": 0.55,
+    "frac": 0.16,
+    "license": "Public domain",
+    "attribution": "Richard of Haldingham (attrib.)",
+    "source": "Wikimedia Commons: Hereford-Karte.jpg"
+  },
+  {
+    "id": "catalan-atlas",
+    "name": "Catalan Atlas",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "catalan atlas"
+    ],
+    "blurb": "Illuminated medieval world map depicting Mansa Musa, 1375 · Bibliothèque nationale de France",
+    "img": "assets/img/catalan-atlas.jpg",
+    "fx": 0.42,
+    "fy": 0.65,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Cresques Abraham",
+    "source": "Wikimedia Commons: 1375 Atlas Catalan, Europe 02.jpg"
+  },
+  {
+    "id": "piri-reis-map",
+    "name": "Piri Reis Map",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "piri reis map"
+    ],
+    "blurb": "Ottoman gazelle-skin map of the Atlantic coasts, 1513 · Topkapi Palace Museum, Istanbul",
+    "img": "assets/img/piri-reis-map.jpg",
+    "fx": 0.65,
+    "fy": 0.15,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Piri Reis",
+    "source": "Wikimedia Commons: Piri reis world map 01.jpg"
+  },
+  {
+    "id": "diamond-sutra",
+    "name": "Diamond Sutra",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "diamond sutra"
+    ],
+    "blurb": "Woodblock-printed Buddhist scroll, dated 868 AD, the earliest complete dated printed book · British Library, London",
+    "img": "assets/img/diamond-sutra.jpg",
+    "fx": 0.62,
+    "fy": 0.4,
+    "frac": 0.16,
+    "license": "CC0",
+    "attribution": "British Library",
+    "source": "Wikimedia Commons: Diamond Sutra of 868 AD - The Diamond Sutra (868), frontispiece and text - BL Or. 8210-P.2.jpg"
+  },
+  {
+    "id": "nebra-sky-disc",
+    "name": "Nebra Sky Disc",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "nebra sky disc",
+      "nebra disc",
+      "himmelsscheibe von nebra"
+    ],
+    "blurb": "Bronze Age astronomical disc with gold sun, moon and stars, c. 1600 BC · State Museum of Prehistory, Halle",
+    "img": "assets/img/nebra-sky-disc.jpg",
+    "fx": 0.65,
+    "fy": 0.35,
+    "frac": 0.16,
+    "license": "CC0",
+    "attribution": "Shonagon",
+    "source": "Wikimedia Commons: Himmelsscheibe von Nebra - Landesmuseum für Vorgeschichte in Halle - HD.jpg"
+  },
+  {
+    "id": "trundholm-sun-chariot",
+    "name": "Trundholm Sun Chariot",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "trundholm sun chariot",
+      "sun chariot",
+      "solvognen"
+    ],
+    "blurb": "Bronze Age horse-drawn gilded sun disc on wheels, c. 1400 BC · National Museum of Denmark",
+    "img": "assets/img/trundholm-sun-chariot.jpg",
+    "fx": 0.62,
+    "fy": 0.42,
+    "frac": 0.16,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Nationalmuseet / John Lee",
+    "source": "Wikimedia Commons: Solvognen DO-6865 2000.jpg"
+  },
+  {
+    "id": "gundestrup-cauldron",
+    "name": "Gundestrup Cauldron",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "gundestrup cauldron"
+    ],
+    "blurb": "Ornate Iron Age silver vessel with Celtic mythological reliefs, c. 150–1 BC · National Museum of Denmark",
+    "img": "assets/img/gundestrup-cauldron.jpg",
+    "fx": 0.62,
+    "fy": 0.42,
+    "frac": 0.16,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Nationalmuseet / Lennart Larsen",
+    "source": "Wikimedia Commons: Gundestrup cauldron - F.I.4277.jpg"
+  },
+  {
+    "id": "tara-brooch",
+    "name": "Tara Brooch",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "tara brooch"
+    ],
+    "blurb": "Elaborate Celtic gilt-silver pseudo-penannular brooch, early 8th century AD · National Museum of Ireland, Dublin",
+    "img": "assets/img/tara-brooch.jpg",
+    "fx": 0.32,
+    "fy": 0.42,
+    "frac": 0.16,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Johnbod",
+    "source": "Wikimedia Commons: Ireland 2010 etc 029.jpg"
+  },
+  {
+    "id": "djenne-terracotta",
+    "name": "Djenne Terracotta",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "djenne terracotta",
+      "djenné terracotta",
+      "djenne figure"
+    ],
+    "blurb": "Hunched terracotta figure from the inland Niger Delta, 13th–15th century · Mali",
+    "img": "assets/img/djenne-terracotta.jpg",
+    "fx": 0.75,
+    "fy": 0.4,
+    "frac": 0.16,
+    "license": "CC0",
+    "attribution": "Metropolitan Museum of Art (photo: Wmpearl)",
+    "source": "Wikimedia Commons: Seated figure grom Mali, 13th century, Djenné peoples, Metropolitan Museum of Art, 1981.218.JPG"
+  },
+  {
+    "id": "asante-golden-stool",
+    "name": "Asante Golden Stool",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "asante golden stool",
+      "golden stool",
+      "sika dwa"
+    ],
+    "blurb": "Curved royal stool of the Asante form said to embody the soul of the nation, 19th century style · British Museum, London",
+    "img": "assets/img/asante-golden-stool.jpg",
+    "fx": 0.5,
+    "fy": 0.42,
+    "frac": 0.16,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Ji-Elle",
+    "source": "Wikimedia Commons: Stool-Asante (British Museum).jpg"
+  },
+  {
+    "id": "kilwa-kisiwani-ruins",
+    "name": "Kilwa Kisiwani Ruins",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "kilwa kisiwani ruins",
+      "kilwa kisiwani",
+      "great mosque of kilwa"
+    ],
+    "blurb": "Coral-stone ruins of a Swahili trading sultanate, Great Mosque built from 11th century · Kilwa Kisiwani, Tanzania",
+    "img": "assets/img/kilwa-kisiwani-ruins.jpg",
+    "fx": 0.35,
+    "fy": 0.42,
+    "frac": 0.15,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Janetmpurdy",
+    "source": "Wikimedia Commons: Great Mosque Kilwa Kisiwani Tanzania.jpg"
+  },
+  {
+    "id": "gedi-ruins",
+    "name": "Gedi Ruins",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "gedi ruins",
+      "gede ruins"
+    ],
+    "blurb": "Ruined Swahili palace town swallowed by forest, 13th–17th century · Gedi, Kenya",
+    "img": "assets/img/gedi-ruins.jpg",
+    "fx": 0.62,
+    "fy": 0.32,
+    "frac": 0.16,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Skaranja",
+    "source": "Wikimedia Commons: Palace at Gedi Ruins.jpg"
+  },
+  {
+    "id": "stone-town-zanzibar-door",
+    "name": "Stone Town Zanzibar Door",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "stone town zanzibar door",
+      "zanzibar door",
+      "zanzibar carved door"
+    ],
+    "blurb": "Brass-studded carved wooden door of Swahili-Omani style, 19th century · Stone Town, Zanzibar",
+    "img": "assets/img/stone-town-zanzibar-door.jpg",
+    "fx": 0.3,
+    "fy": 0.4,
+    "frac": 0.16,
+    "license": "CC BY-SA 2.0",
+    "attribution": "Adam Jones",
+    "source": "Wikimedia Commons: Detail of Carved Wooden Door - Stone Town - Zanzibar - Tanzania (8841700340).jpg"
+  },
+  {
+    "id": "mapungubwe-gold-rhino",
+    "name": "Mapungubwe Gold Rhino",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "mapungubwe gold rhino",
+      "golden rhino of mapungubwe"
+    ],
+    "blurb": "Gold-foil rhinoceros figurine from a royal burial, c. 13th century AD · University of Pretoria Museum",
+    "img": "assets/img/mapungubwe-gold-rhino.jpg",
+    "fx": 0.35,
+    "fy": 0.5,
+    "frac": 0.18,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Sian Tiley-Nel / University of Pretoria Museums",
+    "source": "Wikimedia Commons: UP rhino.JPG"
+  },
+  {
+    "id": "great-enclosure-zimbabwe",
+    "name": "Great Enclosure Zimbabwe",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "great enclosure zimbabwe",
+      "great enclosure",
+      "great zimbabwe"
+    ],
+    "blurb": "Massive dry-stone walled royal enclosure, 11th–15th century AD · Great Zimbabwe, Zimbabwe",
+    "img": "assets/img/great-enclosure-zimbabwe.jpg",
+    "fx": 0.65,
+    "fy": 0.75,
+    "frac": 0.16,
+    "license": "CC BY-SA 2.0",
+    "attribution": "Andrew Moore",
+    "source": "Wikimedia Commons: East Wall Great Enclosure (47614139601).jpg"
+  },
+  {
+    "id": "khami-ruins",
+    "name": "Khami Ruins",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "khami ruins",
+      "khami",
+      "khami national monument"
+    ],
+    "blurb": "Dry-stone royal capital with decorative walling, 15th-17th century · Bulawayo, Zimbabwe",
+    "img": "assets/img/khami-ruins.jpg",
+    "fx": 0.45,
+    "fy": 0.62,
+    "frac": 0.18,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Robert Stewart Burrett",
+    "source": "Wikimedia Commons: Khami Ruins, so-called Monolith Platform.jpg"
+  },
+  {
+    "id": "tassili-rock-art",
+    "name": "Tassili Rock Art",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "tassili rock art",
+      "tassili n'ajjer rock art",
+      "tassili najjer paintings"
+    ],
+    "blurb": "Prehistoric painted rock shelters, c. 10,000-1,000 BC · Tassili n'Ajjer, Algeria",
+    "img": "assets/img/tassili-rock-art.jpg",
+    "fx": 0.35,
+    "fy": 0.4,
+    "frac": 0.16,
+    "license": "CC BY-SA 4.0",
+    "attribution": "IssamBarhoumi",
+    "source": "Wikimedia Commons: The Tanzoumaitak cave painting in Tassili n'ajjer.jpg"
+  },
+  {
+    "id": "ishango-bone",
+    "name": "Ishango Bone",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "ishango bone",
+      "the ishango bone"
+    ],
+    "blurb": "Notched bone tally tool, c. 20,000 years old · Royal Belgian Institute of Natural Sciences, Brussels",
+    "img": "assets/img/ishango-bone.jpg",
+    "fx": 0.5,
+    "fy": 0.45,
+    "frac": 0.15,
+    "license": "CC BY-SA 4.0",
+    "attribution": "JhowieNitnek",
+    "source": "Wikimedia Commons: Ishango bone.jpg"
+  },
+  {
+    "id": "nabta-playa-circle",
+    "name": "Nabta Playa Circle",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "nabta playa circle",
+      "nabta playa",
+      "nabta playa stone circle",
+      "calendar circle of nabta playa"
+    ],
+    "blurb": "Prehistoric megalithic calendar circle, c. 4800 BC · Nubian Desert, Egypt",
+    "img": "assets/img/nabta-playa-circle.jpg",
+    "fx": 0.42,
+    "fy": 0.28,
+    "frac": 0.18,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Raymbetz",
+    "source": "Wikimedia Commons: Calendar aswan.JPG"
+  },
+  {
+    "id": "kerma-deffufa",
+    "name": "Kerma Deffufa",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "kerma deffufa",
+      "western deffufa",
+      "deffufa of kerma"
+    ],
+    "blurb": "Massive mudbrick temple mound, c. 2500-1500 BC · Kerma, Sudan",
+    "img": "assets/img/kerma-deffufa.jpg",
+    "fx": 0.55,
+    "fy": 0.7,
+    "frac": 0.16,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Lassi",
+    "source": "Wikimedia Commons: Kerma-Deffufa.jpg"
+  },
+  {
+    "id": "doges-palace",
+    "name": "Doge's Palace",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "doge's palace",
+      "doges palace",
+      "palazzo ducale"
+    ],
+    "blurb": "Venetian Gothic seat of government, mainly 14th-15th century · Venice, Italy",
+    "img": "assets/img/doges-palace.jpg",
+    "fx": 0.55,
+    "fy": 0.35,
+    "frac": 0.16,
+    "license": "CC BY-SA 4.0",
+    "attribution": "kallerna",
+    "source": "Wikimedia Commons: Doge's Palace Venice sea facade.jpg"
+  },
+  {
+    "id": "rialto-bridge",
+    "name": "Rialto Bridge",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "rialto bridge",
+      "ponte di rialto"
+    ],
+    "blurb": "Stone bridge over the Grand Canal, completed 1591 · Venice, Italy",
+    "img": "assets/img/rialto-bridge.jpg",
+    "fx": 0.62,
+    "fy": 0.44,
+    "frac": 0.16,
+    "license": "CC BY-SA 4.0",
+    "attribution": "kallerna",
+    "source": "Wikimedia Commons: Ponte di Rialto Venice 1.jpg"
+  },
+  {
+    "id": "prague-castle",
+    "name": "Prague Castle",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "prague castle",
+      "prazsky hrad"
+    ],
+    "blurb": "Hilltop castle complex with St Vitus Cathedral, founded 9th century · Prague, Czech Republic",
+    "img": "assets/img/prague-castle.jpg",
+    "fx": 0.42,
+    "fy": 0.7,
+    "frac": 0.16,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Diego Delso",
+    "source": "Wikimedia Commons: Castillo de Praga, Praga, Republica Checa, 2022-07-01, DD 23-25 HDR.jpg"
+  },
+  {
+    "id": "charles-bridge",
+    "name": "Charles Bridge",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "charles bridge",
+      "karluv most"
+    ],
+    "blurb": "Baroque statue-lined stone bridge, completed 15th century · Prague, Czech Republic",
+    "img": "assets/img/charles-bridge.jpg",
+    "fx": 0.85,
+    "fy": 0.45,
+    "frac": 0.16,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Scotch Mist",
+    "source": "Wikimedia Commons: Prague Charles Bridge 2021 30.jpg"
+  },
+  {
+    "id": "wawel-castle",
+    "name": "Wawel Castle",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "wawel castle",
+      "wawel",
+      "zamek krolewski na wawelu"
+    ],
+    "blurb": "Royal castle on Wawel Hill, mainly 14th-16th century · Krakow, Poland",
+    "img": "assets/img/wawel-castle.jpg",
+    "fx": 0.72,
+    "fy": 0.32,
+    "frac": 0.16,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Vvlasenko",
+    "source": "Wikimedia Commons: Wawel Castle view from south. Krakow, Poland.jpg"
+  },
+  {
+    "id": "kremlin-walls",
+    "name": "Kremlin Walls",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "kremlin walls",
+      "moscow kremlin",
+      "the kremlin"
+    ],
+    "blurb": "Fortified citadel walls and towers, mainly 15th century · Moscow, Russia",
+    "img": "assets/img/kremlin-walls.jpg",
+    "fx": 0.42,
+    "fy": 0.62,
+    "frac": 0.16,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Dmitry Ivanov",
+    "source": "Wikimedia Commons: Moscow Kremlin Towers of south wall.jpg"
+  },
+  {
+    "id": "red-square",
+    "name": "Red Square",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "red square",
+      "krasnaya ploshchad"
+    ],
+    "blurb": "Central city square by the Kremlin, paved 17th century · Moscow, Russia",
+    "img": "assets/img/red-square.jpg",
+    "fx": 0.5,
+    "fy": 0.65,
+    "frac": 0.16,
+    "license": "CC BY 4.0",
+    "attribution": "Yuriy D.K.",
+    "source": "Wikimedia Commons: Red Square in Moscow (general view in 2025).jpg"
+  },
+  {
+    "id": "winter-palace",
+    "name": "Winter Palace",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "winter palace",
+      "zimniy dvorets",
+      "hermitage museum"
+    ],
+    "blurb": "Baroque imperial palace, completed 1762 · Saint Petersburg, Russia",
+    "img": "assets/img/winter-palace.jpg",
+    "fx": 0.55,
+    "fy": 0.8,
+    "frac": 0.16,
+    "license": "CC BY 4.0",
+    "attribution": "Vyacheslav Argenberg",
+    "source": "Wikimedia Commons: The Winter Palace and the Alexander Column, Saint Petersburg, Russia.jpg"
+  },
+  {
+    "id": "catherine-palace",
+    "name": "Catherine Palace",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "catherine palace",
+      "ekaterininsky dvorets"
+    ],
+    "blurb": "Rococo imperial palace, rebuilt 1752-56 · Tsarskoye Selo, Russia",
+    "img": "assets/img/catherine-palace.jpg",
+    "fx": 0.5,
+    "fy": 0.28,
+    "frac": 0.16,
+    "license": "CC BY-SA 4.0",
+    "attribution": "W. Bulach",
+    "source": "Wikimedia Commons: 00 5105 Catherine Palace in Pushkin, Russia.jpg"
+  },
+  {
+    "id": "peterhof-palace",
+    "name": "Peterhof Palace",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "peterhof palace",
+      "peterhof",
+      "petergof",
+      "samson fountain"
+    ],
+    "blurb": "Imperial palace and fountain gardens, founded 1714 · Peterhof, Russia",
+    "img": "assets/img/peterhof-palace.jpg",
+    "fx": 0.47,
+    "fy": 0.45,
+    "frac": 0.16,
+    "license": "CC BY-SA 4.0",
+    "attribution": "W. Bulach",
+    "source": "Wikimedia Commons: 00 2989 Sampson Fountain - Peterhof, Russia.jpg"
+  },
+  {
+    "id": "schoenbrunn-palace",
+    "name": "Schoenbrunn Palace",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "schoenbrunn palace",
+      "schonbrunn palace",
+      "schloss schonbrunn"
+    ],
+    "blurb": "Habsburg summer palace, largely rebuilt 1740s-1750s · Vienna, Austria",
+    "img": "assets/img/schoenbrunn-palace.jpg",
+    "fx": 0.5,
+    "fy": 0.42,
+    "frac": 0.18,
+    "license": "CC BY-SA 4.0",
+    "attribution": "C.Stadler/Bwag",
+    "source": "Wikimedia Commons: Wien - Schloss Schonbrunn.JPG"
+  },
+  {
+    "id": "ghent-altarpiece",
+    "name": "Ghent Altarpiece",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "ghent altarpiece",
+      "adoration of the mystic lamb",
+      "lamgods"
+    ],
+    "blurb": "Polyptych painting by the van Eyck brothers, completed 1432 · St Bavo Cathedral, Ghent",
+    "img": "assets/img/ghent-altarpiece.jpg",
+    "fx": 0.5,
+    "fy": 0.63,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Jan van Eyck (presumably Hubert van Eyck)",
+    "source": "Wikimedia Commons: Lamgods open.jpg"
   }
 ]
