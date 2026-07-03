@@ -3758,5 +3758,475 @@
         ]
       }
     ]
+  },
+  {
+    "id": "conn-081",
+    "title": "Crowns Offstage",
+    "difficulty": "easy",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Monarchs who abdicated in the 20th century",
+        "items": [
+          "Edward VIII",
+          "Wilhelmina",
+          "Leopold III",
+          "Farouk"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Seats of power named for a colour",
+        "items": [
+          "White House",
+          "Blue House",
+          "Red Fort",
+          "Golden Horde"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Objects used in coronation ceremonies",
+        "items": [
+          "Orb",
+          "Sceptre",
+          "Anointing Spoon",
+          "Coronation Chair"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Common English words hiding crowns in etymology",
+        "items": [
+          "Kaiser Roll",
+          "Czarina",
+          "Caesarean",
+          "August"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-082",
+    "title": "Ink and Revolt",
+    "difficulty": "easy",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Revolutionary publications",
+        "items": [
+          "Pravda",
+          "L'Ami du peuple",
+          "Common Sense",
+          "The Liberator"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Printing technologies before offset lithography",
+        "items": [
+          "Movable Type",
+          "Woodblock",
+          "Lithography",
+          "Rotary Press"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Documents first published in 1848",
+        "items": [
+          "Communist Manifesto",
+          "Seneca Falls",
+          "Treaty of Guadalupe",
+          "Principles of Political Economy"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Documents you can also do — nouns that are also verbs",
+        "items": [
+          "Petition",
+          "Appeal",
+          "Address",
+          "Protest"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-083",
+    "title": "Tiny Islands, Huge Stories",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Islands empires traded away",
+        "items": [
+          "Manhattan",
+          "Run",
+          "Heligoland",
+          "Hong Kong"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Island capitals beginning with S",
+        "items": [
+          "Suva",
+          "St John's",
+          "Santo Domingo",
+          "Singapore"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Battles fought for or on islands in 1942",
+        "items": [
+          "Guadalcanal",
+          "Midway",
+          "Savo Island",
+          "Tulagi"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Island names that are also given names",
+        "items": [
+          "Helena",
+          "Maurice",
+          "Dominica",
+          "Lucia"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-084",
+    "title": "The Scholar's Toolkit",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Tools for measuring time or position",
+        "items": [
+          "Astrolabe",
+          "Sundial",
+          "Chronometer",
+          "Sextant"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Medieval manuscript page features",
+        "items": [
+          "Colophon",
+          "Catchword",
+          "Rubric",
+          "Marginalia"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Institutions founded before 1000 CE",
+        "items": [
+          "Plato's Academy",
+          "Al-Azhar",
+          "Qarawiyyin",
+          "Nalanda"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Their first three letters form a Roman numeral",
+        "items": [
+          "Civic",
+          "Livy",
+          "Mixing",
+          "Divine"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-085",
+    "title": "Four Roads to Power",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Came to power by military coup",
+        "items": [
+          "Pinochet",
+          "Nasser",
+          "Park Chung Hee",
+          "Pervez Musharraf"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Inherited power as children",
+        "items": [
+          "Ivan the Terrible",
+          "Christina of Sweden",
+          "Alfonso XIII",
+          "Shapur II"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Elected after imprisonment",
+        "items": [
+          "Mandela",
+          "Havel",
+          "Walesa",
+          "Aung San Suu Kyi"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Leaders' surnames that are everyday nouns",
+        "items": [
+          "Grant",
+          "Fox",
+          "Major",
+          "Bush"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-086",
+    "title": "Museum Theft, But Stranger",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Artifacts damaged by visitors",
+        "items": [
+          "Portland Vase",
+          "Pieta",
+          "Rokeby Venus",
+          "Duchamp Fountain"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Objects returned after colonial seizure",
+        "items": [
+          "Maqdala Crown",
+          "Axum Obelisk",
+          "Benin Cockerel",
+          "Kwakwaka'wakw Masks"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Forged or disputed antiquities",
+        "items": [
+          "Shapira Scrolls",
+          "Etruscan Warriors",
+          "Crystal Skulls",
+          "Tiara of Saitaphernes"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Named for a place or person that isn't their maker",
+        "items": [
+          "Warren Cup",
+          "Elgin Throne",
+          "Battersea Shield",
+          "Mildenhall Treasure"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-087",
+    "title": "Dates in Disguise",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Events of 1066",
+        "items": [
+          "Stamford Bridge",
+          "Hastings",
+          "Fulford",
+          "Harold's Coronation"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Events of 1492",
+        "items": [
+          "Granada Falls",
+          "Columbus Sails",
+          "Nebrija Grammar",
+          "Alhambra Decree"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Events of 1917 outside Russia",
+        "items": [
+          "Balfour Declaration",
+          "Zimmermann Telegram",
+          "Passchendaele",
+          "Halifax Explosion"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "All happened in years ending 89",
+        "items": [
+          "French Revolution",
+          "Tiananmen",
+          "English Bill of Rights",
+          "Battle of Kosovo"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-088",
+    "title": "Buried Messages",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Ancient inscriptions in multiple scripts/languages",
+        "items": [
+          "Rosetta Decree",
+          "Behistun",
+          "Canopus Decree",
+          "Letoon Trilingual"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Writing systems deciphered in the 20th century",
+        "items": [
+          "Linear B",
+          "Mayan Glyphs",
+          "Ugaritic",
+          "Hittite"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Documents preserved in dry desert sites",
+        "items": [
+          "Dunhuang Manuscripts",
+          "Oxyrhynchus Papyri",
+          "Elephantine Papyri",
+          "Nag Hammadi"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Begin with a calendar-month abbreviation",
+        "items": [
+          "Mayan",
+          "Marco Polo",
+          "Julius",
+          "Octavian"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-089",
+    "title": "The Sea Has Receipts",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Shipwrecks found with famous cargo",
+        "items": [
+          "Uluburun",
+          "Belitung",
+          "Mary Rose",
+          "Atocha"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Explorers who died on distant islands",
+        "items": [
+          "Cook",
+          "Magellan",
+          "La Pérouse",
+          "Vitus Bering"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Canals opened in the 19th century",
+        "items": [
+          "Suez",
+          "Kiel",
+          "Corinth",
+          "Manchester"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Ships whose crews famously mutinied",
+        "items": [
+          "Bounty",
+          "Amistad",
+          "Potemkin",
+          "Discovery"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-090",
+    "title": "Sacred, Stolen, Sold",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Venerated stones",
+        "items": [
+          "Black Stone",
+          "Blarney Stone",
+          "Lia Fáil",
+          "Omphalos"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Pilgrimages drawing vast crowds",
+        "items": [
+          "Karbala",
+          "Kumbh Mela",
+          "Lourdes",
+          "Santiago"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Sacred objects seized by empire",
+        "items": [
+          "Koh-i-Noor",
+          "Maqdala Tabots",
+          "Hoa Hakananai'a",
+          "Tipu's Tiger"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Words that can follow 'holy' in common phrases",
+        "items": [
+          "Grail",
+          "See",
+          "Smoke",
+          "Roman"
+        ]
+      }
+    ]
   }
 ]
