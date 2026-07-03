@@ -2743,5 +2743,1062 @@
     "license": "Public domain",
     "attribution": "Mathew Brady",
     "source": "Wikimedia Commons: Samuel Morse portrait.jpg"
+  },
+  {
+    "id": "robert-oppenheimer",
+    "name": "J. Robert Oppenheimer",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "robert oppenheimer",
+      "j robert oppenheimer",
+      "oppenheimer",
+      "j. robert oppenheimer"
+    ],
+    "blurb": "Physicist who led the Manhattan Project (1904-1967) · photo, Oak Ridge, 1946",
+    "img": "assets/img/robert-oppenheimer.jpg",
+    "fx": 0.53,
+    "fy": 0.34,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Ed Westcott / U.S. Government",
+    "source": "Wikimedia Commons: J. Robert Oppenheimer at the Guest Lodge, Oak Ridge, in 1946 4.jpg"
+  },
+  {
+    "id": "rachel-carson",
+    "name": "Rachel Carson",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "rachel carson"
+    ],
+    "blurb": "Marine biologist and author of Silent Spring (1907-1964) · U.S. Fish and Wildlife Service photo",
+    "img": "assets/img/rachel-carson.jpg",
+    "fx": 0.5,
+    "fy": 0.4,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "U.S. Fish and Wildlife Service",
+    "source": "Wikimedia Commons: Rachel-Carson.jpg"
+  },
+  {
+    "id": "dian-fossey",
+    "name": "Dian Fossey",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "dian fossey"
+    ],
+    "blurb": "Primatologist who studied mountain gorillas in Rwanda (1932-1985) · press photo, October 1968",
+    "img": "assets/img/dian-fossey.jpg",
+    "fx": 0.42,
+    "fy": 0.6,
+    "frac": 0.16,
+    "license": "Public domain",
+    "attribution": "Redwood City Tribune",
+    "source": "Wikimedia Commons: Dian Fossey October 1968.jpg"
+  },
+  {
+    "id": "sally-ride",
+    "name": "Sally Ride",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "sally ride",
+      "dr sally ride"
+    ],
+    "blurb": "Physicist and first American woman in space (1951-2012) · official NASA portrait",
+    "img": "assets/img/sally-ride.jpg",
+    "fx": 0.51,
+    "fy": 0.6,
+    "frac": 0.16,
+    "license": "Public domain",
+    "attribution": "NASA",
+    "source": "Wikimedia Commons: Sally Ride, First U.S. Woman in Space - GPN-2004-00019.jpg"
+  },
+  {
+    "id": "katherine-johnson",
+    "name": "Katherine Johnson",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "katherine johnson"
+    ],
+    "blurb": "NASA mathematician who calculated orbital trajectories (1918-2020) · photo at NASA, 1966",
+    "img": "assets/img/katherine-johnson.jpg",
+    "fx": 0.43,
+    "fy": 0.6,
+    "frac": 0.16,
+    "license": "Public domain",
+    "attribution": "NASA / Adam Cuerden (restoration)",
+    "source": "Wikimedia Commons: Katherine Johnson at NASA, in 1966.jpg"
+  },
+  {
+    "id": "carl-sagan",
+    "name": "Carl Sagan",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "carl sagan"
+    ],
+    "blurb": "Astronomer and science communicator, host of Cosmos (1934-1996) · photo, 1987",
+    "img": "assets/img/carl-sagan.jpg",
+    "fx": 0.65,
+    "fy": 0.4,
+    "frac": 0.15,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Kenneth C. Zirkel",
+    "source": "Wikimedia Commons: Astronomer Carl Sagan in 1987.jpg"
+  },
+  {
+    "id": "jane-addams",
+    "name": "Jane Addams",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "jane addams"
+    ],
+    "blurb": "Social reformer and co-founder of Hull House (1860-1935) · studio portrait photo",
+    "img": "assets/img/jane-addams.jpg",
+    "fx": 0.53,
+    "fy": 0.62,
+    "frac": 0.16,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Portrait of Jane Addams - DPLA - 931a363b0b56d5f4e8b7829b483b128d.jpg"
+  },
+  {
+    "id": "simone-de-beauvoir",
+    "name": "Simone de Beauvoir",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "simone de beauvoir",
+      "de beauvoir"
+    ],
+    "blurb": "Philosopher and author of The Second Sex (1908-1986) · archival photo",
+    "img": "assets/img/simone-de-beauvoir.jpg",
+    "fx": 0.65,
+    "fy": 0.5,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Simone de Beauvoir.jpg"
+  },
+  {
+    "id": "artemisia-gentileschi",
+    "name": "Artemisia Gentileschi",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "artemisia gentileschi"
+    ],
+    "blurb": "Baroque painter (1593-1653) · Self-Portrait as the Allegory of Painting, c. 1638-39",
+    "img": "assets/img/artemisia-gentileschi.jpg",
+    "fx": 0.63,
+    "fy": 0.3,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Artemisia Gentileschi",
+    "source": "Wikimedia Commons: Self-portrait as the Allegory of Painting (La Pittura) - Artemisia GentileschiFXD.jpg"
+  },
+  {
+    "id": "ada-lovelace",
+    "name": "Ada Lovelace",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "ada lovelace",
+      "countess of lovelace",
+      "augusta ada king"
+    ],
+    "blurb": "Mathematician, wrote the first computer algorithm (1815-1852) · portrait by Alfred Edward Chalon",
+    "img": "assets/img/ada-lovelace.jpg",
+    "fx": 0.53,
+    "fy": 0.36,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Alfred Edward Chalon",
+    "source": "Wikimedia Commons: Ada Lovelace portrait.jpg"
+  },
+  {
+    "id": "chief-joseph",
+    "name": "Chief Joseph",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "chief joseph",
+      "hinmatoowyalahtqit",
+      "joseph the younger"
+    ],
+    "blurb": "Nez Perce leader during the 1877 flight toward Canada (c.1840-1904) · photo by Edward S. Curtis, 1903",
+    "img": "assets/img/chief-joseph.jpg",
+    "fx": 0.5,
+    "fy": 0.68,
+    "frac": 0.17,
+    "license": "Public domain",
+    "attribution": "Edward S. Curtis",
+    "source": "Wikimedia Commons: Chief Joseph by Edward Sheriff Curtis.jpg"
+  },
+  {
+    "id": "alp-arslan",
+    "name": "Alp Arslan",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "alp arslan",
+      "sultan alp arslan"
+    ],
+    "blurb": "Second sultan of the Seljuk Empire, victor at Manzikert (1029-1072) · Ottoman manuscript miniature",
+    "img": "assets/img/alp-arslan.jpg",
+    "fx": 0.53,
+    "fy": 0.38,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Unknown 16th-century Ottoman artist",
+    "source": "Wikimedia Commons: Sultan Alp Arslan miniature (Cami'ü't-Tevârih, TSMK, Hazine, nr. 1654) Detail.jpg"
+  },
+  {
+    "id": "harun-al-rashid",
+    "name": "Harun al-Rashid",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "harun al-rashid",
+      "harun al rashid",
+      "haroun al-rashid",
+      "harun ar-rashid"
+    ],
+    "blurb": "Fifth Abbasid caliph, ruler in the Thousand and One Nights era (766-809) · Ottoman genealogy manuscript, 1598",
+    "img": "assets/img/harun-al-rashid.jpg",
+    "fx": 0.6,
+    "fy": 0.42,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Unknown 1598 Ottoman artist",
+    "source": "Wikimedia Commons: Abbasid Caliph Harun al-Rashid from the genealogy (silsilanama), Cream of Histories (Zübdet-üt Tevarih, 1598).jpg"
+  },
+  {
+    "id": "al-mansur",
+    "name": "Al-Mansur",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "al-mansur",
+      "al mansur",
+      "abu jafar al-mansur"
+    ],
+    "blurb": "Second Abbasid caliph, founder of Baghdad (714-775) · Ottoman genealogy manuscript, 1598",
+    "img": "assets/img/al-mansur.jpg",
+    "fx": 0.68,
+    "fy": 0.45,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Unknown 1598 Ottoman artist",
+    "source": "Wikimedia Commons: Abbasid Caliph al-Mansur from the genealogy (silsilanama), Cream of Histories (Zübdet-üt Tevarih, 1598).jpg"
+  },
+  {
+    "id": "al-mamun",
+    "name": "Al-Mamun",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "al-mamun",
+      "al mamun",
+      "al-ma'mun"
+    ],
+    "blurb": "Seventh Abbasid caliph, patron of the House of Wisdom (786-833) · Ottoman genealogy manuscript, 1598",
+    "img": "assets/img/al-mamun.jpg",
+    "fx": 0.53,
+    "fy": 0.5,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Unknown 1598 Ottoman artist",
+    "source": "Wikimedia Commons: Abbasid Caliph al-Ma'mun from the genealogy (silsilanama), Cream of Histories (Zübdet-üt Tevarih, 1598).jpg"
+  },
+  {
+    "id": "ibn-rushd",
+    "name": "Ibn Rushd",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "ibn rushd",
+      "averroes"
+    ],
+    "blurb": "Andalusian philosopher and commentator on Aristotle (1126-1198) · European woodcut, 15th century",
+    "img": "assets/img/ibn-rushd.jpg",
+    "fx": 0.46,
+    "fy": 0.38,
+    "frac": 0.2,
+    "license": "CC BY 4.0",
+    "attribution": "Unknown, Wellcome Collection",
+    "source": "Wikimedia Commons: Portrait of Averroes Wellcome M0004111.jpg"
+  },
+  {
+    "id": "ibn-al-haytham",
+    "name": "Ibn al-Haytham",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "ibn al-haytham",
+      "alhazen",
+      "ibn al haytham"
+    ],
+    "blurb": "Pioneer of the scientific method and optics (c.965-1040) · engraving from Hevelius's Selenographia, 1647",
+    "img": "assets/img/ibn-al-haytham.jpg",
+    "fx": 0.46,
+    "fy": 0.32,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Jan Heweliusz (Johannes Hevelius)",
+    "source": "Wikimedia Commons: Alhazen (122459248).jpg"
+  },
+  {
+    "id": "al-khwarizmi",
+    "name": "Al-Khwarizmi",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "al-khwarizmi",
+      "al khwarizmi",
+      "muhammad ibn musa al-khwarizmi"
+    ],
+    "blurb": "Mathematician who gave his name to the word algorithm (c.780-850) · bronze monument bust, Madrid",
+    "img": "assets/img/al-khwarizmi.jpg",
+    "fx": 0.47,
+    "fy": 0.2,
+    "frac": 0.2,
+    "license": "CC0",
+    "attribution": "Zarateman",
+    "source": "Wikimedia Commons: Madrid - Ciudad Universitaria, Monumento a Muhammad al-Juarismi.jpg"
+  },
+  {
+    "id": "al-biruni",
+    "name": "Al-Biruni",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "al-biruni",
+      "al biruni",
+      "abu rayhan al-biruni"
+    ],
+    "blurb": "Polymath scholar of astronomy, geography and comparative religion (973-1048) · Soviet commemorative stamp, 1973",
+    "img": "assets/img/al-biruni.jpg",
+    "fx": 0.54,
+    "fy": 0.4,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Soviet Post (Pochta SSSR)",
+    "source": "Wikimedia Commons: Biruni-russian.jpg"
+  },
+  {
+    "id": "ibn-sina",
+    "name": "Ibn Sina",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "ibn sina",
+      "avicenna"
+    ],
+    "blurb": "Physician and philosopher, author of The Canon of Medicine (980-1037) · European engraving, 17th century",
+    "img": "assets/img/ibn-sina.jpg",
+    "fx": 0.51,
+    "fy": 0.47,
+    "frac": 0.2,
+    "license": "CC BY 4.0",
+    "attribution": "Unknown, Wellcome Collection",
+    "source": "Wikimedia Commons: Portrait of Avicenna; anon., Wellcome M0009341.jpg"
+  },
+  {
+    "id": "ibn-arabi",
+    "name": "Ibn Arabi",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "ibn arabi",
+      "ibn al-arabi",
+      "muhyiddin ibn arabi"
+    ],
+    "blurb": "Andalusian Sufi mystic and philosopher (1165-1240) · illustrated portrait",
+    "img": "assets/img/ibn-arabi.jpg",
+    "fx": 0.51,
+    "fy": 0.62,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Unknown illustrator",
+    "source": "Wikimedia Commons: Ibn Arabi, Sayr mulhimah min al-Sharq wa-al-Gharb.png"
+  },
+  {
+    "id": "baybars",
+    "name": "Baybars",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "baybars",
+      "al-zahir baybars",
+      "baibars"
+    ],
+    "blurb": "Mamluk sultan who halted the Mongols at Ain Jalut (1223-1277) · bronze bust, Cairo",
+    "img": "assets/img/baybars.jpg",
+    "fx": 0.54,
+    "fy": 0.35,
+    "frac": 0.2,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Ahmed Yousri Elmamlouk",
+    "source": "Wikimedia Commons: تمثال للسلطان الظاهر بيبرس (cropped).JPG"
+  },
+  {
+    "id": "qutuz",
+    "name": "Qutuz",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "qutuz",
+      "saif ad-din qutuz",
+      "sayf al-din qutuz"
+    ],
+    "blurb": "Mamluk sultan who defeated the Mongols at Ain Jalut in 1260 (d.1260) · bronze bust, Cairo",
+    "img": "assets/img/qutuz.jpg",
+    "fx": 0.53,
+    "fy": 0.33,
+    "frac": 0.2,
+    "license": "CC BY-SA 3.0",
+    "attribution": "SoultanOmar",
+    "source": "Wikimedia Commons: صورة تمثال سيف الدين قطز crop.jpg"
+  },
+  {
+    "id": "hurrem-sultan",
+    "name": "Hürrem Sultan",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "hurrem sultan",
+      "hurrem",
+      "roxelana"
+    ],
+    "blurb": "Wife of Suleiman the Magnificent and influential Ottoman consort (c.1502-1558) · European oil portrait",
+    "img": "assets/img/hurrem-sultan.jpg",
+    "fx": 0.48,
+    "fy": 0.57,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Unknown artist",
+    "source": "Wikimedia Commons: Portrait of Roxelana (aka Hurrem Sultan).jpg"
+  },
+  {
+    "id": "kosem-sultan",
+    "name": "Kösem Sultan",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "kosem sultan",
+      "kosem",
+      "mahpeyker kosem sultan"
+    ],
+    "blurb": "Powerful Ottoman queen mother and regent (c.1589-1651) · European oil portrait",
+    "img": "assets/img/kosem-sultan.jpg",
+    "fx": 0.44,
+    "fy": 0.5,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Attributed to Hans Ludwig Graf von Kuefstein circle",
+    "source": "Wikimedia Commons: A portrait of Kösem Sultan.jpg"
+  },
+  {
+    "id": "mihrimah-sultan",
+    "name": "Mihrimah Sultan",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "mihrimah sultan",
+      "mihrimah",
+      "cameria"
+    ],
+    "blurb": "Daughter of Suleiman the Magnificent and influential Ottoman princess (1522-1578) · Uffizi Gallery oil portrait, 16th century",
+    "img": "assets/img/mihrimah-sultan.jpg",
+    "fx": 0.46,
+    "fy": 0.56,
+    "frac": 0.2,
+    "license": "CC0",
+    "attribution": "Cristofano dell'Altissimo",
+    "source": "Wikimedia Commons: Gameria, figlia di Solimano II, di Cristofano dell'Altissimo, 1568-75 -FG.jpg"
+  },
+  {
+    "id": "sima-qian",
+    "name": "Sima Qian",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "sima qian",
+      "ssu-ma chien"
+    ],
+    "blurb": "Han-dynasty historian, author of the Records of the Grand Historian (c.145-86 BC) · Qing-dynasty album leaf, National Palace Museum",
+    "img": "assets/img/sima-qian.jpg",
+    "fx": 0.24,
+    "fy": 0.68,
+    "frac": 0.2,
+    "license": "CC BY 4.0",
+    "attribution": "Unknown Qing-dynasty artist, National Palace Museum Taipei",
+    "source": "Wikimedia Commons: 歷代聖賢半身像 冊 司馬遷 (Sima Qian).png"
+  },
+  {
+    "id": "ban-zhao",
+    "name": "Ban Zhao",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "ban zhao",
+      "cao dagu"
+    ],
+    "blurb": "Han-dynasty historian who completed the Book of Han (c.45-116) · woodblock print, Wushuang Pu, 1690",
+    "img": "assets/img/ban-zhao.jpg",
+    "fx": 0.48,
+    "fy": 0.42,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Jin Guliang",
+    "source": "Wikimedia Commons: Ban Zhao - Wushuang Pu (pref 1690, 1961).jpg"
+  },
+  {
+    "id": "zhu-xi",
+    "name": "Zhu Xi",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "zhu xi",
+      "chu hsi"
+    ],
+    "blurb": "Song-dynasty philosopher who systematised Neo-Confucianism (1130-1200) · Chinese ink and colour portrait",
+    "img": "assets/img/zhu-xi.jpg",
+    "fx": 0.42,
+    "fy": 0.44,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Unknown Chinese artist, Philadelphia Museum of Art",
+    "source": "Wikimedia Commons: Portraits of Famous Men - Zhu Xi.jpg"
+  },
+  {
+    "id": "wang-yangming",
+    "name": "Wang Yangming",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "wang yangming",
+      "wang shouren"
+    ],
+    "blurb": "Ming-dynasty philosopher and founder of the School of Mind (1472-1529) · portrait scroll by Cai Shixin, Shanghai Museum",
+    "img": "assets/img/wang-yangming.jpg",
+    "fx": 0.53,
+    "fy": 0.3,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Cai Shixin",
+    "source": "Wikimedia Commons: 蔡世新 王阳明肖像轴 (cropped).jpg"
+  },
+  {
+    "id": "fukuzawa-yukichi",
+    "name": "Fukuzawa Yukichi",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "fukuzawa yukichi",
+      "yukichi fukuzawa"
+    ],
+    "blurb": "Meiji-era educator and founder of Keio University (1835-1901) · studio photo",
+    "img": "assets/img/fukuzawa-yukichi.jpg",
+    "fx": 0.53,
+    "fy": 0.42,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Unknown, National Diet Library",
+    "source": "Wikimedia Commons: Fukuzawa Yukichi.jpg"
+  },
+  {
+    "id": "okubo-toshimichi",
+    "name": "Okubo Toshimichi",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "okubo toshimichi",
+      "toshimichi okubo"
+    ],
+    "blurb": "Meiji-era statesman, a leader of the Satsuma reformers (1830-1878) · studio photo",
+    "img": "assets/img/okubo-toshimichi.jpg",
+    "fx": 0.53,
+    "fy": 0.4,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Unknown, National Diet Library",
+    "source": "Wikimedia Commons: Toshimichi Okubo 4.jpg"
+  },
+  {
+    "id": "saigo-takamori",
+    "name": "Saigo Takamori",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "saigo takamori",
+      "takamori saigo"
+    ],
+    "blurb": "Samurai leader of the Meiji Restoration and the Satsuma Rebellion (1828-1877) · painted portrait by Ishikawa Shizumasa",
+    "img": "assets/img/saigo-takamori.jpg",
+    "fx": 0.54,
+    "fy": 0.62,
+    "frac": 0.16,
+    "license": "Public domain",
+    "attribution": "Ishikawa Shizumasa",
+    "source": "Wikimedia Commons: Saigo Takamori Portrait by Ishikawa Shizumasa.jpg"
+  },
+  {
+    "id": "kido-takayoshi",
+    "name": "Kido Takayoshi",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "kido takayoshi",
+      "kido koin"
+    ],
+    "blurb": "Meiji-era statesman and one of the Three Great Nobles of the Restoration (1833-1877) · photo taken in London",
+    "img": "assets/img/kido-takayoshi.jpg",
+    "fx": 0.47,
+    "fy": 0.62,
+    "frac": 0.16,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Kido London Portrait original.jpg"
+  },
+  {
+    "id": "ito-hirobumi",
+    "name": "Ito Hirobumi",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "ito hirobumi",
+      "hirobumi ito"
+    ],
+    "blurb": "First Prime Minister of Japan and architect of the Meiji Constitution (1841-1909) · studio photo",
+    "img": "assets/img/ito-hirobumi.jpg",
+    "fx": 0.47,
+    "fy": 0.4,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Unknown, Constitutional Government Documents Collection",
+    "source": "Wikimedia Commons: ITŌ Hirobumi (b).jpg"
+  },
+  {
+    "id": "yamagata-aritomo",
+    "name": "Yamagata Aritomo",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "yamagata aritomo",
+      "aritomo yamagata"
+    ],
+    "blurb": "Meiji-era army general and Prime Minister of Japan (1838-1922) · oil portrait study by Okada Saburosuke",
+    "img": "assets/img/yamagata-aritomo.jpg",
+    "fx": 0.46,
+    "fy": 0.42,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Okada Saburosuke",
+    "source": "Wikimedia Commons: Portrait of Aritomo Yamagata.jpg"
+  },
+  {
+    "id": "togo-heihachiro",
+    "name": "Togo Heihachiro",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "togo heihachiro",
+      "heihachiro togo",
+      "admiral togo"
+    ],
+    "blurb": "Admiral who defeated the Russian fleet at Tsushima in 1905 (1848-1934) · formal photo in dress uniform",
+    "img": "assets/img/togo-heihachiro.jpg",
+    "fx": 0.48,
+    "fy": 0.65,
+    "frac": 0.17,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Portrait photo of Tōgō Heihachirō.jpg"
+  },
+  {
+    "id": "nogi-maresuke",
+    "name": "Nogi Maresuke",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "nogi maresuke",
+      "maresuke nogi",
+      "general nogi"
+    ],
+    "blurb": "Japanese army general in the Russo-Japanese War (1849-1912) · formal photo in dress uniform",
+    "img": "assets/img/nogi-maresuke.jpg",
+    "fx": 0.51,
+    "fy": 0.3,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Unknown, restored by Adam Cuerden, National Diet Library",
+    "source": "Wikimedia Commons: Maresuke Nogi, 近世名士写真 其1 - Photo only.jpg"
+  },
+  {
+    "id": "chulalongkorn",
+    "name": "Chulalongkorn",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "chulalongkorn",
+      "rama v",
+      "king chulalongkorn"
+    ],
+    "blurb": "King of Siam who modernised the kingdom (1853-1910) · ceremonial photo in royal regalia, c. 1870s",
+    "img": "assets/img/chulalongkorn.jpg",
+    "fx": 0.49,
+    "fy": 0.44,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Unattributed",
+    "source": "Wikimedia Commons: Rama V c1870.jpg"
+  },
+  {
+    "id": "mongkut",
+    "name": "Mongkut",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "mongkut",
+      "rama iv",
+      "king mongkut"
+    ],
+    "blurb": "King of Siam and reformer, father of Chulalongkorn (1804-1868) · ceremonial photo in royal regalia, 1851",
+    "img": "assets/img/mongkut.jpg",
+    "fx": 0.47,
+    "fy": 0.42,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Attributed to Luang Wisut Yothamat",
+    "source": "Wikimedia Commons: King Mongkut (Rama IV) in Full Regalia 1851.png"
+  },
+  {
+    "id": "naresuan",
+    "name": "Naresuan",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "naresuan",
+      "king naresuan",
+      "naresuan the great"
+    ],
+    "blurb": "King of Ayutthaya who restored Siamese independence from Burma (1555-1605) · memorial bronze statue, Phitsanulok",
+    "img": "assets/img/naresuan.jpg",
+    "fx": 0.53,
+    "fy": 0.34,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Ananda",
+    "source": "Wikimedia Commons: Naresuan the great (Phisanulok Phittayakhom school).JPG"
+  },
+  {
+    "id": "mary-anning",
+    "name": "Mary Anning",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "mary anning"
+    ],
+    "blurb": "English fossil collector and palaeontologist (1799-1847) · portrait by B. J. Donne",
+    "img": "assets/img/mary-anning.jpg",
+    "fx": 0.29,
+    "fy": 0.32,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "B. J. Donne",
+    "source": "Wikimedia Commons: Mary Anning by B. J. Donne.jpg"
+  },
+  {
+    "id": "rosalind-franklin",
+    "name": "Rosalind Franklin",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "rosalind franklin"
+    ],
+    "blurb": "Chemist whose X-ray images revealed the structure of DNA (1920-1958) · photo in Paris",
+    "img": "assets/img/rosalind-franklin.jpg",
+    "fx": 0.45,
+    "fy": 0.62,
+    "frac": 0.16,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Cold Spring Harbor Laboratory",
+    "source": "Wikimedia Commons: Rosalind-franklin-in-paris.jpg"
+  },
+  {
+    "id": "vera-rubin",
+    "name": "Vera Rubin",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "vera rubin"
+    ],
+    "blurb": "Astronomer whose work provided evidence for dark matter (1928-2016) · photo measuring spectra",
+    "img": "assets/img/vera-rubin.jpg",
+    "fx": 0.26,
+    "fy": 0.42,
+    "frac": 0.15,
+    "license": "CC BY 4.0",
+    "attribution": "NOIRLab/NSF/AURA",
+    "source": "Wikimedia Commons: Vera Rubin measuring spectra.jpg"
+  },
+  {
+    "id": "emmy-noether",
+    "name": "Emmy Noether",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "emmy noether"
+    ],
+    "blurb": "Mathematician known for Noether's theorem (1882-1935) · photo, Smithsonian/MAA archive",
+    "img": "assets/img/emmy-noether.jpg",
+    "fx": 0.48,
+    "fy": 0.32,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Smithsonian Institution / MAA archive",
+    "source": "Wikimedia Commons: Noether.jpg"
+  },
+  {
+    "id": "lise-meitner",
+    "name": "Lise Meitner",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "lise meitner"
+    ],
+    "blurb": "Physicist who co-discovered nuclear fission (1878-1968) · photo lecturing at Catholic University, 1946",
+    "img": "assets/img/lise-meitner.jpg",
+    "fx": 0.45,
+    "fy": 0.3,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Smithsonian Institution",
+    "source": "Wikimedia Commons: Lise Meitner (1878-1968), lecturing at Catholic University, Washington, D.C., 1946.jpg"
+  },
+  {
+    "id": "chien-shiung-wu",
+    "name": "Chien-Shiung Wu",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "chien-shiung wu",
+      "chien shiung wu",
+      "madame wu"
+    ],
+    "blurb": "Experimental physicist who disproved the law of parity (1912-1997) · photo, Smithsonian Institution",
+    "img": "assets/img/chien-shiung-wu.jpg",
+    "fx": 0.45,
+    "fy": 0.3,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Smithsonian Institution",
+    "source": "Wikimedia Commons: Chien-Shiung Wu (1912-1997) in 1958.jpg"
+  },
+  {
+    "id": "wangari-maathai",
+    "name": "Wangari Maathai",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "wangari maathai"
+    ],
+    "blurb": "Kenyan environmentalist and Nobel Peace laureate (1940-2011) · photo, Agência Brasil, 2006",
+    "img": "assets/img/wangari-maathai.jpg",
+    "fx": 0.35,
+    "fy": 0.65,
+    "frac": 0.15,
+    "license": "CC BY 3.0",
+    "attribution": "Antônio Cruz/ABr",
+    "source": "Wikimedia Commons: Wangari Maathai, 2006 (cropped).jpg"
+  },
+  {
+    "id": "corazon-aquino",
+    "name": "Corazon Aquino",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "corazon aquino",
+      "cory aquino"
+    ],
+    "blurb": "First female President of the Philippines (1933-2009) · photo, 1986",
+    "img": "assets/img/corazon-aquino.jpg",
+    "fx": 0.42,
+    "fy": 0.62,
+    "frac": 0.16,
+    "license": "Public domain",
+    "attribution": "Airman Gerald B. Johnson / U.S. military",
+    "source": "Wikimedia Commons: Corazon Aquino 1986.jpg"
+  },
+  {
+    "id": "jacques-cousteau",
+    "name": "Jacques Cousteau",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "jacques cousteau",
+      "jacques-yves cousteau"
+    ],
+    "blurb": "French naval officer and ocean explorer (1910-1997) · photo, St. Petersburg Times, 1975",
+    "img": "assets/img/jacques-cousteau.jpg",
+    "fx": 0.5,
+    "fy": 0.42,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Weaver Tripp",
+    "source": "Wikimedia Commons: Jacques-Yves Cousteau 1975.jpg"
+  },
+  {
+    "id": "enid-blyton",
+    "name": "Enid Blyton",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "enid blyton"
+    ],
+    "blurb": "English children's author, creator of Noddy and the Famous Five (1897-1968) · photo, c. 1923",
+    "img": "assets/img/enid-blyton.jpg",
+    "fx": 0.5,
+    "fy": 0.42,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Enid Blyton c. 1923.jpg"
+  },
+  {
+    "id": "lewis-carroll",
+    "name": "Lewis Carroll",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "lewis carroll",
+      "charles dodgson",
+      "charles lutwidge dodgson"
+    ],
+    "blurb": "English author of Alice's Adventures in Wonderland (1832-1898) · photo by Oscar Gustave Rejlander, 1863",
+    "img": "assets/img/lewis-carroll.jpg",
+    "fx": 0.52,
+    "fy": 0.32,
+    "frac": 0.15,
+    "license": "CC0",
+    "attribution": "Oscar Gustave Rejlander",
+    "source": "Wikimedia Commons: Lewis Carroll (Charles Lutwidge Dodgson).jpg"
+  },
+  {
+    "id": "arthur-conan-doyle",
+    "name": "Arthur Conan Doyle",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "arthur conan doyle",
+      "conan doyle",
+      "sir arthur conan doyle"
+    ],
+    "blurb": "Creator of Sherlock Holmes (1859-1930) · photo, Bain News Service, 1913",
+    "img": "assets/img/arthur-conan-doyle.jpg",
+    "fx": 0.55,
+    "fy": 0.52,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Bain News Service",
+    "source": "Wikimedia Commons: 1913 Arthur Conan Doyle (cropped).jpg"
+  },
+  {
+    "id": "hg-wells",
+    "name": "H G Wells",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "h g wells",
+      "h. g. wells",
+      "herbert george wells"
+    ],
+    "blurb": "Author of The War of the Worlds and The Time Machine (1866-1946) · photo, The Story of the House of Cassell",
+    "img": "assets/img/hg-wells.jpg",
+    "fx": 0.51,
+    "fy": 0.32,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Unknown photographer",
+    "source": "Wikimedia Commons: Portrait of H. G. Wells.jpg"
+  },
+  {
+    "id": "jules-verne",
+    "name": "Jules Verne",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "jules verne"
+    ],
+    "blurb": "French author of Twenty Thousand Leagues Under the Sea (1828-1905) · photo by Nadar",
+    "img": "assets/img/jules-verne.jpg",
+    "fx": 0.48,
+    "fy": 0.44,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Félix Nadar",
+    "source": "Wikimedia Commons: Félix Nadar 1820-1910 portraits Jules Verne (restoration).jpg"
+  },
+  {
+    "id": "victor-hugo",
+    "name": "Victor Hugo",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "victor hugo"
+    ],
+    "blurb": "Author of Les Misérables and The Hunchback of Notre-Dame (1802-1885) · photo by Étienne Carjat, 1876",
+    "img": "assets/img/victor-hugo.jpg",
+    "fx": 0.49,
+    "fy": 0.4,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Étienne Carjat",
+    "source": "Wikimedia Commons: Victor Hugo by Étienne Carjat 1876 - full.jpg"
+  },
+  {
+    "id": "alexandre-dumas",
+    "name": "Alexandre Dumas",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "alexandre dumas",
+      "alexandre dumas pere",
+      "dumas"
+    ],
+    "blurb": "Author of The Three Musketeers and The Count of Monte Cristo (1802-1870) · photo by Nadar",
+    "img": "assets/img/alexandre-dumas.jpg",
+    "fx": 0.48,
+    "fy": 0.4,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Félix Nadar",
+    "source": "Wikimedia Commons: Alexandre Dumas Nadar.jpg"
+  },
+  {
+    "id": "honore-de-balzac",
+    "name": "Honore de Balzac",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "honore de balzac",
+      "honore balzac",
+      "balzac"
+    ],
+    "blurb": "French novelist, author of La Comedie Humaine (1799-1850) · portrait by Louis Boulanger",
+    "img": "assets/img/honore-de-balzac.jpg",
+    "fx": 0.47,
+    "fy": 0.32,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Louis Boulanger",
+    "source": "Wikimedia Commons: Balzac (par Boulanger).jpg"
   }
 ]
