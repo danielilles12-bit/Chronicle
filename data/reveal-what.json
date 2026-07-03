@@ -29,7 +29,6 @@
       "tutankhamun mask",
       "tutankhamun",
       "king tut",
-      "tut",
       "death mask of tutankhamun"
     ],
     "blurb": "Burial mask of Tutankhamun, c. 1323 BC · Egyptian Museum, Cairo",
@@ -145,10 +144,7 @@
       "the great wave",
       "the great wave off kanagawa",
       "great wave off kanagawa",
-      "kanagawa oki nami ura",
-      "hokusai",
-      "hokusai painting",
-      "hokusai wave"
+      "kanagawa oki nami ura"
     ],
     "blurb": "Katsushika Hokusai, c. 1831 · Metropolitan Museum of Art, New York",
     "img": "assets/img/great-wave.jpg",
@@ -301,10 +297,7 @@
     "variants": [
       "the creation of adam",
       "creation of adam",
-      "la creazione di adamo",
-      "sistine chapel ceiling",
-      "sistine chapel",
-      "sistine ceiling"
+      "la creazione di adamo"
     ],
     "blurb": "Michelangelo, c. 1512 · Sistine Chapel, Vatican City",
     "img": "assets/img/creation-of-adam.jpg",
@@ -596,7 +589,9 @@
       "colosseum",
       "coliseum",
       "the coliseum",
-      "flavian amphitheatre"
+      "flavian amphitheatre",
+      "amphitheatrum flavium",
+      "colisseum"
     ],
     "blurb": "c. 70–80 AD · Rome, Italy",
     "img": "assets/img/colosseum.jpg",
@@ -713,8 +708,7 @@
     "variants": [
       "sistine chapel ceiling",
       "the sistine chapel ceiling",
-      "sistine chapel",
-      "michelangelo sistine chapel"
+      "sistine chapel"
     ],
     "blurb": "Michelangelo, 1508–1512 · Sistine Chapel, Vatican City",
     "img": "assets/img/sistine-ceiling.jpg",
@@ -790,8 +784,7 @@
     "kind": "artefact",
     "difficulty": "medium",
     "variants": [
-      "angkor wat",
-      "angkor"
+      "angkor wat"
     ],
     "blurb": "Khmer temple complex (12th century) · Siem Reap, Cambodia",
     "img": "assets/img/angkor-wat.jpg",
@@ -1020,6 +1013,8 @@
     "difficulty": "medium",
     "variants": [
       "hagia sophia",
+      "hagia sofia",
+      "aya sofya",
       "ayasofya",
       "saint sophia"
     ],
@@ -1244,8 +1239,7 @@
     "difficulty": "medium",
     "variants": [
       "nazca lines",
-      "nasca lines",
-      "nazca"
+      "nasca lines"
     ],
     "blurb": "Giant desert geoglyphs (500 BC – 500 AD) · Nazca Desert, Peru",
     "img": "assets/img/nazca-lines.jpg",
