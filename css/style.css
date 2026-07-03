@@ -56,7 +56,7 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 .game-row { display: flex; flex-direction: column; }
 .game-strip {
   display: flex; gap: 10px; overflow-x: auto; overflow-y: hidden;
-  padding: 0 20px 10px; scroll-snap-type: x proximity;
+  padding: 0 24px 10px; scroll-padding: 0 24px; scroll-snap-type: x proximity;
   scrollbar-width: none; -ms-overflow-style: none;
 }
 .game-strip::-webkit-scrollbar { display: none; }
@@ -78,7 +78,7 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 .hero-text { flex: 1; min-width: 0; }
 .hero-name { font-family: var(--ch-font-display); font-weight: 400; margin: 0 0 4px; font-size: 24px; color: var(--ch-text-primary); }
 .hero-tagline { margin: 0; color: var(--ch-text-secondary); font-size: 13px; line-height: 1.35; font-style: italic; }
-.hero-glyph { width: 88px; height: 88px; flex: none; }
+.hero-glyph { display: none; }
 .hero-bottom { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
 .hero-edition {
   font-size: 11px; text-transform: uppercase; letter-spacing: var(--ch-tracking-smallcaps);
