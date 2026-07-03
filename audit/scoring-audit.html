@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chronicle — Scoring Audit</title>
+<link rel="stylesheet" href="../css/brand-tokens.css">
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    min-height: 100vh;
+    background-color: var(--ch-paper);
+    background-image: url('../assets/brand/svg/parchment-grain-tile.svg');
+    background-size: 512px 512px;
+    color: var(--ch-text-primary);
+    font-family: var(--ch-font-text);
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 20px 16px 60px;
+  }
+  header.top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 12px;
+    border-bottom: var(--ch-rule);
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  header.top h1 {
+    font-family: var(--ch-font-display);
+    font-weight: 400;
+    font-size: var(--ch-step-2);
+    color: var(--ch-text-primary);
+    margin: 0;
+  }
+  header.top .sub {
+    font-family: var(--ch-font-ui);
+    text-transform: uppercase;
+    letter-spacing: var(--ch-tracking-smallcaps);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--ch-text-label-soft);
+  }
+  #load-status {
+    font-size: 0.85rem;
+    color: var(--ch-burgundy);
+    background: var(--ch-parchment);
+    border: var(--ch-rule);
+    border-radius: var(--ch-radius-card);
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    display: none;
+  }
+  #load-status.show { display: block; }
+
+  /* progress bar */
+  .progress-wrap { margin-bottom: 18px; }
+  .progress-top {
+    display: flex; justify-content: space-between;
+    font-size: 0.85rem; color: var(--ch-text-muted);
+    margin-bottom: 6px;
+  }
+  .progress-track {
+    height: 8px; background: var(--ch-line-soft);
+    border-radius: 5px; overflow: hidden;
+    border: 1px solid var(--ch-line);
+  }
+  .progress-fill {
+    height: 100%; background: var(--ch-gold);
+    border-radius: 5px; width: 0%;
+    transition: width 160ms ease;
+  }
+
+  /* question card */
+  .card {
+    background: var(--ch-cream);
+    border: 1px solid var(--ch-line);
+    border-radius: var(--ch-radius-card);
+    box-shadow: var(--ch-shadow-card);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  .cat-chip {
+    display: inline-block;
+    align-self: flex-start;
+    font-family: var(--ch-font-ui);
+    text-transform: uppercase;
+    letter-spacing: var(--ch-tracking-smallcaps);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--ch-text-label-soft);
+    background: var(--ch-parchment);
+    border: 1px solid var(--ch-line);
+    border-radius: 999px;
+    padding: 4px 12px;
+    margin-bottom: 16px;
+  }
+  .game-chip {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--ch-forest);
+    margin-left: 8px;
+  }
+  .prompt-line {
+    font-size: var(--ch-step-1);
+    line-height: var(--ch-leading-snug);
+    margin-bottom: 10px;
+  }
+  .prompt-line b {
+    font-family: var(--ch-font-display);
+    font-weight: 400;
+    color: var(--ch-burgundy);
+  }
+  .guess-line {
+    font-size: var(--ch-step-2);
+    line-height: var(--ch-leading-snug);
+    margin: 18px 0 28px;
+  }
+  .guess-line b {
+    font-family: var(--ch-font-display);
+    font-weight: 400;
+    color: var(--ch-forest);
+    background: var(--ch-parchment);
+    border: 1px solid var(--ch-line);
+    border-radius: 8px;
+    padding: 2px 10px;
+    display: inline-block;
+  }
+
+  .btn-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  button {
+    font-family: var(--ch-font-ui);
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: var(--ch-tracking-ui);
+    border-radius: var(--ch-radius-button);
+    padding: 22px 12px;
+    cursor: pointer;
+    border: 1px solid var(--ch-line);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  .btn-accept {
+    background: var(--ch-forest);
+    color: var(--ch-text-inverse);
+    border-color: color-mix(in srgb, var(--ch-gold) 72%, var(--ch-forest));
+  }
+  .btn-accept:active { opacity: 0.85; }
+  .btn-reject {
+    background: var(--ch-burgundy);
+    color: var(--ch-text-inverse);
+    border-color: color-mix(in srgb, var(--ch-gold) 40%, var(--ch-burgundy));
+  }
+  .btn-reject:active { opacity: 0.85; }
+  .hint-row {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--ch-text-muted);
+    margin-bottom: 10px;
+  }
+  .util-row {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+  }
+  .link-btn {
+    background: none;
+    border: none;
+    color: var(--ch-text-label-soft);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: underline;
+    padding: 6px 4px;
+    cursor: pointer;
+  }
+
+  /* summary view */
+  #summary { display: none; }
+  #summary.show { display: block; }
+  #question.hide { display: none; }
+  h2.sum-h {
+    font-family: var(--ch-font-display);
+    font-weight: 400;
+    font-size: var(--ch-step-3);
+    margin: 0 0 6px;
+  }
+  .sum-overall {
+    font-size: 0.95rem;
+    color: var(--ch-text-secondary);
+    margin-bottom: 20px;
+  }
+  table.sum-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+    font-size: 0.88rem;
+  }
+  table.sum-table th, table.sum-table td {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--ch-line-soft);
+  }
+  table.sum-table th {
+    font-family: var(--ch-font-ui);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.68rem;
+    color: var(--ch-text-label-soft);
+    font-weight: 700;
+  }
+  table.sum-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .agree-good { color: var(--ch-forest); font-weight: 700; }
+  .agree-bad { color: var(--ch-burgundy); font-weight: 700; }
+
+  .disagree-list {
+    margin-bottom: 24px;
+  }
+  .disagree-item {
+    background: var(--ch-cream);
+    border: 1px solid var(--ch-line);
+    border-radius: var(--ch-radius-card);
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    font-size: 0.88rem;
+  }
+  .disagree-item .meta {
+    font-size: 0.72rem;
+    color: var(--ch-text-label-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+  .disagree-item .verdicts span {
+    display: inline-block;
+    margin-right: 14px;
+  }
+  .verdict-accept { color: var(--ch-forest); font-weight: 700; }
+  .verdict-reject { color: var(--ch-burgundy); font-weight: 700; }
+
+  .sum-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+  .sum-actions button {
+    padding: 12px 18px;
+    font-size: 0.9rem;
+  }
+  .action-primary {
+    background: var(--ch-forest);
+    color: var(--ch-text-inverse);
+  }
+  .action-secondary {
+    background: transparent;
+    color: var(--ch-text-secondary);
+  }
+  #copy-feedback {
+    font-size: 0.82rem;
+    color: var(--ch-forest);
+    margin-left: 4px;
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>Scoring Audit</h1>
+    <span class="sub">Chronicle · dev tool</span>
+  </header>
+
+  <div id="load-status"></div>
+
+  <div id="question">
+    <div class="progress-wrap">
+      <div class="progress-top">
+        <span id="progress-label">1 / 100</span>
+        <span id="progress-cat"></span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+
+    <div class="card">
+      <span class="cat-chip" id="cat-chip">category</span>
+      <div class="prompt-line">The answer was: <b id="answer-shown">—</b><span class="game-chip" id="game-chip"></span></div>
+      <div class="guess-line">The player typed: <b id="guess-shown">—</b></div>
+
+      <div class="btn-row">
+        <button class="btn-reject" id="btn-reject" type="button">✗ Reject</button>
+        <button class="btn-accept" id="btn-accept" type="button">✓ Accept</button>
+      </div>
+      <div class="hint-row">Press <b>Y</b> to accept, <b>N</b> to reject</div>
+      <div class="util-row">
+        <button class="link-btn" id="btn-undo" type="button">Undo last</button>
+        <button class="link-btn" id="btn-reset" type="button">Reset progress</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="summary">
+    <h2 class="sum-h">Results</h2>
+    <div class="sum-overall" id="sum-overall"></div>
+
+    <table class="sum-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th class="num">Owner accept %</th>
+          <th class="num">Engine accept %</th>
+          <th class="num">Agreement %</th>
+        </tr>
+      </thead>
+      <tbody id="sum-tbody"></tbody>
+    </table>
+
+    <h2 class="sum-h" style="font-size: var(--ch-step-2);">Disagreements</h2>
+    <div class="disagree-list" id="disagree-list"></div>
+
+    <div class="sum-actions">
+      <button class="action-primary" id="btn-copy" type="button">Copy results JSON</button>
+      <button class="action-secondary" id="btn-download" type="button">Download results.json</button>
+      <span id="copy-feedback">Copied!</span>
+    </div>
+    <div class="util-row" style="justify-content: flex-start;">
+      <button class="link-btn" id="btn-reset2" type="button">Reset and start over</button>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+import { isMatch, registerPool } from '../js/match.js';
+
+const STORAGE_KEY = 'chronicle.audit.scoring';
+const loadStatusEl = document.getElementById('load-status');
+
+function showLoadError(msg) {
+  loadStatusEl.textContent = msg;
+  loadStatusEl.classList.add('show');
+}
+
+async function loadJSON(path) {
+  const res = await fetch(path);
+  if (!res.ok) throw new Error(`Failed to fetch ${path}: ${res.status}`);
+  return res.json();
+}
+
+function loadProgress() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (!parsed || !Array.isArray(parsed.verdicts)) return null;
+    return parsed;
+  } catch (e) {
+    return null;
+  }
+}
+
+function saveProgress(state) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ verdicts: state.verdicts }));
+  } catch (e) { /* ignore quota errors */ }
+}
+
+function clearProgress() {
+  try { localStorage.removeItem(STORAGE_KEY); } catch (e) { /* ignore */ }
+}
+
+const els = {
+  question: document.getElementById('question'),
+  summary: document.getElementById('summary'),
+  progressLabel: document.getElementById('progress-label'),
+  progressCat: document.getElementById('progress-cat'),
+  progressFill: document.getElementById('progress-fill'),
+  catChip: document.getElementById('cat-chip'),
+  gameChip: document.getElementById('game-chip'),
+  answerShown: document.getElementById('answer-shown'),
+  guessShown: document.getElementById('guess-shown'),
+  btnAccept: document.getElementById('btn-accept'),
+  btnReject: document.getElementById('btn-reject'),
+  btnUndo: document.getElementById('btn-undo'),
+  btnReset: document.getElementById('btn-reset'),
+  btnReset2: document.getElementById('btn-reset2'),
+  sumOverall: document.getElementById('sum-overall'),
+  sumTbody: document.getElementById('sum-tbody'),
+  disagreeList: document.getElementById('disagree-list'),
+  btnCopy: document.getElementById('btn-copy'),
+  btnDownload: document.getElementById('btn-download'),
+  copyFeedback: document.getElementById('copy-feedback'),
+};
+
+const GAME_LABEL = { map: 'Relic (Map of a Life)', who: 'Face Value', what: 'Relic' };
+// Correct game-key -> pretty label per Chronicle naming; 'map' = Map of a Life,
+// 'who' = Face Value (portraits), 'what' = Relic (artefacts).
+const GAME_LABEL_FIXED = { map: 'Map of a Life', who: 'Face Value', what: 'Relic' };
+
+let cases = [];
+let byGameItem = { map: new Map(), who: new Map(), what: new Map() };
+let verdicts = []; // { engine: bool } aligned by index, owner filled in as answered
+let cursor = 0; // index of the next unanswered case
+
+function computeEngineVerdicts() {
+  return cases.map((c) => {
+    const item = byGameItem[c.game].get(c.itemId);
+    if (!item) return null; // shouldn't happen if data is valid
+    return isMatch(c.guess, item, c.game);
+  });
+}
+
+function findNextUnanswered(list) {
+  for (let i = 0; i < list.length; i++) {
+    if (list[i] == null || list[i].owner === undefined) return i;
+  }
+  return list.length; // all answered
+}
+
+function renderQuestion() {
+  if (cursor >= cases.length) {
+    renderSummary();
+    return;
+  }
+  const c = cases[cursor];
+  els.question.classList.remove('hide');
+  els.summary.classList.remove('show');
+  els.progressLabel.textContent = `${cursor + 1} / ${cases.length}`;
+  els.progressCat.textContent = c.category;
+  els.progressFill.style.width = `${(cursor / cases.length) * 100}%`;
+  els.catChip.textContent = c.category;
+  els.gameChip.textContent = `(${GAME_LABEL_FIXED[c.game] || c.game})`;
+  els.answerShown.textContent = c.answerShown;
+  els.guessShown.textContent = `'${c.guess}'`;
+  els.btnUndo.disabled = cursor === 0;
+  els.btnUndo.style.opacity = cursor === 0 ? 0.4 : 1;
+}
+
+function recordVerdict(accepted) {
+  if (cursor >= cases.length) return;
+  verdicts[cursor] = verdicts[cursor] || {};
+  verdicts[cursor].owner = accepted;
+  saveProgress({ verdicts });
+  cursor++;
+  renderQuestion();
+}
+
+function undoLast() {
+  if (cursor === 0) return;
+  cursor--;
+  if (verdicts[cursor]) delete verdicts[cursor].owner;
+  saveProgress({ verdicts });
+  renderQuestion();
+}
+
+function resetAll() {
+  if (!confirm('Reset all audit progress? This cannot be undone.')) return;
+  clearProgress();
+  verdicts = verdicts.map((v) => ({ engine: v.engine }));
+  cursor = 0;
+  renderQuestion();
+}
+
+// ---------- summary ----------
+function buildResults() {
+  return cases.map((c, i) => ({
+    game: c.game,
+    itemId: c.itemId,
+    answerShown: c.answerShown,
+    guess: c.guess,
+    category: c.category,
+    ownerVerdict: !!(verdicts[i] && verdicts[i].owner),
+    engineVerdict: !!(verdicts[i] && verdicts[i].engine),
+  }));
+}
+
+function renderSummary() {
+  els.question.classList.add('hide');
+  els.summary.classList.add('show');
+
+  const results = buildResults();
+  const totalOwnerAccept = results.filter((r) => r.ownerVerdict).length;
+  const totalEngineAccept = results.filter((r) => r.engineVerdict).length;
+  const totalAgree = results.filter((r) => r.ownerVerdict === r.engineVerdict).length;
+  els.sumOverall.innerHTML =
+    `${results.length} cases · owner accepted <b>${totalOwnerAccept}</b> (${pct(totalOwnerAccept, results.length)}%) · `
+    + `engine accepted <b>${totalEngineAccept}</b> (${pct(totalEngineAccept, results.length)}%) · `
+    + `overall agreement <b>${pct(totalAgree, results.length)}%</b>`;
+
+  const byCat = new Map();
+  for (const r of results) {
+    if (!byCat.has(r.category)) byCat.set(r.category, []);
+    byCat.get(r.category).push(r);
+  }
+  const catNames = Array.from(byCat.keys()).sort();
+  els.sumTbody.innerHTML = catNames.map((cat) => {
+    const rows = byCat.get(cat);
+    const n = rows.length;
+    const ownerAcc = rows.filter((r) => r.ownerVerdict).length;
+    const engineAcc = rows.filter((r) => r.engineVerdict).length;
+    const agree = rows.filter((r) => r.ownerVerdict === r.engineVerdict).length;
+    const agreePct = pct(agree, n);
+    const agreeClass = agreePct >= 80 ? 'agree-good' : (agreePct < 60 ? 'agree-bad' : '');
+    return `<tr>
+      <td>${escapeHtml(cat)}</td>
+      <td class="num">${pct(ownerAcc, n)}%</td>
+      <td class="num">${pct(engineAcc, n)}%</td>
+      <td class="num ${agreeClass}">${agreePct}%</td>
+    </tr>`;
+  }).join('');
+
+  const disagreements = results.filter((r) => r.ownerVerdict !== r.engineVerdict);
+  if (!disagreements.length) {
+    els.disagreeList.innerHTML = '<p style="font-size:0.88rem;color:var(--ch-text-muted);">No disagreements — the engine matched your calibration on every case.</p>';
+  } else {
+    els.disagreeList.innerHTML = disagreements.map((r) => `
+      <div class="disagree-item">
+        <div class="meta">${escapeHtml(r.category)} · ${escapeHtml(GAME_LABEL_FIXED[r.game] || r.game)} · ${escapeHtml(r.itemId)}</div>
+        <div>Answer: <b>${escapeHtml(r.answerShown)}</b> — typed: <b>'${escapeHtml(r.guess)}'</b></div>
+        <div class="verdicts">
+          <span>You said: <span class="${r.ownerVerdict ? 'verdict-accept' : 'verdict-reject'}">${r.ownerVerdict ? 'ACCEPT' : 'REJECT'}</span></span>
+          <span>Engine said: <span class="${r.engineVerdict ? 'verdict-accept' : 'verdict-reject'}">${r.engineVerdict ? 'ACCEPT' : 'REJECT'}</span></span>
+        </div>
+      </div>`).join('');
+  }
+
+  window.__CHRONICLE_AUDIT_RESULTS__ = results; // hook for automated verification
+}
+
+function pct(n, total) {
+  if (!total) return 0;
+  return Math.round((n / total) * 1000) / 10;
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, (m) => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  }[m]));
+}
+
+// ---------- init ----------
+async function init() {
+  let figures, revealWho, revealWhat, probeCases;
+  try {
+    [figures, revealWho, revealWhat, probeCases] = await Promise.all([
+      loadJSON('../data/figures.json'),
+      loadJSON('../data/reveal-who.json'),
+      loadJSON('../data/reveal-what.json'),
+      loadJSON('scoring-cases.json'),
+    ]);
+  } catch (e) {
+    showLoadError(`Could not load data: ${e.message}`);
+    return;
+  }
+
+  registerPool('map', figures);
+  registerPool('who', revealWho);
+  registerPool('what', revealWhat);
+
+  for (const f of figures) byGameItem.map.set(f.id, f);
+  for (const f of revealWho) byGameItem.who.set(f.id, f);
+  for (const f of revealWhat) byGameItem.what.set(f.id, f);
+
+  cases = probeCases;
+
+  // sanity-check every case resolves to a real item; warn (not fatal) otherwise
+  const missing = cases.filter((c) => !byGameItem[c.game] || !byGameItem[c.game].get(c.itemId));
+  if (missing.length) {
+    showLoadError(`${missing.length} case(s) reference an unknown itemId — check scoring-cases.json.`);
+  }
+
+  const engineVerdicts = computeEngineVerdicts();
+  verdicts = engineVerdicts.map((v) => ({ engine: !!v }));
+
+  const saved = loadProgress();
+  if (saved && saved.verdicts && saved.verdicts.length === cases.length) {
+    for (let i = 0; i < cases.length; i++) {
+      if (saved.verdicts[i] && saved.verdicts[i].owner !== undefined) {
+        verdicts[i].owner = saved.verdicts[i].owner;
+      }
+    }
+  }
+  cursor = findNextUnanswered(verdicts);
+  renderQuestion();
+}
+
+// ---------- events ----------
+els.btnAccept.addEventListener('click', () => recordVerdict(true));
+els.btnReject.addEventListener('click', () => recordVerdict(false));
+els.btnUndo.addEventListener('click', undoLast);
+els.btnReset.addEventListener('click', resetAll);
+els.btnReset2.addEventListener('click', resetAll);
+
+document.addEventListener('keydown', (e) => {
+  if (els.question.classList.contains('hide')) return;
+  const k = e.key.toLowerCase();
+  if (k === 'y') recordVerdict(true);
+  else if (k === 'n') recordVerdict(false);
+});
+
+els.btnCopy.addEventListener('click', async () => {
+  const results = buildResults();
+  const text = JSON.stringify(results, null, 2);
+  try {
+    await navigator.clipboard.writeText(text);
+    els.copyFeedback.style.display = 'inline';
+    setTimeout(() => { els.copyFeedback.style.display = 'none'; }, 1800);
+  } catch (e) {
+    alert('Could not copy automatically — select and copy manually.');
+  }
+});
+
+els.btnDownload.addEventListener('click', () => {
+  const results = buildResults();
+  const blob = new Blob([JSON.stringify(results, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'results.json';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+});
+
+// test hook
+window.__CHRONICLE_AUDIT_TEST__ = {
+  acceptCurrent: () => recordVerdict(true),
+  rejectCurrent: () => recordVerdict(false),
+  getCursor: () => cursor,
+  getCaseCount: () => cases.length,
+  jumpToEnd: () => {
+    while (cursor < cases.length) recordVerdict(true);
+  },
+  answerAll: (fn) => {
+    // fn(case, index) => boolean owner verdict; defaults to matching engine
+    while (cursor < cases.length) {
+      const idx = cursor;
+      const c = cases[idx];
+      const decision = typeof fn === 'function' ? fn(c, idx) : verdicts[idx].engine;
+      recordVerdict(!!decision);
+    }
+  },
+};
+
+init();
+</script>
+</body>
+</html>

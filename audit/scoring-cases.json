@@ -1,0 +1,702 @@
+[
+  {
+    "game": "what",
+    "itemId": "nazca-lines",
+    "answerShown": "Nazca Lines",
+    "guess": "nazca",
+    "category": "bare-core"
+  },
+  {
+    "game": "what",
+    "itemId": "golden-pavilion",
+    "answerShown": "The Golden Pavilion",
+    "guess": "kinkakuji",
+    "category": "bare-core"
+  },
+  {
+    "game": "what",
+    "itemId": "machu-picchu",
+    "answerShown": "Machu Picchu",
+    "guess": "machupicchu",
+    "category": "bare-core"
+  },
+  {
+    "game": "what",
+    "itemId": "colosseum",
+    "answerShown": "The Colosseum",
+    "guess": "coliseum",
+    "category": "bare-core"
+  },
+  {
+    "game": "what",
+    "itemId": "stonehenge",
+    "answerShown": "Stonehenge",
+    "guess": "stonehenge",
+    "category": "bare-core"
+  },
+  {
+    "game": "what",
+    "itemId": "tut-mask",
+    "answerShown": "Mask of Tutankhamun",
+    "guess": "tut",
+    "category": "bare-core"
+  },
+  {
+    "game": "map",
+    "itemId": "napoleon",
+    "answerShown": "Napoleon Bonaparte",
+    "guess": "bonaparte",
+    "category": "bare-core"
+  },
+  {
+    "game": "map",
+    "itemId": "cleopatra",
+    "answerShown": "Cleopatra",
+    "guess": "cleopatra",
+    "category": "bare-core"
+  },
+  {
+    "game": "what",
+    "itemId": "angkor-wat",
+    "answerShown": "Angkor Wat",
+    "guess": "angkor",
+    "category": "bare-core"
+  },
+  {
+    "game": "what",
+    "itemId": "great-sphinx",
+    "answerShown": "Great Sphinx of Giza",
+    "guess": "sphinx",
+    "category": "bare-core"
+  },
+  {
+    "game": "what",
+    "itemId": "great-wall-china",
+    "answerShown": "Great Wall of China",
+    "guess": "great",
+    "category": "bare-shared"
+  },
+  {
+    "game": "what",
+    "itemId": "great-wall-china",
+    "answerShown": "Great Wall of China",
+    "guess": "wall",
+    "category": "bare-shared"
+  },
+  {
+    "game": "map",
+    "itemId": "victoria",
+    "answerShown": "Queen Victoria",
+    "guess": "queen",
+    "category": "bare-shared"
+  },
+  {
+    "game": "what",
+    "itemId": "great-pyramid-giza",
+    "answerShown": "Great Pyramid of Giza",
+    "guess": "pyramid",
+    "category": "bare-shared"
+  },
+  {
+    "game": "what",
+    "itemId": "the-thinker",
+    "answerShown": "The Thinker",
+    "guess": "statue",
+    "category": "bare-shared"
+  },
+  {
+    "game": "map",
+    "itemId": "louis-xiv-of-france",
+    "answerShown": "Louis XIV of France",
+    "guess": "king",
+    "category": "bare-shared"
+  },
+  {
+    "game": "what",
+    "itemId": "creation-of-adam",
+    "answerShown": "The Creation of Adam",
+    "guess": "chapel",
+    "category": "bare-shared"
+  },
+  {
+    "game": "what",
+    "itemId": "mona-lisa",
+    "answerShown": "Mona Lisa",
+    "guess": "painting",
+    "category": "bare-shared"
+  },
+  {
+    "game": "who",
+    "itemId": "empress-theodora",
+    "answerShown": "Empress Theodora",
+    "guess": "empress",
+    "category": "bare-shared"
+  },
+  {
+    "game": "what",
+    "itemId": "trajan-column",
+    "answerShown": "Trajan's Column",
+    "guess": "column",
+    "category": "bare-shared"
+  },
+  {
+    "game": "what",
+    "itemId": "parthenon",
+    "answerShown": "The Parthenon",
+    "guess": "parthenon athens at dusk",
+    "category": "extra-words"
+  },
+  {
+    "game": "what",
+    "itemId": "mona-lisa",
+    "answerShown": "Mona Lisa",
+    "guess": "the mona lisa by leonardo",
+    "category": "extra-words"
+  },
+  {
+    "game": "map",
+    "itemId": "einstein",
+    "answerShown": "Albert Einstein",
+    "guess": "albert einstein the physicist",
+    "category": "extra-words"
+  },
+  {
+    "game": "who",
+    "itemId": "napoleon",
+    "answerShown": "Napoleon",
+    "guess": "napoleon bonaparte painting",
+    "category": "extra-words"
+  },
+  {
+    "game": "what",
+    "itemId": "eiffel-tower",
+    "answerShown": "Eiffel Tower",
+    "guess": "the eiffel tower in paris",
+    "category": "extra-words"
+  },
+  {
+    "game": "map",
+    "itemId": "joanofarc",
+    "answerShown": "Joan of Arc",
+    "guess": "joan of arc the maid",
+    "category": "extra-words"
+  },
+  {
+    "game": "what",
+    "itemId": "taj-mahal",
+    "answerShown": "Taj Mahal",
+    "guess": "taj mahal in agra india",
+    "category": "extra-words"
+  },
+  {
+    "game": "who",
+    "itemId": "lincoln",
+    "answerShown": "Abraham Lincoln",
+    "guess": "president abraham lincoln",
+    "category": "extra-words"
+  },
+  {
+    "game": "what",
+    "itemId": "great-wave",
+    "answerShown": "The Great Wave off Kanagawa",
+    "guess": "the great wave off kanagawa woodblock",
+    "category": "extra-words"
+  },
+  {
+    "game": "map",
+    "itemId": "genghis-khan",
+    "answerShown": "Genghis Khan",
+    "guess": "the great genghis khan",
+    "category": "extra-words"
+  },
+  {
+    "game": "map",
+    "itemId": "napoleon",
+    "answerShown": "Napoleon Bonaparte",
+    "guess": "napolean",
+    "category": "typo-1"
+  },
+  {
+    "game": "what",
+    "itemId": "colosseum",
+    "answerShown": "The Colosseum",
+    "guess": "colosseun",
+    "category": "typo-1"
+  },
+  {
+    "game": "who",
+    "itemId": "einstein",
+    "answerShown": "Albert Einstein",
+    "guess": "einstien",
+    "category": "typo-1"
+  },
+  {
+    "game": "what",
+    "itemId": "parthenon",
+    "answerShown": "The Parthenon",
+    "guess": "parthenom",
+    "category": "typo-1"
+  },
+  {
+    "game": "map",
+    "itemId": "cleopatra",
+    "answerShown": "Cleopatra",
+    "guess": "cleopatr",
+    "category": "typo-1"
+  },
+  {
+    "game": "what",
+    "itemId": "taj-mahal",
+    "answerShown": "Taj Mahal",
+    "guess": "taj mahel",
+    "category": "typo-1"
+  },
+  {
+    "game": "what",
+    "itemId": "stonehenge",
+    "answerShown": "Stonehenge",
+    "guess": "stonehedge",
+    "category": "typo-1"
+  },
+  {
+    "game": "who",
+    "itemId": "shakespeare",
+    "answerShown": "William Shakespeare",
+    "guess": "shakespear",
+    "category": "typo-1"
+  },
+  {
+    "game": "who",
+    "itemId": "gandhi",
+    "answerShown": "Mahatma Gandhi",
+    "guess": "ghandhi",
+    "category": "typo-1"
+  },
+  {
+    "game": "what",
+    "itemId": "great-sphinx",
+    "answerShown": "Great Sphinx of Giza",
+    "guess": "sphnix",
+    "category": "typo-1"
+  },
+  {
+    "game": "map",
+    "itemId": "napoleon",
+    "answerShown": "Napoleon Bonaparte",
+    "guess": "napolyeone",
+    "category": "typo-2plus"
+  },
+  {
+    "game": "what",
+    "itemId": "parthenon",
+    "answerShown": "The Parthenon",
+    "guess": "partheenom",
+    "category": "typo-2plus"
+  },
+  {
+    "game": "who",
+    "itemId": "einstein",
+    "answerShown": "Albert Einstein",
+    "guess": "ienstien",
+    "category": "typo-2plus"
+  },
+  {
+    "game": "what",
+    "itemId": "colosseum",
+    "answerShown": "The Colosseum",
+    "guess": "colisseom",
+    "category": "typo-2plus"
+  },
+  {
+    "game": "map",
+    "itemId": "cleopatra",
+    "answerShown": "Cleopatra",
+    "guess": "kleopatraa",
+    "category": "typo-2plus"
+  },
+  {
+    "game": "what",
+    "itemId": "stonehenge",
+    "answerShown": "Stonehenge",
+    "guess": "stonehinj",
+    "category": "typo-2plus"
+  },
+  {
+    "game": "who",
+    "itemId": "gandhi",
+    "answerShown": "Mahatma Gandhi",
+    "guess": "ghandhee",
+    "category": "typo-2plus"
+  },
+  {
+    "game": "what",
+    "itemId": "machu-picchu",
+    "answerShown": "Machu Picchu",
+    "guess": "matchoo peechoo",
+    "category": "typo-2plus"
+  },
+  {
+    "game": "map",
+    "itemId": "genghis-khan",
+    "answerShown": "Genghis Khan",
+    "guess": "jengiz kahn",
+    "category": "typo-2plus"
+  },
+  {
+    "game": "what",
+    "itemId": "hagia-sophia",
+    "answerShown": "Hagia Sophia",
+    "guess": "hagiya sofiya",
+    "category": "typo-2plus"
+  },
+  {
+    "game": "map",
+    "itemId": "napoleon",
+    "answerShown": "Napoleon Bonaparte",
+    "guess": "napoleon",
+    "category": "partial-name"
+  },
+  {
+    "game": "who",
+    "itemId": "lincoln",
+    "answerShown": "Abraham Lincoln",
+    "guess": "abraham",
+    "category": "partial-name"
+  },
+  {
+    "game": "map",
+    "itemId": "columbus",
+    "answerShown": "Christopher Columbus",
+    "guess": "christopher",
+    "category": "partial-name"
+  },
+  {
+    "game": "who",
+    "itemId": "elizabeth-i",
+    "answerShown": "Elizabeth I",
+    "guess": "elizabeth",
+    "category": "partial-name"
+  },
+  {
+    "game": "map",
+    "itemId": "caesar",
+    "answerShown": "Julius Caesar",
+    "guess": "julius",
+    "category": "partial-name"
+  },
+  {
+    "game": "who",
+    "itemId": "napoleon",
+    "answerShown": "Napoleon",
+    "guess": "bonaparte",
+    "category": "partial-name"
+  },
+  {
+    "game": "map",
+    "itemId": "mary-queen-of-scots",
+    "answerShown": "Mary, Queen of Scots",
+    "guess": "mary",
+    "category": "partial-name"
+  },
+  {
+    "game": "who",
+    "itemId": "marie-antoinette",
+    "answerShown": "Marie Antoinette",
+    "guess": "antoinette",
+    "category": "partial-name"
+  },
+  {
+    "game": "map",
+    "itemId": "winston-churchill",
+    "answerShown": "Winston Churchill",
+    "guess": "winston",
+    "category": "partial-name"
+  },
+  {
+    "game": "who",
+    "itemId": "thomas-jefferson",
+    "answerShown": "Thomas Jefferson",
+    "guess": "jefferson",
+    "category": "partial-name"
+  },
+  {
+    "game": "what",
+    "itemId": "parthenon",
+    "answerShown": "The Parthenon",
+    "guess": "pantheon",
+    "category": "sibling-confusion"
+  },
+  {
+    "game": "map",
+    "itemId": "mary-queen-of-scots",
+    "answerShown": "Mary, Queen of Scots",
+    "guess": "mary i",
+    "category": "sibling-confusion"
+  },
+  {
+    "game": "who",
+    "itemId": "elizabeth-i",
+    "answerShown": "Elizabeth I",
+    "guess": "queen elizabeth ii",
+    "category": "sibling-confusion"
+  },
+  {
+    "game": "what",
+    "itemId": "michelangelo-david",
+    "answerShown": "David",
+    "guess": "the pieta",
+    "category": "sibling-confusion"
+  },
+  {
+    "game": "map",
+    "itemId": "napoleon",
+    "answerShown": "Napoleon Bonaparte",
+    "guess": "napoleon iii",
+    "category": "sibling-confusion"
+  },
+  {
+    "game": "what",
+    "itemId": "sistine-ceiling",
+    "answerShown": "Sistine Chapel Ceiling",
+    "guess": "the last judgment",
+    "category": "sibling-confusion"
+  },
+  {
+    "game": "who",
+    "itemId": "van-gogh-self",
+    "answerShown": "Van Gogh Self-Portrait",
+    "guess": "monet",
+    "category": "sibling-confusion"
+  },
+  {
+    "game": "what",
+    "itemId": "venus-de-milo",
+    "answerShown": "Venus de Milo",
+    "guess": "birth of venus",
+    "category": "sibling-confusion"
+  },
+  {
+    "game": "map",
+    "itemId": "catherine",
+    "answerShown": "Catherine the Great",
+    "guess": "empress elizabeth",
+    "category": "sibling-confusion"
+  },
+  {
+    "game": "what",
+    "itemId": "great-sphinx",
+    "answerShown": "Great Sphinx of Giza",
+    "guess": "great pyramid",
+    "category": "sibling-confusion"
+  },
+  {
+    "game": "what",
+    "itemId": "michelangelo-david",
+    "answerShown": "David",
+    "guess": "michelangelo",
+    "category": "granularity"
+  },
+  {
+    "game": "what",
+    "itemId": "creation-of-adam",
+    "answerShown": "The Creation of Adam",
+    "guess": "sistine chapel",
+    "category": "granularity"
+  },
+  {
+    "game": "what",
+    "itemId": "mona-lisa",
+    "answerShown": "Mona Lisa",
+    "guess": "the louvre",
+    "category": "granularity"
+  },
+  {
+    "game": "what",
+    "itemId": "sistine-ceiling",
+    "answerShown": "Sistine Chapel Ceiling",
+    "guess": "michelangelo",
+    "category": "granularity"
+  },
+  {
+    "game": "what",
+    "itemId": "starry-night",
+    "answerShown": "The Starry Night",
+    "guess": "van gogh",
+    "category": "granularity"
+  },
+  {
+    "game": "what",
+    "itemId": "elgin-marbles",
+    "answerShown": "Elgin Marbles",
+    "guess": "parthenon",
+    "category": "granularity"
+  },
+  {
+    "game": "what",
+    "itemId": "school-of-athens",
+    "answerShown": "The School of Athens",
+    "guess": "raphael",
+    "category": "granularity"
+  },
+  {
+    "game": "what",
+    "itemId": "last-supper",
+    "answerShown": "The Last Supper",
+    "guess": "leonardo da vinci",
+    "category": "granularity"
+  },
+  {
+    "game": "what",
+    "itemId": "great-wave",
+    "answerShown": "The Great Wave off Kanagawa",
+    "guess": "hokusai",
+    "category": "granularity"
+  },
+  {
+    "game": "what",
+    "itemId": "birth-of-venus",
+    "answerShown": "The Birth of Venus",
+    "guess": "botticelli",
+    "category": "granularity"
+  },
+  {
+    "game": "what",
+    "itemId": "great-wall-china",
+    "answerShown": "Great Wall of China",
+    "guess": "wanli changcheng",
+    "category": "translation-alt"
+  },
+  {
+    "game": "what",
+    "itemId": "eiffel-tower",
+    "answerShown": "Eiffel Tower",
+    "guess": "la dame de fer",
+    "category": "translation-alt"
+  },
+  {
+    "game": "what",
+    "itemId": "parthenon",
+    "answerShown": "The Parthenon",
+    "guess": "o parthenonas",
+    "category": "translation-alt"
+  },
+  {
+    "game": "who",
+    "itemId": "gautama-buddha",
+    "answerShown": "Gautama Buddha",
+    "guess": "shakyamuni",
+    "category": "translation-alt"
+  },
+  {
+    "game": "what",
+    "itemId": "taj-mahal",
+    "answerShown": "Taj Mahal",
+    "guess": "the crown of palaces",
+    "category": "translation-alt"
+  },
+  {
+    "game": "who",
+    "itemId": "confucius",
+    "answerShown": "Confucius",
+    "guess": "kong qiu",
+    "category": "translation-alt"
+  },
+  {
+    "game": "what",
+    "itemId": "great-sphinx",
+    "answerShown": "Great Sphinx of Giza",
+    "guess": "abu al-hawl",
+    "category": "translation-alt"
+  },
+  {
+    "game": "who",
+    "itemId": "muhammad-ali",
+    "answerShown": "Muhammad Ali",
+    "guess": "the greatest",
+    "category": "translation-alt"
+  },
+  {
+    "game": "what",
+    "itemId": "colosseum",
+    "answerShown": "The Colosseum",
+    "guess": "amphitheatrum flavium",
+    "category": "translation-alt"
+  },
+  {
+    "game": "who",
+    "itemId": "suleiman-magnificent",
+    "answerShown": "Suleiman the Magnificent",
+    "guess": "kanuni sultan suleyman",
+    "category": "translation-alt"
+  },
+  {
+    "game": "who",
+    "itemId": "henry-viii",
+    "answerShown": "Henry VIII",
+    "guess": "the king with six wives",
+    "category": "descriptive"
+  },
+  {
+    "game": "what",
+    "itemId": "tut-mask",
+    "answerShown": "Mask of Tutankhamun",
+    "guess": "the boy king",
+    "category": "descriptive"
+  },
+  {
+    "game": "what",
+    "itemId": "venus-de-milo",
+    "answerShown": "Venus de Milo",
+    "guess": "the armless statue",
+    "category": "descriptive"
+  },
+  {
+    "game": "who",
+    "itemId": "anne-frank",
+    "answerShown": "Anne Frank",
+    "guess": "the girl with the diary",
+    "category": "descriptive"
+  },
+  {
+    "game": "what",
+    "itemId": "the-thinker",
+    "answerShown": "The Thinker",
+    "guess": "the man sitting thinking",
+    "category": "descriptive"
+  },
+  {
+    "game": "who",
+    "itemId": "joan-of-arc",
+    "answerShown": "Joan of Arc",
+    "guess": "the maid who led france",
+    "category": "descriptive"
+  },
+  {
+    "game": "what",
+    "itemId": "girl-pearl-earring",
+    "answerShown": "Girl with a Pearl Earring",
+    "guess": "the girl with the earring",
+    "category": "descriptive"
+  },
+  {
+    "game": "who",
+    "itemId": "julius-caesar",
+    "answerShown": "Julius Caesar",
+    "guess": "the roman dictator who was stabbed",
+    "category": "descriptive"
+  },
+  {
+    "game": "what",
+    "itemId": "terracotta-warrior",
+    "answerShown": "Terracotta Army",
+    "guess": "the clay soldiers",
+    "category": "descriptive"
+  },
+  {
+    "game": "who",
+    "itemId": "helen-keller",
+    "answerShown": "Helen Keller",
+    "guess": "the deaf and blind woman",
+    "category": "descriptive"
+  }
+]
