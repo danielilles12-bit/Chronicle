@@ -494,3 +494,15 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   60%      { transform: translateX(-4px); }
   80%      { transform: translateX(4px); }
 }
+
+/* Pull-to-refresh (home only): damped pull with a springy snap-back. */
+#view-home { will-change: transform; }
+#ptr-pill {
+  position: fixed; top: calc(10px + env(safe-area-inset-top)); left: 50%;
+  transform: translateX(-50%); z-index: 40;
+  font-family: var(--ch-font-ui); text-transform: uppercase;
+  letter-spacing: var(--ch-tracking-smallcaps); font-size: 11px; font-weight: 700;
+  color: var(--ch-text-label); background: var(--ch-cream);
+  border: 1px solid var(--ch-line); border-radius: 999px; padding: 6px 14px;
+  box-shadow: var(--ch-shadow-card);
+}

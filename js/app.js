@@ -358,6 +358,64 @@ function initHome() {
 }
 
 // ---------- boot ----------
+
+// Pull-to-refresh with a damped, springy pull — home view only. Pulling past
+// the arm threshold and releasing reloads the app (which also picks up any
+// freshly deployed version via the service worker's update check).
+function initPullToRefresh() {
+  const home = $('#view-home');
+  const pill = $('#ptr-pill');
+  if (!home || !pill) return;
+  const ARM = 64, MAX = 130, DAMP = 0.45;
+  let y0 = null, x0 = null, pulling = false, armed = false;
+
+  const settle = () => {
+    home.style.transition = 'transform .32s cubic-bezier(.2,.8,.3,1.25)';
+    home.style.transform = '';
+    setTimeout(() => { home.style.transition = ''; pill.hidden = true; }, 340);
+  };
+
+  document.addEventListener('touchstart', (e) => {
+    if (home.hidden || window.scrollY > 0 || e.touches.length !== 1) { y0 = null; return; }
+    y0 = e.touches[0].clientY; x0 = e.touches[0].clientX;
+    pulling = false; armed = false;
+  }, { passive: true });
+
+  document.addEventListener('touchmove', (e) => {
+    if (y0 == null || home.hidden) return;
+    const dy = e.touches[0].clientY - y0;
+    const dx = e.touches[0].clientX - x0;
+    if (!pulling && Math.abs(dx) > Math.abs(dy)) { y0 = null; return; }  // horizontal strip swipe
+    if (dy <= 0 || window.scrollY > 0) {
+      if (pulling) { pulling = false; armed = false; settle(); }
+      return;
+    }
+    pulling = true;
+    const pull = Math.min(MAX, dy * DAMP);
+    home.style.transition = '';
+    home.style.transform = `translateY(${pull.toFixed(1)}px)`;
+    armed = pull >= ARM;
+    pill.textContent = armed ? 'Release to refresh' : 'Pull to refresh';
+    pill.hidden = false;
+  }, { passive: true });
+
+  document.addEventListener('touchend', () => {
+    if (y0 == null) return;
+    y0 = null;
+    if (!pulling) return;
+    if (armed) {
+      pill.textContent = 'Refreshing\u2026';
+      setTimeout(() => location.reload(), 160);
+      return;                       // keep the pulled position until reload
+    }
+    settle();
+  }, { passive: true });
+
+  window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
+    ptr: { isArmed: () => armed, isPulling: () => pulling },
+  });
+}
+
 async function boot() {
   try {
     const [puzzles, figures, world, revealWho, revealWhat, connections] = await Promise.all(
@@ -382,6 +440,7 @@ async function boot() {
     return;
   }
 
+  initPullToRefresh();
   initHome();
   initCrossword();
   initMapGame();
@@ -392,7 +451,7 @@ async function boot() {
   refreshTodayStrip();
 
   // Deterministic hooks for the automated test-suite.
-  window.__CHRONICLE_TEST__ = { data: DATA, store, isMatch, daily };
+  window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, { data: DATA, store, isMatch, daily });
 
   if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
     navigator.serviceWorker.register('sw.js').catch(() => {});
