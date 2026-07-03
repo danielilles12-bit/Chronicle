@@ -634,7 +634,8 @@
     "variants": [
       "catherine the great",
       "catherine ii",
-      "catherine"
+      "catherine",
+      "catherine ii of russia"
     ],
     "occupation": "Empress of Russia",
     "birth": {
@@ -765,7 +766,9 @@
     "id": "confucius",
     "name": "Confucius",
     "variants": [
-      "confucius"
+      "confucius",
+      "kongzi",
+      "kong fuzi"
     ],
     "occupation": "Author and teacher",
     "birth": {
@@ -1092,7 +1095,9 @@
     "id": "elizabeth-ii",
     "name": "Elizabeth II",
     "variants": [
-      "elizabeth ii"
+      "elizabeth ii",
+      "queen elizabeth ii",
+      "the queen"
     ],
     "occupation": "Monarch",
     "birth": {
@@ -1330,7 +1335,8 @@
     "name": "Franklin Delano Roosevelt",
     "variants": [
       "franklin delano roosevelt",
-      "roosevelt"
+      "roosevelt",
+      "fdr"
     ],
     "occupation": "Statesperson",
     "birth": {
@@ -1462,7 +1468,9 @@
     "name": "Mao Zedong",
     "variants": [
       "mao zedong",
-      "zedong"
+      "zedong",
+      "mao",
+      "chairman mao"
     ],
     "occupation": "Poet and author",
     "birth": {
@@ -2422,7 +2430,8 @@
     "name": "Qin Shi Huang",
     "variants": [
       "huang",
-      "qin shi huang"
+      "qin shi huang",
+      "shi huangdi"
     ],
     "occupation": "Ruler and monarch",
     "birth": {
@@ -2903,7 +2912,9 @@
     "id": "charlemagne",
     "name": "Charlemagne",
     "variants": [
-      "charlemagne"
+      "charlemagne",
+      "charles the great",
+      "karl der grosse"
     ],
     "occupation": "Monarch and sovereign",
     "birth": {
@@ -2925,7 +2936,9 @@
     "name": "Elizabeth I of England",
     "variants": [
       "elizabeth i of england",
-      "england"
+      "elizabeth i",
+      "queen elizabeth i",
+      "gloriana"
     ],
     "occupation": "Queen",
     "birth": {
@@ -3012,8 +3025,9 @@
     "id": "louis-xiv-of-france",
     "name": "Louis XIV of France",
     "variants": [
-      "france",
-      "louis xiv of france"
+      "louis xiv of france",
+      "louis xiv",
+      "the sun king"
     ],
     "occupation": "Actor and monarch",
     "birth": {
@@ -3143,8 +3157,8 @@
     "id": "peter-the-great",
     "name": "Peter the Great",
     "variants": [
-      "great",
-      "peter the great"
+      "peter the great",
+      "peter i"
     ],
     "occupation": "Ruler and carpenter",
     "birth": {
@@ -3319,7 +3333,8 @@
     "id": "ashoka",
     "name": "Ashoka",
     "variants": [
-      "ashoka"
+      "ashoka",
+      "ashoka the great"
     ],
     "occupation": "Emperor and politician",
     "birth": {
@@ -3646,7 +3661,9 @@
     "id": "akbar",
     "name": "Akbar",
     "variants": [
-      "akbar"
+      "akbar",
+      "akbar the great",
+      "jalaluddin muhammad akbar"
     ],
     "occupation": "Monarch",
     "birth": {
@@ -4083,7 +4100,8 @@
     "id": "hirohito",
     "name": "Hirohito",
     "variants": [
-      "hirohito"
+      "hirohito",
+      "emperor showa"
     ],
     "occupation": "Monarch and diplomat",
     "birth": {
@@ -4105,7 +4123,7 @@
     "name": "Constantine the Great",
     "variants": [
       "constantine the great",
-      "great"
+      "constantine i"
     ],
     "occupation": "Sovereign and politician",
     "birth": {
@@ -4258,7 +4276,8 @@
     "name": "Ho Chi Minh",
     "variants": [
       "ho chi minh",
-      "minh"
+      "minh",
+      "uncle ho"
     ],
     "occupation": "Politician",
     "birth": {
@@ -4279,7 +4298,8 @@
     "id": "zheng-he",
     "name": "Zheng He",
     "variants": [
-      "zheng he"
+      "zheng he",
+      "cheng ho"
     ],
     "occupation": "Eunuch and explorer",
     "birth": {
@@ -4315,28 +4335,6 @@
       "place": "Chelsea, United Kingdom",
       "lat": 51.49,
       "lon": -0.17
-    },
-    "difficulty": "medium"
-  },
-  {
-    "id": "catherine-ii-of-russia",
-    "name": "Catherine II of Russia",
-    "variants": [
-      "catherine ii of russia",
-      "russia"
-    ],
-    "occupation": "Monarch and politician",
-    "birth": {
-      "year": 1729,
-      "place": "Szczecin, Poland",
-      "lat": 53.42,
-      "lon": 14.56
-    },
-    "death": {
-      "year": 1796,
-      "place": "Saint Petersburg, Russia",
-      "lat": 59.95,
-      "lon": 30.32
     },
     "difficulty": "medium"
   },
@@ -4476,7 +4474,7 @@
     "name": "Cyrus the Great",
     "variants": [
       "cyrus the great",
-      "great"
+      "cyrus ii"
     ],
     "occupation": "Monarch and founder",
     "birth": {
@@ -5307,7 +5305,8 @@
     "name": "William the Conqueror",
     "variants": [
       "conqueror",
-      "william the conqueror"
+      "william the conqueror",
+      "william i"
     ],
     "occupation": "Monarch",
     "birth": {
@@ -5329,7 +5328,7 @@
     "name": "Alexander I of Russia",
     "variants": [
       "alexander i of russia",
-      "russia"
+      "alexander i"
     ],
     "occupation": "Monarch",
     "birth": {
@@ -5481,8 +5480,7 @@
     "id": "alfred-the-great",
     "name": "Alfred the Great",
     "variants": [
-      "alfred the great",
-      "great"
+      "alfred the great"
     ],
     "occupation": "Author and monarch",
     "birth": {
@@ -5526,7 +5524,7 @@
     "name": "Alexander III of Russia",
     "variants": [
       "alexander iii of russia",
-      "russia"
+      "alexander iii"
     ],
     "occupation": "Monarch and art collector",
     "birth": {
@@ -5633,7 +5631,6 @@
     "id": "john-king-of-england",
     "name": "John, King of England",
     "variants": [
-      "england",
       "john king of england"
     ],
     "occupation": "Monarch",
@@ -6054,7 +6051,8 @@
     "variants": [
       "henry viii",
       "henry viii of england",
-      "king henry viii"
+      "king henry viii",
+      "henry the eighth"
     ],
     "occupation": "King of England with six wives",
     "birth": {
@@ -7635,7 +7633,8 @@
     "name": "Hatshepsut",
     "difficulty": "medium",
     "variants": [
-      "hatshepsut"
+      "hatshepsut",
+      "maatkare"
     ],
     "occupation": "Female pharaoh of ancient Egypt",
     "birth": {

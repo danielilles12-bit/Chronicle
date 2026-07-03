@@ -1,7 +1,7 @@
 // "Map of a Life": guess the historical figure from birth/death geography.
 import { DATA, $, show, back, goHome, refreshHomeStats, appConfirm } from './app.js';
 import * as store from './storage.js';
-import { isMatch } from './match.js';
+import { isMatch, registerPool } from './match.js';
 import * as daily from './daily.js';
 
 const MAP_W = 1000, MAP_H = 500;
@@ -499,6 +499,7 @@ function finishSession() {
 
 // ---------- init ----------
 export function initMapGame() {
+  registerPool('map', DATA.figures);
   $('#map-start').addEventListener('click', startSession);
 
   $('#map-form').addEventListener('submit', (e) => {
@@ -506,7 +507,7 @@ export function initMapGame() {
     if (!S || !S.cur.open) return;
     const guess = $('#map-input').value.trim();
     if (!guess) return;
-    if (isMatch(guess, round())) {
+    if (isMatch(guess, round(), 'map')) {
       resolveRound(true);
     } else {
       S.cur.wrongs++;

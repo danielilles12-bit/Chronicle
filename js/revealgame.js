@@ -5,7 +5,7 @@
 // persisted, resumable) so the games behave consistently.
 import { DATA, $, show, back, goHome, appConfirm, refreshHomeStats } from './app.js';
 import * as store from './storage.js';
-import { isMatch } from './match.js';
+import { isMatch, registerPool } from './match.js';
 import * as daily from './daily.js';
 
 const DURATION_MS = 50000;      // the crop widens from tight → open over 50s
@@ -497,6 +497,11 @@ function finishSession() {
 
 // ---------- init ----------
 export function initRevealGame() {
+  // Two separate pools — 'who' (portraits) / 'what' (artefacts) — so a
+  // distinctive core token is only unique relative to items the player could
+  // actually be shown in that mode, not the whole reveal corpus.
+  registerPool('who', DATA.reveal.filter((x) => x.kind === 'portrait'));
+  registerPool('what', DATA.reveal.filter((x) => x.kind !== 'portrait'));
   $('#rv-start').addEventListener('click', startSession);
   $('#rv-resume').addEventListener('click', resumeSession);
 
@@ -505,7 +510,7 @@ export function initRevealGame() {
     if (!S || !S.cur || !S.cur.open) return;
     const guess = $('#rv-input').value.trim();
     if (!guess) return;
-    if (isMatch(guess, round())) {
+    if (isMatch(guess, round(), MODE)) {
       resolveRound(true);
     } else {
       // A wrong guess costs points on the eventual correct answer (see resolveRound)

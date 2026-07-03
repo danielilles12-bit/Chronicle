@@ -115,6 +115,99 @@ function stripTitle(s) {
   return rest;
 }
 
+// ---------- pool registration: containment + distinctive-core ----------
+// Words too common/structural to ever anchor a match on their own — shared
+// across many items' names ("of", "the") or genuinely ambiguous single
+// tokens in Chronicle's corpus (regnal/lineage particles). Kept separate
+// from ARTICLES (which normalize() strips outright) because these still
+// need to exist as ordinary tokens for containment purposes; they're only
+// excluded when building each item's "core" token set.
+const CORE_STOPWORDS = new Set([
+  'the', 'of', 'a', 'an', 'and', 'in', 'la', 'le', 'el', 'de', 'di',
+  'von', 'van', 'der', 'den', 'da', 'du', 'al', 'ii', 'iii',
+]);
+
+// key -> { byId: Map<id, {variantSets: string[][], distinctive: Set<string>}>,
+//          tokenOwners: Map<token, Set<id>> } — kept only for inspection/debug.
+const POOLS = new Map();
+
+// Split a normalized string into its tokens (helper name distinct from the
+// single-string `tokens()` above since this only ever runs on already
+// normalized text supplied by registerPool/isMatch).
+function toTokenList(s) { return s ? s.split(' ').filter(Boolean) : []; }
+
+// Register (or replace) a pool of items under `key` so isMatch(guess, item, key)
+// can additionally accept containment and distinctive-core-token matches
+// scoped to that pool. `items` must each have a stable `.id`, a `.name`, and
+// an optional `.variants` array — the same shape mapgame/revealgame already
+// pass into isMatch. Safe to call again (e.g. hot reload) — replaces the pool.
+export function registerPool(key, items) {
+  const byId = new Map();
+  const tokenOwners = new Map(); // token -> Set<id> across the whole pool
+  for (const item of items) {
+    const variantStrs = [item.name].concat(item.variants || [])
+      .map(normalize).filter(Boolean);
+    const variantTokLists = variantStrs.map(toTokenList);
+    const coreTokens = new Set();
+    for (const toks of variantTokLists) {
+      for (const t of toks) {
+        if (!CORE_STOPWORDS.has(t) && t.length > 0) coreTokens.add(t);
+      }
+    }
+    for (const t of coreTokens) {
+      if (!tokenOwners.has(t)) tokenOwners.set(t, new Set());
+      tokenOwners.get(t).add(item.id);
+    }
+    byId.set(item.id, { variantStrs, variantTokLists, coreTokens });
+  }
+  // A core token is distinctive for an item iff no other item's core tokens
+  // include it.
+  for (const [, entry] of byId) {
+    entry.distinctive = new Set();
+    for (const t of entry.coreTokens) {
+      const owners = tokenOwners.get(t);
+      if (owners && owners.size === 1) entry.distinctive.add(t);
+    }
+  }
+  POOLS.set(key, { byId, tokenOwners });
+}
+
+const MIN_GUESS_LEN = 4; // guard rail: rules 2-3 never auto-accept below this
+
+// Rule 2: containment — does `variant` (as a whole word-sequence) appear
+// inside `guessToks`, exact token match, no per-token fuzz? A variant that is
+// entirely stopwords can never satisfy this on its own (guard rail).
+function containsPhrase(guessToks, variantToks) {
+  if (!variantToks.length) return false;
+  if (variantToks.every((t) => CORE_STOPWORDS.has(t))) return false;
+  const n = variantToks.length;
+  for (let i = 0; i + n <= guessToks.length; i++) {
+    let ok = true;
+    for (let j = 0; j < n; j++) {
+      if (guessToks[i + j] !== variantToks[j]) { ok = false; break; }
+    }
+    if (ok) return true;
+  }
+  return false;
+}
+
+// Rule 3: distinctive-core — does any guess token match (exact, or damerau
+// distance 1 for tokens >= 6 chars) a token that is distinctive for this item
+// within its registered pool?
+function containsDistinctiveCore(guessToks, distinctiveSet) {
+  if (!distinctiveSet || !distinctiveSet.size) return false;
+  for (const gt of guessToks) {
+    if (gt.length < MIN_GUESS_LEN) continue; // guard rail
+    if (distinctiveSet.has(gt)) return true;
+    if (gt.length >= 6) {
+      for (const dt of distinctiveSet) {
+        if (dt.length >= 6 && damerau(gt, dt, 1) <= 1) return true;
+      }
+    }
+  }
+  return false;
+}
+
 // Every core token of `cand` appears somewhere in `guess` (typo-tolerant), so a
 // guess may carry extra words: "Queen Elizabeth the First" ⊇ "Elizabeth I",
 // "Leonardo da Vinci The Last Supper" ⊇ "The Last Supper". Restricted to
@@ -147,7 +240,10 @@ function stringsMatch(g, c) {
   return covers(tokens(g), tokens(c));
 }
 
-export function isMatch(guess, figure) {
+// `poolKey` is optional; when omitted (or not registered via registerPool)
+// behaviour is exactly as before — rules 2/3 below are additive acceptance
+// paths that only ever add matches, never remove existing ones.
+export function isMatch(guess, figure, poolKey) {
   const g = normalize(guess);
   if (g.length < 2) return false;
   const gNoTitle = stripTitle(g);
@@ -165,5 +261,28 @@ export function isMatch(guess, figure) {
     if (cNoTitle && stringsMatch(g, cNoTitle)) return true;
     if (gNoTitle && cNoTitle && stringsMatch(gNoTitle, cNoTitle)) return true;
   }
+
+  // Guard rail: guesses under MIN_GUESS_LEN normalized characters never
+  // auto-accept via containment/distinctive-core (rules 2-3) — they can
+  // still have matched a short variant exactly above (e.g. "cid").
+  if (g.length < MIN_GUESS_LEN) return false;
+  const guessToks = toTokenList(g);
+
+  // Rule 2: containment — any accepted variant, as a whole word sequence,
+  // found inside the (longer) guess.
+  for (const raw of cands) {
+    const c = normalize(raw);
+    if (!c) continue;
+    if (containsPhrase(guessToks, toTokenList(c))) return true;
+  }
+
+  // Rule 3: distinctive-core — a guess containing a core token that is
+  // unique to this item within its registered pool.
+  const pool = poolKey && POOLS.get(poolKey);
+  if (pool) {
+    const entry = pool.byId.get(figure.id);
+    if (entry && containsDistinctiveCore(guessToks, entry.distinctive)) return true;
+  }
+
   return false;
 }
