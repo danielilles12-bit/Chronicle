@@ -228,6 +228,24 @@ function modeStore(sessMode, key) {
   };
 }
 
+// Warm the browser/SW cache for the whole session so only round 1 can ever
+// wait on the network. Sequential chain: never competes with the image the
+// player is actually looking at.
+function prefetchRounds() {
+  if (!S || !S.rounds) return;
+  const queue = S.rounds.slice(S.i);
+  const next = () => {
+    const item = queue.shift();
+    if (!item || !S) return;
+    if (dims[item.img]) { next(); return; }
+    const img = new Image();
+    img.onload = () => { dims[item.img] = { w: img.naturalWidth, h: img.naturalHeight }; next(); };
+    img.onerror = () => next();
+    img.src = item.img;
+  };
+  next();
+}
+
 // A timed round can't be resumed mid-clock, so we only persist completed rounds;
 // resuming restarts the current round's timer fresh.
 function persist() {
@@ -365,6 +383,7 @@ function startRound() {
   ensureDims(item, () => {
     if (S && S.cur && S.cur.open && round() === item) startZoom(item);
   });
+  prefetchRounds();
   persist();
   window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
     revealRound: { index: S.i, id: item.id, name: item.name, kind: item.kind },
