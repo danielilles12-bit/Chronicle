@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Chronicle — The House</title>
+<meta name="theme-color" content="#F7F3EB">
+<style>
+  @font-face{font-family:'Chronicle Display';src:url('../../assets/fonts/ChronicleDisplay-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+  @font-face{font-family:'Chronicle Text';src:url('../../assets/fonts/ChronicleText-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+  @font-face{font-family:'Chronicle Text';src:url('../../assets/fonts/ChronicleText-Italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
+  @font-face{font-family:'Chronicle Text';src:url('../../assets/fonts/ChronicleText-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
+
+  :root{
+    --surface:#F7F3EB; --plate:#FCFAF5; --ink:#201A15; --muted:#6B5D4C; --faint:#8A7A66;
+    --accent:#6E1D2A; --hairline:#D9CFC0; --frame:#B9AA92; --thumbbg:#F2EDE2;
+    --wax1:#8E3140; --wax2:#5E1622; --waxtext:#E8C9A0; --born:#3E5C43;
+    --display:'Chronicle Display','Iowan Old Style',Georgia,serif;
+    --text:'Chronicle Text','Iowan Old Style',Georgia,serif;
+  }
+  [data-theme='night']{
+    --surface:#0C1510; --plate:#0A0D0A; --ink:#F0E6CC; --muted:#C8B98F; --faint:#8B8268;
+    --accent:#C9A24C; --hairline:rgba(201,162,76,.34); --frame:rgba(201,162,76,.5); --thumbbg:#080A08; --born:#6FA58F;
+  }
+  *{box-sizing:border-box;margin:0}
+  html{background:var(--surface)}
+  body{max-width:480px;margin:0 auto;background:var(--surface);color:var(--ink);
+       font-family:var(--text);-webkit-font-smoothing:antialiased;
+       padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+       transition:background .6s ease,color .6s ease;min-height:100vh}
+
+  .hair{height:1px;background:var(--hairline);margin:0 26px;transition:background .6s}
+  .mast{text-align:center;padding-top:30px}
+  .mast h1{font-family:var(--display);font-size:25px;font-weight:400;letter-spacing:.42em;text-indent:.42em;margin:14px 0}
+  .mast .date{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin:12px 0 20px}
+
+  .lots{padding:4px 20px 0}
+  .lotno{font-size:11px;letter-spacing:.24em;color:var(--accent);text-transform:uppercase;font-weight:700;transition:color .6s}
+  .stat{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+  .stat .live{color:var(--accent)}
+
+  /* plates settle in */
+  .settle{opacity:0;transform:translateY(10px);animation:settle .7s ease-out forwards}
+  @keyframes settle{to{opacity:1;transform:none}}
+
+  /* hero plate */
+  .plate{margin-bottom:20px}
+  .frame{border:1px solid var(--frame);padding:7px;background:var(--plate);transition:background .6s,border-color .6s}
+  .imgwrap{position:relative;overflow:hidden;background:#000}
+  .imgwrap img{display:block;width:100%;height:250px;object-fit:cover}
+  .seal{position:absolute;right:12px;bottom:12px;width:48px;height:48px;border-radius:50%;
+        background:radial-gradient(circle at 34% 28%,var(--wax1),var(--wax2) 72%);
+        display:flex;align-items:center;justify-content:center;color:var(--waxtext);
+        font-family:var(--display);font-size:20px;
+        box-shadow:0 2px 9px rgba(20,10,5,.5);border:1px solid rgba(232,201,160,.35);
+        opacity:0;animation:press .55s cubic-bezier(.2,.7,.3,1.05) 1.15s forwards}
+  @keyframes press{
+    0%{opacity:0;transform:scale(1.7) rotate(-9deg);filter:saturate(.55) brightness(1.25)}
+    62%{opacity:1;transform:scale(.96) rotate(1deg)}
+    100%{opacity:1;transform:scale(1) rotate(0);filter:none}
+  }
+  .caption{display:flex;align-items:baseline;gap:10px;padding:12px 2px 0}
+  .cname{font-family:var(--display);font-size:23px}
+  .caption .stat{margin-left:auto;white-space:nowrap}
+  .cblurb{font-size:13.5px;color:var(--muted);padding:3px 2px 0;line-height:1.45}
+  .aside{font-style:italic;font-size:13px;color:var(--faint);padding:7px 2px 0;line-height:1.45}
+  .aside::before{content:'— ';letter-spacing:0}
+
+  /* rows */
+  .row{display:flex;gap:14px;padding:16px 0;border-top:1px solid var(--hairline);align-items:center;
+       transition:border-color .6s;-webkit-tap-highlight-color:transparent;cursor:pointer}
+  .row:active .thumb{transform:scale(.97)}
+  .thumb{flex:0 0 88px;height:88px;border:1px solid var(--frame);background:var(--plate);padding:4px;transition:transform .25s ease,background .6s,border-color .6s}
+  .thumb .inner{width:100%;height:100%;position:relative;overflow:hidden;background:var(--thumbbg);transition:background .6s}
+  .mid{flex:1}
+  .rname{font-family:var(--display);font-size:20px;margin:2px 0 1px}
+  .rblurb{font-size:13px;color:var(--muted);line-height:1.35}
+  .row .stat{flex-shrink:0;text-align:right;max-width:32%}
+
+  /* thread montage */
+  .montage{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,1fr);gap:1.5px;background:var(--plate)}
+  .montage div{background-size:cover;background-position:center}
+  [data-theme='night'] .montage div{filter:brightness(.82)}
+
+  /* face value sliver */
+  .sliver-img{position:absolute;inset:0;background:url('img/rembrandt-self.jpg') center 22%/cover no-repeat}
+  .veil{position:absolute;top:0;bottom:0;background:var(--thumbbg);transition:background .6s}
+  .edge{position:absolute;top:0;bottom:0;width:1px;background:var(--frame)}
+
+  .arch{margin:4px 20px 0;padding:15px 0 14px;border-top:1px solid var(--hairline);text-align:center;
+        font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--faint);transition:border-color .6s}
+  .foot{text-align:center;padding:6px 0 30px}
+  .foot .closing{font-style:italic;font-size:13px;color:var(--faint)}
+
+  /* theme toggle */
+  #lamp{position:fixed;right:16px;bottom:calc(18px + env(safe-area-inset-bottom));width:42px;height:42px;border-radius:50%;
+        border:1px solid var(--frame);background:var(--plate);color:var(--faint);font-size:17px;
+        display:flex;align-items:center;justify-content:center;cursor:pointer;
+        box-shadow:0 4px 14px rgba(20,14,6,.18);transition:background .6s,border-color .6s;
+        font-family:var(--text);-webkit-tap-highlight-color:transparent;user-select:none}
+</style>
+</head>
+<body>
+
+<div class="mast settle">
+  <div class="hair"></div>
+  <h1>CHRONICLE</h1>
+  <div class="hair"></div>
+  <div class="date" id="dateline">Friday 3 July · Edition № 4</div>
+</div>
+
+<div class="lots">
+
+  <div class="plate settle" style="animation-delay:.15s">
+    <div class="frame">
+      <div class="imgwrap">
+        <img src="img/portland-vase.jpg" alt="The Portland Vase">
+        <div class="seal">D</div>
+      </div>
+    </div>
+    <div class="caption">
+      <div>
+        <div class="lotno">Lot 04 · Relic</div>
+        <div class="cname">The Portland Vase</div>
+      </div>
+      <div class="stat">Sealed · 6:41</div>
+    </div>
+    <div class="cblurb">Named from the second sliver — cameo glass, Rome, c.&nbsp;25&nbsp;AD. Tomorrow it returns to the vaults.</div>
+    <div class="aside">Smashed by a drunk in 1845; rebuilt three times since. Handle with care.</div>
+  </div>
+
+  <div class="row settle" style="animation-delay:.3s">
+    <div class="thumb"><div class="inner">
+      <div class="montage" id="montage"></div>
+    </div></div>
+    <div class="mid">
+      <div class="lotno">Lot 01</div>
+      <div class="rname">Thread</div>
+      <div class="rblurb">Sixteen clues, four hidden families.</div>
+    </div>
+    <div class="stat"><span class="live">Viewing open</span></div>
+  </div>
+
+  <div class="row settle" style="animation-delay:.42s">
+    <div class="thumb"><div class="inner">
+      <svg viewBox="0 0 78 78" width="100%" height="100%">
+        <g stroke="var(--hairline)" stroke-width="1"><path d="M0 26 H78 M0 52 H78 M26 0 V78 M52 0 V78"/></g>
+        <g fill="none" stroke="var(--frame)" stroke-width="1.1">
+          <path d="M-4 30 C14 20 30 28 44 18 C56 10 70 16 82 10"/>
+          <path d="M10 78 C22 64 44 68 58 56 C68 48 76 50 82 46 L82 78 Z" fill="rgba(150,135,110,.15)"/>
+        </g>
+        <path d="M24 56 Q31 26 52 30" fill="none" stroke="var(--ink)" stroke-width="1.4" stroke-dasharray="4 4"/>
+        <circle cx="24" cy="56" r="4" fill="var(--born)"/>
+        <circle cx="52" cy="30" r="6.5" fill="none" stroke="var(--accent)" stroke-width="1.8"/><circle cx="52" cy="30" r="2" fill="var(--accent)"/>
+      </svg>
+    </div></div>
+    <div class="mid">
+      <div class="lotno">Lot 02</div>
+      <div class="rname">Lifeline</div>
+      <div class="rblurb">Born here, died there. Name the figure.</div>
+    </div>
+    <div class="stat"><span class="live">Round 4 of 10</span></div>
+  </div>
+
+  <div class="row settle" style="animation-delay:.54s">
+    <div class="thumb"><div class="inner">
+      <div class="sliver-img"></div>
+      <div class="veil" style="left:0;width:34%"></div>
+      <div class="veil" style="right:0;width:38%"></div>
+      <div class="edge" style="left:34%"></div>
+      <div class="edge" style="right:38%"></div>
+    </div></div>
+    <div class="mid">
+      <div class="lotno">Lot 03</div>
+      <div class="rname">Face Value</div>
+      <div class="rblurb">A famous face, one sliver at a time.</div>
+    </div>
+    <div class="stat">Unviewed</div>
+  </div>
+
+</div>
+
+<div class="arch settle" style="animation-delay:.66s">The Permanent Collection ›</div>
+<div class="foot settle" style="animation-delay:.74s">
+  <div class="closing" id="closing">Viewing closes at midnight.</div>
+</div>
+
+<div id="lamp" role="button" aria-label="Toggle after hours">☾</div>
+
+<script>
+(function(){
+  'use strict';
+
+  // Real dateline
+  var now = new Date();
+  var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var epoch = new Date(2026, 5, 30); // edition counter epoch
+  var ed = Math.max(1, Math.floor((now - epoch) / 86400000) + 1);
+  document.getElementById('dateline').textContent =
+    days[now.getDay()] + ' ' + now.getDate() + ' ' + months[now.getMonth()] + ' · Edition № ' + ed;
+
+  // Thread montage
+  var pics = ['rosetta-stone','lewis-chessmen','tut-mask','bust-nefertiti','winged-victory','mask-of-agamemnon',
+              'venus-de-milo','terracotta-warrior','michelangelo-david','alfred-jewel','birth-of-venus','american-gothic',
+              'angkor-wat','acropolis-athens','alhambra-lions','augustus-caesar'];
+  var m = document.getElementById('montage');
+  pics.forEach(function(p){
+    var d = document.createElement('div');
+    d.style.backgroundImage = "url('img/" + p + ".jpg')";
+    m.appendChild(d);
+  });
+
+  // Day / after-hours
+  var root = document.documentElement;
+  var lamp = document.getElementById('lamp');
+  var closing = document.getElementById('closing');
+  function apply(theme){
+    if(theme === 'night'){
+      root.setAttribute('data-theme','night');
+      lamp.textContent = '☀';
+      closing.textContent = 'The museum sleeps. Curiosity doesn’t.';
+      document.querySelector('meta[name=theme-color]').setAttribute('content','#0C1510');
+    } else {
+      root.removeAttribute('data-theme');
+      lamp.textContent = '☾';
+      closing.textContent = 'Viewing closes at midnight.';
+      document.querySelector('meta[name=theme-color]').setAttribute('content','#F7F3EB');
+    }
+  }
+  var theme = null;
+  try{ theme = localStorage.getItem('houseTheme'); }catch(e){}
+  if(!theme) theme = (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'night' : 'day';
+  apply(theme);
+  lamp.onclick = function(){
+    theme = (theme === 'night') ? 'day' : 'night';
+    try{ localStorage.setItem('houseTheme', theme); }catch(e){}
+    apply(theme);
+  };
+})();
+</script>
+</body>
+</html>
