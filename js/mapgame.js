@@ -4,6 +4,12 @@ import * as store from './storage.js';
 import { isMatch } from './match.js';
 
 const MAP_W = 1000, MAP_H = 500;
+// The world background rect (see renderWorld) bleeds 40 units past the land
+// data on every side as a "sea" margin. targetBox is allowed to use that
+// margin when centring on a marker near the map's edge (e.g. an Arctic
+// death site) instead of hard-clamping the viewBox flush to 0/MAP_W/MAP_H,
+// which left zero headroom for the marker ring and its year label.
+const MAP_BLEED = 40;
 let S = null;            // current session
 let vb = [0, 0, MAP_W, MAP_H];   // current viewBox
 let animId = null;
@@ -50,12 +56,23 @@ function targetBox(p1, p2) {
   let y0 = Math.min(p1[1], p2[1]), y1 = Math.max(p1[1], p2[1]);
   let w = Math.max((x1 - x0) * 1.9, 170);
   let h = Math.max((y1 - y0) * 1.9, 85);
+  // Reserve headroom for the year labels, which sit above/below their dot
+  // (see scaleMarkers' anchor flip) and scale with the box's own width
+  // (marker radius = w*0.016, label font-size = w*0.034). Baking a fixed
+  // fraction of w into the height here — before the aspect fit below —
+  // keeps both labels comfortably inside the box at any zoom level, instead
+  // of only the marker dots themselves.
+  h += 0.14 * w;
   if (w / h > aspect) h = w / aspect; else w = h * aspect;
-  if (w > MAP_W) { w = MAP_W; h = w / aspect; }
-  if (h > MAP_H) { h = MAP_H; w = Math.min(MAP_W, h * aspect); }
+  const maxW = MAP_W + 2 * MAP_BLEED, maxH = MAP_H + 2 * MAP_BLEED;
+  if (w > maxW) { w = maxW; h = w / aspect; }
+  if (h > maxH) { h = maxH; w = Math.min(maxW, h * aspect); }
   let cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
-  cx = Math.min(Math.max(cx, w / 2), MAP_W - w / 2);
-  cy = Math.min(Math.max(cy, h / 2), MAP_H - h / 2);
+  // Clamp into the bleed margin, not just the strict map bounds, so a
+  // marker near the pole (or the antimeridian) isn't forced flush against
+  // the viewBox edge with no room left for its ring/label.
+  cx = Math.min(Math.max(cx, w / 2 - MAP_BLEED), MAP_W - w / 2 + MAP_BLEED);
+  cy = Math.min(Math.max(cy, h / 2 - MAP_BLEED), MAP_H - h / 2 + MAP_BLEED);
   return [cx - w / 2, cy - h / 2, w, h];
 }
 

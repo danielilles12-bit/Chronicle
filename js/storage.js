@@ -108,6 +108,25 @@ export function setConn(id, state) {
   d.conns[id] = state;
   saveAll(d);
 }
+
+// In-progress Thread (Connections) puzzles — separate from the final
+// solved/perfect/score record above, so backing out mid-puzzle (header
+// back arrow) doesn't discard the player's found groups and mistake count.
+export function getConnProgress(id) {
+  const d = loadAll();
+  return (d.connProgress && d.connProgress[id]) || null;
+}
+export function setConnProgress(id, state) {
+  const d = loadAll();
+  if (!d.connProgress) d.connProgress = {};
+  d.connProgress[id] = state;
+  saveAll(d);
+}
+export function clearConnProgress(id) {
+  const d = loadAll();
+  if (d.connProgress) delete d.connProgress[id];
+  saveAll(d);
+}
 export function getConnStats() {
   return loadAll().connStats || { solved: 0 };
 }

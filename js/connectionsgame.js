@@ -38,9 +38,11 @@ export function renderConnList() {
   main.innerHTML = '';
   DATA.connections.forEach((puzzle) => {
     const saved = store.getConn(puzzle.id);
+    const progress = !saved ? store.getConnProgress(puzzle.id) : null;
     const btn = document.createElement('button');
     btn.className = 'cwitem';
-    const status = saved ? (saved.perfect ? '✓ Perfect' : saved.solved ? '✓ Solved' : 'Try again') : '';
+    const status = saved ? (saved.perfect ? '✓ Perfect' : saved.solved ? '✓ Solved' : 'Try again') :
+      progress ? 'In progress' : '';
     const statusClass = saved && saved.solved ? 'cw-state done' : 'cw-state';
     const scoreLine = saved && saved.solved && typeof saved.score === 'number' ? `<span class="cw-score">${saved.score} pts</span>` : '';
     btn.innerHTML =
@@ -89,18 +91,39 @@ function startPuzzle(puzzle) {
     });
   });
 
+  // Resume any in-progress attempt (found groups + mistakes) so backing out
+  // mid-puzzle via the header arrow doesn't wipe the player's progress.
+  const progress = store.getConnProgress(puzzle.id);
+
   S = {
     puzzle,
     tiles: shuffleArray(tiles),
     selected: new Set(),
-    found: new Set(),       // set of colour strings already solved
-    mistakes: 0,
+    found: new Set(progress ? progress.found : []),       // set of colour strings already solved
+    mistakes: progress ? progress.mistakes : 0,
     done: false,
   };
 
   $('#conn-puzzle-title').textContent = puzzle.title;
   renderConnGame();
   show('view-conn');
+}
+
+// Save the player's found groups + mistakes so far, so leaving mid-puzzle
+// (header back arrow) doesn't lose progress. Mirrors the session-persistence
+// pattern used by map/reveal/chrono in storage.js. No-op until the player has
+// actually made some headway, so a puzzle opened-and-immediately-backed-out
+// isn't misreported as "in progress".
+function persistProgress() {
+  if (!currentPuzzle || !S) return;
+  if (S.found.size === 0 && S.mistakes === 0) {
+    store.clearConnProgress(currentPuzzle.id);
+    return;
+  }
+  store.setConnProgress(currentPuzzle.id, {
+    found: [...S.found],
+    mistakes: S.mistakes,
+  });
 }
 
 function renderConnGame() {
@@ -199,6 +222,7 @@ function submitGuess() {
       S.done = true;
       setTimeout(() => finishPuzzle(), 400);
     } else {
+      persistProgress();
       renderConnGame();
     }
   } else {
@@ -227,6 +251,8 @@ function submitGuess() {
     if (S.mistakes >= MAX_MISTAKES) {
       S.done = true;
       setTimeout(() => finishPuzzle(), 600);
+    } else {
+      persistProgress();
     }
   }
 }
@@ -236,6 +262,7 @@ function finishPuzzle() {
   const solved = S.found.size === S.puzzle.groups.length;
   const score = calcScore(solved, S.mistakes);
   store.setConn(currentPuzzle.id, { solved, perfect, mistakes: S.mistakes, score });
+  store.clearConnProgress(currentPuzzle.id);
 
   const stats = store.getConnStats();
   if (solved) stats.solved = (stats.solved || 0) + 1;
@@ -315,7 +342,12 @@ export function initConnectionsGame() {
   });
   $('#conn-submit').addEventListener('click', submitGuess);
   $('#conn-quit').addEventListener('click', () => {
+    // Header back arrow: leave the puzzle and return to the list, same as
+    // every other game's back button — it must not just undo a selection.
+    // Save progress first so reopening the puzzle resumes where it left off.
+    if (S && !S.done) persistProgress();
     S = null;
+    renderConnList();
     back();
   });
   $('#conn-sum-back').addEventListener('click', () => {

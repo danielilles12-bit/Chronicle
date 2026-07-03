@@ -6078,7 +6078,9 @@
       "mary i",
       "mary i of england",
       "bloody mary",
-      "mary tudor"
+      "mary tudor",
+      "queen mary",
+      "queen mary i"
     ],
     "occupation": "Catholic Queen of England known as Bloody Mary",
     "birth": {
@@ -6101,7 +6103,8 @@
     "variants": [
       "mary queen of scots",
       "mary stuart",
-      "mary i of scotland"
+      "mary i of scotland",
+      "queen mary"
     ],
     "occupation": "Queen of Scots, executed in England",
     "birth": {

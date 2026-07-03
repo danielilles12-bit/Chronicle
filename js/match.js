@@ -94,6 +94,27 @@ function numeralKey(s) {
 
 function tokens(s) { return s ? s.split(' ') : []; }
 
+// A guess carrying a royal/honorific title should still match a variant that
+// doesn't spell it out (or vice versa): "queen mary" ⇄ "mary i" / "bloody
+// mary". Strip a single leading title token from a normalized string; only
+// ever applied to build an extra candidate for matching, never in place of
+// the untouched string, and only kept when the remainder is long enough to
+// be meaningfully a name (>= 4 chars) so it can't turn "st paul" into the
+// absurdly short, over-matchable "paul"-vs-anything via "st" alone, etc.
+const TITLES = new Set([
+  'queen', 'king', 'emperor', 'empress', 'tsar', 'tsarina', 'kaiser',
+  'sultan', 'pharaoh', 'pope', 'saint', 'st', 'sir', 'lord', 'lady',
+  'president', 'general', 'chancellor',
+]);
+
+function stripTitle(s) {
+  const toks = tokens(s);
+  if (toks.length < 2 || !TITLES.has(toks[0])) return null;
+  const rest = toks.slice(1).join(' ');
+  if (rest.length < 4) return null;
+  return rest;
+}
+
 // Every core token of `cand` appears somewhere in `guess` (typo-tolerant), so a
 // guess may carry extra words: "Queen Elizabeth the First" ⊇ "Elizabeth I",
 // "Leonardo da Vinci The Last Supper" ⊇ "The Last Supper". Restricted to
@@ -114,20 +135,35 @@ function covers(guessToks, candToks) {
   return true;
 }
 
+// Exact / fuzzy / covers comparison between one guess string and one
+// candidate string, both already normalized. Factored out so the
+// title-stripping fallback in isMatch can rerun the same checks on
+// de-titled strings without duplicating the logic.
+function stringsMatch(g, c) {
+  if (g === c) return true;
+  if (numeralKey(c) !== numeralKey(g)) return false; // regnal numbers must agree
+  const tol = tolerance(c.length);
+  if (tol > 0 && damerau(g, c, tol) <= tol) return true;
+  return covers(tokens(g), tokens(c));
+}
+
 export function isMatch(guess, figure) {
   const g = normalize(guess);
   if (g.length < 2) return false;
-  const gKey = numeralKey(g);
-  const gToks = tokens(g);
+  const gNoTitle = stripTitle(g);
   const cands = [figure.name].concat(figure.variants || []);
   for (const raw of cands) {
     const c = normalize(raw);
     if (!c) continue;
-    if (g === c) return true;
-    if (numeralKey(c) !== gKey) continue; // regnal numbers must agree
-    const tol = tolerance(c.length);
-    if (tol > 0 && damerau(g, c, tol) <= tol) return true;
-    if (covers(gToks, tokens(c))) return true;
+    if (stringsMatch(g, c)) return true;
+    // Title/honorific-insensitive fallback: strip a leading "queen"/"king"/…
+    // from whichever side(s) have one, then compare again. Covers "queen
+    // mary" vs "mary i" as well as a guess without a title against a variant
+    // that happens to carry one.
+    const cNoTitle = stripTitle(c);
+    if (gNoTitle && stringsMatch(gNoTitle, c)) return true;
+    if (cNoTitle && stringsMatch(g, cNoTitle)) return true;
+    if (gNoTitle && cNoTitle && stringsMatch(gNoTitle, cNoTitle)) return true;
   }
   return false;
 }
