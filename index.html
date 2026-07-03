@@ -25,6 +25,30 @@
       <p class="tagline">Little games about big history</p>
       <p class="dateline" id="dateline"></p>
     </header>
+    <section id="today-strip" class="today-strip">
+      <div class="today-head">
+        <h3 id="today-label">Today</h3>
+        <button class="today-archive-link" id="today-archive-link">Archive ›</button>
+      </div>
+      <div class="today-tiles">
+        <button class="today-tile" id="today-thread">
+          <span class="today-name">Thread</span>
+          <span class="today-status">Not started</span>
+        </button>
+        <button class="today-tile" id="today-map">
+          <span class="today-name">Lifeline</span>
+          <span class="today-status">Not started</span>
+        </button>
+        <button class="today-tile" id="today-who">
+          <span class="today-name">Face Value</span>
+          <span class="today-status">Not started</span>
+        </button>
+        <button class="today-tile" id="today-what">
+          <span class="today-name">Relic</span>
+          <span class="today-status">Not started</span>
+        </button>
+      </div>
+    </section>
     <main class="home-cards">
       <button class="card" id="card-crossword" aria-label="Play the history crossword" hidden>
         <svg class="card-glyph" viewBox="0 0 48 48" aria-hidden="true">
@@ -294,6 +318,7 @@
     <div id="rv-panel">
       <div id="rv-frame" role="img" aria-label="A cropped fragment to identify"></div>
       <div id="rv-timerbar" aria-hidden="true"><div id="rv-timerfill"></div></div>
+      <span id="rv-pause" class="pill" hidden></span>
       <div id="rv-streak" hidden></div>
     </div>
     <main class="map-main">
@@ -440,6 +465,31 @@
       </div>
     </main>
   </section>
+
+  <!-- ============ ARCHIVE / PRACTICE ============ -->
+  <section class="view" id="view-archive" hidden>
+    <header class="topbar safe-top">
+      <button class="iconbtn" data-back aria-label="Back">‹</button>
+      <h2>Archive</h2>
+      <span class="topbar-right"></span>
+    </header>
+    <div id="archive-filters" class="archive-filters"></div>
+    <main id="archive-list" class="scroll-main"></main>
+  </section>
+
+  <div id="archive-picker" class="sheet" hidden>
+    <div class="sheet-card">
+      <h3 id="archive-picker-title">Edition</h3>
+      <p class="start-copy small" style="margin:0 0 4px">Practice mode: replayable, doesn't affect streaks.</p>
+      <div class="sheet-row">
+        <button class="pill" data-practice-game="thread">Thread</button>
+        <button class="pill" data-practice-game="map">Lifeline</button>
+        <button class="pill" data-practice-game="who">Face Value</button>
+        <button class="pill" data-practice-game="what">Relic</button>
+      </div>
+      <button class="pill ghost sheet-close" id="archive-picker-close">Close</button>
+    </div>
+  </div>
 
   <div id="confirm-sheet" class="sheet" hidden>
     <div class="sheet-card">

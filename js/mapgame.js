@@ -2,6 +2,7 @@
 import { DATA, $, show, back, goHome, refreshHomeStats, appConfirm } from './app.js';
 import * as store from './storage.js';
 import { isMatch } from './match.js';
+import * as daily from './daily.js';
 
 const MAP_W = 1000, MAP_H = 500;
 // The world background rect (see renderWorld) bleeds 40 units past the land
@@ -178,6 +179,20 @@ function scaleMarkers(box) {
 }
 
 // ---------- session ----------
+// Free sessions keep using store.getSession/setSession/clearSession exactly
+// as before. Daily and practice sessions use the namespaced generic store
+// (js/storage.js getDailySession family) so they never collide with a free
+// session or with each other; MODE_STORE picks the right get/set/clear for
+// the session currently in play.
+function modeStore(mode, key) {
+  if (mode === 'free') return { get: store.getSession, set: store.setSession, clear: store.clearSession };
+  return {
+    get: () => store.getDailySession(key),
+    set: (s) => store.setDailySession(key, s),
+    clear: () => store.clearDailySession(key),
+  };
+}
+
 export function renderMapStart() {
   const m = store.getMap();
   $('#map-best').textContent = m.sessions
@@ -194,9 +209,10 @@ export function renderMapStart() {
 }
 
 function persistSession() {
-  store.setSession({
+  S.store.set({
     ids: S.rounds.map((f) => f.id),
     i: S.i, score: S.score, streak: S.streak, bestStreak: S.bestStreak,
+    editionIndex: S.editionIndex,
     cur: S.cur && S.cur.open
       ? { hints: S.cur.hints, wrongs: S.cur.wrongs, occUsed: !!S.cur.occUsed, iniUsed: !!S.cur.iniUsed }
       : null,
@@ -209,17 +225,25 @@ function persistSession() {
 function resumeSession() {
   const saved = store.getSession();
   if (!saved || !saved.ids || !saved.results) return;
+  resumeFrom('free', null, saved);
+}
+
+// Shared resume path for free/daily/practice: `saved` is the persisted
+// session shape (ids/i/score/streak/bestStreak/results/cur/editionIndex).
+function resumeFrom(mode, key, saved) {
   const byId = (id) => DATA.figures.find((f) => f.id === id);
   // The round to play is always the first one without a stored result —
   // a session saved mid-round (answered, "Next" untapped) must NOT replay
   // the already-scored round.
   const next = saved.results.length;
+  const st = modeStore(mode, key);
   if (saved.ids.some((id) => !byId(id)) || saved.results.some((r) => !byId(r.id))) {
-    store.clearSession();
-    renderMapStart();
+    st.clear();
+    if (mode === 'free') renderMapStart();
     return;
   }
   S = {
+    mode, dailyKey: key, store: st, editionIndex: saved.editionIndex,
     rounds: saved.ids.map(byId),
     i: Math.min(next, saved.ids.length - 1),
     score: saved.score, streak: saved.streak,
@@ -247,6 +271,7 @@ function startSession() {
     .concat(shuffled(by('medium'), rng).slice(0, 3))
     .concat(shuffled(by('hard'), rng).slice(0, 3));
   S = {
+    mode: 'free', dailyKey: null, store: modeStore('free', null),
     rounds: shuffled(picks, rng),
     i: 0, score: 0, streak: 0, bestStreak: 0, results: [],
   };
@@ -254,6 +279,53 @@ function startSession() {
   setVb([0, 0, MAP_W, MAP_H]);
   show('view-map');
   startRound();
+}
+
+// ---------- daily / practice entry points ----------
+// Daily: 10 figures = getEdition('map', n) in exact order (no shuffle). A
+// completed daily is locked — reopening shows the results summary instead of
+// replaying. Practice: same edition list, but replayable and never touches
+// the ledger (separate `chronicle.practice.*` storage key).
+function startEdition(mode, editionIndex) {
+  const key = mode === 'daily' ? daily.dailyKey('map', editionIndex) : daily.practiceKey('map', editionIndex);
+  if (mode === 'daily') {
+    const entry = store.getDailyEntry('map', editionIndex);
+    if (entry) { showLockedResult(editionIndex, entry); return; }
+  }
+  const saved = store.getDailySession(key);
+  if (saved && saved.ids && saved.results) {
+    resumeFrom(mode, key, saved);
+    return;
+  }
+  const rounds = daily.getEdition('map', editionIndex);
+  S = {
+    mode, dailyKey: key, store: modeStore(mode, key), editionIndex,
+    rounds, i: 0, score: 0, streak: 0, bestStreak: 0, results: [],
+  };
+  renderWorld();
+  setVb([0, 0, MAP_W, MAP_H]);
+  show('view-map');
+  startRound();
+}
+
+export function startMapDaily(editionIndex) { startEdition('daily', editionIndex); }
+export function startMapPractice(editionIndex) { startEdition('practice', editionIndex); }
+
+// A locked (already-completed) daily: reuse the summary view read-only —
+// rebuild S.results from the ledger detail so finishSession's render can be
+// reused verbatim.
+function showLockedResult(editionIndex, entry) {
+  const byId = (id) => DATA.figures.find((f) => f.id === id);
+  S = {
+    mode: 'daily', dailyKey: daily.dailyKey('map', editionIndex), store: modeStore('daily', null),
+    editionIndex, done: true, locked: true,
+    score: entry.score,
+    results: (entry.detail || []).map((r) => ({
+      fig: byId(r.id) || { name: '(removed)', birth: {}, death: {} }, pts: r.pts, correct: r.correct, hints: r.hints || 0,
+    })),
+  };
+  renderLockedSummary();
+  show('view-mapsum');
 }
 
 function round() { return S.rounds[S.i]; }
@@ -365,20 +437,7 @@ function resolveRound(correct) {
   $('#map-next').scrollIntoView({ block: 'nearest' });
 }
 
-function finishSession() {
-  if (S.done) {
-    show('view-mapsum');
-    return;
-  }
-  S.done = true;
-  store.clearSession();
-  const m = store.getMap();
-  m.sessions = (m.sessions || 0) + 1;
-  m.bestScore = Math.max(m.bestScore || 0, S.score);
-  m.bestStreak = Math.max(m.bestStreak || 0, S.bestStreak);
-  store.setMap(m);
-  refreshHomeStats();
-
+function renderLockedSummary() {
   $('#sum-total').textContent = S.score;
   const remarks = [
     [850, 'A chronicler for the ages.'],
@@ -393,11 +452,45 @@ function finishSession() {
   for (const r of S.results) {
     const li = document.createElement('li');
     li.innerHTML = `<span class="sum-name">${r.fig.name}`
-      + `<small>${yearLabel(r.fig.birth)} – ${yearLabel(r.fig.death)}`
-      + (r.hints ? ` · ${r.hints} hint${r.hints > 1 ? 's' : ''}` : '') + '</small></span>'
+      + (r.fig.birth && r.fig.birth.year !== undefined
+        ? `<small>${yearLabel(r.fig.birth)} – ${yearLabel(r.fig.death)}`
+          + (r.hints ? ` · ${r.hints} hint${r.hints > 1 ? 's' : ''}` : '') + '</small>'
+        : '') + '</span>'
       + `<span class="sum-pts${r.pts ? '' : ' zero'}">${r.pts ? '+' + r.pts : '0'}</span>`;
     ol.appendChild(li);
   }
+  // Daily results are locked: replace the "Play again" action with a plain
+  // Home button so a completed daily can't be replayed from its own summary.
+  $('#sum-again').hidden = !!S.locked;
+  $('#sum-home').textContent = S.locked ? 'Home' : 'Home';
+}
+
+function finishSession() {
+  if (S.done) {
+    renderLockedSummary();
+    show('view-mapsum');
+    return;
+  }
+  S.done = true;
+  S.store.clear();
+
+  if (S.mode === 'free') {
+    const m = store.getMap();
+    m.sessions = (m.sessions || 0) + 1;
+    m.bestScore = Math.max(m.bestScore || 0, S.score);
+    m.bestStreak = Math.max(m.bestStreak || 0, S.bestStreak);
+    store.setMap(m);
+  } else if (S.mode === 'daily') {
+    daily.recordDailyCompletion('map', S.editionIndex, {
+      score: S.score,
+      detail: S.results.map((r) => ({ id: r.fig.id, pts: r.pts, correct: r.correct, hints: r.hints })),
+    });
+    S.locked = true;
+  }
+  // practice mode: no ledger, no best-score update — replayable, no trace.
+  refreshHomeStats();
+
+  renderLockedSummary();
   window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
     mapSession: { score: S.score, results: S.results.map((r) => ({ id: r.fig.id, pts: r.pts, correct: r.correct })) },
   });
@@ -465,8 +558,8 @@ export function initMapGame() {
       appConfirm('Quit this session? The score so far will be lost.', 'Quit session')
         .then((ok) => {
           if (ok) {
-            store.clearSession();
-            renderMapStart();
+            S.store.clear();
+            if (S.mode === 'free') renderMapStart();
             back();
           }
         });

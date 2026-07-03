@@ -42,6 +42,35 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 .tagline { margin: 6px 0 2px; color: var(--muted); font-size: 15px; }
 .dateline { margin: 2px 0 0; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); }
 
+/* ---------- Today strip ---------- */
+.today-strip { margin: 16px 20px 0; }
+.today-head { display: flex; align-items: baseline; justify-content: space-between; }
+.today-head h3 { font-family: var(--serif); font-size: 15px; margin: 0; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+.today-archive-link { font-size: 13px; font-weight: 600; color: var(--gold); }
+.today-tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 8px; }
+.today-tile {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
+  border: 1.5px solid var(--rule); border-radius: 12px; padding: 11px 13px;
+  background: var(--paper); text-align: left;
+}
+.today-tile:active { background: var(--soft); }
+.today-name { font-weight: 700; font-size: 14px; }
+.today-status { font-size: 12px; color: var(--muted); }
+.today-tile.today-progress { border-color: var(--gold); }
+.today-tile.today-progress .today-status { color: var(--gold); font-weight: 600; }
+.today-tile.today-done { border-color: var(--green); background: #f3f8f2; }
+.today-tile.today-done .today-status { color: var(--green); font-weight: 700; }
+
+/* ---------- Archive ---------- */
+.archive-filters { display: flex; gap: 6px; overflow-x: auto; padding: 10px 20px; border-bottom: 1px solid var(--rule); }
+.archive-chip { flex: none; border-color: var(--rule); color: var(--muted); }
+.archive-chip.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.archive-row { width: 100%; }
+.archive-marks { display: flex; gap: 5px; flex: none; }
+.archive-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--rule); display: inline-block; }
+.archive-dot.done { background: var(--green); }
+.archive-dot.progress { background: var(--gold); }
+
 .home-cards { flex: 1; display: flex; flex-direction: column; gap: 14px; padding: 22px 20px; }
 .card {
   display: flex; align-items: center; gap: 16px; text-align: left;
@@ -251,6 +280,10 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 #rv-streak {
   position: absolute; top: 14px; right: 16px; background: var(--gold); color: #fff;
   font-size: 12px; font-weight: 700; border-radius: 999px; padding: 4px 10px;
+}
+#rv-pause {
+  font-size: 12px; font-weight: 700; padding: 4px 12px;
+  background: var(--ink); color: var(--paper); border-color: var(--ink);
 }
 #rv-prompt { margin: 0; font-size: 15px; font-weight: 700; }
 #rv-form { display: flex; gap: 8px; }

@@ -26,6 +26,24 @@ after the first load.
   cost 25 each, wrong guesses 10; "Reveal" ends a round with 0. Answer
   several in a row for a streak bonus.
 
+**Daily + Archive** — everyone gets the same puzzles on the same day:
+- The Today strip on the home screen shows the day's Edition (e.g.
+  "Edition #12 · Friday") with four tiles: Thread, Lifeline, Face Value,
+  Relic. Each tile shows Not started / In progress / Done — tap it to play
+  that game's daily.
+- A daily's 10 rounds (or, for Thread, the single board) are the same for
+  every player on the same calendar day, and harder puzzles are mixed in
+  later in the week (Monday is easiest, the weekend hardest).
+- Finishing a daily locks it — reopening the tile shows your result instead
+  of letting you replay. Completing every game on the day it airs builds a
+  streak, shown alongside your per-game streaks.
+- **Archive** (via "Archive ›" on the Today strip) lists past editions, each
+  marked with which of the four games you've completed. Opening an edition
+  from the Archive plays it in **Practice** mode: replayable as many times
+  as you like, and it never affects streaks or the daily record.
+- The big game cards below the Today strip still work exactly as before —
+  free, unlimited, un-tracked practice sessions any time.
+
 ## Known limitations and substitutions
 
 - **The two full-size crosswords are genuine 15×15 grids** with standard

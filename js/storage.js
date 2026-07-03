@@ -131,3 +131,52 @@ export function getConnStats() {
   return loadAll().connStats || { solved: 0 };
 }
 export function setConnStats(s) { const d = loadAll(); d.connStats = s; saveAll(d); }
+
+// ---------- Chronicle Daily ----------
+// A generic namespaced-session store used by every game's daily AND practice
+// modes (js/daily.js picks the items; each game engine just needs somewhere
+// to persist an in-progress attempt keyed by a string it controls, e.g.
+// `chronicle.daily.map.42` or `chronicle.practice.who.17`). This mirrors the
+// existing per-game session shapes (mapSession, revealSession_*, connProgress)
+// but namespaced so a daily/practice run never collides with a free session.
+export function getDailySession(key) {
+  const d = loadAll();
+  return (d.dailySessions && d.dailySessions[key]) || null;
+}
+export function setDailySession(key, state) {
+  const d = loadAll();
+  if (!d.dailySessions) d.dailySessions = {};
+  d.dailySessions[key] = state;
+  saveAll(d);
+}
+export function clearDailySession(key) {
+  const d = loadAll();
+  if (d.dailySessions) delete d.dailySessions[key];
+  saveAll(d);
+}
+
+// The ledger: one completion record per (game, editionIndex), plus per-game
+// streaks and the cross-game "full house" streak. Kept as one small object
+// so daily.js's pure streak math (nextStreak) can read/write it in one place.
+const LEDGER_KEY = 'dailyLedger';
+const emptyLedger = () => ({
+  entries: {},   // entries[game][editionIndex] = { score, completedOn, detail }
+  streaks: {},   // streaks[game] = { streak, lastEdition }
+  fullHouse: { streak: 0, lastEdition: -Infinity },
+});
+
+export function getDailyLedger() {
+  const d = loadAll();
+  return d[LEDGER_KEY] || emptyLedger();
+}
+
+export function setDailyLedger(ledger) {
+  const d = loadAll();
+  d[LEDGER_KEY] = ledger;
+  saveAll(d);
+}
+
+export function getDailyEntry(game, editionIndex) {
+  const l = getDailyLedger();
+  return (l.entries[game] && l.entries[game][editionIndex]) || null;
+}

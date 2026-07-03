@@ -1,17 +1,22 @@
 // "Zoom In" — guess the famous face or artefact as the image slowly zooms out.
 // Each round opens on a tight crop (centred on the item's fx/fy) and widens to a
-// generous reveal over 15 seconds; the less that's shown when you answer, the
+// generous reveal over 50 seconds; the less that's shown when you answer, the
 // higher the score. Mirrors the Map of a Life session shape (10 rounds,
 // persisted, resumable) so the games behave consistently.
 import { DATA, $, show, back, goHome, appConfirm, refreshHomeStats } from './app.js';
 import * as store from './storage.js';
 import { isMatch } from './match.js';
+import * as daily from './daily.js';
 
-const DURATION_MS = 15000;      // the crop widens from tight → open over 15s
+const DURATION_MS = 50000;      // the crop widens from tight → open over 50s
 const START_MIN = 0.15;         // clamp the opening crop to a fair band:
 const START_MAX = 0.28;         // never a near-complete giveaway, never pure texture
-const END_FRAC = 0.9;           // widest in-play reveal before the full answer
+const END_FRAC = 0.55;          // widest in-play reveal before the full answer
 const ROUNDS = 10;
+const PAUSE_MS = 10000;         // typing freezes the clock for this long per keystroke
+const PAUSE_BUDGET_MS = 30000;  // total pause time available per round
+const LAST_CHANCE_MS = 10000;   // grace window once the clock hits zero
+const WRONG_PENALTY = 15;       // points lost per wrong guess when scoring a correct answer
 
 let S = null;
 let MODE = 'who';               // 'who' = portraits, 'what' = artefacts
@@ -97,20 +102,64 @@ function updateTimer(p) {
   fill.style.background = p > 0.85 ? '#c0392b' : p > 0.6 ? '#d99a2b' : '#4a7c43';
 }
 
+function updatePause(now) {
+  const el = $('#rv-pause');
+  if (!el) return;
+  const cur = S && S.cur;
+  if (cur && cur.lastChanceUntil) {
+    const secs = Math.max(0, Math.ceil((cur.lastChanceUntil - now) / 1000));
+    el.textContent = `Last chance — ${secs}s`;
+    el.hidden = false;
+  } else if (cur && now < cur.pauseUntil && cur.pauseBudgetMs > 0) {
+    const secs = Math.max(0, Math.ceil((cur.pauseUntil - now) / 1000));
+    el.textContent = `Paused — ${secs}s`;
+    el.hidden = false;
+  } else {
+    el.hidden = true;
+  }
+}
+
 function tick(now) {
   if (!S || !S.cur || !S.cur.open) return;
-  const p = Math.min(1, (now - S.cur.start) / DURATION_MS);
-  S.cur.p = p;
+  const cur = S.cur;
+  const last = cur.lastTick || now;
+  cur.lastTick = now;
+
+  // Last-chance phase: clock already hit zero, hold at END_FRAC and wait for a
+  // correct answer or the grace window to expire.
+  if (cur.lastChanceUntil) {
+    if (now >= cur.lastChanceUntil) { updatePause(now); resolveRound(false); return; }
+    updatePause(now);
+    cur.raf = requestAnimationFrame(tick);
+    return;
+  }
+
+  // Typing pauses the clock: freeze progress by shifting start forward, spending
+  // from the per-round pause budget until it runs out.
+  if (now < cur.pauseUntil && cur.pauseBudgetMs > 0) {
+    const delta = now - last;
+    cur.start += delta;
+    cur.pauseBudgetMs -= delta;
+  }
+
+  const p = Math.min(1, (now - cur.start) / DURATION_MS);
+  cur.p = p;
   paintFrac(round(), fracFor(round(), p));
   updateTimer(p);
-  if (p >= 1) { resolveRound(false); return; }      // time's up → scores zero
-  S.cur.raf = requestAnimationFrame(tick);
+  updatePause(now);
+  if (p >= 1) {                                     // clock's out → last-chance phase, not an instant zero
+    cur.lastChanceUntil = now + LAST_CHANCE_MS;
+    cur.raf = requestAnimationFrame(tick);
+    return;
+  }
+  cur.raf = requestAnimationFrame(tick);
 }
 
 function startZoom(item) {
   const frame = $('#rv-frame');
   S.cur.D = frame.getBoundingClientRect().width || 320;
   S.cur.start = performance.now();
+  S.cur.lastTick = S.cur.start;
   S.cur.p = 0;
   paintFrac(item, fracFor(item, 0));
   updateTimer(0);
@@ -122,13 +171,21 @@ function stopZoom() {
 }
 
 // Test hook: force the round to a given progress (skips real-time animation).
+// The rAF loop keeps running afterwards so the last-chance phase still kicks in
+// naturally once p reaches 1.
 function debugSetProgress(p) {
   if (!S || !S.cur || !S.cur.open) return;
   stopZoom();
-  S.cur.start = performance.now() - p * DURATION_MS;
+  const now = performance.now();
+  S.cur.start = now - p * DURATION_MS;
+  S.cur.lastTick = now;
+  S.cur.pauseUntil = 0;
+  S.cur.lastChanceUntil = 0;
   S.cur.p = p;
   paintFrac(round(), fracFor(round(), p));
   updateTimer(p);
+  updatePause(now);
+  S.cur.raf = requestAnimationFrame(tick);
 }
 
 // ---------- session ----------
@@ -152,12 +209,32 @@ export function renderRevealStart(mode) {
 
 function byId(id) { return DATA.reveal.find((x) => x.id === id); }
 
+// Free sessions keep using store.getRevealSession/setRevealSession/
+// clearRevealSession (per MODE) exactly as before. Daily and practice
+// sessions use the namespaced generic store so they never collide with a
+// free session or with each other.
+function modeStore(sessMode, key) {
+  if (sessMode === 'free') {
+    return {
+      get: () => store.getRevealSession(MODE),
+      set: (s) => store.setRevealSession(MODE, s),
+      clear: () => store.clearRevealSession(MODE),
+    };
+  }
+  return {
+    get: () => store.getDailySession(key),
+    set: (s) => store.setDailySession(key, s),
+    clear: () => store.clearDailySession(key),
+  };
+}
+
 // A timed round can't be resumed mid-clock, so we only persist completed rounds;
 // resuming restarts the current round's timer fresh.
 function persist() {
-  store.setRevealSession(MODE, {
+  S.store.set({
     ids: S.rounds.map((x) => x.id),
     score: S.score, streak: S.streak, bestStreak: S.bestStreak,
+    editionIndex: S.editionIndex,
     results: S.results.map((r) => ({ id: r.item.id, pts: r.pts, correct: r.correct })),
   });
 }
@@ -183,7 +260,10 @@ function startSession() {
     return;
   }
   const rng = makeRng();
-  S = { rounds: pickRounds(rng), i: 0, score: 0, streak: 0, bestStreak: 0, results: [] };
+  S = {
+    mode: 'free', dailyKey: null, store: modeStore('free', null),
+    rounds: pickRounds(rng), i: 0, score: 0, streak: 0, bestStreak: 0, results: [],
+  };
   show('view-reveal');
   startRound();
 }
@@ -191,13 +271,20 @@ function startSession() {
 function resumeSession() {
   const saved = store.getRevealSession(MODE);
   if (!saved || !saved.ids || !saved.results) return;
+  resumeFrom('free', null, saved);
+}
+
+// Shared resume path for free/daily/practice.
+function resumeFrom(sessMode, key, saved) {
+  const st = modeStore(sessMode, key);
   if (saved.ids.some((id) => !byId(id)) || saved.results.some((r) => !byId(r.id))) {
-    store.clearRevealSession(MODE);
-    renderRevealStart();
+    st.clear();
+    if (sessMode === 'free') renderRevealStart();
     return;
   }
   const next = saved.results.length;
   S = {
+    mode: sessMode, dailyKey: key, store: st, editionIndex: saved.editionIndex,
     rounds: saved.ids.map(byId),
     i: Math.min(next, saved.ids.length - 1),
     score: saved.score, streak: saved.streak, bestStreak: saved.bestStreak,
@@ -208,11 +295,53 @@ function resumeSession() {
   startRound();
 }
 
+// ---------- daily / practice entry points ----------
+// game key for the daily/practice namespace is 'who' or 'what' (MODE).
+function startEdition(sessMode, editionIndex) {
+  if (MODE !== 'who' && MODE !== 'what') return;
+  const key = sessMode === 'daily' ? daily.dailyKey(MODE, editionIndex) : daily.practiceKey(MODE, editionIndex);
+  if (sessMode === 'daily') {
+    const entry = store.getDailyEntry(MODE, editionIndex);
+    if (entry) { showLockedResult(editionIndex, entry); return; }
+  }
+  const saved = store.getDailySession(key);
+  if (saved && saved.ids && saved.results) {
+    resumeFrom(sessMode, key, saved);
+    return;
+  }
+  const rounds = daily.getEdition(MODE, editionIndex);
+  S = {
+    mode: sessMode, dailyKey: key, store: modeStore(sessMode, key), editionIndex,
+    rounds, i: 0, score: 0, streak: 0, bestStreak: 0, results: [],
+  };
+  show('view-reveal');
+  startRound();
+}
+
+export function startRevealDaily(mode, editionIndex) { MODE = mode; startEdition('daily', editionIndex); }
+export function startRevealPractice(mode, editionIndex) { MODE = mode; startEdition('practice', editionIndex); }
+
+function showLockedResult(editionIndex, entry) {
+  S = {
+    mode: 'daily', dailyKey: daily.dailyKey(MODE, editionIndex), store: modeStore('daily', null),
+    editionIndex, done: true, locked: true,
+    score: entry.score,
+    results: (entry.detail || []).map((r) => ({
+      item: byId(r.id) || { name: '(removed)', kind: MODE === 'who' ? 'portrait' : 'artefact' }, pts: r.pts, correct: r.correct,
+    })),
+  };
+  renderLockedSummary();
+  show('view-revealsum');
+}
+
 function round() { return S.rounds[S.i]; }
 
 function startRound() {
   const item = round();
-  S.cur = { open: true, p: 0, start: 0, raf: null, D: 0 };
+  S.cur = {
+    open: true, p: 0, start: 0, raf: null, D: 0, wrongs: 0,
+    pauseUntil: 0, pauseBudgetMs: PAUSE_BUDGET_MS, lastTick: 0, lastChanceUntil: 0,
+  };
   $('#rv-progress').textContent = `Round ${S.i + 1} of ${S.rounds.length}`;
   $('#rv-score').textContent = `${S.score} pts`;
   $('#rv-prompt').textContent = item.kind === 'portrait' ? 'Who is this?' : 'What is this?';
@@ -227,6 +356,7 @@ function startRound() {
   $('#rv-next').hidden = true;
   $('#rv-streak').hidden = S.streak < 2;
   if (S.streak >= 2) $('#rv-streak').textContent = `${S.streak} in a row`;
+  $('#rv-pause').hidden = true;
   updateTimer(0);
   // Dark frame while the image loads, then open tight and start the zoom.
   const frame = $('#rv-frame');
@@ -248,10 +378,16 @@ function resolveRound(correct) {
   if (!S.cur.open) return;        // guard against a guess landing with time-up
   S.cur.open = false;
   const p = S.cur.p || 0;
+  const wrongs = S.cur.wrongs || 0;
   let pts = 0;
   let bonus = 0;
   if (correct) {
-    pts = Math.max(20, Math.round(100 - 80 * p));   // 100 (tight) → 20 (fully open)
+    if (S.cur.lastChanceUntil) {
+      pts = Math.max(10, 20 - WRONG_PENALTY * wrongs);   // answered in the last-chance window: floor score
+    } else {
+      // 100 (tight) → 20 (fully open), then docked 15 pts per wrong guess along the way.
+      pts = Math.max(10, Math.max(20, Math.round(100 - 80 * p)) - WRONG_PENALTY * wrongs);
+    }
     S.streak++;
     S.bestStreak = Math.max(S.bestStreak, S.streak);
     if (S.streak >= 2) bonus = 10;
@@ -263,6 +399,7 @@ function resolveRound(correct) {
   S.results.push({ item, pts: total, correct, p });
   persist();
 
+  $('#rv-pause').hidden = true;
   paintFull(item);
   updateTimer(1);
   const credit = item.license && item.license !== 'Public domain'
@@ -289,17 +426,7 @@ function resolveRound(correct) {
   $('#rv-next').scrollIntoView({ block: 'nearest' });
 }
 
-function finishSession() {
-  if (S.done) { show('view-revealsum'); return; }
-  S.done = true;
-  store.clearRevealSession(MODE);
-  const r = store.getReveal(MODE);
-  r.sessions = (r.sessions || 0) + 1;
-  r.bestScore = Math.max(r.bestScore || 0, S.score);
-  r.bestStreak = Math.max(r.bestStreak || 0, S.bestStreak);
-  store.setReveal(MODE, r);
-  refreshHomeStats();
-
+function renderLockedSummary() {
   $('#rv-sum-total').textContent = S.score;
   const remarks = [
     [850, 'A connoisseur of the ages.'],
@@ -317,6 +444,32 @@ function finishSession() {
       + `<span class="sum-pts${r2.pts ? '' : ' zero'}">${r2.pts ? '+' + r2.pts : '0'}</span>`;
     ol.appendChild(li);
   }
+  // Daily results are locked: no replay from the summary screen.
+  $('#rv-sum-again').hidden = !!S.locked;
+}
+
+function finishSession() {
+  if (S.done) { renderLockedSummary(); show('view-revealsum'); return; }
+  S.done = true;
+  S.store.clear();
+
+  if (S.mode === 'free') {
+    const r = store.getReveal(MODE);
+    r.sessions = (r.sessions || 0) + 1;
+    r.bestScore = Math.max(r.bestScore || 0, S.score);
+    r.bestStreak = Math.max(r.bestStreak || 0, S.bestStreak);
+    store.setReveal(MODE, r);
+  } else if (S.mode === 'daily') {
+    daily.recordDailyCompletion(MODE, S.editionIndex, {
+      score: S.score,
+      detail: S.results.map((r3) => ({ id: r3.item.id, pts: r3.pts, correct: r3.correct })),
+    });
+    S.locked = true;
+  }
+  // practice mode: no ledger, no best-score update — replayable, no trace.
+  refreshHomeStats();
+
+  renderLockedSummary();
   window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
     revealSession: { score: S.score, results: S.results.map((r3) => ({ id: r3.item.id, pts: r3.pts, correct: r3.correct })) },
   });
@@ -336,18 +489,38 @@ export function initRevealGame() {
     if (isMatch(guess, round())) {
       resolveRound(true);
     } else {
-      // A wrong guess doesn't widen the frame — the running clock is the penalty.
+      // A wrong guess costs points on the eventual correct answer (see resolveRound)
+      // instead of widening the frame — the running clock still does that.
+      S.cur.wrongs = (S.cur.wrongs || 0) + 1;
       const chip = document.createElement('span');
       chip.className = 'guess-chip';
-      chip.textContent = guess;
+      const guessText = document.createElement('span');
+      guessText.textContent = guess;
+      chip.appendChild(guessText);
+      const penalty = document.createElement('small');
+      penalty.textContent = `-${WRONG_PENALTY}`;
+      chip.appendChild(penalty);
       $('#rv-guesses').appendChild(chip);
       const inp = $('#rv-input');
       inp.value = '';
+      S.cur.pauseUntil = 0;
+      updatePause(performance.now());
       inp.classList.remove('shake');
       void inp.offsetWidth;
       inp.classList.add('shake');
       inp.focus();
     }
+  });
+
+  $('#rv-input').addEventListener('input', () => {
+    if (!S || !S.cur || !S.cur.open) return;
+    const inp = $('#rv-input');
+    if (inp.value.trim()) {
+      S.cur.pauseUntil = performance.now() + PAUSE_MS;
+    } else {
+      S.cur.pauseUntil = 0;
+    }
+    updatePause(performance.now());
   });
 
   $('#rv-reveal').addEventListener('click', () => {
@@ -364,7 +537,14 @@ export function initRevealGame() {
   $('#rv-quit').addEventListener('click', () => {
     if (S && !S.done) {
       appConfirm('Quit this session? The score so far will be lost.', 'Quit session')
-        .then((ok) => { if (ok) { stopZoom(); store.clearRevealSession(MODE); renderRevealStart(); back(); } });
+        .then((ok) => {
+          if (ok) {
+            stopZoom();
+            S.store.clear();
+            if (S.mode === 'free') renderRevealStart();
+            back();
+          }
+        });
     } else {
       back();
     }

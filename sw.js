@@ -1,6 +1,6 @@
 // Chronicle service worker: precache everything, serve cache-first.
 // Bump VERSION on every deploy to refresh clients.
-const VERSION = 'chronicle-v17';
+const VERSION = 'chronicle-v18';
 
 const ASSETS = [
   './',
@@ -13,6 +13,7 @@ const ASSETS = [
   './js/mapgame.js',
   './js/revealgame.js',
   './js/connectionsgame.js',
+  './js/daily.js',
   './data/puzzles.json',
   './data/figures.json',
   './data/worldmap.json',

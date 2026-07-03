@@ -1,6 +1,7 @@
 // Connections — group 16 history clues into four hidden categories
 import { DATA, $, $$, show, back, goHome, refreshHomeStats } from './app.js';
 import * as store from './storage.js';
+import * as daily from './daily.js';
 
 const MAX_MISTAKES = 4;
 const COLOUR_ORDER = ['yellow', 'green', 'blue', 'purple'];
@@ -80,6 +81,25 @@ function updateLiveScore() {
   ensureLiveScoreEl().textContent = `${calcScore(true, S.mistakes)} pts`;
 }
 
+// Free puzzles keep using store.getConnProgress/setConnProgress/
+// clearConnProgress (keyed by puzzle.id) exactly as before. Daily and
+// practice attempts use the namespaced generic store so they never collide
+// with a free attempt or with each other.
+function modeStore(mode, key, puzzleId) {
+  if (mode === 'free') {
+    return {
+      get: () => store.getConnProgress(puzzleId),
+      set: (s) => store.setConnProgress(puzzleId, s),
+      clear: () => store.clearConnProgress(puzzleId),
+    };
+  }
+  return {
+    get: () => store.getDailySession(key),
+    set: (s) => store.setDailySession(key, s),
+    clear: () => store.clearDailySession(key),
+  };
+}
+
 function startPuzzle(puzzle) {
   ensureConnScoreStyles();
   currentPuzzle = puzzle;
@@ -93,9 +113,11 @@ function startPuzzle(puzzle) {
 
   // Resume any in-progress attempt (found groups + mistakes) so backing out
   // mid-puzzle via the header arrow doesn't wipe the player's progress.
-  const progress = store.getConnProgress(puzzle.id);
+  const st = modeStore('free', null, puzzle.id);
+  const progress = st.get();
 
   S = {
+    mode: 'free', dailyKey: null, store: st, editionIndex: null,
     puzzle,
     tiles: shuffleArray(tiles),
     selected: new Set(),
@@ -109,18 +131,90 @@ function startPuzzle(puzzle) {
   show('view-conn');
 }
 
+// ---------- daily / practice entry points ----------
+// Thread daily/practice opens the edition's single board directly (no list).
+function startEdition(mode, editionIndex) {
+  if (mode === 'daily') {
+    const entry = store.getDailyEntry('thread', editionIndex);
+    if (entry) { showLockedResult(editionIndex, entry); return; }
+  }
+  const boards = daily.getEdition('thread', editionIndex);
+  const puzzle = boards[0];
+  if (!puzzle) return;               // no board available for this tier (shouldn't happen with real content)
+  ensureConnScoreStyles();
+  currentPuzzle = puzzle;
+  const key = mode === 'daily' ? daily.dailyKey('thread', editionIndex) : daily.practiceKey('thread', editionIndex);
+  const st = modeStore(mode, key, puzzle.id);
+  const progress = st.get();
+  const tiles = [];
+  puzzle.groups.forEach((group) => {
+    group.items.forEach((item) => tiles.push({ item, colour: group.colour, label: group.label }));
+  });
+  S = {
+    mode, dailyKey: key, store: st, editionIndex,
+    puzzle,
+    tiles: shuffleArray(tiles),
+    selected: new Set(),
+    found: new Set(progress ? progress.found : []),
+    mistakes: progress ? progress.mistakes : 0,
+    done: false,
+  };
+  $('#conn-puzzle-title').textContent = puzzle.title;
+  renderConnGame();
+  show('view-conn');
+}
+
+export function startThreadDaily(editionIndex) { startEdition('daily', editionIndex); }
+export function startThreadPractice(editionIndex) { startEdition('practice', editionIndex); }
+
+function showLockedResult(editionIndex, entry) {
+  const boards = daily.getEdition('thread', editionIndex);
+  const puzzle = boards[0];
+  currentPuzzle = puzzle;
+  const detail = entry.detail || {};
+  S = {
+    mode: 'daily', dailyKey: daily.dailyKey('thread', editionIndex), store: modeStore('daily', null, null),
+    editionIndex, puzzle, done: true, locked: true,
+    found: new Set(['yellow', 'green', 'blue', 'purple']),
+    mistakes: detail.mistakes || 0,
+  };
+  $('#conn-sum-title').textContent = puzzle ? puzzle.title : 'Thread';
+  const perfect = detail.perfect;
+  const solved = detail.solved;
+  const msg = perfect ? 'Perfect — no mistakes!' :
+    solved ? `Solved with ${detail.mistakes} mistake${detail.mistakes === 1 ? '' : 's'}` :
+    'Game over';
+  $('#conn-sum-msg').textContent = msg;
+  ensureConnSumScoreEl().innerHTML =
+    `${entry.score} pts<small>${solved ? `${detail.mistakes} mistake${detail.mistakes === 1 ? '' : 's'}` : 'game over'}</small>`;
+  const reveal = $('#conn-sum-groups');
+  reveal.innerHTML = '';
+  if (puzzle) {
+    COLOUR_ORDER.forEach((colour) => {
+      const group = puzzle.groups.find((g) => g.colour === colour);
+      const div = document.createElement('div');
+      div.className = `conn-group conn-group-${colour}`;
+      div.innerHTML = `<div class="conn-group-label">${group.label}</div>`
+        + `<div class="conn-group-items">${group.items.join(', ')}</div>`;
+      reveal.appendChild(div);
+    });
+  }
+  show('view-connsum');
+}
+
 // Save the player's found groups + mistakes so far, so leaving mid-puzzle
 // (header back arrow) doesn't lose progress. Mirrors the session-persistence
 // pattern used by map/reveal/chrono in storage.js. No-op until the player has
 // actually made some headway, so a puzzle opened-and-immediately-backed-out
-// isn't misreported as "in progress".
+// isn't misreported as "in progress". Daily/practice sessions still persist
+// even at found.size===0 as long as a mistake's been made — same rule.
 function persistProgress() {
   if (!currentPuzzle || !S) return;
   if (S.found.size === 0 && S.mistakes === 0) {
-    store.clearConnProgress(currentPuzzle.id);
+    S.store.clear();
     return;
   }
-  store.setConnProgress(currentPuzzle.id, {
+  S.store.set({
     found: [...S.found],
     mistakes: S.mistakes,
   });
@@ -261,15 +355,21 @@ function finishPuzzle() {
   const perfect = S.found.size === S.puzzle.groups.length && S.mistakes === 0;
   const solved = S.found.size === S.puzzle.groups.length;
   const score = calcScore(solved, S.mistakes);
-  store.setConn(currentPuzzle.id, { solved, perfect, mistakes: S.mistakes, score });
-  store.clearConnProgress(currentPuzzle.id);
+  S.store.clear();
 
-  const stats = store.getConnStats();
-  if (solved) stats.solved = (stats.solved || 0) + 1;
-  stats.sessions = (stats.sessions || 0) + 1;
-  stats.bestScore = Math.max(stats.bestScore || 0, score);
-  stats.totalScore = (stats.totalScore || 0) + score;
-  store.setConnStats(stats);
+  if (S.mode === 'free') {
+    store.setConn(currentPuzzle.id, { solved, perfect, mistakes: S.mistakes, score });
+    const stats = store.getConnStats();
+    if (solved) stats.solved = (stats.solved || 0) + 1;
+    stats.sessions = (stats.sessions || 0) + 1;
+    stats.bestScore = Math.max(stats.bestScore || 0, score);
+    stats.totalScore = (stats.totalScore || 0) + score;
+    store.setConnStats(stats);
+  } else if (S.mode === 'daily') {
+    daily.recordDailyCompletion('thread', S.editionIndex, { score, detail: { solved, perfect, mistakes: S.mistakes } });
+    S.locked = true;
+  }
+  // practice mode: no ledger, no puzzle-list record, no stats — replayable.
   refreshHomeStats();
 
   // summary
@@ -346,8 +446,8 @@ export function initConnectionsGame() {
     // every other game's back button — it must not just undo a selection.
     // Save progress first so reopening the puzzle resumes where it left off.
     if (S && !S.done) persistProgress();
+    if (S && S.mode === 'free') renderConnList();
     S = null;
-    renderConnList();
     back();
   });
   $('#conn-sum-back').addEventListener('click', () => {
