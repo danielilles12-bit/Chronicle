@@ -96,7 +96,7 @@ function animateTo(box) {
 function renderWorld() {
   const svg = $('#map-svg');
   svg.setAttribute('viewBox', '0 0 1000 500');
-  svg.innerHTML = `<rect x="-40" y="-40" width="1080" height="580" fill="#dce9f2"></rect>`
+  svg.innerHTML = `<rect x="-40" y="-40" width="1080" height="580" fill="var(--ch-cream)"></rect>`
     + `<path class="map-land" d="${DATA.world.land}" fill-rule="evenodd"></path>`
     + `<g id="mk"></g>`;
 }
@@ -116,7 +116,7 @@ function drawMarkers(fig) {
   g.dataset.dx = d[0]; g.dataset.dy = d[1];
   g.innerHTML =
     `<circle class="mk-dot mk-birth" cx="${b[0]}" cy="${b[1]}" r="6"></circle>`
-    + `<circle class="mk-ring mk-death-ring" cx="${d[0]}" cy="${d[1]}" r="9" fill="none" stroke="#b4422e"></circle>`
+    + `<circle class="mk-ring mk-death-ring" cx="${d[0]}" cy="${d[1]}" r="9" fill="none" stroke="var(--ch-map-origin)"></circle>`
     + `<circle class="mk-dot mk-death" cx="${d[0]}" cy="${d[1]}" r="3.2"></circle>`
     + `<text class="mk-label" data-anchor="b" x="${b[0]}" y="${b[1]}">${yearLabel(fig.birth)}</text>`
     + `<text class="mk-label" data-anchor="d" x="${d[0]}" y="${d[1]}">${yearLabel(fig.death)}</text>`;

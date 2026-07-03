@@ -1,0 +1,24 @@
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+
+EB Garamond is distributed under the SIL Open Font License (OFL) 1.1.
+
+This license permits use, study, modification, redistribution, and bundling, provided the license terms are followed. The bundled font files in this pack are included for self-hosted local use in the Chronicle offline PWA.
+
+For the full canonical license text, see:
+https://openfontlicense.org/open-font-license-official-text/
+
+Key OFL terms in brief:
+- The fonts may be used freely in products and documents.
+- The fonts may be bundled, redistributed, and embedded.
+- Modified versions must not use Reserved Font Names unless permission is granted.
+- The fonts themselves may not be sold by themselves.
+- The license and copyright notices must accompany redistribution.
+
+Bundled cuts in this pack:
+- ChronicleDisplay-Regular.ttf / .woff2 — EB Garamond 08 Regular
+- ChronicleText-Regular.ttf / .woff2 — EB Garamond 12 Regular
+- ChronicleText-Italic.ttf / .woff2 — EB Garamond 12 Italic
+- ChronicleText-Bold.ttf / .woff2 — EB Garamond 12 Bold
+
+Bold cut confirmation:
+The bold file is a genuine bold cut sourced from the installed EB Garamond family file `EBGaramond12-Bold.ttf`, not a browser-synthesised faux bold.

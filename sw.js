@@ -1,11 +1,24 @@
 // Chronicle service worker: precache everything, serve cache-first.
 // Bump VERSION on every deploy to refresh clients.
-const VERSION = 'chronicle-v18';
+const VERSION = 'chronicle-v19';
 
 const ASSETS = [
   './',
   './index.html',
+  './css/brand-tokens.css',
   './css/style.css',
+  './assets/fonts/ChronicleDisplay-Regular.woff2',
+  './assets/fonts/ChronicleText-Regular.woff2',
+  './assets/fonts/ChronicleText-Italic.woff2',
+  './assets/fonts/ChronicleText-Bold.woff2',
+  './assets/brand/svg/parchment-grain-tile.svg',
+  './assets/brand/svg/archive-grid-tile.svg',
+  './assets/brand/svg/divider-flourish.svg',
+  './assets/brand/svg/monogram-seal-c.svg',
+  './assets/brand/svg/game-icon-lifeline-full.svg',
+  './assets/brand/svg/game-icon-face-value-full.svg',
+  './assets/brand/svg/game-icon-relic-full.svg',
+  './assets/brand/svg/game-icon-thread-full.svg',
   './js/app.js',
   './js/storage.js',
   './js/match.js',

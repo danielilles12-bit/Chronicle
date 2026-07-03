@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
 <title>Chronicle — History Games</title>
 <meta name="description" content="Little games about big history: Lifeline, Face Value, Relic and Thread.">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#F6F1E6">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/favicon.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
@@ -13,6 +13,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Chronicle">
+<link rel="stylesheet" href="css/brand-tokens.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -21,6 +22,7 @@
   <!-- ============ HOME ============ -->
   <section class="view" id="view-home">
     <header class="masthead safe-top">
+      <img class="masthead-seal" src="assets/brand/svg/monogram-seal-c.svg" alt="" aria-hidden="true">
       <h1>Chronicle</h1>
       <p class="tagline">Little games about big history</p>
       <p class="dateline" id="dateline"></p>
@@ -68,13 +70,16 @@
         <span class="card-go" aria-hidden="true">›</span>
       </button>
       <button class="card" id="card-map" aria-label="Play Lifeline">
-        <svg class="card-glyph" viewBox="0 0 48 48" aria-hidden="true">
-          <circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="2"/>
-          <ellipse cx="24" cy="24" rx="10" ry="21" fill="none" stroke="currentColor" stroke-width="2"/>
-          <line x1="3" y1="24" x2="45" y2="24" stroke="currentColor" stroke-width="2"/>
-          <circle cx="15" cy="15" r="4.5" fill="#4a7c43"/>
-          <circle cx="34" cy="31" r="4.5" fill="#b4422e"/>
-        </svg>
+        <svg class="card-glyph" viewBox="0 0 96 96" aria-hidden="true" fill="none"><g stroke="currentColor" stroke-width="3.15" stroke-linecap="round" stroke-linejoin="round" fill="none">
+          <circle cx="48" cy="48" r="34"/>
+          <path d="M29 65 C36 56 45 49 54 42 C60 37 64 32 68 25"/>
+          <path d="M28 67 C22 60 22 52 28 46 C34 52 34 60 28 67 Z"/>
+          <circle cx="28" cy="55" r="2.8" fill="currentColor" stroke="none"/>
+          <path d="M68 27 C62 20 62 12 68 6 C74 12 74 20 68 27 Z"/>
+          <circle cx="68" cy="16" r="2.8" fill="currentColor" stroke="none"/>
+          <path d="M48 24 L50.5 31.5 L58 34 L50.5 36.5 L48 44 L45.5 36.5 L38 34 L45.5 31.5 Z" fill="currentColor" stroke="none"/>
+          <path d="M22 72 C30 76 39 78 48 78 C57 78 66 76 74 72"/>
+        </g></svg>
         <div class="card-body">
           <h2>Lifeline</h2>
           <p>One life, two dots — born here, died there. Name the figure.</p>
@@ -83,13 +88,16 @@
         <span class="card-go" aria-hidden="true">›</span>
       </button>
       <button class="card" id="card-reveal-who" aria-label="Play Face Value">
-        <svg class="card-glyph" viewBox="0 0 48 48" aria-hidden="true">
-          <circle cx="20" cy="17" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
-          <circle cx="20" cy="14.5" r="3.2" fill="currentColor"/>
-          <path d="M13.5 23.5 a7 7 0 0 1 13 0" fill="none" stroke="currentColor" stroke-width="2"/>
-          <circle cx="32" cy="32" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
-          <line x1="39" y1="39" x2="45" y2="45" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
-        </svg>
+        <svg class="card-glyph" viewBox="0 0 96 96" aria-hidden="true" fill="none"><g stroke="currentColor" stroke-width="3.05" stroke-linecap="round" stroke-linejoin="round" fill="none">
+          <circle cx="48" cy="48" r="34"/>
+          <path d="M31 29 H62 C66.5 29 69.5 32 69.5 36.5 V66 C69.5 70.5 66.5 73.5 62 73.5 H34 C29.5 73.5 26.5 70.5 26.5 66 V36.5 C26.5 32 28.8 29.7 31 29 Z"/>
+          <path d="M34 35 H59.5 C62 35 64 37 64 39.5 V63.5 C64 66 62 68 59.5 68 H36.5 C34 68 32 66 32 63.5 V39.5 C32 37 33 35.8 34 35 Z" opacity=".72"/>
+          <path d="M52 39 C48.5 40.5 46.8 43.2 47.4 46.1 C44.7 46.8 43.2 48.3 42.7 50.4 C43.9 51.3 45.5 51.7 47.6 51.7 C46.5 53.4 45 55 42.9 56.5 C45.5 58.5 48.8 59.4 52.4 59.1 C51.1 63.4 47.8 66.4 43 68.5"/>
+          <path d="M35 35 C42.5 38.4 49.4 44.3 54.5 52.8 C58.2 59 59.4 65.1 57.2 72.7"/>
+          <path d="M57.2 36 C54.7 40.1 54.3 45.6 56.4 51 C58.2 55.6 58.1 60.1 55.5 64.7"/>
+          <circle cx="50.5" cy="46.5" r="1.25" fill="currentColor" stroke="none"/>
+          <path d="M39 73.5 C41.8 76.2 44.8 77.5 48 77.5 C51.2 77.5 54.2 76.2 57 73.5"/>
+        </g></svg>
         <div class="card-body">
           <h2>Face Value</h2>
           <p>A famous face, one sliver at a time. Name the figure before it’s revealed.</p>
@@ -98,13 +106,20 @@
         <span class="card-go" aria-hidden="true">›</span>
       </button>
       <button class="card" id="card-reveal-what" aria-label="Play Relic">
-        <svg class="card-glyph" viewBox="0 0 48 48" aria-hidden="true">
-          <rect x="3" y="6" width="34" height="27" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
-          <circle cx="16" cy="16" r="5" fill="currentColor"/>
-          <path d="M6 31 L18 19 L25 26 L30 21 L37 28" fill="none" stroke="currentColor" stroke-width="2"/>
-          <circle cx="32" cy="33" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
-          <line x1="39" y1="40" x2="45" y2="46" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
-        </svg>
+        <svg class="card-glyph" viewBox="0 0 96 96" aria-hidden="true" fill="none"><g stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+          <circle cx="48" cy="48" r="34"/>
+          <path d="M42 27 H54"/>
+          <path d="M44 27 C44 34 40 38 36 43 C31 50 32 63 39 68 C44 72 52 72 57 68 C64 63 65 50 60 43 C56 38 52 34 52 27"/>
+          <path d="M38 44 C42 47 46 49 48 55 C50 49 54 47 58 44"/>
+          <path d="M36 62 H60"/>
+          <path d="M34 68 H62"/>
+          <path d="M30 42 C24 47 22 54 24 61"/>
+          <path d="M66 42 C72 47 74 54 72 61"/>
+          <circle cx="62" cy="38" r="9"/>
+          <path d="M68.5 44.5 L75 51"/>
+          <path d="M58 38 H66"/>
+          <path d="M62 34 V42"/>
+        </g></svg>
         <div class="card-body">
           <h2>Relic</h2>
           <p>A famous artefact, one sliver at a time. Name it before it’s revealed.</p>
@@ -113,12 +128,19 @@
         <span class="card-go" aria-hidden="true">›</span>
       </button>
       <button class="card" id="card-conn" aria-label="Play Thread">
-        <svg class="card-glyph" viewBox="0 0 48 48" aria-hidden="true">
-          <rect x="3" y="3" width="18" height="18" rx="3" fill="currentColor" opacity=".25"/>
-          <rect x="27" y="3" width="18" height="18" rx="3" fill="currentColor" opacity=".5"/>
-          <rect x="3" y="27" width="18" height="18" rx="3" fill="currentColor" opacity=".75"/>
-          <rect x="27" y="27" width="18" height="18" rx="3" fill="currentColor"/>
-        </svg>
+        <svg class="card-glyph" viewBox="0 0 96 96" aria-hidden="true" fill="none"><g stroke="currentColor" stroke-width="3.15" stroke-linecap="round" stroke-linejoin="round" fill="none">
+          <circle cx="48" cy="48" r="34"/>
+          <path d="M24 38 C33 29 43 29 48 38 C53 29 63 29 72 38"/>
+          <path d="M24 58 C33 67 43 67 48 58 C53 67 63 67 72 58"/>
+          <path d="M24 38 C33 47 33 49 24 58"/>
+          <path d="M72 38 C63 47 63 49 72 58"/>
+          <path d="M34 34 C43 43 53 53 62 62"/>
+          <path d="M62 34 C53 43 43 53 34 62"/>
+          <circle cx="48" cy="48" r="5.2"/>
+          <path d="M48 38 C45 42 45 45 48 48 C51 51 51 54 48 58"/>
+          <path d="M32 48 H38"/>
+          <path d="M58 48 H64"/>
+        </g></svg>
         <div class="card-body">
           <h2>Thread</h2>
           <p>Group 16 history clues into four hidden categories.</p>
@@ -223,9 +245,9 @@
     </header>
     <main class="scroll-main center-main">
       <svg class="start-glyph" viewBox="0 0 120 60" aria-hidden="true">
-        <circle cx="22" cy="38" r="8" fill="#4a7c43"/>
-        <path d="M30 36 C 55 8, 75 8, 96 24" fill="none" stroke="#bbb" stroke-width="2" stroke-dasharray="4 4"/>
-        <circle cx="98" cy="26" r="8" fill="#b4422e"/>
+        <circle cx="22" cy="38" r="8" fill="#12382E"/>
+        <path d="M30 36 C 55 8, 75 8, 96 24" fill="none" stroke="#B58A2D" stroke-width="2" stroke-dasharray="4 4"/>
+        <circle cx="98" cy="26" r="8" fill="#7A1F2D"/>
       </svg>
       <h3 class="start-title">Ten lives, twenty dots.</h3>
       <p class="start-copy">Each round shows where a historical figure was <b class="b-green">born</b> and where they <b class="b-red">died</b>, with the years. Type their name — spelling needn’t be perfect.</p>
@@ -293,11 +315,11 @@
     </header>
     <main class="scroll-main center-main">
       <svg class="start-glyph" viewBox="0 0 120 60" aria-hidden="true">
-        <rect x="20" y="10" width="50" height="40" rx="3" fill="#e6ddcb" stroke="#b9ad92" stroke-width="2"/>
-        <path d="M26 44 L40 30 L48 38 L56 30 L64 42" fill="none" stroke="#9a8f76" stroke-width="2"/>
-        <circle cx="40" cy="24" r="5" fill="#caa14a"/>
-        <circle cx="80" cy="36" r="16" fill="rgba(74,124,67,0.12)" stroke="#4a7c43" stroke-width="3"/>
-        <line x1="92" y1="48" x2="105" y2="58" stroke="#4a7c43" stroke-width="4" stroke-linecap="round"/>
+        <rect x="20" y="10" width="50" height="40" rx="3" fill="#F1E6CD" stroke="#CBB383" stroke-width="2"/>
+        <path d="M26 44 L40 30 L48 38 L56 30 L64 42" fill="none" stroke="#5C4733" stroke-width="2"/>
+        <circle cx="40" cy="24" r="5" fill="#B58A2D"/>
+        <circle cx="80" cy="36" r="16" fill="rgba(18,56,46,0.12)" stroke="#12382E" stroke-width="3"/>
+        <line x1="92" y1="48" x2="105" y2="58" stroke="#12382E" stroke-width="4" stroke-linecap="round"/>
       </svg>
       <h3 class="start-title">Beat the zoom.</h3>
       <p class="start-copy">Each round opens tight on a famous <b>face</b> or <b>artefact</b>, then slowly zooms out over <b>15 seconds</b>. Name it as early as you can.</p>
@@ -364,17 +386,17 @@
     </header>
     <main class="scroll-main center-main">
       <svg class="start-glyph" viewBox="0 0 200 80" aria-hidden="true">
-        <line x1="20" y1="40" x2="180" y2="40" stroke="#e6e6e6" stroke-width="2"/>
-        <circle cx="40" cy="40" r="8" fill="#9a7b2d"/>
-        <circle cx="90" cy="40" r="8" fill="#9a7b2d"/>
-        <circle cx="140" cy="40" r="8" fill="#9a7b2d"/>
-        <circle cx="165" cy="40" r="8" fill="#9a7b2d"/>
-        <circle cx="185" cy="40" r="8" fill="#9a7b2d" opacity=".4"/>
-        <text x="40" y="62" text-anchor="middle" font-size="9" fill="#6e6e6e">44 BC</text>
-        <text x="90" y="62" text-anchor="middle" font-size="9" fill="#6e6e6e">1066</text>
-        <text x="140" y="62" text-anchor="middle" font-size="9" fill="#6e6e6e">1492</text>
-        <text x="165" y="62" text-anchor="middle" font-size="9" fill="#6e6e6e">1789</text>
-        <text x="185" y="62" text-anchor="middle" font-size="9" fill="#6e6e6e" opacity=".4">?</text>
+        <line x1="20" y1="40" x2="180" y2="40" stroke="#E3D3AF" stroke-width="2"/>
+        <circle cx="40" cy="40" r="8" fill="#B58A2D"/>
+        <circle cx="90" cy="40" r="8" fill="#B58A2D"/>
+        <circle cx="140" cy="40" r="8" fill="#B58A2D"/>
+        <circle cx="165" cy="40" r="8" fill="#B58A2D"/>
+        <circle cx="185" cy="40" r="8" fill="#B58A2D" opacity=".4"/>
+        <text x="40" y="62" text-anchor="middle" font-size="9" fill="#5C4733">44 BC</text>
+        <text x="90" y="62" text-anchor="middle" font-size="9" fill="#5C4733">1066</text>
+        <text x="140" y="62" text-anchor="middle" font-size="9" fill="#5C4733">1492</text>
+        <text x="165" y="62" text-anchor="middle" font-size="9" fill="#5C4733">1789</text>
+        <text x="185" y="62" text-anchor="middle" font-size="9" fill="#5C4733" opacity=".4">?</text>
       </svg>
       <h3 class="start-title">Sort the timeline.</h3>
       <p class="start-copy">Each round gives you five historical events out of order. Tap two to swap them, then submit. Closest to perfect scores the most.</p>
