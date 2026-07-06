@@ -3139,5 +3139,199 @@
     "hint": "Independence acknowledged at last"
    }
   ]
+ },
+ {
+  "id": "chrono-096",
+  "title": "The Aztec Empire",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "Tenochtitlan is founded on a lake island",
+    "year": 1325,
+    "hint": "An eagle on a cactus marks the spot"
+   },
+   {
+    "label": "The Triple Alliance forms the empire",
+    "year": 1428,
+    "hint": "Three cities join to rule the valley"
+   },
+   {
+    "label": "Moctezuma II takes the throne",
+    "year": 1502,
+    "hint": "The empire at its height"
+   },
+   {
+    "label": "Cortes and his men reach Tenochtitlan",
+    "year": 1519,
+    "hint": "Spaniards enter the great city"
+   },
+   {
+    "label": "The Aztec capital falls to the Spanish",
+    "year": 1521,
+    "hint": "Siege and smallpox bring it down"
+   }
+  ]
+ },
+ {
+  "id": "chrono-097",
+  "title": "The Crimean War",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "War breaks out between Russia and the allies",
+    "year": 1853,
+    "hint": "Britain and France back the Ottomans"
+   },
+   {
+    "label": "The Charge of the Light Brigade at Balaclava",
+    "year": 1854,
+    "month": 10,
+    "hint": "'Into the valley of Death'"
+   },
+   {
+    "label": "Florence Nightingale reaches the army hospitals",
+    "year": 1854,
+    "month": 11,
+    "hint": "'The Lady with the Lamp' at Scutari"
+   },
+   {
+    "label": "The fortress of Sevastopol falls",
+    "year": 1855,
+    "hint": "A year-long siege ends"
+   },
+   {
+    "label": "The Treaty of Paris ends the war",
+    "year": 1856,
+    "hint": "Russia checked in the Black Sea"
+   }
+  ]
+ },
+ {
+  "id": "chrono-098",
+  "title": "From Revolution to Union",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "The Glorious Revolution drives out James II",
+    "year": 1688,
+    "hint": "William of Orange is invited over"
+   },
+   {
+    "label": "The Bill of Rights limits the monarchy",
+    "year": 1689,
+    "hint": "Parliament asserts its power"
+   },
+   {
+    "label": "William wins the Battle of the Boyne",
+    "year": 1690,
+    "hint": "A decisive clash in Ireland"
+   },
+   {
+    "label": "The Act of Settlement secures a Protestant succession",
+    "year": 1701,
+    "hint": "Catholics barred from the throne"
+   },
+   {
+    "label": "England and Scotland unite in one kingdom",
+    "year": 1707,
+    "hint": "The birth of Great Britain"
+   }
+  ]
+ },
+ {
+  "id": "chrono-099",
+  "title": "The Seven Years' War",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "Fighting erupts across the globe",
+    "year": 1756,
+    "hint": "Often called the first world war"
+   },
+   {
+    "label": "Britain wins Bengal at Plassey",
+    "year": 1757,
+    "hint": "India tilts toward the British"
+   },
+   {
+    "label": "Wolfe captures Quebec",
+    "year": 1759,
+    "hint": "The Plains of Abraham decide Canada"
+   },
+   {
+    "label": "Prussia survives against the odds at Torgau",
+    "year": 1760,
+    "hint": "Frederick the Great holds on"
+   },
+   {
+    "label": "The Treaty of Paris redraws the map",
+    "year": 1763,
+    "hint": "France cedes vast territories"
+   }
+  ]
+ },
+ {
+  "id": "chrono-100",
+  "title": "Crises of the Medieval Church",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "The Great Schism splits east and west",
+    "year": 1054,
+    "hint": "Rome and Constantinople part ways"
+   },
+   {
+    "label": "Emperor Henry IV waits barefoot at Canossa",
+    "year": 1077,
+    "hint": "A king humbled before the Pope"
+   },
+   {
+    "label": "The popes move to Avignon",
+    "year": 1309,
+    "hint": "Seventy years of French-based popes"
+   },
+   {
+    "label": "The Western Schism divides the papacy",
+    "year": 1378,
+    "hint": "Rival popes claim the throne of Peter"
+   },
+   {
+    "label": "The Council of Constance restores a single pope",
+    "year": 1417,
+    "hint": "One church united once more"
+   }
+  ]
+ },
+ {
+  "id": "chrono-101",
+  "title": "The Unification of Japan",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "The Onin War plunges Japan into civil war",
+    "year": 1467,
+    "hint": "The start of the Warring States era"
+   },
+   {
+    "label": "Oda Nobunaga marches into Kyoto",
+    "year": 1568,
+    "hint": "A warlord seizes the capital"
+   },
+   {
+    "label": "Hideyoshi completes the unification",
+    "year": 1590,
+    "hint": "The islands brought under one rule"
+   },
+   {
+    "label": "Tokugawa Ieyasu wins at Sekigahara",
+    "year": 1600,
+    "hint": "The battle that decided Japan"
+   },
+   {
+    "label": "The Tokugawa shogunate is established",
+    "year": 1603,
+    "hint": "Two and a half centuries of peace begin"
+   }
+  ]
  }
 ]

@@ -5027,5 +5027,52 @@
     ]
    }
   ]
+ },
+ {
+  "id": "conn-108",
+  "title": "Curtain Up",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Ancient Greek playwrights",
+    "items": [
+     "Aeschylus",
+     "Sophocles",
+     "Euripides",
+     "Aristophanes"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "French dramatists",
+    "items": [
+     "Moliere",
+     "Racine",
+     "Corneille",
+     "Beaumarchais"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Playwrights of the modern European stage",
+    "items": [
+     "Ibsen",
+     "Chekhov",
+     "George Bernard Shaw",
+     "Oscar Wilde"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "American playwrights",
+    "items": [
+     "Arthur Miller",
+     "Tennessee Williams",
+     "Eugene O'Neill",
+     "Edward Albee"
+    ]
+   }
+  ]
  }
 ]
