@@ -3333,5 +3333,197 @@
     "hint": "Two and a half centuries of peace begin"
    }
   ]
+ },
+ {
+  "id": "chrono-102",
+  "title": "The Inca Empire",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "Pachacuti begins the great expansion",
+    "year": 1438,
+    "hint": "A small kingdom starts to conquer"
+   },
+   {
+    "label": "Topa Inca extends the empire far to the south",
+    "year": 1471,
+    "hint": "The realm reaches its widest"
+   },
+   {
+    "label": "Huayna Capac dies of a strange new plague",
+    "year": 1527,
+    "hint": "Disease arrives ahead of the Spanish"
+   },
+   {
+    "label": "Civil war splits the empire in two",
+    "year": 1532,
+    "hint": "Atahualpa fights his brother Huascar"
+   },
+   {
+    "label": "Pizarro seizes the emperor Atahualpa",
+    "year": 1533,
+    "hint": "A handful of Spaniards topple an empire"
+   }
+  ]
+ },
+ {
+  "id": "chrono-103",
+  "title": "The Peloponnesian War",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "War breaks out between Athens and Sparta",
+    "year": -431,
+    "hint": "Two Greek powers finally collide"
+   },
+   {
+    "label": "A deadly plague ravages Athens",
+    "year": -430,
+    "hint": "Pericles himself falls victim"
+   },
+   {
+    "label": "The Sicilian Expedition ends in disaster",
+    "year": -415,
+    "hint": "Athens overreaches at Syracuse"
+   },
+   {
+    "label": "Sparta destroys the Athenian fleet at Aegospotami",
+    "year": -405,
+    "hint": "The war's decisive naval blow"
+   },
+   {
+    "label": "Athens surrenders",
+    "year": -404,
+    "hint": "Its long walls are torn down"
+   }
+  ]
+ },
+ {
+  "id": "chrono-104",
+  "title": "Roman Britain",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "Caesar raids Britain",
+    "year": -55,
+    "hint": "The first Roman to cross the Channel with an army"
+   },
+   {
+    "label": "Claudius conquers the island",
+    "year": 43,
+    "hint": "Britain becomes a Roman province"
+   },
+   {
+    "label": "Boudica leads a great revolt",
+    "year": 60,
+    "hint": "A warrior queen burns Londinium"
+   },
+   {
+    "label": "Hadrian's Wall is built",
+    "year": 122,
+    "hint": "A frontier across the north"
+   },
+   {
+    "label": "The legions withdraw from Britain",
+    "year": 410,
+    "hint": "Rome tells the Britons to fend for themselves"
+   }
+  ]
+ },
+ {
+  "id": "chrono-105",
+  "title": "The Scramble for Africa",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "Britain occupies Egypt",
+    "year": 1882,
+    "hint": "Control of the route to India"
+   },
+   {
+    "label": "The Berlin Conference carves up Africa",
+    "year": 1884,
+    "hint": "European powers draw lines on a map"
+   },
+   {
+    "label": "Ethiopia defeats Italy at Adwa",
+    "year": 1896,
+    "hint": "An African power humbles a European army"
+   },
+   {
+    "label": "Britain and France clash at Fashoda",
+    "year": 1898,
+    "hint": "A tense standoff on the Nile"
+   },
+   {
+    "label": "The Second Boer War breaks out",
+    "year": 1899,
+    "hint": "Britain against the Afrikaner republics"
+   }
+  ]
+ },
+ {
+  "id": "chrono-106",
+  "title": "Three Thousand Years of Egypt",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "The Great Pyramid rises at Giza",
+    "year": -2560,
+    "hint": "A tomb for the pharaoh Khufu"
+   },
+   {
+    "label": "Hatshepsut rules as pharaoh",
+    "year": -1473,
+    "hint": "A woman on the throne of the two lands"
+   },
+   {
+    "label": "Tutankhamun is laid in his tomb",
+    "year": -1323,
+    "hint": "The boy king of the Valley of the Kings"
+   },
+   {
+    "label": "Ramesses II fights the Hittites at Kadesh",
+    "year": -1274,
+    "hint": "History's first recorded peace treaty follows"
+   },
+   {
+    "label": "Cleopatra's death ends the age of the pharaohs",
+    "year": -30,
+    "hint": "Egypt becomes a Roman province"
+   }
+  ]
+ },
+ {
+  "id": "chrono-107",
+  "title": "The Making of England",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "The Anglo-Saxons settle in Britain",
+    "year": 450,
+    "hint": "Angles, Saxons and Jutes cross the sea"
+   },
+   {
+    "label": "Alfred the Great defeats the Danes at Edington",
+    "year": 878,
+    "hint": "Wessex survives the Viking onslaught"
+   },
+   {
+    "label": "Athelstan becomes the first king of all England",
+    "year": 927,
+    "hint": "The kingdoms are united under one crown"
+   },
+   {
+    "label": "Cnut rules a great North Sea empire",
+    "year": 1016,
+    "hint": "A Danish king on the English throne"
+   },
+   {
+    "label": "The Normans conquer England",
+    "year": 1066,
+    "hint": "A new French-speaking ruling class"
+   }
+  ]
  }
 ]

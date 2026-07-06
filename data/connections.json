@@ -5074,5 +5074,52 @@
     ]
    }
   ]
+ },
+ {
+  "id": "conn-109",
+  "title": "Brushes with Greatness",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "The Impressionists",
+    "items": [
+     "Monet",
+     "Renoir",
+     "Degas",
+     "Pissarro"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "The Post-Impressionists",
+    "items": [
+     "Van Gogh",
+     "Cezanne",
+     "Gauguin",
+     "Seurat"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Pioneers of modern art",
+    "items": [
+     "Picasso",
+     "Braque",
+     "Matisse",
+     "Kandinsky"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "The Surrealists",
+    "items": [
+     "Dali",
+     "Magritte",
+     "Miro",
+     "Max Ernst"
+    ]
+   }
+  ]
  }
 ]
