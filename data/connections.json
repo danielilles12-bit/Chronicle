@@ -5638,5 +5638,99 @@
     ]
    }
   ]
+ },
+ {
+  "id": "conn-121",
+  "title": "Wanted: Dead or Alive",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Outlaws of the American Old West",
+    "items": [
+     "Jesse James",
+     "Butch Cassidy",
+     "Sundance Kid",
+     "Cole Younger"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "American gangsters of the 1930s",
+    "items": [
+     "Al Capone",
+     "John Dillinger",
+     "Bonnie and Clyde",
+     "Pretty Boy Floyd"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "British highwaymen and rogues",
+    "items": [
+     "Dick Turpin",
+     "Rob Roy",
+     "Jack Sheppard",
+     "Claude Duval"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Outlaws around the world",
+    "items": [
+     "Ned Kelly",
+     "Pancho Villa",
+     "Salvatore Giuliano",
+     "Phoolan Devi"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-122",
+  "title": "Strike Up the Band",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Early keyboard instruments",
+    "items": [
+     "Harpsichord",
+     "Clavichord",
+     "Virginal",
+     "Fortepiano"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Plucked string instruments of the world",
+    "items": [
+     "Sitar",
+     "Oud",
+     "Balalaika",
+     "Lute"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Wind and pipe instruments",
+    "items": [
+     "Bagpipes",
+     "Panpipes",
+     "Didgeridoo",
+     "Recorder"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Instruments of the ancient world",
+    "items": [
+     "Lyre",
+     "Aulos",
+     "Cithara",
+     "Sistrum"
+    ]
+   }
+  ]
  }
 ]
