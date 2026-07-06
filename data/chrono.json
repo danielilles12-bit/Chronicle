@@ -2179,5 +2179,197 @@
     "hint": "The Republic gives way to the Principate"
    }
   ]
+ },
+ {
+  "id": "chrono-066",
+  "title": "The Cold War Flashpoints",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "The Berlin Blockade brings on the great airlift",
+    "year": 1948,
+    "hint": "The West feeds a divided city by plane"
+   },
+   {
+    "label": "The Korean War begins",
+    "year": 1950,
+    "hint": "The North sweeps across the 38th parallel"
+   },
+   {
+    "label": "Soviet tanks crush the Hungarian Uprising",
+    "year": 1956,
+    "hint": "Budapest's revolt is put down"
+   },
+   {
+    "label": "The Cuban Missile Crisis brings the world to the brink",
+    "year": 1962,
+    "hint": "Thirteen days over Soviet missiles"
+   },
+   {
+    "label": "Saigon falls, ending the Vietnam War",
+    "year": 1975,
+    "hint": "Helicopters lift off the embassy roof"
+   }
+  ]
+ },
+ {
+  "id": "chrono-067",
+  "title": "The Discovery of Life's Code",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "Darwin publishes On the Origin of Species",
+    "year": 1859,
+    "hint": "Evolution by natural selection"
+   },
+   {
+    "label": "Mendel's pea plants reveal the laws of heredity",
+    "year": 1866,
+    "hint": "A monk counts his garden peas"
+   },
+   {
+    "label": "Watson and Crick unveil the double helix of DNA",
+    "year": 1953,
+    "hint": "The twisted ladder of life"
+   },
+   {
+    "label": "Sanger devises a way to read DNA quickly",
+    "year": 1977,
+    "hint": "Sequencing the code, letter by letter"
+   },
+   {
+    "label": "The Human Genome Project is completed",
+    "year": 2003,
+    "hint": "The full human blueprint, at last"
+   }
+  ]
+ },
+ {
+  "id": "chrono-068",
+  "title": "The Conquests of Alexander the Great",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "Alexander becomes king of Macedon",
+    "year": -336,
+    "hint": "He inherits his father Philip's throne"
+   },
+   {
+    "label": "He wins his first great victory at the Granicus",
+    "year": -334,
+    "hint": "His first clash with Persia in Asia"
+   },
+   {
+    "label": "He defeats Darius III at Issus",
+    "year": -333,
+    "hint": "The Persian king flees the field"
+   },
+   {
+    "label": "He shatters the Persian army at Gaugamela",
+    "year": -331,
+    "hint": "The decisive blow to Darius"
+   },
+   {
+    "label": "He dies at Babylon, aged just 32",
+    "year": -323,
+    "hint": "An empire left without an heir"
+   }
+  ]
+ },
+ {
+  "id": "chrono-069",
+  "title": "Westward Expansion of America",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "The Louisiana Purchase doubles the young nation",
+    "year": 1803,
+    "hint": "Jefferson buys a vast tract from France"
+   },
+   {
+    "label": "Lewis and Clark set out to map the west",
+    "year": 1804,
+    "hint": "The Corps of Discovery heads upriver"
+   },
+   {
+    "label": "The Trail of Tears forces the Cherokee west",
+    "year": 1838,
+    "hint": "A brutal removal to Oklahoma"
+   },
+   {
+    "label": "The California Gold Rush draws thousands west",
+    "year": 1849,
+    "hint": "The Forty-Niners chase their fortune"
+   },
+   {
+    "label": "The golden spike joins the Transcontinental Railroad",
+    "year": 1869,
+    "hint": "East meets west at Promontory Summit"
+   }
+  ]
+ },
+ {
+  "id": "chrono-070",
+  "title": "The British Conquest of India",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "Clive wins Bengal at the Battle of Plassey",
+    "year": 1757,
+    "hint": "The East India Company gains a province"
+   },
+   {
+    "label": "Victory at Buxar cements Company rule",
+    "year": 1764,
+    "hint": "The Mughal emperor grants revenue rights"
+   },
+   {
+    "label": "The Indian Rebellion shakes British power",
+    "year": 1857,
+    "hint": "The revolt of the sepoys"
+   },
+   {
+    "label": "The Crown seizes control from the Company",
+    "year": 1858,
+    "hint": "The British Raj begins"
+   },
+   {
+    "label": "Victoria is proclaimed Empress of India",
+    "year": 1877,
+    "hint": "A durbar in Delhi crowns her"
+   }
+  ]
+ },
+ {
+  "id": "chrono-071",
+  "title": "The Reconquista",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "Muslim armies conquer most of Iberia",
+    "year": 711,
+    "hint": "The Umayyads cross from North Africa"
+   },
+   {
+    "label": "A Christian alliance triumphs at Las Navas de Tolosa",
+    "year": 1212,
+    "hint": "The tide turns against the Almohads"
+   },
+   {
+    "label": "Ferdinand III takes Cordoba",
+    "year": 1236,
+    "hint": "The old caliphal capital falls"
+   },
+   {
+    "label": "Castile captures Seville",
+    "year": 1248,
+    "hint": "Another great Andalusian city falls"
+   },
+   {
+    "label": "Granada falls, completing the Reconquista",
+    "year": 1492,
+    "hint": "The last Muslim kingdom in Spain surrenders"
+   }
+  ]
  }
 ]

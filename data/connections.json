@@ -4792,5 +4792,52 @@
     ]
    }
   ]
+ },
+ {
+  "id": "conn-103",
+  "title": "The Play's the Thing",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Shakespeare's four great tragedies",
+    "items": [
+     "Hamlet",
+     "Macbeth",
+     "Othello",
+     "King Lear"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Shakespeare's English history plays",
+    "items": [
+     "Richard III",
+     "Henry V",
+     "King John",
+     "Richard II"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Shakespeare's Roman plays",
+    "items": [
+     "Julius Caesar",
+     "Antony and Cleopatra",
+     "Coriolanus",
+     "Titus Andronicus"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Shakespeare's comedies",
+    "items": [
+     "Twelfth Night",
+     "As You Like It",
+     "Much Ado About Nothing",
+     "A Midsummer Night's Dream"
+    ]
+   }
+  ]
  }
 ]
