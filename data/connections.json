@@ -5309,5 +5309,146 @@
     ]
    }
   ]
+ },
+ {
+  "id": "conn-114",
+  "title": "Off the Map",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Mythical lands of plenty",
+    "items": [
+     "El Dorado",
+     "Shangri-La",
+     "Xanadu",
+     "Cockaigne"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Realms of the gods and the dead",
+    "items": [
+     "Valhalla",
+     "Asgard",
+     "Elysium",
+     "Olympus"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Legendary islands",
+    "items": [
+     "Avalon",
+     "Atlantis",
+     "Hy-Brasil",
+     "Thule"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Lost lands and sunken continents",
+    "items": [
+     "Lemuria",
+     "Mu",
+     "Hyperborea",
+     "Lyonesse"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-115",
+  "title": "Sing, O Muse",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Epics of Greece and Rome",
+    "items": [
+     "Iliad",
+     "Odyssey",
+     "Aeneid",
+     "Argonautica"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Epics of the ancient East",
+    "items": [
+     "Epic of Gilgamesh",
+     "Mahabharata",
+     "Ramayana",
+     "Shahnameh"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Medieval European epics",
+    "items": [
+     "Beowulf",
+     "The Song of Roland",
+     "El Cid",
+     "Nibelungenlied"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Landmark literary epics",
+    "items": [
+     "Divine Comedy",
+     "Paradise Lost",
+     "The Faerie Queene",
+     "Jerusalem Delivered"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-116",
+  "title": "Schools of Thought",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "German philosophers",
+    "items": [
+     "Kant",
+     "Hegel",
+     "Schopenhauer",
+     "Nietzsche"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "British empiricists",
+    "items": [
+     "Francis Bacon",
+     "Locke",
+     "Berkeley",
+     "Hume"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Existentialists",
+    "items": [
+     "Kierkegaard",
+     "Sartre",
+     "Camus",
+     "Heidegger"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Chinese philosophers",
+    "items": [
+     "Confucius",
+     "Laozi",
+     "Mencius",
+     "Zhuangzi"
+    ]
+   }
+  ]
  }
 ]
