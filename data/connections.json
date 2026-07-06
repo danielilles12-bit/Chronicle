@@ -5732,5 +5732,52 @@
     ]
    }
   ]
+ },
+ {
+  "id": "conn-123",
+  "title": "Arms and the Man",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Medieval siege engines",
+    "items": [
+     "Trebuchet",
+     "Ballista",
+     "Onager",
+     "Mangonel"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Weapons of the medieval foot soldier",
+    "items": [
+     "Longbow",
+     "Crossbow",
+     "Halberd",
+     "Pike"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Bladed weapons of the world",
+    "items": [
+     "Katana",
+     "Scimitar",
+     "Rapier",
+     "Claymore"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Early firearms",
+    "items": [
+     "Arquebus",
+     "Musket",
+     "Flintlock",
+     "Blunderbuss"
+    ]
+   }
+  ]
  }
 ]
