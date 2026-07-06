@@ -2755,5 +2755,197 @@
     "hint": "Tolerance withdrawn; Huguenots flee abroad"
    }
   ]
+ },
+ {
+  "id": "chrono-084",
+  "title": "The Elizabethan Age",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "Elizabeth I comes to the throne",
+    "year": 1558,
+    "hint": "The Virgin Queen's reign begins"
+   },
+   {
+    "label": "The Religious Settlement shapes the Church of England",
+    "year": 1559,
+    "hint": "A middle way for a divided realm"
+   },
+   {
+    "label": "Mary, Queen of Scots is executed",
+    "year": 1587,
+    "hint": "A rival queen loses her head"
+   },
+   {
+    "label": "The Spanish Armada is defeated",
+    "year": 1588,
+    "hint": "Storms and fireships scatter the fleet"
+   },
+   {
+    "label": "Elizabeth dies, ending the Tudor line",
+    "year": 1603,
+    "hint": "The crown passes to the Stuarts"
+   }
+  ]
+ },
+ {
+  "id": "chrono-085",
+  "title": "The Rise of Imperial Russia",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "Peter the Great founds St Petersburg",
+    "year": 1703,
+    "hint": "A new capital on the Baltic marshes"
+   },
+   {
+    "label": "Russia crushes Sweden at Poltava",
+    "year": 1709,
+    "hint": "A turning point in the Great Northern War"
+   },
+   {
+    "label": "Peter is proclaimed Emperor of All Russia",
+    "year": 1721,
+    "hint": "A tsardom becomes an empire"
+   },
+   {
+    "label": "Catherine the Great seizes the throne",
+    "year": 1762,
+    "hint": "A coup against her own husband"
+   },
+   {
+    "label": "Russia annexes the Crimea",
+    "year": 1783,
+    "hint": "Catherine reaches the Black Sea"
+   }
+  ]
+ },
+ {
+  "id": "chrono-086",
+  "title": "The Fall of the Western Roman Empire",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "The empire is split into East and West",
+    "year": 395,
+    "hint": "Theodosius divides it between his sons"
+   },
+   {
+    "label": "Alaric's Visigoths sack Rome",
+    "year": 410,
+    "hint": "The eternal city plundered for the first time in 800 years"
+   },
+   {
+    "label": "Attila the Hun invades the West",
+    "year": 452,
+    "hint": "The 'Scourge of God' turns back from Rome"
+   },
+   {
+    "label": "The Vandals sack Rome",
+    "year": 455,
+    "hint": "A fortnight of pillage from the sea"
+   },
+   {
+    "label": "The last western emperor is deposed",
+    "year": 476,
+    "hint": "Romulus Augustulus is set aside"
+   }
+  ]
+ },
+ {
+  "id": "chrono-087",
+  "title": "The Islamic Golden Age",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "The Hijra marks the start of the Islamic era",
+    "year": 622,
+    "hint": "Muhammad journeys from Mecca to Medina"
+   },
+   {
+    "label": "Baghdad is founded as the Abbasid capital",
+    "year": 762,
+    "hint": "A round city on the Tigris"
+   },
+   {
+    "label": "The House of Wisdom gathers the world's learning",
+    "year": 830,
+    "hint": "Greek and Persian texts translated in Baghdad"
+   },
+   {
+    "label": "Avicenna completes his Canon of Medicine",
+    "year": 1025,
+    "hint": "A medical text used for centuries"
+   },
+   {
+    "label": "The Mongols sack Baghdad",
+    "year": 1258,
+    "hint": "The libraries burn and the age ends"
+   }
+  ]
+ },
+ {
+  "id": "chrono-088",
+  "title": "The Age of the Sun King",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "Louis XIV becomes king as a boy",
+    "year": 1643,
+    "hint": "A four-year-old inherits France"
+   },
+   {
+    "label": "He begins his personal rule",
+    "year": 1661,
+    "hint": "'L'etat, c'est moi'"
+   },
+   {
+    "label": "He moves the royal court to Versailles",
+    "year": 1682,
+    "hint": "A palace to overawe the nobility"
+   },
+   {
+    "label": "He revokes the Edict of Nantes",
+    "year": 1685,
+    "hint": "Protestant tolerance withdrawn"
+   },
+   {
+    "label": "He dies after 72 years on the throne",
+    "year": 1715,
+    "hint": "The longest reign in European history"
+   }
+  ]
+ },
+ {
+  "id": "chrono-089",
+  "title": "The Wars of Scottish Independence",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "William Wallace wins at Stirling Bridge",
+    "year": 1297,
+    "hint": "A famous victory over an English army"
+   },
+   {
+    "label": "Wallace is defeated at Falkirk",
+    "year": 1298,
+    "hint": "English longbows turn the tide"
+   },
+   {
+    "label": "Wallace is executed in London",
+    "year": 1305,
+    "hint": "Betrayed and put to a traitor's death"
+   },
+   {
+    "label": "Robert the Bruce triumphs at Bannockburn",
+    "year": 1314,
+    "hint": "Scotland's greatest battlefield victory"
+   },
+   {
+    "label": "The Declaration of Arbroath asserts Scottish freedom",
+    "year": 1320,
+    "hint": "A letter to the Pope for independence"
+   }
+  ]
  }
 ]

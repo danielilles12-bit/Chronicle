@@ -4933,5 +4933,52 @@
     ]
    }
   ]
+ },
+ {
+  "id": "conn-106",
+  "title": "Between the Covers",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Novels by Charles Dickens",
+    "items": [
+     "Oliver Twist",
+     "Great Expectations",
+     "David Copperfield",
+     "Bleak House"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Novels by Jane Austen",
+    "items": [
+     "Pride and Prejudice",
+     "Emma",
+     "Sense and Sensibility",
+     "Persuasion"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Novels by the Bronte sisters",
+    "items": [
+     "Jane Eyre",
+     "Wuthering Heights",
+     "Agnes Grey",
+     "Villette"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Great Russian novels",
+    "items": [
+     "War and Peace",
+     "Crime and Punishment",
+     "Anna Karenina",
+     "Fathers and Sons"
+    ]
+   }
+  ]
  }
 ]
