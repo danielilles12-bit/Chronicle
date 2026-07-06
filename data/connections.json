@@ -4745,5 +4745,52 @@
     ]
    }
   ]
+ },
+ {
+  "id": "conn-102",
+  "title": "Heroes of Legend",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Heroes of Greek myth",
+    "items": [
+     "Heracles",
+     "Perseus",
+     "Theseus",
+     "Jason"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Warriors of the Trojan War",
+    "items": [
+     "Achilles",
+     "Hector",
+     "Odysseus",
+     "Agamemnon"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Heroes of Norse legend",
+    "items": [
+     "Sigurd",
+     "Beowulf",
+     "Brynhild",
+     "Fafnir"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Heroes of the great epics",
+    "items": [
+     "Gilgamesh",
+     "Rama",
+     "Cu Chulainn",
+     "Roland"
+    ]
+   }
+  ]
  }
 ]

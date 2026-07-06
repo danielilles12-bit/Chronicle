@@ -1955,5 +1955,229 @@
     "hint": "Industry's showcase in Hyde Park"
    }
   ]
+ },
+ {
+  "id": "chrono-059",
+  "title": "The English Civil War",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "Charles I raises his standard at Nottingham",
+    "year": 1642,
+    "hint": "King against Parliament"
+   },
+   {
+    "label": "Parliament wins the north at Marston Moor",
+    "year": 1644,
+    "hint": "Cromwell's cavalry come of age"
+   },
+   {
+    "label": "The New Model Army triumphs at Naseby",
+    "year": 1645,
+    "hint": "The decisive Roundhead victory"
+   },
+   {
+    "label": "Charles I is executed outside Whitehall",
+    "year": 1649,
+    "hint": "A king beheaded in London"
+   },
+   {
+    "label": "Cromwell becomes Lord Protector",
+    "year": 1653,
+    "hint": "England without a crown"
+   }
+  ]
+ },
+ {
+  "id": "chrono-060",
+  "title": "The Meiji Restoration",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "Commodore Perry's black ships force Japan open",
+    "year": 1853,
+    "hint": "American warships in Edo Bay"
+   },
+   {
+    "label": "The Meiji Restoration ends the shogunate",
+    "year": 1868,
+    "hint": "Power returns to the emperor"
+   },
+   {
+    "label": "The samurai revolt is crushed in the Satsuma Rebellion",
+    "year": 1877,
+    "hint": "The last stand of the sword"
+   },
+   {
+    "label": "Japan adopts the Meiji Constitution",
+    "year": 1889,
+    "hint": "A modern state on a Prussian model"
+   },
+   {
+    "label": "Japan defeats Russia in war",
+    "year": 1905,
+    "hint": "An Asian power humbles a European one"
+   }
+  ]
+ },
+ {
+  "id": "chrono-061",
+  "title": "The Thirty Years' War",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "The Defenestration of Prague sparks the war",
+    "year": 1618,
+    "hint": "Officials thrown from a castle window"
+   },
+   {
+    "label": "Catholic forces crush the Bohemians at White Mountain",
+    "year": 1620,
+    "hint": "A swift Habsburg victory"
+   },
+   {
+    "label": "Gustavus Adolphus of Sweden enters the fray",
+    "year": 1630,
+    "hint": "The 'Lion of the North' lands in Germany"
+   },
+   {
+    "label": "The Swedish king falls at Lutzen",
+    "year": 1632,
+    "hint": "Victory bought with a king's life"
+   },
+   {
+    "label": "The Peace of Westphalia ends the war",
+    "year": 1648,
+    "hint": "A new map of sovereign states"
+   }
+  ]
+ },
+ {
+  "id": "chrono-062",
+  "title": "The Rise and Fall of Napoleon",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "Napoleon seizes power in the Coup of Brumaire",
+    "year": 1799,
+    "hint": "A general becomes First Consul"
+   },
+   {
+    "label": "He crowns himself Emperor of the French",
+    "year": 1804,
+    "hint": "He takes the crown from the Pope's hands"
+   },
+   {
+    "label": "His Grande Armee invades Russia",
+    "year": 1812,
+    "hint": "The long, freezing retreat from Moscow"
+   },
+   {
+    "label": "Defeated, he is exiled to Elba",
+    "year": 1814,
+    "hint": "An emperor sent to a tiny island"
+   },
+   {
+    "label": "His final defeat comes at Waterloo",
+    "year": 1815,
+    "hint": "Wellington and Blucher end it"
+   }
+  ]
+ },
+ {
+  "id": "chrono-063",
+  "title": "The Spanish Conquest of the Americas",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "Columbus makes landfall in the Americas",
+    "year": 1492,
+    "hint": "Three ships reach the Caribbean"
+   },
+   {
+    "label": "Cortes topples the Aztec capital of Tenochtitlan",
+    "year": 1521,
+    "hint": "The fall of Moctezuma's city"
+   },
+   {
+    "label": "Magellan's expedition completes the first circumnavigation",
+    "year": 1522,
+    "hint": "One ship limps home around the world"
+   },
+   {
+    "label": "Pizarro seizes the Inca Empire",
+    "year": 1533,
+    "hint": "The execution of Atahualpa"
+   },
+   {
+    "label": "Silver is struck at the mountain of Potosi",
+    "year": 1545,
+    "hint": "A peak that funds an empire"
+   }
+  ]
+ },
+ {
+  "id": "chrono-064",
+  "title": "The Struggle for the Vote",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "The Seneca Falls Convention demands women's rights",
+    "year": 1848,
+    "hint": "America's first women's rights meeting"
+   },
+   {
+    "label": "New Zealand becomes the first nation to let women vote",
+    "year": 1893,
+    "hint": "A world first at the bottom of the map"
+   },
+   {
+    "label": "British women over 30 win the vote",
+    "year": 1918,
+    "hint": "A first step, just after the Great War"
+   },
+   {
+    "label": "American women gain the vote nationwide",
+    "year": 1920,
+    "hint": "The Nineteenth Amendment"
+   },
+   {
+    "label": "Britain grants women the vote on equal terms",
+    "year": 1928,
+    "hint": "The same rights as men at last"
+   }
+  ]
+ },
+ {
+  "id": "chrono-065",
+  "title": "Rome: From Republic to Empire",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "Tradition holds that Rome is founded",
+    "year": -753,
+    "hint": "Romulus, Remus and a she-wolf"
+   },
+   {
+    "label": "Romans expel their kings and found the Republic",
+    "year": -509,
+    "hint": "The last Tarquin is driven out"
+   },
+   {
+    "label": "Rome razes Carthage in the Third Punic War",
+    "year": -146,
+    "hint": "'Carthage must be destroyed'"
+   },
+   {
+    "label": "Caesar crosses the Rubicon",
+    "year": -49,
+    "hint": "'The die is cast'"
+   },
+   {
+    "label": "Augustus becomes Rome's first emperor",
+    "year": -27,
+    "hint": "The Republic gives way to the Principate"
+   }
+  ]
  }
 ]
