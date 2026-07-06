@@ -3525,5 +3525,233 @@
     "hint": "A new French-speaking ruling class"
    }
   ]
+ },
+ {
+  "id": "chrono-108",
+  "title": "The Great War",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "Franz Ferdinand is assassinated at Sarajevo",
+    "year": 1914,
+    "month": 6,
+    "hint": "The spark that lit Europe"
+   },
+   {
+    "label": "The war bogs down into trench warfare",
+    "year": 1914,
+    "month": 9,
+    "hint": "The race to the sea after the Marne"
+   },
+   {
+    "label": "The Battle of the Somme brings mass slaughter",
+    "year": 1916,
+    "hint": "60,000 British casualties on the first day"
+   },
+   {
+    "label": "The United States enters the war",
+    "year": 1917,
+    "hint": "Fresh troops for the Allies"
+   },
+   {
+    "label": "The Armistice ends the fighting",
+    "year": 1918,
+    "hint": "The eleventh hour of the eleventh day"
+   }
+  ]
+ },
+ {
+  "id": "chrono-109",
+  "title": "The Second World War",
+  "difficulty": "easy",
+  "items": [
+   {
+    "label": "Germany invades Poland",
+    "year": 1939,
+    "hint": "Britain and France declare war"
+   },
+   {
+    "label": "France falls to the German blitzkrieg",
+    "year": 1940,
+    "hint": "Dunkirk and the fall of Paris"
+   },
+   {
+    "label": "Japan attacks Pearl Harbor",
+    "year": 1941,
+    "hint": "America is drawn into the war"
+   },
+   {
+    "label": "The D-Day landings open the Western Front",
+    "year": 1944,
+    "hint": "The Allies storm the Normandy beaches"
+   },
+   {
+    "label": "Germany and Japan surrender",
+    "year": 1945,
+    "hint": "Victory in Europe, then the Pacific"
+   }
+  ]
+ },
+ {
+  "id": "chrono-110",
+  "title": "The Vietnam War",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "The Gulf of Tonkin incident escalates the war",
+    "year": 1964,
+    "hint": "Congress hands the president a free hand"
+   },
+   {
+    "label": "American ground troops arrive in force",
+    "year": 1965,
+    "hint": "The war becomes an American one"
+   },
+   {
+    "label": "The Tet Offensive shocks America",
+    "year": 1968,
+    "hint": "A surprise assault turns opinion at home"
+   },
+   {
+    "label": "The Paris Peace Accords are signed",
+    "year": 1973,
+    "hint": "US forces begin to leave"
+   },
+   {
+    "label": "Saigon falls",
+    "year": 1975,
+    "hint": "The North reunites the country"
+   }
+  ]
+ },
+ {
+  "id": "chrono-111",
+  "title": "The Rise of Christianity",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "Jesus is crucified in Jerusalem",
+    "year": 30,
+    "hint": "Under the prefect Pontius Pilate"
+   },
+   {
+    "label": "Nero blames Christians for the fire of Rome",
+    "year": 64,
+    "hint": "The first great persecution"
+   },
+   {
+    "label": "Constantine's Edict of Milan legalises the faith",
+    "year": 313,
+    "hint": "Toleration across the empire"
+   },
+   {
+    "label": "The Council of Nicaea settles the creed",
+    "year": 325,
+    "hint": "Bishops define orthodox belief"
+   },
+   {
+    "label": "Christianity becomes Rome's state religion",
+    "year": 380,
+    "hint": "Theodosius makes it official"
+   }
+  ]
+ },
+ {
+  "id": "chrono-112",
+  "title": "The French Revolution",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "The storming of the Bastille",
+    "year": 1789,
+    "hint": "A Paris mob seizes the fortress-prison"
+   },
+   {
+    "label": "The monarchy is abolished and a republic declared",
+    "year": 1792,
+    "hint": "France sweeps away its kings"
+   },
+   {
+    "label": "King Louis XVI is guillotined",
+    "year": 1793,
+    "hint": "The king meets the blade"
+   },
+   {
+    "label": "Robespierre falls and the Terror ends",
+    "year": 1794,
+    "hint": "The guillotine turns on its master"
+   },
+   {
+    "label": "Napoleon seizes power in a coup",
+    "year": 1799,
+    "hint": "A general ends the revolution"
+   }
+  ]
+ },
+ {
+  "id": "chrono-113",
+  "title": "The Victorian Age",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "Victoria comes to the throne",
+    "year": 1837,
+    "hint": "An 18-year-old queen"
+   },
+   {
+    "label": "She marries Prince Albert",
+    "year": 1840,
+    "hint": "A famous royal love match"
+   },
+   {
+    "label": "The Great Exhibition showcases British industry",
+    "year": 1851,
+    "hint": "The Crystal Palace opens in Hyde Park"
+   },
+   {
+    "label": "Albert dies, plunging her into mourning",
+    "year": 1861,
+    "hint": "The queen wears black for decades"
+   },
+   {
+    "label": "Her Diamond Jubilee celebrates sixty years",
+    "year": 1897,
+    "hint": "An empire at its height"
+   }
+  ]
+ },
+ {
+  "id": "chrono-114",
+  "title": "The Spanish Civil War",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "A military coup plunges Spain into civil war",
+    "year": 1936,
+    "month": 7,
+    "hint": "Generals rise against the Republic"
+   },
+   {
+    "label": "Franco's forces besiege Madrid",
+    "year": 1936,
+    "month": 11,
+    "hint": "'They shall not pass'"
+   },
+   {
+    "label": "Guernica is destroyed from the air",
+    "year": 1937,
+    "hint": "A bombing immortalised by Picasso"
+   },
+   {
+    "label": "The Republicans lose the Battle of the Ebro",
+    "year": 1938,
+    "hint": "Their last great offensive fails"
+   },
+   {
+    "label": "Franco's Nationalists win the war",
+    "year": 1939,
+    "hint": "Decades of dictatorship follow"
+   }
+  ]
  }
 ]
