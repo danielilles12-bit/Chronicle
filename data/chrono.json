@@ -2947,5 +2947,197 @@
     "hint": "A letter to the Pope for independence"
    }
   ]
+ },
+ {
+  "id": "chrono-090",
+  "title": "The Byzantine Empire",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "Constantine founds Constantinople",
+    "year": 330,
+    "hint": "A new Rome on the Bosporus"
+   },
+   {
+    "label": "Justinian launches the reconquest of the west",
+    "year": 533,
+    "hint": "Belisarius wars against the Vandals"
+   },
+   {
+    "label": "The Byzantines are shattered at Manzikert",
+    "year": 1071,
+    "hint": "The Seljuk Turks pour into Anatolia"
+   },
+   {
+    "label": "The Fourth Crusade sacks Constantinople",
+    "year": 1204,
+    "hint": "Christian crusaders turn on a Christian city"
+   },
+   {
+    "label": "Constantinople falls to the Ottomans",
+    "year": 1453,
+    "hint": "The last Roman emperor dies on the walls"
+   }
+  ]
+ },
+ {
+  "id": "chrono-091",
+  "title": "The Mughal Empire",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "Babur wins the First Battle of Panipat",
+    "year": 1526,
+    "hint": "A conqueror from Central Asia takes Delhi"
+   },
+   {
+    "label": "Akbar the Great comes to the throne",
+    "year": 1556,
+    "hint": "The empire's golden age begins"
+   },
+   {
+    "label": "The Taj Mahal is completed",
+    "year": 1653,
+    "hint": "Shah Jahan's tomb for his wife"
+   },
+   {
+    "label": "Aurangzeb dies with the empire at its greatest extent",
+    "year": 1707,
+    "hint": "After him, a long decline"
+   },
+   {
+    "label": "The British defeat the Mughals' allies at Plassey",
+    "year": 1757,
+    "hint": "Real power shifts to the East India Company"
+   }
+  ]
+ },
+ {
+  "id": "chrono-092",
+  "title": "The Partitions of Poland",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "The First Partition carves up Poland",
+    "year": 1772,
+    "hint": "Russia, Prussia and Austria each take a slice"
+   },
+   {
+    "label": "The Constitution of 3 May is proclaimed",
+    "year": 1791,
+    "hint": "A bold attempt at reform"
+   },
+   {
+    "label": "The Second Partition shrinks the state further",
+    "year": 1793,
+    "hint": "Poland's neighbours help themselves again"
+   },
+   {
+    "label": "Kosciuszko leads a doomed uprising",
+    "year": 1794,
+    "hint": "A last stand for independence"
+   },
+   {
+    "label": "The Third Partition wipes Poland off the map",
+    "year": 1795,
+    "hint": "The nation vanishes for 123 years"
+   }
+  ]
+ },
+ {
+  "id": "chrono-093",
+  "title": "Charlemagne and His Empire",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "Charlemagne becomes king of the Franks",
+    "year": 768,
+    "hint": "The rise of a great Carolingian"
+   },
+   {
+    "label": "He conquers the Lombards in Italy",
+    "year": 774,
+    "hint": "He adds the iron crown of Lombardy"
+   },
+   {
+    "label": "He is crowned Emperor by the Pope",
+    "year": 800,
+    "hint": "A new emperor in the west on Christmas Day"
+   },
+   {
+    "label": "He dies at Aachen",
+    "year": 814,
+    "hint": "His capital in the Rhineland"
+   },
+   {
+    "label": "His empire is divided at Verdun",
+    "year": 843,
+    "hint": "Three grandsons split the realm"
+   }
+  ]
+ },
+ {
+  "id": "chrono-094",
+  "title": "The Reign of Henry VIII",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "Henry VIII becomes king",
+    "year": 1509,
+    "hint": "A young Tudor takes the throne"
+   },
+   {
+    "label": "He breaks with Rome to divorce Catherine",
+    "year": 1534,
+    "hint": "The Act of Supremacy makes him head of the Church"
+   },
+   {
+    "label": "Anne Boleyn is executed",
+    "year": 1536,
+    "hint": "His second queen loses her head"
+   },
+   {
+    "label": "The last of the monasteries are dissolved",
+    "year": 1539,
+    "hint": "Church lands seized for the crown"
+   },
+   {
+    "label": "Henry dies, leaving a boy king",
+    "year": 1547,
+    "hint": "Edward VI inherits at nine"
+   }
+  ]
+ },
+ {
+  "id": "chrono-095",
+  "title": "The Dutch Golden Age",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "The Dutch Revolt against Spain begins",
+    "year": 1568,
+    "hint": "The Low Countries rise against Habsburg rule"
+   },
+   {
+    "label": "The northern provinces declare independence",
+    "year": 1581,
+    "hint": "The Act of Abjuration renounces the king"
+   },
+   {
+    "label": "The Dutch East India Company is founded",
+    "year": 1602,
+    "hint": "The world's first great joint-stock trading giant"
+   },
+   {
+    "label": "Rembrandt paints The Night Watch",
+    "year": 1642,
+    "hint": "A masterpiece of the Dutch Republic"
+   },
+   {
+    "label": "The Peace of Westphalia recognises the Dutch Republic",
+    "year": 1648,
+    "hint": "Independence acknowledged at last"
+   }
+  ]
  }
 ]

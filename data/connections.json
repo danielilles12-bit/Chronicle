@@ -4980,5 +4980,52 @@
     ]
    }
   ]
+ },
+ {
+  "id": "conn-107",
+  "title": "Poets' Corner",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "The Romantic poets",
+    "items": [
+     "Wordsworth",
+     "Byron",
+     "Shelley",
+     "Keats"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Poets of the First World War",
+    "items": [
+     "Wilfred Owen",
+     "Siegfried Sassoon",
+     "Rupert Brooke",
+     "Isaac Rosenberg"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "American poets",
+    "items": [
+     "Walt Whitman",
+     "Emily Dickinson",
+     "Robert Frost",
+     "Longfellow"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Poets of the ancient world",
+    "items": [
+     "Homer",
+     "Virgil",
+     "Ovid",
+     "Sappho"
+    ]
+   }
+  ]
  }
 ]
