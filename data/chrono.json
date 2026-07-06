@@ -965,34 +965,39 @@
     "difficulty": "hard",
     "items": [
       {
-        "label": "Napoleon abdicates a second time",
-        "year": 1815,
-        "hint": "Then exiled to St Helena for good",
-        "month": 6
-      },
-      {
-        "label": "Battle of Ligny",
-        "year": 1815,
-        "hint": "Napoleon's last-ever battlefield victory",
-        "month": 6
-      },
-      {
-        "label": "Battle of Waterloo",
-        "year": 1815,
-        "hint": "Blucher's Prussians arrived just in time",
-        "month": 6
-      },
-      {
         "label": "Napoleon escapes Elba",
         "year": 1815,
         "hint": "Beginning the Hundred Days",
-        "month": 3
+        "month": 2,
+        "day": 26
       },
       {
         "label": "Napoleon reaches Paris, king flees",
         "year": 1815,
         "hint": "Louis XVIII bolted for Belgium",
-        "month": 3
+        "month": 3,
+        "day": 20
+      },
+      {
+        "label": "Battle of Ligny",
+        "year": 1815,
+        "hint": "Napoleon's last-ever battlefield victory",
+        "month": 6,
+        "day": 16
+      },
+      {
+        "label": "Battle of Waterloo",
+        "year": 1815,
+        "hint": "Blucher's Prussians arrived just in time",
+        "month": 6,
+        "day": 18
+      },
+      {
+        "label": "Napoleon abdicates a second time",
+        "year": 1815,
+        "hint": "Then exiled to St Helena for good",
+        "month": 6,
+        "day": 22
       }
     ]
   },
@@ -1002,29 +1007,38 @@
     "difficulty": "hard",
     "items": [
       {
-        "label": "Battle of Actium ends the wars",
-        "year": -31,
-        "hint": "Octavian alone is left standing"
+        "label": "Caesar crosses the Rubicon",
+        "year": -49,
+        "hint": "'The die is cast'",
+        "month": 1,
+        "day": 10
       },
       {
         "label": "Battle of Pharsalus",
         "year": -48,
-        "hint": "Caesar crushes Pompey in Greece"
-      },
-      {
-        "label": "Assassination of Caesar",
-        "year": -44,
-        "hint": "Sixty senators, twenty-three wounds"
+        "hint": "Caesar crushes Pompey in Greece",
+        "month": 8,
+        "day": 9
       },
       {
         "label": "Caesar declared dictator for life",
         "year": -44,
-        "hint": "A title that sealed his fate"
+        "hint": "A title that sealed his fate",
+        "month": 2
       },
       {
-        "label": "Caesar crosses the Rubicon",
-        "year": -49,
-        "hint": "'The die is cast'"
+        "label": "Assassination of Caesar",
+        "year": -44,
+        "hint": "Sixty senators, twenty-three wounds",
+        "month": 3,
+        "day": 15
+      },
+      {
+        "label": "Battle of Actium ends the wars",
+        "year": -31,
+        "hint": "Octavian alone is left standing",
+        "month": 9,
+        "day": 2
       }
     ]
   },
@@ -1034,29 +1048,39 @@
     "difficulty": "hard",
     "items": [
       {
-        "label": "Mary I dies",
-        "year": 1558,
-        "hint": "'Bloody Mary', her phantom pregnancy never real"
-      },
-      {
-        "label": "Elizabeth I crowned",
-        "year": 1559,
-        "hint": "The Virgin Queen begins her long reign"
+        "label": "Henry VIII dies",
+        "year": 1547,
+        "hint": "Leaving a sickly boy of nine as king",
+        "month": 1,
+        "day": 28
       },
       {
         "label": "Edward VI dies",
         "year": 1553,
-        "hint": "A teenage king dead of likely tuberculosis"
+        "hint": "A teenage king dead of likely tuberculosis",
+        "month": 7,
+        "day": 6
       },
       {
         "label": "Lady Jane Grey reigns nine days",
         "year": 1553,
-        "hint": "Queen for less than a fortnight, then beheaded"
+        "hint": "Queen for less than a fortnight, then beheaded",
+        "month": 7,
+        "day": 10
       },
       {
-        "label": "Henry VIII dies",
-        "year": 1547,
-        "hint": "Leaving a sickly boy of nine as king"
+        "label": "Mary I dies",
+        "year": 1558,
+        "hint": "'Bloody Mary', her phantom pregnancy never real",
+        "month": 11,
+        "day": 17
+      },
+      {
+        "label": "Elizabeth I crowned",
+        "year": 1559,
+        "hint": "The Virgin Queen begins her long reign",
+        "month": 1,
+        "day": 15
       }
     ]
   },
@@ -1066,34 +1090,39 @@
     "difficulty": "hard",
     "items": [
       {
-        "label": "Execution of the Romanov family",
-        "year": 1918,
-        "hint": "Shot in a cellar at Yekaterinburg",
-        "month": 7
+        "label": "Tsar Nicholas II abdicates",
+        "year": 1917,
+        "hint": "Three centuries of Romanov rule end",
+        "month": 3,
+        "day": 15
       },
       {
         "label": "Lenin returns to Russia in a sealed train",
         "year": 1917,
         "hint": "Germany smuggled him in as a weapon",
-        "month": 4
+        "month": 4,
+        "day": 16
       },
       {
         "label": "Bolsheviks storm the Winter Palace",
         "year": 1917,
         "hint": "The 'storming' met almost no resistance",
-        "month": 11
-      },
-      {
-        "label": "Tsar Nicholas II abdicates",
-        "year": 1917,
-        "hint": "Three centuries of Romanov rule end",
-        "month": 3
+        "month": 11,
+        "day": 7
       },
       {
         "label": "Russia exits WWI at Brest-Litovsk",
         "year": 1918,
         "hint": "A humiliating peace that gave away vast lands",
-        "month": 3
+        "month": 3,
+        "day": 3
+      },
+      {
+        "label": "Execution of the Romanov family",
+        "year": 1918,
+        "hint": "Shot in a cellar at Yekaterinburg",
+        "month": 7,
+        "day": 17
       }
     ]
   },
@@ -1103,34 +1132,39 @@
     "difficulty": "hard",
     "items": [
       {
-        "label": "Germany invades Belgium",
-        "year": 1914,
-        "hint": "The 'scrap of paper' guaranteeing neutrality",
-        "month": 8
-      },
-      {
         "label": "Archduke assassinated in Sarajevo",
         "year": 1914,
         "hint": "A sandwich shop and a wrong turn",
-        "month": 6
-      },
-      {
-        "label": "Germany declares war on Russia",
-        "year": 1914,
-        "hint": "Alliances dragged everyone in within days",
-        "month": 8
+        "month": 6,
+        "day": 28
       },
       {
         "label": "Austria-Hungary declares war on Serbia",
         "year": 1914,
         "hint": "After an ultimatum designed to be refused",
-        "month": 7
+        "month": 7,
+        "day": 28
+      },
+      {
+        "label": "Germany declares war on Russia",
+        "year": 1914,
+        "hint": "Alliances dragged everyone in within days",
+        "month": 8,
+        "day": 1
+      },
+      {
+        "label": "Germany invades Belgium",
+        "year": 1914,
+        "hint": "The 'scrap of paper' guaranteeing neutrality",
+        "month": 8,
+        "day": 4
       },
       {
         "label": "Britain declares war on Germany",
         "year": 1914,
         "hint": "'The lamps are going out all over Europe'",
-        "month": 8
+        "month": 8,
+        "day": 4
       }
     ]
   },
@@ -1172,13 +1206,6 @@
     "difficulty": "hard",
     "items": [
       {
-        "label": "A U-2 is shot down over Cuba",
-        "year": 1962,
-        "hint": "The crisis's only combat death",
-        "month": 10,
-        "day": 27
-      },
-      {
         "label": "U-2 spots Soviet missiles in Cuba",
         "year": 1962,
         "hint": "Photos that started thirteen tense days",
@@ -1186,11 +1213,11 @@
         "day": 14
       },
       {
-        "label": "Khrushchev agrees to remove the missiles",
+        "label": "Kennedy announces a naval 'quarantine'",
         "year": 1962,
-        "hint": "A secret deal on Turkey sweetened it",
+        "hint": "'Blockade' would have meant an act of war",
         "month": 10,
-        "day": 28
+        "day": 22
       },
       {
         "label": "Soviet ships turn back at the line",
@@ -1200,11 +1227,18 @@
         "day": 24
       },
       {
-        "label": "Kennedy announces a naval 'quarantine'",
+        "label": "A U-2 is shot down over Cuba",
         "year": 1962,
-        "hint": "'Blockade' would have meant an act of war",
+        "hint": "The crisis's only combat death",
         "month": 10,
-        "day": 22
+        "day": 27
+      },
+      {
+        "label": "Khrushchev agrees to remove the missiles",
+        "year": 1962,
+        "hint": "A secret deal on Turkey sweetened it",
+        "month": 10,
+        "day": 28
       }
     ]
   },
@@ -1214,34 +1248,39 @@
     "difficulty": "hard",
     "items": [
       {
-        "label": "Marie Antoinette executed",
+        "label": "Louis XVI executed by guillotine",
         "year": 1793,
-        "hint": "'Let them eat cake' she never said",
-        "month": 10
+        "hint": "Citizen Capet meets the National Razor",
+        "month": 1,
+        "day": 21
       },
       {
         "label": "Marat stabbed in his bath",
         "year": 1793,
         "hint": "Charlotte Corday's single knife thrust",
-        "month": 7
+        "month": 7,
+        "day": 13
       },
       {
-        "label": "Robespierre executed, ending the Terror",
-        "year": 1794,
-        "hint": "The Incorruptible falls on Thermidor",
-        "month": 7
-      },
-      {
-        "label": "Louis XVI executed by guillotine",
+        "label": "Marie Antoinette executed",
         "year": 1793,
-        "hint": "Citizen Capet meets the National Razor",
-        "month": 1
+        "hint": "'Let them eat cake' she never said",
+        "month": 10,
+        "day": 16
       },
       {
         "label": "Danton sent to the guillotine",
         "year": 1794,
         "hint": "The revolution devouring its own children",
-        "month": 4
+        "month": 4,
+        "day": 5
+      },
+      {
+        "label": "Robespierre executed, ending the Terror",
+        "year": 1794,
+        "hint": "The Incorruptible falls on Thermidor",
+        "month": 7,
+        "day": 28
       }
     ]
   },
@@ -1251,34 +1290,39 @@
     "difficulty": "hard",
     "items": [
       {
-        "label": "Scott reaches the Pole, finds the rival's flag",
-        "year": 1912,
-        "hint": "'Great God! this is an awful place'",
-        "month": 1
-      },
-      {
-        "label": "Scott's last diary entry",
-        "year": 1912,
-        "hint": "Eleven miles from the supply depot",
-        "month": 3
-      },
-      {
         "label": "Amundsen secretly diverts south",
         "year": 1910,
         "hint": "He'd told the world he was heading north",
-        "month": 9
+        "month": 9,
+        "day": 9
       },
       {
         "label": "Scott's Terra Nova party sets out from base",
         "year": 1911,
         "hint": "Hauling sledges by man-power, fatally slow",
-        "month": 11
+        "month": 11,
+        "day": 1
       },
       {
         "label": "Amundsen reaches the South Pole",
         "year": 1911,
         "hint": "First, with dogs and skis",
-        "month": 12
+        "month": 12,
+        "day": 14
+      },
+      {
+        "label": "Scott reaches the Pole, finds the rival's flag",
+        "year": 1912,
+        "hint": "'Great God! this is an awful place'",
+        "month": 1,
+        "day": 17
+      },
+      {
+        "label": "Scott's last diary entry",
+        "year": 1912,
+        "hint": "Eleven miles from the supply depot",
+        "month": 3,
+        "day": 29
       }
     ]
   },
@@ -1311,6 +1355,198 @@
         "label": "Death of Genghis Khan",
         "year": 1227,
         "hint": "His burial place is still unknown"
+      }
+    ]
+  },
+  {
+    "id": "chrono-041",
+    "title": "The Nine Lives of the Hagia Sophia",
+    "difficulty": "medium",
+    "items": [
+      {
+        "label": "Hagia Sophia consecrated in Constantinople",
+        "year": 537,
+        "hint": "Justinian reckoned he'd outdone Solomon"
+      },
+      {
+        "label": "Papal legates excommunicate the Patriarch at its altar",
+        "year": 1054,
+        "hint": "The Great Schism, hand-delivered mid-service"
+      },
+      {
+        "label": "The Fourth Crusade sacks the cathedral",
+        "year": 1204,
+        "hint": "The looters were fellow Christians"
+      },
+      {
+        "label": "Mehmed II converts it to a mosque",
+        "year": 1453,
+        "hint": "New management arrived through the Theodosian walls"
+      },
+      {
+        "label": "Atatürk reopens it as a museum",
+        "year": 1935,
+        "hint": "Neither church nor mosque — now with a ticket desk"
+      }
+    ]
+  },
+  {
+    "id": "chrono-042",
+    "title": "Suez: The Ditch That Changed the World",
+    "difficulty": "medium",
+    "items": [
+      {
+        "label": "Digging begins at Port Said",
+        "year": 1859,
+        "hint": "Ten years of shovelling ahead"
+      },
+      {
+        "label": "The canal opens with imperial fanfare",
+        "year": 1869,
+        "hint": "Empress Eugénie led the flotilla through"
+      },
+      {
+        "label": "Britain buys Egypt's canal shares",
+        "year": 1875,
+        "hint": "Disraeli borrowed four million from the Rothschilds"
+      },
+      {
+        "label": "Nasser nationalises the canal",
+        "year": 1956,
+        "hint": "Britain and France did not take it well"
+      },
+      {
+        "label": "The Ever Given gets stuck",
+        "year": 2021,
+        "hint": "One ship, six days, billions in delays"
+      }
+    ]
+  },
+  {
+    "id": "chrono-043",
+    "title": "London: A Biography in Five Acts",
+    "difficulty": "easy",
+    "items": [
+      {
+        "label": "The White Tower is begun",
+        "year": 1078,
+        "hint": "William wanted the locals suitably impressed"
+      },
+      {
+        "label": "The Globe Theatre goes up on Bankside",
+        "year": 1599,
+        "hint": "Shakespeare's company carried the timbers across the river"
+      },
+      {
+        "label": "The Great Exhibition opens",
+        "year": 1851,
+        "hint": "Six million visitors, one giant greenhouse"
+      },
+      {
+        "label": "The world's first underground railway opens",
+        "year": 1863,
+        "hint": "Steam trains in tunnels — commuters emerged kippered"
+      },
+      {
+        "label": "The Blitz begins",
+        "year": 1940,
+        "hint": "The Tube found a second job as a shelter"
+      }
+    ]
+  },
+  {
+    "id": "chrono-044",
+    "title": "The Viking Age, Coming Ashore",
+    "difficulty": "easy",
+    "items": [
+      {
+        "label": "Lindisfarne is raided",
+        "year": 793,
+        "hint": "Monks first, questions later"
+      },
+      {
+        "label": "Vikings besiege Paris",
+        "year": 845,
+        "hint": "Charles the Bald paid them to go away"
+      },
+      {
+        "label": "Settlers reach Iceland",
+        "year": 874,
+        "hint": "Ingólfr threw his pillars overboard and followed them"
+      },
+      {
+        "label": "Leif Erikson reaches Vinland",
+        "year": 1000,
+        "hint": "Five centuries before Columbus, no paperwork"
+      },
+      {
+        "label": "Stamford Bridge ends the Viking age",
+        "year": 1066,
+        "hint": "Harald Hardrada's very bad September"
+      }
+    ]
+  },
+  {
+    "id": "chrono-045",
+    "title": "The Calendar Wars",
+    "difficulty": "hard",
+    "items": [
+      {
+        "label": "Julius Caesar introduces the Julian calendar",
+        "year": -45,
+        "hint": "Advised by an astronomer from Alexandria"
+      },
+      {
+        "label": "Pope Gregory XIII skips ten days",
+        "year": 1582,
+        "hint": "Thursday 4 October was followed by Friday 15 October"
+      },
+      {
+        "label": "Britain falls in line, losing eleven days",
+        "year": 1752,
+        "hint": "'Give us our eleven days' — probably a myth, great slogan"
+      },
+      {
+        "label": "France adopts the Revolutionary calendar",
+        "year": 1793,
+        "hint": "Ten-day weeks proved unpopular with anyone who liked weekends"
+      },
+      {
+        "label": "Russia goes Gregorian",
+        "year": 1918,
+        "hint": "The October Revolution now falls in November"
+      }
+    ]
+  },
+  {
+    "id": "chrono-046",
+    "title": "The Long Road to Abolition",
+    "difficulty": "medium",
+    "items": [
+      {
+        "label": "The Somerset ruling frees a man on English soil",
+        "year": 1772,
+        "hint": "Lord Mansfield's judgment in London"
+      },
+      {
+        "label": "The Society for the Abolition of the Slave Trade is founded",
+        "year": 1787,
+        "hint": "Twelve men in a London printing shop"
+      },
+      {
+        "label": "Britain abolishes the slave trade",
+        "year": 1807,
+        "hint": "Wilberforce's bill finally passes"
+      },
+      {
+        "label": "The Slavery Abolition Act is passed",
+        "year": 1833,
+        "hint": "Emancipation across most of the British Empire"
+      },
+      {
+        "label": "Brazil's Golden Law",
+        "year": 1888,
+        "hint": "The last abolition in the Americas"
       }
     ]
   }

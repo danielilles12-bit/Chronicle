@@ -4228,5 +4228,240 @@
         ]
       }
     ]
+  },
+  {
+    "id": "conn-091",
+    "title": "Under False Colours",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Pen names",
+        "items": [
+          "Mark Twain",
+          "George Orwell",
+          "George Eliot",
+          "Voltaire"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Legendary deceptions",
+        "items": [
+          "The Trojan Horse",
+          "Operation Mincemeat",
+          "Operation Fortitude",
+          "Potemkin villages"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Con artists of note",
+        "items": [
+          "Victor Lustig",
+          "Charles Ponzi",
+          "Gregor MacGregor",
+          "George Psalmanazar"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Fled in disguise, with mixed results",
+        "items": [
+          "Charles II",
+          "Bonnie Prince Charlie",
+          "Louis XVI",
+          "Empress Matilda"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-092",
+    "title": "Talking About the Weather",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Battles fought in filthy weather",
+        "items": [
+          "Agincourt",
+          "Towton",
+          "Passchendaele",
+          "The Bulge"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Weather credited with rescuing a nation",
+        "items": [
+          "The Kamikaze",
+          "The Protestant Wind",
+          "General Winter",
+          "The fog of Long Island"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Years with nicknames",
+        "items": [
+          "Year Without a Summer",
+          "Annus Mirabilis",
+          "Annus Horribilis",
+          "Year of the Four Emperors"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Long spells of rough climate",
+        "items": [
+          "The Little Ice Age",
+          "The Medieval Warm Period",
+          "The Dust Bowl",
+          "The Great Frost of 1709"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-093",
+    "title": "Blink and You'll Miss It",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "History's shortest reigns and terms",
+        "items": [
+          "Lady Jane Grey",
+          "Pope John Paul I",
+          "William Henry Harrison",
+          "Louis XIX"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Wars over within a fortnight",
+        "items": [
+          "Anglo-Zanzibar War",
+          "Six-Day War",
+          "Ten-Day War",
+          "Indo-Pakistani War of 1971"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Famous 'Hundred Days'",
+        "items": [
+          "Napoleon's return",
+          "FDR's New Deal opening",
+          "The 1898 reforms in China",
+          "The 1918 Allied offensive"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "States gone within two years",
+        "items": [
+          "The Paris Commune",
+          "The Free State of Fiume",
+          "The Republic of West Florida",
+          "The Republic of Ezo"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-094",
+    "title": "Dressed to Kill",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Worn on famous heads",
+        "items": [
+          "The laurel wreath",
+          "Napoleon's bicorne",
+          "Lincoln's stovepipe hat",
+          "The papal tiara"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Clothes named after people",
+        "items": [
+          "The cardigan",
+          "Wellington boots",
+          "The raglan sleeve",
+          "The leotard"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Colours that marked rank",
+        "items": [
+          "Tyrian purple",
+          "Imperial yellow",
+          "Cardinal scarlet",
+          "Cloth of gold"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Fabrics named after places",
+        "items": [
+          "Denim",
+          "Calico",
+          "Muslin",
+          "Damask"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-095",
+    "title": "Round Two",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Lost power, won it back",
+        "items": [
+          "Napoleon",
+          "Churchill",
+          "Juan Perón",
+          "Grover Cleveland"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Wars that came in instalments",
+        "items": [
+          "The Punic Wars",
+          "The Opium Wars",
+          "The Boer Wars",
+          "The Balkan Wars"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Battlefields used twice",
+        "items": [
+          "Bull Run",
+          "Ypres",
+          "El Alamein",
+          "St Albans"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Cities the Ottomans besieged twice",
+        "items": [
+          "Vienna",
+          "Constantinople",
+          "Rhodes",
+          "Belgrade"
+        ]
+      }
+    ]
   }
 ]

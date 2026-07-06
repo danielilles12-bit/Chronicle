@@ -55,11 +55,23 @@ function pickRounds(rng) {
 }
 
 // ---------- scoring ----------
+// Sort key is (year, month, day); month/day are optional and default to 0.
+// Array.prototype.sort is stable, so exact-date ties keep data-file order.
 function sortedIndices(puzzle) {
   return puzzle.items
-    .map((item, i) => ({ i, year: item.year }))
-    .sort((a, b) => a.year - b.year)
+    .map((item, i) => ({ i, item }))
+    .sort((a, b) =>
+      (a.item.year - b.item.year) ||
+      ((a.item.month || 0) - (b.item.month || 0)) ||
+      ((a.item.day || 0) - (b.item.day || 0)))
     .map((x) => x.i);
+}
+const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+function fmtWhen(item) {
+  const year = item.year < 0 ? `${Math.abs(item.year)} BC` : `${item.year}`;
+  if (!item.month) return year;
+  const m = MONTH_NAMES[item.month - 1];
+  return item.day ? `${item.day} ${m} ${year}` : `${m} ${year}`;
 }
 function countCorrect(order, puzzle) {
   const correct = sortedIndices(puzzle);
@@ -225,7 +237,7 @@ function submitRound() {
     div.innerHTML =
       `<span class="ch-check">${ok ? '✓' : '✗'}</span>` +
       `<span class="ch-label">${item.label}</span>` +
-      `<span class="ch-year">${item.year < 0 ? Math.abs(item.year) + ' BC' : item.year}</span>`;
+      `<span class="ch-year">${fmtWhen(item)}</span>`;
     list.appendChild(div);
   });
 
