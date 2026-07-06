@@ -5121,5 +5121,52 @@
     ]
    }
   ]
+ },
+ {
+  "id": "conn-110",
+  "title": "Master Builders",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Renaissance architects",
+    "items": [
+     "Brunelleschi",
+     "Alberti",
+     "Bramante",
+     "Palladio"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Great English architects",
+    "items": [
+     "Christopher Wren",
+     "Inigo Jones",
+     "Vanbrugh",
+     "Hawksmoor"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Pioneers of modern architecture",
+    "items": [
+     "Frank Lloyd Wright",
+     "Le Corbusier",
+     "Gaudi",
+     "Mies van der Rohe"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Great engineers of the industrial age",
+    "items": [
+     "Isambard Kingdom Brunel",
+     "Thomas Telford",
+     "Joseph Bazalgette",
+     "Robert Stephenson"
+    ]
+   }
+  ]
  }
 ]

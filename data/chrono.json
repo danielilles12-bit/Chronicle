@@ -3753,5 +3753,200 @@
     "hint": "Decades of dictatorship follow"
    }
   ]
+ },
+ {
+  "id": "chrono-115",
+  "title": "The Persian Empire",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "Cyrus the Great founds the empire",
+    "year": -550,
+    "hint": "A Persian king overthrows the Medes"
+   },
+   {
+    "label": "Cyrus captures Babylon",
+    "year": -539,
+    "hint": "He frees the exiled Jews"
+   },
+   {
+    "label": "Darius invades Greece and loses at Marathon",
+    "year": -490,
+    "hint": "The Athenians turn him back"
+   },
+   {
+    "label": "Xerxes burns Athens",
+    "year": -480,
+    "hint": "But his fleet is wrecked at Salamis"
+   },
+   {
+    "label": "Alexander conquers the Persian Empire",
+    "year": -330,
+    "hint": "The end of the Achaemenid line"
+   }
+  ]
+ },
+ {
+  "id": "chrono-116",
+  "title": "The March of British Democracy",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "The Great Reform Act widens the franchise",
+    "year": 1832,
+    "hint": "Rotten boroughs are swept away"
+   },
+   {
+    "label": "The People's Charter demands the vote for all men",
+    "year": 1838,
+    "hint": "The Chartist movement rises"
+   },
+   {
+    "label": "The Second Reform Act enfranchises many workers",
+    "year": 1867,
+    "hint": "The urban working man gains a voice"
+   },
+   {
+    "label": "The secret ballot ends open voting",
+    "year": 1872,
+    "hint": "No more bribery at the hustings"
+   },
+   {
+    "label": "Women and all men finally win the vote",
+    "year": 1918,
+    "hint": "A great expansion after the Great War"
+   }
+  ]
+ },
+ {
+  "id": "chrono-117",
+  "title": "Empires of Mesopotamia",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "Sargon founds the Akkadian Empire",
+    "year": -2334,
+    "hint": "The world's first empire"
+   },
+   {
+    "label": "Hammurabi sets down his famous law code",
+    "year": -1750,
+    "hint": "'An eye for an eye'"
+   },
+   {
+    "label": "Assyria dominates the Near East",
+    "year": -700,
+    "hint": "A feared military empire"
+   },
+   {
+    "label": "Nebuchadnezzar rebuilds a glittering Babylon",
+    "year": -600,
+    "hint": "The Hanging Gardens and the Ishtar Gate"
+   },
+   {
+    "label": "Persia conquers Babylon",
+    "year": -539,
+    "hint": "Cyrus ends Babylonian independence"
+   }
+  ]
+ },
+ {
+  "id": "chrono-118",
+  "title": "The Korean War",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "The North invades the South",
+    "year": 1950,
+    "month": 6,
+    "hint": "Tanks pour across the 38th parallel"
+   },
+   {
+    "label": "MacArthur lands at Inchon",
+    "year": 1950,
+    "month": 9,
+    "hint": "A daring amphibious gamble"
+   },
+   {
+    "label": "China enters the war",
+    "year": 1950,
+    "month": 11,
+    "hint": "Waves of troops cross the Yalu"
+   },
+   {
+    "label": "The front stabilises near the 38th parallel",
+    "year": 1951,
+    "hint": "A grinding stalemate sets in"
+   },
+   {
+    "label": "The armistice is signed",
+    "year": 1953,
+    "hint": "A ceasefire, but no peace treaty"
+   }
+  ]
+ },
+ {
+  "id": "chrono-119",
+  "title": "The Great Fossil Hunters",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "Mary Anning finds a great ichthyosaur",
+    "year": 1811,
+    "hint": "A fossil hunter on the Dorset coast"
+   },
+   {
+    "label": "The word 'dinosaur' is coined",
+    "year": 1842,
+    "hint": "Richard Owen names the 'terrible lizards'"
+   },
+   {
+    "label": "Archaeopteryx links birds and dinosaurs",
+    "year": 1861,
+    "hint": "A feathered fossil found in Germany"
+   },
+   {
+    "label": "The American 'Bone Wars' begin",
+    "year": 1877,
+    "hint": "Cope and Marsh race to name new beasts"
+   },
+   {
+    "label": "Tyrannosaurus rex is named",
+    "year": 1905,
+    "hint": "The tyrant lizard king"
+   }
+  ]
+ },
+ {
+  "id": "chrono-120",
+  "title": "The Olympic Games Through History",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "The first Games are held at Olympia",
+    "year": -776,
+    "hint": "Foot races in honour of Zeus"
+   },
+   {
+    "label": "Rome bans the ancient Games",
+    "year": 393,
+    "hint": "A Christian emperor ends a pagan festival"
+   },
+   {
+    "label": "The modern Olympics revive in Athens",
+    "year": 1896,
+    "hint": "Coubertin's dream reborn"
+   },
+   {
+    "label": "The first Winter Olympics are held",
+    "year": 1924,
+    "hint": "Snow and ice sports at Chamonix"
+   },
+   {
+    "label": "The Berlin Games unfold under the Nazis",
+    "year": 1936,
+    "hint": "Jesse Owens wins four golds"
+   }
+  ]
  }
 ]
