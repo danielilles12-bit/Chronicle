@@ -1,6 +1,6 @@
 // Chronicle service worker: precache everything, serve cache-first.
 // Bump VERSION on every deploy to refresh clients.
-const VERSION = 'chronicle-v43';
+const VERSION = 'chronicle-v44';
 
 const ASSETS = [
   './',

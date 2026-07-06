@@ -5168,5 +5168,146 @@
     ]
    }
   ]
+ },
+ {
+  "id": "conn-111",
+  "title": "The Chroniclers",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Historians of Greece and Rome",
+    "items": [
+     "Herodotus",
+     "Thucydides",
+     "Livy",
+     "Tacitus"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Chroniclers of the Middle Ages",
+    "items": [
+     "Bede",
+     "Froissart",
+     "Gildas",
+     "Geoffrey of Monmouth"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Historians of the 18th and 19th centuries",
+    "items": [
+     "Edward Gibbon",
+     "Macaulay",
+     "Ranke",
+     "Michelet"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Historians of the 20th century",
+    "items": [
+     "A.J.P. Taylor",
+     "Eric Hobsbawm",
+     "Fernand Braudel",
+     "Barbara Tuchman"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-112",
+  "title": "Here Be Monsters",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Monsters of Greek myth",
+    "items": [
+     "Medusa",
+     "Minotaur",
+     "Cerberus",
+     "Hydra"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Creatures of medieval bestiaries",
+    "items": [
+     "Griffin",
+     "Basilisk",
+     "Manticore",
+     "Cockatrice"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Sea monsters",
+    "items": [
+     "Kraken",
+     "Leviathan",
+     "Charybdis",
+     "Scylla"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Dragons and great serpents",
+    "items": [
+     "Fafnir",
+     "Jormungandr",
+     "Tiamat",
+     "Ladon"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-113",
+  "title": "Chisel and Stone",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Sculptors of ancient Greece",
+    "items": [
+     "Phidias",
+     "Praxiteles",
+     "Myron",
+     "Polykleitos"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Italian Renaissance sculptors",
+    "items": [
+     "Ghiberti",
+     "Donatello",
+     "Cellini",
+     "Giambologna"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Pioneers of modern sculpture",
+    "items": [
+     "Rodin",
+     "Brancusi",
+     "Giacometti",
+     "Calder"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "British sculptors",
+    "items": [
+     "Henry Moore",
+     "Barbara Hepworth",
+     "Jacob Epstein",
+     "Eric Gill"
+    ]
+   }
+  ]
  }
 ]
