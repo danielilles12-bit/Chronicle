@@ -5450,5 +5450,99 @@
     ]
    }
   ]
+ },
+ {
+  "id": "conn-117",
+  "title": "Gods of Many Lands",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Gods of Hindu India",
+    "items": [
+     "Vishnu",
+     "Shiva",
+     "Brahma",
+     "Ganesha"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Gods of the Celts",
+    "items": [
+     "Lugh",
+     "Dagda",
+     "Morrigan",
+     "Brigid"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Gods of the Aztecs",
+    "items": [
+     "Quetzalcoatl",
+     "Tezcatlipoca",
+     "Huitzilopochtli",
+     "Tlaloc"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Gods of Mesopotamia",
+    "items": [
+     "Marduk",
+     "Enki",
+     "Inanna",
+     "Anu"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-118",
+  "title": "The Sacred Word",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Hindu scriptures",
+    "items": [
+     "Vedas",
+     "Upanishads",
+     "Bhagavad Gita",
+     "Puranas"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Jewish texts",
+    "items": [
+     "Torah",
+     "Talmud",
+     "Tanakh",
+     "Mishnah"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Islamic texts",
+    "items": [
+     "Quran",
+     "Hadith",
+     "Sunnah",
+     "Tafsir"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Scriptures of other faiths",
+    "items": [
+     "Tao Te Ching",
+     "Tripitaka",
+     "Guru Granth Sahib",
+     "Avesta"
+    ]
+   }
+  ]
  }
 ]
