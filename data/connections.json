@@ -4839,5 +4839,52 @@
     ]
    }
   ]
+ },
+ {
+  "id": "conn-104",
+  "title": "The Fighting Elite",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Elite palace guards",
+    "items": [
+     "Praetorian Guard",
+     "Janissaries",
+     "Varangian Guard",
+     "Immortals"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Types of cavalry",
+    "items": [
+     "Hussars",
+     "Cataphracts",
+     "Dragoons",
+     "Lancers"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Famed warrior peoples",
+    "items": [
+     "Samurai",
+     "Spartans",
+     "Vikings",
+     "Zulus"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Crusading military orders",
+    "items": [
+     "Knights Templar",
+     "Knights Hospitaller",
+     "Teutonic Knights",
+     "Knights of Santiago"
+    ]
+   }
+  ]
  }
 ]

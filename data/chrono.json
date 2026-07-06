@@ -2371,5 +2371,197 @@
     "hint": "The last Muslim kingdom in Spain surrenders"
    }
   ]
+ },
+ {
+  "id": "chrono-072",
+  "title": "Milestones of Medicine",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "Jenner develops the first smallpox vaccine",
+    "year": 1796,
+    "hint": "Cowpox to defeat a killer"
+   },
+   {
+    "label": "Ether is first used for painless surgery",
+    "year": 1846,
+    "hint": "An operation without agony"
+   },
+   {
+    "label": "Pasteur advances the germ theory of disease",
+    "year": 1861,
+    "hint": "Tiny organisms, not bad air"
+   },
+   {
+    "label": "Lister brings antiseptics into the operating theatre",
+    "year": 1867,
+    "hint": "Carbolic acid saves lives"
+   },
+   {
+    "label": "Fleming discovers penicillin",
+    "year": 1928,
+    "hint": "A mould that kills bacteria"
+   }
+  ]
+ },
+ {
+  "id": "chrono-073",
+  "title": "The Dynasties of Imperial China",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "Qin Shi Huang unifies China as its first emperor",
+    "year": -221,
+    "hint": "He standardises the realm"
+   },
+   {
+    "label": "The Han dynasty begins its long golden rule",
+    "year": -206,
+    "hint": "A name the Chinese still call themselves"
+   },
+   {
+    "label": "The Tang dynasty ushers in a cultural high point",
+    "year": 618,
+    "hint": "Poetry and cosmopolitan Chang'an"
+   },
+   {
+    "label": "The Ming dynasty rebuilds a native empire",
+    "year": 1368,
+    "hint": "Builders of the great walls we see today"
+   },
+   {
+    "label": "The Manchu Qing seize the Dragon Throne",
+    "year": 1644,
+    "hint": "China's last imperial dynasty"
+   }
+  ]
+ },
+ {
+  "id": "chrono-074",
+  "title": "Crashes and Bubbles",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "Tulip Mania grips the Dutch Republic",
+    "year": 1637,
+    "hint": "Fortunes staked on flower bulbs"
+   },
+   {
+    "label": "The South Sea Bubble bursts in London",
+    "year": 1720,
+    "hint": "A speculative frenzy collapses"
+   },
+   {
+    "label": "The Wall Street Crash triggers the Great Depression",
+    "year": 1929,
+    "hint": "Black Tuesday on the trading floor"
+   },
+   {
+    "label": "Black Monday shakes markets worldwide",
+    "year": 1987,
+    "hint": "Screens flash red across the globe"
+   },
+   {
+    "label": "The global financial crisis strikes",
+    "year": 2008,
+    "hint": "Lehman Brothers falls"
+   }
+  ]
+ },
+ {
+  "id": "chrono-075",
+  "title": "The Rise of the Ottomans",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "Mehmed II captures Constantinople",
+    "year": 1453,
+    "hint": "The end of the Byzantine Empire"
+   },
+   {
+    "label": "Selim I conquers Mamluk Egypt",
+    "year": 1517,
+    "hint": "The sultan gains the holy cities"
+   },
+   {
+    "label": "Suleiman lays his first siege to Vienna",
+    "year": 1529,
+    "hint": "The Ottomans reach central Europe"
+   },
+   {
+    "label": "The Ottoman fleet is beaten at Lepanto",
+    "year": 1571,
+    "hint": "A great galley battle in the Mediterranean"
+   },
+   {
+    "label": "The second siege of Vienna ends in defeat",
+    "year": 1683,
+    "hint": "The high-water mark of Ottoman Europe"
+   }
+  ]
+ },
+ {
+  "id": "chrono-076",
+  "title": "The Golden Age of Athens",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "Athens turns back Persia at Marathon",
+    "year": -490,
+    "hint": "A runner carries the news home"
+   },
+   {
+    "label": "The Greek fleet triumphs at Salamis",
+    "year": -480,
+    "hint": "Wooden walls save Greece"
+   },
+   {
+    "label": "Work begins on the Parthenon",
+    "year": -447,
+    "hint": "Pericles crowns the Acropolis"
+   },
+   {
+    "label": "The Peloponnesian War against Sparta begins",
+    "year": -431,
+    "hint": "Athens and Sparta come to blows"
+   },
+   {
+    "label": "Socrates is condemned to drink the hemlock",
+    "year": -399,
+    "hint": "A philosopher tried by his city"
+   }
+  ]
+ },
+ {
+  "id": "chrono-077",
+  "title": "The Punic Wars",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "Rome and Carthage clash in the First Punic War",
+    "year": -264,
+    "hint": "A struggle for Sicily and the sea"
+   },
+   {
+    "label": "Hannibal crosses the Alps into Italy",
+    "year": -218,
+    "hint": "War elephants over the mountains"
+   },
+   {
+    "label": "Hannibal destroys a Roman army at Cannae",
+    "year": -216,
+    "hint": "A textbook double envelopment"
+   },
+   {
+    "label": "Scipio defeats Hannibal at Zama",
+    "year": -202,
+    "hint": "Rome wins the war in Africa"
+   },
+   {
+    "label": "Rome razes Carthage to the ground",
+    "year": -146,
+    "hint": "The city is destroyed for good"
+   }
+  ]
  }
 ]
