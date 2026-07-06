@@ -1763,5 +1763,197 @@
     "hint": "Japan's surrender follows"
    }
   ]
+ },
+ {
+  "id": "chrono-053",
+  "title": "The Unification of Italy",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "Revolutions sweep across the Italian states",
+    "year": 1848,
+    "hint": "The 'Springtime of the Peoples'"
+   },
+   {
+    "label": "France and Piedmont beat Austria at Solferino",
+    "year": 1859,
+    "hint": "A battle so bloody it inspired the Red Cross"
+   },
+   {
+    "label": "Garibaldi's Thousand conquer Sicily and Naples",
+    "year": 1860,
+    "hint": "Redshirts sweep up the peninsula"
+   },
+   {
+    "label": "The Kingdom of Italy is proclaimed",
+    "year": 1861,
+    "hint": "Victor Emmanuel II takes the crown"
+   },
+   {
+    "label": "Italian troops capture Rome, completing unification",
+    "year": 1870,
+    "hint": "The new capital at last"
+   }
+  ]
+ },
+ {
+  "id": "chrono-054",
+  "title": "The Road to Indian Independence",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "British troops fire on a crowd at Amritsar",
+    "year": 1919,
+    "hint": "The Jallianwala Bagh massacre"
+   },
+   {
+    "label": "Gandhi leads the Salt March to the sea",
+    "year": 1930,
+    "hint": "240 miles to defy the salt tax"
+   },
+   {
+    "label": "The Quit India movement demands British withdrawal",
+    "year": 1942,
+    "hint": "'Do or die'"
+   },
+   {
+    "label": "India wins independence and is partitioned",
+    "year": 1947,
+    "hint": "A new border splits the subcontinent"
+   },
+   {
+    "label": "Gandhi is assassinated in Delhi",
+    "year": 1948,
+    "hint": "Shot at a prayer meeting"
+   }
+  ]
+ },
+ {
+  "id": "chrono-055",
+  "title": "The Fall of the Iron Curtain",
+  "difficulty": "easy",
+  "items": [
+   {
+    "label": "Solidarity is founded in a Polish shipyard",
+    "year": 1980,
+    "hint": "Lech Walesa and the Gdansk strikers"
+   },
+   {
+    "label": "Gorbachev takes charge in Moscow",
+    "year": 1985,
+    "hint": "Glasnost and perestroika begin"
+   },
+   {
+    "label": "The Berlin Wall falls",
+    "year": 1989,
+    "hint": "East Germans stream through the checkpoints"
+   },
+   {
+    "label": "East and West Germany reunite",
+    "year": 1990,
+    "hint": "One flag over the Brandenburg Gate"
+   },
+   {
+    "label": "The Soviet Union dissolves",
+    "year": 1991,
+    "hint": "The red flag comes down over the Kremlin"
+   }
+  ]
+ },
+ {
+  "id": "chrono-056",
+  "title": "Unearthing the Past",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "Systematic digging begins at buried Pompeii",
+    "year": 1748,
+    "hint": "A Roman city under the ash of Vesuvius"
+   },
+   {
+    "label": "Soldiers unearth the Rosetta Stone in Egypt",
+    "year": 1799,
+    "hint": "The key to reading hieroglyphs"
+   },
+   {
+    "label": "Schliemann sinks his spades into the mound of Troy",
+    "year": 1871,
+    "hint": "Chasing Homer's fabled city"
+   },
+   {
+    "label": "Howard Carter opens the tomb of Tutankhamun",
+    "year": 1922,
+    "hint": "'Wonderful things'"
+   },
+   {
+    "label": "Chinese farmers strike the Terracotta Army",
+    "year": 1974,
+    "hint": "An emperor's clay legions, digging a well"
+   }
+  ]
+ },
+ {
+  "id": "chrono-057",
+  "title": "The Birth of the United States",
+  "difficulty": "easy",
+  "items": [
+   {
+    "label": "Colonists dump British tea into Boston Harbor",
+    "year": 1773,
+    "hint": "No taxation without representation"
+   },
+   {
+    "label": "The Declaration of Independence is adopted",
+    "year": 1776,
+    "hint": "Signed in Philadelphia on the Fourth of July"
+   },
+   {
+    "label": "Washington's victory at Yorktown ends the war",
+    "year": 1781,
+    "hint": "Cornwallis surrenders"
+   },
+   {
+    "label": "The Constitution is drafted in Philadelphia",
+    "year": 1787,
+    "hint": "'We the People'"
+   },
+   {
+    "label": "Washington is sworn in as the first president",
+    "year": 1789,
+    "hint": "The office begins in New York"
+   }
+  ]
+ },
+ {
+  "id": "chrono-058",
+  "title": "The Machines of the Industrial Revolution",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "Hargreaves builds the Spinning Jenny",
+    "year": 1764,
+    "hint": "One wheel spins many threads"
+   },
+   {
+    "label": "Watt patents his improved steam engine",
+    "year": 1769,
+    "hint": "Power for the factories"
+   },
+   {
+    "label": "The Stockton & Darlington Railway opens",
+    "year": 1825,
+    "hint": "The world's first public steam railway"
+   },
+   {
+    "label": "Stephenson's Rocket wins the Rainhill Trials",
+    "year": 1829,
+    "hint": "The locomotive proves its speed"
+   },
+   {
+    "label": "The Great Exhibition opens in the Crystal Palace",
+    "year": 1851,
+    "hint": "Industry's showcase in Hyde Park"
+   }
+  ]
  }
 ]

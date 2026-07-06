@@ -4651,5 +4651,99 @@
     ]
    }
   ]
+ },
+ {
+  "id": "conn-100",
+  "title": "The Naming of Wars",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Named for how long they lasted",
+    "items": [
+     "Thirty Years' War",
+     "Seven Years' War",
+     "Eighty Years' War",
+     "Hundred Years' War"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Named for both sides that fought",
+    "items": [
+     "Russo-Japanese War",
+     "Franco-Prussian War",
+     "Anglo-Zulu War",
+     "Greco-Persian Wars"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Named for where they were fought",
+    "items": [
+     "Peninsular War",
+     "Crimean War",
+     "Falklands War",
+     "Vietnam War"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Named for a disputed throne",
+    "items": [
+     "War of the Spanish Succession",
+     "War of the Austrian Succession",
+     "War of the Polish Succession",
+     "War of the Bavarian Succession"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-101",
+  "title": "The Great Composers",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Composers of the Baroque",
+    "items": [
+     "Bach",
+     "Handel",
+     "Vivaldi",
+     "Purcell"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "The Viennese masters",
+    "items": [
+     "Mozart",
+     "Haydn",
+     "Beethoven",
+     "Schubert"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Composers of the Romantic era",
+    "items": [
+     "Chopin",
+     "Brahms",
+     "Wagner",
+     "Liszt"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Russian composers",
+    "items": [
+     "Tchaikovsky",
+     "Stravinsky",
+     "Rachmaninoff",
+     "Shostakovich"
+    ]
+   }
+  ]
  }
 ]
