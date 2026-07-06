@@ -5544,5 +5544,99 @@
     ]
    }
   ]
+ },
+ {
+  "id": "conn-119",
+  "title": "Relics and Wonders",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Objects of Greek myth",
+    "items": [
+     "Golden Fleece",
+     "Pandora's Box",
+     "Trojan Horse",
+     "Aegis"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Treasures of Arthurian legend",
+    "items": [
+     "Holy Grail",
+     "Excalibur",
+     "Round Table",
+     "Sword in the Stone"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Sacred relics",
+    "items": [
+     "Ark of the Covenant",
+     "Spear of Destiny",
+     "Shroud of Turin",
+     "True Cross"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Bringers of immortality",
+    "items": [
+     "Philosopher's Stone",
+     "Elixir of Life",
+     "Fountain of Youth",
+     "Ambrosia"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-120",
+  "title": "Beasts of Folklore",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Creatures of Norse myth",
+    "items": [
+     "Fenrir",
+     "Sleipnir",
+     "Nidhogg",
+     "Ratatoskr"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Creatures of Japanese folklore",
+    "items": [
+     "Kappa",
+     "Tengu",
+     "Oni",
+     "Kitsune"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Creatures of Slavic and European folklore",
+    "items": [
+     "Baba Yaga",
+     "Werewolf",
+     "Golem",
+     "Rusalka"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Creatures of world folklore",
+    "items": [
+     "Thunderbird",
+     "Roc",
+     "Bunyip",
+     "Anansi"
+    ]
+   }
+  ]
  }
 ]
