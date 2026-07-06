@@ -2563,5 +2563,197 @@
     "hint": "The city is destroyed for good"
    }
   ]
+ },
+ {
+  "id": "chrono-078",
+  "title": "Unlocking the Atom",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "Lavoisier names oxygen and founds modern chemistry",
+    "year": 1777,
+    "hint": "The end of the phlogiston theory"
+   },
+   {
+    "label": "Dalton proposes that all matter is made of atoms",
+    "year": 1808,
+    "hint": "Each element its own kind of atom"
+   },
+   {
+    "label": "Mendeleev arranges the periodic table",
+    "year": 1869,
+    "hint": "Gaps left for elements yet to be found"
+   },
+   {
+    "label": "The Curies discover radium",
+    "year": 1898,
+    "hint": "A glowing new radioactive element"
+   },
+   {
+    "label": "Rutherford reveals the atomic nucleus",
+    "year": 1911,
+    "hint": "A tiny dense core within the atom"
+   }
+  ]
+ },
+ {
+  "id": "chrono-079",
+  "title": "The Age of Enlightenment",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "Newton publishes the Principia",
+    "year": 1687,
+    "hint": "The laws of motion and gravity"
+   },
+   {
+    "label": "Locke examines how the mind knows the world",
+    "year": 1690,
+    "hint": "The Essay Concerning Human Understanding"
+   },
+   {
+    "label": "Montesquieu argues for the separation of powers",
+    "year": 1748,
+    "hint": "The Spirit of the Laws"
+   },
+   {
+    "label": "Rousseau declares man born free but everywhere in chains",
+    "year": 1762,
+    "hint": "The Social Contract"
+   },
+   {
+    "label": "Adam Smith founds modern economics",
+    "year": 1776,
+    "hint": "The Wealth of Nations"
+   }
+  ]
+ },
+ {
+  "id": "chrono-080",
+  "title": "The Settlement of Australia",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "Cook charts Australia's east coast",
+    "year": 1770,
+    "hint": "The Endeavour claims New South Wales"
+   },
+   {
+    "label": "The First Fleet lands convicts at Botany Bay",
+    "year": 1788,
+    "hint": "A penal colony on the far side of the world"
+   },
+   {
+    "label": "The Australian gold rushes begin",
+    "year": 1851,
+    "hint": "Diggers flood to Victoria and NSW"
+   },
+   {
+    "label": "Miners revolt at the Eureka Stockade",
+    "year": 1854,
+    "hint": "A rebellion on the goldfields"
+   },
+   {
+    "label": "The colonies federate into one nation",
+    "year": 1901,
+    "hint": "The Commonwealth of Australia is born"
+   }
+  ]
+ },
+ {
+  "id": "chrono-081",
+  "title": "The Road to Irish Independence",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "The Great Famine devastates Ireland",
+    "year": 1845,
+    "hint": "The potato blight and mass emigration"
+   },
+   {
+    "label": "The Easter Rising erupts in Dublin",
+    "year": 1916,
+    "hint": "Rebels seize the General Post Office"
+   },
+   {
+    "label": "The War of Independence begins",
+    "year": 1919,
+    "hint": "The IRA takes on the Crown forces"
+   },
+   {
+    "label": "The Anglo-Irish Treaty is signed",
+    "year": 1921,
+    "hint": "A compromise that splits the movement"
+   },
+   {
+    "label": "The Irish Free State is founded",
+    "year": 1922,
+    "hint": "Self-government at last, minus the north"
+   }
+  ]
+ },
+ {
+  "id": "chrono-082",
+  "title": "Windows on the Cosmos",
+  "difficulty": "medium",
+  "items": [
+   {
+    "label": "Galileo turns his telescope on the heavens",
+    "year": 1609,
+    "hint": "Moons of Jupiter and craters of the Moon"
+   },
+   {
+    "label": "Herschel discovers Uranus",
+    "year": 1781,
+    "hint": "A new planet beyond Saturn"
+   },
+   {
+    "label": "Hubble shows the universe is expanding",
+    "year": 1929,
+    "hint": "The galaxies are all rushing apart"
+   },
+   {
+    "label": "The Hubble Space Telescope reaches orbit",
+    "year": 1990,
+    "hint": "An eye above the atmosphere"
+   },
+   {
+    "label": "The first planet around another star is confirmed",
+    "year": 1995,
+    "hint": "An exoplanet orbiting a sun-like star"
+   }
+  ]
+ },
+ {
+  "id": "chrono-083",
+  "title": "The French Wars of Religion",
+  "difficulty": "hard",
+  "items": [
+   {
+    "label": "The Massacre of Vassy sparks the wars",
+    "year": 1562,
+    "hint": "Catholic troops kill Huguenot worshippers"
+   },
+   {
+    "label": "Thousands die in the St Bartholomew's Day Massacre",
+    "year": 1572,
+    "hint": "A wedding turns to slaughter in Paris"
+   },
+   {
+    "label": "Henry of Navarre wins the French throne",
+    "year": 1589,
+    "hint": "'Paris is worth a Mass'"
+   },
+   {
+    "label": "The Edict of Nantes grants the Huguenots tolerance",
+    "year": 1598,
+    "hint": "Protestants win the right to worship"
+   },
+   {
+    "label": "Louis XIV revokes the Edict of Nantes",
+    "year": 1685,
+    "hint": "Tolerance withdrawn; Huguenots flee abroad"
+   }
+  ]
  }
 ]

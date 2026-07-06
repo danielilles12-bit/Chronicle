@@ -4886,5 +4886,52 @@
     ]
    }
   ]
+ },
+ {
+  "id": "conn-105",
+  "title": "A Night at the Opera",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Operas by Verdi",
+    "items": [
+     "Aida",
+     "Rigoletto",
+     "La Traviata",
+     "Otello"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Operas by Puccini",
+    "items": [
+     "La Boheme",
+     "Tosca",
+     "Madama Butterfly",
+     "Turandot"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Operas by Mozart",
+    "items": [
+     "The Magic Flute",
+     "Don Giovanni",
+     "The Marriage of Figaro",
+     "Cosi fan tutte"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Operas by Wagner",
+    "items": [
+     "Tristan und Isolde",
+     "Lohengrin",
+     "Tannhauser",
+     "Parsifal"
+    ]
+   }
+  ]
  }
 ]
