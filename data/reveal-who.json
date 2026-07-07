@@ -4376,5 +4376,120 @@
     "license": "Public domain",
     "attribution": "Joseph-Siffred Duplessis",
     "source": "Wikimedia Commons: Portrait de Louis XVI - Duplessis - Musée Condé.jpg"
+  },
+  {
+    "id": "oliver-cromwell",
+    "name": "Oliver Cromwell",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "oliver cromwell",
+      "cromwell"
+    ],
+    "blurb": "Lord Protector who ruled England without a king (1599–1658) · miniature after Samuel Cooper",
+    "img": "assets/img/oliver-cromwell.jpg",
+    "fx": 0.48,
+    "fy": 0.2,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "After Samuel Cooper",
+    "source": "Wikimedia Commons: Oliver Cromwell by Samuel Cooper.jpg"
+  },
+  {
+    "id": "charles-v-hre",
+    "name": "Charles V",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "charles v",
+      "charles v hre",
+      "charles v holy roman emperor",
+      "emperor charles v",
+      "carlos v"
+    ],
+    "blurb": "Habsburg emperor of a realm where the sun never set (1500–1558) · painting by Titian",
+    "img": "assets/img/charles-v-hre.jpg",
+    "fx": 0.42,
+    "fy": 0.2,
+    "frac": 0.13,
+    "license": "Public domain",
+    "attribution": "Titian",
+    "source": "Wikimedia Commons: Titian - Portrait of Charles V Seated - WGA22964.jpg"
+  },
+  {
+    "id": "philip-ii-spain",
+    "name": "Philip II of Spain",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "philip ii of spain",
+      "philip ii",
+      "philip ii spain",
+      "felipe ii",
+      "king philip ii"
+    ],
+    "blurb": "Spanish king of the Armada and El Escorial (1527–1598) · painting by Titian",
+    "img": "assets/img/philip-ii-spain.jpg",
+    "fx": 0.55,
+    "fy": 0.13,
+    "frac": 0.12,
+    "license": "Public domain",
+    "attribution": "Titian",
+    "source": "Wikimedia Commons: Titian - Portrait of Philip II in Armour - WGA22970.jpg"
+  },
+  {
+    "id": "giuseppe-garibaldi",
+    "name": "Giuseppe Garibaldi",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "giuseppe garibaldi",
+      "garibaldi"
+    ],
+    "blurb": "Red-shirted hero who forged a united Italy (1807–1882) · photograph by Nadar",
+    "img": "assets/img/giuseppe-garibaldi.jpg",
+    "fx": 0.45,
+    "fy": 0.28,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Nadar",
+    "source": "Wikimedia Commons: Giuseppe Garibaldi 1870 Nadar.jpg"
+  },
+  {
+    "id": "gian-lorenzo-bernini",
+    "name": "Gian Lorenzo Bernini",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "gian lorenzo bernini",
+      "bernini",
+      "gianlorenzo bernini"
+    ],
+    "blurb": "Sculptor who made marble breathe, master of the Baroque (1598–1680) · self-portrait",
+    "img": "assets/img/gian-lorenzo-bernini.jpg",
+    "fx": 0.5,
+    "fy": 0.35,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Gian Lorenzo Bernini",
+    "source": "Wikimedia Commons: Bernini, Gianlorenzo - Self-portrait 1623 - Galleria Borghese.jpg"
+  },
+  {
+    "id": "michael-faraday",
+    "name": "Michael Faraday",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "michael faraday",
+      "faraday"
+    ],
+    "blurb": "Self-taught pioneer of electricity (1791–1867) · painting by Thomas Phillips",
+    "img": "assets/img/michael-faraday.jpg",
+    "fx": 0.28,
+    "fy": 0.18,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Thomas Phillips",
+    "source": "Wikimedia Commons: M Faraday Th Phillips oil 1842.jpg"
   }
 ]
