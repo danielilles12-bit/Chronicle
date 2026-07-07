@@ -5048,5 +5048,115 @@
     "license": "Public domain",
     "attribution": "Edgar Degas",
     "source": "Wikimedia Commons: Edgar Degas - Self-Portrait - Google Art Project.jpg"
+  },
+  {
+    "id": "walt-whitman",
+    "name": "Walt Whitman",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "walt whitman",
+      "whitman"
+    ],
+    "blurb": "American bard of Leaves of Grass (1819–1892) · photograph by George C. Cox",
+    "img": "assets/img/walt-whitman.jpg",
+    "fx": 0.45,
+    "fy": 0.2,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "George Collins Cox",
+    "source": "Wikimedia Commons: Walt Whitman - George Collins Cox.jpg"
+  },
+  {
+    "id": "emily-dickinson",
+    "name": "Emily Dickinson",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "emily dickinson",
+      "dickinson"
+    ],
+    "blurb": "Reclusive American poet of startling brevity (1830–1886) · her only authenticated portrait",
+    "img": "assets/img/emily-dickinson.jpg",
+    "fx": 0.5,
+    "fy": 0.15,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Unknown (daguerreotype, c. 1847)",
+    "source": "Wikimedia Commons: Emily Dickinson daguerreotype (Restored).jpg"
+  },
+  {
+    "id": "walter-scott",
+    "name": "Walter Scott",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "walter scott",
+      "sir walter scott",
+      "scott"
+    ],
+    "blurb": "Scottish novelist who invented the historical novel (1771–1832) · painting by Henry Raeburn",
+    "img": "assets/img/walter-scott.jpg",
+    "fx": 0.5,
+    "fy": 0.2,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Henry Raeburn",
+    "source": "Wikimedia Commons: Sir Henry Raeburn - Portrait of Sir Walter Scott.jpg"
+  },
+  {
+    "id": "niels-bohr",
+    "name": "Niels Bohr",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "niels bohr",
+      "bohr"
+    ],
+    "blurb": "Physicist who unlocked the atom (1885–1962) · Nobel portrait",
+    "img": "assets/img/niels-bohr.jpg",
+    "fx": 0.45,
+    "fy": 0.25,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "AB Lagrelius & Westphal",
+    "source": "Wikimedia Commons: Niels Bohr.jpg"
+  },
+  {
+    "id": "jacques-louis-david",
+    "name": "Jacques-Louis David",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "jacques-louis david",
+      "jacques louis david",
+      "david"
+    ],
+    "blurb": "Painter of the French Revolution and Napoleon (1748–1825) · self-portrait",
+    "img": "assets/img/jacques-louis-david.jpg",
+    "fx": 0.45,
+    "fy": 0.2,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Jacques-Louis David",
+    "source": "Wikimedia Commons: Jacques-Louis David - Self-portrait, 1794.jpg"
+  },
+  {
+    "id": "gustave-courbet",
+    "name": "Gustave Courbet",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "gustave courbet",
+      "courbet"
+    ],
+    "blurb": "Realist rebel of French painting (1819–1877) · self-portrait, 'The Desperate Man'",
+    "img": "assets/img/gustave-courbet.jpg",
+    "fx": 0.5,
+    "fy": 0.35,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Gustave Courbet",
+    "source": "Wikimedia Commons: Gustave Courbet - Le Désespéré (1843).jpg"
   }
 ]
