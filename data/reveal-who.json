@@ -4260,5 +4260,121 @@
     "license": "Public domain",
     "attribution": "Francisco Goya",
     "source": "Wikimedia Commons: Francisco de Goya - Autorretrato - Google Art Project.jpg"
+  },
+  {
+    "id": "diego-velazquez",
+    "name": "Diego Velázquez",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "diego velazquez",
+      "velazquez",
+      "diego velázquez",
+      "velázquez"
+    ],
+    "blurb": "Spain's supreme court painter (1599–1660) · self-portrait",
+    "img": "assets/img/diego-velazquez.jpg",
+    "fx": 0.42,
+    "fy": 0.13,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Diego Velázquez",
+    "source": "Wikimedia Commons: Self-portrait by Diego Velázquez.jpg"
+  },
+  {
+    "id": "titian",
+    "name": "Titian",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "titian",
+      "tiziano",
+      "tiziano vecellio"
+    ],
+    "blurb": "Venetian titan of colour (c. 1488–1576) · self-portrait",
+    "img": "assets/img/titian.jpg",
+    "fx": 0.5,
+    "fy": 0.16,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Titian",
+    "source": "Wikimedia Commons: Titian - Self-Portrait - P000407 - Museo del Prado.jpg"
+  },
+  {
+    "id": "peter-paul-rubens",
+    "name": "Peter Paul Rubens",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "peter paul rubens",
+      "rubens",
+      "peter-paul rubens"
+    ],
+    "blurb": "Flemish master of Baroque abundance (1577–1640) · self-portrait",
+    "img": "assets/img/peter-paul-rubens.jpg",
+    "fx": 0.55,
+    "fy": 0.25,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Peter Paul Rubens",
+    "source": "Wikimedia Commons: Peter Paul Rubens - Self-portrait (1623, NGA).jpg"
+  },
+  {
+    "id": "alexander-pushkin",
+    "name": "Alexander Pushkin",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "alexander pushkin",
+      "pushkin",
+      "aleksandr pushkin"
+    ],
+    "blurb": "Founding poet of Russian literature (1799–1837) · painting by Orest Kiprensky",
+    "img": "assets/img/alexander-pushkin.jpg",
+    "fx": 0.35,
+    "fy": 0.2,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Orest Kiprensky",
+    "source": "Wikimedia Commons: Kiprensky Pushkin.jpg"
+  },
+  {
+    "id": "nikolai-gogol",
+    "name": "Nikolai Gogol",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "nikolai gogol",
+      "gogol",
+      "nikolay gogol"
+    ],
+    "blurb": "Russian satirist of dead souls (1809–1852) · painting by Fyodor Möller",
+    "img": "assets/img/nikolai-gogol.jpg",
+    "fx": 0.5,
+    "fy": 0.22,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Otto Friedrich Theodor von Möller",
+    "source": "Wikimedia Commons: N.Gogol by F.Moller (1840, Tretyakov gallery).jpg"
+  },
+  {
+    "id": "louis-xvi",
+    "name": "Louis XVI",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "louis xvi",
+      "louis 16",
+      "louis xvi of france",
+      "king louis xvi"
+    ],
+    "blurb": "French king who met the guillotine (1754–1793) · painting by Joseph Duplessis",
+    "img": "assets/img/louis-xvi.jpg",
+    "fx": 0.5,
+    "fy": 0.32,
+    "frac": 0.14,
+    "license": "Public domain",
+    "attribution": "Joseph-Siffred Duplessis",
+    "source": "Wikimedia Commons: Portrait de Louis XVI - Duplessis - Musée Condé.jpg"
   }
 ]
