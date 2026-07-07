@@ -4102,5 +4102,124 @@
     "license": "CC0",
     "attribution": "Gary Todd",
     "source": "Wikimedia Commons: Ancient Buddhist Grottoes at Longmen- Fengxian Temple, Vairocana Buddha.jpg"
+  },
+  {
+    "id": "registan",
+    "name": "Registan",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "registan",
+      "registan square",
+      "samarkand"
+    ],
+    "blurb": "Samarkand's grand plaza framed by three Timurid madrasas, 15th–17th century",
+    "img": "assets/img/registan.jpg",
+    "fx": 0.5,
+    "fy": 0.4,
+    "frac": 0.24,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Benjamin Goetzinger",
+    "source": "Wikimedia Commons: Registan square, Samarkand, Uzbekistan.jpg"
+  },
+  {
+    "id": "mostar-bridge",
+    "name": "Stari Most",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "stari most",
+      "mostar bridge",
+      "mostar",
+      "old bridge of mostar"
+    ],
+    "blurb": "Ottoman single-arch bridge over the Neretva at Mostar, rebuilt after the 1990s war",
+    "img": "assets/img/mostar-bridge.jpg",
+    "fx": 0.5,
+    "fy": 0.5,
+    "frac": 0.22,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Ramirez",
+    "source": "Wikimedia Commons: Mostar Old Town Panorama 2007.jpg"
+  },
+  {
+    "id": "mount-nemrut",
+    "name": "Mount Nemrut",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "mount nemrut",
+      "nemrut",
+      "nemrut dagi",
+      "nemrut dag"
+    ],
+    "blurb": "Colossal toppled god-heads crowning a royal Anatolian tomb-mountain, 1st century BC",
+    "img": "assets/img/mount-nemrut.jpg",
+    "fx": 0.4,
+    "fy": 0.5,
+    "frac": 0.24,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Emrahuygun",
+    "source": "Wikimedia Commons: Giant Statues of Commagene Kingdom.jpg"
+  },
+  {
+    "id": "goreme",
+    "name": "Cappadocia",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "cappadocia",
+      "goreme",
+      "göreme",
+      "fairy chimneys"
+    ],
+    "blurb": "Turkey's valley of volcanic 'fairy chimneys' and rock-cut cave dwellings",
+    "img": "assets/img/goreme.jpg",
+    "fx": 0.5,
+    "fy": 0.45,
+    "frac": 0.24,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Brocken Inaglory",
+    "source": "Wikimedia Commons: Göreme Valley in Cappadocia edit1.jpg"
+  },
+  {
+    "id": "kairouan-mosque",
+    "name": "Great Mosque of Kairouan",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "great mosque of kairouan",
+      "kairouan",
+      "mosque of kairouan",
+      "kairouan mosque"
+    ],
+    "blurb": "One of Islam's oldest great mosques, in Tunisia, with the world's oldest minaret",
+    "img": "assets/img/kairouan-mosque.jpg",
+    "fx": 0.35,
+    "fy": 0.35,
+    "frac": 0.24,
+    "license": "CC BY 2.0",
+    "attribution": "Keith Roper",
+    "source": "Wikimedia Commons: Courtyard and minaret of the Great Mosque of Kairouan, Tunisia.jpg"
+  },
+  {
+    "id": "ctesiphon",
+    "name": "Ctesiphon",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "ctesiphon",
+      "taq kasra",
+      "arch of ctesiphon",
+      "taq-e kisra"
+    ],
+    "blurb": "The soaring brick arch of a Persian palace near Baghdad, 6th century AD",
+    "img": "assets/img/ctesiphon.jpg",
+    "fx": 0.6,
+    "fy": 0.45,
+    "frac": 0.22,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Safa.daneshvar",
+    "source": "Wikimedia Commons: 001125-TaqKasra-Iraq-IMG 7914-2.jpg"
   }
 ]
