@@ -2938,5 +2938,450 @@
         }
       ]
     }
+  },
+  {
+    "id": "mini-16",
+    "format": "mini",
+    "size": 5,
+    "title": "Mini 16",
+    "grid": [
+      "##AGE",
+      "ACRID",
+      "LUIGI",
+      "BREST",
+      "ADS##"
+    ],
+    "clues": {
+      "across": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 2,
+          "answer": "AGE",
+          "clue": "The Gilded ___ of American history"
+        },
+        {
+          "num": 4,
+          "row": 1,
+          "col": 0,
+          "answer": "ACRID",
+          "clue": "Bitter and stinging, like battlefield smoke"
+        },
+        {
+          "num": 6,
+          "row": 2,
+          "col": 0,
+          "answer": "LUIGI",
+          "clue": "Mario's green-clad brother"
+        },
+        {
+          "num": 7,
+          "row": 3,
+          "col": 0,
+          "answer": "BREST",
+          "clue": "___-Litovsk, where Russia quit World War I in 1918"
+        },
+        {
+          "num": 8,
+          "row": 4,
+          "col": 0,
+          "answer": "ADS",
+          "clue": "Commercials, for short"
+        }
+      ],
+      "down": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 2,
+          "answer": "ARIES",
+          "clue": "First sign of the zodiac"
+        },
+        {
+          "num": 2,
+          "row": 0,
+          "col": 3,
+          "answer": "GIGS",
+          "clue": "Musicians' bookings"
+        },
+        {
+          "num": 3,
+          "row": 0,
+          "col": 4,
+          "answer": "EDIT",
+          "clue": "Blue-pencil a manuscript"
+        },
+        {
+          "num": 4,
+          "row": 1,
+          "col": 0,
+          "answer": "ALBA",
+          "clue": "Ancient poetic name for Scotland"
+        },
+        {
+          "num": 5,
+          "row": 1,
+          "col": 1,
+          "answer": "CURD",
+          "clue": "What Miss Muffet's whey came with"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mini-17",
+    "format": "mini",
+    "size": 5,
+    "title": "Mini 17",
+    "grid": [
+      "##RAJ",
+      "SPIRO",
+      "CAFES",
+      "ALLAH",
+      "ROE##"
+    ],
+    "clues": {
+      "across": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 2,
+          "answer": "RAJ",
+          "clue": "British rule over India, 1858 to 1947"
+        },
+        {
+          "num": 4,
+          "row": 1,
+          "col": 0,
+          "answer": "SPIRO",
+          "clue": "___ Agnew, Nixon's disgraced vice president"
+        },
+        {
+          "num": 6,
+          "row": 2,
+          "col": 0,
+          "answer": "CAFES",
+          "clue": "Parisian coffeehouses where revolutionaries gathered"
+        },
+        {
+          "num": 7,
+          "row": 3,
+          "col": 0,
+          "answer": "ALLAH",
+          "clue": "God, in Islam"
+        },
+        {
+          "num": 8,
+          "row": 4,
+          "col": 0,
+          "answer": "ROE",
+          "clue": "___ v. Wade, the 1973 ruling"
+        }
+      ],
+      "down": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 2,
+          "answer": "RIFLE",
+          "clue": "Soldier's shoulder weapon"
+        },
+        {
+          "num": 2,
+          "row": 0,
+          "col": 3,
+          "answer": "AREA",
+          "clue": "A region on the map"
+        },
+        {
+          "num": 3,
+          "row": 0,
+          "col": 4,
+          "answer": "JOSH",
+          "clue": "Tease good-naturedly"
+        },
+        {
+          "num": 4,
+          "row": 1,
+          "col": 0,
+          "answer": "SCAR",
+          "clue": "Mark left by an old wound"
+        },
+        {
+          "num": 5,
+          "row": 1,
+          "col": 1,
+          "answer": "PALO",
+          "clue": "___ Alto, cradle of Silicon Valley"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mini-18",
+    "format": "mini",
+    "size": 5,
+    "title": "Mini 18",
+    "grid": [
+      "##NOT",
+      "OSAKA",
+      "TITAN",
+      "TRAYS",
+      "OIL##"
+    ],
+    "clues": {
+      "across": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 2,
+          "answer": "NOT",
+          "clue": "Word of denial"
+        },
+        {
+          "num": 4,
+          "row": 1,
+          "col": 0,
+          "answer": "OSAKA",
+          "clue": "Japanese port with a famous 16th-century castle"
+        },
+        {
+          "num": 6,
+          "row": 2,
+          "col": 0,
+          "answer": "TITAN",
+          "clue": "Cronus or Atlas, in Greek myth"
+        },
+        {
+          "num": 7,
+          "row": 3,
+          "col": 0,
+          "answer": "TRAYS",
+          "clue": "Servers carry drinks on them"
+        },
+        {
+          "num": 8,
+          "row": 4,
+          "col": 0,
+          "answer": "OIL",
+          "clue": "Black gold that reshaped the Middle East"
+        }
+      ],
+      "down": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 2,
+          "answer": "NATAL",
+          "clue": "South African colony the British took from the Boers"
+        },
+        {
+          "num": 2,
+          "row": 0,
+          "col": 3,
+          "answer": "OKAY",
+          "clue": "All right; fine"
+        },
+        {
+          "num": 3,
+          "row": 0,
+          "col": 4,
+          "answer": "TANS",
+          "clue": "What sunbathers seek"
+        },
+        {
+          "num": 4,
+          "row": 1,
+          "col": 0,
+          "answer": "OTTO",
+          "clue": "___ von Bismarck, unifier of Germany"
+        },
+        {
+          "num": 5,
+          "row": 1,
+          "col": 1,
+          "answer": "SIRI",
+          "clue": "Apple's voice assistant"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mini-19",
+    "format": "mini",
+    "size": 5,
+    "title": "Mini 19",
+    "grid": [
+      "#CLIO",
+      "#HONE",
+      "ALOUD",
+      "LOKI#",
+      "LEST#"
+    ],
+    "clues": {
+      "across": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 1,
+          "answer": "CLIO",
+          "clue": "The Muse of history"
+        },
+        {
+          "num": 5,
+          "row": 1,
+          "col": 1,
+          "answer": "HONE",
+          "clue": "Sharpen, as a blade"
+        },
+        {
+          "num": 6,
+          "row": 2,
+          "col": 0,
+          "answer": "ALOUD",
+          "clue": "How a town crier read the news"
+        },
+        {
+          "num": 7,
+          "row": 3,
+          "col": 0,
+          "answer": "LOKI",
+          "clue": "Trickster god of Norse myth"
+        },
+        {
+          "num": 8,
+          "row": 4,
+          "col": 0,
+          "answer": "LEST",
+          "clue": "For fear that"
+        }
+      ],
+      "down": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 1,
+          "answer": "CHLOE",
+          "clue": "A Greek name meaning 'young green shoot'"
+        },
+        {
+          "num": 2,
+          "row": 0,
+          "col": 2,
+          "answer": "LOOKS",
+          "clue": "Glances or appearances"
+        },
+        {
+          "num": 3,
+          "row": 0,
+          "col": 3,
+          "answer": "INUIT",
+          "clue": "People of the Arctic, once called Eskimo"
+        },
+        {
+          "num": 4,
+          "row": 0,
+          "col": 4,
+          "answer": "OED",
+          "clue": "Definitive dictionary, in brief"
+        },
+        {
+          "num": 6,
+          "row": 2,
+          "col": 0,
+          "answer": "ALL",
+          "clue": "Everyone, without exception"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mini-20",
+    "format": "mini",
+    "size": 5,
+    "title": "Mini 20",
+    "grid": [
+      "##ALL",
+      "SAMOA",
+      "OVENS",
+      "SINGH",
+      "ADD##"
+    ],
+    "clues": {
+      "across": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 2,
+          "answer": "ALL",
+          "clue": "The whole lot"
+        },
+        {
+          "num": 4,
+          "row": 1,
+          "col": 0,
+          "answer": "SAMOA",
+          "clue": "Pacific island nation once split between colonial powers"
+        },
+        {
+          "num": 6,
+          "row": 2,
+          "col": 0,
+          "answer": "OVENS",
+          "clue": "Bakers' hot chambers"
+        },
+        {
+          "num": 7,
+          "row": 3,
+          "col": 0,
+          "answer": "SINGH",
+          "clue": "Surname of every Sikh male, meaning 'lion'"
+        },
+        {
+          "num": 8,
+          "row": 4,
+          "col": 0,
+          "answer": "ADD",
+          "clue": "Sum up"
+        }
+      ],
+      "down": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 2,
+          "answer": "AMEND",
+          "clue": "Change, as a constitution"
+        },
+        {
+          "num": 2,
+          "row": 0,
+          "col": 3,
+          "answer": "LONG",
+          "clue": "The ___ Parliament of the English Civil War"
+        },
+        {
+          "num": 3,
+          "row": 0,
+          "col": 4,
+          "answer": "LASH",
+          "clue": "Strike with a whip"
+        },
+        {
+          "num": 4,
+          "row": 1,
+          "col": 0,
+          "answer": "SOSA",
+          "clue": "Slugger Sammy of home-run fame"
+        },
+        {
+          "num": 5,
+          "row": 1,
+          "col": 1,
+          "answer": "AVID",
+          "clue": "Keen and enthusiastic"
+        }
+      ]
+    }
   }
 ]
