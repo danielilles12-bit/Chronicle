@@ -3914,5 +3914,121 @@
     "license": "Public domain",
     "attribution": "Viktor Vasnetsov",
     "source": "Wikimedia Commons: Vasnetsov Ioann 4.jpg"
+  },
+  {
+    "id": "dante-alighieri",
+    "name": "Dante Alighieri",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "dante alighieri",
+      "dante",
+      "dante aligheri"
+    ],
+    "blurb": "Poet of the Divine Comedy (1265–1321) · profile by Sandro Botticelli",
+    "img": "assets/img/dante-alighieri.jpg",
+    "fx": 0.42,
+    "fy": 0.13,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Sandro Botticelli",
+    "source": "Wikimedia Commons: Sandro Botticelli - Portrait of Dante - WGA02802.jpg"
+  },
+  {
+    "id": "rembrandt-self",
+    "name": "Rembrandt",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "rembrandt",
+      "rembrandt van rijn",
+      "rembrandt self-portrait"
+    ],
+    "blurb": "Dutch master of light and shadow (1606–1669) · self-portrait",
+    "img": "assets/img/rembrandt-self.jpg",
+    "fx": 0.5,
+    "fy": 0.3,
+    "frac": 0.18,
+    "license": "Public domain",
+    "attribution": "Rembrandt",
+    "source": "Wikimedia Commons: Rembrandt van Rijn - Self-Portrait - Google Art Project.jpg"
+  },
+  {
+    "id": "johann-sebastian-bach",
+    "name": "Johann Sebastian Bach",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "johann sebastian bach",
+      "bach",
+      "j s bach",
+      "js bach"
+    ],
+    "blurb": "Baroque titan of the organ loft (1685–1750) · painting by E. G. Haussmann",
+    "img": "assets/img/johann-sebastian-bach.jpg",
+    "fx": 0.52,
+    "fy": 0.22,
+    "frac": 0.18,
+    "license": "Public domain",
+    "attribution": "Elias Gottlob Haussmann",
+    "source": "Wikimedia Commons: Johann Sebastian Bach 1746.jpg"
+  },
+  {
+    "id": "rene-descartes",
+    "name": "René Descartes",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "rene descartes",
+      "descartes",
+      "rené descartes"
+    ],
+    "blurb": "Philosopher who thought, therefore was (1596–1650) · after Frans Hals",
+    "img": "assets/img/rene-descartes.jpg",
+    "fx": 0.42,
+    "fy": 0.33,
+    "frac": 0.14,
+    "license": "Public domain",
+    "attribution": "After Frans Hals",
+    "source": "Wikimedia Commons: Frans Hals - Portret van René Descartes.jpg"
+  },
+  {
+    "id": "niccolo-machiavelli",
+    "name": "Niccolò Machiavelli",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "niccolo machiavelli",
+      "machiavelli",
+      "niccolò machiavelli"
+    ],
+    "blurb": "Florentine who wrote the book on power (1469–1527) · painting by Santi di Tito",
+    "img": "assets/img/niccolo-machiavelli.jpg",
+    "fx": 0.46,
+    "fy": 0.22,
+    "frac": 0.14,
+    "license": "Public domain",
+    "attribution": "Santi di Tito",
+    "source": "Wikimedia Commons: Portrait of Niccolò Machiavelli by Santi di Tito.jpg"
+  },
+  {
+    "id": "albrecht-durer",
+    "name": "Albrecht Dürer",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "albrecht durer",
+      "durer",
+      "dürer",
+      "albrecht dürer"
+    ],
+    "blurb": "German master of the Renaissance print (1471–1528) · self-portrait at 28",
+    "img": "assets/img/albrecht-durer.jpg",
+    "fx": 0.5,
+    "fy": 0.27,
+    "frac": 0.14,
+    "license": "Public domain",
+    "attribution": "Albrecht Dürer",
+    "source": "Wikimedia Commons: Albrecht Dürer - 1500 self-portrait (High resolution and detail).jpg"
   }
 ]

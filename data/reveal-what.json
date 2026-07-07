@@ -3043,5 +3043,122 @@
     "license": "Public domain",
     "attribution": "Gleb Simonov",
     "source": "Wikimedia Commons: Phaistos Disc — Side A.jpg"
+  },
+  {
+    "id": "uffington-white-horse",
+    "name": "Uffington White Horse",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "uffington white horse",
+      "white horse of uffington",
+      "uffington horse"
+    ],
+    "blurb": "Britain's stylised chalk hill-figure, cut c. 1000 BC in Oxfordshire",
+    "img": "assets/img/uffington-white-horse.jpg",
+    "fx": 0.45,
+    "fy": 0.38,
+    "frac": 0.3,
+    "license": "CC BY-SA 2.0",
+    "attribution": "Dave Price",
+    "source": "Wikimedia Commons: Aerial View of Uffington White Horse at Harvest Time - geograph.org.uk - 4403449.jpg"
+  },
+  {
+    "id": "newgrange-entrance-stone",
+    "name": "Newgrange",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "newgrange",
+      "newgrange entrance stone",
+      "bru na boinne"
+    ],
+    "blurb": "Ireland's Neolithic passage tomb and its carved spirals, c. 3200 BC",
+    "img": "assets/img/newgrange-entrance-stone.jpg",
+    "fx": 0.5,
+    "fy": 0.5,
+    "frac": 0.26,
+    "license": "CC BY 2.0",
+    "attribution": "Mark McElroy",
+    "source": "Wikimedia Commons: Entrance Stone - Newgrange - Detail.jpg"
+  },
+  {
+    "id": "column-marcus-aurelius",
+    "name": "Column of Marcus Aurelius",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "column of marcus aurelius",
+      "marcus aurelius column",
+      "column of aurelius",
+      "aurelian column"
+    ],
+    "blurb": "Rome's spiralling marble record of an emperor's northern wars, 2nd century AD",
+    "img": "assets/img/column-marcus-aurelius.jpg",
+    "fx": 0.4,
+    "fy": 0.33,
+    "frac": 0.18,
+    "license": "CC BY-SA 4.0",
+    "attribution": "John Samuel",
+    "source": "Wikimedia Commons: Column of Marcus Aurelius, Rome.jpg"
+  },
+  {
+    "id": "palenque-temple",
+    "name": "Palenque",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "palenque",
+      "temple of the inscriptions",
+      "temple of inscriptions"
+    ],
+    "blurb": "Maya pyramid-tomb rising from the Chiapas jungle, 7th century AD",
+    "img": "assets/img/palenque-temple.jpg",
+    "fx": 0.5,
+    "fy": 0.42,
+    "frac": 0.28,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Strobilomyces",
+    "source": "Wikimedia Commons: Palenque Temple of Inscriptions.JPG"
+  },
+  {
+    "id": "carnac-stones",
+    "name": "Carnac Stones",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "carnac stones",
+      "carnac",
+      "carnac alignments",
+      "stones of carnac"
+    ],
+    "blurb": "Brittany's mile-long Neolithic rows of standing stones, c. 4500 BC",
+    "img": "assets/img/carnac-stones.jpg",
+    "fx": 0.33,
+    "fy": 0.48,
+    "frac": 0.28,
+    "license": "CC BY 3.0",
+    "attribution": "David Broad",
+    "source": "Wikimedia Commons: Carnac Standing Stones Alignment, Carnac, Brittany - panoramio.jpg"
+  },
+  {
+    "id": "charioteer-delphi",
+    "name": "Charioteer of Delphi",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "charioteer of delphi",
+      "delphi charioteer",
+      "the charioteer",
+      "heniokhos"
+    ],
+    "blurb": "Serene bronze victor cast for Delphi's sanctuary, 478 BC",
+    "img": "assets/img/charioteer-delphi.jpg",
+    "fx": 0.5,
+    "fy": 0.13,
+    "frac": 0.16,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Zde",
+    "source": "Wikimedia Commons: The Charioteer of Delphi, 478 BC, AM of Delphi, 201441.jpg"
   }
 ]
