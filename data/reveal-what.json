@@ -4450,5 +4450,122 @@
     "license": "CC BY 2.0",
     "attribution": "Chuck Moravec",
     "source": "Wikimedia Commons: Ollantaytambo Inca terraces1.jpg"
+  },
+  {
+    "id": "sacre-coeur",
+    "name": "Sacré-Cœur",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "sacre-coeur",
+      "sacre coeur",
+      "sacré-cœur",
+      "basilica of the sacred heart"
+    ],
+    "blurb": "The white-domed basilica crowning Montmartre above Paris, completed in 1914",
+    "img": "assets/img/sacre-coeur.jpg",
+    "fx": 0.5,
+    "fy": 0.35,
+    "frac": 0.24,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Terragio67",
+    "source": "Wikimedia Commons: Basilique du Sacré-Cœur de Montmartre - Paris - GT-01 - 2024.jpg"
+  },
+  {
+    "id": "st-stephens-vienna",
+    "name": "St Stephen's Cathedral",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "st stephen's cathedral",
+      "stephansdom",
+      "st stephens cathedral",
+      "st stephen's cathedral vienna"
+    ],
+    "blurb": "Vienna's Gothic cathedral with its dazzling patterned tiled roof",
+    "img": "assets/img/st-stephens-vienna.jpg",
+    "fx": 0.4,
+    "fy": 0.35,
+    "frac": 0.22,
+    "license": "CC BY-SA 4.0",
+    "attribution": "C.Stadler/Bwag",
+    "source": "Wikimedia Commons: Wien - Stephansdom (1).JPG"
+  },
+  {
+    "id": "gyeongbokgung",
+    "name": "Gyeongbokgung",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "gyeongbokgung",
+      "gyeongbok palace",
+      "gyeongbokgung palace"
+    ],
+    "blurb": "Seoul's grand royal palace of the Joseon dynasty, first built in 1395",
+    "img": "assets/img/gyeongbokgung.jpg",
+    "fx": 0.5,
+    "fy": 0.35,
+    "frac": 0.24,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Basile Morin",
+    "source": "Wikimedia Commons: Front view of the Imperial Throne Hall Geunjeongjeon at Gyeongbokgung Palace with blue sky in Seoul.jpg"
+  },
+  {
+    "id": "predjama-castle",
+    "name": "Predjama Castle",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "predjama castle",
+      "predjama",
+      "predjamski grad"
+    ],
+    "blurb": "Renaissance castle built into the mouth of a cliff cave in Slovenia",
+    "img": "assets/img/predjama-castle.jpg",
+    "fx": 0.4,
+    "fy": 0.4,
+    "frac": 0.22,
+    "license": "CC BY 4.0",
+    "attribution": "Jakub Hałun",
+    "source": "Wikimedia Commons: Predjama Castle, Slovenia, 20240502 0833 7417.jpg"
+  },
+  {
+    "id": "moray",
+    "name": "Moray",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "moray",
+      "moray peru",
+      "moray terraces"
+    ],
+    "blurb": "Inca concentric agricultural terraces sunk into the Peruvian highlands",
+    "img": "assets/img/moray.jpg",
+    "fx": 0.5,
+    "fy": 0.5,
+    "frac": 0.24,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Laslovarga",
+    "source": "Wikimedia Commons: Moray, Peru - Laslovarga (6).jpg"
+  },
+  {
+    "id": "fasil-ghebbi",
+    "name": "Fasil Ghebbi",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "fasil ghebbi",
+      "gondar",
+      "fasilides castle",
+      "gondar castle"
+    ],
+    "blurb": "The castle-citadel of Ethiopia's emperors at Gondar, 17th century",
+    "img": "assets/img/fasil-ghebbi.jpg",
+    "fx": 0.55,
+    "fy": 0.4,
+    "frac": 0.2,
+    "license": "CC BY 2.0",
+    "attribution": "Martijn Munneke",
+    "source": "Wikimedia Commons: Fasil Ghebbi (6821475763).jpg"
   }
 ]
