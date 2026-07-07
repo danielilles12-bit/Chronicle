@@ -4491,5 +4491,112 @@
     "license": "Public domain",
     "attribution": "Thomas Phillips",
     "source": "Wikimedia Commons: M Faraday Th Phillips oil 1842.jpg"
+  },
+  {
+    "id": "richard-wagner",
+    "name": "Richard Wagner",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "richard wagner",
+      "wagner"
+    ],
+    "blurb": "Composer of vast, thundering operas (1813–1883) · photograph by Franz Hanfstaengl",
+    "img": "assets/img/richard-wagner.jpg",
+    "fx": 0.4,
+    "fy": 0.2,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Franz Hanfstaengl",
+    "source": "Wikimedia Commons: Richard Wagner. Franz Hanfstaengl, München, 1871.jpg"
+  },
+  {
+    "id": "john-locke",
+    "name": "John Locke",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "john locke",
+      "locke"
+    ],
+    "blurb": "Philosopher father of liberalism (1632–1704) · painting by Godfrey Kneller",
+    "img": "assets/img/john-locke.jpg",
+    "fx": 0.5,
+    "fy": 0.2,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Godfrey Kneller",
+    "source": "Wikimedia Commons: Godfrey Kneller - Portrait of John Locke (Hermitage).jpg"
+  },
+  {
+    "id": "adam-smith",
+    "name": "Adam Smith",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "adam smith"
+    ],
+    "blurb": "Founder of modern economics (1723–1790) · his only known likeness, in profile",
+    "img": "assets/img/adam-smith.jpg",
+    "fx": 0.55,
+    "fy": 0.2,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "After James Tassie",
+    "source": "Wikimedia Commons: AdamSmith.jpg"
+  },
+  {
+    "id": "franz-schubert",
+    "name": "Franz Schubert",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "franz schubert",
+      "schubert"
+    ],
+    "blurb": "Composer of Lieder and unfinished symphonies (1797–1828) · watercolour by Wilhelm Rieder",
+    "img": "assets/img/franz-schubert.jpg",
+    "fx": 0.35,
+    "fy": 0.18,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Wilhelm August Rieder",
+    "source": "Wikimedia Commons: Franz Schubert by Wilhelm August Rieder 1875.jpg"
+  },
+  {
+    "id": "thomas-hobbes",
+    "name": "Thomas Hobbes",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "thomas hobbes",
+      "hobbes"
+    ],
+    "blurb": "Philosopher of the all-powerful Leviathan (1588–1679) · painting by John Michael Wright",
+    "img": "assets/img/thomas-hobbes.jpg",
+    "fx": 0.5,
+    "fy": 0.22,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "John Michael Wright",
+    "source": "Wikimedia Commons: Thomas Hobbes by John Michael Wright.jpg"
+  },
+  {
+    "id": "blaise-pascal",
+    "name": "Blaise Pascal",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "blaise pascal",
+      "pascal"
+    ],
+    "blurb": "Mathematician who wagered on God (1623–1662) · period portrait",
+    "img": "assets/img/blaise-pascal.jpg",
+    "fx": 0.55,
+    "fy": 0.28,
+    "frac": 0.15,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Anonymous (Palais des Beaux-Arts)",
+    "source": "Wikimedia Commons: Portrait de Blaise Pascal (MARQ 999.3.1).jpg"
   }
 ]
