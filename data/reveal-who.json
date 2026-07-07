@@ -4936,5 +4936,117 @@
     "license": "Public domain",
     "attribution": "Johann Schäfer",
     "source": "Wikimedia Commons: Arthur Schopenhauer by J Schäfer, 1859b.jpg"
+  },
+  {
+    "id": "anton-chekhov",
+    "name": "Anton Chekhov",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "anton chekhov",
+      "chekhov",
+      "anton chekov"
+    ],
+    "blurb": "Russian master of the short story and stage (1860–1904) · 1889 photograph",
+    "img": "assets/img/anton-chekhov.jpg",
+    "fx": 0.45,
+    "fy": 0.2,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "V. Chekhovskii",
+    "source": "Wikimedia Commons: Anton Chekhov 1889.jpg"
+  },
+  {
+    "id": "hans-christian-andersen",
+    "name": "Hans Christian Andersen",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "hans christian andersen",
+      "andersen",
+      "h c andersen"
+    ],
+    "blurb": "Danish teller of timeless fairy tales (1805–1875) · 1869 photograph",
+    "img": "assets/img/hans-christian-andersen.jpg",
+    "fx": 0.5,
+    "fy": 0.2,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Thora Hallager",
+    "source": "Wikimedia Commons: Hans Christian Andersen by Thora Hallager 1869.jpg"
+  },
+  {
+    "id": "robert-burns",
+    "name": "Robert Burns",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "robert burns",
+      "burns",
+      "rabbie burns"
+    ],
+    "blurb": "Scotland's national poet (1759–1796) · portrait after Alexander Nasmyth",
+    "img": "assets/img/robert-burns.jpg",
+    "fx": 0.5,
+    "fy": 0.2,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Henry Raeburn, after Alexander Nasmyth",
+    "source": "Wikimedia Commons: Robert Burns, by Henry Raeburn, after Alexander Nasmyth, 1803.jpg"
+  },
+  {
+    "id": "paul-cezanne",
+    "name": "Paul Cézanne",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "paul cezanne",
+      "cezanne",
+      "paul cézanne"
+    ],
+    "blurb": "Post-Impressionist father of modern art (1839–1906) · self-portrait",
+    "img": "assets/img/paul-cezanne.jpg",
+    "fx": 0.45,
+    "fy": 0.25,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Paul Cézanne",
+    "source": "Wikimedia Commons: Paul Cézanne - Self-Portrait - Google Art Project.jpg"
+  },
+  {
+    "id": "claude-monet",
+    "name": "Claude Monet",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "claude monet",
+      "monet"
+    ],
+    "blurb": "Founder of Impressionism (1840–1926) · self-portrait",
+    "img": "assets/img/claude-monet.jpg",
+    "fx": 0.5,
+    "fy": 0.28,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Claude Monet",
+    "source": "Wikimedia Commons: Autoportret Claude Monet.jpg"
+  },
+  {
+    "id": "edgar-degas",
+    "name": "Edgar Degas",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "edgar degas",
+      "degas"
+    ],
+    "blurb": "Impressionist painter of dancers (1834–1917) · self-portrait",
+    "img": "assets/img/edgar-degas.jpg",
+    "fx": 0.5,
+    "fy": 0.35,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Edgar Degas",
+    "source": "Wikimedia Commons: Edgar Degas - Self-Portrait - Google Art Project.jpg"
   }
 ]
