@@ -4147,5 +4147,118 @@
     "license": "CC0",
     "attribution": "Nicolas de Largillière",
     "source": "Wikimedia Commons: Nicolas de Largillière - Portrait de Voltaire (1694-1778) en 1718 - P208 - musée Carnavalet.jpg"
+  },
+  {
+    "id": "fyodor-dostoevsky",
+    "name": "Fyodor Dostoevsky",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "fyodor dostoevsky",
+      "dostoevsky",
+      "dostoyevsky",
+      "fyodor dostoyevsky"
+    ],
+    "blurb": "Russian novelist of guilt and redemption (1821–1881) · painting by Vasily Perov",
+    "img": "assets/img/fyodor-dostoevsky.jpg",
+    "fx": 0.5,
+    "fy": 0.2,
+    "frac": 0.16,
+    "license": "Public domain",
+    "attribution": "Vasily Perov",
+    "source": "Wikimedia Commons: Vasily Perov - Портрет Ф.М.Достоевского - Google Art Project.jpg"
+  },
+  {
+    "id": "edgar-allan-poe",
+    "name": "Edgar Allan Poe",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "edgar allan poe",
+      "poe",
+      "edgar allen poe"
+    ],
+    "blurb": "American master of the macabre (1809–1849) · 1848 daguerreotype",
+    "img": "assets/img/edgar-allan-poe.jpg",
+    "fx": 0.5,
+    "fy": 0.25,
+    "frac": 0.16,
+    "license": "Public domain",
+    "attribution": "W. S. Hartshorn",
+    "source": "Wikimedia Commons: Edgar Allan Poe 2.jpg"
+  },
+  {
+    "id": "frederic-chopin",
+    "name": "Frédéric Chopin",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "frederic chopin",
+      "chopin",
+      "frédéric chopin"
+    ],
+    "blurb": "Poet of the piano (1810–1849) · painting by Eugène Delacroix",
+    "img": "assets/img/frederic-chopin.jpg",
+    "fx": 0.55,
+    "fy": 0.2,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Eugène Delacroix",
+    "source": "Wikimedia Commons: Frédéric Chopin - Eugène Delacroix - Musée du Louvre Peintures RF 1717.jpg"
+  },
+  {
+    "id": "michelangelo",
+    "name": "Michelangelo",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "michelangelo",
+      "michelangelo buonarroti"
+    ],
+    "blurb": "Sculptor of David, painter of the Sistine ceiling (1475–1564) · portrait by Jacopino del Conte",
+    "img": "assets/img/michelangelo.jpg",
+    "fx": 0.45,
+    "fy": 0.13,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Attributed to Jacopino del Conte",
+    "source": "Wikimedia Commons: Jacopo del Conte - Portrait of Michelangelo - WGA5207.jpg"
+  },
+  {
+    "id": "immanuel-kant",
+    "name": "Immanuel Kant",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "immanuel kant",
+      "kant"
+    ],
+    "blurb": "Philosopher of pure reason (1724–1804) · painting by Gottlieb Döbler",
+    "img": "assets/img/immanuel-kant.jpg",
+    "fx": 0.5,
+    "fy": 0.28,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Gottlieb Doebler",
+    "source": "Wikimedia Commons: Kant gemaelde 1.jpg"
+  },
+  {
+    "id": "francisco-goya",
+    "name": "Francisco Goya",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "francisco goya",
+      "goya",
+      "francisco de goya"
+    ],
+    "blurb": "Spanish painter of kings and nightmares (1746–1828) · self-portrait",
+    "img": "assets/img/francisco-goya.jpg",
+    "fx": 0.5,
+    "fy": 0.28,
+    "frac": 0.14,
+    "license": "Public domain",
+    "attribution": "Francisco Goya",
+    "source": "Wikimedia Commons: Francisco de Goya - Autorretrato - Google Art Project.jpg"
   }
 ]
