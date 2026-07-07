@@ -6249,5 +6249,475 @@
         ]
       }
     ]
+  },
+  {
+    "id": "conn-134",
+    "title": "Storming the Castle",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Parts of a castle",
+        "items": [
+          "Keep",
+          "Moat",
+          "Drawbridge",
+          "Dungeon"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "A castle's defences",
+        "items": [
+          "Portcullis",
+          "Battlements",
+          "Arrow slit",
+          "Murder hole"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "The early Norman castle",
+        "items": [
+          "Motte",
+          "Bailey",
+          "Palisade",
+          "Curtain wall"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Officers of the castle household",
+        "items": [
+          "Constable",
+          "Steward",
+          "Chatelaine",
+          "Seneschal"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-135",
+    "title": "Liberté, Égalité",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Symbols of the French Revolution",
+        "items": [
+          "Bastille",
+          "Guillotine",
+          "Tricolour",
+          "Marseillaise"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Leaders of the Terror",
+        "items": [
+          "Robespierre",
+          "Danton",
+          "Marat",
+          "Saint-Just"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Factions of the Revolution",
+        "items": [
+          "Jacobins",
+          "Girondins",
+          "Sans-culottes",
+          "Feuillants"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Phases of the Revolution",
+        "items": [
+          "Estates-General",
+          "Reign of Terror",
+          "Thermidor",
+          "The Directory"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-136",
+    "title": "Brother Against Brother",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Confederate leaders",
+        "items": [
+          "Robert E. Lee",
+          "Stonewall Jackson",
+          "Jefferson Davis",
+          "J.E.B. Stuart"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Union leaders",
+        "items": [
+          "Ulysses S. Grant",
+          "William Sherman",
+          "George McClellan",
+          "Abraham Lincoln"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Battles of the Civil War",
+        "items": [
+          "Gettysburg",
+          "Antietam",
+          "Bull Run",
+          "Shiloh"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Milestones of the war",
+        "items": [
+          "Fort Sumter",
+          "Emancipation Proclamation",
+          "Gettysburg Address",
+          "Appomattox"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-137",
+    "title": "In the Style Of",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Grand European styles",
+        "items": [
+          "Gothic",
+          "Romanesque",
+          "Baroque",
+          "Rococo"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Movements of modern architecture",
+        "items": [
+          "Art Deco",
+          "Bauhaus",
+          "Brutalism",
+          "Modernism"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Features of a Gothic cathedral",
+        "items": [
+          "Flying buttress",
+          "Gargoyle",
+          "Rose window",
+          "Spire"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Styles named for English monarchs",
+        "items": [
+          "Georgian",
+          "Victorian",
+          "Tudor",
+          "Edwardian"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-138",
+    "title": "Gift of the Nile",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Wonders of ancient Egypt",
+        "items": [
+          "Great Pyramid",
+          "Great Sphinx",
+          "Valley of the Kings",
+          "Abu Simbel"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Egyptian writing and records",
+        "items": [
+          "Hieroglyphs",
+          "Rosetta Stone",
+          "Papyrus",
+          "Cartouche"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Mummification and the tomb",
+        "items": [
+          "Sarcophagus",
+          "Canopic jars",
+          "Book of the Dead",
+          "Natron"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Sacred symbols of Egypt",
+        "items": [
+          "Ankh",
+          "Eye of Horus",
+          "Scarab",
+          "Lotus"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-139",
+    "title": "The Age of Steam",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Textile machines of the age",
+        "items": [
+          "Spinning Jenny",
+          "Water Frame",
+          "Spinning Mule",
+          "Power Loom"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Inventors of the Industrial Revolution",
+        "items": [
+          "James Watt",
+          "Richard Arkwright",
+          "James Hargreaves",
+          "Eli Whitney"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "The iron and steel revolution",
+        "items": [
+          "Blast furnace",
+          "Bessemer process",
+          "Puddling",
+          "Coke"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "The social upheaval",
+        "items": [
+          "Luddites",
+          "Factory Acts",
+          "Enclosure",
+          "Chartism"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-140",
+    "title": "The Age of Chivalry",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "A knight's plate armour",
+        "items": [
+          "Breastplate",
+          "Gauntlet",
+          "Greaves",
+          "Visor"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "At the tournament",
+        "items": [
+          "Joust",
+          "Lance",
+          "Melee",
+          "Quintain"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "The making of a knight",
+        "items": [
+          "Page",
+          "Squire",
+          "Dubbing",
+          "Accolade"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "The language of heraldry",
+        "items": [
+          "Escutcheon",
+          "Rampant",
+          "Or",
+          "Gules"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-141",
+    "title": "The Age of Reason",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Philosophes of France",
+        "items": [
+          "Voltaire",
+          "Rousseau",
+          "Montesquieu",
+          "Diderot"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "British thinkers of the Enlightenment",
+        "items": [
+          "John Locke",
+          "David Hume",
+          "Adam Smith",
+          "Jeremy Bentham"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Landmark works of the Enlightenment",
+        "items": [
+          "The Social Contract",
+          "The Wealth of Nations",
+          "Encyclopédie",
+          "The Spirit of the Laws"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Ideals of the Enlightenment",
+        "items": [
+          "Reason",
+          "Natural rights",
+          "Tolerance",
+          "Separation of powers"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-142",
+    "title": "The Crown Jewels",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Famous diamonds",
+        "items": [
+          "Hope Diamond",
+          "Koh-i-Noor",
+          "Cullinan",
+          "Regent"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Precious gemstones",
+        "items": [
+          "Ruby",
+          "Sapphire",
+          "Emerald",
+          "Opal"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Prized materials of the ancient world",
+        "items": [
+          "Lapis lazuli",
+          "Amber",
+          "Jade",
+          "Ivory"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "The British Crown Jewels",
+        "items": [
+          "St Edward's Crown",
+          "Imperial State Crown",
+          "Sovereign's Orb",
+          "Sovereign's Sceptre"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-143",
+    "title": "Filthy Lucre",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Gold coins of history",
+        "items": [
+          "Ducat",
+          "Doubloon",
+          "Sovereign",
+          "Florin"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Coins of the ancient world",
+        "items": [
+          "Denarius",
+          "Drachma",
+          "Sestertius",
+          "Shekel"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "The business of money",
+        "items": [
+          "Mint",
+          "Bullion",
+          "Usury",
+          "Ingot"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Money words with surprising roots",
+        "items": [
+          "Salary",
+          "Sterling",
+          "Fee",
+          "Dollar"
+        ]
+      }
+    ]
   }
 ]
