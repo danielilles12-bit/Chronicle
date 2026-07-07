@@ -2493,5 +2493,450 @@
         }
       ]
     }
+  },
+  {
+    "id": "mini-11",
+    "format": "mini",
+    "size": 5,
+    "title": "Mini 11",
+    "grid": [
+      "#EDO#",
+      "CROPS",
+      "ARNIE",
+      "DONUT",
+      "#RAM#"
+    ],
+    "clues": {
+      "across": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 1,
+          "answer": "EDO",
+          "clue": "Tokyo, before it was renamed in 1868"
+        },
+        {
+          "num": 4,
+          "row": 1,
+          "col": 0,
+          "answer": "CROPS",
+          "clue": "Maize and wheat, to a farmer"
+        },
+        {
+          "num": 6,
+          "row": 2,
+          "col": 0,
+          "answer": "ARNIE",
+          "clue": "Golf legend Palmer, to his fans"
+        },
+        {
+          "num": 7,
+          "row": 3,
+          "col": 0,
+          "answer": "DONUT",
+          "clue": "Ring-shaped fried treat"
+        },
+        {
+          "num": 8,
+          "row": 4,
+          "col": 1,
+          "answer": "RAM",
+          "clue": "Battering ___ used to breach castle gates"
+        }
+      ],
+      "down": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 1,
+          "answer": "ERROR",
+          "clue": "A mistake in the history books"
+        },
+        {
+          "num": 2,
+          "row": 0,
+          "col": 2,
+          "answer": "DONNA",
+          "clue": "Italian title for a lady"
+        },
+        {
+          "num": 3,
+          "row": 0,
+          "col": 3,
+          "answer": "OPIUM",
+          "clue": "Drug behind two wars between Britain and China"
+        },
+        {
+          "num": 4,
+          "row": 1,
+          "col": 0,
+          "answer": "CAD",
+          "clue": "A bounder or a scoundrel"
+        },
+        {
+          "num": 5,
+          "row": 1,
+          "col": 4,
+          "answer": "SET",
+          "clue": "A collection that belongs together"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mini-12",
+    "format": "mini",
+    "size": 5,
+    "title": "Mini 12",
+    "grid": [
+      "EARS#",
+      "OVEN#",
+      "NEPAL",
+      "#RARE",
+      "#TYKE"
+    ],
+    "clues": {
+      "across": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 0,
+          "answer": "EARS",
+          "clue": "What Antony asked Romans to lend him"
+        },
+        {
+          "num": 5,
+          "row": 1,
+          "col": 0,
+          "answer": "OVEN",
+          "clue": "Baker's hot box"
+        },
+        {
+          "num": 6,
+          "row": 2,
+          "col": 0,
+          "answer": "NEPAL",
+          "clue": "Himalayan kingdom on Everest's south side"
+        },
+        {
+          "num": 8,
+          "row": 3,
+          "col": 1,
+          "answer": "RARE",
+          "clue": "Opposite of well-done, for a steak"
+        },
+        {
+          "num": 9,
+          "row": 4,
+          "col": 1,
+          "answer": "TYKE",
+          "clue": "A small child, in British slang"
+        }
+      ],
+      "down": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 0,
+          "answer": "EON",
+          "clue": "An immeasurably long age"
+        },
+        {
+          "num": 2,
+          "row": 0,
+          "col": 1,
+          "answer": "AVERT",
+          "clue": "Head off, as a crisis"
+        },
+        {
+          "num": 3,
+          "row": 0,
+          "col": 2,
+          "answer": "REPAY",
+          "clue": "Return a loan, with interest"
+        },
+        {
+          "num": 4,
+          "row": 0,
+          "col": 3,
+          "answer": "SNARK",
+          "clue": "Biting sarcasm, informally"
+        },
+        {
+          "num": 7,
+          "row": 2,
+          "col": 4,
+          "answer": "LEE",
+          "clue": "Robert E. ___, Confederate commander"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mini-13",
+    "format": "mini",
+    "size": 5,
+    "title": "Mini 13",
+    "grid": [
+      "##AGE",
+      "ERROR",
+      "CELLO",
+      "OPEDS",
+      "NOS##"
+    ],
+    "clues": {
+      "across": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 2,
+          "answer": "AGE",
+          "clue": "The Bronze or the Iron one"
+        },
+        {
+          "num": 4,
+          "row": 1,
+          "col": 0,
+          "answer": "ERROR",
+          "clue": "A blunder in the record"
+        },
+        {
+          "num": 6,
+          "row": 2,
+          "col": 0,
+          "answer": "CELLO",
+          "clue": "String instrument Bach wrote six suites for"
+        },
+        {
+          "num": 7,
+          "row": 3,
+          "col": 0,
+          "answer": "OPEDS",
+          "clue": "Opinion pieces, for short"
+        },
+        {
+          "num": 8,
+          "row": 4,
+          "col": 0,
+          "answer": "NOS",
+          "clue": "Negative votes in Parliament"
+        }
+      ],
+      "down": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 2,
+          "answer": "ARLES",
+          "clue": "Provençal city where van Gogh painted"
+        },
+        {
+          "num": 2,
+          "row": 0,
+          "col": 3,
+          "answer": "GOLD",
+          "clue": "What the conquistadors lusted after"
+        },
+        {
+          "num": 3,
+          "row": 0,
+          "col": 4,
+          "answer": "EROS",
+          "clue": "Greek god of love"
+        },
+        {
+          "num": 4,
+          "row": 1,
+          "col": 0,
+          "answer": "ECON",
+          "clue": "College subject on Adam Smith, for short"
+        },
+        {
+          "num": 5,
+          "row": 1,
+          "col": 1,
+          "answer": "REPO",
+          "clue": "Bank's reclaiming of property, informally"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mini-14",
+    "format": "mini",
+    "size": 5,
+    "title": "Mini 14",
+    "grid": [
+      "##THE",
+      "SPEED",
+      "PEPSI",
+      "ALIST",
+      "RED##"
+    ],
+    "clues": {
+      "across": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 2,
+          "answer": "THE",
+          "clue": "Word before 'Great' in many a ruler's name"
+        },
+        {
+          "num": 4,
+          "row": 1,
+          "col": 0,
+          "answer": "SPEED",
+          "clue": "How fast a chariot flies"
+        },
+        {
+          "num": 6,
+          "row": 2,
+          "col": 0,
+          "answer": "PEPSI",
+          "clue": "Cola that challenged Coke"
+        },
+        {
+          "num": 7,
+          "row": 3,
+          "col": 0,
+          "answer": "ALIST",
+          "clue": "Hollywood's top tier, with 'the'"
+        },
+        {
+          "num": 8,
+          "row": 4,
+          "col": 0,
+          "answer": "RED",
+          "clue": "Colour of the Soviet flag"
+        }
+      ],
+      "down": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 2,
+          "answer": "TEPID",
+          "clue": "Lukewarm, like a half-hearted alliance"
+        },
+        {
+          "num": 2,
+          "row": 0,
+          "col": 3,
+          "answer": "HESS",
+          "clue": "Rudolf ___, the deputy who flew to Scotland in 1941"
+        },
+        {
+          "num": 3,
+          "row": 0,
+          "col": 4,
+          "answer": "EDIT",
+          "clue": "Revise a manuscript"
+        },
+        {
+          "num": 4,
+          "row": 1,
+          "col": 0,
+          "answer": "SPAR",
+          "clue": "Trade blows in practice, as boxers do"
+        },
+        {
+          "num": 5,
+          "row": 1,
+          "col": 1,
+          "answer": "PELE",
+          "clue": "Brazilian who won three World Cups"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mini-15",
+    "format": "mini",
+    "size": 5,
+    "title": "Mini 15",
+    "grid": [
+      "AGE##",
+      "RADAR",
+      "AGILE",
+      "BACON",
+      "##TEE"
+    ],
+    "clues": {
+      "across": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 0,
+          "answer": "AGE",
+          "clue": "The Middle ___, roughly 500 to 1500"
+        },
+        {
+          "num": 4,
+          "row": 1,
+          "col": 0,
+          "answer": "RADAR",
+          "clue": "Detection tech that helped win the Battle of Britain"
+        },
+        {
+          "num": 7,
+          "row": 2,
+          "col": 0,
+          "answer": "AGILE",
+          "clue": "Nimble and quick on one's feet"
+        },
+        {
+          "num": 8,
+          "row": 3,
+          "col": 0,
+          "answer": "BACON",
+          "clue": "Francis ___, philosopher of the scientific method"
+        },
+        {
+          "num": 9,
+          "row": 4,
+          "col": 2,
+          "answer": "TEE",
+          "clue": "Where a golfer starts each hole"
+        }
+      ],
+      "down": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 0,
+          "answer": "ARAB",
+          "clue": "Of the people who spread learning across the medieval world"
+        },
+        {
+          "num": 2,
+          "row": 0,
+          "col": 1,
+          "answer": "GAGA",
+          "clue": "Pop star Lady ___"
+        },
+        {
+          "num": 3,
+          "row": 0,
+          "col": 2,
+          "answer": "EDICT",
+          "clue": "A decree, like the one of Nantes in 1598"
+        },
+        {
+          "num": 5,
+          "row": 1,
+          "col": 3,
+          "answer": "ALOE",
+          "clue": "Soothing plant gel"
+        },
+        {
+          "num": 6,
+          "row": 1,
+          "col": 4,
+          "answer": "RENE",
+          "clue": "Philosopher Descartes, to friends"
+        }
+      ]
+    }
   }
 ]
