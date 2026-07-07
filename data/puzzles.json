@@ -3383,5 +3383,450 @@
         }
       ]
     }
+  },
+  {
+    "id": "mini-21",
+    "format": "mini",
+    "size": 5,
+    "title": "Mini 21",
+    "grid": [
+      "#THE#",
+      "PROXY",
+      "DANTE",
+      "ACORN",
+      "#TRA#"
+    ],
+    "clues": {
+      "across": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 1,
+          "answer": "THE",
+          "clue": "'Ivan ___ Terrible'"
+        },
+        {
+          "num": 4,
+          "row": 1,
+          "col": 0,
+          "answer": "PROXY",
+          "clue": "A stand-in who votes on your behalf"
+        },
+        {
+          "num": 6,
+          "row": 2,
+          "col": 0,
+          "answer": "DANTE",
+          "clue": "Poet who journeyed through his own Inferno"
+        },
+        {
+          "num": 7,
+          "row": 3,
+          "col": 0,
+          "answer": "ACORN",
+          "clue": "The mighty oak's humble beginning"
+        },
+        {
+          "num": 8,
+          "row": 4,
+          "col": 1,
+          "answer": "TRA",
+          "clue": "'___-la-la' (carefree refrain)"
+        }
+      ],
+      "down": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 1,
+          "answer": "TRACT",
+          "clue": "A pamphlet arguing a cause"
+        },
+        {
+          "num": 2,
+          "row": 0,
+          "col": 2,
+          "answer": "HONOR",
+          "clue": "A knight's code prized it"
+        },
+        {
+          "num": 3,
+          "row": 0,
+          "col": 3,
+          "answer": "EXTRA",
+          "clue": "'Read all about it!' newsboy's special paper"
+        },
+        {
+          "num": 4,
+          "row": 1,
+          "col": 0,
+          "answer": "PDA",
+          "clue": "Palm Pilot, e.g., for short"
+        },
+        {
+          "num": 5,
+          "row": 1,
+          "col": 4,
+          "answer": "YEN",
+          "clue": "Japan's currency"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mini-22",
+    "format": "mini",
+    "size": 5,
+    "title": "Mini 22",
+    "grid": [
+      "##ERA",
+      "LEVEL",
+      "IDEAL",
+      "MERRY",
+      "ANY##"
+    ],
+    "clues": {
+      "across": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 2,
+          "answer": "ERA",
+          "clue": "The Victorian ___"
+        },
+        {
+          "num": 4,
+          "row": 1,
+          "col": 0,
+          "answer": "LEVEL",
+          "clue": "Flat and even, like a plain"
+        },
+        {
+          "num": 6,
+          "row": 2,
+          "col": 0,
+          "answer": "IDEAL",
+          "clue": "Perfect, as a Platonic form"
+        },
+        {
+          "num": 7,
+          "row": 3,
+          "col": 0,
+          "answer": "MERRY",
+          "clue": "___ England, an idealized past"
+        },
+        {
+          "num": 8,
+          "row": 4,
+          "col": 0,
+          "answer": "ANY",
+          "clue": "'Are there ___ questions?'"
+        }
+      ],
+      "down": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 2,
+          "answer": "EVERY",
+          "clue": "Each and ___ one"
+        },
+        {
+          "num": 2,
+          "row": 0,
+          "col": 3,
+          "answer": "REAR",
+          "clue": "The back of an army's march"
+        },
+        {
+          "num": 3,
+          "row": 0,
+          "col": 4,
+          "answer": "ALLY",
+          "clue": "Britain was one to France in two world wars"
+        },
+        {
+          "num": 4,
+          "row": 1,
+          "col": 0,
+          "answer": "LIMA",
+          "clue": "Peruvian capital founded by Pizarro"
+        },
+        {
+          "num": 5,
+          "row": 1,
+          "col": 1,
+          "answer": "EDEN",
+          "clue": "Anthony ___, PM during the Suez Crisis"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mini-23",
+    "format": "mini",
+    "size": 5,
+    "title": "Mini 23",
+    "grid": [
+      "#THE#",
+      "MAUVE",
+      "ELMER",
+      "TIARA",
+      "#ANY#"
+    ],
+    "clues": {
+      "across": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 1,
+          "answer": "THE",
+          "clue": "'Peter ___ Great'"
+        },
+        {
+          "num": 4,
+          "row": 1,
+          "col": 0,
+          "answer": "MAUVE",
+          "clue": "Purple dye Perkin discovered by accident in 1856"
+        },
+        {
+          "num": 6,
+          "row": 2,
+          "col": 0,
+          "answer": "ELMER",
+          "clue": "Cartoon hunter Fudd"
+        },
+        {
+          "num": 7,
+          "row": 3,
+          "col": 0,
+          "answer": "TIARA",
+          "clue": "Jeweled crown worn by a pope or a princess"
+        },
+        {
+          "num": 8,
+          "row": 4,
+          "col": 1,
+          "answer": "ANY",
+          "clue": "Not a single one, after 'not'"
+        }
+      ],
+      "down": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 1,
+          "answer": "TALIA",
+          "clue": "Actress Shire of the 'Rocky' films"
+        },
+        {
+          "num": 2,
+          "row": 0,
+          "col": 2,
+          "answer": "HUMAN",
+          "clue": "The Renaissance revived the study of ___ affairs"
+        },
+        {
+          "num": 3,
+          "row": 0,
+          "col": 3,
+          "answer": "EVERY",
+          "clue": "'___ dog has its day'"
+        },
+        {
+          "num": 4,
+          "row": 1,
+          "col": 0,
+          "answer": "MET",
+          "clue": "___ Gala, fashion's starry night"
+        },
+        {
+          "num": 5,
+          "row": 1,
+          "col": 4,
+          "answer": "ERA",
+          "clue": "A distinct historical age"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mini-24",
+    "format": "mini",
+    "size": 5,
+    "title": "Mini 24",
+    "grid": [
+      "TECH#",
+      "HALO#",
+      "EVERY",
+      "#EASE",
+      "#STEW"
+    ],
+    "clues": {
+      "across": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 0,
+          "answer": "TECH",
+          "clue": "Silicon Valley industry, informally"
+        },
+        {
+          "num": 5,
+          "row": 1,
+          "col": 0,
+          "answer": "HALO",
+          "clue": "Golden ring around a saint's head"
+        },
+        {
+          "num": 6,
+          "row": 2,
+          "col": 0,
+          "answer": "EVERY",
+          "clue": "Each one, no exceptions"
+        },
+        {
+          "num": 8,
+          "row": 3,
+          "col": 1,
+          "answer": "EASE",
+          "clue": "Comfort, or to lessen pain"
+        },
+        {
+          "num": 9,
+          "row": 4,
+          "col": 1,
+          "answer": "STEW",
+          "clue": "Slow-cooked meat-and-veg pot"
+        }
+      ],
+      "down": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 0,
+          "answer": "THE",
+          "clue": "Word in most book titles"
+        },
+        {
+          "num": 2,
+          "row": 0,
+          "col": 1,
+          "answer": "EAVES",
+          "clue": "Roof edges where icicles hang"
+        },
+        {
+          "num": 3,
+          "row": 0,
+          "col": 2,
+          "answer": "CLEAT",
+          "clue": "Boot stud for grip on a pitch"
+        },
+        {
+          "num": 4,
+          "row": 0,
+          "col": 3,
+          "answer": "HORSE",
+          "clue": "The Trojan ___ that fooled a city"
+        },
+        {
+          "num": 7,
+          "row": 2,
+          "col": 4,
+          "answer": "YEW",
+          "clue": "Wood that made the English longbow"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mini-25",
+    "format": "mini",
+    "size": 5,
+    "title": "Mini 25",
+    "grid": [
+      "##RAJ",
+      "SNAFU",
+      "TOTAL",
+      "AVERY",
+      "BAD##"
+    ],
+    "clues": {
+      "across": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 2,
+          "answer": "RAJ",
+          "clue": "The era of British India"
+        },
+        {
+          "num": 4,
+          "row": 1,
+          "col": 0,
+          "answer": "SNAFU",
+          "clue": "Military slang for a chaotic mess"
+        },
+        {
+          "num": 6,
+          "row": 2,
+          "col": 0,
+          "answer": "TOTAL",
+          "clue": "The sum of it all"
+        },
+        {
+          "num": 7,
+          "row": 3,
+          "col": 0,
+          "answer": "AVERY",
+          "clue": "Label-maker brand; or Tex the animator"
+        },
+        {
+          "num": 8,
+          "row": 4,
+          "col": 0,
+          "answer": "BAD",
+          "clue": "Opposite of good"
+        }
+      ],
+      "down": [
+        {
+          "num": 1,
+          "row": 0,
+          "col": 2,
+          "answer": "RATED",
+          "clue": "Given a rank, as a film"
+        },
+        {
+          "num": 2,
+          "row": 0,
+          "col": 3,
+          "answer": "AFAR",
+          "clue": "From ___, at a great distance"
+        },
+        {
+          "num": 3,
+          "row": 0,
+          "col": 4,
+          "answer": "JULY",
+          "clue": "Month named for Julius Caesar"
+        },
+        {
+          "num": 4,
+          "row": 1,
+          "col": 0,
+          "answer": "STAB",
+          "clue": "What Brutus did to Caesar"
+        },
+        {
+          "num": 5,
+          "row": 1,
+          "col": 1,
+          "answer": "NOVA",
+          "clue": "A star that suddenly flares bright"
+        }
+      ]
+    }
   }
 ]
