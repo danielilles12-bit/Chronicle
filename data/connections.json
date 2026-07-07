@@ -7189,5 +7189,475 @@
         ]
       }
     ]
+  },
+  {
+    "id": "conn-154",
+    "title": "Between Two Rivers",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Peoples and empires of Mesopotamia",
+        "items": [
+          "Sumer",
+          "Babylon",
+          "Assyria",
+          "Akkad"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Wonders and structures",
+        "items": [
+          "Ziggurat",
+          "Hanging Gardens",
+          "Ishtar Gate",
+          "Tower of Babel"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Kings and lawgivers",
+        "items": [
+          "Hammurabi",
+          "Sargon",
+          "Nebuchadnezzar",
+          "Gilgamesh"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Legacies of Mesopotamia",
+        "items": [
+          "Cuneiform",
+          "Wheel",
+          "Sexagesimal",
+          "Code of Hammurabi"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-155",
+    "title": "King of Kings",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Kings of Persia",
+        "items": [
+          "Cyrus the Great",
+          "Darius I",
+          "Xerxes",
+          "Cambyses"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "The Persian world",
+        "items": [
+          "Persepolis",
+          "Satrap",
+          "Royal Road",
+          "Immortals"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Persian religion",
+        "items": [
+          "Zoroaster",
+          "Ahura Mazda",
+          "Fire temple",
+          "Magi"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Persian dynasties and empires",
+        "items": [
+          "Achaemenid",
+          "Parthian",
+          "Sassanid",
+          "Safavid"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-156",
+    "title": "The Jewel of India",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Landmarks of India",
+        "items": [
+          "Taj Mahal",
+          "Red Fort",
+          "Golden Temple",
+          "Qutub Minar"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Empires and dynasties of India",
+        "items": [
+          "Maurya",
+          "Gupta",
+          "Mughal",
+          "Chola"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Great rulers of India",
+        "items": [
+          "Ashoka",
+          "Chandragupta",
+          "Akbar",
+          "Shah Jahan"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Ideas and words from India",
+        "items": [
+          "Karma",
+          "Dharma",
+          "Nirvana",
+          "Guru"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-157",
+    "title": "Across the Ocean",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Islands and peoples of the Pacific",
+        "items": [
+          "Hawaii",
+          "Tahiti",
+          "Easter Island",
+          "Fiji"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Polynesian voyaging",
+        "items": [
+          "Outrigger canoe",
+          "Wayfinding",
+          "Trade winds",
+          "Catamaran"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "European explorers of the Pacific",
+        "items": [
+          "James Cook",
+          "Magellan",
+          "Bougainville",
+          "Tasman"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Wonders and mysteries of the Pacific",
+        "items": [
+          "Moai",
+          "Nan Madol",
+          "Mana",
+          "Tapu"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-158",
+    "title": "All Hands on Deck",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Parts of a sailing ship",
+        "items": [
+          "Bow",
+          "Stern",
+          "Hull",
+          "Mast"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Aboard ship",
+        "items": [
+          "Galley",
+          "Deck",
+          "Rigging",
+          "Rudder"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "The ship's crew",
+        "items": [
+          "Captain",
+          "Bosun",
+          "Quartermaster",
+          "Cabin boy"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Nautical words in everyday English",
+        "items": [
+          "Aloof",
+          "Leeway",
+          "Groggy",
+          "Overhaul"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-159",
+    "title": "Sending the Message",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Machines that carried the message",
+        "items": [
+          "Telegraph",
+          "Telephone",
+          "Radio",
+          "Teleprinter"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Pioneers of communication",
+        "items": [
+          "Samuel Morse",
+          "Alexander Graham Bell",
+          "Guglielmo Marconi",
+          "Claude Chappe"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Signalling without wires",
+        "items": [
+          "Semaphore",
+          "Heliograph",
+          "Beacon",
+          "Carrier pigeon"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Codes and calls",
+        "items": [
+          "Morse code",
+          "SOS",
+          "Mayday",
+          "Phonetic alphabet"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-160",
+    "title": "The Mapmaker's Art",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Features of a map",
+        "items": [
+          "Compass rose",
+          "Scale",
+          "Legend",
+          "Contour lines"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Great mapmakers",
+        "items": [
+          "Ptolemy",
+          "Mercator",
+          "Ortelius",
+          "Cassini"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Lines and coordinates",
+        "items": [
+          "Equator",
+          "Meridian",
+          "Latitude",
+          "Tropic of Cancer"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Kinds of map and terms",
+        "items": [
+          "Atlas",
+          "Portolan chart",
+          "Projection",
+          "Cartouche"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-161",
+    "title": "Music of the Spheres",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Astronomers of history",
+        "items": [
+          "Tycho Brahe",
+          "Johannes Kepler",
+          "William Herschel",
+          "Edmond Halley"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Objects in the night sky",
+        "items": [
+          "Comet",
+          "Nebula",
+          "Galaxy",
+          "Constellation"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Instruments of astronomy",
+        "items": [
+          "Telescope",
+          "Observatory",
+          "Orrery",
+          "Planisphere"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "The astronomer's vocabulary",
+        "items": [
+          "Zodiac",
+          "Ecliptic",
+          "Light-year",
+          "Supernova"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-162",
+    "title": "Conquest of the Air",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Pioneers of flight",
+        "items": [
+          "Wright Brothers",
+          "Montgolfier Brothers",
+          "Louis Blériot",
+          "Amelia Earhart"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Kinds of aircraft",
+        "items": [
+          "Biplane",
+          "Airship",
+          "Glider",
+          "Seaplane"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Parts of an aeroplane",
+        "items": [
+          "Fuselage",
+          "Propeller",
+          "Rudder",
+          "Cockpit"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Famous aircraft and flights",
+        "items": [
+          "Spirit of St. Louis",
+          "Hindenburg",
+          "Spitfire",
+          "Concorde"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-163",
+    "title": "Life in the Middle Ages",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "The feudal order",
+        "items": [
+          "King",
+          "Lord",
+          "Knight",
+          "Serf"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "The medieval town",
+        "items": [
+          "Guild",
+          "Apprentice",
+          "Market",
+          "Charter"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "The medieval church",
+        "items": [
+          "Monastery",
+          "Abbot",
+          "Pilgrimage",
+          "Tithe"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Hardships of the age",
+        "items": [
+          "Black Death",
+          "Famine",
+          "Trial by ordeal",
+          "Peasants' Revolt"
+        ]
+      }
+    ]
   }
 ]
