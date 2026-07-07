@@ -4711,5 +4711,120 @@
     "license": "Public domain",
     "attribution": "Jan van Eyck",
     "source": "Wikimedia Commons: Portrait of a Man in a Turban (Jan van Eyck).jpg"
+  },
+  {
+    "id": "oda-nobunaga",
+    "name": "Oda Nobunaga",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "oda nobunaga",
+      "nobunaga"
+    ],
+    "blurb": "Warlord who began Japan's unification (1534–1582) · 16th-century portrait",
+    "img": "assets/img/oda-nobunaga.jpg",
+    "fx": 0.5,
+    "fy": 0.13,
+    "frac": 0.12,
+    "license": "Public domain",
+    "attribution": "Unknown (16th century)",
+    "source": "Wikimedia Commons: Portrait of Oda Nobunaga (Hideyoshi Kiyomasa Memorial Hall) Cropped.jpg"
+  },
+  {
+    "id": "carl-linnaeus",
+    "name": "Carl Linnaeus",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "carl linnaeus",
+      "linnaeus",
+      "carl von linne",
+      "carolus linnaeus"
+    ],
+    "blurb": "Botanist who named the living world (1707–1778) · painting by Alexander Roslin",
+    "img": "assets/img/carl-linnaeus.jpg",
+    "fx": 0.5,
+    "fy": 0.25,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Alexander Roslin",
+    "source": "Wikimedia Commons: Carl von Linné.jpg"
+  },
+  {
+    "id": "catherine-de-medici",
+    "name": "Catherine de' Medici",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "catherine de medici",
+      "catherine de' medici",
+      "catherine de medicis"
+    ],
+    "blurb": "Queen mother at the heart of France's wars of religion (1519–1589) · workshop of François Clouet",
+    "img": "assets/img/catherine-de-medici.jpg",
+    "fx": 0.42,
+    "fy": 0.28,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "François Clouet",
+    "source": "Wikimedia Commons: François Clouet - Portrait of Catherine de' Medici - Walters 37415.jpg"
+  },
+  {
+    "id": "tchaikovsky",
+    "name": "Pyotr Tchaikovsky",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "pyotr tchaikovsky",
+      "tchaikovsky",
+      "tchaikovski",
+      "pyotr ilyich tchaikovsky"
+    ],
+    "blurb": "Russian composer of Swan Lake (1840–1893) · photograph by Reutlinger",
+    "img": "assets/img/tchaikovsky.jpg",
+    "fx": 0.5,
+    "fy": 0.35,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Émile Reutlinger",
+    "source": "Wikimedia Commons: Tchaikovsky by Reutlinger.jpg"
+  },
+  {
+    "id": "alexander-von-humboldt",
+    "name": "Alexander von Humboldt",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "alexander von humboldt",
+      "humboldt",
+      "von humboldt"
+    ],
+    "blurb": "Explorer-scientist who mapped the natural world (1769–1859) · painting by Joseph Stieler",
+    "img": "assets/img/alexander-von-humboldt.jpg",
+    "fx": 0.5,
+    "fy": 0.2,
+    "frac": 0.16,
+    "license": "Public domain",
+    "attribution": "Joseph Karl Stieler",
+    "source": "Wikimedia Commons: Stieler, Joseph Karl - Alexander von Humboldt - 1843.jpg"
+  },
+  {
+    "id": "eugene-delacroix",
+    "name": "Eugène Delacroix",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "eugene delacroix",
+      "delacroix",
+      "eugène delacroix"
+    ],
+    "blurb": "Leading painter of French Romanticism (1798–1863) · self-portrait",
+    "img": "assets/img/eugene-delacroix.jpg",
+    "fx": 0.45,
+    "fy": 0.28,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Eugène Delacroix",
+    "source": "Wikimedia Commons: Eugène Delacroix - Self-Portrait - WGA6192.jpg"
   }
 ]
