@@ -3980,5 +3980,127 @@
     "license": "CC BY 2.0",
     "attribution": "Sharon Hahn Darlin",
     "source": "Wikimedia Commons: Pyramid of the Magician (Pirámide del Adivino), Zona Arqueológica de Uxmal, Yucatan, Mexico.jpg"
+  },
+  {
+    "id": "cologne-cathedral",
+    "name": "Cologne Cathedral",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "cologne cathedral",
+      "cologne",
+      "kolner dom",
+      "koln cathedral"
+    ],
+    "blurb": "Germany's soaring Gothic cathedral of twin openwork spires, completed in 1880",
+    "img": "assets/img/cologne-cathedral.jpg",
+    "fx": 0.42,
+    "fy": 0.3,
+    "frac": 0.2,
+    "license": "CC BY-SA 3.0",
+    "attribution": "CEphoto, Uwe Aranas",
+    "source": "Wikimedia Commons: Cologne Germany Cologne-Cathedral-West-Facade-01.jpg"
+  },
+  {
+    "id": "st-marks-basilica",
+    "name": "St Mark's Basilica",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "st mark's basilica",
+      "st marks basilica",
+      "saint mark's basilica",
+      "san marco",
+      "basilica di san marco"
+    ],
+    "blurb": "Venice's golden Byzantine basilica on the Piazza San Marco",
+    "img": "assets/img/st-marks-basilica.jpg",
+    "fx": 0.5,
+    "fy": 0.35,
+    "frac": 0.24,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Yair Haklai",
+    "source": "Wikimedia Commons: Facade of St. Mark's Basilica-Venice.jpg"
+  },
+  {
+    "id": "segovia-aqueduct",
+    "name": "Segovia Aqueduct",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "segovia aqueduct",
+      "aqueduct of segovia",
+      "acueducto de segovia"
+    ],
+    "blurb": "Roman Spain's towering double-tier aqueduct of dry-laid granite, c. 100 AD",
+    "img": "assets/img/segovia-aqueduct.jpg",
+    "fx": 0.5,
+    "fy": 0.45,
+    "frac": 0.24,
+    "license": "CC BY-SA 3.0 es",
+    "attribution": "David Corral Gadea",
+    "source": "Wikimedia Commons: Acueducto de Segovia 01.jpg"
+  },
+  {
+    "id": "tiwanaku",
+    "name": "Tiwanaku",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "tiwanaku",
+      "tiahuanaco",
+      "gate of the sun",
+      "gateway of the sun",
+      "tiahuanacu"
+    ],
+    "blurb": "Andean ceremonial centre and its carved Gate of the Sun, Bolivia, c. 500 AD",
+    "img": "assets/img/tiwanaku.jpg",
+    "fx": 0.4,
+    "fy": 0.5,
+    "frac": 0.24,
+    "license": "Public domain",
+    "attribution": "Bgabel",
+    "source": "Wikimedia Commons: Bol-tihuanaco-sonnentor.jpg"
+  },
+  {
+    "id": "taktsang",
+    "name": "Paro Taktsang",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "paro taktsang",
+      "tiger's nest",
+      "tigers nest",
+      "taktsang",
+      "tiger's nest monastery"
+    ],
+    "blurb": "Bhutan's Tiger's Nest monastery clinging to a Himalayan cliff, 17th century",
+    "img": "assets/img/taktsang.jpg",
+    "fx": 0.4,
+    "fy": 0.55,
+    "frac": 0.22,
+    "license": "CC BY 2.0",
+    "attribution": "Nina R",
+    "source": "Wikimedia Commons: Paro Taktsang, Bhutan (edited).jpg"
+  },
+  {
+    "id": "longmen-grottoes",
+    "name": "Longmen Grottoes",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "longmen grottoes",
+      "longmen",
+      "longmen caves",
+      "fengxian temple"
+    ],
+    "blurb": "Chinese cliff carved with thousands of Buddhas, crowned by a colossal Vairocana, 7th century",
+    "img": "assets/img/longmen-grottoes.jpg",
+    "fx": 0.5,
+    "fy": 0.35,
+    "frac": 0.24,
+    "license": "CC0",
+    "attribution": "Gary Todd",
+    "source": "Wikimedia Commons: Ancient Buddhist Grottoes at Longmen- Fengxian Temple, Vairocana Buddha.jpg"
   }
 ]
