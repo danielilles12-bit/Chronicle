@@ -4221,5 +4221,121 @@
     "license": "CC BY-SA 4.0",
     "attribution": "Safa.daneshvar",
     "source": "Wikimedia Commons: 001125-TaqKasra-Iraq-IMG 7914-2.jpg"
+  },
+  {
+    "id": "pena-palace",
+    "name": "Pena Palace",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "pena palace",
+      "palacio da pena",
+      "palace of pena",
+      "pena national palace"
+    ],
+    "blurb": "Portugal's flamboyant Romanticist palace crowning the hills of Sintra, 19th century",
+    "img": "assets/img/pena-palace.jpg",
+    "fx": 0.5,
+    "fy": 0.4,
+    "frac": 0.24,
+    "license": "CC BY-SA 3.0",
+    "attribution": "CEphoto, Uwe Aranas",
+    "source": "Wikimedia Commons: Sintra Portugal Palácio da Pena-01.jpg"
+  },
+  {
+    "id": "amber-fort",
+    "name": "Amber Fort",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "amber fort",
+      "amer fort",
+      "amber palace",
+      "amber fort jaipur"
+    ],
+    "blurb": "Rajput hilltop fort-palace of pale sandstone above Jaipur, 16th–17th century",
+    "img": "assets/img/amber-fort.jpg",
+    "fx": 0.4,
+    "fy": 0.3,
+    "frac": 0.22,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Jakub Hałun",
+    "source": "Wikimedia Commons: Amber Fort, Jaipur, 20191219 1045 9589.jpg"
+  },
+  {
+    "id": "boudhanath",
+    "name": "Boudhanath",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "boudhanath",
+      "bodhnath",
+      "boudha stupa",
+      "boudhanath stupa"
+    ],
+    "blurb": "One of the world's largest Buddhist stupas, watching over Kathmandu",
+    "img": "assets/img/boudhanath.jpg",
+    "fx": 0.35,
+    "fy": 0.3,
+    "frac": 0.24,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Bernard Gagnon",
+    "source": "Wikimedia Commons: Boudhanath stupa, Kathmandu 01.jpg"
+  },
+  {
+    "id": "summer-palace",
+    "name": "Summer Palace",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "summer palace",
+      "summer palace beijing",
+      "yiheyuan"
+    ],
+    "blurb": "Beijing's imperial lakeside garden-palace of the Qing emperors",
+    "img": "assets/img/summer-palace.jpg",
+    "fx": 0.55,
+    "fy": 0.3,
+    "frac": 0.22,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Alexturner85",
+    "source": "Wikimedia Commons: Summer Palace over Kunming Lake and Nanhu Island.jpg"
+  },
+  {
+    "id": "chan-chan",
+    "name": "Chan Chan",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "chan chan",
+      "chanchan"
+    ],
+    "blurb": "The vast adobe capital of the Chimú kingdom on Peru's coast, c. 1400",
+    "img": "assets/img/chan-chan.jpg",
+    "fx": 0.5,
+    "fy": 0.55,
+    "frac": 0.24,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Kevstan",
+    "source": "Wikimedia Commons: Vast Abobe Ruins at Chan Chan.JPG"
+  },
+  {
+    "id": "copan",
+    "name": "Copán",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "copan",
+      "copán",
+      "copan ruinas"
+    ],
+    "blurb": "Maya city in Honduras renowned for its intricately carved stone stelae, c. 700 AD",
+    "img": "assets/img/copan.jpg",
+    "fx": 0.5,
+    "fy": 0.4,
+    "frac": 0.24,
+    "license": "CC BY 2.5",
+    "attribution": "Peter Andersen",
+    "source": "Wikimedia Commons: Copán Maya stelae 2.jpg"
   }
 ]
