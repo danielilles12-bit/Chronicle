@@ -3395,5 +3395,126 @@
     "license": "CC BY 3.0",
     "attribution": "Hardnfast",
     "source": "Wikimedia Commons: Ancient ziggurat at Ali Air Base Iraq 2005.jpg"
+  },
+  {
+    "id": "karnak-temple",
+    "name": "Karnak",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "karnak",
+      "karnak temple",
+      "temple of karnak",
+      "great hypostyle hall"
+    ],
+    "blurb": "Egypt's vast temple of Amun and its forest of columns, at Luxor",
+    "img": "assets/img/karnak-temple.jpg",
+    "fx": 0.45,
+    "fy": 0.45,
+    "frac": 0.24,
+    "license": "CC0",
+    "attribution": "Tsyganov Sergey",
+    "source": "Wikimedia Commons: Karnak Temple Great Hypostyle Hall 2014.jpg"
+  },
+  {
+    "id": "temple-of-hatshepsut",
+    "name": "Temple of Hatshepsut",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "temple of hatshepsut",
+      "hatshepsut temple",
+      "deir el-bahari",
+      "mortuary temple of hatshepsut"
+    ],
+    "blurb": "Terraced mortuary temple of a female pharaoh at Deir el-Bahari, 15th century BC",
+    "img": "assets/img/temple-of-hatshepsut.jpg",
+    "fx": 0.5,
+    "fy": 0.42,
+    "frac": 0.26,
+    "license": "CC BY 4.0",
+    "attribution": "Vyacheslav Argenberg",
+    "source": "Wikimedia Commons: Temple of Hatshepsut, Deir el-Bahari, Luxor, Egypt.jpg"
+  },
+  {
+    "id": "sigiriya",
+    "name": "Sigiriya",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "sigiriya",
+      "lion rock",
+      "sigiriya rock"
+    ],
+    "blurb": "Sri Lanka's palace-fortress atop a sheer volcanic plug, 5th century AD",
+    "img": "assets/img/sigiriya.jpg",
+    "fx": 0.42,
+    "fy": 0.5,
+    "frac": 0.22,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Thushara Nadeeja",
+    "source": "Wikimedia Commons: The Sigiriya Rock Fortress.jpg"
+  },
+  {
+    "id": "baalbek",
+    "name": "Baalbek",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "baalbek",
+      "temple of bacchus",
+      "baalbek temple",
+      "heliopolis"
+    ],
+    "blurb": "Lebanon's colossal Roman temple complex, 2nd century AD",
+    "img": "assets/img/baalbek.jpg",
+    "fx": 0.55,
+    "fy": 0.45,
+    "frac": 0.22,
+    "license": "CC BY 4.0",
+    "attribution": "Vyacheslav Argenberg",
+    "source": "Wikimedia Commons: Lebanon, Baalbek, Temple of Bacchus.jpg"
+  },
+  {
+    "id": "meroe-pyramids",
+    "name": "Meroë Pyramids",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "meroe pyramids",
+      "meroë pyramids",
+      "nubian pyramids",
+      "pyramids of meroe",
+      "meroe"
+    ],
+    "blurb": "Steep royal pyramids of the Kushite kings in Sudan, c. 300 BC–300 AD",
+    "img": "assets/img/meroe-pyramids.jpg",
+    "fx": 0.2,
+    "fy": 0.35,
+    "frac": 0.24,
+    "license": "CC BY 2.0",
+    "attribution": "Laurent de Walick",
+    "source": "Wikimedia Commons: Meroe Pyramids - 33110830438.jpg"
+  },
+  {
+    "id": "itsukushima-shrine",
+    "name": "Itsukushima Shrine",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "itsukushima shrine",
+      "itsukushima",
+      "floating torii",
+      "miyajima",
+      "itsukushima jinja"
+    ],
+    "blurb": "Japan's vermilion torii gate that floats at high tide, off Miyajima",
+    "img": "assets/img/itsukushima-shrine.jpg",
+    "fx": 0.75,
+    "fy": 0.55,
+    "frac": 0.24,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Ian G Shingler",
+    "source": "Wikimedia Commons: Miyajima Itsukushima shrine floating tori gate.jpg"
   }
 ]
