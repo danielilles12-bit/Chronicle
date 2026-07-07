@@ -6719,5 +6719,475 @@
         ]
       }
     ]
+  },
+  {
+    "id": "conn-144",
+    "title": "The Great War",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Battles of the First World War",
+        "items": [
+          "Somme",
+          "Verdun",
+          "Gallipoli",
+          "Passchendaele"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "New weapons of the war",
+        "items": [
+          "Tank",
+          "Machine gun",
+          "Poison gas",
+          "Zeppelin"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Life in the trenches",
+        "items": [
+          "No man's land",
+          "Over the top",
+          "Shell shock",
+          "Barbed wire"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "The war's aftermath",
+        "items": [
+          "Armistice",
+          "Treaty of Versailles",
+          "Reparations",
+          "Lost Generation"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-145",
+    "title": "How the West Was Won",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Icons of the Old West",
+        "items": [
+          "Cowboy",
+          "Saloon",
+          "Stagecoach",
+          "Sheriff"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Ways west",
+        "items": [
+          "Oregon Trail",
+          "Pony Express",
+          "Transcontinental Railroad",
+          "Wagon train"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Figures of the frontier",
+        "items": [
+          "Buffalo Bill",
+          "Wyatt Earp",
+          "Sitting Bull",
+          "Davy Crockett"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Frontier flashpoints",
+        "items": [
+          "Gold Rush",
+          "Alamo",
+          "Little Bighorn",
+          "O.K. Corral"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-146",
+    "title": "The Middle Kingdom",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Wonders of imperial China",
+        "items": [
+          "Great Wall",
+          "Terracotta Army",
+          "Forbidden City",
+          "Grand Canal"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Chinese schools of belief",
+        "items": [
+          "Confucianism",
+          "Taoism",
+          "Legalism",
+          "Buddhism"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "The imperial court",
+        "items": [
+          "Emperor",
+          "Mandarin",
+          "Eunuch",
+          "Concubine"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Chinese thought and symbol",
+        "items": [
+          "Mandate of Heaven",
+          "Yin and yang",
+          "Feng shui",
+          "Qi"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-147",
+    "title": "The Sublime Porte",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Landmarks of Ottoman Istanbul",
+        "items": [
+          "Topkapi Palace",
+          "Blue Mosque",
+          "Grand Bazaar",
+          "Süleymaniye Mosque"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Ranks of the Ottoman state",
+        "items": [
+          "Sultan",
+          "Grand Vizier",
+          "Pasha",
+          "Bey"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Institutions of the empire",
+        "items": [
+          "Janissaries",
+          "Harem",
+          "Divan",
+          "Devshirme"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "English words from Turkish",
+        "items": [
+          "Kiosk",
+          "Sherbet",
+          "Yogurt",
+          "Caftan"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-148",
+    "title": "The Rebirth",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Cradles of the Renaissance",
+        "items": [
+          "Florence",
+          "Venice",
+          "Rome",
+          "Milan"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Renaissance thinkers and writers",
+        "items": [
+          "Machiavelli",
+          "Erasmus",
+          "Petrarch",
+          "Thomas More"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Ideas and achievements",
+        "items": [
+          "Humanism",
+          "Perspective",
+          "Printing press",
+          "Patronage"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Great Renaissance families",
+        "items": [
+          "Medici",
+          "Borgia",
+          "Sforza",
+          "Este"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-149",
+    "title": "Marvels of Rome",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Monuments of ancient Rome",
+        "items": [
+          "Colosseum",
+          "Pantheon",
+          "Circus Maximus",
+          "Roman Forum"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Feats of Roman engineering",
+        "items": [
+          "Aqueduct",
+          "Roman road",
+          "Arch",
+          "Concrete"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Buildings of Roman life",
+        "items": [
+          "Baths",
+          "Basilica",
+          "Insula",
+          "Villa"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Offices of the Roman Republic",
+        "items": [
+          "Senate",
+          "Consul",
+          "Tribune",
+          "Praetor"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-150",
+    "title": "Before the Normans",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Ancient monuments of Britain",
+        "items": [
+          "Stonehenge",
+          "Avebury",
+          "Hadrian's Wall",
+          "Maiden Castle"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Peoples of early Britain",
+        "items": [
+          "Celts",
+          "Picts",
+          "Romans",
+          "Anglo-Saxons"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Celtic and Iron Age Britain",
+        "items": [
+          "Druids",
+          "Boudica",
+          "Hillfort",
+          "Torc"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "The Anglo-Saxon world",
+        "items": [
+          "Sutton Hoo",
+          "Alfred the Great",
+          "Witan",
+          "Danegeld"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-151",
+    "title": "The Clash of Antiquity",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Battles of Alexander the Great",
+        "items": [
+          "Granicus",
+          "Issus",
+          "Gaugamela",
+          "Hydaspes"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Battles of the Punic Wars",
+        "items": [
+          "Cannae",
+          "Zama",
+          "Trebia",
+          "Lake Trasimene"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Battles of Rome's civil wars and conquests",
+        "items": [
+          "Pharsalus",
+          "Philippi",
+          "Actium",
+          "Alesia"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Commanders of antiquity",
+        "items": [
+          "Leonidas",
+          "Hannibal",
+          "Scipio",
+          "Vercingetorix"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-152",
+    "title": "Neither Holy Nor Roman",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Holy Roman Emperors",
+        "items": [
+          "Charlemagne",
+          "Otto I",
+          "Frederick Barbarossa",
+          "Charles V"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "The empire's machinery",
+        "items": [
+          "Prince-elector",
+          "Imperial Diet",
+          "Golden Bull",
+          "Reichstag"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Realms within the empire",
+        "items": [
+          "Bavaria",
+          "Saxony",
+          "Bohemia",
+          "Brandenburg"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Dynasties that wore the crown",
+        "items": [
+          "Carolingian",
+          "Ottonian",
+          "Hohenstaufen",
+          "Habsburg"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-153",
+    "title": "The Philosopher's Stone",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Goals and tools of the alchemist",
+        "items": [
+          "Philosopher's Stone",
+          "Elixir of Life",
+          "Transmutation",
+          "Crucible"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "The classical elements",
+        "items": [
+          "Earth",
+          "Water",
+          "Air",
+          "Fire"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Substances of alchemy",
+        "items": [
+          "Mercury",
+          "Sulphur",
+          "Salt",
+          "Aqua regia"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Alchemists and occultists",
+        "items": [
+          "Paracelsus",
+          "Nicolas Flamel",
+          "John Dee",
+          "Hermes Trismegistus"
+        ]
+      }
+    ]
   }
 ]
