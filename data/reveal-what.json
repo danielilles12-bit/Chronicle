@@ -3516,5 +3516,122 @@
     "license": "CC BY-SA 4.0",
     "attribution": "Ian G Shingler",
     "source": "Wikimedia Commons: Miyajima Itsukushima shrine floating tori gate.jpg"
+  },
+  {
+    "id": "tikal",
+    "name": "Tikal",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "tikal",
+      "temple of the great jaguar",
+      "tikal temple"
+    ],
+    "blurb": "Maya temple-pyramid towering over the Guatemalan rainforest, c. 700 AD",
+    "img": "assets/img/tikal.jpg",
+    "fx": 0.5,
+    "fy": 0.32,
+    "frac": 0.24,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Charles J. Sharp",
+    "source": "Wikimedia Commons: Temple of the Great Jaguar, Tikal, Petén, Guatemala.jpg"
+  },
+  {
+    "id": "leshan-buddha",
+    "name": "Leshan Giant Buddha",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "leshan giant buddha",
+      "leshan buddha",
+      "giant buddha of leshan",
+      "leshan"
+    ],
+    "blurb": "The world's tallest pre-modern stone Buddha, carved into a Chinese cliff, 8th century",
+    "img": "assets/img/leshan-buddha.jpg",
+    "fx": 0.4,
+    "fy": 0.38,
+    "frac": 0.24,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Calistemon",
+    "source": "Wikimedia Commons: Leshan Giant Buddha, March 2000 04.jpg"
+  },
+  {
+    "id": "meteora",
+    "name": "Meteora",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "meteora",
+      "meteora monasteries"
+    ],
+    "blurb": "Greek Orthodox monasteries perched atop sheer rock pinnacles",
+    "img": "assets/img/meteora.jpg",
+    "fx": 0.35,
+    "fy": 0.12,
+    "frac": 0.22,
+    "license": "CC BY-SA 4.0",
+    "attribution": "LBM1948",
+    "source": "Wikimedia Commons: Meteora, 09.jpg"
+  },
+  {
+    "id": "mesa-verde",
+    "name": "Mesa Verde",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "mesa verde",
+      "cliff palace",
+      "mesa verde cliff palace"
+    ],
+    "blurb": "Ancestral Puebloan cliff dwellings beneath a Colorado canyon rim, 13th century",
+    "img": "assets/img/mesa-verde.jpg",
+    "fx": 0.5,
+    "fy": 0.4,
+    "frac": 0.24,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Massimo Catarinella",
+    "source": "Wikimedia Commons: MesaVerdeNationalParkCliffPalace.jpg"
+  },
+  {
+    "id": "axum-obelisk",
+    "name": "Aksum",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "aksum",
+      "axum",
+      "obelisk of axum",
+      "axum obelisk",
+      "stelae of aksum",
+      "aksum stelae"
+    ],
+    "blurb": "Towering carved granite stelae of an ancient Ethiopian kingdom, c. 4th century AD",
+    "img": "assets/img/axum-obelisk.jpg",
+    "fx": 0.5,
+    "fy": 0.4,
+    "frac": 0.22,
+    "license": "CC BY-SA 2.0",
+    "attribution": "Adam Jones",
+    "source": "Wikimedia Commons: Stela in Main Stelae Field - Axum (Aksum) - Ethiopia - 01 (8701108913).jpg"
+  },
+  {
+    "id": "palmyra",
+    "name": "Palmyra",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "palmyra",
+      "monumental arch of palmyra",
+      "palmyra arch"
+    ],
+    "blurb": "Desert caravan city of Roman-era Syria and its monumental arch",
+    "img": "assets/img/palmyra.jpg",
+    "fx": 0.4,
+    "fy": 0.5,
+    "frac": 0.22,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Bernard Gagnon",
+    "source": "Wikimedia Commons: Palmyra - Monumental Arch.jpg"
   }
 ]
