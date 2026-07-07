@@ -3747,5 +3747,122 @@
     "license": "CC BY-SA 4.0",
     "attribution": "Gunawan Kartapranata",
     "source": "Wikimedia Commons: Shiva Temple of Prambanan in Java Indonesia.jpg"
+  },
+  {
+    "id": "golden-temple",
+    "name": "Golden Temple",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "golden temple",
+      "harmandir sahib",
+      "harmandir sahib amritsar",
+      "golden temple amritsar"
+    ],
+    "blurb": "Sikhism's holiest shrine, gilded and mirrored in its sacred pool at Amritsar",
+    "img": "assets/img/golden-temple.jpg",
+    "fx": 0.45,
+    "fy": 0.3,
+    "frac": 0.22,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Dey.sandip",
+    "source": "Wikimedia Commons: Harmandir Sahib, Amritsar, India.jpg"
+  },
+  {
+    "id": "wat-arun",
+    "name": "Wat Arun",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "wat arun",
+      "temple of dawn",
+      "wat arun bangkok"
+    ],
+    "blurb": "Bangkok's Temple of Dawn and its porcelain-clad spire on the Chao Phraya",
+    "img": "assets/img/wat-arun.jpg",
+    "fx": 0.4,
+    "fy": 0.3,
+    "frac": 0.22,
+    "license": "CC BY-SA 2.0",
+    "attribution": "calflier001",
+    "source": "Wikimedia Commons: WAT ARUN TEMPLE CHAO PRAYA RIVER BANGKOK THAILAND FEB 2012 (6985905427).jpg"
+  },
+  {
+    "id": "mahabalipuram",
+    "name": "Shore Temple",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "shore temple",
+      "mahabalipuram",
+      "mamallapuram",
+      "shore temple mahabalipuram"
+    ],
+    "blurb": "Granite temple standing by the Bay of Bengal at Mahabalipuram, 8th century AD",
+    "img": "assets/img/mahabalipuram.jpg",
+    "fx": 0.6,
+    "fy": 0.3,
+    "frac": 0.24,
+    "license": "CC BY 4.0",
+    "attribution": "Vyacheslav Argenberg",
+    "source": "Wikimedia Commons: Mamallapuram, Shore Temple, India.jpg"
+  },
+  {
+    "id": "tulum",
+    "name": "Tulum",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "tulum",
+      "tulum ruins"
+    ],
+    "blurb": "Maya walled port perched on cliffs above the Caribbean, 13th century",
+    "img": "assets/img/tulum.jpg",
+    "fx": 0.25,
+    "fy": 0.35,
+    "frac": 0.22,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Martin Falbisoner",
+    "source": "Wikimedia Commons: Tulum - God of the Winds Temple 03.JPG"
+  },
+  {
+    "id": "hampi",
+    "name": "Hampi",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "hampi",
+      "vittala temple",
+      "stone chariot",
+      "vijayanagara"
+    ],
+    "blurb": "Ruined capital of Vijayanagara and its carved stone chariot, 16th century",
+    "img": "assets/img/hampi.jpg",
+    "fx": 0.3,
+    "fy": 0.45,
+    "frac": 0.24,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Corrector007",
+    "source": "Wikimedia Commons: Stone Chariot at Vittala temple, Hampi.jpg"
+  },
+  {
+    "id": "naqsh-e-rustam",
+    "name": "Naqsh-e Rustam",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "naqsh-e rustam",
+      "naqsh e rustam",
+      "tombs of the persian kings",
+      "achaemenid tombs"
+    ],
+    "blurb": "Cliff carved with the cross-shaped tombs of Persia's Achaemenid kings",
+    "img": "assets/img/naqsh-e-rustam.jpg",
+    "fx": 0.5,
+    "fy": 0.38,
+    "frac": 0.24,
+    "license": "CC BY 2.0",
+    "attribution": "A. Davey",
+    "source": "Wikimedia Commons: Tombs of Achaemenid Kings at Naqsh-e Rustam (4885711726).jpg"
   }
 ]
