@@ -3864,5 +3864,121 @@
     "license": "CC BY 2.0",
     "attribution": "A. Davey",
     "source": "Wikimedia Commons: Tombs of Achaemenid Kings at Naqsh-e Rustam (4885711726).jpg"
+  },
+  {
+    "id": "matsumoto-castle",
+    "name": "Matsumoto Castle",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "matsumoto castle",
+      "matsumoto",
+      "crow castle"
+    ],
+    "blurb": "Japan's black-walled 'Crow Castle', a 16th-century keep in the Alps",
+    "img": "assets/img/matsumoto-castle.jpg",
+    "fx": 0.65,
+    "fy": 0.4,
+    "frac": 0.24,
+    "license": "CC BY 2.0",
+    "attribution": "tsuruta yosuke",
+    "source": "Wikimedia Commons: 松本城 - Matsumoto Castle - Flickr - tsuruta yosuke.jpg"
+  },
+  {
+    "id": "belem-tower",
+    "name": "Belém Tower",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "belem tower",
+      "torre de belem",
+      "belém tower",
+      "tower of belem"
+    ],
+    "blurb": "Manueline fortress-tower guarding Lisbon's harbour, early 16th century",
+    "img": "assets/img/belem-tower.jpg",
+    "fx": 0.5,
+    "fy": 0.4,
+    "frac": 0.24,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Alvesgaspar",
+    "source": "Wikimedia Commons: Torre Belém April 2009-4a.jpg"
+  },
+  {
+    "id": "chambord",
+    "name": "Château de Chambord",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "chateau de chambord",
+      "chambord",
+      "château de chambord"
+    ],
+    "blurb": "France's most flamboyant Loire château, begun for François I in 1519",
+    "img": "assets/img/chambord.jpg",
+    "fx": 0.5,
+    "fy": 0.4,
+    "frac": 0.24,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Calips",
+    "source": "Wikimedia Commons: France Loir-et-Cher Chambord Chateau 01.jpg"
+  },
+  {
+    "id": "bran-castle",
+    "name": "Bran Castle",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "bran castle",
+      "bran",
+      "dracula's castle",
+      "draculas castle"
+    ],
+    "blurb": "Transylvanian clifftop castle popularly tied to Dracula, 14th century",
+    "img": "assets/img/bran-castle.jpg",
+    "fx": 0.4,
+    "fy": 0.3,
+    "frac": 0.24,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Todor Bozhinov",
+    "source": "Wikimedia Commons: Bran Castle TB1.jpg"
+  },
+  {
+    "id": "leptis-magna",
+    "name": "Leptis Magna",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "leptis magna",
+      "lepcis magna",
+      "leptis"
+    ],
+    "blurb": "Grand Roman city on the Libyan coast, adorned by the emperor Septimius Severus",
+    "img": "assets/img/leptis-magna.jpg",
+    "fx": 0.45,
+    "fy": 0.45,
+    "frac": 0.24,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Syed Wali Peeran",
+    "source": "Wikimedia Commons: Leptis Magna, Al-Khums, Libya 4.jpg"
+  },
+  {
+    "id": "uxmal",
+    "name": "Uxmal",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "uxmal",
+      "pyramid of the magician",
+      "piramide del adivino"
+    ],
+    "blurb": "Maya city in Yucatán and its rounded Pyramid of the Magician, c. 700 AD",
+    "img": "assets/img/uxmal.jpg",
+    "fx": 0.4,
+    "fy": 0.45,
+    "frac": 0.24,
+    "license": "CC BY 2.0",
+    "attribution": "Sharon Hahn Darlin",
+    "source": "Wikimedia Commons: Pyramid of the Magician (Pirámide del Adivino), Zona Arqueológica de Uxmal, Yucatan, Mexico.jpg"
   }
 ]
