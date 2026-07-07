@@ -3160,5 +3160,122 @@
     "license": "CC BY-SA 4.0",
     "attribution": "Zde",
     "source": "Wikimedia Commons: The Charioteer of Delphi, 478 BC, AM of Delphi, 201441.jpg"
+  },
+  {
+    "id": "teotihuacan-pyramid-sun",
+    "name": "Pyramid of the Sun",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "pyramid of the sun",
+      "teotihuacan",
+      "pyramid of the sun teotihuacan"
+    ],
+    "blurb": "Colossal stepped pyramid at Teotihuacán, Mexico, built c. 200 AD",
+    "img": "assets/img/teotihuacan-pyramid-sun.jpg",
+    "fx": 0.5,
+    "fy": 0.4,
+    "frac": 0.28,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Daniel Case",
+    "source": "Wikimedia Commons: Pyramid of the Sun, Teotihuacan, from path to parking lot.jpg"
+  },
+  {
+    "id": "sacsayhuaman",
+    "name": "Sacsayhuamán",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "sacsayhuaman",
+      "sacsayhuamán",
+      "saksaywaman",
+      "sacsahuaman"
+    ],
+    "blurb": "Inca citadel of vast interlocking stones above Cusco, 15th century",
+    "img": "assets/img/sacsayhuaman.jpg",
+    "fx": 0.45,
+    "fy": 0.5,
+    "frac": 0.24,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Diego Delso",
+    "source": "Wikimedia Commons: Sacsayhuamán, Cusco, Perú, 2015-07-31, DD 05.JPG"
+  },
+  {
+    "id": "library-celsus-ephesus",
+    "name": "Library of Celsus",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "library of celsus",
+      "celsus library",
+      "library of celsus ephesus"
+    ],
+    "blurb": "Roman marble library facade rebuilt at Ephesus, c. 117 AD",
+    "img": "assets/img/library-celsus-ephesus.jpg",
+    "fx": 0.5,
+    "fy": 0.5,
+    "frac": 0.24,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Benh LIEU SONG",
+    "source": "Wikimedia Commons: Ephesus Celsus Library Façade.jpg"
+  },
+  {
+    "id": "abu-simbel",
+    "name": "Abu Simbel",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "abu simbel",
+      "abu simbel temple",
+      "great temple of ramesses ii"
+    ],
+    "blurb": "Ramesses II's rock-cut colossi guarding Nubia, 13th century BC",
+    "img": "assets/img/abu-simbel.jpg",
+    "fx": 0.4,
+    "fy": 0.5,
+    "frac": 0.26,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Diego Delso",
+    "source": "Wikimedia Commons: Templo de Ramsés II, Abu Simbel, Egipto, 2022-04-02, DD 03.jpg"
+  },
+  {
+    "id": "gobekli-tepe",
+    "name": "Göbekli Tepe",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "gobekli tepe",
+      "göbekli tepe",
+      "gobeklitepe",
+      "gobekli"
+    ],
+    "blurb": "The world's oldest known temple, in Anatolia, c. 9500 BC",
+    "img": "assets/img/gobekli-tepe.jpg",
+    "fx": 0.42,
+    "fy": 0.48,
+    "frac": 0.22,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Zhengan",
+    "source": "Wikimedia Commons: Göbekli Tepe site (1).JPG"
+  },
+  {
+    "id": "lalibela",
+    "name": "Lalibela",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "lalibela",
+      "bete giyorgis",
+      "bet giyorgis",
+      "church of saint george lalibela"
+    ],
+    "blurb": "Ethiopia's cross-shaped church hewn down into living rock, 12th–13th century",
+    "img": "assets/img/lalibela.jpg",
+    "fx": 0.5,
+    "fy": 0.52,
+    "frac": 0.26,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Bernard Gagnon",
+    "source": "Wikimedia Commons: Bete Giyorgis 01.jpg"
   }
 ]
