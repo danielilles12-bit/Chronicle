@@ -5158,5 +5158,114 @@
     "license": "Public domain",
     "attribution": "Gustave Courbet",
     "source": "Wikimedia Commons: Gustave Courbet - Le Désespéré (1843).jpg"
+  },
+  {
+    "id": "henrik-ibsen",
+    "name": "Henrik Ibsen",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "henrik ibsen",
+      "ibsen"
+    ],
+    "blurb": "Norwegian father of modern drama (1828–1906) · photograph by Gustav Borgen",
+    "img": "assets/img/henrik-ibsen.jpg",
+    "fx": 0.55,
+    "fy": 0.18,
+    "frac": 0.14,
+    "license": "Public domain",
+    "attribution": "Gustav Borgen",
+    "source": "Wikimedia Commons: Henrik Ibsen by Gustav Borgen NFB-19775.jpg"
+  },
+  {
+    "id": "ernest-rutherford",
+    "name": "Ernest Rutherford",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "ernest rutherford",
+      "rutherford"
+    ],
+    "blurb": "Physicist who split the atom's nucleus (1871–1937) · early 20th-century photograph",
+    "img": "assets/img/ernest-rutherford.jpg",
+    "fx": 0.45,
+    "fy": 0.2,
+    "frac": 0.14,
+    "license": "Public domain",
+    "attribution": "Bain News Service",
+    "source": "Wikimedia Commons: Prof. Ernest Rutherford, portrait LCCN2014683386.jpg"
+  },
+  {
+    "id": "alfred-nobel",
+    "name": "Alfred Nobel",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "alfred nobel",
+      "nobel"
+    ],
+    "blurb": "Inventor of dynamite who founded the prizes (1833–1896) · period photograph",
+    "img": "assets/img/alfred-nobel.jpg",
+    "fx": 0.55,
+    "fy": 0.15,
+    "frac": 0.14,
+    "license": "Public domain",
+    "attribution": "Gösta Florman",
+    "source": "Wikimedia Commons: AlfredNobel adjusted.jpg"
+  },
+  {
+    "id": "herman-melville",
+    "name": "Herman Melville",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "herman melville",
+      "melville"
+    ],
+    "blurb": "American author of Moby-Dick (1819–1891) · painting by Joseph Oriel Eaton",
+    "img": "assets/img/herman-melville.jpg",
+    "fx": 0.5,
+    "fy": 0.25,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Joseph Oriel Eaton",
+    "source": "Wikimedia Commons: Herman Melville by Joseph O Eaton.jpg"
+  },
+  {
+    "id": "ralph-waldo-emerson",
+    "name": "Ralph Waldo Emerson",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "ralph waldo emerson",
+      "emerson"
+    ],
+    "blurb": "American essayist and transcendentalist sage (1803–1882) · daguerreotype",
+    "img": "assets/img/ralph-waldo-emerson.jpg",
+    "fx": 0.5,
+    "fy": 0.48,
+    "frac": 0.15,
+    "license": "CC0",
+    "attribution": "Mathew Brady",
+    "source": "Wikimedia Commons: Ralph+Waldo+Emerson+MET+DP-17643-015.jpg"
+  },
+  {
+    "id": "james-clerk-maxwell",
+    "name": "James Clerk Maxwell",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "james clerk maxwell",
+      "maxwell",
+      "james maxwell"
+    ],
+    "blurb": "Physicist who unified electricity and magnetism (1831–1879) · engraving after a photograph",
+    "img": "assets/img/james-clerk-maxwell.jpg",
+    "fx": 0.5,
+    "fy": 0.32,
+    "frac": 0.15,
+    "license": "CC0",
+    "attribution": "Stodart, after Fergus",
+    "source": "Wikimedia Commons: James Clerk Maxwell gravure.jpg"
   }
 ]
