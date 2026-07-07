@@ -3633,5 +3633,119 @@
     "license": "CC BY-SA 3.0",
     "attribution": "Bernard Gagnon",
     "source": "Wikimedia Commons: Palmyra - Monumental Arch.jpg"
+  },
+  {
+    "id": "sanchi-stupa",
+    "name": "Sanchi Stupa",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "sanchi stupa",
+      "sanchi",
+      "great stupa of sanchi",
+      "great stupa"
+    ],
+    "blurb": "India's great Buddhist stupa and its carved gateways, begun under Ashoka",
+    "img": "assets/img/sanchi-stupa.jpg",
+    "fx": 0.45,
+    "fy": 0.4,
+    "frac": 0.24,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Bernard Gagnon",
+    "source": "Wikimedia Commons: Stupa 1, Sanchi 02.jpg"
+  },
+  {
+    "id": "jerash",
+    "name": "Jerash",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "jerash",
+      "gerasa",
+      "oval forum jerash"
+    ],
+    "blurb": "Roman provincial city in Jordan and its sweeping oval colonnade, 2nd century AD",
+    "img": "assets/img/jerash.jpg",
+    "fx": 0.5,
+    "fy": 0.35,
+    "frac": 0.22,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Bernard Gagnon",
+    "source": "Wikimedia Commons: Jerash - Oval Forum 02.jpg"
+  },
+  {
+    "id": "carcassonne",
+    "name": "Carcassonne",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "carcassonne",
+      "cite de carcassonne",
+      "carcassone"
+    ],
+    "blurb": "France's great walled medieval fortress-city, famously restored by Viollet-le-Duc",
+    "img": "assets/img/carcassonne.jpg",
+    "fx": 0.3,
+    "fy": 0.35,
+    "frac": 0.24,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Przemek P",
+    "source": "Wikimedia Commons: Outer walls of the fortified city of Carcassonne 2.jpg"
+  },
+  {
+    "id": "edinburgh-castle",
+    "name": "Edinburgh Castle",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "edinburgh castle",
+      "edinburgh"
+    ],
+    "blurb": "Scottish royal fortress commanding a volcanic crag above its city",
+    "img": "assets/img/edinburgh-castle.jpg",
+    "fx": 0.15,
+    "fy": 0.42,
+    "frac": 0.2,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Saffron Blaze",
+    "source": "Wikimedia Commons: Edinburgh Castle Rock.jpg"
+  },
+  {
+    "id": "bagan",
+    "name": "Bagan",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "bagan",
+      "pagan",
+      "temples of bagan"
+    ],
+    "blurb": "Myanmar's plain studded with thousands of Buddhist temples, 11th–13th century",
+    "img": "assets/img/bagan.jpg",
+    "fx": 0.55,
+    "fy": 0.5,
+    "frac": 0.24,
+    "license": "CC BY 4.0",
+    "attribution": "Vyacheslav Argenberg",
+    "source": "Wikimedia Commons: Old Bagan, Myanmar, Landscape of ancient Bagan city.jpg"
+  },
+  {
+    "id": "prambanan",
+    "name": "Prambanan",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "prambanan",
+      "candi prambanan",
+      "prambanan temple"
+    ],
+    "blurb": "Java's soaring Hindu temple compound of pointed spires, 9th century AD",
+    "img": "assets/img/prambanan.jpg",
+    "fx": 0.5,
+    "fy": 0.35,
+    "frac": 0.24,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Gunawan Kartapranata",
+    "source": "Wikimedia Commons: Shiva Temple of Prambanan in Java Indonesia.jpg"
   }
 ]
