@@ -7659,5 +7659,475 @@
         ]
       }
     ]
+  },
+  {
+    "id": "conn-164",
+    "title": "To the Holy Land",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Leaders of the Crusades",
+        "items": [
+          "Richard the Lionheart",
+          "Saladin",
+          "Godfrey of Bouillon",
+          "Frederick Barbarossa"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Cities and kingdoms of the Crusades",
+        "items": [
+          "Jerusalem",
+          "Acre",
+          "Antioch",
+          "Edessa"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Battles of the Crusades",
+        "items": [
+          "Hattin",
+          "Nicaea",
+          "Dorylaeum",
+          "Arsuf"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "The crusader world",
+        "items": [
+          "Outremer",
+          "Krak des Chevaliers",
+          "Assassins",
+          "True Cross"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-165",
+    "title": "The Pack of Cards",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "The four suits",
+        "items": [
+          "Hearts",
+          "Spades",
+          "Clubs",
+          "Diamonds"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "The court and special cards",
+        "items": [
+          "King",
+          "Queen",
+          "Jack",
+          "Joker"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Card games through history",
+        "items": [
+          "Whist",
+          "Faro",
+          "Piquet",
+          "Baccarat"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Cards of the tarot",
+        "items": [
+          "The Fool",
+          "Death",
+          "The Tower",
+          "The Hanged Man"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-166",
+    "title": "The Witch Hunts",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Where witches were hunted",
+        "items": [
+          "Salem",
+          "Pendle",
+          "North Berwick",
+          "Würzburg"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "The witch-hunter's world",
+        "items": [
+          "Witchfinder",
+          "Familiar",
+          "Coven",
+          "Broomstick"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Tests and punishments",
+        "items": [
+          "Ducking stool",
+          "Witch's mark",
+          "Swimming test",
+          "Pricking"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "The books and the hunters",
+        "items": [
+          "Malleus Maleficarum",
+          "Matthew Hopkins",
+          "Daemonologie",
+          "Inquisition"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-167",
+    "title": "The Language of Numbers",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Ancient counting tools and systems",
+        "items": [
+          "Abacus",
+          "Tally stick",
+          "Roman numerals",
+          "Zero"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Great mathematicians",
+        "items": [
+          "Pythagoras",
+          "Euclid",
+          "Archimedes",
+          "Euler"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Branches of mathematics",
+        "items": [
+          "Geometry",
+          "Algebra",
+          "Calculus",
+          "Trigonometry"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Famous numbers and constants",
+        "items": [
+          "Pi",
+          "Fibonacci sequence",
+          "Golden ratio",
+          "Prime number"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-168",
+    "title": "The Written Word",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Writing surfaces through history",
+        "items": [
+          "Papyrus",
+          "Parchment",
+          "Clay tablet",
+          "Vellum"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Tools for writing",
+        "items": [
+          "Quill",
+          "Stylus",
+          "Fountain pen",
+          "Inkwell"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Great alphabets and scripts",
+        "items": [
+          "Latin",
+          "Cyrillic",
+          "Greek",
+          "Runic"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "The art of fine writing",
+        "items": [
+          "Calligraphy",
+          "Illumination",
+          "Scriptorium",
+          "Serif"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-169",
+    "title": "The Silk Road",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Cities of the Silk Road",
+        "items": [
+          "Samarkand",
+          "Bukhara",
+          "Kashgar",
+          "Xi'an"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "On the caravan",
+        "items": [
+          "Camel",
+          "Caravanserai",
+          "Oasis",
+          "Merchant"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Travellers of the Silk Road",
+        "items": [
+          "Marco Polo",
+          "Ibn Battuta",
+          "Zhang Qian",
+          "Xuanzang"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "What travelled the road",
+        "items": [
+          "Silk",
+          "Paper",
+          "Gunpowder",
+          "Porcelain"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-170",
+    "title": "The Moorish Kingdoms",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Cities of Moorish Spain",
+        "items": [
+          "Córdoba",
+          "Granada",
+          "Seville",
+          "Toledo"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Wonders of Al-Andalus",
+        "items": [
+          "Alhambra",
+          "Great Mosque of Córdoba",
+          "Giralda",
+          "Medina Azahara"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "The Christian reconquest",
+        "items": [
+          "El Cid",
+          "Ferdinand and Isabella",
+          "Fall of Granada",
+          "Las Navas de Tolosa"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Dynasties of Al-Andalus",
+        "items": [
+          "Umayyad",
+          "Almoravid",
+          "Almohad",
+          "Nasrid"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-171",
+    "title": "The House of Tudor",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "The Tudor monarchs",
+        "items": [
+          "Henry VII",
+          "Henry VIII",
+          "Mary I",
+          "Elizabeth I"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Servants of the Tudor crown",
+        "items": [
+          "Cardinal Wolsey",
+          "Thomas Cromwell",
+          "Thomas Cranmer",
+          "Francis Walsingham"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Events of the Tudor age",
+        "items": [
+          "Spanish Armada",
+          "Field of Cloth of Gold",
+          "Dissolution of the Monasteries",
+          "Pilgrimage of Grace"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Tudor palaces",
+        "items": [
+          "Hampton Court",
+          "Nonsuch Palace",
+          "Greenwich",
+          "Richmond Palace"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-172",
+    "title": "The Grande Armée",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Napoleon's victories",
+        "items": [
+          "Austerlitz",
+          "Jena",
+          "Wagram",
+          "Friedland"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Marshals of the Empire",
+        "items": [
+          "Ney",
+          "Murat",
+          "Davout",
+          "Berthier"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Enemies and coalitions",
+        "items": [
+          "Wellington",
+          "Blücher",
+          "Nelson",
+          "Kutuzov"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "The Napoleonic system",
+        "items": [
+          "Continental System",
+          "Code Napoléon",
+          "Consulate",
+          "Confederation of the Rhine"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-173",
+    "title": "The Fall of Rome",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Barbarian peoples",
+        "items": [
+          "Visigoths",
+          "Vandals",
+          "Ostrogoths",
+          "Franks"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Kings and warlords who broke Rome",
+        "items": [
+          "Alaric",
+          "Odoacer",
+          "Theodoric",
+          "Gaiseric"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Milestones of Rome's fall",
+        "items": [
+          "Battle of Adrianople",
+          "Sack of Rome",
+          "Crossing of the Rhine",
+          "Fall of Ravenna"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "What came after",
+        "items": [
+          "Byzantium",
+          "Dark Ages",
+          "Holy Roman Empire",
+          "Feudalism"
+        ]
+      }
+    ]
   }
 ]
