@@ -4598,5 +4598,118 @@
     "license": "CC BY-SA 4.0",
     "attribution": "Anonymous (Palais des Beaux-Arts)",
     "source": "Wikimedia Commons: Portrait de Blaise Pascal (MARQ 999.3.1).jpg"
+  },
+  {
+    "id": "giuseppe-verdi",
+    "name": "Giuseppe Verdi",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "giuseppe verdi",
+      "verdi"
+    ],
+    "blurb": "Italy's grandest operatic voice (1813–1901) · portrait by Giovanni Boldini",
+    "img": "assets/img/giuseppe-verdi.jpg",
+    "fx": 0.42,
+    "fy": 0.2,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Giovanni Boldini",
+    "source": "Wikimedia Commons: Boldini - Ritratto di Giuseppe Verdi (1886) Google Art Project.jpg"
+  },
+  {
+    "id": "george-frideric-handel",
+    "name": "George Frideric Handel",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "george frideric handel",
+      "handel",
+      "haendel",
+      "george frederick handel"
+    ],
+    "blurb": "Baroque composer of Messiah (1685–1759) · painting by Thomas Hudson",
+    "img": "assets/img/george-frideric-handel.jpg",
+    "fx": 0.5,
+    "fy": 0.13,
+    "frac": 0.14,
+    "license": "Public domain",
+    "attribution": "Thomas Hudson",
+    "source": "Wikimedia Commons: George Frideric Handel by Thomas Hudson.jpg"
+  },
+  {
+    "id": "david-hume",
+    "name": "David Hume",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "david hume",
+      "hume"
+    ],
+    "blurb": "Skeptical Scottish Enlightenment philosopher (1711–1776) · painting by Allan Ramsay",
+    "img": "assets/img/david-hume.jpg",
+    "fx": 0.5,
+    "fy": 0.18,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Allan Ramsay",
+    "source": "Wikimedia Commons: Allan Ramsay - David Hume, 1711 - 1776. Historian and philosopher - Google Art Project.jpg"
+  },
+  {
+    "id": "gottfried-leibniz",
+    "name": "Gottfried Leibniz",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "gottfried leibniz",
+      "leibniz",
+      "gottfried wilhelm leibniz"
+    ],
+    "blurb": "Polymath who co-invented the calculus (1646–1716) · painting by Christoph Bernhard Francke",
+    "img": "assets/img/gottfried-leibniz.jpg",
+    "fx": 0.45,
+    "fy": 0.25,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Christoph Bernhard Francke",
+    "source": "Wikimedia Commons: Christoph Bernhard Francke - Bildnis des Philosophen Leibniz (ca. 1695).jpg"
+  },
+  {
+    "id": "joseph-haydn",
+    "name": "Joseph Haydn",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "joseph haydn",
+      "haydn",
+      "franz joseph haydn"
+    ],
+    "blurb": "Father of the symphony and string quartet (1732–1809) · painting by Thomas Hardy",
+    "img": "assets/img/joseph-haydn.jpg",
+    "fx": 0.32,
+    "fy": 0.2,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Thomas Hardy",
+    "source": "Wikimedia Commons: Joseph Haydn by Thomas Hardy.jpg"
+  },
+  {
+    "id": "jan-van-eyck",
+    "name": "Jan van Eyck",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "jan van eyck",
+      "van eyck",
+      "jan van eyk"
+    ],
+    "blurb": "Flemish pioneer of oil painting (c. 1390–1441) · presumed self-portrait",
+    "img": "assets/img/jan-van-eyck.jpg",
+    "fx": 0.5,
+    "fy": 0.4,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Jan van Eyck",
+    "source": "Wikimedia Commons: Portrait of a Man in a Turban (Jan van Eyck).jpg"
   }
 ]
