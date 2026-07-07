@@ -4337,5 +4337,118 @@
     "license": "CC BY 2.5",
     "attribution": "Peter Andersen",
     "source": "Wikimedia Commons: Copán Maya stelae 2.jpg"
+  },
+  {
+    "id": "windsor-castle",
+    "name": "Windsor Castle",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "windsor castle",
+      "windsor"
+    ],
+    "blurb": "The world's oldest inhabited castle, a royal residence west of London since 1070",
+    "img": "assets/img/windsor-castle.jpg",
+    "fx": 0.55,
+    "fy": 0.35,
+    "frac": 0.22,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Ввласенко",
+    "source": "Wikimedia Commons: Castle View from Alexandra Park - Round Tower, St George's Chapel and the Curfew Tower. Windsor, UK.jpg"
+  },
+  {
+    "id": "rila-monastery",
+    "name": "Rila Monastery",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "rila monastery",
+      "rila"
+    ],
+    "blurb": "Bulgaria's grandest Orthodox monastery, its striped arcades ringed by mountains",
+    "img": "assets/img/rila-monastery.jpg",
+    "fx": 0.5,
+    "fy": 0.5,
+    "frac": 0.24,
+    "license": "CC BY 4.0",
+    "attribution": "Laurens R. Krol",
+    "source": "Wikimedia Commons: 2016-07-31 Bulgaria, Rila Monastery DSC 9213 DxO.jpg"
+  },
+  {
+    "id": "meenakshi-temple",
+    "name": "Meenakshi Temple",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "meenakshi temple",
+      "meenakshi",
+      "meenakshi amman temple",
+      "madurai"
+    ],
+    "blurb": "Madurai's Hindu temple crowned by towering, thousand-figured painted gopurams",
+    "img": "assets/img/meenakshi-temple.jpg",
+    "fx": 0.55,
+    "fy": 0.25,
+    "frac": 0.22,
+    "license": "CC BY 4.0",
+    "attribution": "Vyacheslav Argenberg",
+    "source": "Wikimedia Commons: Meenakshi Temple, Gopuram, Madurai, India.jpg"
+  },
+  {
+    "id": "kizhi-pogost",
+    "name": "Kizhi Pogost",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "kizhi pogost",
+      "kizhi",
+      "kizhi island",
+      "transfiguration church kizhi"
+    ],
+    "blurb": "Russia's stacked-dome wooden churches on an island in Lake Onega, 18th century",
+    "img": "assets/img/kizhi-pogost.jpg",
+    "fx": 0.4,
+    "fy": 0.35,
+    "frac": 0.24,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Ladaherra",
+    "source": "Wikimedia Commons: Transfiguration Church of Kizhi island.jpg"
+  },
+  {
+    "id": "pamukkale",
+    "name": "Pamukkale",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "pamukkale",
+      "hierapolis",
+      "cotton castle"
+    ],
+    "blurb": "Turkey's cascading white travertine terraces and turquoise thermal pools",
+    "img": "assets/img/pamukkale.jpg",
+    "fx": 0.35,
+    "fy": 0.55,
+    "frac": 0.24,
+    "license": "FAL",
+    "attribution": "A.Savin",
+    "source": "Wikimedia Commons: TR Pamukkale White Terraces asv2020-02 img16.jpg"
+  },
+  {
+    "id": "ollantaytambo",
+    "name": "Ollantaytambo",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "ollantaytambo",
+      "ollantaytambo fortress"
+    ],
+    "blurb": "Inca fortress-town of steep stone terraces in Peru's Sacred Valley, 15th century",
+    "img": "assets/img/ollantaytambo.jpg",
+    "fx": 0.4,
+    "fy": 0.45,
+    "frac": 0.24,
+    "license": "CC BY 2.0",
+    "attribution": "Chuck Moravec",
+    "source": "Wikimedia Commons: Ollantaytambo Inca terraces1.jpg"
   }
 ]
