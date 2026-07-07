@@ -3277,5 +3277,123 @@
     "license": "CC BY-SA 3.0",
     "attribution": "Bernard Gagnon",
     "source": "Wikimedia Commons: Bete Giyorgis 01.jpg"
+  },
+  {
+    "id": "shwedagon-pagoda",
+    "name": "Shwedagon Pagoda",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "shwedagon pagoda",
+      "shwedagon",
+      "shwe dagon"
+    ],
+    "blurb": "Myanmar's gilded Buddhist stupa crowning Yangon, raised over centuries",
+    "img": "assets/img/shwedagon-pagoda.jpg",
+    "fx": 0.45,
+    "fy": 0.42,
+    "frac": 0.26,
+    "license": "CC BY 4.0",
+    "attribution": "Vyacheslav Argenberg",
+    "source": "Wikimedia Commons: Shwedagon Pagoda, Golden stupa, Yangon, Myanmar.jpg"
+  },
+  {
+    "id": "fushimi-inari",
+    "name": "Fushimi Inari",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "fushimi inari",
+      "fushimi inari taisha",
+      "fushimi inari shrine"
+    ],
+    "blurb": "Kyoto's mountain tunnel of thousands of vermilion torii gates",
+    "img": "assets/img/fushimi-inari.jpg",
+    "fx": 0.5,
+    "fy": 0.45,
+    "frac": 0.28,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Basile Morin",
+    "source": "Wikimedia Commons: Torii path with lantern at Fushimi Inari Taisha Shrine, Kyoto, Japan.jpg"
+  },
+  {
+    "id": "ellora-kailasa",
+    "name": "Kailasa Temple",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "kailasa temple",
+      "kailasanatha",
+      "kailash temple",
+      "ellora",
+      "ellora caves"
+    ],
+    "blurb": "Colossal temple carved top-down from a single Indian cliff, 8th century AD",
+    "img": "assets/img/ellora-kailasa.jpg",
+    "fx": 0.4,
+    "fy": 0.35,
+    "frac": 0.24,
+    "license": "CC0",
+    "attribution": "K. Venkataramana",
+    "source": "Wikimedia Commons: The Kailash Temple (also Kailasanatha),Cave No.16.jpg"
+  },
+  {
+    "id": "great-mosque-djenne",
+    "name": "Great Mosque of Djenné",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "great mosque of djenne",
+      "great mosque of djenné",
+      "djenne mosque",
+      "djenné mosque"
+    ],
+    "blurb": "The world's largest mud-brick building, in Mali, rebuilt in 1907",
+    "img": "assets/img/great-mosque-djenne.jpg",
+    "fx": 0.4,
+    "fy": 0.42,
+    "frac": 0.26,
+    "license": "CC BY-SA 3.0",
+    "attribution": "Andy Gilham",
+    "source": "Wikimedia Commons: Great Mosque of Djenné 1.jpg"
+  },
+  {
+    "id": "konark-sun-temple",
+    "name": "Konark Sun Temple",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "konark sun temple",
+      "konark",
+      "sun temple konark",
+      "konark temple"
+    ],
+    "blurb": "Odisha's 13th-century temple built as the sun god's stone chariot",
+    "img": "assets/img/konark-sun-temple.jpg",
+    "fx": 0.5,
+    "fy": 0.32,
+    "frac": 0.22,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Subhrajyoti07",
+    "source": "Wikimedia Commons: Sun Temple Main Structure, Konark, Orissa.jpg"
+  },
+  {
+    "id": "ziggurat-ur",
+    "name": "Ziggurat of Ur",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "ziggurat of ur",
+      "great ziggurat of ur",
+      "ziggurat ur"
+    ],
+    "blurb": "Sumer's stepped brick temple-mountain at Ur, c. 2100 BC",
+    "img": "assets/img/ziggurat-ur.jpg",
+    "fx": 0.45,
+    "fy": 0.45,
+    "frac": 0.26,
+    "license": "CC BY 3.0",
+    "attribution": "Hardnfast",
+    "source": "Wikimedia Commons: Ancient ziggurat at Ali Air Base Iraq 2005.jpg"
   }
 ]
