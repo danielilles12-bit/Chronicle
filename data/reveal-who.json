@@ -4826,5 +4826,115 @@
     "license": "Public domain",
     "attribution": "Eugène Delacroix",
     "source": "Wikimedia Commons: Eugène Delacroix - Self-Portrait - WGA6192.jpg"
+  },
+  {
+    "id": "jean-jacques-rousseau",
+    "name": "Jean-Jacques Rousseau",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "jean-jacques rousseau",
+      "rousseau",
+      "jean jacques rousseau"
+    ],
+    "blurb": "Enlightenment philosopher of the social contract (1712–1778) · pastel by Maurice Quentin de La Tour",
+    "img": "assets/img/jean-jacques-rousseau.jpg",
+    "fx": 0.5,
+    "fy": 0.2,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Maurice Quentin de La Tour",
+    "source": "Wikimedia Commons: Maurice Quentin de La Tour - Portrait of Jean-Jacques Rousseau - WGA12360.jpg"
+  },
+  {
+    "id": "friedrich-schiller",
+    "name": "Friedrich Schiller",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "friedrich schiller",
+      "schiller"
+    ],
+    "blurb": "German poet and dramatist of freedom (1759–1805) · painting by Anton Graff",
+    "img": "assets/img/friedrich-schiller.jpg",
+    "fx": 0.35,
+    "fy": 0.2,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Anton Graff",
+    "source": "Wikimedia Commons: Anton Graff - Friedrich Schiller.jpg"
+  },
+  {
+    "id": "denis-diderot",
+    "name": "Denis Diderot",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "denis diderot",
+      "diderot"
+    ],
+    "blurb": "Editor of the great Encyclopédie (1713–1784) · painting by Louis-Michel van Loo",
+    "img": "assets/img/denis-diderot.jpg",
+    "fx": 0.6,
+    "fy": 0.2,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Louis-Michel van Loo",
+    "source": "Wikimedia Commons: Louis-Michel van Loo - Portrait of Denis Diderot - WGA13440.jpg"
+  },
+  {
+    "id": "montesquieu",
+    "name": "Montesquieu",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "montesquieu",
+      "charles de montesquieu",
+      "baron de montesquieu"
+    ],
+    "blurb": "Thinker who championed the separation of powers (1689–1755) · period portrait",
+    "img": "assets/img/montesquieu.jpg",
+    "fx": 0.35,
+    "fy": 0.25,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "After Jacques-Antoine Dassier",
+    "source": "Wikimedia Commons: Charles Montesquieu.jpg"
+  },
+  {
+    "id": "friedrich-nietzsche",
+    "name": "Friedrich Nietzsche",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "friedrich nietzsche",
+      "nietzsche"
+    ],
+    "blurb": "Philosopher who declared God dead (1844–1900) · 1882 photograph",
+    "img": "assets/img/friedrich-nietzsche.jpg",
+    "fx": 0.45,
+    "fy": 0.3,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Gustav-Adolf Schultze",
+    "source": "Wikimedia Commons: Nietzsche1882.jpg"
+  },
+  {
+    "id": "arthur-schopenhauer",
+    "name": "Arthur Schopenhauer",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "arthur schopenhauer",
+      "schopenhauer"
+    ],
+    "blurb": "Philosopher of the world as will (1788–1860) · 1859 photograph",
+    "img": "assets/img/arthur-schopenhauer.jpg",
+    "fx": 0.5,
+    "fy": 0.28,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Johann Schäfer",
+    "source": "Wikimedia Commons: Arthur Schopenhauer by J Schäfer, 1859b.jpg"
   }
 ]
