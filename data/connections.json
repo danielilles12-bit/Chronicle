@@ -8129,5 +8129,334 @@
         ]
       }
     ]
+  },
+  {
+    "id": "conn-174",
+    "title": "The Aztec World",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "The Aztec capital",
+        "items": [
+          "Tenochtitlan",
+          "Templo Mayor",
+          "Causeway",
+          "Chinampa"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Rulers and figures",
+        "items": [
+          "Montezuma",
+          "Cortés",
+          "Cuauhtémoc",
+          "La Malinche"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Aztec warfare",
+        "items": [
+          "Obsidian",
+          "Macuahuitl",
+          "Jaguar warrior",
+          "Eagle warrior"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "The fall of the Aztecs",
+        "items": [
+          "Smallpox",
+          "La Noche Triste",
+          "Siege of Tenochtitlan",
+          "Tlaxcalan allies"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-175",
+    "title": "Lords of Cusco",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Wonders of the Inca",
+        "items": [
+          "Machu Picchu",
+          "Cusco",
+          "Sacsayhuamán",
+          "Ollantaytambo"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "The Inca world",
+        "items": [
+          "Sapa Inca",
+          "Quipu",
+          "Terrace farming",
+          "Llama"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Figures of the conquest",
+        "items": [
+          "Pizarro",
+          "Atahualpa",
+          "Huayna Capac",
+          "Manco Inca"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "The Inca realm",
+        "items": [
+          "Tawantinsuyu",
+          "Qhapaq Ñan",
+          "Chasqui",
+          "Andes"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-176",
+    "title": "Kingdoms of the Maya",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Cities of the Maya",
+        "items": [
+          "Tikal",
+          "Chichen Itza",
+          "Palenque",
+          "Copán"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Maya achievements",
+        "items": [
+          "Maya calendar",
+          "Glyphs",
+          "Zero",
+          "Astronomy"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Maya life and ritual",
+        "items": [
+          "Ball game",
+          "Cenote",
+          "Stela",
+          "Maize"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "The Maya cosmos",
+        "items": [
+          "Popol Vuh",
+          "Long Count",
+          "Xibalba",
+          "Kukulkan"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-177",
+    "title": "Thirty Years of War",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Leaders of the Thirty Years' War",
+        "items": [
+          "Gustavus Adolphus",
+          "Wallenstein",
+          "Ferdinand II",
+          "Cardinal Richelieu"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Battles of the war",
+        "items": [
+          "White Mountain",
+          "Breitenfeld",
+          "Lützen",
+          "Nördlingen"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "How it began and ended",
+        "items": [
+          "Defenestration of Prague",
+          "Sack of Magdeburg",
+          "Edict of Restitution",
+          "Peace of Westphalia"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Sides and powers",
+        "items": [
+          "Catholic League",
+          "Protestant Union",
+          "Habsburg Spain",
+          "Sweden"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-178",
+    "title": "The Glory of Greece",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Landmarks of ancient Greece",
+        "items": [
+          "Acropolis",
+          "Parthenon",
+          "Agora",
+          "Delphi"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Statesmen of Athens",
+        "items": [
+          "Pericles",
+          "Solon",
+          "Cleisthenes",
+          "Themistocles"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Greek warfare",
+        "items": [
+          "Hoplite",
+          "Phalanx",
+          "Sarissa",
+          "Peltast"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "The Athenian democracy",
+        "items": [
+          "Demos",
+          "Ostracism",
+          "Assembly",
+          "Boule"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-179",
+    "title": "The Sun King",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "The palace of Versailles",
+        "items": [
+          "Hall of Mirrors",
+          "The Gardens",
+          "Orangerie",
+          "Royal Chapel"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Louis XIV's ministers",
+        "items": [
+          "Mazarin",
+          "Colbert",
+          "Louvois",
+          "Vauban"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Wars of Louis XIV",
+        "items": [
+          "The Fronde",
+          "Franco-Dutch War",
+          "Nine Years' War",
+          "War of the Spanish Succession"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Ideas of absolute monarchy",
+        "items": [
+          "Divine right",
+          "L'état, c'est moi",
+          "Absolutism",
+          "Sun King"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-180",
+    "title": "The Norman Conquest",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Figures of the Conquest",
+        "items": [
+          "William the Conqueror",
+          "Harold Godwinson",
+          "Harald Hardrada",
+          "Odo of Bayeux"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Events of 1066",
+        "items": [
+          "Stamford Bridge",
+          "Battle of Hastings",
+          "Coronation of William",
+          "Halley's Comet"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Records and relics of the Conquest",
+        "items": [
+          "Domesday Book",
+          "Bayeux Tapestry",
+          "White Tower",
+          "Battle Abbey"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "The Norman world",
+        "items": [
+          "Motte-and-bailey",
+          "Norman French",
+          "Vassal",
+          "Fief"
+        ]
+      }
+    ]
   }
 ]
