@@ -4030,5 +4030,122 @@
     "license": "Public domain",
     "attribution": "Albrecht Dürer",
     "source": "Wikimedia Commons: Albrecht Dürer - 1500 self-portrait (High resolution and detail).jpg"
+  },
+  {
+    "id": "nicolaus-copernicus",
+    "name": "Nicolaus Copernicus",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "nicolaus copernicus",
+      "copernicus",
+      "mikolaj kopernik",
+      "nicholas copernicus"
+    ],
+    "blurb": "Astronomer who moved the Earth from the centre (1473–1543) · Toruń portrait",
+    "img": "assets/img/nicolaus-copernicus.jpg",
+    "fx": 0.48,
+    "fy": 0.28,
+    "frac": 0.16,
+    "license": "Public domain",
+    "attribution": "Unknown (Toruń portrait)",
+    "source": "Wikimedia Commons: Nikolaus Kopernikus.jpg"
+  },
+  {
+    "id": "raphael",
+    "name": "Raphael",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "raphael",
+      "raffaello",
+      "raffaello sanzio",
+      "raphael sanzio"
+    ],
+    "blurb": "High Renaissance master of grace (1483–1520) · self-portrait",
+    "img": "assets/img/raphael.jpg",
+    "fx": 0.35,
+    "fy": 0.27,
+    "frac": 0.15,
+    "license": "CC BY 4.0",
+    "attribution": "Raphael (photo: Francesco Bini)",
+    "source": "Wikimedia Commons: Raffaello, autoritratto, 1506 ca.jpg"
+  },
+  {
+    "id": "goethe",
+    "name": "Johann Wolfgang von Goethe",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "goethe",
+      "johann wolfgang von goethe",
+      "johann wolfgang goethe"
+    ],
+    "blurb": "Germany's towering man of letters (1749–1832) · painting by Joseph Stieler",
+    "img": "assets/img/goethe.jpg",
+    "fx": 0.5,
+    "fy": 0.2,
+    "frac": 0.16,
+    "license": "Public domain",
+    "attribution": "Joseph Karl Stieler",
+    "source": "Wikimedia Commons: Goethe (Stieler 1828).jpg"
+  },
+  {
+    "id": "lord-byron",
+    "name": "Lord Byron",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "lord byron",
+      "byron",
+      "george gordon byron"
+    ],
+    "blurb": "Romantic poet, mad, bad and dangerous to know (1788–1824) · in Albanian dress by Thomas Phillips",
+    "img": "assets/img/lord-byron.jpg",
+    "fx": 0.42,
+    "fy": 0.14,
+    "frac": 0.13,
+    "license": "Public domain",
+    "attribution": "Thomas Phillips",
+    "source": "Wikimedia Commons: Lord Byron in Albanian Dress by Phillips, 1813.jpg"
+  },
+  {
+    "id": "charles-i-england",
+    "name": "Charles I of England",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "charles i of england",
+      "charles i",
+      "charles i england",
+      "king charles i"
+    ],
+    "blurb": "King who lost his head to Parliament (1600–1649) · painting by Anthony van Dyck",
+    "img": "assets/img/charles-i-england.jpg",
+    "fx": 0.5,
+    "fy": 0.2,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Anthony van Dyck",
+    "source": "Wikimedia Commons: Anthony van Dyck - King Charles I of England, three-quarter portrait.jpg"
+  },
+  {
+    "id": "voltaire",
+    "name": "Voltaire",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "voltaire",
+      "francois-marie arouet",
+      "francois marie arouet"
+    ],
+    "blurb": "Enlightenment wit who mocked kings and clergy (1694–1778) · painting by Nicolas de Largillière",
+    "img": "assets/img/voltaire.jpg",
+    "fx": 0.5,
+    "fy": 0.35,
+    "frac": 0.14,
+    "license": "CC0",
+    "attribution": "Nicolas de Largillière",
+    "source": "Wikimedia Commons: Nicolas de Largillière - Portrait de Voltaire (1694-1778) en 1718 - P208 - musée Carnavalet.jpg"
   }
 ]
