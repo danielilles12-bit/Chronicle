@@ -10752,5 +10752,190 @@
       "lat": 33.37,
       "lon": 129.55
     }
+  },
+  {
+    "id": "harald-hardrada",
+    "name": "Harald Hardrada",
+    "difficulty": "medium",
+    "variants": [
+      "harald hardrada",
+      "hardrada",
+      "harald iii",
+      "harald sigurdsson"
+    ],
+    "occupation": "King of Norway and last great Viking warlord",
+    "birth": {
+      "year": 1015,
+      "place": "Ringerike, Norway",
+      "lat": 60.16,
+      "lon": 10.26
+    },
+    "death": {
+      "year": 1066,
+      "place": "Stamford Bridge, England",
+      "lat": 53.99,
+      "lon": -0.91
+    }
+  },
+  {
+    "id": "david-livingstone",
+    "name": "David Livingstone",
+    "difficulty": "medium",
+    "variants": [
+      "david livingstone",
+      "livingstone",
+      "dr livingstone"
+    ],
+    "occupation": "Missionary-explorer of Africa's rivers and lakes",
+    "birth": {
+      "year": 1813,
+      "place": "Blantyre, Scotland",
+      "lat": 55.79,
+      "lon": -4.09
+    },
+    "death": {
+      "year": 1873,
+      "place": "Chitambo, Zambia",
+      "lat": -12.3,
+      "lon": 30.3
+    }
+  },
+  {
+    "id": "leif-erikson",
+    "name": "Leif Erikson",
+    "difficulty": "medium",
+    "variants": [
+      "leif erikson",
+      "leif eriksson",
+      "leif ericson",
+      "leif the lucky"
+    ],
+    "occupation": "Norse explorer who reached America five centuries before Columbus",
+    "birth": {
+      "year": 970,
+      "place": "Iceland",
+      "lat": 65.0,
+      "lon": -18.7
+    },
+    "death": {
+      "year": 1020,
+      "place": "Brattahlid, Greenland",
+      "lat": 61.14,
+      "lon": -45.53
+    }
+  },
+  {
+    "id": "erik-the-red",
+    "name": "Erik the Red",
+    "difficulty": "hard",
+    "variants": [
+      "erik the red",
+      "eric the red",
+      "erik thorvaldsson"
+    ],
+    "occupation": "Exiled Norseman who founded Greenland's first settlement",
+    "birth": {
+      "year": 950,
+      "place": "Jaeren, Norway",
+      "lat": 58.75,
+      "lon": 5.66
+    },
+    "death": {
+      "year": 1003,
+      "place": "Brattahlid, Greenland",
+      "lat": 61.14,
+      "lon": -45.53
+    }
+  },
+  {
+    "id": "zenobia",
+    "name": "Zenobia",
+    "difficulty": "hard",
+    "variants": [
+      "zenobia",
+      "queen zenobia"
+    ],
+    "occupation": "Rebel queen of Palmyra who carved an empire from Rome's east",
+    "birth": {
+      "year": 240,
+      "place": "Palmyra, Syria",
+      "lat": 34.55,
+      "lon": 38.27
+    },
+    "death": {
+      "year": 274,
+      "place": "Rome, Italy",
+      "lat": 41.89,
+      "lon": 12.49
+    }
+  },
+  {
+    "id": "empress-matilda",
+    "name": "Empress Matilda",
+    "difficulty": "hard",
+    "variants": [
+      "empress matilda",
+      "matilda",
+      "maud",
+      "empress maud"
+    ],
+    "occupation": "Claimant to the English throne during the Anarchy",
+    "birth": {
+      "year": 1102,
+      "place": "Sutton Courtenay, England",
+      "lat": 51.64,
+      "lon": -1.28
+    },
+    "death": {
+      "year": 1167,
+      "place": "Rouen, France",
+      "lat": 49.44,
+      "lon": 1.1
+    }
+  },
+  {
+    "id": "alcibiades",
+    "name": "Alcibiades",
+    "difficulty": "hard",
+    "variants": [
+      "alcibiades"
+    ],
+    "occupation": "Athenian general and serial turncoat",
+    "birth": {
+      "year": -450,
+      "place": "Athens, Greece",
+      "lat": 37.98,
+      "lon": 23.73
+    },
+    "death": {
+      "year": -404,
+      "place": "Phrygia (modern Turkey)",
+      "lat": 39.0,
+      "lon": 30.0
+    }
+  },
+  {
+    "id": "frederick-ii-hohenstaufen",
+    "name": "Frederick II Hohenstaufen",
+    "difficulty": "hard",
+    "variants": [
+      "frederick ii hohenstaufen",
+      "frederick ii",
+      "stupor mundi",
+      "frederick hohenstaufen"
+    ],
+    "occupation": "Holy Roman Emperor they called the Wonder of the World",
+    "birth": {
+      "year": 1194,
+      "place": "Jesi, Italy",
+      "lat": 43.52,
+      "lon": 13.24
+    },
+    "death": {
+      "year": 1250,
+      "place": "Castel Fiorentino, Apulia, Italy",
+      "lat": 41.69,
+      "lon": 15.29
+    }
   }
 ]

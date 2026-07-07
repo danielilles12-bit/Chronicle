@@ -3800,5 +3800,119 @@
     "license": "Public domain",
     "attribution": "Louis Boulanger",
     "source": "Wikimedia Commons: Balzac (par Boulanger).jpg"
+  },
+  {
+    "id": "isaac-newton",
+    "name": "Isaac Newton",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "isaac newton",
+      "newton",
+      "sir isaac newton"
+    ],
+    "blurb": "Physicist, mathematician, alchemist (1643–1727) · portrait by Godfrey Kneller",
+    "img": "assets/img/isaac-newton.jpg",
+    "fx": 0.42,
+    "fy": 0.22,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Godfrey Kneller",
+    "source": "Wikimedia Commons: Portrait of Sir Isaac Newton, 1689.jpg"
+  },
+  {
+    "id": "charles-dickens",
+    "name": "Charles Dickens",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "charles dickens",
+      "dickens"
+    ],
+    "blurb": "The great novelist of Victorian England (1812–1870) · photograph by Jeremiah Gurney",
+    "img": "assets/img/charles-dickens.jpg",
+    "fx": 0.45,
+    "fy": 0.35,
+    "frac": 0.25,
+    "license": "Public domain",
+    "attribution": "Jeremiah Gurney & Sons",
+    "source": "Wikimedia Commons: Dickens Gurney head.jpg"
+  },
+  {
+    "id": "florence-nightingale",
+    "name": "Florence Nightingale",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "florence nightingale",
+      "nightingale",
+      "the lady with the lamp"
+    ],
+    "blurb": "Founder of modern nursing (1820–1910) · photograph by Henry Hering",
+    "img": "assets/img/florence-nightingale.jpg",
+    "fx": 0.47,
+    "fy": 0.11,
+    "frac": 0.16,
+    "license": "Public domain",
+    "attribution": "Henry Hering",
+    "source": "Wikimedia Commons: Florence Nightingale by Henry Hering, 1858.jpg"
+  },
+  {
+    "id": "frederick-the-great",
+    "name": "Frederick the Great",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "frederick the great",
+      "frederick ii",
+      "frederick ii of prussia",
+      "old fritz"
+    ],
+    "blurb": "King of Prussia and warrior-philosopher (1712–1786) · portrait by Anton Graff",
+    "img": "assets/img/frederick-the-great.jpg",
+    "fx": 0.36,
+    "fy": 0.23,
+    "frac": 0.2,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Anton Graff; photo Yair Haklai",
+    "source": "Wikimedia Commons: Portrait of Frederick II (the Great), King of Prussia, by Anton Graff at Sanssouci.jpg"
+  },
+  {
+    "id": "isambard-brunel",
+    "name": "Isambard Kingdom Brunel",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "isambard kingdom brunel",
+      "brunel",
+      "isambard brunel"
+    ],
+    "blurb": "Engineer of bridges, tunnels and giant ships (1806–1859) · photograph by Robert Howlett",
+    "img": "assets/img/isambard-brunel.jpg",
+    "fx": 0.47,
+    "fy": 0.13,
+    "frac": 0.14,
+    "license": "Public domain",
+    "attribution": "Robert Howlett",
+    "source": "Wikimedia Commons: Robert Howlett (Isambard Kingdom Brunel Standing Before the Launching Chains of the Great Eastern), The Metropolitan Museum of Art - restoration1.jpg"
+  },
+  {
+    "id": "ivan-the-terrible",
+    "name": "Ivan the Terrible",
+    "kind": "portrait",
+    "difficulty": "hard",
+    "variants": [
+      "ivan the terrible",
+      "ivan iv",
+      "ivan grozny"
+    ],
+    "blurb": "First Tsar of All Russia (1530–1584) · painting by Viktor Vasnetsov",
+    "img": "assets/img/ivan-the-terrible.jpg",
+    "fx": 0.55,
+    "fy": 0.1,
+    "frac": 0.15,
+    "license": "Public domain",
+    "attribution": "Viktor Vasnetsov",
+    "source": "Wikimedia Commons: Vasnetsov Ioann 4.jpg"
   }
 ]

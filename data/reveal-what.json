@@ -2930,5 +2930,118 @@
     "license": "Public domain",
     "attribution": "Jan van Eyck (presumably Hubert van Eyck)",
     "source": "Wikimedia Commons: Lamgods open.jpg"
+  },
+  {
+    "id": "trevi-fountain",
+    "name": "Trevi Fountain",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "trevi fountain",
+      "the trevi",
+      "fontana di trevi"
+    ],
+    "blurb": "Rome's Baroque wishing fountain, completed 1762",
+    "img": "assets/img/trevi-fountain.jpg",
+    "fx": 0.5,
+    "fy": 0.5,
+    "frac": 0.22,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Diego Delso",
+    "source": "Wikimedia Commons: Fuente de Trevi, Roma, Italia, 2022-09-15, DD 02.jpg"
+  },
+  {
+    "id": "christ-the-redeemer",
+    "name": "Christ the Redeemer",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "christ the redeemer",
+      "cristo redentor",
+      "rio christ"
+    ],
+    "blurb": "Art Deco colossus above Rio de Janeiro, completed 1931",
+    "img": "assets/img/christ-the-redeemer.jpg",
+    "fx": 0.52,
+    "fy": 0.14,
+    "frac": 0.2,
+    "license": "CC BY-SA 3.0 de",
+    "attribution": "Arne Müseler",
+    "source": "Wikimedia Commons: Christ the Redeemer - Cristo Redentor.jpg"
+  },
+  {
+    "id": "persepolis",
+    "name": "Persepolis",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "persepolis",
+      "gate of all nations",
+      "takht-e jamshid"
+    ],
+    "blurb": "Gateway of the Achaemenid kings' ceremonial capital",
+    "img": "assets/img/persepolis.jpg",
+    "fx": 0.22,
+    "fy": 0.28,
+    "frac": 0.22,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Skot",
+    "source": "Wikimedia Commons: Persepolis – Gate of All Nations 02.jpg"
+  },
+  {
+    "id": "oseberg-ship",
+    "name": "Oseberg Ship",
+    "kind": "artefact",
+    "difficulty": "medium",
+    "variants": [
+      "oseberg ship",
+      "oseberg",
+      "the oseberg ship"
+    ],
+    "blurb": "A Viking queen's burial ship, interred c. 834, unearthed 1904",
+    "img": "assets/img/oseberg-ship.jpg",
+    "fx": 0.63,
+    "fy": 0.28,
+    "frac": 0.2,
+    "license": "CC BY 2.0",
+    "attribution": "Larry Lamsa",
+    "source": "Wikimedia Commons: Oseberg Ship - Viking Ship Museum (Oslo).jpg"
+  },
+  {
+    "id": "cyrus-cylinder",
+    "name": "Cyrus Cylinder",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "cyrus cylinder",
+      "cylinder of cyrus"
+    ],
+    "blurb": "Clay proclamation of Cyrus the Great from conquered Babylon",
+    "img": "assets/img/cyrus-cylinder.jpg",
+    "fx": 0.5,
+    "fy": 0.42,
+    "frac": 0.2,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Mike Peel",
+    "source": "Wikimedia Commons: Cyrus Cylinder 2.jpg"
+  },
+  {
+    "id": "phaistos-disc",
+    "name": "Phaistos Disc",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "phaistos disc",
+      "phaistos disk",
+      "disc of phaistos"
+    ],
+    "blurb": "Crete's undeciphered stamped-clay riddle, c. 1700 BC",
+    "img": "assets/img/phaistos-disc.jpg",
+    "fx": 0.52,
+    "fy": 0.45,
+    "frac": 0.22,
+    "license": "Public domain",
+    "attribution": "Gleb Simonov",
+    "source": "Wikimedia Commons: Phaistos Disc — Side A.jpg"
   }
 ]
