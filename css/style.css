@@ -141,6 +141,9 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   background: var(--ch-paper); position: sticky; top: 0; z-index: 5;
 }
 .topbar h2 { font-family: var(--ch-font-display); font-weight: 400; font-size: 18px; text-transform: uppercase; letter-spacing: .02em; margin: 0; flex: 1; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--ch-text-primary); }
+#view-conn .topbar h2, #view-connsum .topbar h2 {
+  white-space: normal; overflow: visible; text-overflow: clip; line-height: 1.1; padding: 2px 0;
+}
 .topbar-right { display: flex; align-items: center; gap: 6px; min-width: 44px; justify-content: flex-end; }
 .iconbtn {
   width: 38px; height: 38px; border-radius: 50%; font-size: 20px; line-height: 1;
@@ -274,8 +277,8 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 }
 
 /* ---------- Map game ---------- */
-.b-green { color: var(--ch-forest); }
-.b-red { color: var(--ch-burgundy); }
+.b-birth { color: var(--ch-map-destination); }
+.b-death { color: var(--ch-map-origin); }
 #map-panel { position: relative; background: var(--ch-parchment); border-bottom: 1px solid var(--ch-line); }
 #map-svg { display: block; width: 100%; height: 38dvh; }
 .map-land { fill: var(--ch-parchment); stroke: var(--ch-line-soft); stroke-width: .6; }
@@ -497,17 +500,31 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   80%      { transform: translateX(4px); }
 }
 
-/* Pull-to-refresh (home only): damped pull with a springy snap-back. */
+/* Pull-to-refresh (home only): damped pull with a springy snap-back, and a
+   spinning chess-queen badge instead of a text pill. #ptr-badge is a purely
+   positional wrapper (JS drives its `translate`); .ptr-badge-face carries the
+   visible chrome and is what actually rotates/scales, via the standalone
+   `rotate`/`scale` CSS properties so JS's inline styles and the CSS
+   keyframe animations below never fight over the same `transform` property. */
 #view-home { will-change: transform; }
-#ptr-pill {
+#ptr-badge {
   position: fixed; top: calc(10px + env(safe-area-inset-top)); left: 50%;
-  transform: translateX(-50%); z-index: 40;
-  font-family: var(--ch-font-ui); text-transform: uppercase;
-  letter-spacing: var(--ch-tracking-smallcaps); font-size: 11px; font-weight: 700;
-  color: var(--ch-text-label); background: var(--ch-cream);
-  border: 1px solid var(--ch-line); border-radius: 999px; padding: 6px 14px;
-  box-shadow: var(--ch-shadow-card);
+  width: 46px; height: 46px; margin-left: -23px; z-index: 40;
+  pointer-events: none;
 }
+.ptr-badge-face {
+  width: 100%; height: 100%; border-radius: 50%; box-sizing: border-box;
+  background: var(--ch-cream); border: 2px solid var(--ch-ink);
+  box-shadow: 3px 3px 0 var(--ch-ink);
+  display: flex; align-items: center; justify-content: center;
+  transform-origin: 50% 50%; rotate: 0deg; scale: .6;
+}
+.ptr-badge-face svg { width: 56%; height: 56%; fill: var(--ch-ink); display: block; }
+@keyframes ptr-spin { from { rotate: 0deg; } to { rotate: 360deg; } }
+@keyframes ptr-pop { 0% { scale: 1; } 35% { scale: 1.2; } 60% { scale: .92; } 100% { scale: 1; } }
+#ptr-badge.ptr-armed .ptr-badge-face { animation: ptr-spin .9s linear infinite, ptr-pop .5s cubic-bezier(.3,1.4,.4,1) 1; }
+@keyframes ptr-go-spin { to { rotate: 720deg; } }
+#ptr-badge.ptr-go .ptr-badge-face { animation: ptr-go-spin .6s cubic-bezier(.2,.8,.3,1.2) 1 forwards; }
 
 /* ================= DEAD FAMOUS components ================= */
 /* Loud moment surfaces: full CMYK is allowed here ONLY. */

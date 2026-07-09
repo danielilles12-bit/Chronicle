@@ -20,7 +20,13 @@
 <div id="app">
 
   <!-- ============ HOME ============ -->
-  <div id="ptr-pill" hidden>Pull to refresh</div>
+  <div id="ptr-badge" hidden aria-hidden="true">
+    <div class="ptr-badge-face">
+      <svg viewBox="0 0 100 120" aria-hidden="true">
+        <path d="M18 110 L82 110 L70 70 L30 70 Z M40 70 L60 70 L58 50 L42 50 Z M38 38 A12 12 0 1 0 62 38 A12 12 0 1 0 38 38 Z M30 28 L34 14 L38 22 L42 12 L46 22 L50 10 L54 22 L58 12 L62 22 L66 14 L70 28 Z"/>
+      </svg>
+    </div>
+  </div>
   <section class="view" id="view-home">
     <header class="masthead safe-top">
       <img class="masthead-sticker" src="assets/brand/david-sticker.png" alt="" aria-hidden="true">
@@ -130,12 +136,13 @@
     </header>
     <main class="scroll-main center-main">
       <svg class="start-glyph" viewBox="0 0 120 60" aria-hidden="true">
-        <circle cx="22" cy="38" r="8" fill="#12382E"/>
-        <path d="M30 36 C 55 8, 75 8, 96 24" fill="none" stroke="#B58A2D" stroke-width="2" stroke-dasharray="4 4"/>
-        <circle cx="98" cy="26" r="8" fill="#7A1F2D"/>
+        <circle cx="22" cy="38" r="8" fill="var(--ch-map-destination)"/>
+        <path d="M30 36 C 55 8, 75 8, 96 24" fill="none" stroke="var(--ch-ink)" stroke-width="2" stroke-dasharray="4 4"/>
+        <circle cx="98" cy="26" r="8" fill="none" stroke="var(--ch-map-origin)" stroke-width="3"/>
+        <circle cx="98" cy="26" r="3" fill="var(--ch-map-origin)"/>
       </svg>
       <h3 class="start-title">Ten lives, twenty dots.</h3>
-      <p class="start-copy">Each round shows where a historical figure was <b class="b-green">born</b> and where they <b class="b-red">died</b>, with the years. Type their name — spelling needn’t be perfect.</p>
+      <p class="start-copy">Each round shows where a historical figure was <b class="b-birth">born</b> and where they <b class="b-death">died</b>, with the years. Type their name — spelling needn’t be perfect.</p>
       <p class="start-copy small">100 points for an unaided answer (a correct answer always pays at least 10). Hints cost 25, wrong guesses 10, revealing scores zero. Each consecutive correct answer from the second onward earns +10.</p>
       <p class="card-stat" id="map-best"></p>
       <button class="pill primary big" id="map-start">Start a session</button>
@@ -155,7 +162,7 @@
       <div id="map-streak" hidden></div>
     </div>
     <main class="map-main">
-      <p id="map-question">Born <b class="b-green">here</b>, died <b class="b-red">there</b> — who is it?</p>
+      <p id="map-question">Born <b class="b-birth">here</b>, died <b class="b-death">there</b> — who is it?</p>
       <div id="map-feedback" hidden></div>
       <form id="map-form" autocomplete="off">
         <input id="map-input" type="text" placeholder="Type a name…" autocomplete="off"
@@ -432,7 +439,7 @@
 
   <div id="archive-picker" class="sheet" hidden>
     <div class="sheet-card">
-      <h3 id="archive-picker-title">Edition</h3>
+      <h3 id="archive-picker-title">Issue</h3>
       <p class="start-copy small" style="margin:0 0 4px">Practice mode: replayable, doesn't affect streaks.</p>
       <div class="sheet-row">
         <button class="pill" data-practice-game="thread">Thread</button>

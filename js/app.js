@@ -302,7 +302,7 @@ function renderArchive() {
     }).join('');
     row.innerHTML =
       `<span class="cw-size">${daily.weekdayName(n).slice(0, 3)}</span>` +
-      `<span class="cw-name">Edition #${n}</span>` +
+      `<span class="cw-name">Issue № ${n}</span>` +
       `<span class="archive-marks">${marks}</span>`;
     row.addEventListener('click', () => openArchiveEdition(n));
     main.appendChild(row);
@@ -358,15 +358,25 @@ function initHome() {
 // freshly deployed version via the service worker's update check).
 function initPullToRefresh() {
   const home = $('#view-home');
-  const pill = $('#ptr-pill');
-  if (!home || !pill) return;
-  const ARM = 64, MAX = 130, DAMP = 0.45;
+  const badge = $('#ptr-badge');
+  const face = badge ? badge.querySelector('.ptr-badge-face') : null;
+  if (!home || !badge || !face) return;
+  const ARM = 64, MAX = 140, DAMP = 0.55;
   let y0 = null, x0 = null, pulling = false, armed = false;
 
   const settle = () => {
-    home.style.transition = 'transform .32s cubic-bezier(.2,.8,.3,1.25)';
+    home.style.transition = 'transform .34s cubic-bezier(.2,.9,.25,1.35)';
     home.style.transform = '';
-    setTimeout(() => { home.style.transition = ''; pill.hidden = true; }, 340);
+    badge.style.transition = 'translate .34s cubic-bezier(.2,.9,.25,1.35)';
+    badge.style.translate = '0 0';
+    face.style.transition = 'scale .28s ease';
+    face.style.scale = '.6';
+    setTimeout(() => {
+      home.style.transition = '';
+      badge.style.transition = ''; badge.style.translate = ''; badge.hidden = true;
+      face.style.transition = ''; face.style.scale = ''; face.style.rotate = '';
+      badge.classList.remove('ptr-armed', 'ptr-go');
+    }, 360);
   };
 
   document.addEventListener('touchstart', (e) => {
@@ -388,9 +398,24 @@ function initPullToRefresh() {
     const pull = Math.min(MAX, dy * DAMP);
     home.style.transition = '';
     home.style.transform = `translateY(${pull.toFixed(1)}px)`;
+
     armed = pull >= ARM;
-    pill.textContent = armed ? 'Release to refresh' : 'Pull to refresh';
-    pill.hidden = false;
+    badge.hidden = false;
+    badge.style.transition = '';
+    badge.style.translate = `0 ${pull.toFixed(1)}px`;
+    badge.classList.toggle('ptr-armed', armed);
+    if (!armed) {
+      // Below the arm threshold the badge tracks the pull directly (rotation
+      // proportional to distance, a quick scale-in over the first 40px). Past
+      // the threshold the ptr-armed CSS animation takes over rotate/scale \u2014
+      // see the `rotate`/`scale` standalone properties in style.css, which
+      // compose independently of these inline styles instead of clobbering
+      // them the way animating `transform` itself would.
+      const scale = Math.min(1, 0.6 + (pull / 40) * 0.4);
+      face.style.transition = '';
+      face.style.rotate = `${(pull * 3).toFixed(1)}deg`;
+      face.style.scale = scale.toFixed(2);
+    }
   }, { passive: true });
 
   document.addEventListener('touchend', () => {
@@ -398,8 +423,9 @@ function initPullToRefresh() {
     y0 = null;
     if (!pulling) return;
     if (armed) {
-      pill.textContent = 'Refreshing\u2026';
-      setTimeout(() => location.reload(), 160);
+      badge.classList.remove('ptr-armed');
+      badge.classList.add('ptr-go');
+      setTimeout(() => location.reload(), 650);
       return;                       // keep the pulled position until reload
     }
     settle();
