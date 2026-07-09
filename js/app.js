@@ -105,21 +105,21 @@ export function refreshHomeStats() {
 const GAME_ROWS = [
   {
     key: 'thread', label: 'Thread', tagline: 'Group 16 clues into four hidden categories.',
-    glyph: 'assets/brand/svg/df-icon-thread.svg',
+    glyph: 'assets/brand/game-icon-thread.png',
     tintStrong: 'var(--df-cyan)',
     tintSoft: 'color-mix(in srgb, var(--df-cyan) 14%, var(--ch-cream))',
     launchDaily: startThreadDaily, launchPractice: startThreadPractice,
   },
   {
     key: 'map', label: 'Lifeline', tagline: 'Born here, died there. Name the figure.',
-    glyph: 'assets/brand/svg/df-icon-lifeline.svg',
+    glyph: 'assets/brand/game-icon-lifeline.png',
     tintStrong: 'var(--df-yellow)',
     tintSoft: 'color-mix(in srgb, var(--df-yellow) 18%, var(--ch-cream))',
     launchDaily: startMapDaily, launchPractice: startMapPractice,
   },
   {
     key: 'who', label: 'Face Value', tagline: 'A famous face, one scrap at a time.',
-    glyph: 'assets/brand/svg/df-icon-face-value.svg',
+    glyph: 'assets/brand/game-icon-face-value.png',
     tintStrong: 'var(--df-magenta)',
     tintSoft: 'color-mix(in srgb, var(--df-magenta) 12%, var(--ch-cream))',
     launchDaily: (n) => startRevealDaily('who', n), launchPractice: (n) => startRevealPractice('who', n),

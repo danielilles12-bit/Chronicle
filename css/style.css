@@ -526,6 +526,7 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   transform-origin: 50% 50%; rotate: 0deg; scale: .6;
 }
 .ptr-badge-face svg { width: 56%; height: 56%; fill: var(--ch-ink); display: block; }
+.ptr-badge-face img { height: 72%; width: auto; display: block; }
 @keyframes ptr-spin { from { rotate: 0deg; } to { rotate: 360deg; } }
 @keyframes ptr-pop { 0% { scale: 1; } 35% { scale: 1.2; } 60% { scale: .92; } 100% { scale: 1; } }
 #ptr-badge.ptr-armed .ptr-badge-face { animation: ptr-spin .9s linear infinite, ptr-pop .5s cubic-bezier(.3,1.4,.4,1) 1; }
@@ -550,15 +551,15 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 /* Interim art for the Alea Iacta Fest stamp: two inline dice flanking the
    text. Swapped for an illustrated PNG later (see HTML comment at call site);
    this fallback keeps the slot data-driven in the meantime. */
-.df-stamp-alea { display: inline-flex; align-items: center; gap: 7px; }
-.df-stamp-die { width: 20px; height: 20px; flex: none; }
-.df-stamp-die:first-child { transform: rotate(-12deg); }
-.df-stamp-die:last-child { transform: rotate(9deg); }
+/* Illustrated stamp art (red ink on transparency) replaces the typographic
+   dice fallback: the art brings its own lettering, so no border/padding. */
+.df-stamp-alea { border: none; padding: 0; right: 12px; bottom: 4px; }
+.df-stamp-alea img { width: 98px; display: block; }
 
 /* Receipt: the share object. */
 .df-receipt {
   background: #FFFFFF; border: 2px solid var(--ch-ink); box-shadow: var(--ch-shadow-soft);
-  font-family: var(--ch-font-ui); color: #111; padding: 20px 18px 52px; position: relative;
+  font-family: var(--ch-font-ui); color: #111; padding: 20px 18px 86px; position: relative;
   margin: 16px 0;
 }
 .df-receipt-head { text-align: center; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 10px; }
