@@ -47,7 +47,7 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   font-weight: 400; line-height: .92; color: var(--ch-text-primary); text-transform: uppercase;
 }
 .dateline { margin: 8px 0 0; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--ch-text-primary); font-family: var(--ch-font-ui); }
-.masthead-sticker { position: absolute; right: 12px; top: 8px; width: 92px; transform: rotate(6deg); border: 2px solid var(--ch-ink); box-shadow: 3px 3px 0 var(--ch-ink); }
+.masthead-sticker { position: absolute; right: 12px; top: 8px; width: 92px; transform: rotate(6deg); }
 
 /* ---------- Game rows (NYT-Games-style: hero + day-card strip + Archive) --
    Built by js/app.js (renderGameRows). Each row carries its own accent tint

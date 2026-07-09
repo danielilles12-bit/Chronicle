@@ -1,6 +1,6 @@
 // Dead Famous service worker: precache everything, serve cache-first.
 // Bump VERSION on every deploy to refresh clients.
-const VERSION = 'deadfamous-v89';
+const VERSION = 'deadfamous-v90';
 
 const ASSETS = [
   './',
@@ -16,7 +16,7 @@ const ASSETS = [
   './assets/brand/game-icon-thread.png',
   './assets/brand/game-icon-lifeline.png',
   './assets/brand/game-icon-face-value.png',
-  './assets/brand/svg/df-icon-relic.svg',
+  './assets/brand/game-icon-relic.png',
   './assets/brand/stamp-alea-iacta-fest.png',
   './assets/brand/ptr-queen.png',
   './js/app.js',

@@ -126,8 +126,7 @@ const GAME_ROWS = [
   },
   {
     key: 'what', label: 'Relic', tagline: 'A famous artefact, one scrap at a time.',
-    // NOTE: swap to assets/brand/game-icon-relic.png once Daniel's illustrated art lands.
-    glyph: 'assets/brand/svg/df-icon-relic.svg',
+    glyph: 'assets/brand/game-icon-relic.png',
     tintStrong: 'var(--df-red)',
     tintSoft: 'color-mix(in srgb, var(--df-red) 10%, var(--ch-cream))',
     launchDaily: (n) => startRevealDaily('what', n), launchPractice: (n) => startRevealPractice('what', n),
