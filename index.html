@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
-<title>Chronicle — History Games</title>
-<meta name="description" content="Little games about big history: Lifeline, Face Value, Relic and Thread.">
-<meta name="theme-color" content="#F6F1E6">
+<title>Dead Famous — History as Entertainment</title>
+<meta name="description" content="History's greatest hits, two minutes a day: Thread, Lifeline, Face Value and Relic.">
+<meta name="theme-color" content="#F2EFE6">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/favicon.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Chronicle">
+<meta name="apple-mobile-web-app-title" content="Dead Famous">
 <link rel="stylesheet" href="css/brand-tokens.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -23,8 +23,8 @@
   <div id="ptr-pill" hidden>Pull to refresh</div>
   <section class="view" id="view-home">
     <header class="masthead safe-top">
-      <img class="masthead-seal" src="icons/icon-192.png" alt="" aria-hidden="true">
-      <h1>Chronicle</h1>
+      <img class="masthead-sticker" src="assets/brand/david-sticker.png" alt="" aria-hidden="true">
+      <h1>Dead<br>Famous</h1>
       <p class="dateline" id="dateline"></p>
     </header>
     <!-- Each .game-row (hero + day-card strip + Archive bar) is built and
@@ -181,9 +181,15 @@
       <span class="topbar-right"></span>
     </header>
     <main class="scroll-main">
-      <p class="sum-total"><span id="sum-total">0</span><span class="sum-total-label">points</span></p>
-      <p id="sum-remark" class="sum-remark"></p>
-      <ol id="sum-rounds" class="sum-list"></ol>
+      <div class="df-receipt">
+        <div class="df-receipt-head" data-receipt-head>Dead Famous · Lifeline</div>
+        <hr>
+        <ol id="sum-rounds" class="sum-list df-receipt-list"></ol>
+        <hr>
+        <div class="df-receipt-total"><span>Total:</span><b id="sum-total">0</b></div>
+        <p class="df-receipt-meta" id="sum-remark"></p>
+        <div class="df-stamp df-receipt-stamp">Alea iacta fest</div>
+      </div>
       <div class="sum-actions">
         <button class="pill primary big" id="sum-again">Play again</button>
         <button class="pill ghost big" id="sum-home">Home</button>
@@ -206,9 +212,9 @@
         <circle cx="80" cy="36" r="16" fill="rgba(18,56,46,0.12)" stroke="#12382E" stroke-width="3"/>
         <line x1="92" y1="48" x2="105" y2="58" stroke="#12382E" stroke-width="4" stroke-linecap="round"/>
       </svg>
-      <h3 class="start-title">Beat the zoom.</h3>
-      <p class="start-copy">Each round opens tight on a famous <b>face</b> or <b>artefact</b>, then slowly zooms out over <b>15 seconds</b>. Name it as early as you can.</p>
-      <p class="start-copy small">The less that's revealed when you nail it, the higher the score — 100 down to 20. Let the clock run out and you score zero. Two right in a row earns +10.</p>
+      <h3 class="start-title">Tear carefully.</h3>
+      <p class="start-copy">A famous <b>face</b> or <b>artefact</b> hides under nine paper scraps. Tear them off to peek — the first tear is free, every tear after costs <b>10 pts</b>.</p>
+      <p class="start-copy small">Each round is worth 100. Wrong guesses cost 15. Name it on as few tears as you dare — two right in a row earns +10.</p>
       <p class="card-stat" id="rv-best"></p>
       <button class="pill primary big" id="rv-start">Start a session</button>
       <button class="pill big" id="rv-resume" hidden>Resume session</button>
@@ -223,9 +229,11 @@
       <span class="topbar-right"><span id="rv-score" aria-label="Score">0 pts</span></span>
     </header>
     <div id="rv-panel">
-      <div id="rv-frame" role="img" aria-label="A cropped fragment to identify"></div>
-      <div id="rv-timerbar" aria-hidden="true"><div id="rv-timerfill"></div></div>
-      <span id="rv-pause" class="pill" hidden></span>
+      <div id="rv-frame" role="img" aria-label="A covered image to identify">
+        <div class="df-scraps" id="rv-scraps"></div>
+        <div class="df-moment-badge" id="rv-badge" hidden></div>
+      </div>
+      <p class="df-worth" id="rv-worth"></p>
       <div id="rv-streak" hidden></div>
     </div>
     <main class="map-main">
@@ -252,9 +260,15 @@
       <span class="topbar-right"></span>
     </header>
     <main class="scroll-main">
-      <p class="sum-total"><span id="rv-sum-total">0</span><span class="sum-total-label">points</span></p>
-      <p id="rv-sum-remark" class="sum-remark"></p>
-      <ol id="rv-sum-rounds" class="sum-list"></ol>
+      <div class="df-receipt">
+        <div class="df-receipt-head" data-receipt-head>Dead Famous</div>
+        <hr>
+        <ol id="rv-sum-rounds" class="sum-list df-receipt-list"></ol>
+        <hr>
+        <div class="df-receipt-total"><span>Total:</span><b id="rv-sum-total">0</b></div>
+        <p class="df-receipt-meta" id="rv-sum-remark"></p>
+        <div class="df-stamp df-receipt-stamp">Alea iacta fest</div>
+      </div>
       <div class="sum-actions">
         <button class="pill primary big" id="rv-sum-again">Play again</button>
         <button class="pill ghost big" id="rv-sum-home">Home</button>
@@ -375,12 +389,43 @@
   </section>
 
   <!-- ============ ARCHIVE / PRACTICE ============ -->
+  <section class="view view-loud" id="view-daydone" hidden>
+    <header class="topbar safe-top" style="background:transparent;border-bottom-color:var(--ch-ink)">
+      <span class="topbar-right"></span>
+      <h2 id="dd-issue">Issue № —</h2>
+      <button class="iconbtn" id="dd-close" aria-label="Close">×</button>
+    </header>
+    <main class="scroll-main df-moment">
+      <h1 class="dd-title" id="dd-title">You made history.</h1>
+      <div class="loud-block dd-score">
+        <span class="dd-score-label" id="dd-score-label">Today's total</span>
+        <b id="dd-total">0</b>
+      </div>
+      <div class="loud-block dd-streak" id="dd-streak-block">
+        <span id="dd-streak-label">Streak</span>
+        <b id="dd-streak">0 days</b>
+        <span class="df-stamp" id="dd-stamp" hidden>Memento mori</span>
+      </div>
+      <p class="dd-countdown" id="dd-countdown" hidden></p>
+      <p class="dd-carpet" id="dd-carpet" hidden><span class="df-stamp">Carpet diem</span></p>
+      <div class="sum-actions">
+        <button class="pill primary big" id="dd-share">Share today's receipt</button>
+        <button class="pill ghost big" id="dd-home">Home</button>
+      </div>
+    </main>
+  </section>
+
   <section class="view" id="view-archive" hidden>
     <header class="topbar safe-top">
       <button class="iconbtn" data-back aria-label="Back">‹</button>
-      <h2>Archive</h2>
+      <h2>Back Issues</h2>
       <span class="topbar-right"></span>
     </header>
+    <div class="df-censored" aria-hidden="true">
+      <img src="assets/img/warren-cup.jpg" alt="">
+      <span>Censored</span>
+      <small>Yes, it's real. Ask the British Museum.</small>
+    </div>
     <div id="archive-filters" class="archive-filters"></div>
     <main id="archive-list" class="scroll-main"></main>
   </section>

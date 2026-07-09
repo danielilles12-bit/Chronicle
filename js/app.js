@@ -106,29 +106,29 @@ const GAME_ROWS = [
   {
     key: 'thread', label: 'Thread', tagline: 'Group 16 clues into four hidden categories.',
     glyph: 'assets/brand/svg/game-icon-thread-primary.svg',
-    tintStrong: 'color-mix(in srgb, var(--ch-burgundy) 10%, var(--ch-cream))',
-    tintSoft: 'color-mix(in srgb, var(--ch-burgundy) 6%, var(--ch-cream))',
+    tintStrong: 'var(--df-cyan)',
+    tintSoft: 'color-mix(in srgb, var(--df-cyan) 14%, var(--ch-cream))',
     launchDaily: startThreadDaily, launchPractice: startThreadPractice,
   },
   {
     key: 'map', label: 'Lifeline', tagline: 'Born here, died there. Name the figure.',
     glyph: 'assets/brand/svg/game-icon-lifeline-primary.svg',
-    tintStrong: 'color-mix(in srgb, var(--ch-forest) 10%, var(--ch-cream))',
-    tintSoft: 'color-mix(in srgb, var(--ch-forest) 6%, var(--ch-cream))',
+    tintStrong: 'var(--df-yellow)',
+    tintSoft: 'color-mix(in srgb, var(--df-yellow) 18%, var(--ch-cream))',
     launchDaily: startMapDaily, launchPractice: startMapPractice,
   },
   {
-    key: 'who', label: 'Face Value', tagline: 'A famous face, one sliver at a time.',
+    key: 'who', label: 'Face Value', tagline: 'A famous face, one scrap at a time.',
     glyph: 'assets/brand/svg/game-icon-face-value-primary.svg',
-    tintStrong: 'color-mix(in srgb, var(--ch-gold) 12%, var(--ch-cream))',
-    tintSoft: 'color-mix(in srgb, var(--ch-gold) 7%, var(--ch-cream))',
+    tintStrong: 'var(--df-magenta)',
+    tintSoft: 'color-mix(in srgb, var(--df-magenta) 12%, var(--ch-cream))',
     launchDaily: (n) => startRevealDaily('who', n), launchPractice: (n) => startRevealPractice('who', n),
   },
   {
-    key: 'what', label: 'Relic', tagline: 'A famous artefact, one sliver at a time.',
+    key: 'what', label: 'Relic', tagline: 'A famous artefact, one scrap at a time.',
     glyph: 'assets/brand/svg/game-icon-relic-primary.svg',
-    tintStrong: 'color-mix(in srgb, var(--ch-sage) 14%, var(--ch-cream))',
-    tintSoft: 'color-mix(in srgb, var(--ch-sage) 8%, var(--ch-cream))',
+    tintStrong: 'var(--df-red)',
+    tintSoft: 'color-mix(in srgb, var(--df-red) 10%, var(--ch-cream))',
     launchDaily: (n) => startRevealDaily('what', n), launchPractice: (n) => startRevealPractice('what', n),
   },
 ];
@@ -168,8 +168,9 @@ function renderGameRows() {
         </button>
         <div class="day-cards" data-days></div>
       </div>
-      <button class="row-archive" data-archive="${g.key}" aria-label="Open the Archive">
-        <span>Archive</span>
+      <div class="df-week" data-week aria-hidden="true"></div>
+      <button class="row-archive" data-archive="${g.key}" aria-label="Open back issues">
+        <span>Back issues</span>
         <svg class="row-archive-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6 H20 V19 A1 1 0 0 1 19 20 H5 A1 1 0 0 1 4 19 Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2.5 6 H21.5 L20 3 H4 Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9.5 10.5 H14.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
       </button>
     </section>
@@ -206,10 +207,23 @@ export function refreshGameRows() {
     const status = daily.dailyStatus(g.key, today);
     const entry = status === 'done' ? store.getDailyEntry(g.key, today) : null;
     const hero = $(`[data-hero="${g.key}"]`);
-    hero.querySelector('[data-edition]').textContent = daily.editionLabel(today).replace('Edition #', 'EDITION #').toUpperCase();
+    hero.querySelector('[data-edition]').textContent = `ISSUE № ${today}`;
     hero.querySelector('[data-status]').textContent = statusLabel(status, entry && entry.score);
     hero.classList.toggle('row-done', status === 'done');
     hero.classList.toggle('row-progress', status === 'in-progress');
+
+    // This week's M-S strip: filled square = that day's daily completed.
+    const weekEl = $(`[data-row="${g.key}"] [data-week]`);
+    if (weekEl) {
+      const monday = today - daily.weekday(today);
+      weekEl.innerHTML = ['M','T','W','T','F','S','S'].map((ch, i) => {
+        const n = monday + i;
+        const cls = [];
+        if (n === today) cls.push('today');
+        if (n <= today && daily.dailyStatus(g.key, n) === 'done') cls.push('done');
+        return `<span class="${cls.join(' ')}">${ch}</span>`;
+      }).join('');
+    }
 
     // Past (aired) editions only, newest first, capped at 7 — or fewer in the
     // first week of the app's life.
@@ -326,9 +340,8 @@ function openArchiveEdition(editionIndex) {
 }
 
 function initHome() {
-  $('#dateline').textContent = new Date().toLocaleDateString('en-GB', {
-    weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
-  });
+  const wd = new Date().toLocaleDateString('en-GB', { weekday: 'long' });
+  $('#dateline').textContent = `Issue № ${daily.todayIndex()} // ${wd}`;
   // Crosswords are retained but hidden from the app for now, same as before
   // this rebuild; the card carries `hidden`. Guard so this is a no-op when
   // the card isn't shown. The other three games' free-play "Start a session"
@@ -416,6 +429,126 @@ function initPullToRefresh() {
   });
 }
 
+
+// ---------- You Made History / You're History ----------
+// Celebration when all four dailies are done; obituary when a streak dies.
+// One-shot flags live in localStorage so neither screen nags twice.
+let ddCountdownTimer = null;
+
+function flagGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+function flagSet(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } }
+
+function fullHouseDone(n) {
+  const ledger = store.getDailyLedger();
+  return daily.GAMES.every((g) => ledger.entries[g] && ledger.entries[g][n]);
+}
+function dayTotal(n) {
+  const ledger = store.getDailyLedger();
+  return daily.GAMES.reduce((sum, g) => {
+    const e = ledger.entries[g] && ledger.entries[g][n];
+    return sum + ((e && e.score) || 0);
+  }, 0);
+}
+function shareText(n) {
+  const ledger = store.getDailyLedger();
+  const names = { thread: 'THREAD', map: 'LIFELINE', who: 'FACE VALUE', what: 'RELIC' };
+  const lines = daily.GAMES.map((g) => {
+    const e = ledger.entries[g] && ledger.entries[g][n];
+    return `${names[g]} ${e ? e.score : 0}`;
+  });
+  const streak = (ledger.fullHouse && ledger.fullHouse.streak) || 1;
+  return `DEAD FAMOUS · ISSUE № ${n}\n${lines.join(' · ')}\nTOTAL: ${dayTotal(n)} · STREAK: ${streak}`;
+}
+
+function startCountdown() {
+  const el = $('#dd-countdown');
+  if (!el) return;
+  el.hidden = false;
+  const tick = () => {
+    const now = new Date();
+    const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+    const ms = midnight - now;
+    const h = String(Math.floor(ms / 3600000)).padStart(2, '0');
+    const m = String(Math.floor((ms % 3600000) / 60000)).padStart(2, '0');
+    const sec = String(Math.floor((ms % 60000) / 1000)).padStart(2, '0');
+    el.innerHTML = `Next issue drops in<b>${h}:${m}:${sec}</b>`;
+  };
+  tick();
+  clearInterval(ddCountdownTimer);
+  ddCountdownTimer = setInterval(tick, 1000);
+}
+
+function showCelebration(n) {
+  flagSet('df.celebrated', String(n));
+  const v = $('#view-daydone');
+  v.classList.remove('obituary');
+  $('#dd-issue').textContent = `Issue № ${n}`;
+  $('#dd-title').textContent = 'You made history.';
+  $('#dd-score-label').textContent = "Today's total";
+  $('#dd-total').textContent = dayTotal(n);
+  const ledger = store.getDailyLedger();
+  const streak = (ledger.fullHouse && ledger.fullHouse.streak) || 1;
+  $('#dd-streak-label').textContent = 'Streak';
+  $('#dd-streak').textContent = `${streak} day${streak === 1 ? '' : 's'}`;
+  $('#dd-stamp').hidden = true;
+  $('#dd-carpet').hidden = false;
+  $('#dd-share').hidden = false;
+  startCountdown();
+  show('view-daydone');
+}
+
+function showObituary(streak, lastEdition) {
+  flagSet('df.mourned', String(lastEdition));
+  const v = $('#view-daydone');
+  v.classList.add('obituary');
+  $('#dd-issue').textContent = `Issue № ${daily.todayIndex()}`;
+  $('#dd-title').textContent = "You're history.";
+  $('#dd-score-label').textContent = 'Your streak ended at';
+  $('#dd-total').textContent = `${streak} days`;
+  $('#dd-streak-label').textContent = 'Rest in peace';
+  $('#dd-streak').textContent = `Issues ${Math.max(0, lastEdition - streak + 1)}–${lastEdition}`;
+  $('#dd-stamp').hidden = false;
+  $('#dd-carpet').hidden = true;
+  $('#dd-share').hidden = true;
+  $('#dd-countdown').hidden = true;
+  show('view-daydone');
+}
+
+function maybeCelebrate() {
+  const n = daily.todayIndex();
+  if (fullHouseDone(n) && flagGet('df.celebrated') !== String(n)) showCelebration(n);
+}
+function maybeMourn() {
+  const ledger = store.getDailyLedger();
+  const fh = ledger.fullHouse || { streak: 0, lastEdition: -Infinity };
+  const today = daily.todayIndex();
+  if (fh.streak >= 3 && Number.isFinite(fh.lastEdition) && fh.lastEdition <= today - 2
+      && flagGet('df.mourned') !== String(fh.lastEdition)) {
+    showObituary(fh.streak, fh.lastEdition);
+    return true;
+  }
+  return false;
+}
+
+function initDayDone() {
+  $('#dd-close').addEventListener('click', goHome);
+  $('#dd-home').addEventListener('click', goHome);
+  $('#dd-share').addEventListener('click', async () => {
+    const text = shareText(daily.todayIndex());
+    const btn = $('#dd-share');
+    try {
+      if (navigator.share) { await navigator.share({ text }); return; }
+      await navigator.clipboard.writeText(text);
+      btn.textContent = 'Copied!';
+      setTimeout(() => { btn.textContent = "Share today's receipt"; }, 1600);
+    } catch (e) { /* user cancelled */ }
+  });
+  document.addEventListener('viewchange', (e) => {
+    if (e.detail === 'view-home') maybeCelebrate();
+    if (e.detail !== 'view-daydone') clearInterval(ddCountdownTimer);
+  });
+}
+
 async function boot() {
   try {
     const [puzzles, figures, world, revealWho, revealWhat, connections] = await Promise.all(
@@ -436,7 +569,7 @@ async function boot() {
     DATA.connections = connections;
   } catch (e) {
     document.body.innerHTML = '<p style="padding:40px;text-align:center">'
-      + 'Chronicle could not load its data. Please reload once you are online.</p>';
+      + 'Dead Famous could not load its data. Please reload once you are online.</p>';
     return;
   }
 
@@ -447,8 +580,10 @@ async function boot() {
   initRevealGame();
   initConnectionsGame();
   initDaily();
+  initDayDone();
   refreshHomeStats();
   refreshTodayStrip();
+  if (!maybeMourn()) maybeCelebrate();
 
   // Deterministic hooks for the automated test-suite.
   window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, { data: DATA, store, isMatch, daily });

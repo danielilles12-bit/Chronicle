@@ -1,10 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" fill="#f6f1e4"/>
-  <rect x="22" y="22" width="468" height="468" fill="none" stroke="#121212" stroke-width="7"/>
-  <rect x="36" y="36" width="440" height="440" fill="none" stroke="#121212" stroke-width="2"/>
-  <text x="256" y="345" font-family="Georgia, 'Times New Roman', serif" font-size="285"
-        font-weight="bold" text-anchor="middle" fill="#121212">C</text>
-  <circle cx="187" cy="416" r="15" fill="#4a7c43"/>
-  <rect x="242" y="402" width="29" height="29" fill="#121212"/>
-  <circle cx="326" cy="416" r="15" fill="#b4422e"/>
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="2.4" fill="rgba(11,11,11,0.10)"/>
+    </pattern>
+  </defs>
+  <rect width="512" height="512" fill="#F2EFE6"/>
+  <rect width="512" height="512" fill="url(#dots)"/>
+  <rect x="14" y="14" width="484" height="484" fill="none" stroke="#0B0B0B" stroke-width="22"/>
+  <!-- plinth -->
+  <rect x="150" y="408" width="212" height="42" fill="#0B0B0B"/>
+  <!-- shoulders -->
+  <path d="M116 408 C120 340 176 318 256 318 C336 318 392 340 396 408 Z" fill="#FFFFFF" stroke="#0B0B0B" stroke-width="14"/>
+  <!-- neck -->
+  <path d="M222 250 H290 L296 330 H216 Z" fill="#FFFFFF" stroke="#0B0B0B" stroke-width="14"/>
+  <!-- head -->
+  <path d="M256 74 C186 74 158 122 158 178 C158 240 196 282 256 282 C316 282 354 240 354 178 C354 122 326 74 256 74 Z" fill="#FFFFFF" stroke="#0B0B0B" stroke-width="14"/>
+  <!-- curls -->
+  <path d="M170 150 C168 96 208 62 256 62 C304 62 344 96 342 150 C330 108 300 92 256 92 C212 92 182 108 170 150 Z" fill="#0B0B0B"/>
+  <circle cx="184" cy="120" r="16" fill="#0B0B0B"/>
+  <circle cx="328" cy="120" r="16" fill="#0B0B0B"/>
+  <circle cx="216" cy="96" r="15" fill="#0B0B0B"/>
+  <circle cx="296" cy="96" r="15" fill="#0B0B0B"/>
+  <circle cx="256" cy="88" r="15" fill="#0B0B0B"/>
+  <!-- sunglasses -->
+  <rect x="174" y="164" width="74" height="52" rx="6" fill="#FF3DDB" stroke="#0B0B0B" stroke-width="12"/>
+  <rect x="264" y="164" width="74" height="52" rx="6" fill="#FF3DDB" stroke="#0B0B0B" stroke-width="12"/>
+  <rect x="243" y="180" width="26" height="12" fill="#0B0B0B"/>
+  <path d="M174 184 L158 176 M338 184 L354 176" stroke="#0B0B0B" stroke-width="12" stroke-linecap="round"/>
+  <!-- mouth: the wink -->
+  <path d="M226 254 C240 264 272 264 286 254" fill="none" stroke="#0B0B0B" stroke-width="11" stroke-linecap="round"/>
 </svg>

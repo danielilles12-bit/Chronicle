@@ -438,6 +438,9 @@ function resolveRound(correct) {
 }
 
 function renderLockedSummary() {
+  const head = document.querySelector('#view-mapsum [data-receipt-head]');
+  if (head) head.textContent = 'Dead Famous · Lifeline'
+    + (S.editionIndex != null ? ` · Issue № ${S.editionIndex}` : '');
   $('#sum-total').textContent = S.score;
   const remarks = [
     [850, 'A chronicler for the ages.'],

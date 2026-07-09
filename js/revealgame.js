@@ -1,22 +1,19 @@
-// "Zoom In" — guess the famous face or artefact as the image slowly zooms out.
-// Each round opens on a tight crop (centred on the item's fx/fy) and widens to a
-// generous reveal over 50 seconds; the less that's shown when you answer, the
-// higher the score. Mirrors the Map of a Life session shape (10 rounds,
-// persisted, resumable) so the games behave consistently.
+// "Face Value" / "Relic" — guess the famous face or artefact hidden under a
+// 3x3 grid of paper scraps. Tearing scraps off is the player's choice and the
+// player's cost: the first tear is free, each further tear docks the round's
+// worth, and wrong guesses dock more. No clock — curiosity is the only spender.
+// Mirrors the Map of a Life session shape (10 rounds, persisted, resumable).
 import { DATA, $, show, back, goHome, appConfirm, refreshHomeStats } from './app.js';
 import * as store from './storage.js';
 import { isMatch, registerPool } from './match.js';
 import * as daily from './daily.js';
 
-const DURATION_MS = 50000;      // the crop widens from tight → open over 50s
-const START_MIN = 0.15;         // clamp the opening crop to a fair band:
-const START_MAX = 0.28;         // never a near-complete giveaway, never pure texture
-const END_FRAC = 0.55;          // widest in-play reveal before the full answer
 const ROUNDS = 10;
-const PAUSE_MS = 10000;         // typing freezes the clock for this long per keystroke
-const PAUSE_BUDGET_MS = 30000;  // total pause time available per round
-const LAST_CHANCE_MS = 10000;   // grace window once the clock hits zero
-const WRONG_PENALTY = 15;       // points lost per wrong guess when scoring a correct answer
+const SCRAPS = 9;               // 3x3 cover grid
+const TEAR_COST = 10;           // per scrap after the first (first tear is free)
+const WRONG_PENALTY = 15;       // per wrong guess
+const WORTH_START = 100;
+const WORTH_FLOOR = 10;         // a correct answer never pays less than this
 
 let S = null;
 let MODE = 'who';               // 'who' = portraits, 'what' = artefacts
@@ -47,36 +44,19 @@ function shuffled(arr, rng) {
   return a;
 }
 
-// ---------- image cropping ----------
+// ---------- image painting ----------
 const dims = {};               // img path -> {w,h}, cached after first load
 
-// Opening tightness, clamped so no round starts on a giveaway or on pure texture.
-function startFrac(item) {
-  return Math.max(START_MIN, Math.min(START_MAX, item.frac));
-}
-// Shown fraction of the image's short side at progress p (0 = start … 1 = end).
-function fracFor(item, p) {
-  const s = startFrac(item);
-  return s + (END_FRAC - s) * p;
-}
-
-// Paint a square crop of `frac` of the short side, centred on the item's focal
-// point (clamped to the image), scaled to fill the square frame.
-function paintFrac(item, frac) {
+// The frame shows a square window into the image, covered by scraps. The
+// window is `cover`-fit and biased toward the item's focal point so the
+// money shot is IN the frame — which scrap hides it is the difficulty.
+function paintCover(item) {
   const frame = $('#rv-frame');
-  const wh = dims[item.img];
+  frame.classList.remove('df-duotone');
   frame.style.backgroundImage = `url("${item.img}")`;
   frame.style.backgroundColor = '#111';
-  if (!wh) return;                                  // painted for real once dims load
-  const { w: W, h: H } = wh;
-  const side = frac * Math.min(W, H);
-  const D = (S && S.cur && S.cur.D) || frame.getBoundingClientRect().width || 320;
-  const scale = D / side;
-  const cx = Math.max(side / 2, Math.min(W - side / 2, item.fx * W));
-  const cy = Math.max(side / 2, Math.min(H - side / 2, item.fy * H));
-  frame.style.backgroundSize = `${(W * scale).toFixed(1)}px ${(H * scale).toFixed(1)}px`;
-  frame.style.backgroundPosition =
-    `${(-(cx * scale - D / 2)).toFixed(1)}px ${(-(cy * scale - D / 2)).toFixed(1)}px`;
+  frame.style.backgroundSize = 'cover';
+  frame.style.backgroundPosition = `${(item.fx * 100).toFixed(1)}% ${(item.fy * 100).toFixed(1)}%`;
 }
 
 function paintFull(item) {
@@ -84,6 +64,7 @@ function paintFull(item) {
   frame.style.backgroundImage = `url("${item.img}")`;
   frame.style.backgroundSize = 'contain';
   frame.style.backgroundPosition = 'center';
+  frame.style.backgroundRepeat = 'no-repeat';
 }
 
 function ensureDims(item, cb) {
@@ -94,98 +75,47 @@ function ensureDims(item, cb) {
   img.src = item.img;
 }
 
-// ---------- the zoom-out clock ----------
-function updateTimer(p) {
-  const fill = $('#rv-timerfill');
-  if (!fill) return;
-  fill.style.width = `${Math.max(0, (1 - p) * 100).toFixed(1)}%`;
-  fill.style.background = p > 0.85 ? '#c0392b' : p > 0.6 ? '#d99a2b' : '#4a7c43';
+// ---------- scraps ----------
+function worthNow() {
+  const cur = S && S.cur;
+  if (!cur) return WORTH_START;
+  const paidTears = Math.max(0, cur.torn.length - 1);   // first tear is free
+  return Math.max(WORTH_FLOOR, WORTH_START - TEAR_COST * paidTears - WRONG_PENALTY * cur.wrongs);
 }
 
-function updatePause(now) {
-  const el = $('#rv-pause');
-  if (!el) return;
-  const cur = S && S.cur;
-  if (cur && cur.lastChanceUntil) {
-    const secs = Math.max(0, Math.ceil((cur.lastChanceUntil - now) / 1000));
-    el.textContent = `Last chance — ${secs}s`;
-    el.hidden = false;
-  } else if (cur && now < cur.pauseUntil && cur.pauseBudgetMs > 0) {
-    const secs = Math.max(0, Math.ceil((cur.pauseUntil - now) / 1000));
-    el.textContent = `Paused — ${secs}s`;
-    el.hidden = false;
-  } else {
-    el.hidden = true;
+function updateWorth() {
+  const el = $('#rv-worth');
+  if (!el || !S || !S.cur) return;
+  const label = MODE === 'what' ? 'INK' : 'WORTH';
+  const torn = S.cur.torn.length;
+  const hint = torn === 0 ? ' · first tear free' : '';
+  el.innerHTML = `${label}: <b>${worthNow()} PTS</b>${hint}`;
+}
+
+function buildScraps() {
+  const wrap = $('#rv-scraps');
+  wrap.innerHTML = '';
+  wrap.hidden = false;
+  for (let i = 0; i < SCRAPS; i++) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'df-scrap';
+    b.dataset.i = i;
+    b.setAttribute('aria-label', `Tear scrap ${i + 1}`);
+    b.style.transform = `rotate(${((i * 7) % 5) - 2}deg)`;
+    b.addEventListener('click', () => tearScrap(i));
+    wrap.appendChild(b);
   }
 }
 
-function tick(now) {
+function tearScrap(i) {
   if (!S || !S.cur || !S.cur.open) return;
   const cur = S.cur;
-  const last = cur.lastTick || now;
-  cur.lastTick = now;
-
-  // Last-chance phase: clock already hit zero, hold at END_FRAC and wait for a
-  // correct answer or the grace window to expire.
-  if (cur.lastChanceUntil) {
-    if (now >= cur.lastChanceUntil) { updatePause(now); resolveRound(false); return; }
-    updatePause(now);
-    cur.raf = requestAnimationFrame(tick);
-    return;
-  }
-
-  // Typing pauses the clock: freeze progress by shifting start forward, spending
-  // from the per-round pause budget until it runs out.
-  if (now < cur.pauseUntil && cur.pauseBudgetMs > 0) {
-    const delta = now - last;
-    cur.start += delta;
-    cur.pauseBudgetMs -= delta;
-  }
-
-  const p = Math.min(1, (now - cur.start) / DURATION_MS);
-  cur.p = p;
-  paintFrac(round(), fracFor(round(), p));
-  updateTimer(p);
-  updatePause(now);
-  if (p >= 1) {                                     // clock's out → last-chance phase, not an instant zero
-    cur.lastChanceUntil = now + LAST_CHANCE_MS;
-    cur.raf = requestAnimationFrame(tick);
-    return;
-  }
-  cur.raf = requestAnimationFrame(tick);
-}
-
-function startZoom(item) {
-  const frame = $('#rv-frame');
-  S.cur.D = frame.getBoundingClientRect().width || 320;
-  S.cur.start = performance.now();
-  S.cur.lastTick = S.cur.start;
-  S.cur.p = 0;
-  paintFrac(item, fracFor(item, 0));
-  updateTimer(0);
-  S.cur.raf = requestAnimationFrame(tick);
-}
-
-function stopZoom() {
-  if (S && S.cur && S.cur.raf) { cancelAnimationFrame(S.cur.raf); S.cur.raf = null; }
-}
-
-// Test hook: force the round to a given progress (skips real-time animation).
-// The rAF loop keeps running afterwards so the last-chance phase still kicks in
-// naturally once p reaches 1.
-function debugSetProgress(p) {
-  if (!S || !S.cur || !S.cur.open) return;
-  stopZoom();
-  const now = performance.now();
-  S.cur.start = now - p * DURATION_MS;
-  S.cur.lastTick = now;
-  S.cur.pauseUntil = 0;
-  S.cur.lastChanceUntil = 0;
-  S.cur.p = p;
-  paintFrac(round(), fracFor(round(), p));
-  updateTimer(p);
-  updatePause(now);
-  S.cur.raf = requestAnimationFrame(tick);
+  if (cur.torn.includes(i)) return;
+  cur.torn.push(i);
+  const el = $(`#rv-scraps [data-i="${i}"]`);
+  if (el) el.classList.add('torn');
+  updateWorth();
 }
 
 // ---------- session ----------
@@ -246,8 +176,9 @@ function prefetchRounds() {
   next();
 }
 
-// A timed round can't be resumed mid-clock, so we only persist completed rounds;
-// resuming restarts the current round's timer fresh.
+// Only completed rounds are persisted; resuming restarts the current round
+// with its scraps back in place (and its worth reset) — same convention as
+// the old timed rounds, where the clock restarted fresh.
 function persist() {
   S.store.set({
     ids: S.rounds.map((x) => x.id),
@@ -356,13 +287,11 @@ function round() { return S.rounds[S.i]; }
 
 function startRound() {
   const item = round();
-  S.cur = {
-    open: true, p: 0, start: 0, raf: null, D: 0, wrongs: 0,
-    pauseUntil: 0, pauseBudgetMs: PAUSE_BUDGET_MS, lastTick: 0, lastChanceUntil: 0,
-  };
+  S.cur = { open: true, torn: [], wrongs: 0 };
   $('#rv-progress').textContent = `Round ${S.i + 1} of ${S.rounds.length}`;
   $('#rv-score').textContent = `${S.score} pts`;
-  $('#rv-prompt').textContent = item.kind === 'portrait' ? 'Who is this?' : 'What is this?';
+  $('#rv-prompt').textContent = item.kind === 'portrait'
+    ? 'Who is this? Tear a scrap to peek.' : 'What is this? Tear a scrap to peek.';
   $('#rv-feedback').hidden = true;
   $('#rv-feedback').innerHTML = '';
   $('#rv-form').hidden = false;
@@ -372,41 +301,38 @@ function startRound() {
   $('#rv-input').disabled = false;
   $('#rv-guess-btn').disabled = false;
   $('#rv-next').hidden = true;
+  $('#rv-badge').hidden = true;
   $('#rv-streak').hidden = S.streak < 2;
   if (S.streak >= 2) $('#rv-streak').textContent = `${S.streak} in a row`;
-  $('#rv-pause').hidden = true;
-  updateTimer(0);
-  // Dark frame while the image loads, then open tight and start the zoom.
-  const frame = $('#rv-frame');
-  frame.style.backgroundColor = '#111';
-  frame.style.backgroundImage = 'none';
-  ensureDims(item, () => {
-    if (S && S.cur && S.cur.open && round() === item) startZoom(item);
-  });
+  paintCover(item);
+  buildScraps();
+  updateWorth();
+  ensureDims(item, () => {});
   prefetchRounds();
   persist();
   window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
     revealRound: { index: S.i, id: item.id, name: item.name, kind: item.kind },
-    revealDebug: { setProgress: debugSetProgress, getP: () => (S && S.cur ? S.cur.p : null) },
+    revealDebug: {
+      tear: tearScrap,
+      tornCount: () => (S && S.cur ? S.cur.torn.length : 0),
+      worth: worthNow,
+      // Back-compat shim for the old timed harness: progress p ≈ tearing
+      // through the grid. p=0 → no tears, p=1 → all nine scraps torn.
+      setProgress: (p) => { for (let k = 0; k < Math.round(p * SCRAPS); k++) tearScrap(k); },
+      getP: () => (S && S.cur ? S.cur.torn.length / SCRAPS : null),
+    },
   });
 }
 
 function resolveRound(correct) {
-  stopZoom();
   const item = round();
-  if (!S.cur.open) return;        // guard against a guess landing with time-up
+  if (!S.cur.open) return;
   S.cur.open = false;
-  const p = S.cur.p || 0;
   const wrongs = S.cur.wrongs || 0;
   let pts = 0;
   let bonus = 0;
   if (correct) {
-    if (S.cur.lastChanceUntil) {
-      pts = Math.max(10, 20 - WRONG_PENALTY * wrongs);   // answered in the last-chance window: floor score
-    } else {
-      // 100 (tight) → 20 (fully open), then docked 15 pts per wrong guess along the way.
-      pts = Math.max(10, Math.max(20, Math.round(100 - 80 * p)) - WRONG_PENALTY * wrongs);
-    }
+    pts = worthNow();
     S.streak++;
     S.bestStreak = Math.max(S.bestStreak, S.streak);
     if (S.streak >= 2) bonus = 10;
@@ -415,12 +341,22 @@ function resolveRound(correct) {
   }
   const total = pts + bonus;
   S.score += total;
-  S.results.push({ item, pts: total, correct, p });
+  S.results.push({ item, pts: total, correct, torn: S.cur.torn.length, wrongs });
   persist();
 
-  $('#rv-pause').hidden = true;
+  // The reveal: every scrap flies off, the full image shows with the house
+  // duotone treatment, and the verdict badge lands on the frame's corner.
+  $('#rv-scraps').querySelectorAll('.df-scrap').forEach((el) => el.classList.add('torn'));
   paintFull(item);
-  updateTimer(1);
+  $('#rv-frame').classList.add('df-duotone');
+  const badge = $('#rv-badge');
+  badge.className = `df-moment-badge${correct ? '' : ' bad'}`;
+  badge.innerHTML = correct
+    ? `<b>Correct!</b><small>+${total} PTS</small>`
+    : `<b>Not this time</b><small>0 PTS</small>`;
+  badge.hidden = false;
+  $('#rv-worth').innerHTML = '';
+
   const credit = item.license && item.license !== 'Public domain'
     ? ` <small class="rv-credit">${item.license}</small>` : '';
   const fb = $('#rv-feedback');
@@ -446,6 +382,9 @@ function resolveRound(correct) {
 }
 
 function renderLockedSummary() {
+  const head = document.querySelector('#view-revealsum [data-receipt-head]');
+  if (head) head.textContent = `Dead Famous · ${MODE === 'who' ? 'Face Value' : 'Relic'}`
+    + (S.editionIndex != null ? ` · Issue № ${S.editionIndex}` : '');
   $('#rv-sum-total').textContent = S.score;
   const remarks = [
     [850, 'A connoisseur of the ages.'],
@@ -513,8 +452,8 @@ export function initRevealGame() {
     if (isMatch(guess, round(), MODE)) {
       resolveRound(true);
     } else {
-      // A wrong guess costs points on the eventual correct answer (see resolveRound)
-      // instead of widening the frame — the running clock still does that.
+      // A wrong guess docks the round's worth (see worthNow) — guessing blind
+      // is a real gamble, not a free spin.
       S.cur.wrongs = (S.cur.wrongs || 0) + 1;
       const chip = document.createElement('span');
       chip.className = 'guess-chip';
@@ -525,26 +464,14 @@ export function initRevealGame() {
       penalty.textContent = `-${WRONG_PENALTY}`;
       chip.appendChild(penalty);
       $('#rv-guesses').appendChild(chip);
+      updateWorth();
       const inp = $('#rv-input');
       inp.value = '';
-      S.cur.pauseUntil = 0;
-      updatePause(performance.now());
       inp.classList.remove('shake');
       void inp.offsetWidth;
       inp.classList.add('shake');
       inp.focus();
     }
-  });
-
-  $('#rv-input').addEventListener('input', () => {
-    if (!S || !S.cur || !S.cur.open) return;
-    const inp = $('#rv-input');
-    if (inp.value.trim()) {
-      S.cur.pauseUntil = performance.now() + PAUSE_MS;
-    } else {
-      S.cur.pauseUntil = 0;
-    }
-    updatePause(performance.now());
   });
 
   $('#rv-reveal').addEventListener('click', () => {
@@ -563,7 +490,6 @@ export function initRevealGame() {
       appConfirm('Quit this session? The score so far will be lost.', 'Quit session')
         .then((ok) => {
           if (ok) {
-            stopZoom();
             S.store.clear();
             if (S.mode === 'free') renderRevealStart();
             back();
