@@ -126,3 +126,33 @@ engine ✛ 8. Validator + filler ✛ 9. All puzzles valid ✛ 10. Tests green �
   (lower fidelity, still offline-correct).
 - **Cost/usage cap overnight** — work is committed at every checkpoint; the
   loop resumes losslessly.
+
+## Post-launch backlog (from Daniel's design review, July 2026)
+
+### The Morgue — collectable history cards (future build)
+When a Face Value / Lifeline answer is revealed, show the person properly:
+their photo, a short bio and 2-3 genuinely interesting facts — a "moment
+screen" worth lingering on. Every figure you've met then gets filed as a
+collectable card in a revisitable archive. Working title: **The Morgue** —
+newspaper slang for the clippings archive, which is exactly on-brand for
+Dead Famous (alternates: The Vault, Cold Cases, The Rolodex of the Dead).
+Cards could record where you met them (issue №, game, points earned) and
+double as the long-term collection/retention loop.
+
+### Warren Cup easter egg (relocated, not deleted)
+The "Censored" banner over the Warren Cup was dropped from Back Issues — at
+110px high the crop was unreadable (you couldn't tell it was a vase, let
+alone why it was censored, so the joke never landed). The gag deserves a
+better home where it has room to breathe: e.g. a rare Relic round where the
+reveal comes up "CENSORED — Yes, it's real. Ask the British Museum.", or an
+unlockable Morgue card. To be discussed.
+
+### David sticker regeneration
+The masthead sticker was cropped in-repo to cut the garbled fake-newsprint
+headlines (the "AI slop" tell). For a true regeneration, brief an image
+model with: "Die-cut vinyl sticker of Michelangelo's David wearing pink
+wayfarer sunglasses, winking, hand on chin; screen-print pop-art style,
+halftone shading, CMYK misregistration; flat cream background, thick white
+sticker border; no text anywhere; colours: ink black, cyan #2FC9E8, magenta
+#FF3DDB, yellow #FFE93B." Keep it text-free — garbled pseudo-lettering is
+what made v1 feel machine-made.

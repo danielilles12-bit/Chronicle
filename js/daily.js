@@ -69,7 +69,7 @@ export function weekdayName(n) {
 }
 
 export function editionLabel(n) {
-  return `Edition #${n} · ${weekdayName(n)}`;
+  return `Issue № ${n} · ${weekdayName(n)}`;
 }
 
 // ---------- cursor arithmetic ----------

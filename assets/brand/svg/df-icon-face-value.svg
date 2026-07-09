@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" fill="none" role="img" aria-label="Face Value icon">
+  <title>Face Value</title>
+  <path fill-rule="evenodd" fill="#0B0B0B" d="
+    M42 10
+    L60 24
+    L54 29
+    L58 32
+    L76 44
+    L58 50
+    L64 56
+    L56 60
+    L60 68
+    L48 74
+    L42 82
+    L36 90
+    L18 90
+    L16 66
+    C14 50 14 30 22 18
+    C28 12 36 10 42 10
+    Z
+    M50 36 m-3.6 0 a3.6 3.6 0 1 0 7.2 0 a3.6 3.6 0 1 0 -7.2 0
+  "/>
+  <path d="M2 2 H42 L42 22 L32 16 L23 27 L12 18 L2 31 Z" fill="#FF3DDB" stroke="#0B0B0B" stroke-width="6" stroke-linejoin="round"/>
+</svg>

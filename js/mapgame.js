@@ -443,11 +443,11 @@ function renderLockedSummary() {
     + (S.editionIndex != null ? ` · Issue № ${S.editionIndex}` : '');
   $('#sum-total').textContent = S.score;
   const remarks = [
-    [850, 'A chronicler for the ages.'],
-    [650, 'The archives salute you.'],
-    [450, 'A solid grasp of the past.'],
-    [250, 'History rhymes — keep listening.'],
-    [0, 'Every historian starts somewhere.'],
+    [850, 'Front-page material.'],
+    [650, 'Tabloid royalty.'],
+    [450, 'A solid scoop.'],
+    [250, 'Keep digging — every hack starts somewhere.'],
+    [0, 'Tomorrow\'s fish and chip paper.'],
   ];
   $('#sum-remark').textContent = remarks.find((r) => S.score >= r[0])[1];
   const ol = $('#sum-rounds');

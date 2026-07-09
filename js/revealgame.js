@@ -14,12 +14,116 @@ const TEAR_COST = 10;           // per scrap after the first (first tear is free
 const WRONG_PENALTY = 15;       // per wrong guess
 const WORTH_START = 100;
 const WORTH_FLOOR = 10;         // a correct answer never pays less than this
+const CLUE_A_COST = 25;         // "Claim to fame" (who) / "First letters" (what)
+const CLUE_B_COST = 15;         // "Lived" (who) / "Era" (what)
 
 let S = null;
 let MODE = 'who';               // 'who' = portraits, 'what' = artefacts
 
 function pool() {
   return DATA.reveal.filter((x) => (MODE === 'who' ? x.kind === 'portrait' : x.kind !== 'portrait'));
+}
+
+// ---------- clue slips (buyable hints) ----------
+// WHO blurbs are reliably "Occupation (1638–1715) · credit": the occupation is
+// everything before the first parenthetical; the years live inside it.
+function clueOccupation(item) {
+  let occ = (item.blurb || '').split('(')[0];   // drop "(years) · credit"
+  occ = occ.split('·')[0];                      // and any bare "· credit" fragment
+  return occ.trim().replace(/[·,\s]+$/, '').trim();
+}
+function clueYears(item) {
+  const m = (item.blurb || '').match(/\(([^)]*\d[^)]*)\)/);   // first parens holding a digit
+  return m ? m[1].trim() : null;
+}
+
+// Leading articles/particles skipped when abbreviating an artefact's name to
+// initials ("The Colosseum" → "C.", "Hanging Gardens of Babylon" → "H. G. B.").
+const REVEAL_ARTICLES = new Set([
+  'the', 'of', 'a', 'an', 'and', 'la', 'le', 'el', 'al', 'de', 'del', 'della',
+  'di', 'da', 'van', 'von', 'des', 'du', 'les',
+]);
+function clueInitials(name) {
+  const parts = (name || '').split(/\s+/)
+    .filter((w) => w && !REVEAL_ARTICLES.has(w.toLowerCase().replace(/[^a-z']/gi, '')));
+  return parts.map((w) => (w[0] || '').toUpperCase() + '.').join(' ').trim();
+}
+
+// WHAT blurbs are freeform prose that USUALLY carries a date. Try, in order:
+// (a) an N-th-century phrase, (b) a year tagged BC/BCE/AD/CE, (c) a plain
+// modern year (1000–2100, with optional "c.", range, or decade "s"). Returns
+// null when the blurb is genuinely undatable so the Era clue can be hidden.
+function extractEra(blurb) {
+  if (!blurb) return null;
+  let m = blurb.match(/\b\d{1,2}(?:st|nd|rd|th)[ -]centur(?:y|ies)(?:\s+(?:BC|BCE|AD|CE))?/i);
+  if (m) return m[0].trim();
+  m = blurb.match(/\b(?:AD|CE|BC|BCE)\s+\d{1,4}(?:\s*[–-]\s*\d{1,4})?\b|(?:c\.?\s*)?\b\d{1,4}(?:\s*[–-]\s*\d{1,4})?\s*(?:BC|BCE|AD|CE)\b/i);
+  if (m) return m[0].trim();
+  const re = /(?:c\.?\s*)?\b(\d{4})(?:s\b|\s*[–-]\s*\d{1,4}s?)?/g;   // fresh: no shared lastIndex
+  let mm;
+  while ((mm = re.exec(blurb))) {
+    const y = parseInt(mm[1], 10);
+    if (y >= 1000 && y <= 2100) return mm[0].trim();
+  }
+  return null;
+}
+
+// The two clue slips per MODE. Button A always has content; button B may be
+// null (undatable Relic) → its button is hidden for that round.
+function clueDefs() {
+  const item = round();
+  if (MODE === 'who') {
+    return {
+      a: { label: 'Claim to fame', cost: CLUE_A_COST, value: () => clueOccupation(item) },
+      b: { label: 'Lived', cost: CLUE_B_COST, value: () => clueYears(item) },
+    };
+  }
+  return {
+    a: { label: 'First letters', cost: CLUE_A_COST, value: () => clueInitials(item.name) },
+    b: { label: 'Era', cost: CLUE_B_COST, value: () => extractEra(item.blurb) },
+  };
+}
+
+function addHintChip(text) {
+  const chip = document.createElement('div');
+  chip.className = 'hint-chip';
+  chip.textContent = text;
+  $('#rv-hint-chips').appendChild(chip);
+}
+
+// Label the two clue buttons for this round's MODE, re-enable them, and hide
+// button B when its clue has no content (an undatable Relic).
+function setupClues() {
+  $('#rv-hint-chips').innerHTML = '';
+  const defs = clueDefs();
+  const btnA = $('#rv-clue-a');
+  btnA.innerHTML = `${defs.a.label} <span class="cost">−${defs.a.cost}</span>`;
+  btnA.disabled = false;
+  btnA.hidden = false;
+  const btnB = $('#rv-clue-b');
+  const bVal = defs.b.value();
+  if (bVal == null || bVal === '') {
+    btnB.hidden = true;
+    btnB.disabled = true;
+  } else {
+    btnB.innerHTML = `${defs.b.label} <span class="cost">−${defs.b.cost}</span>`;
+    btnB.disabled = false;
+    btnB.hidden = false;
+  }
+}
+
+function buyClue(which) {
+  if (!S || !S.cur || !S.cur.open) return;
+  const key = which === 'a' ? 'clueA' : 'clueB';
+  if (S.cur[key]) return;
+  const def = clueDefs()[which];
+  const value = def.value();
+  if (value == null || value === '') return;
+  S.cur[key] = true;
+  S.cur.clueCost = (S.cur.clueCost || 0) + def.cost;
+  $(which === 'a' ? '#rv-clue-a' : '#rv-clue-b').disabled = true;
+  addHintChip(`${def.label}: ${value}`);
+  updateWorth();
 }
 
 // ---------- rng (shared shape with mapgame) ----------
@@ -59,12 +163,27 @@ function paintCover(item) {
   frame.style.backgroundPosition = `${(item.fx * 100).toFixed(1)}% ${(item.fy * 100).toFixed(1)}%`;
 }
 
+// On reveal the frame drops the square scrap-grid shape and morphs to the
+// image's real aspect (CSS transition on #rv-frame animates it). With an exact
+// aspect there is no cropping, so `cover` shows the whole picture, no bars.
+// Portrait images cap their HEIGHT (~44dvh) so tall pictures don't overrun the
+// screen; landscape/square keep the guessing width. Missing dims (image
+// failed) fall back to the old `contain` square.
 function paintFull(item) {
   const frame = $('#rv-frame');
   frame.style.backgroundImage = `url("${item.img}")`;
-  frame.style.backgroundSize = 'contain';
   frame.style.backgroundPosition = 'center';
   frame.style.backgroundRepeat = 'no-repeat';
+  const d = dims[item.img];
+  if (d && d.w && d.h) {
+    frame.style.aspectRatio = `${d.w} / ${d.h}`;
+    frame.style.width = d.h > d.w
+      ? `min(80vw, calc(44dvh * ${d.w} / ${d.h}))`
+      : 'min(80vw, 40dvh)';
+    frame.style.backgroundSize = 'cover';
+  } else {
+    frame.style.backgroundSize = 'contain';
+  }
 }
 
 function ensureDims(item, cb) {
@@ -120,7 +239,8 @@ function worthNow() {
   const cur = S && S.cur;
   if (!cur) return WORTH_START;
   const paidTears = Math.max(0, cur.torn.length - 1);   // first tear is free
-  return Math.max(WORTH_FLOOR, WORTH_START - TEAR_COST * paidTears - WRONG_PENALTY * cur.wrongs);
+  const clueCost = cur.clueCost || 0;                   // bought clue slips
+  return Math.max(WORTH_FLOOR, WORTH_START - TEAR_COST * paidTears - WRONG_PENALTY * cur.wrongs - clueCost);
 }
 
 function updateWorth() {
@@ -330,7 +450,7 @@ function round() { return S.rounds[S.i]; }
 
 function startRound() {
   const item = round();
-  S.cur = { open: true, torn: [], wrongs: 0 };
+  S.cur = { open: true, torn: [], wrongs: 0, clueCost: 0, clueA: false, clueB: false };
   $('#rv-progress').textContent = `Round ${S.i + 1} of ${S.rounds.length}`;
   $('#rv-score').textContent = `${S.score} pts`;
   $('#rv-prompt').hidden = false;
@@ -348,6 +468,12 @@ function startRound() {
   $('#rv-badge').hidden = true;
   $('#rv-streak').hidden = S.streak < 2;
   if (S.streak >= 2) $('#rv-streak').textContent = `${S.streak} in a row`;
+  setupClues();
+  // Back to the square scrap window (clears any inline aspect/width the last
+  // reveal morphed the frame to).
+  const frame = $('#rv-frame');
+  frame.style.aspectRatio = '1 / 1';
+  frame.style.width = '';
   paintCover(item);
   buildScraps();
   tearScrap(startScrap(item), true);   // the free opening scrap, placed far from the money shot
@@ -416,6 +542,8 @@ function resolveRound(correct) {
 
   $('#rv-input').disabled = true;
   $('#rv-guess-btn').disabled = true;
+  $('#rv-clue-a').disabled = true;
+  $('#rv-clue-b').disabled = true;
   $('#rv-form').hidden = true;
   $('#rv-controls').hidden = true;
   $('#rv-score').textContent = `${S.score} pts`;
@@ -519,6 +647,9 @@ export function initRevealGame() {
       inp.focus();
     }
   });
+
+  $('#rv-clue-a').addEventListener('click', () => buyClue('a'));
+  $('#rv-clue-b').addEventListener('click', () => buyClue('b'));
 
   $('#rv-reveal').addEventListener('click', () => {
     if (!S || !S.cur || !S.cur.open) return;
