@@ -76,6 +76,46 @@ function ensureDims(item, cb) {
 }
 
 // ---------- scraps ----------
+// The money scrap is the grid cell holding the focal point (fx/fy map to the
+// frame under cover-fit positioning). The round OPENS with the scrap farthest
+// from it already torn — free — and only scraps orthogonally touching an open
+// scrap can be torn next, so the player plots a route toward the reveal.
+function moneyScrap(item) {
+  const c = Math.min(2, Math.floor(item.fx * 3));
+  const r = Math.min(2, Math.floor(item.fy * 3));
+  return r * 3 + c;
+}
+function startScrap(item) {
+  const m = moneyScrap(item);
+  const mr = Math.floor(m / 3), mc = m % 3;
+  let best = 0, bd = -1;
+  for (const i of [0, 2, 6, 8, 1, 3, 5, 7, 4]) {   // corners first, deterministic
+    const d = Math.abs(Math.floor(i / 3) - mr) + Math.abs((i % 3) - mc);
+    if (d > bd) { bd = d; best = i; }
+  }
+  return best;
+}
+function neighbors(i) {
+  const r = Math.floor(i / 3), c = i % 3;
+  const out = [];
+  if (r > 0) out.push(i - 3);
+  if (r < 2) out.push(i + 3);
+  if (c > 0) out.push(i - 1);
+  if (c < 2) out.push(i + 1);
+  return out;
+}
+function refreshTearable() {
+  if (!S || !S.cur) return;
+  const torn = new Set(S.cur.torn);
+  const open = new Set();
+  for (const t of torn) for (const n of neighbors(t)) if (!torn.has(n)) open.add(n);
+  document.querySelectorAll('#rv-scraps .df-scrap').forEach((el) => {
+    const i = +el.dataset.i;
+    if (torn.has(i)) return;
+    el.classList.toggle('tearable', open.has(i));
+    el.classList.toggle('locked', !open.has(i));
+  });
+}
 function worthNow() {
   const cur = S && S.cur;
   if (!cur) return WORTH_START;
@@ -87,8 +127,7 @@ function updateWorth() {
   const el = $('#rv-worth');
   if (!el || !S || !S.cur) return;
   const label = MODE === 'what' ? 'INK' : 'WORTH';
-  const torn = S.cur.torn.length;
-  const hint = torn === 0 ? ' · first tear free' : '';
+  const hint = S.cur.torn.length <= 1 ? ' · tear a neighbour (−10)' : '';
   el.innerHTML = `${label}: <b>${worthNow()} PTS</b>${hint}`;
 }
 
@@ -108,13 +147,17 @@ function buildScraps() {
   }
 }
 
-function tearScrap(i) {
+function tearScrap(i, force) {
   if (!S || !S.cur || !S.cur.open) return;
   const cur = S.cur;
   if (cur.torn.includes(i)) return;
+  // Adjacency rule: a scrap must touch an already-open scrap (the free
+  // starting scrap is torn with force=true).
+  if (!force && !cur.torn.some((t) => neighbors(t).includes(i))) return;
   cur.torn.push(i);
   const el = $(`#rv-scraps [data-i="${i}"]`);
   if (el) el.classList.add('torn');
+  refreshTearable();
   updateWorth();
 }
 
@@ -290,8 +333,9 @@ function startRound() {
   S.cur = { open: true, torn: [], wrongs: 0 };
   $('#rv-progress').textContent = `Round ${S.i + 1} of ${S.rounds.length}`;
   $('#rv-score').textContent = `${S.score} pts`;
+  $('#rv-prompt').hidden = false;
   $('#rv-prompt').textContent = item.kind === 'portrait'
-    ? 'Who is this? Tear a scrap to peek.' : 'What is this? Tear a scrap to peek.';
+    ? 'Who is this? Tear towards the answer.' : 'What is this? Tear towards the answer.';
   $('#rv-feedback').hidden = true;
   $('#rv-feedback').innerHTML = '';
   $('#rv-form').hidden = false;
@@ -306,6 +350,7 @@ function startRound() {
   if (S.streak >= 2) $('#rv-streak').textContent = `${S.streak} in a row`;
   paintCover(item);
   buildScraps();
+  tearScrap(startScrap(item), true);   // the free opening scrap, placed far from the money shot
   updateWorth();
   ensureDims(item, () => {});
   prefetchRounds();
@@ -347,6 +392,7 @@ function resolveRound(correct) {
   // The reveal: every scrap flies off, the full image shows with the house
   // duotone treatment, and the verdict badge lands on the frame's corner.
   $('#rv-scraps').querySelectorAll('.df-scrap').forEach((el) => el.classList.add('torn'));
+  $('#rv-prompt').hidden = true;
   paintFull(item);
   $('#rv-frame').classList.add('df-duotone');
   const badge = $('#rv-badge');

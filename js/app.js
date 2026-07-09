@@ -150,24 +150,20 @@ function renderGameRows() {
   const root = $('#home-rows');
   if (!root || root.dataset.built) return;
   root.innerHTML = GAME_ROWS.map((g) => `
-    <section class="game-row" data-row="${g.key}">
-      <div class="game-strip" data-strip="${g.key}"
-           style="--row-tint-strong:${g.tintStrong};--row-tint-soft:${g.tintSoft}">
-        <button class="hero-card" data-hero="${g.key}" aria-label="Play today's ${g.label}">
-          <div class="hero-top">
-            <div class="hero-text">
-              <h2 class="hero-name">${g.label}</h2>
-              <p class="hero-tagline">${g.tagline}</p>
-            </div>
-            <img class="hero-glyph" src="${g.glyph}" alt="" aria-hidden="true">
+    <section class="game-row" data-row="${g.key}"
+             style="--row-tint-strong:${g.tintStrong};--row-tint-soft:${g.tintSoft}">
+      <button class="hero-card" data-hero="${g.key}" aria-label="Play today's ${g.label}">
+        <div class="hero-top">
+          <div class="hero-text">
+            <h2 class="hero-name">${g.label}</h2>
+            <p class="hero-tagline">${g.tagline}</p>
           </div>
-          <div class="hero-bottom">
-            <span class="hero-edition" data-edition></span>
-            <span class="hero-status" data-status></span>
-          </div>
-        </button>
-        <div class="day-cards" data-days></div>
-      </div>
+        </div>
+        <div class="hero-bottom">
+          <span class="hero-edition" data-edition></span>
+          <span class="hero-status" data-status></span>
+        </div>
+      </button>
       <div class="df-week" data-week aria-hidden="true"></div>
       <button class="row-archive" data-archive="${g.key}" aria-label="Open back issues">
         <span>Back issues</span>
@@ -202,12 +198,14 @@ const MAX_DAY_CARDS = 7;
 export function refreshGameRows() {
   if (!$('#home-rows') || !DATA.figures) return; // boot not finished yet
   renderGameRows();
-  const today = daily.todayIndex();
+  const today = Math.max(0, daily.todayIndex());
+  const wd = new Date().toLocaleDateString('en-GB', { weekday: 'long' });
+  $('#dateline').textContent = `Issue № ${today} // ${wd}`;
   GAME_ROWS.forEach((g) => {
     const status = daily.dailyStatus(g.key, today);
     const entry = status === 'done' ? store.getDailyEntry(g.key, today) : null;
     const hero = $(`[data-hero="${g.key}"]`);
-    hero.querySelector('[data-edition]').textContent = `ISSUE № ${today}`;
+    hero.querySelector('[data-edition]').textContent = `ISSUE № ${Math.max(0, today)}`;
     hero.querySelector('[data-status]').textContent = statusLabel(status, entry && entry.score);
     hero.classList.toggle('row-done', status === 'done');
     hero.classList.toggle('row-progress', status === 'in-progress');
@@ -225,23 +223,6 @@ export function refreshGameRows() {
       }).join('');
     }
 
-    // Past (aired) editions only, newest first, capped at 7 — or fewer in the
-    // first week of the app's life.
-    const days = [];
-    for (let n = today - 1; n >= 0 && days.length < MAX_DAY_CARDS; n--) days.push(n);
-    const wrap = $(`[data-strip="${g.key}"] [data-days]`);
-    wrap.innerHTML = days.map((n) => {
-      const st = dayCardStatus(g.key, n);
-      const dayEntry = st === 'done' ? store.getDailyEntry(g.key, n) : null;
-      const label = st === 'done' ? `✓ ${dayEntry ? dayEntry.score : 0}` : '—';
-      return `<button class="day-card${st === 'done' ? ' day-done' : ''}" data-day="${g.key}" data-n="${n}">
-        <span class="day-weekday">${daily.weekdayName(n)}</span>
-        <span class="day-status">${label}</span>
-      </button>`;
-    }).join('');
-    wrap.querySelectorAll('[data-day]').forEach((btn) => {
-      btn.addEventListener('click', () => g.launchPractice(+btn.dataset.n));
-    });
   });
 }
 
@@ -341,7 +322,7 @@ function openArchiveEdition(editionIndex) {
 
 function initHome() {
   const wd = new Date().toLocaleDateString('en-GB', { weekday: 'long' });
-  $('#dateline').textContent = `Issue № ${daily.todayIndex()} // ${wd}`;
+  $('#dateline').textContent = `Issue № ${Math.max(0, daily.todayIndex())} // ${wd}`;
   // Crosswords are retained but hidden from the app for now, same as before
   // this rebuild; the card carries `hidden`. Guard so this is a no-op when
   // the card isn't shown. The other three games' free-play "Start a session"
