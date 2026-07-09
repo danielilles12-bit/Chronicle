@@ -105,28 +105,29 @@ export function refreshHomeStats() {
 const GAME_ROWS = [
   {
     key: 'thread', label: 'Thread', tagline: 'Group 16 clues into four hidden categories.',
-    glyph: 'assets/brand/svg/game-icon-thread-primary.svg',
+    glyph: 'assets/brand/svg/df-icon-thread.svg',
     tintStrong: 'var(--df-cyan)',
     tintSoft: 'color-mix(in srgb, var(--df-cyan) 14%, var(--ch-cream))',
     launchDaily: startThreadDaily, launchPractice: startThreadPractice,
   },
   {
     key: 'map', label: 'Lifeline', tagline: 'Born here, died there. Name the figure.',
-    glyph: 'assets/brand/svg/game-icon-lifeline-primary.svg',
+    glyph: 'assets/brand/svg/df-icon-lifeline.svg',
     tintStrong: 'var(--df-yellow)',
     tintSoft: 'color-mix(in srgb, var(--df-yellow) 18%, var(--ch-cream))',
     launchDaily: startMapDaily, launchPractice: startMapPractice,
   },
   {
     key: 'who', label: 'Face Value', tagline: 'A famous face, one scrap at a time.',
-    glyph: 'assets/brand/svg/game-icon-face-value-primary.svg',
+    glyph: 'assets/brand/svg/df-icon-face-value.svg',
     tintStrong: 'var(--df-magenta)',
     tintSoft: 'color-mix(in srgb, var(--df-magenta) 12%, var(--ch-cream))',
     launchDaily: (n) => startRevealDaily('who', n), launchPractice: (n) => startRevealPractice('who', n),
   },
   {
     key: 'what', label: 'Relic', tagline: 'A famous artefact, one scrap at a time.',
-    glyph: 'assets/brand/svg/game-icon-relic-primary.svg',
+    // NOTE: swap to assets/brand/game-icon-relic.png once Daniel's illustrated art lands.
+    glyph: 'assets/brand/svg/df-icon-relic.svg',
     tintStrong: 'var(--df-red)',
     tintSoft: 'color-mix(in srgb, var(--df-red) 10%, var(--ch-cream))',
     launchDaily: (n) => startRevealDaily('what', n), launchPractice: (n) => startRevealPractice('what', n),
@@ -158,6 +159,7 @@ function renderGameRows() {
             <h2 class="hero-name">${g.label}</h2>
             <p class="hero-tagline">${g.tagline}</p>
           </div>
+          <img class="hero-glyph" src="${g.glyph}" alt="">
         </div>
         <div class="hero-bottom">
           <span class="hero-edition" data-edition></span>

@@ -1,6 +1,6 @@
 // Dead Famous service worker: precache everything, serve cache-first.
 // Bump VERSION on every deploy to refresh clients.
-const VERSION = 'deadfamous-v88';
+const VERSION = 'deadfamous-v89';
 
 const ASSETS = [
   './',
@@ -13,10 +13,10 @@ const ASSETS = [
   './assets/fonts/space-mono-regular.woff2',
   './assets/fonts/space-mono-bold.woff2',
   './assets/brand/david-sticker.png',
-  './assets/brand/svg/game-icon-lifeline-full.svg',
-  './assets/brand/svg/game-icon-face-value-full.svg',
-  './assets/brand/svg/game-icon-relic-full.svg',
-  './assets/brand/svg/game-icon-thread-full.svg',
+  './assets/brand/svg/df-icon-thread.svg',
+  './assets/brand/svg/df-icon-lifeline.svg',
+  './assets/brand/svg/df-icon-face-value.svg',
+  './assets/brand/svg/df-icon-relic.svg',
   './js/app.js',
   './js/storage.js',
   './js/match.js',
@@ -31,10 +31,6 @@ const ASSETS = [
   './data/reveal.json',
   './data/reveal-who.json',
   './data/reveal-what.json',
-  './assets/brand/svg/game-icon-thread-primary.svg',
-  './assets/brand/svg/game-icon-relic-primary.svg',
-  './assets/brand/svg/game-icon-face-value-primary.svg',
-  './assets/brand/svg/game-icon-lifeline-primary.svg',
   './data/connections.json',
   './manifest.webmanifest',
   './icons/icon-192.png',

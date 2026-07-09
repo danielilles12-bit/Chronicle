@@ -22,8 +22,11 @@
   <!-- ============ HOME ============ -->
   <div id="ptr-badge" hidden aria-hidden="true">
     <div class="ptr-badge-face">
-      <svg viewBox="0 0 100 120" aria-hidden="true">
-        <path d="M18 110 L82 110 L70 70 L30 70 Z M40 70 L60 70 L58 50 L42 50 Z M38 38 A12 12 0 1 0 62 38 A12 12 0 1 0 38 38 Z M30 28 L34 14 L38 22 L42 12 L46 22 L50 10 L54 22 L58 12 L62 22 L66 14 L70 28 Z"/>
+      <svg viewBox="0 0 100 110" aria-hidden="true">
+        <circle cx="18" cy="22" r="6"/><circle cx="34" cy="15" r="6"/><circle cx="50" cy="12" r="6"/><circle cx="66" cy="15" r="6"/><circle cx="82" cy="22" r="6"/>
+        <path d="M25 56 L18 30 L33 46 L34 22 L46 44 L50 19 L54 44 L66 22 L67 46 L82 30 L75 56 Z"/>
+        <path d="M29 60 L26 80 Q23 87 20 91 L80 91 Q77 87 74 80 L71 60 Z"/>
+        <rect x="17" y="94" width="66" height="11" rx="3"/>
       </svg>
     </div>
   </div>
@@ -195,7 +198,24 @@
         <hr>
         <div class="df-receipt-total"><span>Total:</span><b id="sum-total">0</b></div>
         <p class="df-receipt-meta" id="sum-remark"></p>
-        <div class="df-stamp df-receipt-stamp">Alea iacta fest</div>
+        <!-- swap to assets/brand/stamp-alea-iacta-fest.png when the asset lands -->
+        <div class="df-stamp df-receipt-stamp df-stamp-alea">
+          <svg class="df-stamp-die" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="7" cy="7" r="2.1" fill="currentColor"/>
+            <circle cx="17" cy="7" r="2.1" fill="currentColor"/>
+            <circle cx="12" cy="12" r="2.1" fill="currentColor"/>
+            <circle cx="7" cy="17" r="2.1" fill="currentColor"/>
+            <circle cx="17" cy="17" r="2.1" fill="currentColor"/>
+          </svg>
+          <span>Alea iacta fest</span>
+          <svg class="df-stamp-die" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="7" cy="7" r="2.3" fill="currentColor"/>
+            <circle cx="12" cy="12" r="2.3" fill="currentColor"/>
+            <circle cx="17" cy="17" r="2.3" fill="currentColor"/>
+          </svg>
+        </div>
       </div>
       <div class="sum-actions">
         <button class="pill primary big" id="sum-again">Play again</button>
@@ -221,7 +241,7 @@
       </svg>
       <h3 class="start-title">Tear towards it.</h3>
       <p class="start-copy">A famous <b>face</b> or <b>artefact</b> hides under nine scraps — one is already open. You can only tear scraps <b>touching</b> what's open, so plot your route.</p>
-      <p class="start-copy small">Each round is worth 100. Every tear costs 10, wrong guesses 15. Name it on as few tears as you dare — two right in a row earns +10.</p>
+      <p class="start-copy small">Each round is worth 100. Tears cost 10, wrong guesses 15, and clue slips 15–25 — buy your way to an educated guess. Two right in a row earns +10.</p>
       <p class="card-stat" id="rv-best"></p>
       <button class="pill primary big" id="rv-start">Start a session</button>
       <button class="pill big" id="rv-resume" hidden>Resume session</button>
@@ -236,8 +256,10 @@
       <span class="topbar-right"><span id="rv-score" aria-label="Score">0 pts</span></span>
     </header>
     <div id="rv-panel">
-      <div id="rv-frame" role="img" aria-label="A covered image to identify">
-        <div class="df-scraps" id="rv-scraps"></div>
+      <div id="rv-frame-wrap">
+        <div id="rv-frame" role="img" aria-label="A covered image to identify">
+          <div class="df-scraps" id="rv-scraps"></div>
+        </div>
         <div class="df-moment-badge" id="rv-badge" hidden></div>
       </div>
       <p class="df-worth" id="rv-worth"></p>
@@ -252,8 +274,11 @@
         <button type="submit" class="pill primary" id="rv-guess-btn">Guess</button>
       </form>
       <div id="rv-controls">
+        <button class="pill small" id="rv-clue-a">Claim to fame <span class="cost">−25</span></button>
+        <button class="pill small" id="rv-clue-b">Lived <span class="cost">−15</span></button>
         <button class="pill small ghost" id="rv-reveal">I give up <span class="cost">0 pts</span></button>
       </div>
+      <div id="rv-hint-chips"></div>
       <div id="rv-guesses"></div>
       <button class="pill primary big" id="rv-next" hidden>Next ›</button>
     </main>
@@ -274,7 +299,24 @@
         <hr>
         <div class="df-receipt-total"><span>Total:</span><b id="rv-sum-total">0</b></div>
         <p class="df-receipt-meta" id="rv-sum-remark"></p>
-        <div class="df-stamp df-receipt-stamp">Alea iacta fest</div>
+        <!-- swap to assets/brand/stamp-alea-iacta-fest.png when the asset lands -->
+        <div class="df-stamp df-receipt-stamp df-stamp-alea">
+          <svg class="df-stamp-die" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="7" cy="7" r="2.1" fill="currentColor"/>
+            <circle cx="17" cy="7" r="2.1" fill="currentColor"/>
+            <circle cx="12" cy="12" r="2.1" fill="currentColor"/>
+            <circle cx="7" cy="17" r="2.1" fill="currentColor"/>
+            <circle cx="17" cy="17" r="2.1" fill="currentColor"/>
+          </svg>
+          <span>Alea iacta fest</span>
+          <svg class="df-stamp-die" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="7" cy="7" r="2.3" fill="currentColor"/>
+            <circle cx="12" cy="12" r="2.3" fill="currentColor"/>
+            <circle cx="17" cy="17" r="2.3" fill="currentColor"/>
+          </svg>
+        </div>
       </div>
       <div class="sum-actions">
         <button class="pill primary big" id="rv-sum-again">Play again</button>
@@ -428,10 +470,9 @@
       <h2>Back Issues</h2>
       <span class="topbar-right"></span>
     </header>
-    <div class="df-censored" aria-hidden="true">
-      <img src="assets/img/warren-cup.jpg" alt="">
-      <span>Censored</span>
-      <small>Yes, it's real. Ask the British Museum.</small>
+    <div class="df-morgue-banner" aria-hidden="true">
+      <span class="df-morgue-title">The Morgue</span>
+      <span class="df-morgue-sticker">Every issue lives forever</span>
     </div>
     <div id="archive-filters" class="archive-filters"></div>
     <main id="archive-list" class="scroll-main"></main>
