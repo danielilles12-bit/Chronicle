@@ -139,6 +139,15 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 #ios-tip .share-glyph { width: 13px; height: 17px; vertical-align: -3px; color: var(--ch-forest); }
 #ios-tip button { position: absolute; right: 8px; top: 6px; font-size: 20px; color: var(--muted); padding: 4px 8px; }
 
+/* First-visit orientation line (see initHome): one sentence, then gone. */
+#stranger-line {
+  margin: 12px 24px 0; padding: 10px 36px 10px 12px; position: relative;
+  background: var(--ch-cream); border: 2px solid var(--ch-ink); box-shadow: 3px 3px 0 var(--ch-ink);
+  font-family: var(--ch-font-ui); font-size: 12px; font-weight: 700;
+  letter-spacing: .04em; text-transform: uppercase; line-height: 1.55; color: var(--ch-text-primary);
+}
+#stranger-line button { position: absolute; right: 6px; top: 4px; font-size: 18px; color: var(--ch-text-muted); padding: 4px 8px; }
+
 /* "New edition off the presses" bar: appears (via js/app.js) once a freshly
    deployed version has installed underneath the running page. Fixed over
    every view — the pull-to-refresh, or tapping it, reloads into the update. */
@@ -171,7 +180,7 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   color: var(--ch-text-primary);
 }
 .iconbtn:active { background: var(--ch-parchment); }
-#cw-timer, #map-score { font-variant-numeric: tabular-nums; font-size: 14px; color: var(--ch-text-muted); font-family: var(--ch-font-ui); }
+#map-score { font-variant-numeric: tabular-nums; font-size: 14px; color: var(--ch-text-muted); font-family: var(--ch-font-ui); }
 
 /* ---------- Buttons ---------- */
 .pill {
@@ -190,63 +199,7 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 .pill:disabled { opacity: .35; pointer-events: none; }
 .pill .cost { font-weight: 400; color: inherit; opacity: .65; font-size: .85em; }
 
-/* ---------- Crossword list ---------- */
-.cw-group-title { font-family: var(--ch-font-display); font-weight: 400; font-size: 20px; margin: 18px 4px 8px; color: var(--ch-text-primary); }
-.cw-group-sub { color: var(--ch-text-muted); font-size: 13px; margin: -4px 4px 10px; }
-.cwitem {
-  width: 100%; display: flex; align-items: center; gap: 12px; text-align: left;
-  border: 1px solid var(--ch-line); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px;
-  background: var(--ch-cream);
-}
-.cwitem:active { background: var(--ch-parchment); }
-.cwitem .cw-size { font-size: 12px; color: var(--ch-text-muted); border: 1px solid var(--ch-line); border-radius: 6px; padding: 2px 6px; flex: none; }
-.cwitem .cw-name { flex: 1; font-weight: 700; font-family: var(--ch-font-ui); color: var(--ch-text-primary); }
-.cwitem .cw-state { font-size: 13px; color: var(--ch-text-muted); font-variant-numeric: tabular-nums; }
-.cwitem .cw-state.done { color: var(--ch-forest); font-weight: 700; }
-
-/* ---------- Crossword play ---------- */
 .view-game { height: 100dvh; overflow: hidden; }
-#cw-grid-wrap { display: flex; justify-content: center; align-items: center; padding: 8px 8px 4px; }
-#cw-grid {
-  display: grid; gap: 1px; background: var(--ch-ink); border: 2px solid var(--ch-ink);
-  grid-template-columns: repeat(var(--n), 1fr);
-  width: var(--gridside); height: var(--gridside);
-  touch-action: manipulation;
-}
-.cell { position: relative; background: var(--ch-cream); display: flex; align-items: center; justify-content: center; }
-.cell.block { background: var(--ch-ink); }
-.cell .num { position: absolute; top: 1px; left: 2px; font-size: calc(var(--cell) * .21); color: var(--ch-text-muted); font-weight: 600; }
-.cell .letter { font-size: calc(var(--cell) * .56); font-weight: 700; line-height: 1; transform: translateY(6%); color: var(--ch-text-primary); }
-.cell.word { background: var(--selword); }
-.cell.sel { background: var(--sel); }
-.cell.wrong::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(to top right, transparent 46.5%, var(--red) 46.5%, var(--red) 53.5%, transparent 53.5%);
-  pointer-events: none;
-}
-.cell.revealed::before {
-  content: ''; position: absolute; top: 0; right: 0; border: 6px solid transparent;
-  border-top-color: var(--red); border-right-color: var(--red);
-}
-#cw-cluebar {
-  display: flex; align-items: stretch; background: var(--selword);
-  min-height: 48px; margin-top: auto;
-}
-.cluebar-arrow { width: 44px; font-size: 24px; color: var(--ch-text-primary); flex: none; }
-#cw-clue-current { flex: 1; text-align: left; padding: 7px 2px; display: flex; flex-direction: column; justify-content: center; gap: 1px; }
-#cw-clue-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; opacity: .7; color: var(--ch-text-primary); }
-#cw-clue-text { font-size: 15px; line-height: 1.25; color: var(--ch-text-primary); }
-
-#cw-keyboard { padding: 6px 3px calc(8px + env(safe-area-inset-bottom)); background: var(--ch-parchment); user-select: none; }
-.kb-row { display: flex; justify-content: center; gap: 5px; margin-bottom: 6px; }
-.kb-key {
-  flex: 1; max-width: 38px; height: 46px; background: var(--ch-cream);
-  border-radius: 6px; box-shadow: 0 1px 0 rgba(43,33,24,.18);
-  font-size: 18px; font-weight: 600; display: flex; align-items: center; justify-content: center;
-  color: var(--ch-text-primary);
-}
-.kb-key:active { background: var(--selword); }
-.kb-key.wide { max-width: 58px; font-size: 20px; }
 
 /* ---------- Sheets, modals, toast ---------- */
 .sheet { position: fixed; inset: 0; background: rgba(43,33,24,.4); z-index: 20; display: flex; align-items: flex-end; justify-content: center; }
@@ -260,39 +213,7 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 .sheet-row { display: flex; gap: 8px; flex-wrap: wrap; }
 .sheet-close { margin-top: 8px; }
 .confirm-msg { margin: 6px 0 10px; font-size: 16px; font-weight: 600; color: var(--ch-text-primary); }
-.sheet-card.tall { height: 86dvh; }
-.tabs { display: flex; border-bottom: 1px solid var(--ch-line); }
-.tab { flex: 1; padding: 10px; font-weight: 700; color: var(--ch-text-muted); border-bottom: 3px solid transparent; font-family: var(--ch-font-ui); }
-.tab.active { color: var(--ch-text-primary); border-bottom-color: var(--ch-ink); }
-.cluelist { list-style: none; margin: 0; padding: 4px 0; overflow-y: auto; flex: 1; }
-.cluelist li { display: flex; gap: 10px; padding: 9px 6px; border-bottom: 1px solid var(--ch-parchment); font-size: 15px; color: var(--ch-text-primary); }
-.cluelist li .cl-num { font-weight: 700; min-width: 24px; text-align: right; }
-.cluelist li.done { color: var(--ch-text-muted); }
-.cluelist li.current { background: var(--selword); border-radius: 8px; }
-
-.modal { position: fixed; inset: 0; background: rgba(43,33,24,.5); z-index: 30; display: flex; align-items: center; justify-content: center; padding: 24px; }
-.modal[hidden] { display: none; }
-.modal-card {
-  position: relative; overflow: hidden; background: var(--ch-cream); border-radius: 0;
-  padding: 30px 24px; text-align: center; width: 100%; max-width: 360px; border: 3px solid var(--ch-ink);
-  box-shadow: var(--ch-shadow-soft);
-}
-.modal-card h2 { font-family: var(--ch-font-display); font-weight: 400; font-size: 30px; text-transform: uppercase; margin: 0 0 6px; color: var(--ch-text-primary); }
-.modal-card p { color: var(--ch-text-muted); margin: 0 0 18px; }
-.modal-card .pill { display: flex; width: 100%; margin-top: 10px; }
-
-.toast {
-  position: fixed; left: 50%; bottom: 220px; transform: translateX(-50%);
-  background: var(--ch-ink); color: var(--ch-text-inverse); border-radius: 0; padding: 10px 20px;
-  font-size: 13px; z-index: 40; white-space: nowrap; font-family: var(--ch-font-ui); text-transform: uppercase; letter-spacing: .04em; border: 2px solid var(--ch-ink); box-shadow: 3px 3px 0 rgba(11,11,11,.3);
-}
-.toast[hidden] { display: none; }
-
-#confetti { position: absolute; inset: 0; pointer-events: none; }
-.confetto { position: absolute; width: 8px; height: 14px; top: -16px; animation: fall 1.6s ease-in forwards; }
-@keyframes fall { to { transform: translateY(420px) rotate(540deg); opacity: .1; } }
 @media (prefers-reduced-motion: reduce) {
-  .confetto { display: none; }
   * { animation-duration: .01s !important; transition-duration: .01s !important; }
 }
 
@@ -412,49 +333,6 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   #app { background: var(--ch-paper); border-left: 2.5px solid var(--ch-ink); border-right: 2.5px solid var(--ch-ink); }
 }
 
-/* ---------- Chrono ---------- */
-.ch-puzzle-title {
-  font-family: var(--ch-font-display); font-weight: 400; font-size: 19px;
-  margin: 0 0 2px; text-align: center; color: var(--ch-text-primary);
-}
-.ch-instruction {
-  font-size: 13px; color: var(--ch-text-muted); text-align: center; margin: 0 0 14px;
-}
-.ch-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
-.ch-item {
-  display: flex; align-items: center; gap: 12px;
-  border: 1.5px solid var(--ch-line); border-radius: 12px; padding: 13px 14px;
-  background: var(--ch-cream); cursor: pointer; transition: background .1s;
-  user-select: none;
-}
-.ch-item:active { background: var(--ch-parchment); }
-.ch-selected {
-  border-color: var(--ch-gold); background: var(--ch-pale-gold);
-  box-shadow: 0 0 0 2px rgba(181,138,45,.25);
-}
-.ch-pos-label {
-  font-size: 11px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: .5px; color: var(--ch-text-muted); min-width: 28px;
-}
-.ch-label { flex: 1; font-size: 15px; font-weight: 600; color: var(--ch-text-primary); }
-.ch-year {
-  font-size: 13px; color: var(--ch-gold); font-weight: 700;
-  font-variant-numeric: tabular-nums;
-}
-.ch-check { font-size: 18px; font-weight: 700; min-width: 22px; text-align: right; }
-.ch-correct { background: #EEF1E9; border-color: var(--ch-forest); }
-.ch-correct .ch-check { color: var(--ch-forest); }
-.ch-wrong { background: #F7E9E7; border-color: var(--ch-burgundy); }
-.ch-wrong .ch-check { color: var(--ch-burgundy); }
-.ch-result {
-  border-radius: 12px; padding: 12px 14px; font-size: 15px;
-  background: var(--ch-parchment); border: 1px solid var(--ch-line); margin-bottom: 12px;
-  color: var(--ch-text-primary);
-}
-.ch-result.ch-perfect { background: #EEF1E9; border-color: var(--ch-forest); }
-.ch-result.ch-good { background: var(--ch-pale-gold); border-color: var(--ch-gold); }
-.ch-pts { font-weight: 800; color: var(--ch-gold); }
-
 /* ---------- Connections (Thread) ---------- */
 .conn-grid {
   display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -507,16 +385,6 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 }
 .conn-dot-on { background: var(--ch-ink); border-color: var(--ch-ink); }
 
-/* Chrono drag-to-reorder additions */
-.ch-handle {
-  font-size: 18px; color: var(--ch-text-muted); cursor: grab; flex-shrink: 0;
-  user-select: none; touch-action: none;
-}
-.ch-handle:active { cursor: grabbing; }
-.ch-ghost { opacity: 0.25; pointer-events: none; }
-.ch-drop-before { border-top: 3px solid var(--ch-gold); }
-.ch-drop-after  { border-bottom: 3px solid var(--ch-gold); }
-.ch-item.ch-result-item { cursor: default; }
 .conn-shake { animation: shake .3s ease; }
 @keyframes shake {
   0%,100% { transform: translateX(0); }

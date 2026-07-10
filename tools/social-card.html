@@ -1,0 +1,51 @@
+<!doctype html>
+<!-- Social-card generator: open at exactly 1200x630 and screenshot body.
+     Output lives at assets/brand/social-card.png and is referenced by the
+     og:image / twitter:image tags in index.html. Regenerate + re-shoot after
+     any rebrand, then re-crush (see LAUNCH notes). Not part of the app. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+@font-face {font-family:'DF Slab';src:url('../assets/fonts/archivo-black.woff2') format('woff2');}
+@font-face {font-family:'DF Mono';src:url('../assets/fonts/space-mono-bold.woff2') format('woff2');font-weight:700;}
+@font-face {font-family:'DF Text';src:url('../assets/fonts/archivo-regular.woff2') format('woff2');}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  width:1200px;height:630px;overflow:hidden;position:relative;
+  background:#F2EFE6;
+  background-image:radial-gradient(rgba(11,11,11,.09) 2px,transparent 2.4px);
+  background-size:28px 28px;
+  font-family:'DF Text',Arial,sans-serif;color:#0B0B0B;
+}
+.inner{position:absolute;inset:0;padding:64px 70px;}
+h1{font-family:'DF Slab','Arial Black',sans-serif;font-size:132px;line-height:.9;text-transform:uppercase;letter-spacing:-0.015em;}
+.rule{width:610px;height:9px;background:#0B0B0B;margin-top:26px;}
+.dateline{font-family:'DF Mono',monospace;font-weight:700;font-size:25px;letter-spacing:.14em;text-transform:uppercase;margin-top:20px;}
+.tagline{font-size:30px;line-height:1.35;margin-top:16px;max-width:600px;}
+.tagline b{background:#FFE93B;padding:0 8px;}
+.sticker{position:absolute;right:60px;top:40px;width:330px;transform:rotate(7deg);}
+.icons{position:absolute;left:70px;bottom:46px;display:flex;gap:24px;align-items:center;}
+.icons img{width:92px;height:92px;border:4px solid #0B0B0B;background:#FFF;box-shadow:6px 6px 0 #0B0B0B;}
+.free{position:absolute;right:64px;bottom:70px;font-family:'DF Mono',monospace;font-weight:700;
+  font-size:22px;letter-spacing:.1em;text-transform:uppercase;color:#E02020;
+  border:5px solid #E02020;padding:8px 18px;transform:rotate(-5deg);}
+</style>
+</head>
+<body>
+  <div class="inner">
+    <h1>Dead<br>Famous</h1>
+    <div class="rule"></div>
+    <p class="dateline">A new issue every midnight</p>
+    <p class="tagline"><b>Four little history games</b> a day. Same issue as everyone else. No sign-up.</p>
+    <div class="icons">
+      <img src="../assets/brand/game-icon-thread.png" alt="">
+      <img src="../assets/brand/game-icon-lifeline.png" alt="">
+      <img src="../assets/brand/game-icon-face-value.png" alt="">
+      <img src="../assets/brand/game-icon-relic.png" alt="">
+    </div>
+    <div class="free">Free · No app store</div>
+  </div>
+  <img class="sticker" src="../assets/brand/david-sticker.png" alt="">
+</body>
+</html>

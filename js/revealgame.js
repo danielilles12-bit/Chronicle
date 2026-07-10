@@ -247,7 +247,10 @@ function updateWorth() {
   const el = $('#rv-worth');
   if (!el || !S || !S.cur) return;
   const label = MODE === 'what' ? 'INK' : 'WORTH';
-  const hint = S.cur.torn.length <= 1 ? ' · tear a neighbour (−10)' : '';
+  // The round opens with one scrap already torn on the house (that's the
+  // "first tear free" in worthNow's ledger) — say so, then price the rest.
+  // Once the player has torn one themselves the economy is learnt: hush.
+  const hint = S.cur.torn.length <= 1 ? ' · first scrap free · next −10 each' : '';
   el.innerHTML = `${label}: <b>${worthNow()} PTS</b>${hint}`;
 }
 

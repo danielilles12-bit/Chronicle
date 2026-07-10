@@ -7,7 +7,7 @@
 //   new worker precaches the shell, skipWaiting+claim take over immediately ->
 //   app.js sees controllerchange and shows the NEW EDITION bar -> the user's
 //   pull-to-refresh (or a tap on the bar) reloads into the new version.
-const VERSION = 'deadfamous-v96';
+const VERSION = 'deadfamous-v97';
 
 // Daily-content cache: survives version bumps so updating the app never
 // re-downloads the whole archive, served stale-while-revalidate below.
@@ -35,9 +35,9 @@ const ASSETS = [
   './assets/brand/stamp-alea-iacta-fest.png',
   './assets/brand/ptr-queen.png',
   './js/app.js',
+  './js/track.js',
   './js/storage.js',
   './js/match.js',
-  './js/crossword.js',
   './js/mapgame.js',
   './js/revealgame.js',
   './js/connectionsgame.js',

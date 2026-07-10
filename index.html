@@ -4,8 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
 <title>Dead Famous — History as Entertainment</title>
-<meta name="description" content="History's greatest hits, two minutes a day: Thread, Lifeline, Face Value and Relic.">
+<meta name="description" content="Four little history games a day: Thread, Lifeline, Face Value and Relic. New issue at midnight — same issue as everyone else. Free, no sign-up.">
 <meta name="theme-color" content="#F2EFE6">
+<!-- Link previews (iMessage/WhatsApp/X/Discord/Slack read these; crawlers never
+     run JS so they must stay static). URLs are absolute on purpose. When the
+     custom domain lands, swap the two *.github.io URLs below and re-share. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dead Famous">
+<meta property="og:title" content="Dead Famous — daily history games">
+<meta property="og:description" content="Four little history games a day. New issue at midnight — same issue as everyone else. Free, no sign-up.">
+<meta property="og:url" content="https://danielilles12-bit.github.io/Chronicle/">
+<meta property="og:image" content="https://danielilles12-bit.github.io/Chronicle/assets/brand/social-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Dead Famous — four daily history games. A pop-art David statue in pink sunglasses next to the four game icons.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dead Famous — daily history games">
+<meta name="twitter:description" content="Four little history games a day. New issue at midnight — same issue as everyone else. Free, no sign-up.">
+<meta name="twitter:image" content="https://danielilles12-bit.github.io/Chronicle/assets/brand/social-card.png">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/favicon.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
@@ -31,98 +47,20 @@
       <h1>Dead<br>Famous</h1>
       <p class="dateline" id="dateline"></p>
     </header>
+    <p id="stranger-line" hidden>Four little history games. New issue at midnight — same issue as everyone else.<button id="stranger-close" aria-label="Dismiss">×</button></p>
     <!-- Each .game-row (hero + day-card strip + Archive bar) is built and
          refreshed entirely by js/app.js (renderGameRows/refreshGameRows) from
          one GAME_ROWS template, in order Thread, Lifeline, Face Value, Relic —
          so there is exactly one source of truth for the row markup and no
          risk of the four rows drifting apart. -->
     <main class="home-rows" id="home-rows"></main>
-    <button class="card" id="card-crossword" aria-label="Play the history crossword" hidden></button>
     <div id="ios-tip" hidden>
-      <p><b>Make it an app:</b> tap Share
+      <p><b>Nice one. Now make it an app:</b> tap Share
         <svg class="share-glyph" viewBox="0 0 14 18" aria-hidden="true"><path d="M7 1 L7 11 M3.5 4.5 L7 1 L10.5 4.5 M2 8 H1 V17 H13 V8 H12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>,
-        then “Add to Home&nbsp;Screen”.</p>
+        then “Add to Home&nbsp;Screen” — it keeps your streak safe.</p>
       <button id="ios-tip-close" aria-label="Dismiss">×</button>
     </div>
     <footer class="home-foot">Works offline · Made for the home screen · <span id="build-tag"></span></footer>
-  </section>
-
-  <!-- ============ CROSSWORD LIST ============ -->
-  <section class="view" id="view-cwlist" hidden>
-    <header class="topbar safe-top">
-      <button class="iconbtn" data-back aria-label="Back">‹</button>
-      <h2>The Crossword</h2>
-      <span class="topbar-right"></span>
-    </header>
-    <main id="cwlist" class="scroll-main"></main>
-  </section>
-
-  <!-- ============ CROSSWORD PLAY ============ -->
-  <section class="view view-game" id="view-cw" hidden>
-    <header class="topbar safe-top">
-      <button class="iconbtn" data-back aria-label="Back to puzzles">‹</button>
-      <h2 id="cw-title"></h2>
-      <span class="topbar-right">
-        <span id="cw-timer" aria-label="Timer">0:00</span>
-        <button class="iconbtn" id="cw-cluelist-btn" aria-label="All clues">☰</button>
-        <button class="iconbtn" id="cw-menu-btn" aria-label="Check or reveal">✓</button>
-      </span>
-    </header>
-    <div id="cw-grid-wrap"><div id="cw-grid" role="grid"></div></div>
-    <div id="cw-cluebar">
-      <button class="cluebar-arrow" id="cw-prev" aria-label="Previous clue">‹</button>
-      <button id="cw-clue-current" aria-label="Current clue, tap to switch direction">
-        <span id="cw-clue-label"></span>
-        <span id="cw-clue-text"></span>
-      </button>
-      <button class="cluebar-arrow" id="cw-next" aria-label="Next clue">›</button>
-    </div>
-    <div id="cw-keyboard" aria-label="Keyboard"></div>
-
-    <div id="cw-sheet" class="sheet" hidden>
-      <div class="sheet-card">
-        <h3>Check</h3>
-        <div class="sheet-row">
-          <button class="pill" data-check="square">Square</button>
-          <button class="pill" data-check="word">Word</button>
-          <button class="pill" data-check="puzzle">Puzzle</button>
-        </div>
-        <h3>Reveal</h3>
-        <div class="sheet-row">
-          <button class="pill" data-reveal="square">Square</button>
-          <button class="pill" data-reveal="word">Word</button>
-          <button class="pill warn" data-reveal="puzzle">Puzzle</button>
-        </div>
-        <h3>Puzzle</h3>
-        <div class="sheet-row">
-          <button class="pill warn" id="cw-restart">Clear &amp; restart</button>
-        </div>
-        <button class="pill ghost sheet-close" data-close-sheet>Close</button>
-      </div>
-    </div>
-
-    <div id="cw-cluelist" class="sheet" hidden>
-      <div class="sheet-card tall">
-        <div class="tabs">
-          <button class="tab active" data-tab="across">Across</button>
-          <button class="tab" data-tab="down">Down</button>
-        </div>
-        <ol id="cw-cluelist-across" class="cluelist"></ol>
-        <ol id="cw-cluelist-down" class="cluelist" hidden></ol>
-        <button class="pill ghost sheet-close" data-close-sheet>Close</button>
-      </div>
-    </div>
-
-    <div id="cw-done" class="modal" hidden>
-      <div class="modal-card">
-        <div id="confetti" aria-hidden="true"></div>
-        <h2 id="cw-done-title">Well done!</h2>
-        <p id="cw-done-sub"></p>
-        <button class="pill primary" id="cw-done-back">Back to puzzles</button>
-        <button class="pill ghost" id="cw-done-stay">Admire the grid</button>
-      </div>
-    </div>
-    <div id="cw-toast" class="toast" hidden>Not quite — keep going.</div>
   </section>
 
   <!-- ============ MAP GAME: START ============ -->
@@ -290,71 +228,6 @@
     </main>
   </section>
 
-  <!-- ============ CHRONO: START ============ -->
-  <section class="view" id="view-chronostart" hidden>
-    <header class="topbar safe-top">
-      <button class="iconbtn" data-back aria-label="Back">‹</button>
-      <h2>Chrono</h2>
-      <span class="topbar-right"></span>
-    </header>
-    <main class="scroll-main center-main">
-      <svg class="start-glyph" viewBox="0 0 200 80" aria-hidden="true">
-        <line x1="20" y1="40" x2="180" y2="40" stroke="#E3D3AF" stroke-width="2"/>
-        <circle cx="40" cy="40" r="8" fill="#B58A2D"/>
-        <circle cx="90" cy="40" r="8" fill="#B58A2D"/>
-        <circle cx="140" cy="40" r="8" fill="#B58A2D"/>
-        <circle cx="165" cy="40" r="8" fill="#B58A2D"/>
-        <circle cx="185" cy="40" r="8" fill="#B58A2D" opacity=".4"/>
-        <text x="40" y="62" text-anchor="middle" font-size="9" fill="#5C4733">44 BC</text>
-        <text x="90" y="62" text-anchor="middle" font-size="9" fill="#5C4733">1066</text>
-        <text x="140" y="62" text-anchor="middle" font-size="9" fill="#5C4733">1492</text>
-        <text x="165" y="62" text-anchor="middle" font-size="9" fill="#5C4733">1789</text>
-        <text x="185" y="62" text-anchor="middle" font-size="9" fill="#5C4733" opacity=".4">?</text>
-      </svg>
-      <h3 class="start-title">Sort the timeline.</h3>
-      <p class="start-copy">Each round gives you five historical events out of order. Tap two to swap them, then submit. Closest to perfect scores the most.</p>
-      <p class="start-copy small">5 rounds · up to 100 pts each · 500 max</p>
-      <p class="card-stat" id="ch-best"></p>
-      <button class="pill primary big" id="ch-start">Start a session</button>
-      <button class="pill big" id="ch-resume" hidden>Resume session</button>
-    </main>
-  </section>
-
-  <!-- ============ CHRONO: PLAY ============ -->
-  <section class="view" id="view-chrono" hidden>
-    <header class="topbar safe-top">
-      <button class="iconbtn" id="ch-quit" aria-label="Quit">‹</button>
-      <h2 id="ch-progress">Round 1 of 5</h2>
-      <span class="topbar-right"><span id="ch-score">0 pts</span></span>
-    </header>
-    <main class="scroll-main">
-      <p id="ch-puzzle-title" class="ch-puzzle-title"></p>
-      <p class="ch-instruction">Tap two events to swap · oldest first</p>
-      <div id="ch-list" class="ch-list"></div>
-      <div id="ch-result" class="ch-result" hidden></div>
-      <button class="pill primary big" id="ch-submit">Submit order</button>
-      <button class="pill primary big" id="ch-next" hidden>Next ›</button>
-    </main>
-  </section>
-
-  <!-- ============ CHRONO: SUMMARY ============ -->
-  <section class="view" id="view-chronosum" hidden>
-    <header class="topbar safe-top">
-      <button class="iconbtn" id="ch-sum-back" aria-label="Back">‹</button>
-      <h2>Session complete</h2>
-      <span class="topbar-right"></span>
-    </header>
-    <main class="scroll-main">
-      <p class="sum-total"><span id="ch-sum-total">0</span><span class="sum-total-label">points</span></p>
-      <p id="ch-sum-remark" class="sum-remark"></p>
-      <ol id="ch-sum-rounds" class="sum-list"></ol>
-      <div class="sum-actions">
-        <button class="pill primary big" id="ch-sum-again">Play again</button>
-        <button class="pill ghost big" id="ch-sum-home">Home</button>
-      </div>
-    </main>
-  </section>
-
   <!-- ============ CONNECTIONS: LIST ============ -->
   <section class="view" id="view-connlist" hidden>
     <header class="topbar safe-top">
@@ -393,8 +266,18 @@
       <span class="topbar-right"></span>
     </header>
     <main class="scroll-main">
-      <p id="conn-sum-msg" class="sum-remark" style="text-align:center;font-size:17px;margin-top:16px;font-weight:600"></p>
-      <div id="conn-sum-groups" style="margin-top:12px;display:flex;flex-direction:column;gap:8px"></div>
+      <div class="df-receipt">
+        <div class="df-receipt-head" id="conn-receipt-head">Dead Famous · Thread</div>
+        <hr>
+        <ol id="conn-sum-rows" class="sum-list df-receipt-list"></ol>
+        <hr>
+        <div class="df-receipt-total"><span>Total:</span><b id="conn-sum-total">0</b></div>
+        <p class="df-receipt-meta" id="conn-sum-msg"></p>
+        <div class="df-stamp df-receipt-stamp df-stamp-alea">
+          <img src="assets/brand/stamp-alea-iacta-fest.png" alt="Alea iacta fest">
+        </div>
+      </div>
+      <div id="conn-sum-groups" style="margin-top:14px;display:flex;flex-direction:column;gap:8px"></div>
       <div class="sum-actions" style="margin-top:20px">
         <button class="pill primary big" id="conn-sum-list">All puzzles</button>
         <button class="pill ghost big" id="conn-sum-back2" style="display:none"></button>

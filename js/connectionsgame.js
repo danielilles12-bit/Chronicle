@@ -179,14 +179,11 @@ function showLockedResult(editionIndex, entry) {
     mistakes: detail.mistakes || 0,
   };
   $('#conn-sum-title').textContent = puzzle ? puzzle.title : 'Thread';
-  const perfect = detail.perfect;
-  const solved = detail.solved;
-  const msg = perfect ? 'Perfect — no mistakes!' :
-    solved ? `Solved with ${detail.mistakes} mistake${detail.mistakes === 1 ? '' : 's'}` :
-    'Game over';
-  $('#conn-sum-msg').textContent = msg;
-  ensureConnSumScoreEl().innerHTML =
-    `${entry.score} pts<small>${solved ? `${detail.mistakes} mistake${detail.mistakes === 1 ? '' : 's'}` : 'game over'}</small>`;
+  renderThreadReceipt({
+    editionIndex, mode: 'daily', title: puzzle ? puzzle.title : '',
+    score: entry.score, solved: detail.solved, perfect: detail.perfect,
+    mistakes: detail.mistakes || 0, found: null,
+  });
   const reveal = $('#conn-sum-groups');
   reveal.innerHTML = '';
   if (puzzle) {
@@ -204,7 +201,7 @@ function showLockedResult(editionIndex, entry) {
 
 // Save the player's found groups + mistakes so far, so leaving mid-puzzle
 // (header back arrow) doesn't lose progress. Mirrors the session-persistence
-// pattern used by map/reveal/chrono in storage.js. No-op until the player has
+// pattern used by map/reveal in storage.js. No-op until the player has
 // actually made some headway, so a puzzle opened-and-immediately-backed-out
 // isn't misreported as "in progress". Daily/practice sessions still persist
 // even at found.size===0 as long as a mistake's been made — same rule.
@@ -374,13 +371,10 @@ function finishPuzzle() {
 
   // summary
   $('#conn-sum-title').textContent = S.puzzle.title;
-  const msg = perfect ? 'Perfect — no mistakes!' :
-    solved ? `Solved with ${S.mistakes} mistake${S.mistakes === 1 ? '' : 's'}` :
-    `${S.found.size} of 4 groups found`;
-  $('#conn-sum-msg').textContent = msg;
-
-  ensureConnSumScoreEl().innerHTML =
-    `${score} pts<small>${solved ? `${S.mistakes} mistake${S.mistakes === 1 ? '' : 's'}` : 'game over'}</small>`;
+  renderThreadReceipt({
+    editionIndex: S.editionIndex, mode: S.mode, title: S.puzzle.title,
+    score, solved, perfect, mistakes: S.mistakes, found: S.found.size,
+  });
 
   const reveal = $('#conn-sum-groups');
   reveal.innerHTML = '';
@@ -397,16 +391,36 @@ function finishPuzzle() {
   show('view-connsum');
 }
 
-function ensureConnSumScoreEl() {
-  let el = $('#conn-sum-score');
-  if (!el) {
-    el = document.createElement('div');
-    el.id = 'conn-sum-score';
-    el.className = 'conn-sum-score';
-    const msgEl = $('#conn-sum-msg');
-    msgEl.parentNode.insertBefore(el, msgEl);
+// The Thread receipt (head/rows/total/remark), shared by the live finish and
+// the locked archive view so the two renderings can't drift. `found` is null
+// when the per-group count wasn't recorded (locked entries store only
+// solved/perfect/mistakes).
+function renderThreadReceipt({ editionIndex, mode, title, score, solved, perfect, mistakes, found }) {
+  const head = $('#conn-receipt-head');
+  if (head) {
+    head.textContent = 'Dead Famous · Thread'
+      + (mode === 'daily' && editionIndex != null ? ` · Issue № ${editionIndex}` : '');
   }
-  return el;
+  const rows = $('#conn-sum-rows');
+  rows.innerHTML = '';
+  const add = (name, sub, pts, zero) => {
+    const li = document.createElement('li');
+    li.innerHTML = `<span class="sum-name">${name}${sub ? `<small>${sub}</small>` : ''}</span>`
+      + `<span class="sum-pts${zero ? ' zero' : ''}">${pts}</span>`;
+    rows.appendChild(li);
+  };
+  if (solved) {
+    add('Board solved', title, '+100', false);
+    if (mistakes) add(`Mistake${mistakes === 1 ? '' : 's'} × ${mistakes}`, '', `−${mistakes * 20}`, true);
+    const floor = score - (100 - mistakes * 20);
+    if (floor) add('House floor', 'nobody leaves empty-handed', `+${floor}`, false);
+  } else {
+    add(found != null ? `${found} of 4 groups found` : 'Game over', title, '0', true);
+  }
+  $('#conn-sum-total').textContent = score;
+  $('#conn-sum-msg').textContent = perfect ? 'Not a thread out of place.'
+    : solved ? (mistakes >= 3 ? 'By a thread.' : 'Frayed, but intact.')
+    : 'The thread snapped.';
 }
 
 function shuffleTiles() {

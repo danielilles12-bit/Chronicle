@@ -6,6 +6,7 @@
 // on Earth gets the same edition on the same local date (Wordle convention).
 import { DATA } from './app.js';
 import * as store from './storage.js';
+import { track } from './track.js';
 
 // ---------- config ----------
 export const EPOCH = new Date(2026, 5, 29); // 2026-06-29, a Monday (local, month is 0-based)
@@ -211,36 +212,36 @@ export function editionRecipe(n) {
 // without the DOM/localStorage.
 const GAMES = ['thread', 'map', 'who', 'what'];
 
-// Streak-valid rule (see spec "Rollover"): a completion counts toward the
-// streak if it happened on the air date or the day after (completedOn is an
-// edition index; airDate === edition index for that game's record).
+// Streak-valid rule ("the press window", Daniel's kinder call 2026-07-10):
+// a completion counts toward streaks if it happened within TWO days of the
+// air date — on the day, the day after, or the day after that. Day two is
+// the REPAIR window: a missed Tuesday no longer kills the run, as long as
+// Tuesday's issue is completed from the archive by Thursday. Later archive
+// completions still write the entry (tile shows Done) but never count.
 export function isStreakValid(airDate, completedOnEditionIndex) {
-  return completedOnEditionIndex <= airDate + 1;
+  return completedOnEditionIndex <= airDate + 2;
 }
 
-// Given the ledger's existing per-game streak state and a new completion,
-// compute the updated streak state. `prev` = { streak, lastEdition } (both
-// 0/-Infinity if absent). Returns the new { streak, lastEdition }.
-export function nextStreak(prev, airDate, completedOnEditionIndex) {
-  const p = prev || { streak: 0, lastEdition: -Infinity };
-  if (!isStreakValid(airDate, completedOnEditionIndex)) {
-    // Completed too late (from the archive, well after air date): does not
-    // extend or reset the live streak at all.
-    return p;
+// Streaks are DERIVED from the entry record, never incremented: find the
+// most recent edition that still counts (today, or one still inside the
+// repair window), then walk backwards over consecutive valid editions.
+// Order-independent by construction — healing a hole from the archive fixes
+// the count no matter what order entries were written in.
+export function derivedStreak(validAt, today) {
+  let anchor = -1;
+  for (let e = today; e >= today - 2; e--) {
+    if (validAt(e)) { anchor = e; break; }
   }
-  // A streak continues only if this edition is exactly one after the last
-  // one that counted; the same edition completed twice is a no-op.
-  if (airDate === p.lastEdition) return p;
-  const continued = airDate === p.lastEdition + 1;
-  return { streak: continued ? p.streak + 1 : 1, lastEdition: airDate };
+  if (anchor < 0) return { streak: 0, lastEdition: -Infinity };
+  let n = 0;
+  while (validAt(anchor - n)) n++;
+  return { streak: n, lastEdition: anchor };
 }
 
-// Record a daily completion in the ledger: one entry per (game, edition),
-// the per-game streak, and the full-house streak (all four games completed
-// on their air date, tracked per edition). Completing an aired edition later
-// from the archive still writes the entry (so the tile shows Done/locked)
-// but — per isStreakValid — does not extend or reset any streak once it's
-// past the air date + 1 day grace window.
+// Record a daily completion: one immutable entry per (game, edition), then
+// recompute the per-game and full-house streaks from the record. A streak is
+// only truly dead once its first missed edition is past the repair window —
+// the obituary check in app.js uses lastEdition <= today - 4 accordingly.
 export function recordDailyCompletion(game, editionIndex, detail) {
   const ledger = store.getDailyLedger();
   const completedOn = todayIndex();
@@ -250,19 +251,17 @@ export function recordDailyCompletion(game, editionIndex, detail) {
   if (ledger.entries[game][editionIndex]) return ledger;
 
   ledger.entries[game][editionIndex] = { completedOn, ...detail };
-  ledger.streaks[game] = nextStreak(ledger.streaks[game], editionIndex, completedOn);
 
-  // Full house: all four games' entries exist for this edition, each
-  // individually streak-valid for that edition's air date.
-  const allDone = GAMES.every((g) => ledger.entries[g] && ledger.entries[g][editionIndex]);
-  if (allDone) {
-    const allValid = GAMES.every((g) => isStreakValid(editionIndex, ledger.entries[g][editionIndex].completedOn));
-    if (allValid) {
-      ledger.fullHouse = nextStreak(ledger.fullHouse, editionIndex, completedOn);
-    }
-  }
+  const gameValid = (g) => (e) => {
+    const en = ledger.entries[g] && ledger.entries[g][e];
+    return !!en && isStreakValid(e, en.completedOn);
+  };
+  GAMES.forEach((g) => { ledger.streaks[g] = derivedStreak(gameValid(g), completedOn); });
+  const allValid = (e) => GAMES.every((g) => gameValid(g)(e));
+  ledger.fullHouse = derivedStreak(allValid, completedOn);
 
   store.setDailyLedger(ledger);
+  track(`finish-${game}`);
   return ledger;
 }
 

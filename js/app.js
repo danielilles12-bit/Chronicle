@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v96';
+const BUILD = 'v97';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -12,14 +12,14 @@ if (/iP(hone|ad|od)/.test(navigator.userAgent)
 }
 
 import * as store from './storage.js';
+import { track, initTracking } from './track.js';
 import { isMatch } from './match.js';
-import { initCrossword, renderPuzzleList } from './crossword.js';
 import { initMapGame, renderMapStart, startMapDaily, startMapPractice } from './mapgame.js';
 import { initRevealGame, renderRevealStart, startRevealDaily, startRevealPractice } from './revealgame.js';
 import { initConnectionsGame, renderConnList, startThreadDaily, startThreadPractice } from './connectionsgame.js';
 import * as daily from './daily.js';
 
-export const DATA = { puzzles: null, figures: null, world: null, reveal: null, chrono: null, connections: null };
+export const DATA = { figures: null, world: null, reveal: null, connections: null };
 export const $ = (sel) => document.querySelector(sel);
 export const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 
@@ -187,7 +187,10 @@ function renderGameRows() {
   root.dataset.built = '1';
 
   GAME_ROWS.forEach((g) => {
-    $(`[data-hero="${g.key}"]`).addEventListener('click', () => g.launchDaily(daily.todayIndex()));
+    $(`[data-hero="${g.key}"]`).addEventListener('click', () => {
+      track(`start-${g.key}`);
+      g.launchDaily(daily.todayIndex());
+    });
     $(`[data-archive="${g.key}"]`).addEventListener('click', () => {
       renderArchive();
       show('view-archive');
@@ -336,32 +339,53 @@ function openArchiveEdition(editionIndex) {
 function initHome() {
   const wd = new Date().toLocaleDateString('en-GB', { weekday: 'long' });
   $('#dateline').textContent = `Issue № ${Math.max(0, daily.todayIndex())} // ${wd}`;
-  // Crosswords are retained but hidden from the app for now, same as before
-  // this rebuild; the card carries `hidden`. Guard so this is a no-op when
-  // the card isn't shown. The other three games' free-play "Start a session"
-  // views (view-mapstart/view-revealstart) get the same treatment as part of
-  // this redesign: their views and logic are untouched, but Home no longer
-  // links to them directly — free play is reached via Archive → practice
-  // (spec "Removals/moves"), so they're hidden routes like the crossword.
-  const cwCard = $('#card-crossword');
-  if (cwCard) {
-    cwCard.addEventListener('click', () => {
-      renderPuzzleList();
-      show('view-cwlist');
-    });
-  }
+  // The other three games' free-play "Start a session" views
+  // (view-mapstart/view-revealstart) are untouched, but Home no longer links
+  // to them directly — free play is reached via Archive → practice (spec
+  // "Removals/moves"), so they're hidden routes.
   $$('[data-back]').forEach((b) => b.addEventListener('click', back));
 
+  // First-visit orientation: the two facts that make it a shared daily ritual.
+  // Gone forever once dismissed or once any daily has been completed.
+  const stranger = $('#stranger-line');
+  if (stranger && !store.getMisc().orientedDismissed && !hasAnyDailyCompletion()) {
+    stranger.hidden = false;
+    $('#stranger-close').addEventListener('click', () => {
+      stranger.hidden = true;
+      store.setMisc({ orientedDismissed: true });
+    });
+  }
+
+  $('#ios-tip-close').addEventListener('click', () => {
+    $('#ios-tip').hidden = true;
+    store.setMisc({ iosTipDismissed: true });
+  });
+  document.addEventListener('viewchange', (e) => {
+    if (e.detail === 'view-home') maybeShowInstallTip();
+  });
+  maybeShowInstallTip();
+}
+
+function hasAnyDailyCompletion() {
+  const entries = store.getDailyLedger().entries || {};
+  return daily.GAMES.some((g) => entries[g] && Object.keys(entries[g]).length > 0);
+}
+
+// The install pitch waits for the first finished daily — the moment a streak
+// exists to protect. "Keeps your streak safe" is literal: Safari wipes a
+// non-installed site's storage after 7 idle days; installed apps are exempt.
+function maybeShowInstallTip() {
+  const tip = $('#ios-tip');
+  if (!tip || !tip.hidden) return;
+  if (!hasAnyDailyCompletion()) return;
   const isIOS = /iP(hone|ad|od)/.test(navigator.userAgent);
   const standalone = navigator.standalone === true
     || (window.matchMedia && matchMedia('(display-mode: standalone)').matches);
-  if (isIOS && !standalone && !store.getMisc().iosTipDismissed) {
-    $('#ios-tip').hidden = false;
-    $('#ios-tip-close').addEventListener('click', () => {
-      $('#ios-tip').hidden = true;
-      store.setMisc({ iosTipDismissed: true });
-    });
-  }
+  if (!isIOS || standalone || store.getMisc().iosTipDismissed) return;
+  const stranger = $('#stranger-line');
+  if (stranger) stranger.hidden = true;
+  tip.hidden = false;
+  track('install-tip-shown');
 }
 
 // ---------- boot ----------
@@ -562,7 +586,9 @@ function maybeMourn() {
   const ledger = store.getDailyLedger();
   const fh = ledger.fullHouse || { streak: 0, lastEdition: -Infinity };
   const today = daily.todayIndex();
-  if (fh.streak >= 3 && Number.isFinite(fh.lastEdition) && fh.lastEdition <= today - 2
+  // Dead means beyond repair: the first missed edition (lastEdition + 1) can
+  // be healed until (lastEdition + 1) + 2, so the wake happens the day after.
+  if (fh.streak >= 3 && Number.isFinite(fh.lastEdition) && fh.lastEdition <= today - 4
       && flagGet('df.mourned') !== String(fh.lastEdition)) {
     showObituary(fh.streak, fh.lastEdition);
     return true;
@@ -590,16 +616,16 @@ function initDayDone() {
 }
 
 async function boot() {
+  initTracking();
   try {
-    const [puzzles, figures, world, revealWho, revealWhat, connections] = await Promise.all(
-      ['data/puzzles.json', 'data/figures.json', 'data/worldmap.json', 'data/reveal-who.json',
+    const [figures, world, revealWho, revealWhat, connections] = await Promise.all(
+      ['data/figures.json', 'data/worldmap.json', 'data/reveal-who.json',
        'data/reveal-what.json', 'data/connections.json'].map((u) =>
         fetch(u).then((r) => {
           if (!r.ok) throw new Error('failed to load ' + u);
           return r.json();
         })),
     );
-    DATA.puzzles = puzzles;
     DATA.figures = figures;
     DATA.world = world;
     // reveal-who.json (portraits) + reveal-what.json (artefacts) are the
@@ -615,7 +641,6 @@ async function boot() {
 
   initPullToRefresh();
   initHome();
-  initCrossword();
   initMapGame();
   initRevealGame();
   initConnectionsGame();
