@@ -46,6 +46,7 @@
       <img class="masthead-sticker" src="assets/brand/david-sticker.png" alt="" aria-hidden="true">
       <h1>Dead<br>Famous</h1>
       <p class="dateline" id="dateline"></p>
+      <div id="punch-card" hidden aria-label="Full-house streak this week"></div>
     </header>
     <p id="stranger-line" hidden>Four little history games. New issue at midnight — same issue as everyone else.<button id="stranger-close" aria-label="Dismiss">×</button></p>
     <!-- Each .game-row (hero + day-card strip + Archive bar) is built and
@@ -136,6 +137,7 @@
         </div>
       </div>
       <div class="sum-actions">
+        <button class="pill primary big" id="sum-share" hidden>Share the run</button>
         <button class="pill primary big" id="sum-again">Play again</button>
         <button class="pill ghost big" id="sum-home">Home</button>
       </div>
@@ -222,6 +224,7 @@
         </div>
       </div>
       <div class="sum-actions">
+        <button class="pill primary big" id="rv-sum-share" hidden>Share the tear-up</button>
         <button class="pill primary big" id="rv-sum-again">Play again</button>
         <button class="pill ghost big" id="rv-sum-home">Home</button>
       </div>
@@ -279,6 +282,7 @@
       </div>
       <div id="conn-sum-groups" style="margin-top:14px;display:flex;flex-direction:column;gap:8px"></div>
       <div class="sum-actions" style="margin-top:20px">
+        <button class="pill primary big" id="conn-sum-share" hidden>Share the thread</button>
         <button class="pill primary big" id="conn-sum-list">All puzzles</button>
         <button class="pill ghost big" id="conn-sum-back2" style="display:none"></button>
       </div>
@@ -305,6 +309,7 @@
       </div>
       <p class="dd-countdown" id="dd-countdown" hidden></p>
       <p class="dd-carpet" id="dd-carpet" hidden><span class="df-stamp">Carpet diem</span></p>
+      <p class="dd-postmark" id="dd-milestone" hidden><span class="postmark"><b id="dd-milestone-n">№2</b><small>issues<br>running</small></span></p>
       <div class="sum-actions">
         <button class="pill primary big" id="dd-share">Share today's receipt</button>
         <button class="pill ghost big" id="dd-home">Home</button>

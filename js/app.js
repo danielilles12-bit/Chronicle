@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v97';
+const BUILD = 'v98';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -13,6 +13,7 @@ if (/iP(hone|ad|od)/.test(navigator.userAgent)
 
 import * as store from './storage.js';
 import { track, initTracking } from './track.js';
+import { fullHouseShareText, obituaryShareText, shareResult, flashShareButton } from './sharecard.js';
 import { isMatch } from './match.js';
 import { initMapGame, renderMapStart, startMapDaily, startMapPractice } from './mapgame.js';
 import { initRevealGame, renderRevealStart, startRevealDaily, startRevealPractice } from './revealgame.js';
@@ -209,6 +210,30 @@ function dayCardStatus(gameKey, editionIndex) {
   return daily.dailyStatus(gameKey, editionIndex);
 }
 
+// The masthead punch card (approved streak look, the "combo"): this week as
+// seven die-punched ticket squares — a hole is that day's full house — plus
+// the running count while the streak is alive. "Alive" includes runs still
+// inside the 48h repair window, matching derivedStreak's anchor in daily.js.
+function renderPunchCard() {
+  const el = $('#punch-card');
+  if (!el) return;
+  const today = daily.todayIndex();
+  if (today < 0) { el.hidden = true; return; }
+  const monday = today - daily.weekday(today);
+  const letters = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+  const chips = letters.map((ch, i) => {
+    const day = monday + i;
+    const done = day <= today && day >= 0 && fullHouseDone(day);
+    const cls = ['punch-day', done ? 'punched' : '', day === today ? 'today' : '', day > today ? 'future' : '']
+      .filter(Boolean).join(' ');
+    return `<span class="${cls}">${done ? '<i></i>' : ch}</span>`;
+  }).join('');
+  const fh = store.getDailyLedger().fullHouse || { streak: 0, lastEdition: -Infinity };
+  const alive = Number.isFinite(fh.lastEdition) && fh.lastEdition >= today - 3 && fh.streak > 0;
+  el.innerHTML = chips + (alive ? `<span class="punch-count">№ ${fh.streak} running</span>` : '');
+  el.hidden = false;
+}
+
 const MAX_DAY_CARDS = 7;
 
 export function refreshGameRows() {
@@ -217,6 +242,7 @@ export function refreshGameRows() {
   const today = Math.max(0, daily.todayIndex());
   const wd = new Date().toLocaleDateString('en-GB', { weekday: 'long' });
   $('#dateline').textContent = `Issue № ${today} // ${wd}`;
+  renderPunchCard();
   GAME_ROWS.forEach((g) => {
     const status = daily.dailyStatus(g.key, today);
     const entry = status === 'done' ? store.getDailyEntry(g.key, today) : null;
@@ -513,15 +539,29 @@ function dayTotal(n) {
     return sum + ((e && e.score) || 0);
   }, 0);
 }
-function shareText(n) {
+// What the day-done share button sends: set by showCelebration (full-house
+// receipt) or showObituary (the wake) so one button serves both moments.
+let dayDoneShare = null;
+
+function fullHouseShare(n) {
   const ledger = store.getDailyLedger();
-  const names = { thread: 'THREAD', map: 'LIFELINE', who: 'FACE VALUE', what: 'RELIC' };
-  const lines = daily.GAMES.map((g) => {
+  const scores = {};
+  daily.GAMES.forEach((g) => {
     const e = ledger.entries[g] && ledger.entries[g][n];
-    return `${names[g]} ${e ? e.score : 0}`;
+    scores[g] = (e && e.score) || 0;
   });
   const streak = (ledger.fullHouse && ledger.fullHouse.streak) || 1;
-  return `DEAD FAMOUS · ISSUE № ${n}\n${lines.join(' · ')}\nTOTAL: ${dayTotal(n)} · STREAK: ${streak}`;
+  const total = dayTotal(n);
+  return {
+    text: fullHouseShareText(n, scores, total, streak),
+    card: {
+      game: 'FULL HOUSE', glyph: '🏛️', score: total, sub: `ISSUE № ${n}`,
+      rows: [`🧵 ${scores.thread}   🗺️ ${scores.map}`, `🖼️ ${scores.who}   🏺 ${scores.what}`]
+        .concat(streak > 1 ? [`🔥 ${streak}-day streak`] : []),
+    },
+    trackAs: 'share-fullhouse',
+    idle: "Share today's receipt",
+  };
 }
 
 function startCountdown() {
@@ -556,6 +596,14 @@ function showCelebration(n) {
   $('#dd-streak').textContent = `${streak} day${streak === 1 ? '' : 's'}`;
   $('#dd-stamp').hidden = true;
   $('#dd-carpet').hidden = false;
+  // Milestone postmarks (streak look "combo"): front-loaded early — the
+  // research says days 2/3/5/7 are where celebration moves retention most.
+  const MILESTONES = [2, 3, 5, 7, 10, 25, 50, 100];
+  const milestone = MILESTONES.includes(streak);
+  $('#dd-milestone').hidden = !milestone;
+  if (milestone) $('#dd-milestone-n').textContent = `№${streak}`;
+  dayDoneShare = fullHouseShare(n);
+  $('#dd-share').textContent = dayDoneShare.idle;
   $('#dd-share').hidden = false;
   startCountdown();
   show('view-daydone');
@@ -573,7 +621,20 @@ function showObituary(streak, lastEdition) {
   $('#dd-streak').textContent = `Issues ${Math.max(0, lastEdition - streak + 1)}–${lastEdition}`;
   $('#dd-stamp').hidden = false;
   $('#dd-carpet').hidden = true;
-  $('#dd-share').hidden = true;
+  $('#dd-milestone').hidden = true;
+  // The obituary is the most human share in the app — dark humour travels.
+  dayDoneShare = {
+    text: obituaryShareText(streak, Math.max(0, lastEdition - streak + 1), lastEdition),
+    card: {
+      game: 'IN MEMORIAM', glyph: '⚰️', score: streak, unit: 'DAYS',
+      sub: `ISSUES №${Math.max(0, lastEdition - streak + 1)}–№${lastEdition}`,
+      rows: [], stamp: 'MEMENTO MORI',
+    },
+    trackAs: 'share-obituary',
+    idle: 'Share the obituary',
+  };
+  $('#dd-share').textContent = dayDoneShare.idle;
+  $('#dd-share').hidden = false;
   $('#dd-countdown').hidden = true;
   show('view-daydone');
 }
@@ -600,14 +661,10 @@ function initDayDone() {
   $('#dd-close').addEventListener('click', goHome);
   $('#dd-home').addEventListener('click', goHome);
   $('#dd-share').addEventListener('click', async () => {
-    const text = shareText(daily.todayIndex());
+    if (!dayDoneShare) return;
     const btn = $('#dd-share');
-    try {
-      if (navigator.share) { await navigator.share({ text }); return; }
-      await navigator.clipboard.writeText(text);
-      btn.textContent = 'Copied!';
-      setTimeout(() => { btn.textContent = "Share today's receipt"; }, 1600);
-    } catch (e) { /* user cancelled */ }
+    const out = await shareResult(dayDoneShare);
+    flashShareButton(btn, out, dayDoneShare.idle);
   });
   document.addEventListener('viewchange', (e) => {
     if (e.detail === 'view-home') maybeCelebrate();

@@ -3,6 +3,7 @@ import { DATA, $, show, back, goHome, refreshHomeStats, appConfirm } from './app
 import * as store from './storage.js';
 import { isMatch, registerPool } from './match.js';
 import * as daily from './daily.js';
+import { mapShareText, mapEmojiRow, shareResult, flashShareButton } from './sharecard.js';
 
 const MAP_W = 1000, MAP_H = 500;
 // The world background rect (see renderWorld) bleeds 40 units past the land
@@ -464,6 +465,18 @@ function renderLockedSummary() {
   }
   // Daily results are locked: replace the "Play again" action with a plain
   // Home button so a completed daily can't be replayed from its own summary.
+  // Share 2.0: dailies only (the issue number is the common reference).
+  const isDaily = S.mode === 'daily' && S.editionIndex != null;
+  S.share = isDaily ? {
+    text: mapShareText(S.editionIndex, S.results, S.score),
+    card: {
+      game: 'LIFELINE', glyph: '🗺️', score: S.score, sub: `ISSUE № ${S.editionIndex}`,
+      rows: [mapEmojiRow(S.results.slice(0, 5)), mapEmojiRow(S.results.slice(5))].filter(Boolean),
+    },
+    trackAs: 'share-map',
+  } : null;
+  const sumShare = $('#sum-share');
+  if (sumShare) sumShare.hidden = !S.share;
   $('#sum-again').hidden = !!S.locked;
   $('#sum-home').textContent = S.locked ? 'Home' : 'Home';
 }
@@ -580,4 +593,12 @@ export function initMapGame() {
     startSession();
   });
   $('#sum-home').addEventListener('click', goHome);
+  const sumShareBtn = $('#sum-share');
+  if (sumShareBtn) {
+    sumShareBtn.addEventListener('click', async () => {
+      if (!S || !S.share) return;
+      const out = await shareResult(S.share);
+      flashShareButton(sumShareBtn, out, 'Share the run');
+    });
+  }
 }

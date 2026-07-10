@@ -2,6 +2,7 @@
 import { DATA, $, $$, show, back, goHome, refreshHomeStats } from './app.js';
 import * as store from './storage.js';
 import * as daily from './daily.js';
+import { threadShareText, threadEmojiRows, shareResult, flashShareButton } from './sharecard.js';
 
 const MAX_MISTAKES = 4;
 const COLOUR_ORDER = ['yellow', 'green', 'blue', 'purple'];
@@ -123,6 +124,7 @@ function startPuzzle(puzzle) {
     selected: new Set(),
     found: new Set(progress ? progress.found : []),       // set of colour strings already solved
     mistakes: progress ? progress.mistakes : 0,
+    guesses: progress ? (progress.guesses || []) : [],
     done: false,
   };
 
@@ -157,6 +159,7 @@ function startEdition(mode, editionIndex) {
     selected: new Set(),
     found: new Set(progress ? progress.found : []),
     mistakes: progress ? progress.mistakes : 0,
+    guesses: progress ? (progress.guesses || []) : [],
     done: false,
   };
   $('#conn-puzzle-title').textContent = puzzle.title;
@@ -182,7 +185,7 @@ function showLockedResult(editionIndex, entry) {
   renderThreadReceipt({
     editionIndex, mode: 'daily', title: puzzle ? puzzle.title : '',
     score: entry.score, solved: detail.solved, perfect: detail.perfect,
-    mistakes: detail.mistakes || 0, found: null,
+    mistakes: detail.mistakes || 0, found: null, guesses: detail.guesses || [],
   });
   const reveal = $('#conn-sum-groups');
   reveal.innerHTML = '';
@@ -214,6 +217,7 @@ function persistProgress() {
   S.store.set({
     found: [...S.found],
     mistakes: S.mistakes,
+    guesses: S.guesses || [],
   });
 }
 
@@ -299,6 +303,10 @@ function submitGuess() {
   const remaining = S.tiles.filter((t) => !S.found.has(t.colour));
   const selectedTiles = [...S.selected].map((i) => remaining[i]);
   const colours = selectedTiles.map((t) => t.colour);
+  // The guess log is the share grid (Share 2.0): one row of four colours per
+  // submitted guess, right or wrong, in play order.
+  if (!S.guesses) S.guesses = [];
+  S.guesses.push(colours.slice());
   const allSame = colours.every((c) => c === colours[0]);
 
   const fb = $('#conn-feedback');
@@ -363,7 +371,10 @@ function finishPuzzle() {
     stats.totalScore = (stats.totalScore || 0) + score;
     store.setConnStats(stats);
   } else if (S.mode === 'daily') {
-    daily.recordDailyCompletion('thread', S.editionIndex, { score, detail: { solved, perfect, mistakes: S.mistakes } });
+    daily.recordDailyCompletion('thread', S.editionIndex, {
+      score,
+      detail: { solved, perfect, mistakes: S.mistakes, guesses: S.guesses || [] },
+    });
     S.locked = true;
   }
   // practice mode: no ledger, no puzzle-list record, no stats — replayable.
@@ -374,6 +385,7 @@ function finishPuzzle() {
   renderThreadReceipt({
     editionIndex: S.editionIndex, mode: S.mode, title: S.puzzle.title,
     score, solved, perfect, mistakes: S.mistakes, found: S.found.size,
+    guesses: S.guesses || [],
   });
 
   const reveal = $('#conn-sum-groups');
@@ -395,7 +407,20 @@ function finishPuzzle() {
 // the locked archive view so the two renderings can't drift. `found` is null
 // when the per-group count wasn't recorded (locked entries store only
 // solved/perfect/mistakes).
-function renderThreadReceipt({ editionIndex, mode, title, score, solved, perfect, mistakes, found }) {
+function renderThreadReceipt({ editionIndex, mode, title, score, solved, perfect, mistakes, found, guesses }) {
+  // Share 2.0: dailies are shareable (issue number = the common reference);
+  // practice/free runs are not — nothing to compare against.
+  const isDaily = mode === 'daily' && editionIndex != null;
+  S.share = isDaily ? {
+    text: threadShareText(editionIndex, { guesses, solved, perfect, mistakes, title }),
+    card: {
+      game: 'THREAD', glyph: '🧵', score, sub: `ISSUE № ${editionIndex}`,
+      rows: threadEmojiRows(guesses),
+    },
+    trackAs: 'share-thread',
+  } : null;
+  const shareBtn = $('#conn-sum-share');
+  if (shareBtn) shareBtn.hidden = !S.share;
   const head = $('#conn-receipt-head');
   if (head) {
     head.textContent = 'Dead Famous · Thread'
@@ -455,6 +480,14 @@ export function initConnectionsGame() {
     renderGrid();
   });
   $('#conn-submit').addEventListener('click', submitGuess);
+  const connShare = $('#conn-sum-share');
+  if (connShare) {
+    connShare.addEventListener('click', async () => {
+      if (!S || !S.share) return;
+      const out = await shareResult(S.share);
+      flashShareButton(connShare, out, 'Share the thread');
+    });
+  }
   $('#conn-quit').addEventListener('click', () => {
     // Header back arrow: leave the puzzle and return to the list, same as
     // every other game's back button — it must not just undo a selection.

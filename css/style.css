@@ -54,6 +54,35 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 .dateline { margin: 8px 0 0; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--ch-text-primary); font-family: var(--ch-font-ui); }
 .masthead-sticker { position: absolute; right: 12px; top: 8px; width: 92px; transform: rotate(6deg); }
 
+/* Masthead punch card: this week as die-punched ticket squares (streak). */
+#punch-card { display: flex; gap: 5px; align-items: center; margin: 8px 0 2px; }
+#punch-card .punch-day {
+  width: 17px; height: 17px; border: 2px solid var(--ch-ink); background: var(--ch-cream);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--ch-font-ui); font-weight: 700; font-size: 8.5px; color: var(--ch-text-muted);
+}
+#punch-card .punch-day.future { border-color: var(--ch-line-soft); color: var(--ch-sage); }
+#punch-card .punch-day.today { box-shadow: 2px 2px 0 var(--ch-ink); }
+#punch-card .punch-day.punched i {
+  width: 9px; height: 9px; border-radius: 50%; background: var(--ch-ink);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,.35);
+}
+#punch-card .punch-count {
+  margin-left: 7px; font-family: var(--ch-font-ui); font-weight: 700; font-size: 11px;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--ch-ink);
+}
+
+/* Celebration milestone postmark (streak days 2/3/5/7/10/25/50/100). */
+.dd-postmark { display: flex; justify-content: center; margin: 2px 0 8px; }
+.dd-postmark .postmark {
+  width: 76px; height: 76px; border: 2.5px solid var(--ch-ink); border-radius: 50%;
+  display: inline-flex; flex-direction: column; align-items: center; justify-content: center;
+  transform: rotate(-8deg); position: relative; color: var(--ch-ink);
+}
+.dd-postmark .postmark::after { content: ''; position: absolute; inset: 4px; border: 1px solid var(--ch-ink); border-radius: 50%; }
+.dd-postmark b { font-family: var(--ch-font-display); font-size: 24px; line-height: 1; font-weight: 400; }
+.dd-postmark small { font-family: var(--ch-font-ui); font-weight: 700; font-size: 6.5px; letter-spacing: .14em; text-transform: uppercase; text-align: center; line-height: 1.5; }
+
 /* ---------- Game rows (NYT-Games-style: hero + day-card strip + Archive) --
    Built by js/app.js (renderGameRows). Each row carries its own accent tint
    via inline custom properties (--row-tint-strong/--row-tint-soft) computed

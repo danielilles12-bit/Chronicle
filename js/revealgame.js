@@ -7,6 +7,7 @@ import { DATA, $, show, back, goHome, appConfirm, refreshHomeStats } from './app
 import * as store from './storage.js';
 import { isMatch, registerPool } from './match.js';
 import * as daily from './daily.js';
+import { revealShareText, revealEmojiRow, shareResult, flashShareButton } from './sharecard.js';
 
 const ROUNDS = 10;
 const SCRAPS = 9;               // 3x3 cover grid
@@ -442,7 +443,8 @@ function showLockedResult(editionIndex, entry) {
     editionIndex, done: true, locked: true,
     score: entry.score,
     results: (entry.detail || []).map((r) => ({
-      item: byId(r.id) || { name: '(removed)', kind: MODE === 'who' ? 'portrait' : 'artefact' }, pts: r.pts, correct: r.correct,
+      item: byId(r.id) || { name: '(removed)', kind: MODE === 'who' ? 'portrait' : 'artefact' },
+      pts: r.pts, correct: r.correct, torn: r.torn || 0, wrongs: r.wrongs || 0,
     })),
   };
   renderLockedSummary();
@@ -580,6 +582,20 @@ function renderLockedSummary() {
     ol.appendChild(li);
   }
   // Daily results are locked: no replay from the summary screen.
+  // Share 2.0: dailies only (the issue number is the common reference).
+  const isDaily = S.mode === 'daily' && S.editionIndex != null;
+  S.share = isDaily ? {
+    text: revealShareText(MODE, S.editionIndex, S.results, S.score),
+    card: {
+      game: MODE === 'who' ? 'FACE VALUE' : 'RELIC',
+      glyph: MODE === 'who' ? '🖼️' : '🏺',
+      score: S.score, sub: `ISSUE № ${S.editionIndex}`,
+      rows: [revealEmojiRow(S.results.slice(0, 5)), revealEmojiRow(S.results.slice(5))].filter(Boolean),
+    },
+    trackAs: `share-${MODE}`,
+  } : null;
+  const rvShare = $('#rv-sum-share');
+  if (rvShare) rvShare.hidden = !S.share;
   $('#rv-sum-again').hidden = !!S.locked;
 }
 
@@ -597,7 +613,8 @@ function finishSession() {
   } else if (S.mode === 'daily') {
     daily.recordDailyCompletion(MODE, S.editionIndex, {
       score: S.score,
-      detail: S.results.map((r3) => ({ id: r3.item.id, pts: r3.pts, correct: r3.correct })),
+      // torn/wrongs feed the Share 2.0 emoji row (🟩 clean, 🟨 laboured, 🟥 lost)
+      detail: S.results.map((r3) => ({ id: r3.item.id, pts: r3.pts, correct: r3.correct, torn: r3.torn, wrongs: r3.wrongs })),
     });
     S.locked = true;
   }
@@ -680,6 +697,14 @@ export function initRevealGame() {
     }
   });
 
+  const rvShareBtn = $('#rv-sum-share');
+  if (rvShareBtn) {
+    rvShareBtn.addEventListener('click', async () => {
+      if (!S || !S.share) return;
+      const out = await shareResult(S.share);
+      flashShareButton(rvShareBtn, out, 'Share the tear-up');
+    });
+  }
   $('#rv-sum-back').addEventListener('click', goHome);
   $('#rv-sum-again').addEventListener('click', () => { back(); startSession(); });
   $('#rv-sum-home').addEventListener('click', goHome);
