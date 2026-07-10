@@ -5,3 +5,23 @@ __pycache__/
 .claude/launch.json
 .grind-lock.json
 tools/cache/
+
+# Design exploration + planning artifacts (Daniel 2026-07-10: keep off the public repo)
+LAUNCH_PLAN.md
+MORNING_REPORT.md
+morning-board.html
+launch-demos/
+brand-playbook.html
+curators-room-board.html
+direction-gallery.html
+house-v2-proof.html
+soane-home.html
+taste-interview.html
+logo-review.html
+assets/brand-v2/
+assets/logo/
+icons_backup/
+tools/out/minis2.json
+tools/out/minis3.json
+tools/out/minis4.json
+tools/out/minis_new.json
