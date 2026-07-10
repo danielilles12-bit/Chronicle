@@ -1,6 +1,6 @@
 // Dead Famous service worker: precache everything, serve cache-first.
 // Bump VERSION on every deploy to refresh clients.
-const VERSION = 'deadfamous-v93';
+const VERSION = 'deadfamous-v94';
 
 const ASSETS = [
   './',
@@ -30,14 +30,12 @@ const ASSETS = [
   './data/puzzles.json',
   './data/figures.json',
   './data/worldmap.json',
-  './data/reveal.json',
   './data/reveal-who.json',
   './data/reveal-what.json',
   './data/connections.json',
   './manifest.webmanifest',
   './icons/icon-192.png',
   './icons/icon-512.png',
-  './icons/icon-maskable-512.png',
   './icons/apple-touch-icon.png',
   './icons/favicon.png',
 ];
