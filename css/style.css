@@ -29,6 +29,11 @@ body {
   overscroll-behavior: none;
   touch-action: manipulation;
 }
+/* iOS (html.ios set by js/app.js) gets its native rubber band back — the
+   real thing, momentum flicks included; the queen pull rides it. Everywhere
+   else keeps the solid stop above: Android Chrome's built-in pull-to-refresh
+   would fight the gesture, and desktop has no bounce to give. */
+html.ios, html.ios body { overscroll-behavior: auto; }
 button { font: inherit; color: inherit; background: none; border: none; padding: 0; cursor: pointer; }
 #app { max-width: 600px; margin: 0 auto; min-height: 100dvh; display: flex; flex-direction: column; }
 
@@ -521,28 +526,13 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   80%      { transform: translateX(4px); }
 }
 
-/* Elastic overscroll (home only): damped pull at both ends with a shared
-   damped-spring settle, plus the spinning chess-queen badge on the top pull.
-   #ptr-badge is a purely positional wrapper (JS drives its `translate`);
-   .ptr-badge-face carries the visible chrome and is what actually
-   rotates/scales, via the standalone `rotate`/`scale` CSS properties so JS's
-   inline styles and the CSS keyframe animations below never fight over the
-   same `transform` property. */
-#view-home { will-change: transform; }
-
-/* The release spring, shared by the top pull and the bottom stretch. Every
-   keyframe is a fraction of --pull (set by JS to the released offset,
-   negative for the bottom), so one set of numbers defines the damped
-   oscillation everywhere: a fast return, one confident overshoot, a small
-   echo, stillness. */
-@keyframes elastic-settle {
-  0%   { transform: translateY(var(--pull)); animation-timing-function: cubic-bezier(.26,.86,.32,1); }
-  52%  { transform: translateY(calc(var(--pull) * -0.085)); animation-timing-function: cubic-bezier(.34,0,.36,1); }
-  78%  { transform: translateY(calc(var(--pull) * 0.032)); animation-timing-function: cubic-bezier(.34,0,.36,1); }
-  100% { transform: translateY(0); }
-}
-#view-home.elastic-settle { animation: elastic-settle .62s both; }
-
+/* The queen pull (home, iOS only). The page's own motion — pull, flick,
+   bounce, spring-back — is the OS rubber band (see the html.ios override up
+   top), not ours; only the badge is scripted. #ptr-badge is a purely
+   positional wrapper (JS drives its `translate`); .ptr-badge-face carries the
+   visible chrome and is what actually rotates/scales, via the standalone
+   `rotate`/`scale` CSS properties so JS's inline styles and the CSS keyframe
+   animations below never fight over the same `transform` property. */
 #ptr-badge {
   position: fixed; top: calc(env(safe-area-inset-top) * .5); left: 50%;
   width: 76px; height: 76px; margin-left: -38px; z-index: 40;
