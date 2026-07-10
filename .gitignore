@@ -4,3 +4,4 @@ __pycache__/
 .claude/settings.local.json
 .claude/launch.json
 .grind-lock.json
+tools/cache/
