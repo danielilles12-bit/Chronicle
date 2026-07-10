@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Closer Than You Think — playable prototype</title>
+<style>
+@font-face {font-family:'DF Slab';src:url('../assets/fonts/archivo-black.woff2') format('woff2');font-weight:400;font-display:swap;}
+@font-face {font-family:'DF Text';src:url('../assets/fonts/archivo-regular.woff2') format('woff2');font-weight:400;font-display:swap;}
+@font-face {font-family:'DF Text';src:url('../assets/fonts/archivo-bold.woff2') format('woff2');font-weight:700;font-display:swap;}
+@font-face {font-family:'DF Mono';src:url('../assets/fonts/space-mono-regular.woff2') format('woff2');font-weight:400;font-display:swap;}
+@font-face {font-family:'DF Mono';src:url('../assets/fonts/space-mono-bold.woff2') format('woff2');font-weight:700;font-display:swap;}
+:root{
+  --paper:#F2EFE6;--cream:#FFF;--ink:#0B0B0B;
+  --cyan:#2FC9E8;--magenta:#FF3DDB;--yellow:#FFE93B;--red:#E02020;
+  --muted:#6B675C;
+  --slab:'DF Slab','Arial Black',sans-serif;--text:'DF Text','Helvetica Neue',Arial,sans-serif;--mono:'DF Mono','Courier New',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{height:100%;}
+body{
+  background:var(--paper);
+  background-image:radial-gradient(rgba(11,11,11,.09) 1px,transparent 1.2px);
+  background-size:14px 14px;
+  font-family:var(--text);color:var(--ink);
+  display:flex;justify-content:center;
+}
+#phone{width:100%;max-width:430px;min-height:100dvh;display:flex;flex-direction:column;padding:max(12px,env(safe-area-inset-top)) 20px 24px;}
+.proto-tag{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:center;padding:4px 0 10px;}
+header.mast{border-bottom:4px solid var(--ink);padding-bottom:10px;margin-bottom:14px;}
+header.mast .kicker{font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;}
+header.mast h1{font-family:var(--slab);font-size:clamp(30px,9vw,40px);line-height:.95;text-transform:uppercase;letter-spacing:-.01em;margin-top:4px;}
+header.mast .tag{font-family:var(--text);font-size:14px;color:var(--muted);margin-top:6px;}
+.hud{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;}
+.hud .pips{display:flex;gap:5px;}
+.hud .pip{width:11px;height:11px;border:2px solid var(--ink);background:var(--cream);}
+.hud .pip.won{background:var(--ink);}
+.hud .pip.fooled{background:var(--magenta);border-color:var(--ink);}
+.card{background:var(--cream);border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink);}
+.anchor-card{padding:16px;text-align:center;margin-bottom:14px;position:relative;}
+.anchor-card .lbl{font-family:var(--mono);font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
+.anchor-card h2{font-family:var(--slab);font-size:clamp(20px,6vw,26px);text-transform:uppercase;line-height:1.02;margin-top:6px;}
+.anchor-card .sub{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:6px;}
+.vs-q{font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;text-align:center;margin:0 0 10px;}
+.vs-q b{background:var(--yellow);padding:1px 5px;border:2px solid var(--ink);display:inline-block;transform:rotate(-1deg);}
+.opts{display:flex;flex-direction:column;gap:12px;}
+.opt{padding:16px 14px;font-family:var(--slab);font-size:clamp(17px,5vw,21px);line-height:1.05;text-transform:uppercase;text-align:center;cursor:pointer;user-select:none;transition:transform 120ms;}
+.opt .yrs{display:block;font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:.1em;color:var(--muted);margin-top:6px;text-transform:none;}
+.opt:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink);}
+.reveal{display:none;}
+.reveal.on{display:block;animation:pop 260ms cubic-bezier(.2,1.4,.4,1);}
+@keyframes pop{from{transform:scale(.94);opacity:0}to{transform:scale(1);opacity:1}}
+.verdict{font-family:var(--slab);font-size:clamp(26px,8vw,34px);text-transform:uppercase;text-align:center;line-height:.98;margin:6px 0 12px;}
+.verdict.good{color:var(--ink);}
+.verdict .stamp{display:inline-block;border:3px solid var(--red);color:var(--red);padding:2px 10px;transform:rotate(-4deg);font-size:.55em;letter-spacing:.08em;vertical-align:middle;margin-left:6px;font-family:var(--mono);font-weight:700;}
+.tl{padding:14px;margin-bottom:12px;}
+.tl .row{margin:10px 0;}
+.tl .row .who{font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between;}
+.tl .bar-wrap{height:18px;border:2px solid var(--ink);background:var(--cream);margin-top:4px;position:relative;}
+.tl .bar{height:100%;width:0;background:var(--ink);transition:width 900ms cubic-bezier(.3,1,.3,1);}
+.tl .row.win .bar{background:var(--magenta);}
+.tl .row .gap{font-family:var(--mono);font-weight:700;font-size:12px;margin-top:3px;}
+.tl .row.win .gap{color:#D6008F;}
+.kick{padding:13px 14px;font-size:15px;line-height:1.45;margin-bottom:14px;background:var(--cream);}
+.kick b{background:var(--yellow);padding:0 3px;}
+.btn{display:block;width:100%;padding:15px;background:var(--ink);color:var(--paper);border:2px solid var(--ink);box-shadow:4px 4px 0 rgba(11,11,11,.35);font-family:var(--slab);font-size:17px;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;text-align:center;}
+.btn.ghost{background:var(--cream);color:var(--ink);box-shadow:4px 4px 0 var(--ink);font-family:var(--mono);font-weight:700;font-size:14px;}
+.btn + .btn{margin-top:10px;}
+/* end screen */
+.receipt{padding:18px 16px;text-align:center;}
+.receipt .head{font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;border-bottom:2px dashed var(--ink);padding-bottom:10px;}
+.receipt .big{font-family:var(--slab);font-size:64px;line-height:1;margin:14px 0 2px;}
+.receipt .lbl{font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
+.receipt .emoji{font-size:22px;letter-spacing:3px;margin:14px 0;}
+.receipt .verdict-line{font-family:var(--slab);font-size:20px;text-transform:uppercase;margin:4px 0 12px;}
+.receipt .foot{border-top:2px dashed var(--ink);padding-top:10px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+#screen-intro .card{padding:20px;text-align:center;}
+#screen-intro .rule{font-family:var(--mono);font-size:13px;line-height:1.7;margin:14px 0 18px;text-align:left;}
+#screen-intro .rule b{font-family:var(--mono);}
+.hidden{display:none !important;}
+.note{font-family:var(--mono);font-size:10px;color:var(--muted);text-align:center;margin-top:14px;line-height:1.6;}
+</style>
+</head>
+<body>
+<div id="phone">
+  <div class="proto-tag">Dead Famous — prototype · not wired into the app</div>
+
+  <!-- INTRO -->
+  <section id="screen-intro">
+    <header class="mast">
+      <div class="kicker">Dead Famous presents</div>
+      <h1>Closer Than<br>You Think</h1>
+      <div class="tag">Time is weirder than it looks.</div>
+    </header>
+    <div class="card" style="padding:20px">
+      <div class="rule">
+        <b>1.</b> One anchor. Two contenders.<br>
+        <b>2.</b> Tap whichever is <b>closer in time</b> — or came <b>first</b>.<br>
+        <b>3.</b> Eight rounds. Trust nothing.
+      </div>
+      <button class="btn" onclick="start()">I won't be fooled</button>
+    </div>
+    <div class="note">Every fact checked. That's the problem.</div>
+  </section>
+
+  <!-- PLAY -->
+  <section id="screen-play" class="hidden">
+    <div class="hud"><span id="hud-round">ROUND 1/8</span><span class="pips" id="hud-pips"></span></div>
+    <div id="q-area"></div>
+  </section>
+
+  <!-- END -->
+  <section id="screen-end" class="hidden">
+    <header class="mast">
+      <div class="kicker">Dead Famous</div>
+      <h1>Closer Than<br>You Think</h1>
+    </header>
+    <div class="card receipt">
+      <div class="head">Official result · Issue № 1</div>
+      <div class="big" id="end-score">0/8</div>
+      <div class="lbl" id="end-fooled">Fooled 0 times</div>
+      <div class="emoji" id="end-emoji"></div>
+      <div class="verdict-line" id="end-verdict"></div>
+      <div class="foot">History moves in mysterious gaps</div>
+    </div>
+    <div style="margin-top:14px">
+      <button class="btn" id="share-btn" onclick="share()">Share the damage</button>
+      <button class="btn ghost" onclick="location.reload()">Play again</button>
+    </div>
+    <div class="note" id="share-preview" style="white-space:pre-line;text-align:left;background:var(--cream);border:2px dashed var(--ink);padding:10px;display:none"></div>
+  </section>
+</div>
+
+<script>
+// type 'closer': "ANCHOR is closer in time to A or B?"  type 'first': "Which came first, A or B?"
+// gapA/gapB in years for 'closer' (display strings preformatted); for 'first', yearA/yearB.
+const ROUNDS = [
+  { type:'closer', anchor:"Cleopatra's reign", anchorSub:"Egypt's last pharaoh · died 30 BC",
+    a:"The Great Pyramid being built", aYrs:"c. 2560 BC", gapA:2530,
+    b:"The first Moon landing", bYrs:"AD 1969", gapB:1998, answer:'b',
+    kick:"Cleopatra lived <b>closer to the Moon landing</b> than to the pyramid's construction — by about five centuries. The pyramid was more ancient to her than she is to us." },
+  { type:'closer', anchor:"Tyrannosaurus rex", anchorSub:"lived c. 68–66 million years ago",
+    a:"Stegosaurus", aYrs:"c. 150 million yrs ago", gapA:82,
+    b:"You, right now", bYrs:"present day", gapB:66, answer:'b', unit:"M YRS",
+    kick:"T. rex is <b>closer in time to you</b> than to Stegosaurus. Every museum diorama that poses them together is a 17-million-year lie." },
+  { type:'first', anchor:"Which came first?",
+    a:"Oxford University teaching students", aYrs:"by AD 1096",
+    b:"The Aztec capital being founded", bYrs:"AD 1325", answer:'a',
+    kick:"Oxford dons were lecturing <b>two centuries before Tenochtitlan laid its first stone</b>. The university predates the Aztec Empire entirely." },
+  { type:'closer', anchor:"The guillotine's last use in France", anchorSub:"a 1970s execution",
+    a:"The French Revolution", aYrs:"1789", gapA:188,
+    b:"Star Wars opening in cinemas", bYrs:"1977", gapB:0, answer:'b',
+    kick:"France's last beheading was in <b>September 1977</b> — four months <b>after</b> Star Wars premiered. Same year. Same planet." },
+  { type:'first', anchor:"Which came first?",
+    a:"Nintendo founded", aYrs:"1889",
+    b:"The Ottoman Empire falling", bYrs:"1922", answer:'a',
+    kick:"Nintendo spent <b>33 years selling playing cards while the Ottoman Empire still ruled</b>. One of them is still going." },
+  { type:'first', anchor:"Which came first?",
+    a:"The Great Pyramid completed", aYrs:"c. 2560 BC",
+    b:"The last woolly mammoths dying out", bYrs:"c. 2000 BC", answer:'a',
+    kick:"When the pyramid went up, <b>woolly mammoths were still alive</b> on Wrangel Island — and stayed alive for another five centuries." },
+  { type:'closer', anchor:"Anne Frank's birth", anchorSub:"1929",
+    a:"Queen Victoria's death", aYrs:"1901", gapA:28,
+    b:"Martin Luther King Jr's birth", bYrs:"1929", gapB:0, answer:'b',
+    kick:"Anne Frank and MLK were born the <b>same year</b> — 1929, five months apart. So was Audrey Hepburn." },
+  { type:'first', anchor:"Which came first?",
+    a:"Harvard University founded", aYrs:"1636",
+    b:"Newton's calculus", bYrs:"1660s–80s", answer:'a',
+    kick:"Harvard had been setting exams for <b>three decades before calculus existed</b>. Freshmen today learn maths older than their university — just not that one." },
+];
+
+let round = 0, results = []; // true = called it, false = fooled
+
+function start(){
+  document.getElementById('screen-intro').classList.add('hidden');
+  document.getElementById('screen-play').classList.remove('hidden');
+  renderRound();
+}
+
+function pips(){
+  const el = document.getElementById('hud-pips');
+  el.innerHTML = ROUNDS.map((_,i)=>{
+    const c = i<results.length ? (results[i]?'won':'fooled') : '';
+    return `<span class="pip ${c}"></span>`;
+  }).join('');
+}
+
+function fmtGap(r, key){
+  const v = r[key];
+  if (r.unit) return `${v} ${r.unit}`;
+  if (v === 0) return "SAME YEAR";
+  return `${v.toLocaleString()} YRS`;
+}
+
+function renderRound(){
+  const r = ROUNDS[round];
+  document.getElementById('hud-round').textContent = `ROUND ${round+1}/8`;
+  pips();
+  const q = document.getElementById('q-area');
+  const isCloser = r.type === 'closer';
+  q.innerHTML = `
+    <div class="card anchor-card">
+      <div class="lbl">${isCloser ? 'The anchor' : 'The question'}</div>
+      <h2>${r.anchor}</h2>
+      ${r.anchorSub ? `<div class="sub">${r.anchorSub}</div>` : ''}
+    </div>
+    <p class="vs-q">${isCloser ? 'is <b>closer in time</b> to…' : 'tap the <b>earlier</b> one'}</p>
+    <div class="opts">
+      <div class="card opt" onclick="pick('a')">${r.a}<span class="yrs">${r.aYrs}</span></div>
+      <div class="card opt" onclick="pick('b')">${r.b}<span class="yrs">${r.bYrs}</span></div>
+    </div>
+    <div class="reveal" id="reveal"></div>`;
+}
+
+function pick(choice){
+  const r = ROUNDS[round];
+  const right = choice === r.answer;
+  results.push(right);
+  pips();
+  const rv = document.getElementById('reveal');
+  document.querySelector('.opts').style.display = 'none';
+  document.querySelector('.vs-q').style.display = 'none';
+
+  let tl = '';
+  if (r.type === 'closer'){
+    const max = Math.max(r.gapA, r.gapB) || 1;
+    const wA = Math.max(6, Math.round(r.gapA/max*100));
+    const wB = Math.max(6, Math.round(r.gapB/max*100));
+    tl = `<div class="card tl">
+      <div class="row ${r.answer==='a'?'win':''}">
+        <div class="who"><span>→ ${r.a}</span></div>
+        <div class="bar-wrap"><div class="bar" data-w="${wA}"></div></div>
+        <div class="gap">${fmtGap(r,'gapA')}${r.answer==='a'?' · CLOSER':''}</div>
+      </div>
+      <div class="row ${r.answer==='b'?'win':''}">
+        <div class="who"><span>→ ${r.b}</span></div>
+        <div class="bar-wrap"><div class="bar" data-w="${wB}"></div></div>
+        <div class="gap">${fmtGap(r,'gapB')}${r.answer==='b'?' · CLOSER':''}</div>
+      </div>
+    </div>`;
+  } else {
+    const win = r.answer==='a' ? r : null;
+    tl = `<div class="card tl">
+      <div class="row ${r.answer==='a'?'win':''}"><div class="who"><span>${r.a}</span><span>${r.aYrs}</span></div>
+        <div class="gap">${r.answer==='a'?'FIRST — by a distance':''}</div></div>
+      <div class="row ${r.answer==='b'?'win':''}"><div class="who"><span>${r.b}</span><span>${r.bYrs}</span></div>
+        <div class="gap">${r.answer==='b'?'FIRST — by a distance':''}</div></div>
+    </div>`;
+  }
+
+  rv.innerHTML = `
+    <div class="verdict ${right?'good':''}">${right ? 'Called it.' : 'Fooled'}${right?'':'<span class="stamp">🤯 GOT YOU</span>'}</div>
+    ${tl}
+    <div class="card kick">${r.kick}</div>
+    <button class="btn" onclick="next()">${round===ROUNDS.length-1?'The verdict':'Next'}</button>`;
+  rv.classList.add('on');
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    rv.querySelectorAll('.bar').forEach(b=>{ b.style.width = b.dataset.w + '%'; });
+  }));
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function next(){
+  round++;
+  if (round >= ROUNDS.length) return end();
+  renderRound();
+}
+
+function shareText(){
+  const score = results.filter(Boolean).length;
+  const fooled = results.length - score;
+  const row = results.map(w=>w?'✅':'🤯').join('');
+  return `CLOSER THAN YOU THINK · № 1\n${row} ${score}/8\n${fooled ? `History fooled me ${fooled} time${fooled===1?'':'s'}.` : 'History couldn’t fool me.'}\ndeadfamous.example/closer`;
+}
+
+function end(){
+  document.getElementById('screen-play').classList.add('hidden');
+  document.getElementById('screen-end').classList.remove('hidden');
+  const score = results.filter(Boolean).length;
+  const fooled = results.length - score;
+  document.getElementById('end-score').textContent = `${score}/8`;
+  document.getElementById('end-fooled').textContent = fooled ? `Fooled ${fooled} time${fooled===1?'':'s'}` : 'Never fooled';
+  document.getElementById('end-emoji').textContent = results.map(w=>w?'✅':'🤯').join(' ');
+  const v = score===8 ? 'Unfoolable. Suspicious.' : score>=6 ? 'Sharp. Very sharp.' : score>=4 ? 'Time made a fool of you.' : 'History ate you alive.';
+  document.getElementById('end-verdict').textContent = v;
+}
+
+async function share(){
+  const t = shareText();
+  const btn = document.getElementById('share-btn');
+  try {
+    if (navigator.share) { await navigator.share({text:t}); return; }
+    await navigator.clipboard.writeText(t);
+    btn.textContent = 'Copied!';
+  } catch(e){}
+  const p = document.getElementById('share-preview');
+  p.style.display='block'; p.textContent = t;
+}
+</script>
+</body>
+</html>
