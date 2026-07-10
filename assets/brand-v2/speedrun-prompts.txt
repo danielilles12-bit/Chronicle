@@ -1,0 +1,34 @@
+CHRONICLE SPEEDRUN — 12 prompts, one per line.
+Copy each long line, paste into Midjourney, press Enter, move to the next.
+Turn on Draft Mode first (toggle in the prompt bar) — faster and cheaper.
+Skip the [bracketed] header lines — don't paste those.
+
+[A — THE CURATOR'S ROOM]
+
+a private collector's study late at night, floor-to-ceiling cabinets of narrow labelled drawers, glass domes and brass instruments, one green-shaded banker's lamp lit, dust motes in the lamplight, cluttered but deeply loved, photograph on Kodak Portra 400 --ar 4:5
+
+macro photograph of a small brass drawer-pull on dark walnut, a hand-written specimen label yellowed at the corners, warm lamplight raking across the wood grain --ar 4:5
+
+a deep red wax seal freshly pressed onto a heavy cream label, brass stamp resting beside it, candlelight, shallow focus, still-life photograph --ar 4:5
+
+editorial illustration of a silver-haired museum curator in a tweed waistcoat, spectacles on a chain, holding up a tiny artifact with a knowing half-smile, warm limited palette, visible pencil grain --ar 4:5
+
+[B — THE MARBLE HALLS]
+
+a vast empty neoclassical museum hall at dawn, pale marble columns, long shafts of cold morning light across the stone floor, one small gold object on a distant plinth, monumental quiet, large-format architectural photograph --ar 4:5
+
+macro photograph of white carrara marble with grey veining and a thin inlaid line of gold leaf, raking dawn light --ar 4:5
+
+a small laurel wreath cast in solid gold resting on a white marble plinth, single spotlight from above, near-black background, museum photography --ar 4:5
+
+a classical marble bust with the faintest amused smile, dramatic single spotlight, dark background, museum photograph --ar 4:5
+
+[C — THE HOUSE]
+
+a minimal auction house preview gallery, deep charcoal walls, a single ancient greek helmet under one precise spotlight, generous empty space, editorial photograph for an auction catalogue --ar 4:5
+
+macro photograph of thick ivory paper with a letterpress-embossed lot number and a thin oxblood printed rule, soft studio light --ar 4:5
+
+an auctioneer's gavel of dark walnut and brass lying on ivory linen, studio still life, one soft directional light --ar 4:5
+
+a tiny ancient bronze coin displayed on a huge ivory plinth with an elegant oversized paper lot tag, deadpan studio photography --ar 4:5

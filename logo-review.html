@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chronicle — logo review</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* Review-page chrome (scoped; the app's real style.css is loaded above so the
+     masthead demos use the genuine styles). */
+  html, body { height: auto; }
+  body {
+    background: #eceae2; font-family: var(--sans); color: var(--ink);
+    margin: 0; padding: 36px 24px 120px;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; }
+  .review-head { text-align: center; border-bottom: 3px double var(--ink); padding-bottom: 18px; margin-bottom: 8px; }
+  .review-head h1 { font-family: var(--serif); font-size: 40px; margin: 0; }
+  .review-head p { color: var(--muted); max-width: 640px; margin: 8px auto 0; font-size: 15px; line-height: 1.5; }
+  .brief { font-size: 13px; color: var(--muted); text-align: center; margin: 14px 0 0; }
+
+  h2.part {
+    font-family: var(--serif); font-size: 30px; margin: 64px 0 6px; text-align: center;
+  }
+  p.part-sub { text-align: center; color: var(--muted); margin: 0 0 28px; font-size: 14px; }
+
+  section.concept {
+    background: var(--paper); border: 1px solid var(--rule); border-radius: 16px;
+    padding: 28px 28px 22px; margin: 26px 0;
+  }
+  .c-head h3 { font-family: var(--serif); font-size: 24px; margin: 0 0 2px; }
+  .c-head .story { font-family: var(--serif); font-style: italic; font-size: 16px; color: #3c3c3c; margin: 2px 0 20px; }
+  .chip { display: inline-block; vertical-align: 3px; font-size: 11px; font-weight: 800; letter-spacing: 1px;
+          border-radius: 999px; padding: 3px 10px; color: #fff; margin-left: 10px; text-transform: uppercase; }
+  .chip.kill { background: var(--red); }
+  .chip.advance { background: var(--green); }
+  .chip.final { background: var(--gold); }
+
+  .c-hero { display: flex; gap: 36px; flex-wrap: wrap; align-items: flex-start; }
+  figure { margin: 0; }
+  figcaption { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-top: 8px; text-align: center; }
+  .hero512 svg { width: 512px; height: 512px; max-width: 100%; display: block; }
+  .concept.small .hero512 svg { width: 340px; height: 340px; }
+  .sizes { display: flex; gap: 26px; align-items: flex-end; flex-wrap: wrap; padding-top: 8px; }
+  .sizes svg { display: block; margin: 0 auto; }
+  .s88 { width: 88px; height: 88px; }
+  .s40 { width: 40px; height: 40px; }
+  .s16 { width: 16px; height: 16px; }
+  .lockrow { margin-top: 22px; }
+  .lockrow svg { width: 330px; max-width: 100%; height: auto; display: block; }
+
+  .c-contexts { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 26px; align-items: stretch; }
+  .ctx { border-radius: 14px; overflow: hidden; border: 1px solid var(--rule); }
+  .ctx-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin: 8px 0 0; text-align: center; }
+  .phone-frame { width: 390px; background: var(--paper); padding-bottom: 8px; }
+  .phone-frame .masthead.no-rule { border-bottom: none; padding-bottom: 2px; }
+  .mast-mark { width: 44px; height: 44px; display: block; margin: 0 auto 6px; color: var(--ink); }
+  .keyline-svg { display: block; width: 330px; max-width: 92%; margin: 12px auto 0; color: var(--ink); }
+
+  .tile { width: 330px; padding: 26px 22px; display: flex; flex-direction: column; gap: 20px; justify-content: center; }
+  .tile-ink  { background: var(--ink); color: #f2efe8; --logo-gold: #c9a54e; --logo-bg: #121212; }
+  .tile-mono { background: var(--paper); color: var(--ink); --logo-gold: currentColor; --logo-bg: #ffffff; }
+  .tile .lockrow svg { width: 270px; }
+  .tile .sizes { gap: 20px; }
+  .tile figcaption { color: inherit; opacity: .55; }
+
+  .note { font-size: 14px; line-height: 1.55; color: #3a3a3a; border-top: 1px solid var(--rule);
+          margin: 24px 0 0; padding-top: 14px; max-width: 860px; }
+  .note b { font-family: var(--serif); }
+
+  /* Cull table */
+  table.cull { border-collapse: collapse; width: 100%; background: var(--paper); border: 1px solid var(--rule);
+               border-radius: 14px; overflow: hidden; font-size: 14px; }
+  .cull th, .cull td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .cull th { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); background: var(--soft); }
+  .cull td:first-child { font-weight: 700; font-family: var(--serif); white-space: nowrap; }
+  .kill-notes { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 22px 26px; margin-top: 18px; }
+  .kill-notes h4 { font-family: var(--serif); margin: 10px 0 4px; font-size: 17px; }
+  .kill-notes p { margin: 0 0 8px; font-size: 14px; line-height: 1.55; color: #3a3a3a; }
+
+  .files { background: var(--paper); border: 1px solid var(--rule); border-radius: 14px; padding: 24px 28px; }
+  .files code { background: var(--soft); border-radius: 6px; padding: 1px 7px; font-size: 13px; }
+  .files li { margin: 5px 0; font-size: 14px; }
+  .verdict-final { font-family: var(--serif); font-size: 17px; line-height: 1.6; max-width: 780px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="review-head">
+    <h1>Chronicle — a new mark</h1>
+    <p>Six concepts. One idea per mark, ink-first, gold as garnish. Each is shown at 512 / 88 / 40 / 16&nbsp;px,
+       in the app's real masthead, on ink, and in pure monochrome. Then the cull, a refinement round for the survivors,
+       and a third round pushing the winning key from “utility” toward “play”.</p>
+    <p class="brief">Killed: perfect radial symmetry · emblems-in-rings · ornament without an idea.</p>
+  </header>
+
+  <!-- ================= HAND-AUTHORED MARKS ================= -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+
+      <!-- 01 · The Unfinished C — a C that is an ink stroke ending in a nib, drop trailing -->
+      <symbol id="mark-nib" viewBox="0 0 96 96">
+        <path fill="currentColor" fill-rule="evenodd"
+          d="M64.3 25
+             A30 30 0 1 0 64.3 71
+             C68 75.5 72 78.5 75.5 80.5
+             C71 76 67.5 70 65.6 64.2
+             A22.5 22.5 0 1 1 65.6 31.8
+             C69.3 30.2 69.6 26.1 64.3 25 Z
+             M74.3 79.2 L69.6 73.6 L70.7 72.7 Z"/>
+        <circle cx="81.5" cy="86.5" r="2.7" fill="var(--logo-gold,#9a7b2d)"/>
+      </symbol>
+
+      <!-- 02 · The Sundial Page — dog-eared page, fold as gnomon, shadow + hour ticks -->
+      <symbol id="mark-page" viewBox="0 0 96 96">
+        <path d="M56 12 H26 Q22 12 22 16 V80 Q22 84 26 84 H68 Q72 84 72 80 V28 Z"
+              fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M56 12 V28 H72 Z" fill="currentColor"/>
+        <path d="M56 28 L41 50.6 L44 52.3 Z" fill="currentColor"/>
+        <g stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <path d="M66.6 57.1 L68.1 61.4"/>
+          <path d="M53.3 58.9 L52.9 63.4"/>
+          <path d="M30.6 45.8 L26.9 48.4"/>
+        </g>
+        <path d="M40.5 54.9 L37.8 59.6" stroke="var(--logo-gold,#9a7b2d)" stroke-width="3" stroke-linecap="round"/>
+      </symbol>
+
+      <!-- 03 · The Column Pencil — newspaper column / classical column / pencil -->
+      <symbol id="mark-column" viewBox="0 0 96 96">
+        <g fill="currentColor">
+          <rect x="33.5" y="13" width="29" height="5.5" rx="1.2"/>
+          <path d="M36.5 18.5 H59.5 L57.5 24 H38.5 Z"/>
+        </g>
+        <path d="M38.5 24 H57.5 L56.5 60 H39.5 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M45 28 V56 M51 28 V56" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M39.5 60 L48 78 L56.5 60" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M44.8 70 L48 78 L51.2 70 Z" fill="var(--logo-gold,#9a7b2d)"/>
+      </symbol>
+
+      <!-- 04 · The Coin-Slot Sunrise — sun through the masthead's double rule / coin into the slot -->
+      <symbol id="mark-sun" viewBox="0 0 96 96">
+        <path d="M36.8 63 A15 15 0 1 1 59.2 63 Z" fill="var(--logo-gold,#9a7b2d)"
+              stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M48 34 V29.5 M57.5 36.5 L59.5 33.1 M38.5 36.5 L36.5 33.1"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M8 57 H31.5 M64.5 57 H88" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M8 63 H88" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      </symbol>
+
+      <!-- 05 · The Confetti Hourglass — sand falls as confetti (the one old-idea evolution) -->
+      <symbol id="mark-glass" viewBox="0 0 96 96">
+        <g transform="rotate(-7 48 48)">
+          <path d="M28 14 H68 M28 82 H68" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+          <path d="M32 17 C32 32 45 38 45 47 C45 56 32 62 32 79
+                   M64 17 C64 32 51 38 51 47 C51 56 64 62 64 79"
+                fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          <path d="M37 27 Q48 32 59 27 Q52.5 38 48.7 44.5 L47.3 44.5 Q43.5 38 37 27 Z" fill="currentColor"/>
+          <g>
+            <rect x="46.7" y="49.4" width="2.6" height="5.2" rx="0.6" fill="currentColor" transform="rotate(25 48 52)"/>
+            <rect x="45.2" y="56.9" width="2.6" height="5.2" rx="0.6" fill="var(--logo-gold,#9a7b2d)" transform="rotate(-20 46.5 59.5)"/>
+            <rect x="48.7" y="63.4" width="2.6" height="5.2" rx="0.6" fill="currentColor" transform="rotate(40 50 66)"/>
+            <rect x="40.2" y="70.4" width="2.6" height="5.2" rx="0.6" fill="var(--logo-gold,#9a7b2d)" transform="rotate(75 41.5 73)"/>
+            <rect x="46.2" y="69.9" width="2.6" height="5.2" rx="0.6" fill="currentColor" transform="rotate(15 47.5 72.5)"/>
+            <rect x="52.2" y="70.9" width="2.6" height="5.2" rx="0.6" fill="currentColor" transform="rotate(-55 53.5 73.5)"/>
+            <rect x="43.2" y="73.4" width="2.6" height="5.2" rx="0.6" fill="currentColor" transform="rotate(-30 44.5 76)"/>
+            <rect x="49.7" y="73.6" width="2.6" height="5.2" rx="0.6" fill="var(--logo-gold,#9a7b2d)" transform="rotate(60 51 76.2)"/>
+          </g>
+        </g>
+      </symbol>
+
+      <!-- 06 · The C Key — an old key whose bow is a hidden C -->
+      <symbol id="mark-key" viewBox="0 0 96 96">
+        <path d="M59.15 22 A15 15 0 1 0 59.15 42" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+        <path d="M48 46 V79" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+        <path d="M51 66 H60 M51 75 H57" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+      </symbol>
+
+      <!-- ============ ROUND TWO ============ -->
+
+      <!-- Sundial Page · R1 — bigger fold, fewer & heavier ticks: built to survive 40px -->
+      <symbol id="mark-page-r1" viewBox="0 0 96 96">
+        <path d="M52 12 H26 Q22 12 22 16 V80 Q22 84 26 84 H68 Q72 84 72 80 V32 Z"
+              fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round"/>
+        <path d="M52 12 V32 H72 Z" fill="currentColor"/>
+        <path d="M52 32 L37.4 53.05 L41.1 55.15 Z" fill="currentColor"/>
+        <g stroke="currentColor" stroke-width="3" stroke-linecap="round">
+          <path d="M59.25 59.05 L60.4 63.4"/>
+          <path d="M27.3 45.1 L23.3 47.2"/>
+        </g>
+        <path d="M37 58 L34.5 62.3" stroke="var(--logo-gold,#9a7b2d)" stroke-width="3.4" stroke-linecap="round"/>
+      </symbol>
+
+      <!-- Sundial Page · R2 — solid token: page silhouette, gold fold, knocked-out shadow -->
+      <symbol id="mark-page-r2" viewBox="0 0 96 96">
+        <path fill="currentColor" d="M54 14 H25 Q19 14 19 20 V76 Q19 82 25 82 H72 Q78 82 78 76 V38 Z"/>
+        <path d="M54 14 L54 38 L78 38 Z" fill="var(--logo-gold,#9a7b2d)"/>
+        <path d="M54 38 L40.3 57.8 L43.8 59.9 Z" fill="var(--logo-bg,#ffffff)"/>
+        <g stroke="var(--logo-bg,#ffffff)" stroke-width="3.2" stroke-linecap="round">
+          <path d="M60.5 62.1 L61.5 66"/>
+          <path d="M40.5 61.4 L38.25 65.3"/>
+          <path d="M32.35 50.5 L28.9 52.5"/>
+        </g>
+      </symbol>
+
+      <!-- Column Pencil · R1 — entasis, three flutes, tilted off its plinth, gold tip -->
+      <symbol id="mark-column-r1" viewBox="0 0 96 96">
+        <g transform="rotate(-8 48 48)">
+          <g fill="currentColor">
+            <rect x="33" y="12.5" width="30" height="5.5" rx="1.2"/>
+            <path d="M36 18 H60 L57.5 23.5 H38.5 Z"/>
+          </g>
+          <path d="M38.5 23.5 H57.5 C58.2 36 57.8 48 56.2 59.5 H39.8 C38.2 48 37.8 36 38.5 23.5 Z"
+                fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M48 27 V56.5 M43 27 C42.7 38 42.9 48 43.9 56.5 M53 27 C53.3 38 53.1 48 52.1 56.5"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          <path d="M39.8 59.5 L48 77.5 L56.2 59.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M44.9 69.8 L48 77.5 L51.1 69.8 Z" fill="var(--logo-gold,#9a7b2d)"/>
+        </g>
+      </symbol>
+
+      <!-- Column Pencil · R2 — mid-sentence: drawing the paper's own double rule -->
+      <symbol id="mark-column-r2" viewBox="0 0 96 96">
+        <path d="M12 70.5 H84" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M12 75.2 H57" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <g transform="rotate(-24 48 48)">
+          <g fill="currentColor">
+            <rect x="33" y="12.5" width="30" height="5.5" rx="1.2"/>
+            <path d="M36 18 H60 L57.5 23.5 H38.5 Z"/>
+          </g>
+          <path d="M38.5 23.5 H57.5 C58.2 36 57.8 48 56.2 59.5 H39.8 C38.2 48 37.8 36 38.5 23.5 Z"
+                fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M48 27 V56.5 M43 27 C42.7 38 42.9 48 43.9 56.5 M53 27 C53.3 38 53.1 48 52.1 56.5"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          <path d="M39.8 59.5 L48 77.5 L56.2 59.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M44.9 69.8 L48 77.5 L51.1 69.8 Z" fill="var(--logo-gold,#9a7b2d)"/>
+        </g>
+      </symbol>
+
+      <!-- C Key · R1 — the charm: wider bow so the C reads, dangling tilt, gold collar -->
+      <symbol id="mark-key-r1" viewBox="0 0 96 96">
+        <g transform="rotate(-14 48 50)">
+          <path d="M58.1 19.9 A15 15 0 1 0 58.1 42.1" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+          <path d="M48 45.5 V78" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
+          <rect x="43.2" y="49" width="9.6" height="4" rx="2" fill="var(--logo-gold,#9a7b2d)"/>
+          <path d="M51.7 64.5 H61 M51.7 74 H58" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/>
+        </g>
+      </symbol>
+
+      <!-- C Key · R2 — the keyline: the key lies down and becomes the masthead rule -->
+      <symbol id="mark-key-r2" viewBox="0 0 96 96">
+        <path d="M28.1 40.9 A10 10 0 1 0 28.1 55.1" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+        <path d="M31 48 H84" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/>
+        <path d="M70 51 V60 M78 51 V57.5" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/>
+      </symbol>
+
+      <!-- ============ ROUND THREE · making the key play ============ -->
+
+      <!-- Q1 · The Question Key — a true question mark cut like a key; the dot is the point -->
+      <symbol id="mark-key-q" viewBox="0 0 96 96">
+        <g transform="rotate(-6 48 45)">
+          <path d="M32.55 25.86 A16 16 0 1 1 48 46 L48 60" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+          <path d="M50.5 51 H59 M50.5 58 H56.5" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/>
+          <circle cx="48" cy="73" r="4.8" fill="var(--logo-gold,#9a7b2d)"/>
+        </g>
+      </symbol>
+
+      <!-- Q2 · The Click — the charm key caught mid-turn, ticks trailing -->
+      <symbol id="mark-key-click" viewBox="0 0 96 96">
+        <g transform="rotate(-30 48 68)">
+          <path d="M58.1 19.9 A15 15 0 1 0 58.1 42.1" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+          <path d="M48 45.5 V78" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
+          <rect x="43.2" y="49" width="9.6" height="4" rx="2" fill="var(--logo-gold,#9a7b2d)"/>
+          <path d="M51.7 64.5 H61 M51.7 74 H58" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/>
+        </g>
+        <path d="M53.2 31.4 A37 37 0 0 1 58.2 32.4 M63.1 34.2 A37 37 0 0 1 67.1 36.3"
+              fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      </symbol>
+
+      <!-- Q3 · Behind Today's Door — a door-card, light leaking through the keyhole -->
+      <symbol id="mark-keyhole" viewBox="0 0 96 96">
+        <g transform="rotate(-4 48 48)">
+          <rect x="30" y="22" width="40" height="56" rx="6" fill="none" stroke="currentColor" stroke-width="3"/>
+          <circle cx="48" cy="44" r="6" fill="currentColor"/>
+          <path d="M44.5 47 L51.5 47 L54.5 62 L41.5 62 Z" fill="currentColor"/>
+          <g stroke="var(--logo-gold,#9a7b2d)" stroke-width="3" stroke-linecap="round">
+            <path d="M48 32 V25.5"/>
+            <path d="M56.5 35.5 L61.2 30.8"/>
+            <path d="M39.5 35.5 L34.8 30.8"/>
+            <path d="M60 44 H65"/>
+            <path d="M36 44 H31.5"/>
+          </g>
+        </g>
+      </symbol>
+
+      <!-- Q4 · The Spark — the charm key strikes gold at the bit -->
+      <symbol id="mark-key-spark" viewBox="0 0 96 96">
+        <g transform="rotate(-14 48 50)">
+          <path d="M58.1 19.9 A15 15 0 1 0 58.1 42.1" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+          <path d="M48 45.5 V78" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
+          <rect x="43.2" y="49" width="9.6" height="4" rx="2" fill="var(--logo-gold,#9a7b2d)"/>
+          <path d="M51.7 64.5 H61 M51.7 74 H58" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/>
+        </g>
+        <path d="M72 58 L73.6 62.4 L78 64 L73.6 65.6 L72 70 L70.4 65.6 L66 64 L70.4 62.4 Z" fill="var(--logo-gold,#9a7b2d)"/>
+        <circle cx="78.5" cy="54.5" r="1.7" fill="var(--logo-gold,#9a7b2d)"/>
+      </symbol>
+
+      <!-- Q5 · The Toss — a dotted arc; history just threw you the keys -->
+      <symbol id="mark-key-toss" viewBox="0 0 96 96">
+        <path d="M14 46 Q28 12 49 20" fill="none" stroke="currentColor" stroke-width="2.6"
+              stroke-linecap="round" stroke-dasharray="0.1 8"/>
+        <g transform="rotate(24 48 50)">
+          <path d="M58.1 19.9 A15 15 0 1 0 58.1 42.1" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+          <path d="M48 45.5 V78" stroke="currentColor" stroke-width="7.5" stroke-linecap="round"/>
+          <rect x="43.2" y="49" width="9.6" height="4" rx="2" fill="var(--logo-gold,#9a7b2d)"/>
+          <path d="M51.7 64.5 H61 M51.7 74 H58" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/>
+        </g>
+      </symbol>
+
+      <!-- Stacked lockup for the keyline variation -->
+      <symbol id="lockup-key-r2" viewBox="0 0 350 100">
+        <text x="175" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+              font-size="44" font-weight="700" fill="currentColor" letter-spacing="0.5">Chronicle</text>
+        <g stroke="currentColor" fill="none" stroke-linecap="round">
+          <path d="M59.95 65.05 A7 7 0 1 0 59.95 74.95" stroke-width="4"/>
+          <path d="M62 70 H290" stroke-width="3.5"/>
+          <path d="M270 72.5 V80 M279 72.5 V77" stroke-width="3.5"/>
+        </g>
+      </symbol>
+
+    </defs>
+  </svg>
+
+  <h2 class="part">Part one · Six concepts</h2>
+  <p class="part-sub">One idea each, said in a sentence. Ink first; gold is garnish.</p>
+  <div id="concepts"></div>
+
+  <!-- ================= THE CULL ================= -->
+  <h2 class="part">Part two · The cull</h2>
+  <p class="part-sub">Judged as a critic: second read · 40&nbsp;px · smile · distinctiveness. “Nice” is a failing grade.</p>
+
+  <table class="cull">
+    <thead>
+      <tr><th>Concept</th><th>Second read?</th><th>Survives 40&nbsp;px?</th><th>Smile?</th><th>Distinct from NYT / museums / banks?</th><th>Verdict</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>01 · Unfinished C</td>
+        <td>Arrives, but faintly — it reads “swoosh” before it reads “pen”.</td>
+        <td>The taper mushes; the ink drop becomes dust at 16.</td>
+        <td>A polite nod, not a smile.</td>
+        <td>No. The crowded-C graveyard: fintech, yogurt, consultancies.</td>
+        <td><span class="chip kill">Killed</span></td></tr>
+      <tr><td>02 · Sundial Page</td>
+        <td>Genuine two-beat: a note page… <i>oh, it’s a sundial.</i></td>
+        <td>Fold + shadow hold; the ticks die first — fixable.</td>
+        <td>Yes — quiet wit that rewards the second look.</td>
+        <td>Yes. Nobody owns “paper that tells time”.</td>
+        <td><span class="chip advance">Advances</span></td></tr>
+      <tr><td>03 · Column Pencil</td>
+        <td>A triple: newspaper column, classical column, pencil. Lands fast, but lands.</td>
+        <td>Best in class — verticals survive even 16.</td>
+        <td>Yes; the pun keeps paying on repeat viewings.</td>
+        <td>Mostly — must dodge “education clip-art” with proportion and tilt.</td>
+        <td><span class="chip advance">Advances</span></td></tr>
+      <tr><td>04 · Coin-Slot Sunrise</td>
+        <td>The coin-slot read never arrives uninvited; strangers see a sunrise and stop.</td>
+        <td>Fine — but it’s a horizontal strip trapped in a square favicon.</td>
+        <td>Mild.</td>
+        <td>No. A rising sun over a rule is a regional bank at dawn.</td>
+        <td><span class="chip kill">Killed</span></td></tr>
+      <tr><td>05 · Confetti Hourglass</td>
+        <td>Yes, but inherited — it’s the old logo in a party hat.</td>
+        <td>Confetti becomes dandruff at 40; a smudge at 16.</td>
+        <td>Party-store cheer, not wit.</td>
+        <td>Hourglass = the great time-brand cliché. Museum gift shop.</td>
+        <td><span class="chip kill">Killed</span></td></tr>
+      <tr><td>06 · C Key</td>
+        <td>True hidden-letter wit: a key first, a C a beat later.</td>
+        <td>The silhouette is bulletproof down to 16.</td>
+        <td>Yes — it is literally a charm.</td>
+        <td>Keys skew locksmith/heraldry; the tilt and round terminals pull it back to play.</td>
+        <td><span class="chip advance">Advances</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="kill-notes">
+    <h4>Why 01 dies</h4>
+    <p>The concept sentence is good; the silhouette isn’t. Strip the story away and you’re left with a tapering
+       open circle — the most contested shape in trademark history. If a mark needs its caption to be distinct, it isn’t distinct. The nib flick
+       is the best part and it is 8% of the drawing.</p>
+    <h4>Why 04 dies</h4>
+    <p>The wit lives entirely in a two-pixel gap in the top rule. Wit that needs a footnote isn’t wit. First read is
+       “sunrise over a divider”, which is halfway to a savings-and-loan. It also composes as a landscape strip, so the
+       favicon wastes half its box. The one thing it does well — belonging to the masthead — the keyline variation (06·R2) does better.</p>
+    <h4>Why 05 dies</h4>
+    <p>Honest test, honest failure. It inherits the astrolabe’s problem in a new costume: an emblem <i>about time</i> rather than a charm
+       <i>about play</i>. And confetti is a texture, not a gesture — at card-glyph size it reads as noise, and noise is the opposite
+       of this design system.</p>
+  </div>
+
+  <h2 class="part">Part three · Round two</h2>
+  <p class="part-sub">The three survivors, each pushed through two variations.</p>
+  <div id="roundtwo"></div>
+
+  <!-- ================= ROUND THREE ================= -->
+  <h2 class="part">Part four · Round three — making the key play</h2>
+  <p class="part-sub">Client note on the charm: “reads as a utility — lodgings, locksmiths — not a game.
+     I should feel drawn in to play.” Fair, and precisely put: the charm is an <i>object</i>, and objects read
+     as services. Games are moments and invitations. Five ways to put play into the key.</p>
+  <div id="roundthree"></div>
+
+  <!-- ================= FINAL ================= -->
+  <h2 class="part">Part five · Verdict &amp; files</h2>
+  <div class="files">
+    <p class="verdict-final"><b>Primary — 06·Q1 · The Question Key.</b> Round three’s answer to the client note:
+      a question mark cut like a key. <i>Quiz first, key second</i> — the mark now promises a daily question and the
+      unlock, not a locksmith. It gave up the hidden C after the mirrored version failed on screen (the designer’s
+      note tells that story honestly); the C belongs to the wordmark, and the mark belongs to the game. A question
+      mark is the most legible favicon a quiz app can own, and the keyline (06·R2) still works beside it as the
+      masthead rule.</p>
+    <p class="verdict-final"><b>Held in reserve:</b> the quiet charm (06·R1) for contexts where the mark must whisper;
+      <b>03 · The Column Pencil</b> as the strongest non-key mark; the Sundial-Page solid token if the home-screen icon
+      ever wants a filled shape. The round-two verdict below the cull stands as the record of how we got here.</p>
+    <p>Final SVGs, saved to <code>assets/logo/</code> (ink is <code>currentColor</code>; gold is garnish — every file also works one-colour):</p>
+    <ul>
+      <li><code>c-key-question.svg</code> — <b>primary mark</b> (round-three winner)</li>
+      <li><code>c-key-question-lockup.svg</code> — primary mark + “Chronicle” in Georgia</li>
+      <li><code>c-key.svg</code> — the quiet charm (reserve variant)</li>
+      <li><code>c-key-keyline.svg</code> — horizontal key / masthead-rule variation</li>
+      <li><code>c-key-lockup.svg</code> — charm lockup</li>
+      <li><code>column-pencil.svg</code>, <code>column-pencil-writing.svg</code>, <code>column-pencil-lockup.svg</code></li>
+      <li><code>sundial-page.svg</code>, <code>sundial-page-solid.svg</code>, <code>sundial-page-lockup.svg</code></li>
+    </ul>
+    <p style="color:var(--muted);font-size:13px">Nothing in the app has been changed — the masthead demos on this page are mock-ups.
+       Production note: the lockups set “Chronicle” live in Georgia, which ships on every Apple device this PWA targets;
+       convert to outlines only if the lockup ever leaves the app.</p>
+  </div>
+
+</div>
+
+<script>
+const CARD = `
+  <button class="card" aria-label="Play Map of a Life">
+    <svg class="card-glyph" viewBox="0 0 48 48" aria-hidden="true">
+      <circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="2"/>
+      <ellipse cx="24" cy="24" rx="10" ry="21" fill="none" stroke="currentColor" stroke-width="2"/>
+      <line x1="3" y1="24" x2="45" y2="24" stroke="currentColor" stroke-width="2"/>
+      <circle cx="15" cy="15" r="4.5" fill="#4a7c43"/>
+      <circle cx="34" cy="31" r="4.5" fill="#b4422e"/>
+    </svg>
+    <div class="card-body">
+      <h2>Map of a Life</h2>
+      <p>One life, two dots — born here, died there. Name the figure.</p>
+      <p class="card-stat">530 LIVES TO GUESS</p>
+    </div>
+    <span class="card-go" aria-hidden="true">›</span>
+  </button>`;
+
+const KEYLINE = `
+  <svg class="keyline-svg" viewBox="0 0 330 22" aria-hidden="true">
+    <g stroke="currentColor" fill="none" stroke-linecap="round">
+      <path d="M13 5.5 A6 6 0 1 0 13 14.5" stroke-width="3.5"/>
+      <path d="M15 10 H322" stroke-width="3"/>
+      <path d="M300 12 V19 M310 12 V16.5" stroke-width="3"/>
+    </g>
+  </svg>`;
+
+function lockupSVG(c) {
+  if (c.lockup) return `<svg viewBox="0 0 350 100"><use href="#${c.lockup}"/></svg>`;
+  return `<svg viewBox="0 0 350 100">
+    <use href="#mark-${c.id}" x="0" y="11" width="78" height="78"/>
+    <text x="94" y="65" font-family="Georgia, 'Times New Roman', serif" font-size="46"
+          font-weight="700" fill="currentColor" letter-spacing="0.5">Chronicle</text>
+  </svg>`;
+}
+
+function sizesRow(c) {
+  return `
+    <figure><svg class="s88" viewBox="0 0 96 96"><use href="#mark-${c.id}"/></svg><figcaption>88</figcaption></figure>
+    <figure><svg class="s40" viewBox="0 0 96 96"><use href="#mark-${c.id}"/></svg><figcaption>40</figcaption></figure>
+    <figure><svg class="s16" viewBox="0 0 96 96"><use href="#mark-${c.id}"/></svg><figcaption>16 · favicon</figcaption></figure>`;
+}
+
+function mastheadDemo(c) {
+  const mark = c.keyline ? '' :
+    `<svg class="mast-mark" viewBox="0 0 96 96" aria-hidden="true"><use href="#mark-${c.id}"/></svg>`;
+  return `
+  <figure>
+    <div class="ctx phone-frame">
+      <header class="masthead safe-top${c.keyline ? ' no-rule' : ''}">
+        ${mark}
+        <h1>Chronicle</h1>
+        <p class="tagline">Little games about big history</p>
+        <p class="dateline">THURSDAY, 2 JULY 2026</p>
+        ${c.keyline ? KEYLINE : ''}
+      </header>
+      <main class="home-cards">${CARD}</main>
+    </div>
+    <figcaption class="ctx-label">the real masthead</figcaption>
+  </figure>`;
+}
+
+function tile(c, cls, label) {
+  return `
+  <figure>
+    <div class="ctx tile ${cls}">
+      <div class="lockrow">${lockupSVG(c)}</div>
+      <div class="sizes">${sizesRow(c)}</div>
+    </div>
+    <figcaption class="ctx-label">${label}</figcaption>
+  </figure>`;
+}
+
+function conceptHTML(c, small) {
+  const chipLabel = { kill: 'Killed', advance: 'Advances', final: 'Finalist' }[c.verdict] || '';
+  return `
+  <section class="concept${small ? ' small' : ''}">
+    <div class="c-head">
+      <h3>${c.title}${c.verdict ? ` <span class="chip ${c.verdict}">${chipLabel}</span>` : ''}</h3>
+      <p class="story">“${c.story}”</p>
+    </div>
+    <div class="c-hero">
+      <figure class="hero512">
+        <svg viewBox="0 0 96 96"><use href="#mark-${c.id}"/></svg>
+        <figcaption>${small ? '340' : '512'} px</figcaption>
+      </figure>
+      <div>
+        <div class="sizes">${sizesRow(c)}</div>
+        <div class="lockrow">${lockupSVG(c)}<figcaption>lockup · Georgia</figcaption></div>
+      </div>
+    </div>
+    <div class="c-contexts">
+      ${mastheadDemo(c)}
+      ${tile(c, 'tile-ink', 'on ink')}
+      ${tile(c, 'tile-mono', 'pure monochrome')}
+    </div>
+    <p class="note"><b>Designer’s note.</b> ${c.note}</p>
+  </section>`;
+}
+
+const CONCEPTS = [
+  { id: 'nib', title: '01 · The Unfinished C', verdict: 'kill',
+    story: 'The C is a single stroke of ink that hasn’t lifted yet — a chronicle, still being written.',
+    note: `The gesture is right — asymmetric, calligraphic, mid-motion, and the gold drop gives it a pulse.
+      But squint: it’s a tapering open circle, and the world is wallpapered with those. The nib is the
+      only part that says “writing” and it is the first thing to vanish at small sizes. Concept sentence: A. Silhouette: C-minus.` },
+  { id: 'page', title: '02 · The Sundial Page', verdict: 'advance',
+    story: 'A dog-eared page whose folded corner casts a sundial’s shadow — paper that tells time.',
+    note: `The fold does double duty (every reader has dog-eared a page; here it’s a gnomon) and the gold tick quietly
+      says “now — today’s edition”. First read is almost too humble: a note page. That’s the risk and the charm.
+      The ticks are the weak link at 40 px — round two must make the wit legible smaller.` },
+  { id: 'column', title: '03 · The Column Pencil', verdict: 'advance',
+    story: 'A newspaper column that is also a classical column, sharpened into a pencil.',
+    note: `Three readings stacked in one silhouette, and the pun is native to this exact product — a paper about history
+      you play by writing answers. The flutes are the pencil’s facets; the capital is pure Greece. V0 stands too straight:
+      it borders on municipal. It needs entasis and a tilt — a column caught leaning in to write, not holding up a bank.` },
+  { id: 'sun', title: '04 · The Coin-Slot Sunrise', verdict: 'kill',
+    story: 'The sun rises through the masthead’s own double rule — or is it a coin dropping into the slot? Play today.',
+    note: `Site-specific wit: the horizon is Chronicle’s actual divider, and the gap in the top rule turns sunrise into
+      an arcade coin-drop. But the second read hides too well — cover the caption and you see a sunny bank logo.
+      The masthead demo is its best moment and its confession: it decorates the rule instead of being a mark.` },
+  { id: 'glass', title: '05 · The Confetti Hourglass', verdict: 'kill',
+    story: 'An hourglass whose sand falls as confetti — time, but celebrated.',
+    note: `The one permitted descendant of the old astrolabe world, tilted to dodge the old symmetry. The idea survives
+      the sentence test; the drawing doesn’t survive the size test. Confetti needs scatter to read as confetti, and
+      scatter is exactly what a 40 px glyph cannot afford. A control experiment, and the control lost.` },
+  { id: 'key', title: '06 · The C Key', verdict: 'advance',
+    story: 'An old key whose bow is a hidden C — every day, a small key to big history.',
+    note: `Key first, C a beat later — the delayed read the brief demanded, hiding in plain sight like the FedEx arrow.
+      It’s literally a charm: something you’d wear, not mount on a courthouse. The silhouette holds at 16 px.
+      V0 hangs too stiffly vertical, and the bow’s opening is a touch narrow — at phone sizes the C could close into an O.` },
+];
+
+const ROUND2 = [
+  { id: 'page-r1', title: '02·R1 · Sundial Page — legible at arm’s length', verdict: 'final',
+    story: 'Same idea, drawn for 40 px: a deeper fold, a longer shadow, three heavy ticks instead of four fine ones.',
+    note: `The fold grew from 16 to 20 units so the dog-ear still reads on a game card; the gold “now” tick sits exactly
+      where the shadow points. The wit now survives shrinking — the 16 px favicon keeps page + fold + diagonal.` },
+  { id: 'page-r2', title: '02·R2 · Sundial Page — the solid token', verdict: 'final',
+    story: 'The page as a filled token: ink silhouette, gold fold, shadow and hours knocked out of the black.',
+    note: `Built for the home screen and the favicon, where outlines go thin and die. In one colour the knockouts do all
+      the work. Of the nine drawings on this page, this is the one that looks best at 16 px — the app-icon alternate.` },
+  { id: 'column-r1', title: '03·R1 · Column Pencil — off its plinth', verdict: 'final',
+    story: 'The column leans 8° like it’s about to write; entasis in the shaft, a third flute, a gold point.',
+    note: `The tilt is the whole refinement: upright it was architecture, leaning it’s a gesture. The subtle entasis
+      (the swell Greek masons used so columns wouldn’t look starved) doubles as the pencil’s worn-down waist.
+      Gold moves to the tip — the one place your eye lands before writing.` },
+  { id: 'column-r2', title: '03·R2 · Column Pencil — mid-sentence', verdict: 'final',
+    story: 'Caught working: the pencil is drawing Chronicle’s double rule, and the second line isn’t finished.',
+    note: `The mark now tells the daily story — today’s edition is literally being ruled. The unfinished lower line is
+      the second read. Better as a hero/empty-state illustration than a favicon; R1 remains the identity workhorse.` },
+  { id: 'key-r1', title: '06·R1 · C Key — the charm', verdict: 'final',
+    story: 'The bow opens wider so the C can’t close into an O; the key dangles at 14° like a charm on a bracelet.',
+    note: `Stroke up from 7 to 8 so the 16 px favicon stays solid; teeth enlarged to survive rasterising; a single gold
+      collar where bow meets shaft — the one permitted jewel. The dangle is doing quiet work: crests stand at attention,
+      charms hang. This is the recommended primary mark.` },
+  { id: 'key-r2', title: '06·R2 · C Key — the keyline', verdict: 'final', lockup: 'lockup-key-r2', keyline: true,
+    story: 'The key lies down and becomes the masthead’s rule — the divider under “Chronicle” is secretly the logo.',
+    note: `The system move: in the masthead the key stretches into the rule itself (bow at the west end, teeth at the east),
+      so the brand lives inside the typography instead of beside it. Shown in the demo replacing the double rule.
+      Use sparingly — masthead and share cards — with R1 as the compact mark everywhere else.` },
+];
+
+const ROUND3 = [
+  { id: 'key-q', title: '06·Q1 · The Question Key', verdict: 'final',
+    story: 'A question mark cut like a key — the question is the key, and the dot is the point you play for.',
+    note: `The first cut of this idea tried to keep all three reads — C, question, key — by mirroring the question
+      mark's curve. On screen it read as a smudged cedilla: the triple was a unicorn, and chasing it cost every read.
+      This drawing commits. A true question mark, cut like a key: the hook is the bow, the stem is the blade, the
+      teeth do the unlocking, and the gold dot is the point you score. The C goes home to the wordmark, where Georgia
+      draws it better anyway. Quiz first, key second — and both of them say “play”.` },
+  { id: 'key-click', title: '06·Q2 · The Click', verdict: 'kill',
+    story: 'Caught mid-turn, two ticks trailing — the little click when today’s edition unlocks.',
+    note: `Motion helps, but the object is still hardware: a turning door key promises a door, not a game. The ticks
+      read at 88 px and evaporate at 40. And the tilt costs the C — past twenty degrees the bow stops being a letter
+      and becomes a handle.` },
+  { id: 'keyhole', title: '06·Q3 · Behind Today’s Door', verdict: 'kill',
+    story: 'A door with light leaking through the keyhole — something is waiting behind today’s puzzle.',
+    note: `The most atmospheric drawing in the whole exploration and the least Chronicle: it drops the C, flirts with
+      security-badge grammar, and it invites opening, not playing. Kept alive as a candidate empty-state illustration;
+      killed as a mark.` },
+  { id: 'key-spark', title: '06·Q4 · The Spark', verdict: 'kill',
+    story: 'The charm key strikes gold — the glint of a right answer.',
+    note: `This is R1 wearing jewellery. Decoration is not an idea: cover the spark and the utility reading is fully
+      intact, which is exactly the client’s complaint. The glint itself was worth keeping — it moved into the
+      Question Key’s gold dot.` },
+  { id: 'key-toss', title: '06·Q5 · The Toss', verdict: 'kill',
+    story: 'Catch — history just tossed you the keys.',
+    note: `The dotted arc is the single most playful gesture on this page, and everything else about it fails:
+      without the arc the silhouette is just R1 tilted the wrong way, at 16 px the dots are dust, and a key in
+      mid-air reads as dropped, not thrown.` },
+];
+
+document.getElementById('concepts').innerHTML = CONCEPTS.map(c => conceptHTML(c, false)).join('');
+document.getElementById('roundtwo').innerHTML = ROUND2.map(c => conceptHTML(c, true)).join('');
+document.getElementById('roundthree').innerHTML = ROUND3.map(c => conceptHTML(c, true)).join('');
+</script>
+</body>
+</html>

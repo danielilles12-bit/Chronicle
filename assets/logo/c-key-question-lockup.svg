@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 100" style="color:#121212">
+  <!-- Chronicle · primary lockup: question-key + wordmark in Georgia (present on
+       all Apple devices this PWA targets; convert to outlines if used outside the app). -->
+  <svg x="0" y="11" width="78" height="78" viewBox="0 0 96 96">
+    <g transform="rotate(-6 48 45)">
+      <path d="M32.55 25.86 A16 16 0 1 1 48 46 L48 60" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+      <path d="M50.5 51 H59 M50.5 58 H56.5" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/>
+      <circle cx="48" cy="73" r="4.8" fill="#9a7b2d"/>
+    </g>
+  </svg>
+  <text x="94" y="65" font-family="Georgia, 'Times New Roman', serif" font-size="46"
+        font-weight="700" fill="currentColor" letter-spacing="0.5">Chronicle</text>
+</svg>

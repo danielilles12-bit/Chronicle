@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chronicle — Direction Gallery</title>
+<style>
+  :root{
+    --paper:#F4EFE4; --ink:#2B2118; --muted:#5C4733; --gold:#B58A2D; --line:#CBB383; --soft:#E3D3AF;
+    --serif:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;
+  }
+  *{box-sizing:border-box}
+  button{font-family:var(--serif)}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto;padding:28px 18px 140px}
+  header.top{text-align:center;padding:30px 0 6px}
+  header.top .kicker{text-transform:uppercase;letter-spacing:.22em;font-size:12px;color:var(--gold)}
+  header.top h1{font-size:38px;font-weight:400;margin:8px 0 0;letter-spacing:-.01em}
+  header.top p{max-width:640px;margin:14px auto 0;color:var(--muted)}
+  header.top p b{color:var(--ink)}
+  .rule{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:30px 0}
+
+  section.dir{margin:52px 0}
+  .dirnum{text-transform:uppercase;letter-spacing:.22em;font-size:12px;color:var(--gold);font-weight:700}
+  section.dir>h2{font-size:32px;font-weight:400;margin:6px 0 2px}
+  .fiction{font-style:italic;color:var(--muted);max-width:660px;font-size:17.5px}
+  .borrow{font-size:14px;color:var(--muted);margin:8px 0 0}
+  .borrow b{color:var(--ink);font-weight:700}
+
+  .palette{display:flex;gap:0;border-radius:8px;overflow:hidden;margin:16px 0 4px;border:1px solid rgba(0,0,0,.12)}
+  .palette div{flex:1;height:44px;position:relative}
+  .palette span{position:absolute;left:8px;bottom:4px;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;opacity:.85}
+
+  .phones{display:flex;gap:26px;flex-wrap:wrap;justify-content:center;margin:26px 0 8px}
+  .phonecol{display:flex;flex-direction:column;align-items:center;gap:10px}
+  .phonecap{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.14em}
+  .phone{width:375px;border-radius:42px;background:#111;padding:10px;box-shadow:0 24px 60px rgba(30,22,12,.28)}
+  .screen{border-radius:33px;overflow:hidden;min-height:660px;display:flex;flex-direction:column}
+
+  .iconrow{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin:18px 0 2px;padding:18px 20px;border-radius:12px}
+  .iconrow .set{display:flex;align-items:center;gap:18px}
+  .iconrow .setlab{font-size:11px;text-transform:uppercase;letter-spacing:.14em;opacity:.7;margin-right:2px}
+
+  .details{margin:14px 0 0;padding:0;list-style:none;max-width:680px}
+  .details li{padding:7px 0;border-bottom:1px dashed var(--soft);font-size:15.5px}
+  .details li b{font-weight:700}
+  .details li:last-child{border-bottom:none}
+
+  .verdict{background:#FDF9F1;border:1px solid var(--soft);border-radius:12px;padding:18px;margin:22px 0 0}
+  .verdict h3{margin:0 0 6px;font-size:18px;font-weight:700}
+  .stars{display:flex;gap:4px;margin:4px 0 12px}
+  .stars button{border:none;background:none;font-size:26px;cursor:pointer;color:var(--line);padding:0 2px}
+  .stars button.on{color:var(--gold)}
+  .vgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media (max-width:640px){.vgrid{grid-template-columns:1fr}}
+  .vgrid .nlabel{font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+  textarea{width:100%;min-height:72px;border:1px solid var(--line);border-radius:8px;background:#fffdf8;padding:9px 11px;font-family:var(--serif);font-size:15.5px;color:var(--ink);resize:vertical}
+  textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+
+  .finale{background:#FDF9F1;border:1px solid var(--soft);border-radius:12px;padding:20px;margin-top:40px}
+  .finale h2{margin:0 0 4px;font-weight:400;font-size:26px}
+  .optlist{display:flex;flex-direction:column;gap:8px;margin:12px 0}
+  .optlist button.opt{border:1.5px solid var(--line);background:#fffdf8;border-radius:10px;padding:11px 14px;font-size:16px;cursor:pointer;color:var(--ink);text-align:left}
+  .optlist button.opt.on{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold)}
+  #summary{display:none;margin-top:18px}
+  #summary textarea{min-height:220px;font-size:13px;font-family:ui-monospace,Menlo,monospace}
+  .btns{display:flex;gap:10px;margin:12px 0 4px}
+  .btns button{background:#12382E;color:#F6F1E6;border:none;border-radius:99px;padding:9px 18px;font-size:15px;cursor:pointer}
+  #bar{position:fixed;left:0;right:0;bottom:0;background:rgba(43,33,24,.96);color:#F6F1E6;padding:10px 16px;display:flex;align-items:center;gap:14px;justify-content:center;font-size:14.5px;z-index:50}
+  #bar button{background:var(--gold);border:none;color:#2B2118;font-weight:700;font-size:15px;border-radius:99px;padding:8px 18px;cursor:pointer}
+  #saved{font-size:13px;opacity:.45;min-width:64px}
+  .toast{position:fixed;bottom:64px;left:50%;transform:translateX(-50%);background:#12382E;color:#F6F1E6;padding:8px 18px;border-radius:99px;font-size:14px;display:none;z-index:60}
+
+  /* ============ DIRECTION 1 — THE CURATOR'S ROOM ============ */
+  .d1 .screen{background:#121D17;color:#F0E6CC;font-family:'Hoefler Text','Iowan Old Style',Georgia,serif}
+  .d1-mast{text-align:center;padding:40px 22px 18px}
+  .d1-mast .over{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#C9A24C}
+  .d1-mast h1{font-size:40px;font-weight:400;margin:8px 0 6px;color:#F0E6CC;letter-spacing:.01em}
+  .d1-mast .date{font-style:italic;font-size:14.5px;color:#C8B98F}
+  .d1-rows{padding:8px 16px;display:flex;flex-direction:column;gap:10px}
+  .d1-row{display:flex;align-items:center;gap:14px;background:#182720;border:1px solid rgba(201,162,76,.25);border-radius:10px;padding:13px 14px}
+  .d1-row .ric{flex:0 0 46px;height:46px;border-radius:50%;background:#0E1712;border:1px solid rgba(201,162,76,.4);display:flex;align-items:center;justify-content:center}
+  .d1-row > div:nth-child(2){flex:1}
+  .d1-row .rstat{flex-shrink:0;max-width:38%;white-space:normal}
+  .d1-row .rname{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#C9A24C;font-weight:700}
+  .d1-row .rblurb{font-style:italic;font-size:14px;color:#CBBD97;margin-top:2px;line-height:1.3}
+  .d1-row .rstat{margin-left:auto;text-align:right;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#8FA08D;white-space:nowrap;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+  .d1-seal{width:20px;height:20px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#8E3140,#5E1622 70%);display:flex;align-items:center;justify-content:center;color:#E8C9A0;font-size:10px;font-style:normal;box-shadow:0 1px 3px rgba(0,0,0,.5)}
+  .d1-arch{margin:12px 16px 0;padding:12px 14px;border:1px dashed rgba(201,162,76,.4);border-radius:10px;font-size:14px;color:#C8B98F;text-align:center;font-style:italic}
+  .d1-foot{margin-top:auto;text-align:center;padding:20px;font-size:13px;font-style:italic;color:#8B8268}
+  /* d1 game */
+  .d1-top{display:flex;align-items:center;justify-content:space-between;padding:16px 18px 10px;font-size:15px}
+  .d1-top .mid{letter-spacing:.06em}
+  .d1-top .pts{color:#C9A24C}
+  .d1-map{margin:0 14px;border-radius:12px;overflow:hidden;border:1px solid rgba(201,162,76,.3)}
+  .d1-q{padding:16px 20px 4px;font-size:17px;text-align:center}
+  .d1-q b.born{color:#9CC49A}.d1-q b.died{color:#D98E7E}
+  .d1-hint{margin:10px auto 0;width:fit-content;font-size:13px;font-style:italic;color:#C8B98F;border:1px solid rgba(201,162,76,.35);border-radius:99px;padding:5px 14px}
+  .d1-form{display:flex;gap:10px;padding:14px 18px 6px}
+  .d1-form .field{flex:1;border:1px solid rgba(201,162,76,.4);border-radius:10px;background:#0E1712;color:#8B8268;padding:11px 14px;font-style:italic;font-size:15px}
+  .d1-form .go{background:#C9A24C;color:#121D17;border-radius:10px;padding:11px 20px;font-weight:700;display:flex;align-items:center}
+  .d1-pills{display:flex;gap:8px;justify-content:center;padding:8px 0 20px;font-size:13px}
+  .d1-pills span{border:1px solid rgba(201,162,76,.35);border-radius:99px;padding:5px 13px;color:#C8B98F}
+
+  /* ============ DIRECTION 2 — THE HOUSE ============ */
+  .d2 .screen{background:#F7F3EB;color:#201A15;font-family:'Baskerville','Iowan Old Style',Georgia,serif}
+  .d2-mast{text-align:center;padding:38px 22px 6px}
+  .d2-mast .hair{height:1px;background:#D9CFC0;margin:0 26px}
+  .d2-mast h1{font-size:25px;font-weight:400;letter-spacing:.4em;margin:14px 0;text-indent:.4em}
+  .d2-mast .date{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8A7A66;margin:12px 0 0}
+  .d2-lots{padding:14px 26px 0}
+  .d2-lot{padding:17px 0 15px;border-bottom:1px solid #E4DBCC;display:flex;gap:14px;align-items:flex-start}
+  .d2-lot:last-child{border-bottom:none}
+  .d2-lot .lic{flex:0 0 34px;padding-top:4px}
+  .d2-lot > div:nth-child(2){flex:1}
+  .d2-lot .lstat{flex-shrink:0;max-width:40%}
+  .d2-lot .lotno{font-size:11px;letter-spacing:.22em;color:#6E1D2A;text-transform:uppercase;font-weight:700}
+  .d2-lot .lname{font-size:23px;margin:3px 0 2px}
+  .d2-lot .lblurb{font-size:14px;color:#6B5D4C;line-height:1.35}
+  .d2-lot .lstat{margin-left:auto;text-align:right;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8A7A66;white-space:nowrap;padding-top:6px}
+  .d2-lot .lstat .live{color:#6E1D2A}
+  .d2-seal{display:inline-block;width:9px;height:9px;border-radius:50%;background:#6E1D2A;margin-right:5px;vertical-align:-1px}
+  .d2-arch{margin:10px 26px 0;padding:13px 0;border-top:1px solid #D9CFC0;text-align:center;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#8A7A66}
+  .d2-foot{margin-top:auto;text-align:center;padding:18px;font-size:13px;font-style:italic;color:#8A7A66}
+  /* d2 game */
+  .d2-top{display:flex;align-items:center;justify-content:space-between;padding:16px 20px 10px;font-size:14px;letter-spacing:.04em}
+  .d2-top .pts{color:#6E1D2A;font-weight:700}
+  .d2-map{margin:0 0;border-top:1px solid #E4DBCC;border-bottom:1px solid #E4DBCC}
+  .d2-q{padding:18px 22px 4px;font-size:18px;text-align:center}
+  .d2-q b.born{color:#3E5C43}.d2-q b.died{color:#6E1D2A}
+  .d2-hint{margin:10px auto 0;width:fit-content;font-size:13px;color:#6B5D4C;border-bottom:1px solid #D9CFC0;padding:0 4px 3px}
+  .d2-form{display:flex;gap:10px;padding:16px 22px 6px}
+  .d2-form .field{flex:1;border:none;border-bottom:1.5px solid #201A15;background:none;color:#8A7A66;padding:9px 2px;font-style:italic;font-size:16px}
+  .d2-form .go{background:#201A15;color:#F7F3EB;border-radius:2px;padding:11px 22px;font-weight:400;letter-spacing:.12em;font-size:13px;display:flex;align-items:center;text-transform:uppercase}
+  .d2-pills{display:flex;gap:16px;justify-content:center;padding:10px 0 20px;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:#8A7A66}
+
+  /* ============ DIRECTION 3 — THE MARBLE HALLS ============ */
+  .d3 .screen{background:linear-gradient(175deg,#F0EBE1 0%,#EAE4D8 60%,#E6DFD2 100%);color:#26221C;font-family:'Didot','Bodoni 72','Iowan Old Style',Georgia,serif}
+  .d3-mast{text-align:center;padding:36px 22px 10px}
+  .d3-mast h1{font-size:27px;font-weight:400;letter-spacing:.34em;margin:12px 0 4px;text-indent:.34em}
+  .d3-mast .date{font-size:11px;letter-spacing:.26em;color:#8C8272;margin-top:6px}
+  .d3-rooms{padding:10px 22px 0;display:flex;flex-direction:column;gap:14px}
+  .d3-room{border:1px solid #C4AE7E;outline:1px solid #C4AE7E;outline-offset:3px;background:rgba(252,250,245,.55);padding:16px 16px 13px;text-align:center;position:relative}
+  .d3-room .roomno{font-size:10.5px;letter-spacing:.3em;color:#A98F55;margin-top:8px}
+  .d3-room .rname{font-size:22px;letter-spacing:.12em;margin:3px 0 3px}
+  .d3-room .rblurb{font-size:13.5px;color:#6E6557;font-family:'Iowan Old Style',Georgia,serif;line-height:1.35}
+  .d3-room .rstat{font-size:10.5px;letter-spacing:.22em;color:#8C8272;margin-top:8px;text-transform:uppercase}
+  .d3-room .rstat .done{color:#5C3A3F}
+  .d3-med{position:absolute;top:-17px;left:50%;transform:translateX(-50%);width:34px;height:34px;border-radius:50%;background:#F0EBE1;display:flex;align-items:center;justify-content:center}
+  .d3-arch{margin:16px 40px 0;padding:10px 0;border-top:1px solid #C4AE7E;border-bottom:1px solid #C4AE7E;text-align:center;font-size:11px;letter-spacing:.3em;color:#A98F55}
+  .d3-foot{margin-top:auto;text-align:center;padding:20px;font-size:13px;font-style:italic;color:#8C8272;font-family:'Iowan Old Style',Georgia,serif}
+  /* d3 game */
+  .d3-top{display:flex;align-items:center;justify-content:space-between;padding:16px 20px 10px;font-size:13px;letter-spacing:.14em}
+  .d3-top .pts{color:#A98F55}
+  .d3-map{margin:0 16px;border:1px solid #C4AE7E;outline:1px solid #C4AE7E;outline-offset:3px;overflow:hidden}
+  .d3-q{padding:18px 22px 4px;font-size:17px;text-align:center;font-family:'Iowan Old Style',Georgia,serif}
+  .d3-q b.born{color:#3E5C43}.d3-q b.died{color:#5C3A3F}
+  .d3-hint{margin:10px auto 0;width:fit-content;font-size:12.5px;color:#6E6557;font-family:'Iowan Old Style',Georgia,serif;font-style:italic}
+  .d3-form{display:flex;gap:10px;padding:16px 20px 6px}
+  .d3-form .field{flex:1;border:1px solid #C4AE7E;background:rgba(252,250,245,.55);color:#8C8272;padding:11px 14px;font-style:italic;font-size:15px;font-family:'Iowan Old Style',Georgia,serif}
+  .d3-form .go{background:#26221C;color:#F0EBE1;padding:11px 20px;letter-spacing:.16em;font-size:12px;display:flex;align-items:center}
+  .d3-pills{display:flex;gap:14px;justify-content:center;padding:10px 0 20px;font-size:11px;letter-spacing:.18em;color:#8C8272;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">Chronicle · Art Direction</div>
+  <h1>The Direction Gallery</h1>
+  <p>Three complete Chronicles, built from your taste interview. Each is a <b>world</b>, not a theme: the same app, imagined by three different design houses.</p>
+  <p><b>How to judge:</b> lean back and take each phone in at a glance before reading anything. Then open the NYT&nbsp;Games app on your phone and hold it next to each one — the only question that matters is <i>“would this hold its head up beside the real thing?”</i> Rate each world, note what sings and what's off, and make the call at the bottom. A blend is a legitimate answer.</p>
+</header>
+
+<div class="rule"></div>
+
+<!-- ================= DIRECTION 1 ================= -->
+<section class="dir d1" id="dir1">
+  <div class="dirnum">Direction I</div>
+  <h2>The Curator’s Room</h2>
+  <p class="fiction">After hours, a side door is left unlocked. Inside: the collection the public never sees — brass labels, green-black shadow, un-exhibited treasures on baize. Someone who clearly loves this place has laid out four games for you on the study table. Candlelight, quiet laughter, the smell of stone and old paper.</p>
+  <p class="borrow">Borrowed from: <b>cabinet of curiosities</b>, engraved plates, specimen labels, your curator’s world — the wink at full strength.</p>
+  <div class="palette">
+    <div style="background:#121D17"><span style="color:#C8B98F">Shadow green</span></div>
+    <div style="background:#F0E6CC"><span style="color:#5C4733">Candle cream</span></div>
+    <div style="background:#C9A24C"><span style="color:#121D17">Brass</span></div>
+    <div style="background:#5E1622"><span style="color:#F0E6CC">Sealing wax</span></div>
+  </div>
+
+  <div class="phones">
+    <div class="phonecol">
+      <div class="phone"><div class="screen">
+        <div class="d1-mast">
+          <div class="over">The Private Collection</div>
+          <h1>Chronicle</h1>
+          <div class="date">Friday, 3 July — the back rooms are open.</div>
+        </div>
+        <div class="d1-rows">
+          <div class="d1-row">
+            <div class="ric"><svg viewBox="0 0 48 48" width="30" height="30"><g fill="none" stroke="#C9A24C" stroke-width="2.4" stroke-linecap="round"><path d="M15.5 35.5 L29.5 17.5"/><circle cx="31.5" cy="14.5" r="2.8"/><path d="M33.5 16.5 C39.5 22.5 24.5 24.5 27.5 32 C29.3 36.6 24.5 40 19.5 38.5"/></g></svg></div>
+            <div><div class="rname">Thread</div><div class="rblurb">Sixteen clues, four hidden families.</div></div>
+            <div class="rstat"><span class="d1-seal">D</span><span>Sealed · 7:12</span></div>
+          </div>
+          <div class="d1-row">
+            <div class="ric"><svg viewBox="0 0 48 48" width="30" height="30"><path d="M13 35 Q15 13 35 13" fill="none" stroke="#C9A24C" stroke-width="2.4" stroke-dasharray="4 4"/><circle cx="13" cy="35" r="3.6" fill="#C9A24C"/><circle cx="35" cy="13" r="6" fill="none" stroke="#C9A24C" stroke-width="2.2"/><circle cx="35" cy="13" r="1.9" fill="#C9A24C"/></svg></div>
+            <div><div class="rname">Lifeline</div><div class="rblurb">Born here, died there. Name them.</div></div>
+            <div class="rstat"><span>In hand — round 4</span></div>
+          </div>
+          <div class="d1-row">
+            <div class="ric"><svg viewBox="0 0 48 48" width="30" height="30"><ellipse cx="24" cy="24" rx="13" ry="16.5" fill="none" stroke="#C9A24C" stroke-width="2.2"/><path d="M23 13.3 a7.2 7.2 0 1 0 .02 0 Z M29.5 18.5 L33 22.5 L28.8 24 Z M20.5 26.5 h5 v4.5 h-5 Z M14.5 36.5 Q23 28.5 31.5 36.5 Z" fill="#C9A24C"/></svg></div>
+            <div><div class="rname">Face Value</div><div class="rblurb">A famous face, sliver by sliver.</div></div>
+            <div class="rstat"><span>Unopened</span></div>
+          </div>
+          <div class="d1-row">
+            <div class="ric"><svg viewBox="0 0 48 48" width="30" height="30"><g fill="none" stroke="#C9A24C" stroke-width="2.2"><path d="M18 8 h12 M21.5 8 v-1.5 M21.5 11.5 h5 v5.5 h-5 z" opacity="0"/><path d="M18 8.5 h12"/><path d="M21.5 8.5 v5.5 h5 v-5.5"/><path d="M24 17 c8.5 0 12 6 12 11 c0 8.5 -5 13.5 -12 13.5 s-12 -5 -12 -13.5 c0 -5 3.5 -11 12 -11 z"/><path d="M19.5 19.5 c-6.5 -1.5 -9 3.5 -4.5 7"/><path d="M28.5 19.5 c6.5 -1.5 9 3.5 4.5 7"/></g></svg></div>
+            <div><div class="rname">Relic</div><div class="rblurb">A famous artefact, sliver by sliver.</div></div>
+            <div class="rstat"><span>Unopened</span></div>
+          </div>
+        </div>
+        <div class="d1-arch">The Archive — every edition, kept under glass ›</div>
+        <div class="d1-foot">Mind the step on your way out.</div>
+      </div></div>
+      <div class="phonecap">Home</div>
+    </div>
+
+    <div class="phonecol">
+      <div class="phone"><div class="screen">
+        <div class="d1-top"><span>‹</span><span class="mid">Round 4 of 10</span><span class="pts">260 pts</span></div>
+        <div class="d1-map">
+          <svg viewBox="0 0 375 260" width="100%" style="display:block;background:#0E1712">
+            <g stroke="#25392E" stroke-width="1"><path d="M0 65 H375 M0 130 H375 M0 195 H375 M94 0 V260 M188 0 V260 M282 0 V260"/></g>
+            <g fill="none" stroke="#C9A24C" stroke-width="1.3" opacity=".8">
+              <path d="M-10 90 C40 60 80 85 120 62 C160 40 200 58 235 45 C270 33 320 42 385 25"/>
+              <path d="M60 260 C95 225 150 235 190 210 C230 187 300 200 375 175 L375 260 Z" fill="rgba(201,162,76,.07)"/>
+              <path d="M120 120 C150 105 175 118 198 108 C220 99 240 108 252 100"/>
+            </g>
+            <path d="M150 170 Q190 90 248 112" fill="none" stroke="#C9A24C" stroke-width="2" stroke-dasharray="5 5"/>
+            <circle cx="150" cy="170" r="6" fill="#9CC49A"/>
+            <text x="150" y="192" text-anchor="middle" fill="#9CC49A" font-size="13" font-style="italic">1564</text>
+            <circle cx="248" cy="112" r="10" fill="none" stroke="#D98E7E" stroke-width="2.5"/><circle cx="248" cy="112" r="3" fill="#D98E7E"/>
+            <text x="248" y="90" text-anchor="middle" fill="#D98E7E" font-size="13" font-style="italic">1642</text>
+          </svg>
+        </div>
+        <div class="d1-q">Born <b class="born">here</b>, died <b class="died">there</b> — who is it?</div>
+        <div class="d1-hint">Claim to fame: “He pointed a telescope up.” · −25</div>
+        <div class="d1-form"><div class="field">Type a name…</div><div class="go">Guess</div></div>
+        <div class="d1-pills"><span>Initials · −25</span><span>Reveal · 0 pts</span></div>
+        <div class="d1-foot" style="padding-top:6px">The curator waits, delighted.</div>
+      </div></div>
+      <div class="phonecap">Lifeline round</div>
+    </div>
+  </div>
+
+  <div class="iconrow" style="background:#121D17">
+    <span class="setlab" style="color:#C8B98F">Icon family</span>
+    <span class="set">
+      <svg viewBox="0 0 48 48" width="44" height="44"><g fill="none" stroke="#C9A24C" stroke-width="2.4" stroke-linecap="round"><path d="M15.5 35.5 L29.5 17.5"/><circle cx="31.5" cy="14.5" r="2.8"/><path d="M33.5 16.5 C39.5 22.5 24.5 24.5 27.5 32 C29.3 36.6 24.5 40 19.5 38.5"/></g></svg>
+      <svg viewBox="0 0 48 48" width="44" height="44"><path d="M13 35 Q15 13 35 13" fill="none" stroke="#C9A24C" stroke-width="2.4" stroke-dasharray="4 4"/><circle cx="13" cy="35" r="3.6" fill="#C9A24C"/><circle cx="35" cy="13" r="6" fill="none" stroke="#C9A24C" stroke-width="2.2"/><circle cx="35" cy="13" r="1.9" fill="#C9A24C"/></svg>
+      <svg viewBox="0 0 48 48" width="44" height="44"><ellipse cx="24" cy="24" rx="13" ry="16.5" fill="none" stroke="#C9A24C" stroke-width="2.2"/><path d="M23 13.3 a7.2 7.2 0 1 0 .02 0 Z M29.5 18.5 L33 22.5 L28.8 24 Z M20.5 26.5 h5 v4.5 h-5 Z M14.5 36.5 Q23 28.5 31.5 36.5 Z" fill="#C9A24C"/></svg>
+      <svg viewBox="0 0 48 48" width="44" height="44"><g fill="none" stroke="#C9A24C" stroke-width="2.2"><path d="M18 8.5 h12"/><path d="M21.5 8.5 v5.5 h5 v-5.5"/><path d="M24 17 c8.5 0 12 6 12 11 c0 8.5 -5 13.5 -12 13.5 s-12 -5 -12 -13.5 c0 -5 3.5 -11 12 -11 z"/><path d="M19.5 19.5 c-6.5 -1.5 -9 3.5 -4.5 7"/><path d="M28.5 19.5 c6.5 -1.5 9 3.5 4.5 7"/></g></svg>
+    </span>
+    <span class="set" style="margin-left:8px">
+      <span class="setlab" style="color:#C8B98F">at 22px</span>
+      <svg viewBox="0 0 48 48" width="22" height="22"><g fill="none" stroke="#C9A24C" stroke-width="2.7" stroke-linecap="round"><path d="M15.5 35.5 L29.5 17.5"/><circle cx="31.5" cy="14.5" r="3"/><path d="M33.5 16.5 C39.5 22.5 24.5 24.5 27.5 32 C29.3 36.6 24.5 40 19.5 38.5"/></g></svg>
+      <svg viewBox="0 0 48 48" width="22" height="22"><path d="M13 35 Q15 13 35 13" fill="none" stroke="#C9A24C" stroke-width="2.6" stroke-dasharray="4 4"/><circle cx="13" cy="35" r="3.8" fill="#C9A24C"/><circle cx="35" cy="13" r="6" fill="none" stroke="#C9A24C" stroke-width="2.4"/><circle cx="35" cy="13" r="2" fill="#C9A24C"/></svg>
+      <svg viewBox="0 0 48 48" width="22" height="22"><ellipse cx="24" cy="24" rx="13" ry="16.5" fill="none" stroke="#C9A24C" stroke-width="2.4"/><path d="M23 13.3 a7.2 7.2 0 1 0 .02 0 Z M29.5 18.5 L33 22.5 L28.8 24 Z M20.5 26.5 h5 v4.5 h-5 Z M14.5 36.5 Q23 28.5 31.5 36.5 Z" fill="#C9A24C"/></svg>
+      <svg viewBox="0 0 48 48" width="22" height="22"><g fill="none" stroke="#C9A24C" stroke-width="2.4"><path d="M18 8.5 h12"/><path d="M21.5 8.5 v5.5 h5 v-5.5"/><path d="M24 17 c8.5 0 12 6 12 11 c0 8.5 -5 13.5 -12 13.5 s-12 -5 -12 -13.5 c0 -5 3.5 -11 12 -11 z"/><path d="M19.5 19.5 c-6.5 -1.5 -9 3.5 -4.5 7"/><path d="M28.5 19.5 c6.5 -1.5 9 3.5 4.5 7"/></g></svg>
+    </span>
+  </div>
+
+  <ul class="details">
+    <li><b>Sound:</b> a felt drawer slides open on launch; brass click on selection; the room hums with distant murmur. The seal lands with a soft, waxy <i>thunk</i>.</li>
+    <li><b>Motion:</b> candlelit — things settle like objects being placed on baize. Nothing bounces.</li>
+    <li><b>The seal:</b> deep burgundy wax with your initial, pressed slightly imperfectly each time — a human hand did it.</li>
+    <li><b>The wink:</b> footer reads “Mind the step on your way out.” The curator is never named; you just feel him.</li>
+  </ul>
+
+  <div class="verdict" data-q data-id="d1_stars" data-type="stars" data-label="Direction I — The Curator's Room">
+    <h3>Verdict — The Curator’s Room</h3>
+    <div class="stars"></div>
+    <div class="vgrid">
+      <div><div class="nlabel">What sings?</div><textarea data-q data-opt data-id="d1_sings" data-type="text" data-label="D1 — what sings"></textarea></div>
+      <div><div class="nlabel">What’s off?</div><textarea data-q data-opt data-id="d1_off" data-type="text" data-label="D1 — what's off"></textarea></div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ================= DIRECTION 2 ================= -->
+<section class="dir d2" id="dir2">
+  <div class="dirnum">Direction II</div>
+  <h2>The House</h2>
+  <p class="fiction">A great house of history — part Sotheby’s, part Soho House. Ivory pages, one perfect serif, a single line of oxblood. The objects are the drama; the design refuses to compete with them. Today’s games are today’s lots. Viewing closes at midnight.</p>
+  <p class="borrow">Borrowed from: <b>Sotheby’s catalogues</b>, Soho House restraint, the Tenement Museum’s focus on the thing itself. Your 5/5 instinct.</p>
+  <div class="palette">
+    <div style="background:#F7F3EB"><span style="color:#6B5D4C">Ivory</span></div>
+    <div style="background:#201A15"><span style="color:#F7F3EB">Ink</span></div>
+    <div style="background:#6E1D2A"><span style="color:#F7F3EB">Oxblood</span></div>
+    <div style="background:#D9CFC0"><span style="color:#6B5D4C">Hairline</span></div>
+  </div>
+
+  <div class="phones">
+    <div class="phonecol">
+      <div class="phone"><div class="screen">
+        <div class="d2-mast">
+          <div class="hair"></div>
+          <h1>CHRONICLE</h1>
+          <div class="hair"></div>
+          <div class="date">Friday 3 July · Edition № 4</div>
+        </div>
+        <div class="d2-lots">
+          <div class="d2-lot">
+            <div class="lic"><svg viewBox="0 0 48 48" width="30" height="30"><g fill="none" stroke="#201A15" stroke-width="2.2" stroke-linecap="round"><path d="M15.5 35.5 L29.5 17.5"/><circle cx="31.5" cy="14.5" r="2.8"/><path d="M33.5 16.5 C39.5 22.5 24.5 24.5 27.5 32 C29.3 36.6 24.5 40 19.5 38.5"/></g></svg></div>
+            <div>
+              <div class="lotno">Lot 01</div>
+              <div class="lname">Thread</div>
+              <div class="lblurb">Sixteen clues, four hidden families.</div>
+            </div>
+            <div class="lstat"><span class="d2-seal"></span>Solved · 7:12</div>
+          </div>
+          <div class="d2-lot">
+            <div class="lic"><svg viewBox="0 0 48 48" width="30" height="30"><path d="M13 35 Q15 13 35 13" fill="none" stroke="#201A15" stroke-width="2.2" stroke-dasharray="4 4"/><circle cx="13" cy="35" r="3.4" fill="#201A15"/><circle cx="35" cy="13" r="5.8" fill="none" stroke="#6E1D2A" stroke-width="2.2"/><circle cx="35" cy="13" r="1.8" fill="#6E1D2A"/></svg></div>
+            <div>
+              <div class="lotno">Lot 02</div>
+              <div class="lname">Lifeline</div>
+              <div class="lblurb">Born here, died there. Name the figure.</div>
+            </div>
+            <div class="lstat"><span class="live">Bidding open — round 4</span></div>
+          </div>
+          <div class="d2-lot">
+            <div class="lic"><svg viewBox="0 0 48 48" width="30" height="30"><ellipse cx="24" cy="24" rx="13" ry="16.5" fill="none" stroke="#201A15" stroke-width="2"/><path d="M23 13.3 a7.2 7.2 0 1 0 .02 0 Z M29.5 18.5 L33 22.5 L28.8 24 Z M20.5 26.5 h5 v4.5 h-5 Z M14.5 36.5 Q23 28.5 31.5 36.5 Z" fill="#201A15"/></svg></div>
+            <div>
+              <div class="lotno">Lot 03</div>
+              <div class="lname">Face Value</div>
+              <div class="lblurb">A famous face, one sliver at a time.</div>
+            </div>
+            <div class="lstat">Unviewed</div>
+          </div>
+          <div class="d2-lot">
+            <div class="lic"><svg viewBox="0 0 48 48" width="30" height="30"><g fill="none" stroke="#201A15" stroke-width="2"><path d="M18 8.5 h12"/><path d="M21.5 8.5 v5.5 h5 v-5.5"/><path d="M24 17 c8.5 0 12 6 12 11 c0 8.5 -5 13.5 -12 13.5 s-12 -5 -12 -13.5 c0 -5 3.5 -11 12 -11 z"/><path d="M19.5 19.5 c-6.5 -1.5 -9 3.5 -4.5 7"/><path d="M28.5 19.5 c6.5 -1.5 9 3.5 4.5 7"/></g></svg></div>
+            <div>
+              <div class="lotno">Lot 04</div>
+              <div class="lname">Relic</div>
+              <div class="lblurb">A famous artefact, one sliver at a time.</div>
+            </div>
+            <div class="lstat">Unviewed</div>
+          </div>
+        </div>
+        <div class="d2-arch">The Archive ›</div>
+        <div class="d2-foot">Viewing closes at midnight.</div>
+      </div></div>
+      <div class="phonecap">Home</div>
+    </div>
+
+    <div class="phonecol">
+      <div class="phone"><div class="screen">
+        <div class="d2-top"><span>‹</span><span>ROUND 4 OF 10</span><span class="pts">260</span></div>
+        <div class="d2-map">
+          <svg viewBox="0 0 375 260" width="100%" style="display:block;background:#F2EDE2">
+            <g stroke="#E0D6C4" stroke-width="1"><path d="M0 65 H375 M0 130 H375 M0 195 H375 M94 0 V260 M188 0 V260 M282 0 V260"/></g>
+            <g fill="none" stroke="#B9A98E" stroke-width="1.2">
+              <path d="M-10 90 C40 60 80 85 120 62 C160 40 200 58 235 45 C270 33 320 42 385 25"/>
+              <path d="M60 260 C95 225 150 235 190 210 C230 187 300 200 375 175 L375 260 Z" fill="rgba(185,169,142,.14)"/>
+              <path d="M120 120 C150 105 175 118 198 108 C220 99 240 108 252 100"/>
+            </g>
+            <path d="M150 170 Q190 90 248 112" fill="none" stroke="#201A15" stroke-width="1.6" stroke-dasharray="5 5"/>
+            <circle cx="150" cy="170" r="5.5" fill="#3E5C43"/>
+            <text x="150" y="192" text-anchor="middle" fill="#3E5C43" font-size="12.5" letter-spacing="1">1564</text>
+            <circle cx="248" cy="112" r="9.5" fill="none" stroke="#6E1D2A" stroke-width="2"/><circle cx="248" cy="112" r="2.8" fill="#6E1D2A"/>
+            <text x="248" y="90" text-anchor="middle" fill="#6E1D2A" font-size="12.5" letter-spacing="1">1642</text>
+          </svg>
+        </div>
+        <div class="d2-q">Born <b class="born">here</b>, died <b class="died">there</b> — who is it?</div>
+        <div class="d2-hint">Claim to fame: “He pointed a telescope up.” · −25</div>
+        <div class="d2-form"><div class="field">Type a name…</div><div class="go">Guess</div></div>
+        <div class="d2-pills"><span>Initials −25</span><span>·</span><span>Reveal 0</span></div>
+        <div class="d2-foot" style="padding-top:6px">Provenance: seventeenth century, Tuscany.</div>
+      </div></div>
+      <div class="phonecap">Lifeline round</div>
+    </div>
+  </div>
+
+  <div class="iconrow" style="background:#F7F3EB;border:1px solid #E4DBCC">
+    <span class="setlab" style="color:#8A7A66">Icon family</span>
+    <span class="set">
+      <svg viewBox="0 0 48 48" width="44" height="44"><g fill="none" stroke="#201A15" stroke-width="2.2" stroke-linecap="round"><path d="M15.5 35.5 L29.5 17.5"/><circle cx="31.5" cy="14.5" r="2.8"/><path d="M33.5 16.5 C39.5 22.5 24.5 24.5 27.5 32 C29.3 36.6 24.5 40 19.5 38.5"/></g></svg>
+      <svg viewBox="0 0 48 48" width="44" height="44"><path d="M13 35 Q15 13 35 13" fill="none" stroke="#201A15" stroke-width="2.2" stroke-dasharray="4 4"/><circle cx="13" cy="35" r="3.4" fill="#201A15"/><circle cx="35" cy="13" r="5.8" fill="none" stroke="#6E1D2A" stroke-width="2.2"/><circle cx="35" cy="13" r="1.8" fill="#6E1D2A"/></svg>
+      <svg viewBox="0 0 48 48" width="44" height="44"><ellipse cx="24" cy="24" rx="13" ry="16.5" fill="none" stroke="#201A15" stroke-width="2"/><path d="M23 13.3 a7.2 7.2 0 1 0 .02 0 Z M29.5 18.5 L33 22.5 L28.8 24 Z M20.5 26.5 h5 v4.5 h-5 Z M14.5 36.5 Q23 28.5 31.5 36.5 Z" fill="#201A15"/></svg>
+      <svg viewBox="0 0 48 48" width="44" height="44"><g fill="none" stroke="#201A15" stroke-width="2"><path d="M18 8.5 h12"/><path d="M21.5 8.5 v5.5 h5 v-5.5"/><path d="M24 17 c8.5 0 12 6 12 11 c0 8.5 -5 13.5 -12 13.5 s-12 -5 -12 -13.5 c0 -5 3.5 -11 12 -11 z"/><path d="M19.5 19.5 c-6.5 -1.5 -9 3.5 -4.5 7"/><path d="M28.5 19.5 c6.5 -1.5 9 3.5 4.5 7"/></g></svg>
+    </span>
+    <span class="set" style="margin-left:8px">
+      <span class="setlab" style="color:#8A7A66">at 22px</span>
+      <svg viewBox="0 0 48 48" width="22" height="22"><g fill="none" stroke="#201A15" stroke-width="2.7" stroke-linecap="round"><path d="M15.5 35.5 L29.5 17.5"/><circle cx="31.5" cy="14.5" r="3"/><path d="M33.5 16.5 C39.5 22.5 24.5 24.5 27.5 32 C29.3 36.6 24.5 40 19.5 38.5"/></g></svg>
+      <svg viewBox="0 0 48 48" width="22" height="22"><path d="M13 35 Q15 13 35 13" fill="none" stroke="#201A15" stroke-width="2.6" stroke-dasharray="4 4"/><circle cx="13" cy="35" r="3.8" fill="#201A15"/><circle cx="35" cy="13" r="6" fill="none" stroke="#6E1D2A" stroke-width="2.4"/><circle cx="35" cy="13" r="2" fill="#6E1D2A"/></svg>
+      <svg viewBox="0 0 48 48" width="22" height="22"><ellipse cx="24" cy="24" rx="13" ry="16.5" fill="none" stroke="#201A15" stroke-width="2.4"/><path d="M23 13.3 a7.2 7.2 0 1 0 .02 0 Z M29.5 18.5 L33 22.5 L28.8 24 Z M20.5 26.5 h5 v4.5 h-5 Z M14.5 36.5 Q23 28.5 31.5 36.5 Z" fill="#201A15"/></svg>
+      <svg viewBox="0 0 48 48" width="22" height="22"><g fill="none" stroke="#201A15" stroke-width="2.4"><path d="M18 8.5 h12"/><path d="M21.5 8.5 v5.5 h5 v-5.5"/><path d="M24 17 c8.5 0 12 6 12 11 c0 8.5 -5 13.5 -12 13.5 s-12 -5 -12 -13.5 c0 -5 3.5 -11 12 -11 z"/><path d="M19.5 19.5 c-6.5 -1.5 -9 3.5 -4.5 7"/><path d="M28.5 19.5 c6.5 -1.5 9 3.5 4.5 7"/></g></svg>
+    </span>
+  </div>
+
+  <ul class="details">
+    <li><b>Sound:</b> paper sliding on paper; a pen scratch when you answer; on a solve, one soft gavel knock. Barely there.</li>
+    <li><b>Motion:</b> page turns — content fades and settles with editorial calm. Zero bounce, ever.</li>
+    <li><b>The seal:</b> a perfect oxblood circle, embossed with a C, pressed dead-centre. Machine-precise where the Curator’s is human.</li>
+    <li><b>The wink:</b> games are “lots”, streaks are “provenance”, and the footer notes that <i>viewing closes at midnight</i>.</li>
+  </ul>
+
+  <div class="verdict" data-q data-id="d2_stars" data-type="stars" data-label="Direction II — The House">
+    <h3>Verdict — The House</h3>
+    <div class="stars"></div>
+    <div class="vgrid">
+      <div><div class="nlabel">What sings?</div><textarea data-q data-opt data-id="d2_sings" data-type="text" data-label="D2 — what sings"></textarea></div>
+      <div><div class="nlabel">What’s off?</div><textarea data-q data-opt data-id="d2_off" data-type="text" data-label="D2 — what's off"></textarea></div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ================= DIRECTION 3 ================= -->
+<section class="dir d3" id="dir3">
+  <div class="dirnum">Direction III</div>
+  <h2>The Marble Halls</h2>
+  <p class="fiction">The Louvre at opening time: stone, symmetry, gilt frames, morning light down a long gallery. Each game is a room; each day, the museum rehangs itself. It is grand the way only institutions that have outlived empires can be — and then the little placard asks you, politely, not to use flash.</p>
+  <p class="borrow">Borrowed from: <b>the Louvre & British Museum</b> — wall plaques, gallery medallions, engraved capitals, axial symmetry.</p>
+  <div class="palette">
+    <div style="background:#EDE8DD"><span style="color:#6E6557">Stone</span></div>
+    <div style="background:#26221C"><span style="color:#EDE8DD">Bronze ink</span></div>
+    <div style="background:#B08D3E"><span style="color:#26221C">Gilt</span></div>
+    <div style="background:#5C3A3F"><span style="color:#EDE8DD">Porphyry</span></div>
+  </div>
+
+  <div class="phones">
+    <div class="phonecol">
+      <div class="phone"><div class="screen">
+        <div class="d3-mast">
+          <svg viewBox="0 0 120 16" width="120" height="16" style="opacity:.9"><g stroke="#B08D3E" stroke-width="1.4" fill="none"><path d="M10 14 L60 2 L110 14"/><path d="M22 14 H98"/></g></svg>
+          <h1>CHRONICLE</h1>
+          <div class="date">FRIDAY 3 JULY · MMXXVI</div>
+        </div>
+        <div class="d3-rooms">
+          <div class="d3-room">
+            <div class="d3-med"><svg viewBox="0 0 48 48" width="30" height="30"><circle cx="24" cy="24" r="21" fill="none" stroke="#B08D3E" stroke-width="1.6"/><circle cx="24" cy="24" r="17.5" fill="none" stroke="#B08D3E" stroke-width="1"/><g fill="none" stroke="#4A443A" stroke-width="1.9" stroke-linecap="round"><path d="M17.5 33 L28.5 18.7"/><circle cx="30" cy="16.8" r="2.2"/><path d="M31.5 18.4 C36 23 24.5 24.6 27 30.4 C28.4 33.9 24.7 36.5 21 35.4"/></g></svg></div>
+            <div class="roomno">ROOM I</div>
+            <div class="rname">Thread</div>
+            <div class="rblurb">Sixteen clues, four hidden families.</div>
+            <div class="rstat"><span class="done">◆</span> COMPLETED · 7:12</div>
+          </div>
+          <div class="d3-room">
+            <div class="d3-med"><svg viewBox="0 0 48 48" width="30" height="30"><circle cx="24" cy="24" r="21" fill="none" stroke="#B08D3E" stroke-width="1.6"/><circle cx="24" cy="24" r="17.5" fill="none" stroke="#B08D3E" stroke-width="1"/><path d="M16 32 Q18 15 33 15" fill="none" stroke="#4A443A" stroke-width="1.9" stroke-dasharray="3.2 3.2"/><circle cx="16" cy="32" r="2.8" fill="#4A443A"/><circle cx="33" cy="15" r="4.6" fill="none" stroke="#4A443A" stroke-width="1.8"/><circle cx="33" cy="15" r="1.5" fill="#4A443A"/></svg></div>
+            <div class="roomno">ROOM II</div>
+            <div class="rname">Lifeline</div>
+            <div class="rblurb">Born here, died there. Name the figure.</div>
+            <div class="rstat">IN PROGRESS — ROUND 4</div>
+          </div>
+          <div class="d3-room">
+            <div class="d3-med"><svg viewBox="0 0 48 48" width="30" height="30"><circle cx="24" cy="24" r="21" fill="none" stroke="#B08D3E" stroke-width="1.6"/><circle cx="24" cy="24" r="17.5" fill="none" stroke="#B08D3E" stroke-width="1"/><path d="M23.2 14.9 a6.1 6.1 0 1 0 .02 0 Z M28.7 19.3 L31.6 22.6 L28.1 23.9 Z M21 26 h4.3 v3.8 h-4.3 Z M15.8 34.6 Q23.2 27.8 30.6 34.6 Z" fill="#4A443A"/></svg></div>
+            <div class="roomno">ROOM III</div>
+            <div class="rname">Face Value</div>
+            <div class="rblurb">A famous face, one sliver at a time.</div>
+            <div class="rstat">NOT YET VISITED</div>
+          </div>
+          <div class="d3-room">
+            <div class="d3-med"><svg viewBox="0 0 48 48" width="30" height="30"><circle cx="24" cy="24" r="21" fill="none" stroke="#B08D3E" stroke-width="1.6"/><circle cx="24" cy="24" r="17.5" fill="none" stroke="#B08D3E" stroke-width="1"/><g fill="none" stroke="#4A443A" stroke-width="1.8"><path d="M19.5 12.5 h9"/><path d="M22 12.5 v4 h4 v-4"/><path d="M24 19 c6.5 0 9 4.5 9 8 c0 6.3 -3.7 10 -9 10 s-9 -3.7 -9 -10 c0 -3.5 2.5 -8 9 -8 z"/><path d="M20.5 20.5 c-4.8 -1.1 -6.7 2.6 -3.3 5.2"/><path d="M27.5 20.5 c4.8 -1.1 6.7 2.6 3.3 5.2"/></g></svg></div>
+            <div class="roomno">ROOM IV</div>
+            <div class="rname">Relic</div>
+            <div class="rblurb">A famous artefact, one sliver at a time.</div>
+            <div class="rstat">NOT YET VISITED</div>
+          </div>
+        </div>
+        <div class="d3-arch">THE VAULTS ›</div>
+        <div class="d3-foot">No flash photography, please.</div>
+      </div></div>
+      <div class="phonecap">Home</div>
+    </div>
+
+    <div class="phonecol">
+      <div class="phone"><div class="screen">
+        <div class="d3-top"><span>‹</span><span>ROUND IV OF X</span><span class="pts">260 PTS</span></div>
+        <div class="d3-map">
+          <svg viewBox="0 0 375 260" width="100%" style="display:block;background:#EFE9DD">
+            <g stroke="#DFD7C6" stroke-width="1"><path d="M0 65 H375 M0 130 H375 M0 195 H375 M94 0 V260 M188 0 V260 M282 0 V260"/></g>
+            <g fill="none" stroke="#B7AC96" stroke-width="1.2">
+              <path d="M-10 90 C40 60 80 85 120 62 C160 40 200 58 235 45 C270 33 320 42 385 25"/>
+              <path d="M60 260 C95 225 150 235 190 210 C230 187 300 200 375 175 L375 260 Z" fill="rgba(183,172,150,.16)"/>
+              <path d="M120 120 C150 105 175 118 198 108 C220 99 240 108 252 100"/>
+            </g>
+            <path d="M150 170 Q190 90 248 112" fill="none" stroke="#B08D3E" stroke-width="1.8" stroke-dasharray="5 5"/>
+            <circle cx="150" cy="170" r="5.5" fill="#3E5C43"/>
+            <text x="150" y="192" text-anchor="middle" fill="#3E5C43" font-size="12.5" letter-spacing="2">1564</text>
+            <circle cx="248" cy="112" r="9.5" fill="none" stroke="#5C3A3F" stroke-width="2"/><circle cx="248" cy="112" r="2.8" fill="#5C3A3F"/>
+            <text x="248" y="90" text-anchor="middle" fill="#5C3A3F" font-size="12.5" letter-spacing="2">1642</text>
+          </svg>
+        </div>
+        <div class="d3-q">Born <b class="born">here</b>, died <b class="died">there</b> — who is it?</div>
+        <div class="d3-hint">Claim to fame: “He pointed a telescope up.” · −25</div>
+        <div class="d3-form"><div class="field">Type a name…</div><div class="go">GUESS</div></div>
+        <div class="d3-pills"><span>Initials −25</span><span>Reveal 0</span></div>
+        <div class="d3-foot" style="padding-top:6px">Gallery II · Seventeenth-century instruments.</div>
+      </div></div>
+      <div class="phonecap">Lifeline round</div>
+    </div>
+  </div>
+
+  <div class="iconrow" style="background:#EDE8DD;border:1px solid #C4AE7E">
+    <span class="setlab" style="color:#6E6557">Icon family</span>
+    <span class="set">
+      <svg viewBox="0 0 48 48" width="44" height="44"><circle cx="24" cy="24" r="21" fill="none" stroke="#B08D3E" stroke-width="1.6"/><circle cx="24" cy="24" r="17.5" fill="none" stroke="#B08D3E" stroke-width="1"/><g fill="none" stroke="#4A443A" stroke-width="1.9" stroke-linecap="round"><path d="M17.5 33 L28.5 18.7"/><circle cx="30" cy="16.8" r="2.2"/><path d="M31.5 18.4 C36 23 24.5 24.6 27 30.4 C28.4 33.9 24.7 36.5 21 35.4"/></g></svg>
+      <svg viewBox="0 0 48 48" width="44" height="44"><circle cx="24" cy="24" r="21" fill="none" stroke="#B08D3E" stroke-width="1.6"/><circle cx="24" cy="24" r="17.5" fill="none" stroke="#B08D3E" stroke-width="1"/><path d="M16 32 Q18 15 33 15" fill="none" stroke="#4A443A" stroke-width="1.9" stroke-dasharray="3.2 3.2"/><circle cx="16" cy="32" r="2.8" fill="#4A443A"/><circle cx="33" cy="15" r="4.6" fill="none" stroke="#4A443A" stroke-width="1.8"/><circle cx="33" cy="15" r="1.5" fill="#4A443A"/></svg>
+      <svg viewBox="0 0 48 48" width="44" height="44"><circle cx="24" cy="24" r="21" fill="none" stroke="#B08D3E" stroke-width="1.6"/><circle cx="24" cy="24" r="17.5" fill="none" stroke="#B08D3E" stroke-width="1"/><path d="M23.2 14.9 a6.1 6.1 0 1 0 .02 0 Z M28.7 19.3 L31.6 22.6 L28.1 23.9 Z M21 26 h4.3 v3.8 h-4.3 Z M15.8 34.6 Q23.2 27.8 30.6 34.6 Z" fill="#4A443A"/></svg>
+      <svg viewBox="0 0 48 48" width="44" height="44"><circle cx="24" cy="24" r="21" fill="none" stroke="#B08D3E" stroke-width="1.6"/><circle cx="24" cy="24" r="17.5" fill="none" stroke="#B08D3E" stroke-width="1"/><g fill="none" stroke="#4A443A" stroke-width="1.8"><path d="M19.5 12.5 h9"/><path d="M22 12.5 v4 h4 v-4"/><path d="M24 19 c6.5 0 9 4.5 9 8 c0 6.3 -3.7 10 -9 10 s-9 -3.7 -9 -10 c0 -3.5 2.5 -8 9 -8 z"/><path d="M20.5 20.5 c-4.8 -1.1 -6.7 2.6 -3.3 5.2"/><path d="M27.5 20.5 c4.8 -1.1 6.7 2.6 3.3 5.2"/></g></svg>
+    </span>
+    <span class="set" style="margin-left:8px">
+      <span class="setlab" style="color:#6E6557">at 22px</span>
+      <svg viewBox="0 0 48 48" width="22" height="22"><circle cx="24" cy="24" r="21" fill="none" stroke="#B08D3E" stroke-width="1.8"/><g fill="none" stroke="#4A443A" stroke-width="2.2" stroke-linecap="round"><path d="M17.5 33 L28.5 18.7"/><circle cx="30" cy="16.8" r="2.4"/><path d="M31.5 18.4 C36 23 24.5 24.6 27 30.4 C28.4 33.9 24.7 36.5 21 35.4"/></g></svg>
+      <svg viewBox="0 0 48 48" width="22" height="22"><circle cx="24" cy="24" r="21" fill="none" stroke="#B08D3E" stroke-width="1.8"/><path d="M16 32 Q18 15 33 15" fill="none" stroke="#4A443A" stroke-width="2.2" stroke-dasharray="3.2 3.2"/><circle cx="16" cy="32" r="3" fill="#4A443A"/><circle cx="33" cy="15" r="4.8" fill="none" stroke="#4A443A" stroke-width="2"/><circle cx="33" cy="15" r="1.6" fill="#4A443A"/></svg>
+      <svg viewBox="0 0 48 48" width="22" height="22"><circle cx="24" cy="24" r="21" fill="none" stroke="#B08D3E" stroke-width="1.8"/><path d="M23.2 14.9 a6.1 6.1 0 1 0 .02 0 Z M28.7 19.3 L31.6 22.6 L28.1 23.9 Z M21 26 h4.3 v3.8 h-4.3 Z M15.8 34.6 Q23.2 27.8 30.6 34.6 Z" fill="#4A443A"/></svg>
+      <svg viewBox="0 0 48 48" width="22" height="22"><circle cx="24" cy="24" r="21" fill="none" stroke="#B08D3E" stroke-width="1.8"/><g fill="none" stroke="#4A443A" stroke-width="2"><path d="M19.5 12.5 h9"/><path d="M22 12.5 v4 h4 v-4"/><path d="M24 19 c6.5 0 9 4.5 9 8 c0 6.3 -3.7 10 -9 10 s-9 -3.7 -9 -10 c0 -3.5 2.5 -8 9 -8 z"/><path d="M20.5 20.5 c-4.8 -1.1 -6.7 2.6 -3.3 5.2"/><path d="M27.5 20.5 c4.8 -1.1 6.7 2.6 3.3 5.2"/></g></svg>
+    </span>
+  </div>
+
+  <ul class="details">
+    <li><b>Sound:</b> stone room-tone; the faint echo of footsteps; on a solve, a single soft bronze chime, like a case being closed.</li>
+    <li><b>Motion:</b> axial — everything reveals from the centre line, slow and symmetric, like doors opening onto a gallery.</li>
+    <li><b>The seal:</b> burgundy wax flecked with gilt, pressed beneath the plaque like a conservator’s mark.</li>
+    <li><b>The wink:</b> “No flash photography, please.” Rooms are numbered in Roman numerals; nobody explains why.</li>
+  </ul>
+
+  <div class="verdict" data-q data-id="d3_stars" data-type="stars" data-label="Direction III — The Marble Halls">
+    <h3>Verdict — The Marble Halls</h3>
+    <div class="stars"></div>
+    <div class="vgrid">
+      <div><div class="nlabel">What sings?</div><textarea data-q data-opt data-id="d3_sings" data-type="text" data-label="D3 — what sings"></textarea></div>
+      <div><div class="nlabel">What’s off?</div><textarea data-q data-opt data-id="d3_off" data-type="text" data-label="D3 — what's off"></textarea></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= THE CALL ================= -->
+<div class="finale" data-q data-id="final_pick" data-type="optlist" data-label="The call">
+  <h2>The call</h2>
+  <p style="color:var(--muted);margin:4px 0 0">Which Chronicle do we build? A blend is allowed — but name the dominant parent.</p>
+  <div class="optlist" id="finalopts"></div>
+  <div style="margin-top:10px"><div class="nlabel" style="font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Notes — blends, borrowings, instructions</div>
+  <textarea data-q data-opt data-id="final_note" data-type="text" data-label="Final notes" placeholder="e.g. Direction II overall, but steal the seal-with-initial and the footer winks from I…"></textarea></div>
+  <div id="summary">
+    <div class="btns"><button id="copybtn">Copy to clipboard</button><button id="dlbtn">Download .md</button></div>
+    <textarea id="out" readonly></textarea>
+  </div>
+</div>
+
+</div><!-- /wrap -->
+
+<div id="bar"><span id="cnt"></span><span id="saved"></span><button id="finish">Finish &amp; build my summary</button></div>
+<div class="toast" id="toast">Copied</div>
+
+<script>
+(function(){
+  'use strict';
+  var KEY='chronicleGalleryV1';
+  var S={};
+  try{ S=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){ S={}; }
+
+  var storageOk=true;
+  try{ localStorage.setItem('__probe','1'); localStorage.removeItem('__probe'); }catch(e){ storageOk=false; }
+  if(window.self!==window.top || !storageOk){
+    var warn=document.createElement('div');
+    warn.setAttribute('style','position:fixed;top:0;left:0;right:0;z-index:99;background:#7A1F2D;color:#F6F1E6;padding:14px 18px;font-size:15.5px;text-align:center;line-height:1.4');
+    warn.innerHTML='<b>&#9888; Don&rsquo;t type here!</b> This is a preview pane &mdash; answers typed here will be lost. Close this and double-click <b>direction-gallery.html</b> in Finder so it opens in Safari or Chrome.';
+    document.body.appendChild(warn);
+  }
+
+  var saveFlash;
+  function save(){
+    localStorage.setItem(KEY, JSON.stringify(S)); count();
+    var s=document.getElementById('saved');
+    s.textContent='Saved ✓'; s.style.opacity='1';
+    clearTimeout(saveFlash); saveFlash=setTimeout(function(){ s.style.opacity='.45'; },1200);
+  }
+  function el(html){ var d=document.createElement('div'); d.innerHTML=html; return d.firstElementChild; }
+
+  // stars
+  document.querySelectorAll('[data-type="stars"]').forEach(function(q){
+    var id=q.getAttribute('data-id');
+    var wrap=q.querySelector('.stars');
+    for(var i=1;i<=5;i++){
+      (function(i){
+        var b=el('<button aria-label="'+i+' stars">★</button>');
+        b.onclick=function(){ S[id]=i; paint(); save(); };
+        wrap.appendChild(b);
+      })(i);
+    }
+    function paint(){ var v=S[id]||0; wrap.querySelectorAll('button').forEach(function(b,ix){ b.classList.toggle('on', ix<v); }); }
+    paint();
+    q._paint=paint;
+  });
+
+  // final options
+  var OPTS=[
+    ['d1','Direction I — The Curator’s Room'],
+    ['d2','Direction II — The House'],
+    ['d3','Direction III — The Marble Halls'],
+    ['blend','A blend — see my notes below'],
+    ['none','None of these — back to the drawing board (tell me why below)']
+  ];
+  var fwrap=document.getElementById('finalopts');
+  OPTS.forEach(function(o){
+    var b=el('<button class="opt" data-val="'+o[0]+'">'+o[1]+'</button>');
+    if(S['final_pick']===o[0]) b.classList.add('on');
+    b.onclick=function(){ S['final_pick']=o[0]; fwrap.querySelectorAll('.opt').forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); save(); };
+    fwrap.appendChild(b);
+  });
+
+  // textareas
+  document.querySelectorAll('textarea[data-q]').forEach(function(t){
+    var id=t.getAttribute('data-id');
+    if(S[id]) t.value=S[id];
+    t.addEventListener('input',function(){ S[id]=t.value; clearTimeout(t._t); t._t=setTimeout(save,400); });
+  });
+
+  function count(){
+    var req=['d1_stars','d2_stars','d3_stars','final_pick'];
+    var n=req.filter(function(id){ return S[id]!==undefined; }).length;
+    document.getElementById('cnt').textContent=n+' of '+req.length+' verdicts in';
+  }
+  count();
+
+  var OPTLOOK={}; OPTS.forEach(function(o){ OPTLOOK[o[0]]=o[1]; });
+  function build(){
+    var md='# Chronicle direction gallery — Daniel’s verdicts\n\n';
+    ['1','2','3'].forEach(function(n){
+      var names={1:'The Curator’s Room',2:'The House',3:'The Marble Halls'};
+      md+='## Direction '+n+' — '+names[n]+'\n';
+      md+='- **Stars:** '+(S['d'+n+'_stars']!==undefined?S['d'+n+'_stars']+'/5':'(skipped)')+'\n';
+      if(S['d'+n+'_sings']) md+='- **Sings:** '+S['d'+n+'_sings']+'\n';
+      if(S['d'+n+'_off']) md+='- **Off:** '+S['d'+n+'_off']+'\n';
+      md+='\n';
+    });
+    md+='## The call\n- **Pick:** '+(S['final_pick']?OPTLOOK[S['final_pick']]:'(skipped)')+'\n';
+    if(S['final_note']) md+='- **Notes:** '+S['final_note']+'\n';
+    return md;
+  }
+
+  document.getElementById('finish').onclick=function(){
+    document.getElementById('out').value=build();
+    document.getElementById('summary').style.display='block';
+    document.getElementById('summary').scrollIntoView({behavior:'smooth',block:'center'});
+  };
+  document.getElementById('copybtn').onclick=function(){
+    var out=document.getElementById('out'); out.value=build(); out.select();
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(out.value).then(toast); }
+    else { try{ document.execCommand('copy'); toast(); }catch(e){} }
+  };
+  document.getElementById('dlbtn').onclick=function(){
+    var blob=new Blob([build()],{type:'text/markdown'});
+    var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='chronicle-direction-verdicts.md';
+    document.body.appendChild(a); a.click(); a.remove();
+  };
+  function toast(){ var t=document.getElementById('toast'); t.style.display='block'; setTimeout(function(){t.style.display='none';},1400); }
+})();
+</script>
+</body>
+</html>

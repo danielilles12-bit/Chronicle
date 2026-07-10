@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chronicle — Brand Exploration Playbook</title>
+<style>
+  :root {
+    --ivory: #f7f3ea;
+    --ink: #1c1a16;
+    --oxblood: #6e1423;
+    --brass: #9a7b3f;
+    --paper: #fffdf7;
+    --rule: #d8d0bf;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--ivory);
+    color: var(--ink);
+    font-family: Georgia, 'Times New Roman', serif;
+    line-height: 1.65;
+    font-size: 17px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px 96px; }
+  header { text-align: center; padding: 24px 0 40px; border-bottom: 1px solid var(--ink); margin-bottom: 48px; }
+  header .kicker { letter-spacing: 0.3em; font-size: 12px; text-transform: uppercase; color: var(--oxblood); margin-bottom: 12px; }
+  header h1 { font-size: 34px; font-weight: normal; letter-spacing: 0.02em; }
+  header .motto { font-style: italic; color: #6b665a; margin-top: 10px; font-size: 16px; }
+  h2 {
+    font-size: 15px; text-transform: uppercase; letter-spacing: 0.22em; font-weight: normal;
+    color: var(--oxblood); border-bottom: 1px solid var(--rule); padding-bottom: 8px;
+    margin: 56px 0 20px;
+  }
+  h3 { font-size: 19px; font-weight: normal; font-style: italic; margin: 28px 0 10px; }
+  p { margin-bottom: 14px; }
+  ul, ol { margin: 0 0 16px 22px; }
+  li { margin-bottom: 8px; }
+  em { color: #5a544a; }
+  .phase-meta { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #8a8371; margin-bottom: 16px; }
+  .callout {
+    background: var(--paper); border: 1px solid var(--rule); border-left: 3px solid var(--brass);
+    padding: 16px 20px; margin: 20px 0; font-size: 16px;
+  }
+  .callout strong { color: var(--oxblood); }
+  .prompt {
+    background: var(--ink); color: #e8e2d4; font-family: 'SF Mono', Menlo, monospace;
+    font-size: 13.5px; line-height: 1.6; padding: 16px 18px; margin: 12px 0 4px;
+    border-radius: 2px; position: relative; white-space: pre-wrap; word-break: break-word;
+  }
+  .prompt .label {
+    display: block; font-family: Georgia, serif; font-style: italic; color: var(--brass);
+    font-size: 13px; margin-bottom: 8px;
+  }
+  .copy-btn {
+    position: absolute; top: 10px; right: 10px;
+    background: none; border: 1px solid #55503f; color: #b0a888;
+    font-family: Georgia, serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 4px 10px; cursor: pointer; border-radius: 2px;
+  }
+  .copy-btn:hover { border-color: var(--brass); color: #e8e2d4; }
+  .note-under { font-size: 13.5px; color: #8a8371; font-style: italic; margin: 2px 0 18px; }
+  .shotlist { border: 1px solid var(--rule); background: var(--paper); margin: 20px 0; }
+  .shotlist .row { display: flex; gap: 16px; padding: 12px 18px; border-bottom: 1px solid var(--rule); }
+  .shotlist .row:last-child { border-bottom: none; }
+  .shotlist .num { color: var(--oxblood); font-size: 15px; min-width: 20px; }
+  .shotlist .row div:last-child { font-size: 15.5px; }
+  .direction-head {
+    display: flex; align-items: baseline; gap: 14px; margin: 40px 0 6px;
+    border-bottom: 2px solid var(--ink); padding-bottom: 6px;
+  }
+  .direction-head .letter { font-size: 30px; color: var(--oxblood); }
+  .direction-head .name { font-size: 21px; letter-spacing: 0.04em; }
+  .checklist { list-style: none; margin-left: 0; }
+  .checklist li { padding-left: 28px; position: relative; }
+  .checklist li::before { content: "☐"; position: absolute; left: 2px; color: var(--brass); }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 15px; }
+  th, td { border: 1px solid var(--rule); padding: 8px 12px; text-align: left; vertical-align: top; }
+  th { background: var(--paper); font-weight: normal; font-style: italic; }
+  footer { margin-top: 72px; padding-top: 20px; border-top: 1px solid var(--ink); text-align: center; font-style: italic; color: #8a8371; font-size: 14px; }
+  .toc { background: var(--paper); border: 1px solid var(--rule); padding: 20px 26px; font-size: 15.5px; }
+  .toc ol { margin-bottom: 0; }
+  a { color: var(--oxblood); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Chronicle · Brand Exploration · Round Two</div>
+  <h1>The Playbook</h1>
+  <div class="motto">Midjourney finds the world. You choose it. Recraft manufactures it. Claude ships it.</div>
+</header>
+
+<div class="toc">
+  <ol>
+    <li><strong>Set up</strong> — accounts &amp; folders (30 min)</li>
+    <li><strong>Steal like a designer</strong> — real references first (1 evening)</li>
+    <li><strong>Midjourney</strong> — shoot the same 5 shots in all three worlds (1 weekend afternoon)</li>
+    <li><strong>Hand over the keepers</strong> — Claude distills briefs &amp; rebuilds 3 home screens (overnight)</li>
+    <li><strong>The decision gate</strong> — pick one world (30 min)</li>
+    <li><strong>Recraft</strong> — production asset kit for the winner (1 evening)</li>
+    <li><strong>Build</strong> — Claude implements from the brief (overnight loops)</li>
+  </ol>
+</div>
+
+<div class="callout"><strong>The fast lane (~30 min of your time):</strong> skip Phase 2, open <code>assets/brand-v2/speedrun-prompts.txt</code>, paste its 12 prompts into Midjourney in one sitting with Draft Mode on (~10 min), come back later and bulk-download everything that isn't terrible into <code>assets/brand-v2/inbox</code> (~10 min), then tell Claude. Claude sorts them by direction and builds a phone-friendly keep/kill page; you swipe (~10 min). Style-reference convergence and the real-artifact staging shots happen later, only for the finalists.</div>
+
+<h2>Why this round will be different</h2>
+<p>The last round failed for a diagnosable reason: we asked writing models to paint. Claude and ChatGPT can reason about design but they generate visuals from words, which converges on "competent generic" — and you judged the mockups as empty rooms, because they were. Your references (Sotheby's, Soane's Museum) get their power from <em>real material photographed beautifully</em>.</p>
+<p>A designer's process separates three jobs that we previously mashed together:</p>
+<ul>
+  <li><strong>Finding the world</strong> — high-variance visual exploration. Midjourney's job. It produces hundreds of options cheaply; most are bad; that's the point.</li>
+  <li><strong>Choosing</strong> — ruthless curation. <strong>Your job, and only yours.</strong> This is the artistic judgment that was missing. You are not "giving feedback on an output" anymore; you are the art director killing 90% of the film.</li>
+  <li><strong>Manufacturing</strong> — turning the chosen world into consistent, production-grade assets (vectors, seals, ornaments, textures). Recraft's job. This is what replaces the hand-drawn SVG art that hit its quality ceiling four versions in a row.</li>
+</ul>
+<div class="callout"><strong>One rule carries over from last round:</strong> the soul of the app is your 389 real artifacts. Midjourney builds the <em>stage</em>, never the collection. The Portland Vase stays real.</div>
+
+<h2>Phase 1 · Set up</h2>
+<div class="phase-meta">30 minutes · ~$10–42 total for one month of tooling</div>
+<ul class="checklist">
+  <li><strong>Midjourney</strong> — <a href="https://www.midjourney.com">midjourney.com</a> (works fully in the browser now, no Discord needed). Basic plan ($10/mo, ~200 images) works if you're disciplined; Standard ($30/mo) includes unlimited "Relax" generation, which removes the meter-anxiety while you explore. One month is enough — cancel after.</li>
+  <li><strong>Recraft</strong> — <a href="https://www.recraft.ai">recraft.ai</a>. Start on the free tier; only upgrade (~$12/mo tier) if custom Styles or SVG export are gated when you get to Phase 6.</li>
+  <li><strong>Folders</strong> — already created for you: <code>assets/brand-v2/curators-room</code>, <code>marble-halls</code>, <code>house</code>. Drag anything you like into the matching folder. Filenames don't matter; Claude sorts it out.</li>
+</ul>
+
+<h2>Phase 2 · Steal like a designer</h2>
+<div class="phase-meta">One evening · 60–90 minutes · no AI involved</div>
+<p>Every good designer starts with theft, not prompts. Before generating anything, collect 10–15 <em>real photographs</em> per direction from Google Images or Pinterest. These calibrate your eye and become Midjourney style-reference fuel later.</p>
+<p><strong>The only rule:</strong> save an image only if it makes you feel something. "It's relevant" is not a reason. "I want to be in that room" is.</p>
+<table>
+  <tr><th>Direction</th><th>Search these exact phrases</th></tr>
+  <tr><td><strong>Curator's Room</strong></td><td>"Sir John Soane's Museum interior" · "Pitt Rivers Museum cases" · "Deyrolle Paris shop" · "wunderkammer cabinet of curiosities" · "study at night banker's lamp"</td></tr>
+  <tr><td><strong>Marble Halls</strong></td><td>"British Museum Great Court dawn" · "neoclassical museum hall empty" · "marble bust spotlight black background" · "Pantheon Rome light shaft"</td></tr>
+  <tr><td><strong>The House</strong></td><td>"Sotheby's auction preview gallery" · "auction catalogue layout design" · "Aesop store interior" · "gallery plinth single spotlight" · "Cereal magazine spread"</td></tr>
+</table>
+<p>Also drop 3–5 of the app's own hero artifacts (portland-vase.jpg, lewis-chessmen.jpg…) into each folder. The final test of every world: <em>does it flatter them?</em></p>
+
+<h2>Phase 3 · Midjourney — shoot three worlds</h2>
+<div class="phase-meta">One weekend afternoon · 2–3 hours · the fun part</div>
+
+<h3>How to work the machine</h3>
+<ul>
+  <li>Type prompts in the bar at <a href="https://www.midjourney.com">midjourney.com</a>; results land in Create. Click any image → <strong>Vary</strong> (more like this) or <strong>Upscale</strong> (finished quality).</li>
+  <li>Turn on <strong>Draft Mode</strong> while exploring — images are faster and cheaper. When you find a keeper, hit <strong>Enhance</strong> to re-render it at full quality.</li>
+  <li>To push new images toward ones you love: <strong>drag an image into the prompt bar</strong> and mark it as a <em>Style Reference</em>. This is the single most important feature for us — it's how a direction becomes coherent instead of a grab-bag.</li>
+  <li>Drag an image in as an <em>Image/Omni Reference</em> instead when you want <em>the object itself</em> to appear (this is how you put the actual Portland Vase on stage).</li>
+</ul>
+
+<h3>Prompt craft — five rules</h3>
+<ol>
+  <li><strong>Describe a photograph, not a design.</strong> Name the camera feeling, the light, the materials: "photograph, one green-shaded lamp, dark walnut, dust in the light."</li>
+  <li><strong>Nouns and light, never adjectives.</strong> Banned words: <em>beautiful, epic, intricate, stunning, hyperdetailed, 8k, masterpiece</em>. These produce the AI-slop look you hate.</li>
+  <li><strong>One idea per image.</strong> If a prompt has two ideas, split it into two prompts.</li>
+  <li><strong>Never ask it for UI screens, logos, or text.</strong> It invents fake buttons and misspells everything. Screens get built in code; logos come later in Recraft.</li>
+  <li>End every prompt with <code>--ar 4:5</code> (portrait, roughly phone-shaped mood images).</li>
+</ol>
+
+<h3>The shot list — same five shots in every world</h3>
+<p>Shooting an identical list is what makes the three-way comparison fair. Aim for 15–25 generations per shot in Draft Mode, keep 1–2.</p>
+<div class="shotlist">
+  <div class="row"><div class="num">①</div><div><strong>The World</strong> — the establishing shot. Where does this app live?</div></div>
+  <div class="row"><div class="num">②</div><div><strong>The Material</strong> — a macro close-up. What is the UI made of?</div></div>
+  <div class="row"><div class="num">③</div><div><strong>The Ritual</strong> — the win moment as an object (seal, laurel, gavel).</div></div>
+  <div class="row"><div class="num">④</div><div><strong>The Wink</strong> — where "grand, with a wink" lives in this world.</div></div>
+  <div class="row"><div class="num">⑤</div><div><strong>The Artifact on Stage</strong> — your real Portland Vase photo as an image reference, placed inside this world. The killer test.</div></div>
+</div>
+
+<div class="direction-head"><span class="letter">A</span><span class="name">The Curator's Room</span></div>
+<div class="prompt"><span class="label">① The World</span><span class="ptext">a private collector's study late at night, floor-to-ceiling cabinets of narrow labelled drawers, glass domes and brass instruments, one green-shaded banker's lamp lit, dust motes in the lamplight, cluttered but deeply loved, photograph on Kodak Portra 400 --ar 4:5</span><button class="copy-btn">Copy</button></div>
+<div class="prompt"><span class="label">② The Material</span><span class="ptext">macro photograph of a small brass drawer-pull on dark walnut, a hand-written specimen label yellowed at the corners, warm lamplight raking across the wood grain --ar 4:5</span><button class="copy-btn">Copy</button></div>
+<div class="prompt"><span class="label">③ The Ritual</span><span class="ptext">a deep red wax seal freshly pressed onto a heavy cream label, brass stamp resting beside it, candlelight, shallow focus, still-life photograph --ar 4:5</span><button class="copy-btn">Copy</button></div>
+<div class="prompt"><span class="label">④ The Wink</span><span class="ptext">editorial illustration of a silver-haired museum curator in a tweed waistcoat, spectacles on a chain, holding up a tiny artifact with a knowing half-smile, warm limited palette, visible pencil grain --ar 4:5</span><button class="copy-btn">Copy</button></div>
+<div class="prompt"><span class="label">⑤ The Artifact on Stage — drag portland-vase.jpg in as an image reference first</span><span class="ptext">an ancient roman cameo-glass vase displayed under a glass dome on a walnut desk, lit only by a green-shaded lamp, night, museum study, photograph --ar 4:5</span><button class="copy-btn">Copy</button></div>
+
+<div class="direction-head"><span class="letter">B</span><span class="name">The Marble Halls</span></div>
+<div class="prompt"><span class="label">① The World</span><span class="ptext">a vast empty neoclassical museum hall at dawn, pale marble columns, long shafts of cold morning light across the stone floor, one small gold object on a distant plinth, monumental quiet, large-format architectural photograph --ar 4:5</span><button class="copy-btn">Copy</button></div>
+<div class="prompt"><span class="label">② The Material</span><span class="ptext">macro photograph of white carrara marble with grey veining and a thin inlaid line of gold leaf, raking dawn light --ar 4:5</span><button class="copy-btn">Copy</button></div>
+<div class="prompt"><span class="label">③ The Ritual</span><span class="ptext">a small laurel wreath cast in solid gold resting on a white marble plinth, single spotlight from above, near-black background, museum photography --ar 4:5</span><button class="copy-btn">Copy</button></div>
+<div class="prompt"><span class="label">④ The Wink</span><span class="ptext">a classical marble bust with the faintest amused smile, dramatic single spotlight, dark background, museum photograph --ar 4:5</span><button class="copy-btn">Copy</button></div>
+<div class="prompt"><span class="label">⑤ The Artifact on Stage — drag portland-vase.jpg in as an image reference first</span><span class="ptext">an ancient roman cameo-glass vase alone on a marble plinth in a vast dawn-lit hall, a single shaft of light, architectural photograph --ar 4:5</span><button class="copy-btn">Copy</button></div>
+
+<div class="direction-head"><span class="letter">C</span><span class="name">The House (Sotheby's modern)</span></div>
+<div class="prompt"><span class="label">① The World</span><span class="ptext">a minimal auction house preview gallery, deep charcoal walls, a single ancient greek helmet under one precise spotlight, generous empty space, editorial photograph for an auction catalogue --ar 4:5</span><button class="copy-btn">Copy</button></div>
+<div class="prompt"><span class="label">② The Material</span><span class="ptext">macro photograph of thick ivory paper with a letterpress-embossed lot number and a thin oxblood printed rule, soft studio light --ar 4:5</span><button class="copy-btn">Copy</button></div>
+<div class="prompt"><span class="label">③ The Ritual</span><span class="ptext">an auctioneer's gavel of dark walnut and brass lying on ivory linen, studio still life, one soft directional light --ar 4:5</span><button class="copy-btn">Copy</button></div>
+<div class="prompt"><span class="label">④ The Wink</span><span class="ptext">a tiny ancient bronze coin displayed on a huge ivory plinth with an elegant oversized paper lot tag, deadpan studio photography --ar 4:5</span><button class="copy-btn">Copy</button></div>
+<div class="prompt"><span class="label">⑤ The Artifact on Stage — drag portland-vase.jpg in as an image reference first</span><span class="ptext">an ancient roman cameo-glass vase photographed for an auction catalogue cover, charcoal background, one precise spotlight, hairline ivory border --ar 4:5</span><button class="copy-btn">Copy</button></div>
+
+<h3>Converge, then curate</h3>
+<ol>
+  <li><strong>Round 1:</strong> run the shot lists as written. Treat the prompts as starting points — chase anything that surprises you.</li>
+  <li><strong>Round 2 (the pro move):</strong> pick your 3–4 favorites in a direction, drag them <em>all</em> into the prompt bar as Style References, and re-run the shot list. Everything now comes out belonging to one world. Real reference photos from Phase 2 work as style references too — often better.</li>
+  <li><strong>Curate:</strong> end with <strong>6–8 keepers per direction</strong>, Enhanced/Upscaled, dropped into the right <code>assets/brand-v2</code> folder. Kill anything that fails: <em>Would NYT ship this? Is the wink present? Does it flatter the real artifact? Does it still work squinted at, at phone size?</em></li>
+</ol>
+<div class="callout"><strong>Optional power move:</strong> Midjourney's <em>Moodboards</em> (under Personalize) let you build a named taste profile per direction by rating images. Worth it only if round 2 isn't converging — otherwise skip.</div>
+
+<h2>Phase 4 · Hand over the keepers</h2>
+<div class="phase-meta">Your effort: one message · Claude's effort: overnight</div>
+<p>Tell Claude the keepers are in. For each direction Claude will extract, <em>from the actual pixels</em>: a hex palette, material and lighting rules, real (free) typeface pairings, motion words, and a banned list — then rebuild three home screens using your keepers as set dressing and the real artifact plates as content. Judged side-by-side at phone size against a real NYT Games screenshot. No more empty rooms.</p>
+
+<h2>Phase 5 · The decision gate</h2>
+<div class="phase-meta">30 minutes · at the pub, on your phone</div>
+<p>Pick <strong>one</strong> world. The losers donate organs (Marble Halls' stately motion, the Curator's wit) but one governs. The test is unchanged: open it on your phone away from your desk and ask, <em>"would I pay for this?"</em></p>
+
+<h2>Phase 6 · Recraft — manufacture the winner</h2>
+<div class="phase-meta">One evening · 1–2 hours</div>
+<p>Recraft is where the winning world becomes a consistent, production-ready kit. Unlike Midjourney it outputs true <strong>vectors (SVG)</strong>, renders <strong>text correctly</strong>, and — the key feature — lets you create a <strong>custom Style from uploaded images</strong> so every asset matches.</p>
+<ol>
+  <li><strong>Create a Style:</strong> upload 5–8 keepers (plus your best real references) → Recraft builds a reusable style. Every generation from now on uses it.</li>
+  <li><strong>Generate the kit</strong> (each as a set, so pieces match):
+    <ul>
+      <li>Masthead / logo exploration — including rendering the existing <em>Question Key</em> concept (assets/logo) in the winning world's style, so that loose end gets resolved or retired.</li>
+      <li>The wax seal, in states: dull brass → pressed deep burgundy.</li>
+      <li>UI ornaments as vectors: hairline frames, dividers, corner marks, lot-number styling.</li>
+      <li>Background textures: paper / marble / leather — subtle, export as PNG.</li>
+      <li>If the Curator's Room wins: a Reggie set — 5 poses (welcome, correct, wrong, streak, trophy) generated against the Style plus his first portrait as an image reference, for consistency.</li>
+    </ul>
+  </li>
+  <li><strong>Export:</strong> SVG for anything that sits in the UI (scales perfectly, tiny files), PNG at 2× for textures. Recraft has background removal built in.</li>
+</ol>
+<div class="callout"><strong>Rule:</strong> no asset enters the app raw. Everything passes through the brief — recolored to the exact palette, stroke weights matched. Claude enforces this at build time.</div>
+
+<h2>Phase 7 · Build</h2>
+<div class="phase-meta">Claude's job · overnight loops · you review at gates</div>
+<p>Design tokens from the brief, home screen first, then game screens ported one at a time, then audits. Same gate structure as before — except this time the gates are guarding taste <em>you</em> chose from a hundred options, not taste a model guessed at.</p>
+
+<footer>Lock up when you leave.</footer>
+
+</div>
+<script>
+document.querySelectorAll('.copy-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var text = btn.parentElement.querySelector('.ptext').textContent;
+    navigator.clipboard.writeText(text).then(function(){
+      btn.textContent = 'Copied';
+      setTimeout(function(){ btn.textContent = 'Copy'; }, 1500);
+    });
+  });
+});
+</script>
+</body>
+</html>

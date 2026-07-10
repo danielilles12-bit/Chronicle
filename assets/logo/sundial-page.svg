@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" style="color:#121212">
+  <!-- Chronicle · alternate mark. A dog-eared page whose folded corner casts a
+       sundial's shadow — paper that tells time. The gold tick is "now".
+       Ink = currentColor; gold garnish. -->
+  <path d="M52 12 H26 Q22 12 22 16 V80 Q22 84 26 84 H68 Q72 84 72 80 V32 Z"
+        fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round"/>
+  <path d="M52 12 V32 H72 Z" fill="currentColor"/>
+  <path d="M52 32 L37.4 53.05 L41.1 55.15 Z" fill="currentColor"/>
+  <g stroke="currentColor" stroke-width="3" stroke-linecap="round">
+    <path d="M59.25 59.05 L60.4 63.4"/>
+    <path d="M27.3 45.1 L23.3 47.2"/>
+  </g>
+  <path d="M37 58 L34.5 62.3" stroke="#9a7b2d" stroke-width="3.4" stroke-linecap="round"/>
+</svg>

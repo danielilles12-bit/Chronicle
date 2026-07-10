@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Direction A — The Curator's Room · Board №1</title>
+<style>
+  :root {
+    --ivory: #f7f3ea; --ink: #1c1a16; --oxblood: #6e1423; --brass: #9a7b3f;
+    --paper: #fffdf7; --rule: #d8d0bf; --green: #2f5d4a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--ivory); color: var(--ink); font-family: Georgia, serif; line-height: 1.55; font-size: 16px; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 40px 16px 90px; }
+  header { text-align: center; padding-bottom: 28px; border-bottom: 1px solid var(--ink); margin-bottom: 12px; }
+  header .kicker { letter-spacing: 0.28em; font-size: 11px; text-transform: uppercase; color: var(--oxblood); margin-bottom: 10px; }
+  header h1 { font-size: 27px; font-weight: normal; }
+  header .sub { font-style: italic; color: #6b665a; margin-top: 8px; font-size: 15px; }
+  .palette { display: flex; justify-content: center; gap: 8px; margin: 22px 0 8px; flex-wrap: wrap; }
+  .swatch { width: 54px; height: 54px; border-radius: 2px; border: 1px solid rgba(0,0,0,0.15); position: relative; }
+  .swatch span { position: absolute; bottom: -20px; left: 0; right: 0; text-align: center; font-size: 9.5px; letter-spacing: 0.05em; color: #8a8371; }
+  .palette-note { text-align: center; font-size: 12.5px; font-style: italic; color: #8a8371; margin: 26px 0 6px; }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.22em; font-weight: normal; color: var(--oxblood); border-bottom: 1px solid var(--rule); padding-bottom: 7px; margin: 44px 0 18px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+  .card { background: var(--paper); border: 1px solid var(--rule); display: flex; flex-direction: column; }
+  .card img { width: 100%; display: block; aspect-ratio: 4/5; object-fit: cover; }
+  .card.wide img { aspect-ratio: auto; }
+  .card .body { padding: 12px 14px 14px; }
+  .card .name { font-size: 14px; letter-spacing: 0.04em; }
+  .chip { display: inline-block; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; margin: 6px 0; }
+  .chip.keep { background: var(--green); color: #f3ead8; }
+  .chip.maybe { background: #c9b98a; color: #3a3320; }
+  .chip.mood { background: var(--brass); color: #fffdf7; }
+  .chip.ref { background: #555; color: #eee; }
+  .note { font-size: 13.5px; color: #5a544a; font-style: italic; }
+  .votes { display: flex; gap: 8px; margin-top: 12px; }
+  .votes button {
+    flex: 1; font-family: Georgia, serif; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 8px 0; cursor: pointer; background: none; border: 1px solid var(--rule); color: #8a8371; border-radius: 2px;
+  }
+  .votes button.on-keep { background: var(--green); border-color: var(--green); color: #f3ead8; }
+  .votes button.on-kill { background: var(--oxblood); border-color: var(--oxblood); color: #f3ead8; }
+  .toolbar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--ink); padding: 12px 16px; display: flex; gap: 12px; justify-content: center; align-items: center; }
+  .toolbar button { font-family: Georgia, serif; background: var(--oxblood); color: #f3ead8; border: none; padding: 10px 22px; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: 2px; }
+  .toolbar .count { color: #b0a888; font-size: 13px; font-style: italic; }
+  footer { margin-top: 60px; text-align: center; font-style: italic; color: #8a8371; font-size: 13.5px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Chronicle · Brand v2 · Direction A</div>
+  <h1>The Curator's Room — Board №1</h1>
+  <div class="sub">12 generations + 4 stolen references · tap Keep or Kill on each · your call beats mine</div>
+</header>
+
+<div class="palette">
+  <div class="swatch" style="background:#1c1a16"><span>ink</span></div>
+  <div class="swatch" style="background:#3a2a1e"><span>walnut</span></div>
+  <div class="swatch" style="background:#6e1423"><span>oxblood</span></div>
+  <div class="swatch" style="background:#a0823c"><span>brass</span></div>
+  <div class="swatch" style="background:#2f5d4a"><span>lamp green</span></div>
+  <div class="swatch" style="background:#f3ead8"><span>candle cream</span></div>
+</div>
+<div class="palette-note">The palette emerging from these images, pulled by eye. Note the green — the banker's lamp keeps voting for itself.</div>
+
+<h2>The Ritual — the wax seal</h2>
+<div class="grid">
+  <div class="card"><img src="assets/brand-v2/curators-room/mj-seal-1.png" alt="">
+    <div class="body"><div class="name">mj-seal-1</div><span class="chip keep">Claude: keep</span>
+    <div class="note">The cleanest statement of the win ritual. One seal, one candle, no clutter.</div>
+    <div class="votes" data-id="mj-seal-1"><button data-v="keep">Keep</button><button data-v="kill">Kill</button></div></div></div>
+  <div class="card"><img src="assets/brand-v2/curators-room/mj-seal-2.png" alt="">
+    <div class="body"><div class="name">mj-seal-2</div><span class="chip keep">Claude: keep — best in show</span>
+    <div class="note">Look at the paper: ivory with a thin double rule. That's the app's surface language, photographed. This one image could brief the whole UI.</div>
+    <div class="votes" data-id="mj-seal-2"><button data-v="keep">Keep</button><button data-v="kill">Kill</button></div></div></div>
+  <div class="card"><img src="assets/brand-v2/curators-room/mj-seal-3.png" alt="">
+    <div class="body"><div class="name">mj-seal-3</div><span class="chip maybe">Claude: maybe</span>
+    <div class="note">Useful for the stamp handle itself, but two seals and crumpled paper make it busier than we are.</div>
+    <div class="votes" data-id="mj-seal-3"><button data-v="keep">Keep</button><button data-v="kill">Kill</button></div></div></div>
+</div>
+
+<h2>The Wink — Reggie</h2>
+<div class="grid">
+  <div class="card"><img src="assets/brand-v2/curators-room/mj-reggie-1.png" alt="">
+    <div class="body"><div class="name">mj-reggie-1</div><span class="chip keep">Claude: keep</span>
+    <div class="note">The best Reggie we have ever had, by a mile. The half-smile IS "grand, with a wink". Warm limited palette, pencil grain, cream ground — drops straight onto ivory UI.</div>
+    <div class="votes" data-id="mj-reggie-1"><button data-v="keep">Keep</button><button data-v="kill">Kill</button></div></div></div>
+  <div class="card"><img src="assets/brand-v2/curators-room/mj-reggie-2.png" alt="">
+    <div class="body"><div class="name">mj-reggie-2</div><span class="chip maybe">Claude: maybe</span>
+    <div class="note">Proves the style can repeat across poses — important for a 5-pose set later. But the pose is stiffer and the dangling artifact reads oddly.</div>
+    <div class="votes" data-id="mj-reggie-2"><button data-v="keep">Keep</button><button data-v="kill">Kill</button></div></div></div>
+</div>
+
+<h2>The Materials — brass &amp; walnut</h2>
+<div class="grid">
+  <div class="card"><img src="assets/brand-v2/curators-room/mj-brass-macro-1.png" alt="">
+    <div class="body"><div class="name">mj-brass-macro-1</div><span class="chip keep">Claude: keep</span>
+    <div class="note">A drawer that wants to be the Archive. The raking light across the grain is the texture brief for dark surfaces.</div>
+    <div class="votes" data-id="mj-brass-macro-1"><button data-v="keep">Keep</button><button data-v="kill">Kill</button></div></div></div>
+  <div class="card"><img src="assets/brand-v2/curators-room/mj-brass-macro-2.png" alt="">
+    <div class="body"><div class="name">mj-brass-macro-2</div><span class="chip keep">Claude: keep</span>
+    <div class="note">The inlaid parchment label on dark oak could literally become the game-card design language: cream label, dark ground, brass accent.</div>
+    <div class="votes" data-id="mj-brass-macro-2"><button data-v="keep">Keep</button><button data-v="kill">Kill</button></div></div></div>
+</div>
+
+<h2>The World — the study</h2>
+<div class="grid">
+  <div class="card"><img src="assets/brand-v2/curators-room/mj-study-1.png" alt="">
+    <div class="body"><div class="name">mj-study-1</div><span class="chip maybe">Claude: maybe</span>
+    <div class="note">Mood is right; finish is slightly video-game. Fix is easy: retake using your real Soane office photo as a style reference. Worth one more roll.</div>
+    <div class="votes" data-id="mj-study-1"><button data-v="keep">Keep</button><button data-v="kill">Kill</button></div></div></div>
+  <div class="card"><img src="assets/brand-v2/curators-room/mj-study-motion.gif" alt="">
+    <div class="body"><div class="name">mj-study-motion (animated)</div><span class="chip maybe">Claude: maybe</span>
+    <div class="note">Same scene, animated. Parked unless we ever want a living header — nice to know the option exists.</div>
+    <div class="votes" data-id="mj-study-motion"><button data-v="keep">Keep</button><button data-v="kill">Kill</button></div></div></div>
+</div>
+
+<h2>The Artifact — mood only, never the real thing</h2>
+<div class="grid">
+  <div class="card"><img src="assets/brand-v2/curators-room/mj-vase-dome-1.png" alt="">
+    <div class="body"><div class="name">mj-vase-dome-1</div><span class="chip mood">Claude: keep as mood</span>
+    <div class="note">Glass dome + lamp green + walnut sings. But the vase itself is an invention — Midjourney made up a Roman artifact. Mood board yes; near the app's collection, never.</div>
+    <div class="votes" data-id="mj-vase-dome-1"><button data-v="keep">Keep</button><button data-v="kill">Kill</button></div></div></div>
+  <div class="card"><img src="assets/brand-v2/curators-room/mj-vase-dome-2.png" alt="">
+    <div class="body"><div class="name">mj-vase-dome-2</div><span class="chip maybe">Claude: maybe</span>
+    <div class="note">Lush, but heavier — more gentleman's club than museum. Same invented-artifact caveat.</div>
+    <div class="votes" data-id="mj-vase-dome-2"><button data-v="keep">Keep</button><button data-v="kill">Kill</button></div></div></div>
+</div>
+
+<h2>The Stolen References — the real Soane's Museum</h2>
+<div class="grid">
+  <div class="card"><img src="assets/brand-v2/curators-room/ref-soane-dome.jpg" alt="">
+    <div class="body"><div class="name">ref-soane-dome</div><span class="chip ref">reference</span>
+    <div class="note">Density done with love, bone and ivory under a skylight. This is the ceiling the AI images should aspire to.</div></div></div>
+  <div class="card"><img src="assets/brand-v2/curators-room/ref-soane-office.jpg" alt="">
+    <div class="body"><div class="name">ref-soane-office</div><span class="chip ref">reference</span>
+    <div class="note">The working room — cases, models, daylight. Your best style-reference fuel for retaking the study shot.</div></div></div>
+  <div class="card"><img src="assets/brand-v2/curators-room/ref-soane-picture-room.avif" alt="">
+    <div class="body"><div class="name">ref-soane-picture-room</div><span class="chip ref">reference</span>
+    <div class="note">Olive-grey walls + gilt frames + mahogany wainscot. Quietly the most app-translatable image on this board: dark panel, framed plates, warm trim.</div></div></div>
+  <div class="card"><img src="assets/brand-v2/curators-room/ref-soane-sculpture.webp" alt="">
+    <div class="body"><div class="name">ref-soane-sculpture</div><span class="chip ref">reference</span>
+    <div class="note">The bust holding court in a crowd of fragments. Composition lesson: one hero, many whispers.</div></div></div>
+</div>
+
+<footer>Board №1 of the reboot · The museum sleeps. Curiosity doesn't.</footer>
+</div>
+
+<div class="toolbar">
+  <span class="count" id="count">0 of 12 judged</span>
+  <button id="copy">Copy my verdicts</button>
+</div>
+
+<script>
+var KEY = 'curators-board-1';
+var state = JSON.parse(localStorage.getItem(KEY) || '{}');
+var groups = document.querySelectorAll('.votes');
+function render() {
+  var judged = 0;
+  groups.forEach(function(g){
+    var id = g.dataset.id, v = state[id];
+    if (v) judged++;
+    g.querySelectorAll('button').forEach(function(b){
+      b.className = (v === b.dataset.v) ? (v === 'keep' ? 'on-keep' : 'on-kill') : '';
+    });
+  });
+  document.getElementById('count').textContent = judged + ' of ' + groups.length + ' judged';
+}
+groups.forEach(function(g){
+  g.querySelectorAll('button').forEach(function(b){
+    b.addEventListener('click', function(){
+      state[g.dataset.id] = (state[g.dataset.id] === b.dataset.v) ? null : b.dataset.v;
+      if (!state[g.dataset.id]) delete state[g.dataset.id];
+      localStorage.setItem(KEY, JSON.stringify(state));
+      render();
+    });
+  });
+});
+document.getElementById('copy').addEventListener('click', function(){
+  var lines = ['Curator\'s Room — Board 1 verdicts:'];
+  groups.forEach(function(g){ lines.push((state[g.dataset.id] || 'unjudged') + ': ' + g.dataset.id); });
+  navigator.clipboard.writeText(lines.join('\n')).then(function(){
+    var btn = document.getElementById('copy');
+    btn.textContent = 'Copied — paste it to Claude';
+    setTimeout(function(){ btn.textContent = 'Copy my verdicts'; }, 2000);
+  });
+});
+render();
+</script>
+</body>
+</html>
