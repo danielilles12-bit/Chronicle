@@ -134,6 +134,21 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 #ios-tip .share-glyph { width: 13px; height: 17px; vertical-align: -3px; color: var(--ch-forest); }
 #ios-tip button { position: absolute; right: 8px; top: 6px; font-size: 20px; color: var(--muted); padding: 4px 8px; }
 
+/* "New edition off the presses" bar: appears (via js/app.js) once a freshly
+   deployed version has installed underneath the running page. Fixed over
+   every view — the pull-to-refresh, or tapping it, reloads into the update. */
+#new-edition {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 90;
+  padding: calc(env(safe-area-inset-top) + 10px) 16px 10px;
+  background: var(--ch-ink); color: var(--ch-text-inverse);
+  border: none; border-bottom: 3px solid var(--df-magenta);
+  font-family: var(--ch-font-ui); font-size: 11px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; text-align: center;
+  cursor: pointer; animation: new-edition-in 320ms cubic-bezier(.2,1,.4,1);
+}
+#new-edition b { color: var(--df-yellow); font-weight: 700; }
+@keyframes new-edition-in { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+
 /* ---------- Top bar ---------- */
 .topbar {
   display: flex; align-items: center; gap: 8px;

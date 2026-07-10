@@ -1,7 +1,22 @@
-// Dead Famous service worker: precache everything, serve cache-first.
-// Bump VERSION on every deploy to refresh clients.
-const VERSION = 'deadfamous-v94';
+// Dead Famous service worker: slim shell precache, cache-first serving.
+// Bump VERSION on EVERY deploy (and BUILD in js/app.js — keep them in sync):
+// that byte-change is what makes phones install the new edition.
+//
+// Update flow (the "off the presses" plumbing):
+//   app.js asks for an update check on every wake-up -> this file changes ->
+//   new worker precaches the shell, skipWaiting+claim take over immediately ->
+//   app.js sees controllerchange and shows the NEW EDITION bar -> the user's
+//   pull-to-refresh (or a tap on the bar) reloads into the new version.
+const VERSION = 'deadfamous-v95';
 
+// Daily-content cache: survives version bumps so updating the app never
+// re-downloads the whole archive, served stale-while-revalidate below.
+const DATA_CACHE = 'df-data';
+
+// The shell: everything the app needs to boot and look right. Deliberately
+// EXCLUDES data/*.json (they live in DATA_CACHE) so the install stays small —
+// the old 2.3 MB all-or-nothing install was the main reason updates silently
+// failed on flaky connections.
 const ASSETS = [
   './',
   './index.html',
@@ -27,12 +42,6 @@ const ASSETS = [
   './js/revealgame.js',
   './js/connectionsgame.js',
   './js/daily.js',
-  './data/puzzles.json',
-  './data/figures.json',
-  './data/worldmap.json',
-  './data/reveal-who.json',
-  './data/reveal-what.json',
-  './data/connections.json',
   './manifest.webmanifest',
   './icons/icon-192.png',
   './icons/icon-512.png',
@@ -49,7 +58,9 @@ self.addEventListener('install', (e) => {
 self.addEventListener('activate', (e) => {
   e.waitUntil(
     caches.keys()
-      .then((keys) => Promise.all(keys.filter((k) => k !== VERSION).map((k) => caches.delete(k))))
+      .then((keys) => Promise.all(
+        keys.filter((k) => k !== VERSION && k !== DATA_CACHE).map((k) => caches.delete(k)),
+      ))
       .then(() => self.clients.claim()),
   );
 });
@@ -61,6 +72,27 @@ self.addEventListener('fetch', (e) => {
   if (url.origin !== location.origin) return;
   if (url.pathname.includes('/audit/')) return; // never cache dev tools (path-prefix agnostic: GH Pages serves under /Chronicle/)
   if (url.pathname.includes('/preview/')) return; // design prototypes live outside the app shell
+  if (url.pathname.includes('/launch-demos/')) return; // proposal demos, not part of the app
+
+  // Daily content: serve the cached copy instantly, refresh it in the
+  // background. Content therefore lags one open at most, works offline after
+  // the first online boot, and never gates a version update.
+  if (url.pathname.includes('/data/')) {
+    e.respondWith(caches.open(DATA_CACHE).then(async (c) => {
+      const hit = await c.match(req, { ignoreSearch: true });
+      const refresh = fetch(req).then((res) => {
+        if (res && res.ok) c.put(req, res.clone());
+        return res;
+      });
+      if (hit) {
+        e.waitUntil(refresh.catch(() => {}));
+        return hit;
+      }
+      return refresh;
+    }));
+    return;
+  }
+
   e.respondWith(
     caches.match(req, { ignoreSearch: true }).then((hit) => {
       if (hit) return hit;

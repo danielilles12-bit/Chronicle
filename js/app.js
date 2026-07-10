@@ -1,4 +1,8 @@
 // Boot, data loading, view router, home screen.
+// BUILD is shown in the home footer; bump it together with sw.js VERSION on
+// every deploy so what phones display always names what they are running.
+const BUILD = 'v95';
+
 import * as store from './storage.js';
 import { isMatch } from './match.js';
 import { initCrossword, renderPuzzleList } from './crossword.js';
@@ -648,9 +652,42 @@ async function boot() {
   // Deterministic hooks for the automated test-suite.
   window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, { data: DATA, store, isMatch, daily });
 
+  const buildTag = $('#build-tag');
+  if (buildTag) buildTag.textContent = BUILD;
+
   if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
-    navigator.serviceWorker.register('sw.js').catch(() => {});
+    navigator.serviceWorker.register('sw.js').then((reg) => {
+      // iOS only re-checks sw.js on a cold launch — resuming from the app
+      // switcher is not a navigation — so ask for an update check on every
+      // wake-up ourselves. This is what makes deploys actually reach phones.
+      const check = () => { reg.update().catch(() => {}); };
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) check();
+      });
+      check();
+      // No controller at registration time = very first visit, already on the
+      // newest version. Otherwise any controllerchange means a fresh worker
+      // (skipWaiting+claim in sw.js) has the new edition ready: invite the
+      // customary gesture — the next reload boots it.
+      if (navigator.serviceWorker.controller) {
+        navigator.serviceWorker.addEventListener('controllerchange', showNewEditionBar);
+      }
+    }).catch(() => {});
   }
+}
+
+// The "off the presses" bar: appears once a new version has installed and
+// taken over underneath the running page. Pull-to-refresh (or tapping the
+// bar, for desktop and mid-game views where the pull is unavailable) reloads
+// into it.
+function showNewEditionBar() {
+  if ($('#new-edition')) return;
+  const bar = document.createElement('button');
+  bar.id = 'new-edition';
+  bar.type = 'button';
+  bar.innerHTML = '🗞️ New edition off the presses — <b>pull down to refresh</b>';
+  bar.addEventListener('click', () => location.reload());
+  document.body.appendChild(bar);
 }
 
 boot();
