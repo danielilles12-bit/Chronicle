@@ -354,86 +354,138 @@ function initHome() {
 
 // ---------- boot ----------
 
-// Pull-to-refresh with a damped, springy pull — home view only. Pulling past
-// the arm threshold and releasing reloads the app (which also picks up any
-// freshly deployed version via the service worker's update check).
+// Elastic overscroll on Home, both ends. Top: a damped pull with the Lewis
+// queen spinning in the ivory strip that opens above the masthead; past the
+// arm threshold a release reloads the app (which also picks up any freshly
+// deployed version via the service worker's update check). Bottom: the same
+// rubber band in reverse — the page stretches past the end and springs back,
+// no badge. Both releases settle through the shared `elastic-settle`
+// damped-spring keyframes in style.css, scaled by the `--pull` custom
+// property so the bounce is proportional to how far you pulled.
 function initPullToRefresh() {
   const home = $('#view-home');
   const badge = $('#ptr-badge');
   const face = badge ? badge.querySelector('.ptr-badge-face') : null;
   if (!home || !badge || !face) return;
-  const ARM = 64, MAX = 140, DAMP = 0.55;
-  let y0 = null, x0 = null, pulling = false, armed = false;
+  const ARM = 70, MAX = 150, MAX_UP = 110, DAMP = 0.55;
+  const BADGE = 76;                  // keep in sync with #ptr-badge in style.css
+  let y0 = null, x0 = null, mode = null, pull = 0, armed = false;
+  let topOK = false, bottomOK = false;
+
+  // `overflow-x: hidden` on body promotes it to its own scroll container in
+  // some engines (window.scrollY stays 0 and body.scrollTop moves), while
+  // iOS Safari scrolls the viewport — so read both.
+  const scrollTop = () =>
+    (document.scrollingElement || document.documentElement).scrollTop + document.body.scrollTop;
+  const atBottom = () => {
+    const cands = [document.scrollingElement || document.documentElement, document.body];
+    for (const el of cands) {
+      if (el.scrollHeight > el.clientHeight + 1) {
+        return el.scrollTop + el.clientHeight >= el.scrollHeight - 1;
+      }
+    }
+    return true;  // nothing scrolls: the page fits, so we are at the bottom
+  };
+
+  // Badge top edge: emerges from behind the screen edge fast enough to reach
+  // the centre of the revealed ivory strip exactly at the arm threshold, then
+  // stays centred in it. Releases only settle below ARM, where the first
+  // branch is active — which is what the ptr-badge-settle keyframes mirror.
+  const badgeY = (p) => Math.min(1.04 * p - BADGE, 0.5 * p - BADGE / 2);
+
+  const springHome = (fromPx) => {
+    home.style.setProperty('--pull', `${fromPx.toFixed(1)}px`);
+    home.style.transform = '';
+    home.classList.remove('elastic-settle');
+    void home.offsetWidth;           // restart the animation from frame 0
+    home.classList.add('elastic-settle');
+  };
+  home.addEventListener('animationend', (e) => {
+    if (e.animationName === 'elastic-settle') home.classList.remove('elastic-settle');
+  });
 
   const settle = () => {
-    home.style.transition = 'transform .34s cubic-bezier(.2,.9,.25,1.35)';
-    home.style.transform = '';
-    badge.style.transition = 'translate .34s cubic-bezier(.2,.9,.25,1.35)';
-    badge.style.translate = '0 0';
-    face.style.transition = 'scale .28s ease';
-    face.style.scale = '.6';
-    setTimeout(() => {
-      home.style.transition = '';
-      badge.style.transition = ''; badge.style.translate = ''; badge.hidden = true;
-      face.style.transition = ''; face.style.scale = ''; face.style.rotate = '';
-      badge.classList.remove('ptr-armed', 'ptr-go');
-    }, 360);
+    if (mode === 'top') {
+      springHome(pull);
+      badge.style.setProperty('--pull', `${pull.toFixed(1)}px`);
+      badge.style.translate = '';
+      badge.classList.remove('ptr-armed');
+      badge.classList.add('ptr-settle');
+      setTimeout(() => {
+        badge.classList.remove('ptr-settle');
+        badge.hidden = true;
+        face.style.rotate = ''; face.style.scale = '';
+      }, 700);
+    } else if (mode === 'bottom') {
+      springHome(-pull);
+    }
+    mode = null; armed = false; pull = 0;
   };
 
   document.addEventListener('touchstart', (e) => {
-    if (home.hidden || window.scrollY > 0 || e.touches.length !== 1) { y0 = null; return; }
+    if (home.hidden || e.touches.length !== 1) { y0 = null; return; }
     y0 = e.touches[0].clientY; x0 = e.touches[0].clientX;
-    pulling = false; armed = false;
+    topOK = scrollTop() <= 0; bottomOK = atBottom();
+    mode = null; armed = false; pull = 0;
   }, { passive: true });
 
   document.addEventListener('touchmove', (e) => {
     if (y0 == null || home.hidden) return;
     const dy = e.touches[0].clientY - y0;
     const dx = e.touches[0].clientX - x0;
-    if (!pulling && Math.abs(dx) > Math.abs(dy)) { y0 = null; return; }  // horizontal strip swipe
-    if (dy <= 0 || window.scrollY > 0) {
-      if (pulling) { pulling = false; armed = false; settle(); }
-      return;
+    if (!mode && Math.abs(dx) > Math.abs(dy)) { y0 = null; return; }  // horizontal strip swipe
+    if (!mode) {
+      if (dy > 0 && topOK && scrollTop() <= 0) mode = 'top';
+      else if (dy < 0 && bottomOK && atBottom()) mode = 'bottom';
+      else return;
+      home.classList.remove('elastic-settle');  // catch it mid-bounce
     }
-    pulling = true;
-    const pull = Math.min(MAX, dy * DAMP);
-    home.style.transition = '';
-    home.style.transform = `translateY(${pull.toFixed(1)}px)`;
 
-    armed = pull >= ARM;
-    badge.hidden = false;
-    badge.style.transition = '';
-    badge.style.translate = `0 ${pull.toFixed(1)}px`;
-    badge.classList.toggle('ptr-armed', armed);
-    if (!armed) {
-      // Below the arm threshold the badge tracks the pull directly (rotation
-      // proportional to distance, a quick scale-in over the first 40px). Past
-      // the threshold the ptr-armed CSS animation takes over rotate/scale \u2014
-      // see the `rotate`/`scale` standalone properties in style.css, which
-      // compose independently of these inline styles instead of clobbering
-      // them the way animating `transform` itself would.
-      const scale = Math.min(1, 0.6 + (pull / 40) * 0.4);
-      face.style.transition = '';
-      face.style.rotate = `${(pull * 3).toFixed(1)}deg`;
-      face.style.scale = scale.toFixed(2);
+    if (mode === 'top') {
+      if (dy <= 0 || scrollTop() > 0) { if (pull) settle(); return; }
+      pull = Math.min(MAX, dy * DAMP);
+      home.style.transform = `translateY(${pull.toFixed(1)}px)`;
+      armed = pull >= ARM;
+      badge.hidden = false;
+      badge.classList.remove('ptr-settle');
+      badge.style.translate = `0 ${badgeY(pull).toFixed(1)}px`;
+      badge.classList.toggle('ptr-armed', armed);
+      if (!armed) {
+        // Below the arm threshold the badge tracks the pull directly
+        // (rotation proportional to distance, scale ramping in across the
+        // pull). Past the threshold the ptr-armed CSS animation takes over
+        // rotate/scale — the standalone `rotate`/`scale` properties compose
+        // independently of these inline styles instead of clobbering them
+        // the way animating `transform` itself would.
+        face.style.rotate = `${(pull * 2.6).toFixed(1)}deg`;
+        face.style.scale = Math.min(1, 0.55 + (pull / ARM) * 0.45).toFixed(2);
+      }
+    } else {
+      if (dy >= 0 || !atBottom()) { if (pull) settle(); return; }
+      pull = Math.min(MAX_UP, -dy * DAMP);
+      home.style.transform = `translateY(${(-pull).toFixed(1)}px)`;
     }
   }, { passive: true });
 
   document.addEventListener('touchend', () => {
     if (y0 == null) return;
     y0 = null;
-    if (!pulling) return;
-    if (armed) {
+    if (!mode) return;
+    if (mode === 'top' && armed) {
       badge.classList.remove('ptr-armed');
       badge.classList.add('ptr-go');
-      setTimeout(() => location.reload(), 650);
+      setTimeout(() => location.reload(), 700);
       return;                       // keep the pulled position until reload
     }
     settle();
   }, { passive: true });
 
   window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
-    ptr: { isArmed: () => armed, isPulling: () => pulling },
+    ptr: {
+      isArmed: () => armed,
+      isPulling: () => mode === 'top',
+      isStretching: () => mode === 'bottom',
+    },
   });
 }
 

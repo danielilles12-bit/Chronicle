@@ -506,32 +506,59 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   80%      { transform: translateX(4px); }
 }
 
-/* Pull-to-refresh (home only): damped pull with a springy snap-back, and a
-   spinning chess-queen badge instead of a text pill. #ptr-badge is a purely
-   positional wrapper (JS drives its `translate`); .ptr-badge-face carries the
-   visible chrome and is what actually rotates/scales, via the standalone
-   `rotate`/`scale` CSS properties so JS's inline styles and the CSS
-   keyframe animations below never fight over the same `transform` property. */
+/* Elastic overscroll (home only): damped pull at both ends with a shared
+   damped-spring settle, plus the spinning chess-queen badge on the top pull.
+   #ptr-badge is a purely positional wrapper (JS drives its `translate`);
+   .ptr-badge-face carries the visible chrome and is what actually
+   rotates/scales, via the standalone `rotate`/`scale` CSS properties so JS's
+   inline styles and the CSS keyframe animations below never fight over the
+   same `transform` property. */
 #view-home { will-change: transform; }
+
+/* The release spring, shared by the top pull and the bottom stretch. Every
+   keyframe is a fraction of --pull (set by JS to the released offset,
+   negative for the bottom), so one set of numbers defines the damped
+   oscillation everywhere: a fast return, one confident overshoot, a small
+   echo, stillness. */
+@keyframes elastic-settle {
+  0%   { transform: translateY(var(--pull)); animation-timing-function: cubic-bezier(.26,.86,.32,1); }
+  52%  { transform: translateY(calc(var(--pull) * -0.085)); animation-timing-function: cubic-bezier(.34,0,.36,1); }
+  78%  { transform: translateY(calc(var(--pull) * 0.032)); animation-timing-function: cubic-bezier(.34,0,.36,1); }
+  100% { transform: translateY(0); }
+}
+#view-home.elastic-settle { animation: elastic-settle .62s both; }
+
 #ptr-badge {
-  position: fixed; top: calc(10px + env(safe-area-inset-top)); left: 50%;
-  width: 46px; height: 46px; margin-left: -23px; z-index: 40;
+  position: fixed; top: calc(env(safe-area-inset-top) * .5); left: 50%;
+  width: 76px; height: 76px; margin-left: -38px; z-index: 40;
   pointer-events: none;
 }
 .ptr-badge-face {
   width: 100%; height: 100%; border-radius: 50%; box-sizing: border-box;
-  background: var(--ch-cream); border: 2px solid var(--ch-ink);
-  box-shadow: 3px 3px 0 var(--ch-ink);
+  background: var(--ch-cream); border: 2.5px solid var(--ch-ink);
+  box-shadow: 4px 4px 0 var(--ch-ink);
   display: flex; align-items: center; justify-content: center;
-  transform-origin: 50% 50%; rotate: 0deg; scale: .6;
+  transform-origin: 50% 50%; rotate: 0deg; scale: .55;
 }
 .ptr-badge-face svg { width: 56%; height: 56%; fill: var(--ch-ink); display: block; }
-.ptr-badge-face img { height: 72%; width: auto; display: block; }
+.ptr-badge-face img { height: 74%; width: auto; display: block; }
 @keyframes ptr-spin { from { rotate: 0deg; } to { rotate: 360deg; } }
-@keyframes ptr-pop { 0% { scale: 1; } 35% { scale: 1.2; } 60% { scale: .92; } 100% { scale: 1; } }
-#ptr-badge.ptr-armed .ptr-badge-face { animation: ptr-spin .9s linear infinite, ptr-pop .5s cubic-bezier(.3,1.4,.4,1) 1; }
-@keyframes ptr-go-spin { to { rotate: 720deg; } }
-#ptr-badge.ptr-go .ptr-badge-face { animation: ptr-go-spin .6s cubic-bezier(.2,.8,.3,1.2) 1 forwards; }
+@keyframes ptr-pop { 0% { scale: 1; } 38% { scale: 1.22; } 64% { scale: .93; } 100% { scale: 1; } }
+#ptr-badge.ptr-armed .ptr-badge-face { animation: ptr-spin .85s linear infinite, ptr-pop .45s cubic-bezier(.3,1.5,.4,1) 1; }
+@keyframes ptr-go-spin { 0% { rotate: 0deg; scale: 1; } 55% { scale: 1.25; } 100% { rotate: 720deg; scale: 1; } }
+#ptr-badge.ptr-go .ptr-badge-face { animation: ptr-go-spin .65s cubic-bezier(.25,.75,.3,1.1) 1 forwards; }
+
+/* On release the badge rides the same spring back up behind the top edge
+   (its 0% mirrors the JS badgeY() formula below the arm threshold) while the
+   face tucks itself away. */
+@keyframes ptr-badge-settle {
+  0%   { translate: 0 calc(var(--pull) * 1.04 - 76px); animation-timing-function: cubic-bezier(.26,.86,.32,1); }
+  52%  { translate: 0 calc(var(--pull) * -0.088 - 76px); animation-timing-function: cubic-bezier(.34,0,.36,1); }
+  100% { translate: 0 -76px; }
+}
+#ptr-badge.ptr-settle { animation: ptr-badge-settle .62s both; }
+@keyframes ptr-face-away { 0%, 45% { opacity: 1; } 100% { scale: .3; opacity: 0; } }
+#ptr-badge.ptr-settle .ptr-badge-face { animation: ptr-face-away .62s both; }
 
 /* ================= DEAD FAMOUS components ================= */
 /* Loud moment surfaces: full CMYK is allowed here ONLY. */
