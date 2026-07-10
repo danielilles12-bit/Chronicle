@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v98';
+const BUILD = 'v99';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -19,6 +19,7 @@ import { initMapGame, renderMapStart, startMapDaily, startMapPractice } from './
 import { initRevealGame, renderRevealStart, startRevealDaily, startRevealPractice } from './revealgame.js';
 import { initConnectionsGame, renderConnList, startThreadDaily, startThreadPractice } from './connectionsgame.js';
 import * as daily from './daily.js';
+import * as sfx from './sfx.js';
 
 export const DATA = { figures: null, world: null, reveal: null, connections: null };
 export const $ = (sel) => document.querySelector(sel);
@@ -386,6 +387,18 @@ function initHome() {
     $('#ios-tip').hidden = true;
     store.setMisc({ iosTipDismissed: true });
   });
+
+  // Sound on/off lives in the home footer — the app has no settings screen.
+  const soundBtn = $('#sound-toggle');
+  if (soundBtn) {
+    const paint = () => { soundBtn.textContent = sfx.isMuted() ? 'Sound off' : 'Sound on'; };
+    paint();
+    soundBtn.addEventListener('click', () => {
+      sfx.setMuted(!sfx.isMuted());
+      paint();
+      if (!sfx.isMuted()) sfx.play('stamp'); // audible proof it's back on
+    });
+  }
   document.addEventListener('viewchange', (e) => {
     if (e.detail === 'view-home') maybeShowInstallTip();
   });
@@ -584,6 +597,7 @@ function startCountdown() {
 
 function showCelebration(n) {
   flagSet('df.celebrated', String(n));
+  sfx.play('fanfare');
   const v = $('#view-daydone');
   v.classList.remove('obituary');
   $('#dd-issue').textContent = `Issue № ${n}`;
@@ -611,6 +625,7 @@ function showCelebration(n) {
 
 function showObituary(streak, lastEdition) {
   flagSet('df.mourned', String(lastEdition));
+  sfx.play('toll');
   const v = $('#view-daydone');
   v.classList.add('obituary');
   $('#dd-issue').textContent = `Issue № ${daily.todayIndex()}`;
@@ -674,6 +689,7 @@ function initDayDone() {
 
 async function boot() {
   initTracking();
+  sfx.initSfx(); // before the data fetch so sound decoding overlaps it
   try {
     const [figures, world, revealWho, revealWhat, connections] = await Promise.all(
       ['data/figures.json', 'data/worldmap.json', 'data/reveal-who.json',

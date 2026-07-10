@@ -8,6 +8,7 @@ import * as store from './storage.js';
 import { isMatch, registerPool } from './match.js';
 import * as daily from './daily.js';
 import { revealShareText, revealEmojiRow, shareResult, flashShareButton } from './sharecard.js';
+import * as sfx from './sfx.js';
 
 const ROUNDS = 10;
 const SCRAPS = 9;               // 3x3 cover grid
@@ -281,6 +282,8 @@ function tearScrap(i, force) {
   cur.torn.push(i);
   const el = $(`#rv-scraps [data-i="${i}"]`);
   if (el) el.classList.add('torn');
+  // force = the round's free opening scrap, torn by the game, not the player
+  if (!force) sfx.play('tear');
   refreshTearable();
   updateWorth();
 }
@@ -512,6 +515,7 @@ function resolveRound(correct) {
     S.streak++;
     S.bestStreak = Math.max(S.bestStreak, S.streak);
     if (S.streak >= 2) bonus = 10;
+    sfx.play('correct');
   } else {
     S.streak = 0;
   }
@@ -603,6 +607,7 @@ function finishSession() {
   if (S.done) { renderLockedSummary(); show('view-revealsum'); return; }
   S.done = true;
   S.store.clear();
+  sfx.play('stamp');
 
   if (S.mode === 'free') {
     const r = store.getReveal(MODE);

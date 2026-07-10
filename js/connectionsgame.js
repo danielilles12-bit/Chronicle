@@ -3,6 +3,7 @@ import { DATA, $, $$, show, back, goHome, refreshHomeStats } from './app.js';
 import * as store from './storage.js';
 import * as daily from './daily.js';
 import { threadShareText, threadEmojiRows, shareResult, flashShareButton } from './sharecard.js';
+import * as sfx from './sfx.js';
 
 const MAX_MISTAKES = 4;
 const COLOUR_ORDER = ['yellow', 'green', 'blue', 'purple'];
@@ -315,6 +316,7 @@ function submitGuess() {
     S.found.add(colours[0]);
     S.selected = new Set();
     fb.hidden = true;
+    sfx.play('correct');
 
     if (S.found.size === S.puzzle.groups.length) {
       // all found
@@ -361,6 +363,7 @@ function finishPuzzle() {
   const solved = S.found.size === S.puzzle.groups.length;
   const score = calcScore(solved, S.mistakes);
   S.store.clear();
+  sfx.play('stamp');
 
   if (S.mode === 'free') {
     store.setConn(currentPuzzle.id, { solved, perfect, mistakes: S.mistakes, score });

@@ -4,6 +4,7 @@ import * as store from './storage.js';
 import { isMatch, registerPool } from './match.js';
 import * as daily from './daily.js';
 import { mapShareText, mapEmojiRow, shareResult, flashShareButton } from './sharecard.js';
+import * as sfx from './sfx.js';
 
 const MAP_W = 1000, MAP_H = 500;
 // The world background rect (see renderWorld) bleeds 40 units past the land
@@ -405,6 +406,7 @@ function resolveRound(correct) {
     S.streak++;
     S.bestStreak = Math.max(S.bestStreak, S.streak);
     if (S.streak >= 2) bonus = 10;
+    sfx.play('correct');
   } else {
     S.streak = 0;
   }
@@ -489,6 +491,7 @@ function finishSession() {
   }
   S.done = true;
   S.store.clear();
+  sfx.play('stamp');
 
   if (S.mode === 'free') {
     const m = store.getMap();
