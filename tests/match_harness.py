@@ -78,6 +78,30 @@ def main():
             check("'nazca hummingbird' matches nazca-lines",
                   is_match(pg, "nazca hummingbird", nazca, "what"))
 
+            # Owner report 2026-07-15: a generic distinctive noun ("rhino")
+            # must not carry a guess whose other words contradict the item.
+            rhino = next(x for x in what if x["id"] == "mapungubwe-gold-rhino")
+            check("'mongolian golden rhino' does NOT match mapungubwe-gold-rhino",
+                  not is_match(pg, "Mongolian Golden Rhino", rhino, "what"))
+            check("'golden rhino' still matches mapungubwe-gold-rhino",
+                  is_match(pg, "golden rhino", rhino, "what"))
+            check("'gold rhino statue' still matches mapungubwe-gold-rhino",
+                  is_match(pg, "gold rhino statue", rhino, "what"))
+
+            # Owner report 2026-07-15: doubled-letter respellings are the
+            # classic name typo and must pass ("Elliott" ~ "Eliot").
+            ts_eliot = next(x for x in figures if x["id"] == "t-s-eliot")
+            check("'T.S.Elliott' matches t-s-eliot (doubled letters)",
+                  is_match(pg, "T.S.Elliott", ts_eliot, "map"))
+            check("'Elliott' matches t-s-eliot via 'eliot' variant",
+                  is_match(pg, "Elliott", ts_eliot, "map"))
+
+            # Owner report 2026-07-15 (turned out to be a stale phone cache,
+            # but keep the case): the Italian name of Milan Cathedral.
+            milan = next(x for x in what if x["id"] == "milan-cathedral")
+            check("'Duomo di Milano' matches milan-cathedral",
+                  is_match(pg, "Duomo di Milano", milan, "what"))
+
             # ---------------- EXTRAS: sensible additional matches -----------------
             taj = next(x for x in what if x["id"] == "taj-mahal")
             check("'the taj mahal india' matches taj-mahal",

@@ -1,5 +1,5 @@
 // Connections — group 16 history clues into four hidden categories
-import { DATA, $, $$, show, back, goHome, refreshHomeStats } from './app.js';
+import { DATA, $, $$, show, back, goHome, refreshHomeStats, setReceiptStamp } from './app.js';
 import * as store from './storage.js';
 import * as daily from './daily.js';
 import { threadShareText, threadEmojiRows, shareResult, flashShareButton } from './sharecard.js';
@@ -446,6 +446,7 @@ function renderThreadReceipt({ editionIndex, mode, title, score, solved, perfect
     add(found != null ? `${found} of 4 groups found` : 'Game over', title, '0', true);
   }
   $('#conn-sum-total').textContent = score;
+  setReceiptStamp('view-connsum', score);
   $('#conn-sum-msg').textContent = perfect ? 'Not a thread out of place.'
     : solved ? (mistakes >= 3 ? 'By a thread.' : 'Frayed, but intact.')
     : 'The thread snapped.';
@@ -500,9 +501,12 @@ export function initConnectionsGame() {
     S = null;
     back();
   });
+  // Leaving a finished board goes HOME (owner call 2026-07-15) — back() would
+  // land on the spent board itself, a dead end. Same convention as the other
+  // three games' summary back buttons (sum-back / rv-sum-back → goHome).
   $('#conn-sum-back').addEventListener('click', () => {
     renderConnList();
-    back();
+    goHome();
   });
   $('#conn-sum-list').addEventListener('click', () => {
     renderConnList();

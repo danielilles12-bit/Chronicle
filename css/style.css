@@ -158,6 +158,26 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 .archive-dot.done { background: var(--ch-forest); }
 .archive-dot.progress { background: var(--ch-gold); }
 
+/* Back Issues calendar (The Morgue): one month per section, Monday-first. */
+.cal-month { padding: 12px 20px 2px; }
+.cal-title { font-family: var(--ch-font-display); font-weight: 400; font-size: 20px; text-transform: uppercase; margin: 8px 0 10px; }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.cal-dow { text-align: center; font-family: var(--ch-font-ui); font-size: 10px; font-weight: 700; color: var(--ch-text-muted); padding-bottom: 2px; }
+.cal-cell {
+  position: relative; aspect-ratio: 1; padding: 0; cursor: pointer;
+  border: 1.5px solid var(--ch-line-soft); background: var(--ch-paper);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 3px; font-family: var(--ch-font-ui);
+}
+.cal-cell b { font-size: 13px; font-weight: 700; color: var(--ch-ink); line-height: 1; }
+button.cal-cell:active { background: var(--ch-parchment); }
+.cal-cell.blank, .cal-cell.dead { border-color: transparent; background: transparent; cursor: default; }
+.cal-cell.dead { color: var(--ch-text-muted); font-size: 12px; opacity: .35; }
+.cal-cell.future { opacity: .45; }
+.cal-cell.today { border: 2.5px solid var(--ch-ink); box-shadow: 2px 2px 0 var(--ch-ink); cursor: default; }
+.cal-dots { display: flex; gap: 3px; }
+.cal-dots .archive-dot { width: 6px; height: 6px; }
+
 .conn-list-intro { margin: 12px 20px 0; color: var(--ch-text-secondary); font-size: 14px; font-style: italic; line-height: 1.4; }
 
 #ios-tip {
@@ -294,6 +314,7 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
    frame's overflow:hidden can never clip the stamp. Sized to the frame's
    content width, so the badge's negative offsets land on the frame's corner. */
 #rv-frame-wrap { position: relative; }
+#rv-frame-wrap.pz-active { overflow: hidden; }
 #rv-frame-wrap .df-moment-badge { z-index: 5; }
 #rv-frame {
   width: min(80vw, 40dvh); aspect-ratio: 1 / 1; border-radius: 0; position: relative;
@@ -485,6 +506,14 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
    dice fallback: the art brings its own lettering, so no border/padding. */
 .df-stamp-alea { border: none; padding: 0; right: 12px; bottom: 4px; }
 .df-stamp-alea img { width: 98px; display: block; }
+/* Zero-score receipts trade the celebratory dice for the Roman erasure —
+   scoring nothing in Dead Famous is being struck from the record. Same
+   inked-rubber language as MEMENTO MORI / the .df-stamp base. */
+.df-stamp-damnatio { text-align: center; line-height: 1.15; bottom: 18px; }
+.df-stamp-damnatio small {
+  display: block; font-size: 9px; font-weight: 700; letter-spacing: .14em;
+  margin-top: 2px;
+}
 
 /* Receipt: the share object. */
 .df-receipt {
@@ -519,6 +548,15 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 }
 .df-scrap:active { filter: brightness(.96); }
 .df-scrap.torn { opacity: 0; transform: rotate(6deg) scale(1.06); pointer-events: none; }
+/* Honest offline state: shown when a round's image never arrived — better to
+   say "not downloaded" than deal nine scraps over a blank void. */
+#rv-offline {
+  position: absolute; inset: 0; z-index: 3; background: var(--ch-cream);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 12px; padding: 18px; text-align: center;
+}
+#rv-offline p { font-family: var(--ch-font-ui); font-size: 14px; line-height: 1.5; margin: 0; }
+
 .df-worth { font-family: var(--ch-font-ui); font-weight: 700; font-size: 14px; text-transform: uppercase; }
 .df-worth b { color: var(--ch-gold); font-size: 17px; }
 

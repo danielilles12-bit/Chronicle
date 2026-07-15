@@ -94,7 +94,8 @@
   "frac": 0.2,
   "license": "CC BY 2.0",
   "attribution": "South Africa The Good News",
-  "source": "Wikimedia Commons: Nelson Mandela-2008 (edit).jpg"
+  "source": "Wikimedia Commons: Nelson Mandela-2008 (edit).jpg",
+  "start": 6
  },
  {
   "id": "amelia-earhart",
@@ -130,7 +131,8 @@
   "frac": 0.2,
   "license": "Public domain",
   "attribution": "photographer unknown",
-  "source": "Wikimedia Commons: Anne Frank lacht naar de schoolfotograaf.jpg"
+  "source": "Wikimedia Commons: Anne Frank lacht naar de schoolfotograaf.jpg",
+  "start": 6
  },
  {
   "id": "aretha-franklin",
@@ -184,7 +186,8 @@
   "frac": 0.15,
   "license": "CC BY-SA 4.0",
   "attribution": "Kenneth C. Zirkel",
-  "source": "Wikimedia Commons: Astronomer Carl Sagan in 1987.jpg"
+  "source": "Wikimedia Commons: Astronomer Carl Sagan in 1987.jpg",
+  "start": 8
  },
  {
   "id": "frida-kahlo",
@@ -376,7 +379,8 @@
   "frac": 0.26,
   "license": "CC BY 2.0",
   "attribution": "MM",
-  "source": "Wikimedia Commons: Marcus Aurelius Capitoline Hill September 2015-1.jpg"
+  "source": "Wikimedia Commons: Marcus Aurelius Capitoline Hill September 2015-1.jpg",
+  "start": 6
  },
  {
   "id": "mark-twain",
@@ -495,7 +499,8 @@
   "frac": 0.15,
   "license": "Public domain",
   "attribution": "Ed Westcott / U.S. Government",
-  "source": "Wikimedia Commons: J. Robert Oppenheimer at the Guest Lodge, Oak Ridge, in 1946 4.jpg"
+  "source": "Wikimedia Commons: J. Robert Oppenheimer at the Guest Lodge, Oak Ridge, in 1946 4.jpg",
+  "start": 6
  },
  {
   "id": "ronald-reagan",
@@ -514,7 +519,8 @@
   "frac": 0.2,
   "license": "Public domain",
   "attribution": "Michael Evans",
-  "source": "Wikimedia Commons: Ronald Reagan 1981 presidential portrait.jpg"
+  "source": "Wikimedia Commons: Ronald Reagan 1981 presidential portrait.jpg",
+  "start": 8
  },
  {
   "id": "van-gogh-self",
@@ -684,7 +690,8 @@
   "frac": 0.15,
   "license": "Public domain",
   "attribution": "William P. Gottlieb",
-  "source": "Wikimedia Commons: Billie Holiday, Downbeat, New York, N.Y., ca. Feb. 1947 (William P. Gottlieb 04251).jpg"
+  "source": "Wikimedia Commons: Billie Holiday, Downbeat, New York, N.Y., ca. Feb. 1947 (William P. Gottlieb 04251).jpg",
+  "start": 6
  },
  {
   "id": "blaise-pascal",
@@ -721,7 +728,8 @@
   "frac": 0.2,
   "license": "CC BY-SA 3.0",
   "attribution": "Jason Halsall (DigitalFuture123)",
-  "source": "Wikimedia Commons: BoadiceaStatue.jpg"
+  "source": "Wikimedia Commons: BoadiceaStatue.jpg",
+  "start": 6
  },
  {
   "id": "charles-dickens",
@@ -797,7 +805,8 @@
   "frac": 0.16,
   "license": "Public domain",
   "attribution": "W. S. Hartshorn",
-  "source": "Wikimedia Commons: Edgar Allan Poe 2.jpg"
+  "source": "Wikimedia Commons: Edgar Allan Poe 2.jpg",
+  "start": 7
  },
  {
   "id": "elizabeth-i",
@@ -839,7 +848,8 @@
   "frac": 0.15,
   "license": "Public domain",
   "attribution": "William P. Gottlieb",
-  "source": "Wikimedia Commons: Ella Fitzgerald (Gottlieb 02871).jpg"
+  "source": "Wikimedia Commons: Ella Fitzgerald (Gottlieb 02871).jpg",
+  "start": 1
  },
  {
   "id": "emily-dickinson",
@@ -857,7 +867,8 @@
   "frac": 0.15,
   "license": "Public domain",
   "attribution": "Unknown (daguerreotype, c. 1847)",
-  "source": "Wikimedia Commons: Emily Dickinson daguerreotype (Restored).jpg"
+  "source": "Wikimedia Commons: Emily Dickinson daguerreotype (Restored).jpg",
+  "start": 8
  },
  {
   "id": "ferdinand-magellan",
@@ -952,7 +963,8 @@
   "frac": 0.26,
   "license": "Public domain",
   "attribution": "George Kendall Warren",
-  "source": "Wikimedia Commons: Frederick Douglass (circa 1879).jpg"
+  "source": "Wikimedia Commons: Frederick Douglass (circa 1879).jpg",
+  "start": 6
  },
  {
   "id": "friedrich-engels",
@@ -1027,7 +1039,8 @@
   "frac": 0.25,
   "license": "Public domain",
   "attribution": "Wellcome Collection",
-  "source": "Wikimedia Commons: Portrait of Geronimo, the Apache chief, 1898 Wellcome L0036038.jpg"
+  "source": "Wikimedia Commons: Portrait of Geronimo, the Apache chief, 1898 Wellcome L0036038.jpg",
+  "start": 6
  },
  {
   "id": "giuseppe-garibaldi",
@@ -1140,7 +1153,8 @@
   "frac": 0.14,
   "license": "Public domain",
   "attribution": "Robert Howlett",
-  "source": "Wikimedia Commons: Robert Howlett (Isambard Kingdom Brunel Standing Before the Launching Chains of the Great Eastern), The Metropolitan Museum of Art - restoration1.jpg"
+  "source": "Wikimedia Commons: Robert Howlett (Isambard Kingdom Brunel Standing Before the Launching Chains of the Great Eastern), The Metropolitan Museum of Art - restoration1.jpg",
+  "start": 7
  },
  {
   "id": "jacques-cousteau",
@@ -1158,7 +1172,8 @@
   "frac": 0.15,
   "license": "Public domain",
   "attribution": "Weaver Tripp",
-  "source": "Wikimedia Commons: Jacques-Yves Cousteau 1975.jpg"
+  "source": "Wikimedia Commons: Jacques-Yves Cousteau 1975.jpg",
+  "start": 8
  },
  {
   "id": "johann-sebastian-bach",
@@ -1196,7 +1211,8 @@
   "frac": 0.24,
   "license": "Public domain",
   "attribution": "John Jabez Edwin Mayall",
-  "source": "Wikimedia Commons: Karl Marx 001.jpg"
+  "source": "Wikimedia Commons: Karl Marx 001.jpg",
+  "start": 6
  },
  {
   "id": "kublai-khan",
@@ -1254,7 +1270,8 @@
   "frac": 0.24,
   "license": "Public domain",
   "attribution": "F. W. Taylor",
-  "source": "Wikimedia Commons: Leo Tolstoy 1897, black and white, 37767u.jpg"
+  "source": "Wikimedia Commons: Leo Tolstoy 1897, black and white, 37767u.jpg",
+  "start": 1
  },
  {
   "id": "lewis-carroll",
@@ -1486,7 +1503,8 @@
   "frac": 0.25,
   "license": "Public domain",
   "attribution": "Unknown photographer",
-  "source": "Wikimedia Commons: Tsar Nicholas II -1898.jpg"
+  "source": "Wikimedia Commons: Tsar Nicholas II -1898.jpg",
+  "start": 6
  },
  {
   "id": "oliver-cromwell",
@@ -1811,7 +1829,8 @@
   "frac": 0.15,
   "license": "Public domain",
   "attribution": "Étienne Carjat",
-  "source": "Wikimedia Commons: Victor Hugo by Étienne Carjat 1876 - full.jpg"
+  "source": "Wikimedia Commons: Victor Hugo by Étienne Carjat 1876 - full.jpg",
+  "start": 6
  },
  {
   "id": "voltaire",
@@ -1868,7 +1887,8 @@
   "frac": 0.2,
   "license": "Public domain",
   "attribution": "Unknown",
-  "source": "Wikimedia Commons: Portrait of Zheng He, published about 1600.jpg"
+  "source": "Wikimedia Commons: Portrait of Zheng He, published about 1600.jpg",
+  "start": 8
  },
  {
   "id": "adam-smith",
@@ -1946,7 +1966,8 @@
   "frac": 0.2,
   "license": "CC0",
   "attribution": "Zarateman",
-  "source": "Wikimedia Commons: Madrid - Ciudad Universitaria, Monumento a Muhammad al-Juarismi.jpg"
+  "source": "Wikimedia Commons: Madrid - Ciudad Universitaria, Monumento a Muhammad al-Juarismi.jpg",
+  "start": 4
  },
  {
   "id": "albrecht-durer",
@@ -2041,7 +2062,8 @@
   "frac": 0.15,
   "license": "Public domain",
   "attribution": "Félix Nadar",
-  "source": "Wikimedia Commons: Alexandre Dumas Nadar.jpg"
+  "source": "Wikimedia Commons: Alexandre Dumas Nadar.jpg",
+  "start": 6
  },
  {
   "id": "anton-chekhov",
@@ -2097,7 +2119,8 @@
   "frac": 0.30972321428571425,
   "license": "Public domain",
   "attribution": "Unknown photographer",
-  "source": "Wikimedia Commons: Atatürk Kemal.jpg"
+  "source": "Wikimedia Commons: Atatürk Kemal.jpg",
+  "start": 8
  },
  {
   "id": "augustus-caesar",
@@ -2118,7 +2141,8 @@
   "frac": 0.48262548262548255,
   "license": "CC BY-SA 3.0",
   "attribution": "Till Niermann",
-  "source": "Wikimedia Commons: Statue-Augustus.jpg"
+  "source": "Wikimedia Commons: Statue-Augustus.jpg",
+  "start": 8
  },
  {
   "id": "charles-i-england",
@@ -2179,7 +2203,8 @@
   "frac": 0.17,
   "license": "Public domain",
   "attribution": "Edward S. Curtis",
-  "source": "Wikimedia Commons: Chief Joseph by Edward Sheriff Curtis.jpg"
+  "source": "Wikimedia Commons: Chief Joseph by Edward Sheriff Curtis.jpg",
+  "start": 3
  },
  {
   "id": "claude-monet",
@@ -2277,7 +2302,8 @@
   "frac": 0.22,
   "license": "CC BY-SA 2.0",
   "attribution": "Juan Cristóbal González Quesada (sculptor); photo by ElCaminodeSantiago09 2006",
-  "source": "Wikimedia Commons: Monumento al Cid (Burgos) 01.jpg"
+  "source": "Wikimedia Commons: Monumento al Cid (Burgos) 01.jpg",
+  "start": 7
  },
  {
   "id": "emmeline-pankhurst",
@@ -2368,7 +2394,8 @@
   "frac": 0.14,
   "license": "Public domain",
   "attribution": "Bain News Service",
-  "source": "Wikimedia Commons: Prof. Ernest Rutherford, portrait LCCN2014683386.jpg"
+  "source": "Wikimedia Commons: Prof. Ernest Rutherford, portrait LCCN2014683386.jpg",
+  "start": 7
  },
  {
   "id": "eva-peron",
@@ -2658,7 +2685,8 @@
   "frac": 0.2,
   "license": "Public domain",
   "attribution": "Mary Garrity (restoration by Adam Cuerden)",
-  "source": "Wikimedia Commons: Mary Garrity - Ida B. Wells-Barnett - Google Art Project - restoration crop.jpg"
+  "source": "Wikimedia Commons: Mary Garrity - Ida B. Wells-Barnett - Google Art Project - restoration crop.jpg",
+  "start": 6
  },
  {
   "id": "immanuel-kant",
@@ -3173,7 +3201,8 @@
   "frac": 0.16,
   "license": "CC BY-SA 4.0",
   "attribution": "Cold Spring Harbor Laboratory",
-  "source": "Wikimedia Commons: Rosalind-franklin-in-paris.jpg"
+  "source": "Wikimedia Commons: Rosalind-franklin-in-paris.jpg",
+  "start": 6
  },
  {
   "id": "sacagawea",
@@ -3192,7 +3221,8 @@
   "frac": 0.22,
   "license": "CC BY-SA 4.0",
   "attribution": "金帝 (Kintei)",
-  "source": "Wikimedia Commons: サカガウィア・ダラー.jpg"
+  "source": "Wikimedia Commons: サカガウィア・ダラー.jpg",
+  "start": 3
  },
  {
   "id": "saint-augustine",
@@ -3251,7 +3281,8 @@
   "frac": 0.2,
   "license": "Public domain",
   "attribution": "François-Edmond Fortier",
-  "source": "Wikimedia Commons: Almamy Samory Touré-2.jpg"
+  "source": "Wikimedia Commons: Almamy Samory Touré-2.jpg",
+  "start": 6
  },
  {
   "id": "shakespeare",
@@ -3289,7 +3320,8 @@
   "frac": 0.25,
   "license": "Public domain",
   "attribution": "David F. Barry",
-  "source": "Wikimedia Commons: Sitting Bull by D F Barry ca 1883 Dakota Territory.jpg"
+  "source": "Wikimedia Commons: Sitting Bull by D F Barry ca 1883 Dakota Territory.jpg",
+  "start": 6
  },
  {
   "id": "sojourner-truth",
@@ -3307,7 +3339,8 @@
   "frac": 0.2,
   "license": "Public domain",
   "attribution": "Randall Studio",
-  "source": "Wikimedia Commons: Sojourner Truth, 1870 (cropped, restored).jpg"
+  "source": "Wikimedia Commons: Sojourner Truth, 1870 (cropped, restored).jpg",
+  "start": 6
  },
  {
   "id": "stonewall-jackson",
@@ -3328,7 +3361,8 @@
   "frac": 0.22,
   "license": "Public domain",
   "attribution": "Unknown photographer",
-  "source": "Wikimedia Commons"
+  "source": "Wikimedia Commons",
+  "start": 6
  },
  {
   "id": "tchaikovsky",
@@ -3348,7 +3382,8 @@
   "frac": 0.15,
   "license": "Public domain",
   "attribution": "Émile Reutlinger",
-  "source": "Wikimedia Commons: Tchaikovsky by Reutlinger.jpg"
+  "source": "Wikimedia Commons: Tchaikovsky by Reutlinger.jpg",
+  "start": 6
  },
  {
   "id": "thomas-jefferson",
@@ -3424,7 +3459,8 @@
   "frac": 0.2,
   "license": "Public domain",
   "attribution": "Alexandre-François-Louis, comte de Girardin",
-  "source": "Wikimedia Commons: Toussaint Louverture - Girardin.jpg"
+  "source": "Wikimedia Commons: Toussaint Louverture - Girardin.jpg",
+  "start": 2
  },
  {
   "id": "vasco-da-gama",
@@ -3633,7 +3669,8 @@
   "frac": 0.22,
   "license": "Public domain",
   "attribution": "Unknown",
-  "source": "Wikimedia Commons: Benito Juárez standing photo.jpg"
+  "source": "Wikimedia Commons: Benito Juárez standing photo.jpg",
+  "start": 3
  },
  {
   "id": "bismarck",
@@ -3878,7 +3915,8 @@
   "frac": 0.15,
   "license": "Public domain",
   "attribution": "Charles Delevan Mosher",
-  "source": "Wikimedia Commons: Elizabeth Cady Stanton, 1880.tif"
+  "source": "Wikimedia Commons: Elizabeth Cady Stanton, 1880.tif",
+  "start": 1
  },
  {
   "id": "eugene-delacroix",
@@ -4026,7 +4064,8 @@
   "frac": 0.2,
   "license": "Public domain",
   "attribution": "Unknown 1598 Ottoman artist",
-  "source": "Wikimedia Commons: Abbasid Caliph Harun al-Rashid from the genealogy (silsilanama), Cream of Histories (Zübdet-üt Tevarih, 1598).jpg"
+  "source": "Wikimedia Commons: Abbasid Caliph Harun al-Rashid from the genealogy (silsilanama), Cream of Histories (Zübdet-üt Tevarih, 1598).jpg",
+  "start": 8
  },
  {
   "id": "helen-keller",
@@ -4211,7 +4250,8 @@
   "frac": 0.2,
   "license": "CC0",
   "attribution": "Juan Bautista Valdés",
-  "source": "Wikimedia Commons: José Martí retrato más conocido Jamaica 1892.jpg"
+  "source": "Wikimedia Commons: José Martí retrato más conocido Jamaica 1892.jpg",
+  "start": 2
  },
  {
   "id": "joseph-haydn",
@@ -4321,7 +4361,8 @@
   "frac": 0.2,
   "license": "Public domain",
   "attribution": "John Opie",
-  "source": "Wikimedia Commons: Mary Wollstonecraft by John Opie from the National Portrait Gallery.jpg"
+  "source": "Wikimedia Commons: Mary Wollstonecraft by John Opie from the National Portrait Gallery.jpg",
+  "start": 6
  },
  {
   "id": "mongkut",
@@ -4340,7 +4381,8 @@
   "frac": 0.2,
   "license": "Public domain",
   "attribution": "Attributed to Luang Wisut Yothamat",
-  "source": "Wikimedia Commons: King Mongkut (Rama IV) in Full Regalia 1851.png"
+  "source": "Wikimedia Commons: King Mongkut (Rama IV) in Full Regalia 1851.png",
+  "start": 7
  },
  {
   "id": "montesquieu",
@@ -4438,7 +4480,8 @@
   "frac": 0.2,
   "license": "Public domain",
   "attribution": "Unknown / U.S. Navy Medicine",
-  "source": "Wikimedia Commons: Pope Pius XII, April 1958.jpg"
+  "source": "Wikimedia Commons: Pope Pius XII, April 1958.jpg",
+  "start": 8
  },
  {
   "id": "queen-nzinga",
@@ -4459,7 +4502,8 @@
   "frac": 0.2,
   "license": "Public domain",
   "attribution": "Achille Devéria",
-  "source": "Wikimedia Commons: Ann Zingha.jpg"
+  "source": "Wikimedia Commons: Ann Zingha.jpg",
+  "start": 6
  },
  {
   "id": "qutuz",
@@ -4513,7 +4557,8 @@
   "frac": 0.15,
   "license": "CC0",
   "attribution": "Mathew Brady",
-  "source": "Wikimedia Commons: Ralph+Waldo+Emerson+MET+DP-17643-015.jpg"
+  "source": "Wikimedia Commons: Ralph+Waldo+Emerson+MET+DP-17643-015.jpg",
+  "start": 7
  },
  {
   "id": "saigo-takamori",
@@ -4625,7 +4670,8 @@
   "frac": 0.15,
   "license": "Public domain",
   "attribution": "Associated Press (distributor)",
-  "source": "Wikimedia Commons: Sylvia Plath - The Boston Globe (1953) (cropped).png"
+  "source": "Wikimedia Commons: Sylvia Plath - The Boston Globe (1953) (cropped).png",
+  "start": 6
  },
  {
   "id": "thomas-hobbes",
@@ -4643,7 +4689,8 @@
   "frac": 0.15,
   "license": "Public domain",
   "attribution": "John Michael Wright",
-  "source": "Wikimedia Commons: Thomas Hobbes by John Michael Wright.jpg"
+  "source": "Wikimedia Commons: Thomas Hobbes by John Michael Wright.jpg",
+  "start": 3
  },
  {
   "id": "togo-heihachiro",
@@ -4772,7 +4819,8 @@
   "frac": 0.2,
   "license": "CC0",
   "attribution": "K. Venkataramana",
-  "source": "Wikimedia Commons: Statue of King Ashoka at Metta Budharam Temple, Bodhgaya, Bihar, India.jpg"
+  "source": "Wikimedia Commons: Statue of King Ashoka at Metta Budharam Temple, Bodhgaya, Bihar, India.jpg",
+  "start": 3
  },
  {
   "id": "ban-zhao",
@@ -4791,7 +4839,8 @@
   "frac": 0.2,
   "license": "Public domain",
   "attribution": "Jin Guliang",
-  "source": "Wikimedia Commons: Ban Zhao - Wushuang Pu (pref 1690, 1961).jpg"
+  "source": "Wikimedia Commons: Ban Zhao - Wushuang Pu (pref 1690, 1961).jpg",
+  "start": 7
  },
  {
   "id": "baybars",
@@ -4848,7 +4897,8 @@
   "frac": 0.2,
   "license": "Public domain",
   "attribution": "Unattributed",
-  "source": "Wikimedia Commons: Rama V c1870.jpg"
+  "source": "Wikimedia Commons: Rama V c1870.jpg",
+  "start": 7
  },
  {
   "id": "clara-barton",
@@ -4885,7 +4935,8 @@
   "license": "CC0",
   "attribution": "Metropolitan Museum of Art",
   "source": "Wikimedia Commons: Portrait Bust of a Woman (called Cleopatra).jpg",
-  "_image_fix": true
+  "_image_fix": true,
+  "start": 7
  },
  {
   "id": "emmy-noether",
@@ -4976,7 +5027,8 @@
   "frac": 0.16,
   "license": "Public domain",
   "attribution": "Unknown photographer",
-  "source": "Wikimedia Commons: Portrait of Jane Addams - DPLA - 931a363b0b56d5f4e8b7829b483b128d.jpg"
+  "source": "Wikimedia Commons: Portrait of Jane Addams - DPLA - 931a363b0b56d5f4e8b7829b483b128d.jpg",
+  "start": 6
  },
  {
   "id": "joseph-lister",
@@ -4995,7 +5047,8 @@
   "frac": 0.15,
   "license": "Public domain",
   "attribution": "Unknown photographer",
-  "source": "Wikimedia Commons: Joseph Lister 1902.jpg"
+  "source": "Wikimedia Commons: Joseph Lister 1902.jpg",
+  "start": 2
  },
  {
   "id": "julius-caesar",
@@ -5015,7 +5068,8 @@
   "license": "CC BY-SA 2.0",
   "attribution": "Unknown Roman sculptor",
   "source": "Wikimedia Commons: Damaged ancient Roman marble bust (likely of Julius Caesar), British Museum, London.jpg",
-  "_image_fix": true
+  "_image_fix": true,
+  "start": 6
  },
  {
   "id": "kosem-sultan",
@@ -5089,7 +5143,8 @@
   "frac": 0.2,
   "license": "Public domain",
   "attribution": "Ananda",
-  "source": "Wikimedia Commons: Naresuan the great (Phisanulok Phittayakhom school).JPG"
+  "source": "Wikimedia Commons: Naresuan the great (Phisanulok Phittayakhom school).JPG",
+  "start": 3
  },
  {
   "id": "nikola-tesla",
@@ -5107,7 +5162,8 @@
   "frac": 0.25,
   "license": "Public domain",
   "attribution": "Napoleon Sarony",
-  "source": "Wikimedia Commons: N.Tesla.JPG"
+  "source": "Wikimedia Commons: N.Tesla.JPG",
+  "start": 2
  },
  {
   "id": "nogi-maresuke",
@@ -5126,7 +5182,8 @@
   "frac": 0.2,
   "license": "Public domain",
   "attribution": "Unknown, restored by Adam Cuerden, National Diet Library",
-  "source": "Wikimedia Commons: Maresuke Nogi, 近世名士写真 其1 - Photo only.jpg"
+  "source": "Wikimedia Commons: Maresuke Nogi, 近世名士写真 其1 - Photo only.jpg",
+  "start": 7
  },
  {
   "id": "sima-qian",
@@ -5180,7 +5237,8 @@
   "frac": 0.15,
   "license": "CC BY 4.0",
   "attribution": "NOIRLab/NSF/AURA",
-  "source": "Wikimedia Commons: Vera Rubin measuring spectra.jpg"
+  "source": "Wikimedia Commons: Vera Rubin measuring spectra.jpg",
+  "start": 6
  },
  {
   "id": "al-biruni",

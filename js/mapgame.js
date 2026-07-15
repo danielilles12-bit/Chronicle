@@ -1,5 +1,5 @@
 // "Map of a Life": guess the historical figure from birth/death geography.
-import { DATA, $, show, back, goHome, refreshHomeStats, appConfirm } from './app.js';
+import { DATA, $, show, back, goHome, refreshHomeStats, appConfirm, setReceiptStamp } from './app.js';
 import * as store from './storage.js';
 import { isMatch, registerPool } from './match.js';
 import * as daily from './daily.js';
@@ -92,6 +92,121 @@ function animateTo(box) {
     if (t < 1) animId = requestAnimationFrame(frame);
   }
   animId = requestAnimationFrame(frame);
+}
+
+// ---------- pinch / pan / double-tap / wheel zoom ----------
+// Gestures drive the SVG viewBox directly: vectors re-render crisp at any
+// zoom and setVb re-scales the markers every frame. One finger pans, two
+// pinch, double-tap zooms in (and back out to the round's framing), a mouse
+// wheel zooms about the cursor. Owner report 2026-07-15: "can't zoom".
+const MIN_VB_W = 30;
+
+function clampBox(box) {
+  let [x, y, w, h] = box;
+  const maxW = MAP_W + 2 * MAP_BLEED, maxH = MAP_H + 2 * MAP_BLEED;
+  if (w > maxW) { h *= maxW / w; w = maxW; }
+  if (h > maxH) { w *= maxH / h; h = maxH; }
+  if (w < MIN_VB_W) { h *= MIN_VB_W / w; w = MIN_VB_W; }
+  let cx = x + w / 2, cy = y + h / 2;
+  cx = Math.min(Math.max(cx, w / 2 - MAP_BLEED), MAP_W - w / 2 + MAP_BLEED);
+  cy = Math.min(Math.max(cy, h / 2 - MAP_BLEED), MAP_H - h / 2 + MAP_BLEED);
+  return [cx - w / 2, cy - h / 2, w, h];
+}
+
+function attachMapGestures() {
+  const svg = $('#map-svg');
+  if (!svg || svg.dataset.gestures) return;
+  svg.dataset.gestures = '1';
+  svg.style.touchAction = 'none';
+  const pointers = new Map();
+  let pinch0 = null;    // pinch-start: distance, box, map point under midpoint
+  let pan0 = null;      // drag-start: client point + box
+  let lastTap = null;
+
+  const toMap = (cx, cy, box) => {
+    const r = svg.getBoundingClientRect();
+    return [box[0] + (cx - r.left) / r.width * box[2],
+            box[1] + (cy - r.top) / r.height * box[3]];
+  };
+  const homeBox = () => (S && S.homeBox) || [0, 0, MAP_W, MAP_H];
+
+  svg.addEventListener('pointerdown', (e) => {
+    if (animId) cancelAnimationFrame(animId);   // a touch takes the wheel
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pointers.size === 2) {
+      const [a, b] = [...pointers.values()];
+      pinch0 = {
+        d: Math.hypot(a.x - b.x, a.y - b.y) || 1,
+        vb: vb.slice(),
+        mapPt: toMap((a.x + b.x) / 2, (a.y + b.y) / 2, vb),
+      };
+      pan0 = null;
+    } else if (pointers.size === 1) {
+      pan0 = { x: e.clientX, y: e.clientY, vb: vb.slice(), moved: false };
+    }
+  });
+
+  svg.addEventListener('pointermove', (e) => {
+    const p = pointers.get(e.pointerId);
+    if (!p) return;
+    p.x = e.clientX; p.y = e.clientY;
+    if (pointers.size === 2 && pinch0) {
+      const [a, b] = [...pointers.values()];
+      const d = Math.hypot(a.x - b.x, a.y - b.y) || 1;
+      const w = Math.max(MIN_VB_W, Math.min(MAP_W + 2 * MAP_BLEED, pinch0.vb[2] * (pinch0.d / d)));
+      const h = w * pinch0.vb[3] / pinch0.vb[2];
+      // keep the map point that started under the fingers under them still
+      const r = svg.getBoundingClientRect();
+      const fx = ((a.x + b.x) / 2 - r.left) / r.width;
+      const fy = ((a.y + b.y) / 2 - r.top) / r.height;
+      setVb(clampBox([pinch0.mapPt[0] - fx * w, pinch0.mapPt[1] - fy * h, w, h]));
+    } else if (pointers.size === 1 && pan0) {
+      const r = svg.getBoundingClientRect();
+      const dx = (e.clientX - pan0.x) / r.width * pan0.vb[2];
+      const dy = (e.clientY - pan0.y) / r.height * pan0.vb[3];
+      if (Math.abs(e.clientX - pan0.x) + Math.abs(e.clientY - pan0.y) > 6) pan0.moved = true;
+      setVb(clampBox([pan0.vb[0] - dx, pan0.vb[1] - dy, pan0.vb[2], pan0.vb[3]]));
+    }
+  });
+
+  function end(e) {
+    const wasTap = e.type === 'pointerup' && pan0 && !pan0.moved && pointers.size === 1;
+    pointers.delete(e.pointerId);
+    if (pointers.size < 2) pinch0 = null;
+    if (pointers.size === 0) pan0 = null;
+    if (!wasTap) return;
+    const now = performance.now();
+    if (lastTap && now - lastTap.t < 350
+        && Math.hypot(e.clientX - lastTap.x, e.clientY - lastTap.y) < 30) {
+      lastTap = null;
+      const home = homeBox();
+      if (vb[2] < home[2] * 0.9) {
+        animateTo(home);                          // already in close: back out
+      } else {
+        const [mx, my] = toMap(e.clientX, e.clientY, vb);
+        const w = Math.max(MIN_VB_W, vb[2] / 2.5);
+        const h = w * vb[3] / vb[2];
+        animateTo(clampBox([mx - w / 2, my - h / 2, w, h]));
+      }
+    } else {
+      lastTap = { t: now, x: e.clientX, y: e.clientY };
+    }
+  }
+  svg.addEventListener('pointerup', end);
+  svg.addEventListener('pointercancel', end);
+
+  svg.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    if (animId) cancelAnimationFrame(animId);
+    const k = e.deltaY > 0 ? 1.15 : 1 / 1.15;
+    const w = Math.max(MIN_VB_W, Math.min(MAP_W + 2 * MAP_BLEED, vb[2] * k));
+    const h = w * vb[3] / vb[2];
+    const [mx, my] = toMap(e.clientX, e.clientY, vb);
+    const r = svg.getBoundingClientRect();
+    const fx = (e.clientX - r.left) / r.width;
+    const fy = (e.clientY - r.top) / r.height;
+    setVb(clampBox([mx - fx * w, my - fy * h, w, h]));
+  }, { passive: false });
 }
 
 // ---------- map rendering ----------
@@ -369,7 +484,8 @@ function startRound() {
   setVb([0, 0, MAP_W, MAP_H]);
   const [b, d] = drawMarkers(fig);
   scaleMarkers([0, 0, MAP_W, MAP_H]);
-  animateTo(targetBox(b, d));
+  S.homeBox = targetBox(b, d);   // double-tap zooms back out to this framing
+  animateTo(S.homeBox);
 
   persistSession();
   window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
@@ -445,6 +561,7 @@ function renderLockedSummary() {
   if (head) head.textContent = 'Dead Famous · Lifeline'
     + (S.editionIndex != null ? ` · Issue № ${S.editionIndex}` : '');
   $('#sum-total').textContent = S.score;
+  setReceiptStamp('view-mapsum', S.score);
   const remarks = [
     [850, 'Front-page material.'],
     [650, 'Tabloid royalty.'],
@@ -519,6 +636,7 @@ function finishSession() {
 // ---------- init ----------
 export function initMapGame() {
   registerPool('map', DATA.figures);
+  attachMapGestures();
   $('#map-start').addEventListener('click', startSession);
 
   $('#map-form').addEventListener('submit', (e) => {

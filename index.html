@@ -132,9 +132,10 @@
         <hr>
         <div class="df-receipt-total"><span>Total:</span><b id="sum-total">0</b></div>
         <p class="df-receipt-meta" id="sum-remark"></p>
-        <div class="df-stamp df-receipt-stamp df-stamp-alea">
+        <div class="df-stamp df-receipt-stamp df-stamp-alea" data-stamp-alea>
           <img src="assets/brand/stamp-alea-iacta-fest.png" alt="Alea iacta fest">
         </div>
+        <span class="df-stamp df-receipt-stamp df-stamp-damnatio" data-stamp-zero hidden>Damnatio memoriae<small>struck from the record</small></span>
       </div>
       <div class="sum-actions">
         <button class="pill primary big" id="sum-share" hidden>Share the run</button>
@@ -179,6 +180,10 @@
       <div id="rv-frame-wrap">
         <div id="rv-frame" role="img" aria-label="A covered image to identify">
           <div class="df-scraps" id="rv-scraps"></div>
+          <div id="rv-offline" hidden>
+            <p><b>This round isn't downloaded.</b><br>Reconnect to the internet, then retry.</p>
+            <button type="button" class="pill small" id="rv-offline-retry">Retry</button>
+          </div>
         </div>
         <div class="df-moment-badge" id="rv-badge" hidden></div>
       </div>
@@ -219,9 +224,10 @@
         <hr>
         <div class="df-receipt-total"><span>Total:</span><b id="rv-sum-total">0</b></div>
         <p class="df-receipt-meta" id="rv-sum-remark"></p>
-        <div class="df-stamp df-receipt-stamp df-stamp-alea">
+        <div class="df-stamp df-receipt-stamp df-stamp-alea" data-stamp-alea>
           <img src="assets/brand/stamp-alea-iacta-fest.png" alt="Alea iacta fest">
         </div>
+        <span class="df-stamp df-receipt-stamp df-stamp-damnatio" data-stamp-zero hidden>Damnatio memoriae<small>struck from the record</small></span>
       </div>
       <div class="sum-actions">
         <button class="pill primary big" id="rv-sum-share" hidden>Share the tear-up</button>
@@ -276,9 +282,10 @@
         <hr>
         <div class="df-receipt-total"><span>Total:</span><b id="conn-sum-total">0</b></div>
         <p class="df-receipt-meta" id="conn-sum-msg"></p>
-        <div class="df-stamp df-receipt-stamp df-stamp-alea">
+        <div class="df-stamp df-receipt-stamp df-stamp-alea" data-stamp-alea>
           <img src="assets/brand/stamp-alea-iacta-fest.png" alt="Alea iacta fest">
         </div>
+        <span class="df-stamp df-receipt-stamp df-stamp-damnatio" data-stamp-zero hidden>Damnatio memoriae<small>struck from the record</small></span>
       </div>
       <div id="conn-sum-groups" style="margin-top:14px;display:flex;flex-direction:column;gap:8px"></div>
       <div class="sum-actions" style="margin-top:20px">

@@ -55,6 +55,11 @@ export function editionIndex(date) {
   return Math.floor((localMidnight(date) - localMidnight(EPOCH)) / MS_PER_DAY);
 }
 
+// Inverse of editionIndex: the local calendar date edition n airs on.
+export function editionDate(n) {
+  return new Date(EPOCH.getFullYear(), EPOCH.getMonth(), EPOCH.getDate() + n);
+}
+
 export function todayIndex() {
   return editionIndex(todayDate());
 }

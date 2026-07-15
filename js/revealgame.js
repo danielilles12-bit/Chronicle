@@ -3,11 +3,12 @@
 // player's cost: the first tear is free, each further tear docks the round's
 // worth, and wrong guesses dock more. No clock — curiosity is the only spender.
 // Mirrors the Map of a Life session shape (10 rounds, persisted, resumable).
-import { DATA, $, show, back, goHome, appConfirm, refreshHomeStats } from './app.js';
+import { DATA, $, show, back, goHome, appConfirm, refreshHomeStats, setReceiptStamp } from './app.js';
 import * as store from './storage.js';
 import { isMatch, registerPool } from './match.js';
 import * as daily from './daily.js';
 import { revealShareText, revealEmojiRow, shareResult, flashShareButton } from './sharecard.js';
+import { attachPinchZoom } from './pinchzoom.js';
 import * as sfx from './sfx.js';
 
 const ROUNDS = 10;
@@ -21,6 +22,7 @@ const CLUE_B_COST = 15;         // "Lived" (who) / "Era" (what)
 
 let S = null;
 let MODE = 'who';               // 'who' = portraits, 'what' = artefacts
+let frameZoom = null;           // pinch-zoom handle for #rv-frame
 
 function pool() {
   return DATA.reveal.filter((x) => (MODE === 'who' ? x.kind === 'portrait' : x.kind !== 'portrait'));
@@ -189,11 +191,30 @@ function paintFull(item) {
 }
 
 function ensureDims(item, cb) {
-  if (dims[item.img]) { cb(); return; }
+  const d = dims[item.img];
+  if (d && !d.failed) { cb(); return; }
   const img = new Image();
   img.onload = () => { dims[item.img] = { w: img.naturalWidth, h: img.naturalHeight }; cb(); };
-  img.onerror = () => { dims[item.img] = { w: 1000, h: 1000 }; cb(); };
+  // A failed load is remembered (so the round can show its honest offline
+  // notice) but never treated as real dims — Retry clears it and reloads.
+  img.onerror = () => { dims[item.img] = { failed: true }; cb(); };
   img.src = item.img;
+}
+
+// Honest offline state (owner report 2026-07-15, the aeroplane case): if the
+// round's image never arrived, don't deal nine scraps over a blank void —
+// cover the frame with a "not downloaded" notice and park the controls.
+function setRoundOffline(off) {
+  const el = $('#rv-offline');
+  if (el) el.hidden = !off;
+  if (!off) $('#rv-offline-retry').textContent = 'Retry';
+  const cur = S && S.cur;
+  $('#rv-input').disabled = off;
+  $('#rv-guess-btn').disabled = off;
+  $('#rv-reveal').disabled = off;
+  $('#rv-clue-a').disabled = off || !!(cur && cur.clueA);
+  $('#rv-clue-b').disabled = off || !!(cur && cur.clueB);
+  $('#rv-scraps').style.visibility = off ? 'hidden' : '';
 }
 
 // ---------- scraps ----------
@@ -208,6 +229,13 @@ function moneyScrap(item) {
 }
 function startScrap(item) {
   const m = moneyScrap(item);
+  // Curated override (start-scrap fairness audit, tools/audit_start_scraps.py):
+  // the farthest-from-the-money-shot default can land on sky/backdrop; `start`
+  // pins the opening scrap to a cell that actually shows part of the subject.
+  if (Number.isInteger(item.start) && item.start >= 0 && item.start <= 8
+      && item.start !== m) {
+    return item.start;
+  }
   const mr = Math.floor(m / 3), mc = m % 3;
   let best = 0, bd = -1;
   for (const i of [0, 2, 6, 8, 1, 3, 5, 7, 4]) {   // corners first, deterministic
@@ -482,11 +510,18 @@ function startRound() {
   const frame = $('#rv-frame');
   frame.style.aspectRatio = '1 / 1';
   frame.style.width = '';
+  if (frameZoom) frameZoom.reset();
   paintCover(item);
   buildScraps();
   tearScrap(startScrap(item), true);   // the free opening scrap, placed far from the money shot
   updateWorth();
-  ensureDims(item, () => {});
+  setRoundOffline(false);
+  ensureDims(item, () => {
+    // Only flag the round still on screen (the load is async).
+    if (!S || !S.cur || !S.cur.open || round() !== item) return;
+    const d = dims[item.img];
+    if (d && d.failed) setRoundOffline(true);
+  });
   prefetchRounds();
   persist();
   window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
@@ -528,6 +563,7 @@ function resolveRound(correct) {
   // duotone treatment, and the verdict badge lands on the frame's corner.
   $('#rv-scraps').querySelectorAll('.df-scrap').forEach((el) => el.classList.add('torn'));
   $('#rv-prompt').hidden = true;
+  if (frameZoom) frameZoom.reset();   // the frame morphs aspect; start the reveal at 1x
   paintFull(item);
   $('#rv-frame').classList.add('df-duotone');
   const badge = $('#rv-badge');
@@ -569,6 +605,7 @@ function renderLockedSummary() {
   if (head) head.textContent = `Dead Famous · ${MODE === 'who' ? 'Face Value' : 'Relic'}`
     + (S.editionIndex != null ? ` · Issue № ${S.editionIndex}` : '');
   $('#rv-sum-total').textContent = S.score;
+  setReceiptStamp('view-revealsum', S.score);
   const remarks = [
     [850, 'A connoisseur of the ages.'],
     [650, 'A sharp eye for history.'],
@@ -640,6 +677,16 @@ export function initRevealGame() {
   // actually be shown in that mode, not the whole reveal corpus.
   registerPool('who', DATA.reveal.filter((x) => x.kind === 'portrait'));
   registerPool('what', DATA.reveal.filter((x) => x.kind !== 'portrait'));
+
+  // Pinch/double-tap zoom on the frame: revealed slivers are inspectable
+  // mid-round (image and scrap grid scale together, so the torn windows stay
+  // truthful) and the final reveal is zoomable too. The wrap clips while
+  // zoomed so the scaled frame never rides over the guess form.
+  frameZoom = attachPinchZoom($('#rv-frame'), {
+    maxScale: 4,
+    onZoomChange: (z) => $('#rv-frame-wrap').classList.toggle('pz-active', z > 1),
+  });
+
   $('#rv-start').addEventListener('click', startSession);
   $('#rv-resume').addEventListener('click', resumeSession);
 
@@ -675,6 +722,25 @@ export function initRevealGame() {
 
   $('#rv-clue-a').addEventListener('click', () => buyClue('a'));
   $('#rv-clue-b').addEventListener('click', () => buyClue('b'));
+
+  $('#rv-offline-retry').addEventListener('click', () => {
+    if (!S || !S.cur || !S.cur.open) return;
+    const item = round();
+    const btn = $('#rv-offline-retry');
+    btn.disabled = true;
+    delete dims[item.img];
+    ensureDims(item, () => {
+      btn.disabled = false;
+      if (!S || !S.cur || !S.cur.open || round() !== item) return;
+      const d = dims[item.img];
+      if (d && !d.failed) {
+        paintCover(item);
+        setRoundOffline(false);
+      } else {
+        btn.textContent = 'Still offline — retry';
+      }
+    });
+  });
 
   $('#rv-reveal').addEventListener('click', () => {
     if (!S || !S.cur || !S.cur.open) return;

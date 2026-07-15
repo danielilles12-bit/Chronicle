@@ -86,6 +86,28 @@ function tolerance(len) {
 const ROMANS = new Set(['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix',
   'x', 'xi', 'xii', 'xiii', 'xiv', 'xv', 'xvi']);
 
+// Doubled-letter forgiveness: "Elliott" is two edits from "Eliot" — over the
+// one-typo budget — but both are just letter-doublings of the same word, and
+// doubling a consonant is THE classic way to misspell a name. Collapse runs
+// of a repeated letter on both sides ("elliott" → "eliot") and accept
+// equality. Never applied to roman numerals ("iii" must not collapse into
+// "i") and only for words long enough to be real names.
+function collapseRuns(s) { return s.replace(/(.)\1+/g, '$1'); }
+function doubledEq(a, b) {
+  if (a.length < 4 || b.length < 4) return false;
+  if (ROMANS.has(a) || ROMANS.has(b)) return false;
+  return collapseRuns(a) === collapseRuns(b);
+}
+
+// One shared token-level equality: exact, within the per-word typo budget,
+// or a doubled-letter respelling.
+function tokenFuzzyEq(gt, ct) {
+  if (gt === ct) return true;
+  const tol = tolerance(ct.length);
+  if (tol > 0 && damerau(gt, ct, tol) <= tol) return true;
+  return doubledEq(gt, ct);
+}
+
 // All roman-numeral tokens anywhere in the name, in order. Fuzzy and subset
 // matching are only allowed between strings whose numeral sequences are
 // identical, so "Cleopatra I" can't ride the typo budget into "Cleopatra", nor
@@ -135,6 +157,44 @@ const CORE_STOPWORDS = new Set([
   'girl', 'boy', 'man', 'woman',
 ]);
 
+// Generic nouns/adjectives that say WHAT KIND of thing an item is rather than
+// WHICH one it is — "rhino", "helmet", "mask", "gold". One of these can be
+// pool-unique (only one rhino in the corpus) and therefore "distinctive", but
+// it must never carry a guess whose OTHER words contradict the item:
+// "Mongolian Golden Rhino" names some other rhino, not the Mapungubwe one.
+// Proper-name tokens ("nazca", "einstein", "mapungubwe") stay exempt — extra
+// descriptive words around a real proper name are always forgiven ("nazca
+// hummingbird"). Curated from the actual distinctive-token lists of all three
+// content pools; omissions just fall back to today's (permissive) behaviour.
+const GENERIC_NOUNS = new Set([
+  // buildings & places
+  'abbey', 'arena', 'arch', 'basilica', 'baths', 'bridge', 'castle',
+  'cathedral', 'cave', 'caves', 'ceiling', 'chapel', 'church', 'citadel',
+  'city', 'court', 'dome', 'door', 'fort', 'fortress', 'gate', 'garden',
+  'gardens', 'grotto', 'grottoes', 'hall', 'house', 'library', 'lighthouse',
+  'monastery', 'mosque', 'museum', 'obelisk', 'pagoda', 'palace', 'pavilion',
+  'pyramid', 'pyramids', 'ruins', 'shrine', 'stadium', 'temple', 'theatre',
+  'tomb', 'tower', 'town', 'villa', 'wall', 'walls', 'ziggurat',
+  'stones', 'circle', 'lines', 'mound', 'mounds',
+  // objects & artworks as object-kinds
+  'altarpiece', 'armour', 'army', 'atlas', 'bell', 'bone', 'book', 'bronzes',
+  'brooch', 'bust', 'carving', 'cauldron', 'chariot', 'charioteer',
+  'chessmen', 'code', 'codex', 'coin', 'coins', 'crown', 'cylinder', 'disc',
+  'disk', 'earring', 'egg', 'figurine', 'fresco', 'frescoes', 'gold',
+  'golden', 'gospels', 'head', 'helmet', 'hoard', 'jewel', 'jewels',
+  'manuscript', 'map', 'marbles', 'mask', 'mechanism', 'mosaic', 'mummy',
+  'painting', 'pearl', 'people', 'portrait', 'psalter', 'relic', 'scroll',
+  'scrolls', 'sculpture', 'ship', 'shield', 'standard', 'statue',
+  'statuette', 'stone', 'sword',
+  'tablet', 'tapestry', 'throne', 'treasure', 'urn', 'vase', 'warrior',
+  'warriors', 'wheel',
+  // animals as object-kinds
+  'rhino', 'rhinoceros', 'horse', 'lion', 'lions', 'bull',
+  // epithet adjectives ("the Magnificent" names a style, not a person)
+  'magnificent', 'terrible', 'great', 'elder', 'younger', 'silent', 'red',
+  'blue', 'winged', 'colossal', 'giant', 'imperial', 'sitting',
+]);
+
 // key -> { byId: Map<id, {variantSets: string[][], distinctive: Set<string>}>,
 //          tokenOwners: Map<token, Set<id>> } — kept only for inspection/debug.
 const POOLS = new Map();
@@ -180,7 +240,9 @@ export function registerPool(key, items) {
       if (!tokenOwners.has(t)) tokenOwners.set(t, new Set());
       tokenOwners.get(t).add(item.id);
     }
-    byId.set(item.id, { variantStrs, variantTokLists, nameToks, nameCoreTokens });
+    // allTokens doubles as the item's "own vocabulary" for the generic-noun
+    // guard in containsDistinctiveCore.
+    byId.set(item.id, { variantStrs, variantTokLists, nameToks, nameCoreTokens, allTokens });
   }
   // A name-core token is distinctive for an item iff no other item's
   // name+variant tokens include it anywhere in the pool.
@@ -230,23 +292,47 @@ function containsPhrase(guessToks, variantToks) {
 }
 
 // Rule 3: distinctive-core — does any guess token match (exact, or damerau
-// distance 1 for tokens >= 6 chars) a token that is distinctive for this item
-// within its registered pool? Blocked when the guess carries a regnal
-// numeral not part of the item's own name (e.g. "napoleon iii" must not
-// ride the core-token "napoleon" into a match).
-function containsDistinctiveCore(guessToks, distinctiveSet, nameToks) {
+// distance 1 for tokens >= 6 chars, or a doubled-letter respelling) a token
+// that is distinctive for this item within its registered pool? Blocked when
+// the guess carries a regnal numeral not part of the item's own name (e.g.
+// "napoleon iii" must not ride the core-token "napoleon" into a match).
+//
+// Generic-noun guard (owner report, "Mongolian Golden Rhino" 2026-07-15):
+// when the ONLY distinctive tokens matched are generic nouns ("rhino",
+// "helmet", "mask" — see GENERIC_NOUNS), every other meaningful guess word
+// must come from the item's own vocabulary (or itself be generic/a title):
+// "golden rhino" passes, "mongolian golden rhino" names a different rhino
+// and fails. A matched PROPER-name distinctive token ("nazca", "einstein")
+// keeps the old behaviour — extra descriptive words are forgiven.
+function containsDistinctiveCore(guessToks, entry) {
+  const distinctiveSet = entry.distinctive;
   if (!distinctiveSet || !distinctiveSet.size) return false;
-  if (hasExtraneousRegnal(guessToks, nameToks || [])) return false;
+  if (hasExtraneousRegnal(guessToks, entry.nameToks || [])) return false;
+  let genericHit = false;
   for (const gt of guessToks) {
     if (gt.length < MIN_GUESS_LEN) continue; // guard rail
-    if (distinctiveSet.has(gt)) return true;
-    if (gt.length >= 6) {
-      for (const dt of distinctiveSet) {
-        if (dt.length >= 6 && damerau(gt, dt, 1) <= 1) return true;
-      }
+    for (const dt of distinctiveSet) {
+      const hit = gt === dt
+        || (gt.length >= 6 && dt.length >= 6 && damerau(gt, dt, 1) <= 1)
+        || doubledEq(gt, dt);
+      if (!hit) continue;
+      if (!GENERIC_NOUNS.has(dt)) return true;   // proper-name anchor: done
+      genericHit = true;
     }
   }
-  return false;
+  if (!genericHit) return false;
+  // Only generic distinctive tokens matched: reject if the guess carries any
+  // word foreign to the item ("mongolian"). Stopwords, titles and other
+  // generic describers ("statue", "gold") never count as foreign.
+  for (const gt of guessToks) {
+    if (CORE_STOPWORDS.has(gt) || TITLES.has(gt) || GENERIC_NOUNS.has(gt)) continue;
+    let known = false;
+    for (const t of entry.allTokens) {
+      if (tokenFuzzyEq(gt, t)) { known = true; break; }
+    }
+    if (!known) return false;
+  }
+  return true;
 }
 
 // Every core token of `cand` appears somewhere in `guess` (typo-tolerant), so a
@@ -258,10 +344,9 @@ function covers(guessToks, candToks) {
   if (candToks.length < 2) return false;
   const pool = guessToks.slice();
   for (const ct of candToks) {
-    const tol = tolerance(ct.length);
     let hit = -1;
     for (let k = 0; k < pool.length; k++) {
-      if (pool[k] === ct || (tol > 0 && damerau(pool[k], ct, tol) <= tol)) { hit = k; break; }
+      if (tokenFuzzyEq(pool[k], ct)) { hit = k; break; }
     }
     if (hit < 0) return false;
     pool.splice(hit, 1); // consume the matched guess token
@@ -269,18 +354,15 @@ function covers(guessToks, candToks) {
   return true;
 }
 
-// Per-token fuzzy equality: same word count, each pair either identical or
-// one edit apart (capped, never two). "hagiya sofiya" ~ "hagia sofia" (one
-// edit per word); "napolyeone" (single token, 2 edits from "napoleon") does
-// not qualify — that's a whole-string case, handled separately below.
+// Per-token fuzzy equality: same word count, each pair either identical, one
+// edit apart (capped, never two), or a doubled-letter respelling. "hagiya
+// sofiya" ~ "hagia sofia" (one edit per word); "t s elliott" ~ "t s eliot"
+// (doubled letters); "napolyeone" (single token, 2 edits from "napoleon")
+// does not qualify — that's a whole-string case, handled separately below.
 function tokenwiseFuzzyEqual(gToks, cToks) {
   if (gToks.length !== cToks.length) return false;
   for (let i = 0; i < gToks.length; i++) {
-    const gt = gToks[i], ct = cToks[i];
-    if (gt === ct) continue;
-    const tol = tolerance(ct.length);
-    if (tol > 0 && damerau(gt, ct, tol) <= tol) continue;
-    return false;
+    if (!tokenFuzzyEq(gToks[i], cToks[i])) return false;
   }
   return true;
 }
@@ -297,8 +379,7 @@ function stringsMatch(g, c) {
   // budget); multi-token strings compare per-word so the edit-distance cap
   // of 1 applies per word, not smeared across the whole phrase.
   if (gToks.length === 1 && cToks.length === 1) {
-    const tol = tolerance(c.length);
-    if (tol > 0 && damerau(g, c, tol) <= tol) return true;
+    if (tokenFuzzyEq(g, c)) return true;
   } else if (gToks.length === 1 && cToks.length > 1) {
     // A single-token guess against a multi-word candidate: still allow a
     // one-edit match against the space-removed candidate, so a dropped
@@ -307,7 +388,7 @@ function stringsMatch(g, c) {
     // at distance 1 on the whole joined string).
     const joined = cToks.join('');
     const tol = tolerance(joined.length);
-    if (tol > 0 && damerau(g, joined, tol) <= tol) return true;
+    if ((tol > 0 && damerau(g, joined, tol) <= tol) || doubledEq(g, joined)) return true;
   } else if (tokenwiseFuzzyEqual(gToks, cToks)) {
     return true;
   }
@@ -412,7 +493,7 @@ export function isMatch(guess, figure, poolKey) {
   // from the item's NAME only — see registerPool).
   if (pool) {
     const entry = pool.byId.get(figure.id);
-    if (entry && containsDistinctiveCore(guessToks, entry.distinctive, entry.nameToks)) {
+    if (entry && containsDistinctiveCore(guessToks, entry)) {
       return true;
     }
   }

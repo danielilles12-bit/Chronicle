@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v99';
+const BUILD = 'v100';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -78,6 +78,18 @@ function render() {
   if (id === 'view-revealstart') renderRevealStart();
   if (id === 'view-archive') renderArchive();
   document.dispatchEvent(new CustomEvent('viewchange', { detail: id }));
+}
+
+// Receipt stamp: ALEA IACTA FEST celebrates any real score; a zero-point
+// session gets DAMNATIO MEMORIAE instead (struck from the record) — a
+// celebration stamp on a failed run read as mockery (owner call 2026-07-15).
+export function setReceiptStamp(viewId, score) {
+  const root = document.querySelector(`#${viewId} .df-receipt`);
+  if (!root) return;
+  const alea = root.querySelector('[data-stamp-alea]');
+  const zero = root.querySelector('[data-stamp-zero]');
+  if (alea) alea.hidden = score === 0;
+  if (zero) zero.hidden = score !== 0;
 }
 
 // Styled in-app replacement for window.confirm().
@@ -279,26 +291,13 @@ function initDaily() {
 }
 
 // ---------- Archive / Practice ----------
-const WEEKDAY_CHIPS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-let archiveFilter = null; // null = all weekdays, else 0-6
-
+// The Morgue is a CALENDAR (owner call 2026-07-15): month grids, newest month
+// first, one tappable cell per aired edition. Replaces the old flat
+// "Fri / Issue № N" list (and the weekday filter chips a calendar makes
+// redundant — the weekday IS the column).
 function initArchive() {
   const filterRow = $('#archive-filters');
-  if (!filterRow) return;
-  filterRow.innerHTML = '';
-  const allBtn = document.createElement('button');
-  allBtn.className = 'pill small archive-chip active';
-  allBtn.textContent = 'All';
-  allBtn.addEventListener('click', () => { archiveFilter = null; renderArchive(); });
-  filterRow.appendChild(allBtn);
-  WEEKDAY_CHIPS.forEach((label, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'pill small archive-chip';
-    btn.textContent = label;
-    btn.addEventListener('click', () => { archiveFilter = i; renderArchive(); });
-    filterRow.appendChild(btn);
-  });
-  $$('[data-back]').forEach(() => {}); // no-op: back button already wired globally
+  if (filterRow) filterRow.hidden = true; // chips retired; calendar columns carry the weekday
   const picker = $('#archive-picker');
   if (picker) {
     picker.querySelectorAll('[data-practice-game]').forEach((btn) => {
@@ -314,44 +313,65 @@ function initArchive() {
   }
 }
 
+function calDots(n) {
+  return TODAY_GAMES.map((g) => {
+    const status = daily.dailyStatus(g.key, n);
+    const dot = status === 'done' ? 'done' : status === 'in-progress' ? 'progress' : '';
+    return `<span class="archive-dot ${dot}" title="${g.label}"></span>`;
+  }).join('');
+}
+
+// One month's grid, Monday-first. `today`/`last` are edition indices; cells
+// outside [0, last] render as dead numbers, today is marked but not tappable
+// (its edition lives on the front page), future-but-previewable editions are
+// tappable at reduced weight (pre-launch QA browsing).
+function renderMonth(monthStart, today, last) {
+  const sec = document.createElement('section');
+  sec.className = 'cal-month';
+  const title = monthStart.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+  const dows = ['M', 'T', 'W', 'T', 'F', 'S', 'S']
+    .map((d) => `<span class="cal-dow">${d}</span>`).join('');
+  const lead = (monthStart.getDay() + 6) % 7;
+  const daysInMonth = new Date(monthStart.getFullYear(), monthStart.getMonth() + 1, 0).getDate();
+  let cells = '';
+  for (let i = 0; i < lead; i++) cells += '<span class="cal-cell blank"></span>';
+  for (let d = 1; d <= daysInMonth; d++) {
+    const n = daily.editionIndex(new Date(monthStart.getFullYear(), monthStart.getMonth(), d));
+    if (n < 0 || n > last) {
+      cells += `<span class="cal-cell dead">${d}</span>`;
+    } else if (n === today) {
+      cells += `<span class="cal-cell today" aria-label="Issue № ${n} — today, on the front page">`
+        + `<b>${d}</b><span class="cal-dots">${calDots(n)}</span></span>`;
+    } else {
+      cells += `<button type="button" class="cal-cell${n > today ? ' future' : ''}" data-edition="${n}"`
+        + ` aria-label="Issue № ${n} · ${daily.weekdayName(n)}">`
+        + `<b>${d}</b><span class="cal-dots">${calDots(n)}</span></button>`;
+    }
+  }
+  sec.innerHTML = `<h3 class="cal-title">${title}</h3><div class="cal-grid">${dows}${cells}</div>`;
+  sec.querySelectorAll('[data-edition]').forEach((b) => {
+    b.addEventListener('click', () => openArchiveEdition(+b.dataset.edition));
+  });
+  return sec;
+}
+
 function renderArchive() {
   const main = $('#archive-list');
   if (!main || !DATA.figures) return;
   main.innerHTML = '';
-  $$('#archive-filters .archive-chip').forEach((btn, i) => {
-    // i===0 is the "All" chip; weekday chips follow at i-1 === weekday index
-    const isActive = i === 0 ? archiveFilter === null : (i - 1) === archiveFilter;
-    btn.classList.toggle('active', isActive);
-  });
   const today = daily.todayIndex();
   // Visibility rule (spec): n < today (aired) OR n <= today + preview. Pre-
   // launch ARCHIVE_PREVIEW_EDITIONS is Infinity ("everything visible"); cap
-  // the render window at a generous but finite lookahead so the list stays
-  // finite even with an Infinity config.
+  // the render window at a generous but finite lookahead so the calendar
+  // stays finite even with an Infinity config.
   const last = today + (Number.isFinite(daily.ARCHIVE_PREVIEW_EDITIONS) ? daily.ARCHIVE_PREVIEW_EDITIONS : 180);
-  const rows = [];
-  for (let n = last; n >= 0; n--) {
-    if (n === today) continue; // today's edition lives in the Today strip, not duplicated here until tomorrow
-    if (archiveFilter !== null && daily.weekday(n) !== archiveFilter) continue;
-    rows.push(n);
-  }
-  rows.forEach((n) => {
-    const row = document.createElement('button');
-    row.className = 'cwitem archive-row';
-    const marks = TODAY_GAMES.map((g) => {
-      const status = daily.dailyStatus(g.key, n);
-      const dot = status === 'done' ? 'done' : status === 'in-progress' ? 'progress' : '';
-      return `<span class="archive-dot archive-dot-${g.key} ${dot}" title="${g.label}"></span>`;
-    }).join('');
-    row.innerHTML =
-      `<span class="cw-size">${daily.weekdayName(n).slice(0, 3)}</span>` +
-      `<span class="cw-name">Issue № ${n}</span>` +
-      `<span class="archive-marks">${marks}</span>`;
-    row.addEventListener('click', () => openArchiveEdition(n));
-    main.appendChild(row);
-  });
-  if (!rows.length) {
-    main.innerHTML = '<p class="start-copy small" style="text-align:center;margin-top:24px">No editions match this filter.</p>';
+  const firstMonth = daily.editionDate(0);
+  const stop = new Date(firstMonth.getFullYear(), firstMonth.getMonth(), 1);
+  const lastDate = daily.editionDate(Math.max(0, last));
+  let cursor = new Date(lastDate.getFullYear(), lastDate.getMonth(), 1);
+  while (cursor >= stop) {
+    main.appendChild(renderMonth(cursor, today, last));
+    cursor = new Date(cursor.getFullYear(), cursor.getMonth() - 1, 1);
   }
 }
 
@@ -722,6 +742,7 @@ async function boot() {
   refreshHomeStats();
   refreshTodayStrip();
   if (!maybeMourn()) maybeCelebrate();
+  setTimeout(prefetchDailyImages, 1200); // after first paint settles
 
   // Deterministic hooks for the automated test-suite.
   window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, { data: DATA, store, isMatch, daily });
@@ -748,6 +769,35 @@ async function boot() {
       }
     }).catch(() => {});
   }
+}
+
+// Warm today's + tomorrow's Face Value / Relic images so the dailies stay
+// playable offline (the aeroplane rule, owner report 2026-07-15): each
+// request routes through the service worker, which files the bytes into the
+// version-bump-proof df-img cache. Sequential so it never competes with an
+// image the player is actually looking at; tomorrow's edition rides along as
+// a buffer for a day spent entirely offline.
+function prefetchDailyImages() {
+  const today = daily.todayIndex();
+  if (today < 0) return;
+  const urls = [];
+  const seen = new Set();
+  for (const n of [today, today + 1]) {
+    for (const game of ['who', 'what']) {
+      for (const item of daily.getEdition(game, n)) {
+        if (item.img && !seen.has(item.img)) { seen.add(item.img); urls.push(item.img); }
+      }
+    }
+  }
+  const next = () => {
+    const u = urls.shift();
+    if (!u) return;
+    const img = new Image();
+    img.onload = next;
+    img.onerror = next;
+    img.src = u;
+  };
+  next();
 }
 
 // The "off the presses" bar: appears once a new version has installed and

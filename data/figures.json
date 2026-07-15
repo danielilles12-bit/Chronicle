@@ -3973,7 +3973,8 @@
   "name": "T. S. Eliot",
   "variants": [
    "eliot",
-   "t s eliot"
+   "t s eliot",
+   "ts eliot"
   ],
   "occupation": "Poet and author",
   "birth": {
@@ -5443,7 +5444,7 @@
   "variants": [
    "nefertiti"
   ],
-  "occupation": "Queen regnant",
+  "occupation": "Queen consort",
   "birth": {
    "year": -1370,
    "place": "Thebes, Egypt",

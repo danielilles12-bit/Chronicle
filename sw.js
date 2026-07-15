@@ -7,11 +7,17 @@
 //   new worker precaches the shell, skipWaiting+claim take over immediately ->
 //   app.js sees controllerchange and shows the NEW EDITION bar -> the user's
 //   pull-to-refresh (or a tap on the bar) reloads into the new version.
-const VERSION = 'deadfamous-v99';
+const VERSION = 'deadfamous-v100';
 
 // Daily-content cache: survives version bumps so updating the app never
 // re-downloads the whole archive, served stale-while-revalidate below.
 const DATA_CACHE = 'df-data';
+
+// Puzzle-image cache: Face Value / Relic photos, cache-first and version-bump
+// proof (the files are immutable). app.js prefetches today's + tomorrow's
+// editions into it on every online open, so a later offline open (the
+// aeroplane case) still has playable rounds.
+const IMG_CACHE = 'df-img';
 
 // The shell: everything the app needs to boot and look right. Deliberately
 // EXCLUDES data/*.json (they live in DATA_CACHE) so the install stays small —
@@ -44,6 +50,7 @@ const ASSETS = [
   './js/sharecard.js',
   './js/storage.js',
   './js/match.js',
+  './js/pinchzoom.js',
   './js/mapgame.js',
   './js/revealgame.js',
   './js/connectionsgame.js',
@@ -66,7 +73,8 @@ self.addEventListener('activate', (e) => {
   e.waitUntil(
     caches.keys()
       .then((keys) => Promise.all(
-        keys.filter((k) => k !== VERSION && k !== DATA_CACHE).map((k) => caches.delete(k)),
+        keys.filter((k) => k !== VERSION && k !== DATA_CACHE && k !== IMG_CACHE)
+          .map((k) => caches.delete(k)),
       ))
       .then(() => self.clients.claim()),
   );
@@ -80,6 +88,20 @@ self.addEventListener('fetch', (e) => {
   if (url.pathname.includes('/audit/')) return; // never cache dev tools (path-prefix agnostic: GH Pages serves under /Chronicle/)
   if (url.pathname.includes('/preview/')) return; // design prototypes live outside the app shell
   if (url.pathname.includes('/launch-demos/')) return; // proposal demos, not part of the app
+
+  // Puzzle images: cache-first, immutable. First fetch (usually the app.js
+  // prefetch) files the image into IMG_CACHE; every later request — including
+  // offline ones — is served from it.
+  if (url.pathname.includes('/assets/img/')) {
+    e.respondWith(caches.open(IMG_CACHE).then(async (c) => {
+      const hit = await c.match(req, { ignoreSearch: true });
+      if (hit) return hit;
+      const res = await fetch(req);
+      if (res && res.ok) c.put(req, res.clone());
+      return res;
+    }));
+    return;
+  }
 
   // Daily content: serve the cached copy instantly, refresh it in the
   // background. Content therefore lags one open at most, works offline after
