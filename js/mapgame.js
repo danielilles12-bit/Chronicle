@@ -102,6 +102,9 @@ function animateTo(box) {
 const MIN_VB_W = 30;
 
 function clampBox(box) {
+  // A zero-size layout (backgrounded tab, mid-rotation) makes the gesture
+  // maths divide by zero; never let a non-finite box poison the viewBox.
+  if (!box.every(Number.isFinite)) return vb.slice();
   let [x, y, w, h] = box;
   const maxW = MAP_W + 2 * MAP_BLEED, maxH = MAP_H + 2 * MAP_BLEED;
   if (w > maxW) { h *= maxW / w; w = maxW; }
@@ -227,8 +230,8 @@ function drawMarkers(fig) {
   const b = proj(fig.birth.lon, fig.birth.lat);
   const d = proj(fig.death.lon, fig.death.lat);
   const g = $('#mk');
-  // stash the TRUE projected positions; scaleMarkers reads these every frame
-  // so the overlap-separation math never compounds as we zoom.
+  // stash the projected positions; scaleMarkers re-reads them every frame
+  // when re-scaling radii and re-laying-out the year labels.
   g.dataset.bx = b[0]; g.dataset.by = b[1];
   g.dataset.dx = d[0]; g.dataset.dy = d[1];
   g.innerHTML =
@@ -253,34 +256,21 @@ function scaleMarkers(box) {
   ring.setAttribute('stroke-width', r * 0.55);
   death.setAttribute('r', r * 0.55);
 
-  // True projected positions (never mutated).
-  const tbx = +g.dataset.bx, tby = +g.dataset.by;
-  const tdx = +g.dataset.dx, tdy = +g.dataset.dy;
-
-  // When birth and death are the same/near spot they stack into an
-  // unreadable blob. Push them apart to a minimum on-screen gap, keeping the
-  // real direction of travel when there is one (and a fixed up-left/down-right
-  // split when the two places are identical).
-  const minGap = r * 3.2;
-  const dist = Math.hypot(tdx - tbx, tdy - tby);
-  let bx = tbx, by = tby, dx = tdx, dy = tdy;
-  const overlap = dist < minGap;
-  if (overlap) {
-    const mx = (tbx + tdx) / 2, my = (tby + tdy) / 2;
-    let ux = 0.6, uy = 0.8;                      // identical-place default
-    if (dist > 0.01) { ux = (tdx - tbx) / dist; uy = (tdy - tby) / dist; }
-    const half = minGap / 2;
-    bx = mx - ux * half; by = my - uy * half;
-    dx = mx + ux * half; dy = my + uy * half;
-  }
+  // Markers always sit at their TRUE projected positions. (They used to be
+  // pushed apart to a zoom-scaled minimum gap when close together, but that
+  // displacement depended on the viewBox width — with free pinch-zoom the
+  // pins visibly crawled across the map as the gap recomputed. A same-city
+  // pair still reads: the death ring draws around the birth dot, the year
+  // labels split up/down below, and the player can now zoom in to resolve.)
+  const bx = +g.dataset.bx, by = +g.dataset.by;
+  const dx = +g.dataset.dx, dy = +g.dataset.dy;
   birth.setAttribute('cx', bx); birth.setAttribute('cy', by);
   ring.setAttribute('cx', dx); ring.setAttribute('cy', dy);
   death.setAttribute('cx', dx); death.setAttribute('cy', dy);
 
-  // keep the two year labels apart: whichever marker ends up higher labels
-  // upward, the lower one downward (birth wins the tie). This runs on the
-  // *separated* positions, so each label sits on the outer side of its own
-  // marker and the two never cross — even when birth and death share a city.
+  // keep the two year labels apart: whichever marker is higher labels
+  // upward, the lower one downward (birth wins the tie) — so the labels
+  // never cross, even when birth and death share a city.
   g.querySelectorAll('.mk-label').forEach((t) => {
     const isBirth = t.dataset.anchor === 'b';
     const cx = isBirth ? bx : dx;
