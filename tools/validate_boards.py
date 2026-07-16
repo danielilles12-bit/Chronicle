@@ -124,9 +124,12 @@ def check_chrono(puzzles):
 
 def main():
     conn = json.loads((ROOT / "data/connections.json").read_text())
-    chrono = json.loads((ROOT / "data/chrono.json").read_text())
     check_connections(conn)
-    check_chrono(chrono)
+    # chrono was removed from the app in v97; validate its data only if present
+    chrono_path = ROOT / "data/chrono.json"
+    chrono = json.loads(chrono_path.read_text()) if chrono_path.exists() else []
+    if chrono:
+        check_chrono(chrono)
     for w in warns:
         print(f"WARN  {w}")
     for e in errors:

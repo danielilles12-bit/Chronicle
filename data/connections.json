@@ -7243,42 +7243,42 @@
   "groups": [
    {
     "colour": "yellow",
-    "label": "Ancient Egyptian rulers",
+    "label": "Homegrown pharaohs",
     "items": [
-     "Tutankhamun",
-     "Ramesses II",
+     "Khufu",
+     "Hatshepsut",
      "Akhenaten",
-     "Hatshepsut"
+     "Ramesses II"
     ]
    },
    {
     "colour": "green",
-    "label": "Roman emperors",
+    "label": "Gods of the Nile",
     "items": [
-     "Augustus",
-     "Nero",
-     "Hadrian",
-     "Marcus Aurelius"
+     "Isis",
+     "Thoth",
+     "Bastet",
+     "Sobek"
     ]
    },
    {
     "colour": "blue",
-    "label": "Greek philosophers",
+    "label": "They came, they saw, they conquered Egypt",
     "items": [
-     "Socrates",
-     "Plato",
-     "Aristotle",
-     "Epicurus"
+     "Alexander the Great",
+     "Cambyses",
+     "Octavian",
+     "Napoleon Bonaparte"
     ]
    },
    {
     "colour": "purple",
-    "label": "Mesopotamian / Persian kings",
+    "label": "Greek myths on your shopping list",
     "items": [
-     "Hammurabi",
-     "Cyrus",
-     "Darius",
-     "Nebuchadnezzar"
+     "Nike",
+     "Ajax",
+     "Hermes",
+     "Amazon"
     ]
    }
   ],
@@ -7949,42 +7949,42 @@
   "groups": [
    {
     "colour": "yellow",
-    "label": "The Verdi canon",
+    "label": "Heroines dead by the final curtain",
     "items": [
-     "Aida",
-     "Rigoletto",
-     "La Traviata",
-     "Otello"
+     "Carmen",
+     "Tosca",
+     "Norma",
+     "Aida"
     ]
    },
    {
     "colour": "green",
-    "label": "Puccini's heartbreakers",
+    "label": "Shakespeare, but louder",
     "items": [
-     "La Boheme",
-     "Tosca",
-     "Madama Butterfly",
-     "Turandot"
+     "Otello",
+     "Falstaff",
+     "Romeo et Juliette",
+     "A Midsummer Night's Dream"
     ]
    },
    {
     "colour": "blue",
-    "label": "Mozart's stage magic",
+    "label": "Title roles who really ruled",
     "items": [
-     "The Magic Flute",
-     "Don Giovanni",
-     "The Marriage of Figaro",
-     "Cosi fan tutte"
+     "Nabucco",
+     "Boris Godunov",
+     "Akhnaten",
+     "Giulio Cesare"
     ]
    },
    {
     "colour": "purple",
-    "label": "Wagner's epics",
+    "label": "Name-checked in Bohemian Rhapsody",
     "items": [
-     "Tristan und Isolde",
-     "Lohengrin",
-     "Tannhauser",
-     "Parsifal"
+     "Figaro",
+     "Galileo",
+     "Scaramouche",
+     "Beelzebub"
     ]
    }
   ]
@@ -8042,46 +8042,46 @@
   "groups": [
    {
     "colour": "yellow",
-    "label": "English royal houses",
-    "items": [
-     "Tudor",
-     "Stuart",
-     "Windsor",
-     "Plantagenet"
-    ]
-   },
-   {
-    "colour": "green",
-    "label": "European royal dynasties",
-    "items": [
-     "Habsburg",
-     "Bourbon",
-     "Romanov",
-     "Hohenzollern"
-    ]
-   },
-   {
-    "colour": "blue",
-    "label": "Chinese dynasties",
+    "label": "Made in China",
     "items": [
      "Han",
-     "Tang",
+     "Song",
      "Ming",
      "Qing"
     ]
    },
    {
-    "colour": "purple",
-    "label": "Islamic caliphates / dynasties",
+    "colour": "green",
+    "label": "Ex-tenants of the English throne",
     "items": [
-     "Umayyad",
-     "Abbasid",
-     "Fatimid",
+     "Tudor",
+     "Stuart",
+     "Plantagenet",
+     "Norman"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Medieval France's ruling dynasties",
+    "items": [
+     "Merovingian",
+     "Carolingian",
+     "Capet",
+     "Valois"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Royal houses you can eat, drink, wear or sit on",
+    "items": [
+     "Savoy",
+     "Bourbon",
+     "Windsor",
      "Ottoman"
     ]
    }
   ],
-  "difficulty": "easy"
+  "difficulty": "medium"
  },
  {
   "id": "conn-034",
@@ -8137,42 +8137,42 @@
   "groups": [
    {
     "colour": "yellow",
-    "label": "Gods worshipped to this day",
+    "label": "Professional troublemakers",
     "items": [
-     "Vishnu",
-     "Shiva",
-     "Brahma",
-     "Ganesha"
+     "Loki",
+     "Anansi",
+     "Maui",
+     "Coyote"
     ]
    },
    {
     "colour": "green",
-    "label": "Gods of the Celtic twilight",
+    "label": "Underworld management",
     "items": [
-     "Lugh",
-     "Dagda",
-     "Morrigan",
-     "Brigid"
+     "Hades",
+     "Hel",
+     "Anubis",
+     "Yama"
     ]
    },
    {
     "colour": "blue",
-    "label": "Gods who demanded hearts",
+    "label": "They bring the thunder",
     "items": [
-     "Quetzalcoatl",
-     "Tezcatlipoca",
-     "Huitzilopochtli",
-     "Tlaloc"
+     "Zeus",
+     "Indra",
+     "Perun",
+     "Raijin"
     ]
    },
    {
     "colour": "purple",
-    "label": "The first gods ever written down",
+    "label": "Hiding in your days of the week",
     "items": [
-     "Marduk",
-     "Enki",
-     "Inanna",
-     "Anu"
+     "Tyr",
+     "Odin",
+     "Frigg",
+     "Saturn"
     ]
    }
   ]
@@ -8226,47 +8226,47 @@
  },
  {
   "id": "conn-067",
-  "title": "Marble and Parchment",
+  "title": "When in Rome",
   "difficulty": "easy",
   "groups": [
    {
     "colour": "yellow",
-    "label": "Signed the US Declaration of Independence",
+    "label": "Roman gods promoted to planets",
     "items": [
-     "Thomas Jefferson",
-     "John Hancock",
-     "John Adams",
-     "Samuel Adams"
+     "Jupiter",
+     "Neptune",
+     "Venus",
+     "Saturn"
     ]
    },
    {
     "colour": "green",
-    "label": "Roman gods of myth",
+    "label": "Roman gods still waiting for a planet",
     "items": [
-     "Jupiter",
+     "Janus",
      "Juno",
-     "Minerva",
-     "Venus"
+     "Vulcan",
+     "Minerva"
     ]
    },
    {
     "colour": "blue",
-    "label": "Ancient Greek city-states",
+    "label": "Everyday words that began as Roman gods",
     "items": [
-     "Sparta",
-     "Thebes",
-     "Corinth",
-     "Argos"
+     "Volcano",
+     "Cereal",
+     "Money",
+     "Martial"
     ]
    },
    {
     "colour": "purple",
-    "label": "Latin phrases still used today",
+    "label": "Roman forts hiding in their names",
     "items": [
-     "Carpe Diem",
-     "Et Cetera",
-     "Status Quo",
-     "Ad Hoc"
+     "Chester",
+     "Manchester",
+     "Winchester",
+     "Lancaster"
     ]
    }
   ]
@@ -8367,46 +8367,46 @@
  },
  {
   "id": "conn-010",
-  "title": "Revolutions",
+  "title": "The Wheel Turns",
   "groups": [
    {
     "colour": "yellow",
-    "label": "French Revolution figures",
+    "label": "Met Madame Guillotine",
     "items": [
      "Robespierre",
      "Danton",
-     "Marat",
-     "Marie Antoinette"
+     "Lavoisier",
+     "Charlotte Corday"
     ]
    },
    {
     "colour": "green",
-    "label": "American Founding Fathers",
+    "label": "Lost a throne to revolution, died in exile",
     "items": [
-     "Jefferson",
-     "Hamilton",
-     "Franklin",
-     "Madison"
+     "James II",
+     "Louis Philippe",
+     "Kaiser Wilhelm II",
+     "Farouk"
     ]
    },
    {
     "colour": "blue",
-    "label": "Russian Revolution figures",
+    "label": "Revolutionaries felled by an assassin",
     "items": [
-     "Lenin",
+     "Marat",
      "Trotsky",
-     "Kerensky",
-     "Rasputin"
+     "Michael Collins",
+     "Pancho Villa"
     ]
    },
    {
     "colour": "purple",
-    "label": "Latin American liberators",
+    "label": "Revolutions that sound like a spa menu",
     "items": [
-     "Bolivar",
-     "San Martin",
-     "Sucre",
-     "O'Higgins"
+     "Velvet",
+     "Carnation",
+     "Rose",
+     "Singing"
     ]
    }
   ],

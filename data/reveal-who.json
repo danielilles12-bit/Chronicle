@@ -553,14 +553,15 @@
    "churchill",
    "sir winston churchill"
   ],
-  "blurb": "British Prime Minister (1874–1965) · wartime portrait",
+  "blurb": "British Prime Minister (1874–1965) · cigar in hand, giving his famous 'V for Victory' sign, Bradford, 1942",
   "img": "assets/img/winston-churchill.jpg",
-  "fx": 0.46,
-  "fy": 0.32,
+  "fx": 0.7,
+  "fy": 0.309,
   "frac": 0.20447816432272384,
   "license": "Public domain",
-  "attribution": "New York Times Paris Bureau Collection",
-  "source": "Wikimedia Commons: Churchill portrait NYP 45063.jpg"
+  "attribution": "War Office official photographer (Capt. Horton)",
+  "source": "Wikimedia Commons: Winston Churchill, cigar in mouth, gives his famous 'V' for victory sign during a visit to Bradford, 4 December 1942. H25966.jpg",
+  "start": 6
  },
  {
   "id": "ada-lovelace",
@@ -3586,14 +3587,15 @@
    "alexander of macedon",
    "alexander of macedonia"
   ],
-  "blurb": "King of Macedon and conqueror of the Persian Empire (356–323 BC) · marble bust known as the \"Inopos,\" Louvre Museum",
+  "blurb": "King of Macedon and conqueror of the Persian Empire (356–323 BC) · the \"Azara Herm,\" the only ancient bust inscribed with his name, Louvre Museum",
   "img": "assets/img/alexander-great.jpg",
-  "fx": 0.4875,
-  "fy": 0.249,
+  "fx": 0.546,
+  "fy": 0.285,
   "frac": 0.2,
   "license": "CC0",
-  "attribution": "Unknown (ancient sculptor)",
-  "source": "Wikimedia Commons: Alexandre le Grand, dit l'Inopos - Musée du Louvre AGER Ma 855 ; MR 235 ; N 1716 bis ; N 1414.jpg"
+  "attribution": "Shonagon",
+  "source": "Wikimedia Commons: Alexandre Azara - Musée du Louvre AGER Ma 436 ; MR 405.jpg",
+  "start": 6
  },
  {
   "id": "alp-arslan",
@@ -4792,14 +4794,15 @@
    "queen anne boleyn",
    "boleyn"
   ],
-  "blurb": "Queen of England (c. 1501–1536) · miniature portrait by Lucas Horenbout",
+  "blurb": "Queen of England (c. 1501–1536) · the \"B necklace\" portrait, a late 16th-century copy of a lost original, National Portrait Gallery",
   "img": "assets/img/anne-boleyn.jpg",
-  "fx": 0.4875,
-  "fy": 0.44,
+  "fx": 0.37,
+  "fy": 0.455,
   "frac": 0.22,
   "license": "Public domain",
-  "attribution": "Attributed to Lucas Horenbout",
-  "source": "Wikimedia Commons: Portrait miniature possibly of Anne Boleyn, by Lucas Horenbout.jpg"
+  "attribution": "Unknown artist (late 16th century)",
+  "source": "Wikimedia Commons: Anne Boleyn.jpg",
+  "start": 6
  },
  {
   "id": "ashoka-great",
@@ -5060,16 +5063,15 @@
    "gaius julius caesar",
    "caesar"
   ],
-  "blurb": "Roman general and dictator (100–44 BC) · a bust the British Museum calls only “probably” Caesar",
+  "blurb": "Roman general and dictator (100–44 BC) · the Tusculum portrait, the only surviving bust carved during his lifetime, Museum of Antiquities, Turin",
   "img": "assets/img/julius-caesar.jpg",
-  "fx": 0.4875,
-  "fy": 0.35,
+  "fx": 0.504,
+  "fy": 0.229,
   "frac": 0.22,
-  "license": "CC BY-SA 2.0",
-  "attribution": "Unknown Roman sculptor",
-  "source": "Wikimedia Commons: Damaged ancient Roman marble bust (likely of Julius Caesar), British Museum, London.jpg",
-  "_image_fix": true,
-  "start": 6
+  "license": "CC BY 2.0",
+  "attribution": "Ángel M. Felicísimo",
+  "source": "Wikimedia Commons: Retrato de Julio César (26724093101).jpg",
+  "start": 7
  },
  {
   "id": "kosem-sultan",
@@ -5368,5 +5370,375 @@
   "license": "Public domain",
   "attribution": "Unknown Chinese artist, Philadelphia Museum of Art",
   "source": "Wikimedia Commons: Portraits of Famous Men - Zhu Xi.jpg"
+ },
+ {
+  "id": "tutankhamun",
+  "name": "Tutankhamun",
+  "kind": "portrait",
+  "difficulty": "easy",
+  "variants": [
+   "tutankhamun",
+   "tutankhamen",
+   "tutankhaten",
+   "king tut",
+   "king tutankhamun",
+   "tut",
+   "pharaoh tutankhamun"
+  ],
+  "blurb": "Boy pharaoh of Egypt's 18th dynasty (c. 1341–1323 BC) · his gold funerary mask, tomb discovered 1922",
+  "img": "assets/img/tutankhamun.jpg",
+  "fx": 0.5,
+  "fy": 0.38,
+  "frac": 0.45,
+  "start": 6,
+  "license": "Public domain",
+  "attribution": "Roland Unger",
+  "source": "Wikimedia Commons: CairoEgMuseumTaaMaskMostlyPhotographed.jpg"
+ },
+ {
+  "id": "socrates",
+  "name": "Socrates",
+  "kind": "portrait",
+  "difficulty": "easy",
+  "variants": [
+   "socrates",
+   "socrates of athens"
+  ],
+  "blurb": "Athenian philosopher who questioned everything (c. 470–399 BC) · Roman marble copy of a lost Lysippos bronze, Louvre",
+  "img": "assets/img/socrates.jpg",
+  "fx": 0.48,
+  "fy": 0.4,
+  "frac": 0.45,
+  "start": 6,
+  "license": "Public domain",
+  "attribution": "Eric Gaba (Sting), photographer",
+  "source": "Wikimedia Commons: Socrates Louvre.jpg"
+ },
+ {
+  "id": "vlad-impaler",
+  "name": "Vlad the Impaler",
+  "kind": "portrait",
+  "difficulty": "easy",
+  "variants": [
+   "vlad the impaler",
+   "vlad tepes",
+   "vlad iii",
+   "vlad dracula",
+   "dracula",
+   "count dracula",
+   "prince vlad",
+   "vlad iii dracula"
+  ],
+  "blurb": "Wallachian prince and the inspiration for Dracula (1431–1477) · Ambras Castle portrait, a copy of a lifetime original",
+  "img": "assets/img/vlad-impaler.jpg",
+  "fx": 0.46,
+  "fy": 0.33,
+  "frac": 0.25,
+  "start": 7,
+  "license": "Public domain",
+  "attribution": "Unknown artist (Ambras Castle portrait, 16th c.)",
+  "source": "Wikimedia Commons: Vlad Țepeș, the Impaler, Prince of Wallachia (1456-1462) (died 1477).jpg"
+ },
+ {
+  "id": "emiliano-zapata",
+  "name": "Emiliano Zapata",
+  "kind": "portrait",
+  "difficulty": "easy",
+  "variants": [
+   "emiliano zapata",
+   "zapata",
+   "general zapata",
+   "emiliano zapata salazar"
+  ],
+  "blurb": "Mexican Revolution leader and land-reform icon (1879–1919) · photograph by Agustín Casasola, 1914",
+  "img": "assets/img/emiliano-zapata.jpg",
+  "fx": 0.5,
+  "fy": 0.33,
+  "frac": 0.3,
+  "start": 6,
+  "license": "Public domain",
+  "attribution": "Agustín Víctor Casasola",
+  "source": "Wikimedia Commons: Emiliano Zapata4.jpg"
+ },
+ {
+  "id": "sun-yat-sen",
+  "name": "Sun Yat-sen",
+  "kind": "portrait",
+  "difficulty": "easy",
+  "variants": [
+   "sun yat-sen",
+   "sun yat sen",
+   "sun zhongshan",
+   "dr sun yat-sen",
+   "sun yixian"
+  ],
+  "blurb": "Founding father of the Republic of China (1866–1925) · studio portrait, 1911",
+  "img": "assets/img/sun-yat-sen.jpg",
+  "fx": 0.47,
+  "fy": 0.32,
+  "frac": 0.22,
+  "start": 8,
+  "license": "Public domain",
+  "attribution": "Shanghai Tongsheng Photo Studio",
+  "source": "Wikimedia Commons: Sun Yat Sen portrait.jpg"
+ },
+ {
+  "id": "fidel-castro",
+  "name": "Fidel Castro",
+  "kind": "portrait",
+  "difficulty": "easy",
+  "variants": [
+   "fidel castro",
+   "castro",
+   "fidel",
+   "el comandante",
+   "fidel alejandro castro"
+  ],
+  "blurb": "Cuban revolutionary leader and premier (1926–2016) · photographed at the United Nations, 1979",
+  "img": "assets/img/fidel-castro.jpg",
+  "fx": 0.5,
+  "fy": 0.3,
+  "frac": 0.32,
+  "start": 8,
+  "license": "Public domain",
+  "attribution": "Bernard Gotfryd",
+  "source": "Wikimedia Commons: Fidel Castro, Prime Minister of Cuba. Castro at the United Nations, New York. (cropped).jpg"
+ },
+ {
+  "id": "charlie-chaplin",
+  "name": "Charlie Chaplin",
+  "kind": "portrait",
+  "difficulty": "easy",
+  "variants": [
+   "charlie chaplin",
+   "charles chaplin",
+   "the tramp",
+   "sir charles chaplin",
+   "chaplin"
+  ],
+  "blurb": "Silent-film star as the Tramp (1889–1977) · publicity photo for Essanay Studios, 1915",
+  "img": "assets/img/charlie-chaplin.jpg",
+  "fx": 0.5,
+  "fy": 0.4,
+  "frac": 0.3,
+  "start": 7,
+  "license": "Public domain",
+  "attribution": "P. D. Jankens",
+  "source": "Wikimedia Commons: Charlie Chaplin.jpg"
+ },
+ {
+  "id": "al-capone",
+  "name": "Al Capone",
+  "kind": "portrait",
+  "difficulty": "easy",
+  "variants": [
+   "al capone",
+   "alphonse capone",
+   "scarface",
+   "capone",
+   "alphonse gabriel capone"
+  ],
+  "blurb": "Chicago crime boss of the Prohibition era (1899–1947) · mugshot on his tax-evasion arrest, 1931",
+  "img": "assets/img/al-capone.jpg",
+  "fx": 0.72,
+  "fy": 0.25,
+  "frac": 0.18,
+  "start": 6,
+  "license": "Public domain",
+  "attribution": "Chicago Police Department, Bureau of Identification",
+  "source": "Wikimedia Commons: AlCaponemugshotCPD.jpg"
+ },
+ {
+  "id": "billy-the-kid",
+  "name": "Billy the Kid",
+  "kind": "portrait",
+  "difficulty": "easy",
+  "variants": [
+   "billy the kid",
+   "billy bonney",
+   "william bonney",
+   "henry mccarty",
+   "william h. bonney"
+  ],
+  "blurb": "Wild West outlaw and gunfighter (1859–1881) · the only authenticated photo of him, sold at auction for $2.3m",
+  "img": "assets/img/billy-the-kid.jpg",
+  "fx": 0.43,
+  "fy": 0.17,
+  "frac": 0.12,
+  "start": 7,
+  "license": "Public domain",
+  "attribution": "Ben Wittick (attrib.)",
+  "source": "Wikimedia Commons: Billy the Kid tintype, Fort Sumner, 1879-80-Edit2.jpg"
+ },
+ {
+  "id": "marilyn-monroe",
+  "name": "Marilyn Monroe",
+  "kind": "portrait",
+  "difficulty": "easy",
+  "variants": [
+   "marilyn monroe",
+   "norma jeane",
+   "norma jeane mortenson",
+   "marilyn",
+   "norma jean baker"
+  ],
+  "blurb": "Hollywood's definitive blonde bombshell (1926–1962) · 20th Century Fox publicity still, 1953",
+  "img": "assets/img/marilyn-monroe.jpg",
+  "fx": 0.52,
+  "fy": 0.45,
+  "frac": 0.4,
+  "start": 2,
+  "license": "Public domain",
+  "attribution": "Frank Powolny / 20th Century Fox",
+  "source": "Wikimedia Commons: Monroe 1953 publicity.jpg"
+ },
+ {
+  "id": "coco-chanel",
+  "name": "Coco Chanel",
+  "kind": "portrait",
+  "difficulty": "easy",
+  "variants": [
+   "coco chanel",
+   "gabrielle chanel",
+   "gabrielle bonheur chanel",
+   "chanel"
+  ],
+  "blurb": "Fashion designer who put women in trousers and tweed (1883–1971) · photographed at her desk, Los Angeles, 1931",
+  "img": "assets/img/coco-chanel.jpg",
+  "fx": 0.33,
+  "fy": 0.35,
+  "frac": 0.15,
+  "start": 5,
+  "license": "CC BY 4.0",
+  "attribution": "Los Angeles Times photographic archive, UCLA",
+  "source": "Wikimedia Commons: Coco Chanel in Los Angeles, 1931.jpg"
+ },
+ {
+  "id": "elvis-presley",
+  "name": "Elvis Presley",
+  "kind": "portrait",
+  "difficulty": "easy",
+  "variants": [
+   "elvis presley",
+   "elvis",
+   "the king",
+   "elvis aaron presley",
+   "elvis aron presley"
+  ],
+  "blurb": "The King of Rock and Roll (1935–1977) · publicity still for Jailhouse Rock, 1957",
+  "img": "assets/img/elvis-presley.jpg",
+  "fx": 0.5,
+  "fy": 0.42,
+  "frac": 0.35,
+  "start": 6,
+  "license": "Public domain",
+  "attribution": "Metro-Goldwyn-Mayer, Inc.",
+  "source": "Wikimedia Commons: YoungElvisPresley.jpg"
+ },
+ {
+  "id": "babe-ruth",
+  "name": "Babe Ruth",
+  "kind": "portrait",
+  "difficulty": "easy",
+  "variants": [
+   "babe ruth",
+   "george herman ruth",
+   "the babe",
+   "the sultan of swat",
+   "babe"
+  ],
+  "blurb": "Baseball's home-run king (1895–1948) · signed Yankees studio portrait, 1920",
+  "img": "assets/img/babe-ruth.jpg",
+  "fx": 0.48,
+  "fy": 0.15,
+  "frac": 0.12,
+  "start": 7,
+  "license": "Public domain",
+  "attribution": "Irwin, La Broad & Pudlin",
+  "source": "Wikimedia Commons: Babe Ruth2.jpg"
+ },
+ {
+  "id": "golda-meir",
+  "name": "Golda Meir",
+  "kind": "portrait",
+  "difficulty": "easy",
+  "variants": [
+   "golda meir",
+   "golda meyerson",
+   "golda"
+  ],
+  "blurb": "Israeli prime minister and stateswoman (1898–1978) · photographed in office, 1973",
+  "img": "assets/img/golda-meir.jpg",
+  "fx": 0.46,
+  "fy": 0.28,
+  "frac": 0.22,
+  "start": 6,
+  "license": "Public domain",
+  "attribution": "Marion S. Trikosko / U.S. News & World Report",
+  "source": "Wikimedia Commons: Golda Meir 03265u.jpg"
+ },
+ {
+  "id": "louis-armstrong",
+  "name": "Louis Armstrong",
+  "kind": "portrait",
+  "difficulty": "easy",
+  "variants": [
+   "louis armstrong",
+   "satchmo",
+   "pops",
+   "louis daniel armstrong"
+  ],
+  "blurb": "Jazz trumpeter and gravel-voiced showman (1901–1971) · publicity photo, 1953",
+  "img": "assets/img/louis-armstrong.jpg",
+  "fx": 0.72,
+  "fy": 0.33,
+  "frac": 0.28,
+  "start": 6,
+  "license": "Public domain",
+  "attribution": "New York World-Telegram staff photographer",
+  "source": "Wikimedia Commons: Louis Armstrong restored.jpg"
+ },
+ {
+  "id": "alfred-hitchcock",
+  "name": "Alfred Hitchcock",
+  "kind": "portrait",
+  "difficulty": "easy",
+  "variants": [
+   "alfred hitchcock",
+   "hitchcock",
+   "sir alfred hitchcock",
+   "the master of suspense"
+  ],
+  "blurb": "Master of cinematic suspense (1899–1980) · portrait, New York World-Telegram and Sun, 1956",
+  "img": "assets/img/alfred-hitchcock.jpg",
+  "fx": 0.45,
+  "fy": 0.38,
+  "frac": 0.35,
+  "start": 2,
+  "license": "Public domain",
+  "attribution": "Fred Palumbo / New York World-Telegram and Sun",
+  "source": "Wikimedia Commons: Alfred Hitchcock NYWTS.jpg"
+ },
+ {
+  "id": "harry-houdini",
+  "name": "Harry Houdini",
+  "kind": "portrait",
+  "difficulty": "easy",
+  "variants": [
+   "harry houdini",
+   "houdini",
+   "erik weisz",
+   "ehrich weiss",
+   "the handcuff king"
+  ],
+  "blurb": "Escape artist and stage magician (1874–1926) · studio portrait by Campbell-Gray, c. 1913",
+  "img": "assets/img/harry-houdini.jpg",
+  "fx": 0.38,
+  "fy": 0.2,
+  "frac": 0.18,
+  "start": 7,
+  "license": "Public domain",
+  "attribution": "Campbell-Gray, Ltd.",
+  "source": "Wikimedia Commons: Harry Handcuff Houdini Crop.jpg"
  }
 ]

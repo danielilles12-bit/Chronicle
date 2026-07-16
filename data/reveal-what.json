@@ -338,7 +338,8 @@
   "frac": 0.27190964233423964,
   "license": "CC BY-SA 3.0",
   "attribution": "Philip Pikart",
-  "source": "Wikimedia Commons: Nofretete Neues Museum.jpg"
+  "source": "Wikimedia Commons: Nofretete Neues Museum.jpg",
+  "start": 1
  },
  {
   "id": "chichen-itza",
@@ -1190,15 +1191,15 @@
    "golden gate bridge",
    "golden gate"
   ],
-  "blurb": "Art Deco suspension bridge (1937) · San Francisco, USA",
+  "blurb": "Art Deco suspension bridge (1937) · north tower, San Francisco, USA",
   "img": "assets/img/golden-gate-bridge.jpg",
-  "fx": 0.5,
-  "fy": 0.5,
+  "fx": 0.389,
+  "fy": 0.323,
   "frac": 0.2,
-  "license": "CC BY-SA 3.0",
-  "attribution": "Brocken Inaglory",
-  "source": "Wikimedia Commons: Golden Gate Bridge at sunset 1.jpg",
-  "start": 5
+  "license": "CC BY-SA 4.0",
+  "attribution": "Radomianin",
+  "source": "Wikimedia Commons: Golden Gate Bridge, north tower detail.jpg",
+  "start": 6
  },
  {
   "id": "golden-pavilion",
@@ -1649,17 +1650,19 @@
   "difficulty": "easy",
   "variants": [
    "prague castle",
-   "prazsky hrad"
+   "prazsky hrad",
+   "st vitus cathedral",
+   "saint vitus cathedral"
   ],
   "blurb": "Hilltop castle complex with St Vitus Cathedral, founded 9th century · Prague, Czech Republic",
   "img": "assets/img/prague-castle.jpg",
-  "fx": 0.42,
-  "fy": 0.7,
+  "fx": 0.108,
+  "fy": 0.15,
   "frac": 0.16,
   "license": "CC BY-SA 4.0",
   "attribution": "Diego Delso",
-  "source": "Wikimedia Commons: Castillo de Praga, Praga, Republica Checa, 2022-07-01, DD 23-25 HDR.jpg",
-  "start": 5
+  "source": "Wikimedia Commons: Castillo de Praga, Praga, República Checa, 2022-07-02, DD 209.jpg (cropped to the cathedral and palace)",
+  "start": 8
  },
  {
   "id": "predjama-castle",
@@ -1770,13 +1773,13 @@
   ],
   "blurb": "Liberty Enlightening the World (1886) · New York Harbor, USA",
   "img": "assets/img/statue-of-liberty.jpg",
-  "fx": 0.5,
-  "fy": 0.6,
+  "fx": 0.539,
+  "fy": 0.217,
   "frac": 0.2,
-  "license": "Public domain",
-  "attribution": "PrasanthR at Malayalam Wikipedia",
-  "source": "Wikimedia Commons: Statue of Liberty Closeup of the Torch.JPG",
-  "start": 8
+  "license": "CC BY-SA 4.0",
+  "attribution": "Daniel Schwen",
+  "source": "Wikimedia Commons: Statue of Liberty frontal 2.jpg",
+  "start": 7
  },
  {
   "id": "sunday-grande-jatte",
@@ -4660,21 +4663,26 @@
  },
  {
   "id": "herculaneum-frescoes",
-  "name": "Herculaneum Frescoes",
+  "name": "Terentius Neo and His Wife",
   "kind": "artefact",
   "difficulty": "hard",
   "variants": [
-   "herculaneum frescoes",
-   "herculaneum fresco",
-   "herculaneum wall paintings"
+   "terentius neo",
+   "terentius neo and his wife",
+   "the baker and his wife",
+   "portrait of the baker and his wife",
+   "paquius proculus",
+   "pompeii fresco portrait",
+   "the baker of pompeii"
   ],
-  "blurb": "Roman wall paintings buried by Vesuvius, 1st century AD · Naples Archaeological Museum",
+  "blurb": "Fresco portrait of a Pompeii baker and his wife, 1st century AD, buried by Vesuvius in 79 · Naples Archaeological Museum",
   "img": "assets/img/herculaneum-frescoes.jpg",
-  "fx": 0.5,
-  "fy": 0.55,
+  "fx": 0.452,
+  "fy": 0.269,
   "frac": 0.18,
-  "license": "CC BY-SA 4.0",
-  "attribution": "ArchaiOptix",
-  "source": "Wikimedia Commons: Wall painting - architecture - Herculaneum (ins or II basilica-augusteum) - Napoli MAN 8534.jpg"
+  "license": "CC0",
+  "attribution": "Jebulon",
+  "source": "Wikimedia Commons: MANNapoli 9058 couple painting.jpg",
+  "start": 6
  }
 ]
