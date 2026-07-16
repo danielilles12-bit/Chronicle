@@ -1,8 +1,8 @@
 // Privacy-friendly analytics (GoatCounter): no cookies, no consent banner,
-// EU-hosted, free for non-commercial use. DISABLED until CODE is set —
-// Daniel: sign up free at goatcounter.com, pick a site code (e.g.
-// "deadfamous"), paste it below, deploy. Everything no-ops while it's empty.
-const CODE = '';
+// EU-hosted, free for non-commercial use. Dashboard:
+// https://deadfamous.goatcounter.com (Daniel's account). Set CODE to ''
+// to disable everything; count.js already skips localhost by itself.
+const CODE = 'deadfamous';
 
 // Event names kept short and stable — they become paths in the GoatCounter
 // dashboard: start-thread, finish-map, share-fullhouse, install-tip-shown…
