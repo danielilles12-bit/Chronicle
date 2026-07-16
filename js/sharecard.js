@@ -5,8 +5,9 @@
 // the text on share sheets that accept files.
 import { track } from './track.js';
 
-// Set when the domain decision lands ('' = the link line is omitted).
-export const SHARE_URL = '';
+// Full scheme on purpose: bare domains don't linkify in Discord/Slack.
+// The canvas receipt strips the scheme for display.
+export const SHARE_URL = 'https://deadfamous.app';
 
 const THREAD_EMOJI = { yellow: '🟨', green: '🟩', blue: '🟦', purple: '🟪' };
 
@@ -127,7 +128,7 @@ async function drawCard(spec) {
   x.restore();
   if (SHARE_URL) {
     x.fillStyle = '#0B0B0B'; x.font = '700 28px "DF Mono",monospace';
-    x.fillText(SHARE_URL, W / 2, 1286);
+    x.fillText(SHARE_URL.replace(/^https?:\/\//, ''), W / 2, 1286);
   }
   x.textAlign = 'left';
   return new Promise((res) => cv.toBlob(res, 'image/png'));
