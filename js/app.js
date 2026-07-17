@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v108';
+const BUILD = 'v109';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -20,6 +20,7 @@ import { initRevealGame, renderRevealStart, startRevealDaily, startRevealPractic
 import { initConnectionsGame, startThreadDaily, startThreadPractice } from './connectionsgame.js';
 import * as daily from './daily.js';
 import * as sfx from './sfx.js';
+import { renderLedger } from './ledger.js';
 
 export const DATA = { figures: null, world: null, reveal: null, connections: null };
 export const $ = (sel) => document.querySelector(sel);
@@ -78,6 +79,7 @@ function render() {
   if (id === 'view-mapstart') renderMapStart();
   if (id === 'view-revealstart') renderRevealStart();
   if (id === 'view-archive') renderArchive();
+  if (id === 'view-ledger') renderLedger();
   document.dispatchEvent(new CustomEvent('viewchange', { detail: id }));
 }
 
@@ -515,6 +517,20 @@ function initHome() {
     $('#ios-tip').hidden = true;
     store.setMisc({ iosTipDismissed: true });
   });
+
+  // The Ledger (stats) has two doors: tapping the masthead punch card, and the
+  // text link in the home footer. Both just route to the view; ledger.js paints
+  // it fresh on every visit (render() calls renderLedger).
+  const openLedger = () => show('view-ledger');
+  const punch = $('#punch-card');
+  if (punch) {
+    punch.addEventListener('click', openLedger);
+    punch.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLedger(); }
+    });
+  }
+  const ledgerLink = $('#ledger-link');
+  if (ledgerLink) ledgerLink.addEventListener('click', openLedger);
 
   // Sound on/off lives in the home footer — the app has no settings screen.
   const soundBtn = $('#sound-toggle');

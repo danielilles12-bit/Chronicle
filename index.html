@@ -67,7 +67,7 @@
       <img class="masthead-sticker" src="assets/brand/david-sticker.png" alt="" aria-hidden="true">
       <h1>Dead<br>Famous</h1>
       <p class="dateline" id="dateline"></p>
-      <div id="punch-card" hidden aria-label="Full-house streak this week"></div>
+      <div id="punch-card" hidden role="button" tabindex="0" aria-label="Full-house streak this week — open The Ledger"></div>
     </header>
     <!-- Edition-closed strip (Change A): the quiet ending shown at the top of
          Home once all four of today's dailies are played but not all won. An
@@ -94,7 +94,7 @@
         then “Add to Home&nbsp;Screen” — it keeps your streak safe.</p>
       <button id="ios-tip-close" aria-label="Dismiss">×</button>
     </div>
-    <footer class="home-foot">Works offline · Made for the home screen · <button type="button" id="sound-toggle" class="foot-toggle">Sound on</button> · <span id="build-tag"></span></footer>
+    <footer class="home-foot">Works offline · <button type="button" id="ledger-link" class="foot-toggle">The Ledger</button> · <button type="button" id="sound-toggle" class="foot-toggle">Sound on</button> · <span id="build-tag"></span></footer>
   </section>
 
   <!-- ============ MAP GAME: START ============ -->
@@ -359,6 +359,19 @@
     </div>
     <div id="archive-filters" class="archive-filters"></div>
     <main id="archive-list" class="scroll-main"></main>
+  </section>
+
+  <!-- ============ THE LEDGER (stats) ============
+       The app's record book. Its body (#ledger-body) is painted entirely by
+       js/ledger.js from the daily ledger in localStorage — no numbers live in
+       this shell. Reached from the masthead punch card and the home footer. -->
+  <section class="view" id="view-ledger" hidden>
+    <header class="topbar safe-top">
+      <button class="iconbtn" data-back aria-label="Back">‹</button>
+      <h2>The Ledger</h2>
+      <span class="topbar-right"></span>
+    </header>
+    <main id="ledger-body" class="scroll-main"></main>
   </section>
 
   <div id="archive-picker" class="sheet" hidden>
