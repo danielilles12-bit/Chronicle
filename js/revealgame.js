@@ -3,7 +3,7 @@
 // player's cost: the first tear is free, each further tear docks the round's
 // worth, and wrong guesses dock more. No clock — curiosity is the only spender.
 // Mirrors the Map of a Life session shape (10 rounds, persisted, resumable).
-import { DATA, $, show, back, goHome, appConfirm, refreshHomeStats, setReceiptStamp } from './app.js';
+import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp } from './app.js';
 import * as store from './storage.js';
 import { isMatch, registerPool } from './match.js';
 import * as daily from './daily.js';
@@ -754,18 +754,14 @@ export function initRevealGame() {
   });
 
   $('#rv-quit').addEventListener('click', () => {
-    if (S && !S.done) {
-      appConfirm('Quit this session? The score so far will be lost.', 'Quit session')
-        .then((ok) => {
-          if (ok) {
-            S.store.clear();
-            if (S.mode === 'free') renderRevealStart();
-            back();
-          }
-        });
-    } else {
-      back();
-    }
+    // Header back arrow: leave the session, same as every other game's back
+    // button — it must not discard progress. persist() already runs at the
+    // start of every round (so completed rounds + score are captured); make
+    // sure that's saved, then go. Reopening resumes at this round (fresh
+    // scraps — same convention as any mid-round refresh, see resumeFrom).
+    if (S && !S.done) persist();
+    S = null;
+    back();
   });
 
   const rvShareBtn = $('#rv-sum-share');

@@ -1,5 +1,5 @@
 // "Map of a Life": guess the historical figure from birth/death geography.
-import { DATA, $, show, back, goHome, refreshHomeStats, appConfirm, setReceiptStamp } from './app.js';
+import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp } from './app.js';
 import * as store from './storage.js';
 import { isMatch, registerPool } from './match.js';
 import * as daily from './daily.js';
@@ -16,6 +16,12 @@ const MAP_BLEED = 40;
 let S = null;            // current session
 let vb = [0, 0, MAP_W, MAP_H];   // current viewBox
 let animId = null;
+
+// ---------- round economy (mirrors Face Value/Relic's worthNow shape) ----------
+const WORTH_START = 100;
+const HINT_COST = 25;     // per hint bought (Claim to fame / Initials)
+const WRONG_COST = 10;    // per wrong guess
+const WORTH_FLOOR = 10;   // a correct answer never pays less than this; giving up pays 0
 
 // ---------- seeded rng (deterministic sessions for tests via ?mapseed=N) ----------
 function mulberry32(a) {
@@ -321,12 +327,54 @@ function persistSession() {
     i: S.i, score: S.score, streak: S.streak, bestStreak: S.bestStreak,
     editionIndex: S.editionIndex,
     cur: S.cur && S.cur.open
-      ? { hints: S.cur.hints, wrongs: S.cur.wrongs, occUsed: !!S.cur.occUsed, iniUsed: !!S.cur.iniUsed }
+      ? {
+          hints: S.cur.hints, wrongs: S.cur.wrongs, occUsed: !!S.cur.occUsed, iniUsed: !!S.cur.iniUsed,
+          wrongGuesses: (S.cur.wrongGuesses || []).slice(),
+        }
       : null,
     results: S.results.map((r) => ({
       id: r.fig.id, pts: r.pts, correct: r.correct, hints: r.hints, wrongs: r.wrongs,
     })),
   });
+}
+
+// ---------- worth readout + guess chips (mirrors Face Value/Relic's df-worth
+// and cost-stamped guess-chip treatment; no matching element in index.html
+// for Lifeline, so it's created and inserted once here) ----------
+function ensureWorthEl() {
+  let el = $('#map-worth');
+  if (!el) {
+    el = document.createElement('p');
+    el.id = 'map-worth';
+    el.className = 'df-worth';
+    const question = $('#map-question');
+    question.parentNode.insertBefore(el, question);
+  }
+  return el;
+}
+
+function worthNow() {
+  const cur = S && S.cur;
+  if (!cur) return WORTH_START;
+  return Math.max(WORTH_FLOOR, WORTH_START - HINT_COST * cur.hints - WRONG_COST * cur.wrongs);
+}
+
+function updateWorth() {
+  const el = ensureWorthEl();
+  if (!S || !S.cur) { el.innerHTML = ''; return; }
+  el.innerHTML = `WORTH: <b>${worthNow()} PTS</b>`;
+}
+
+function addGuessChip(text) {
+  const chip = document.createElement('span');
+  chip.className = 'guess-chip';
+  const guessText = document.createElement('span');
+  guessText.textContent = text;
+  chip.appendChild(guessText);
+  const penalty = document.createElement('small');
+  penalty.textContent = `-${WRONG_COST}`;
+  chip.appendChild(penalty);
+  $('#map-guesses').appendChild(chip);
 }
 
 function resumeSession() {
@@ -442,8 +490,11 @@ function startRound() {
   const carried = S.pendingCur;
   S.pendingCur = null;
   S.cur = carried
-    ? { hints: carried.hints, wrongs: carried.wrongs, occUsed: carried.occUsed, iniUsed: carried.iniUsed, open: true }
-    : { hints: 0, wrongs: 0, occUsed: false, iniUsed: false, open: true };
+    ? {
+        hints: carried.hints, wrongs: carried.wrongs, occUsed: carried.occUsed, iniUsed: carried.iniUsed,
+        wrongGuesses: carried.wrongGuesses || [], open: true,
+      }
+    : { hints: 0, wrongs: 0, occUsed: false, iniUsed: false, wrongGuesses: [], open: true };
   $('#map-progress').textContent = `Round ${S.i + 1} of 10`;
   $('#map-score').textContent = `${S.score} pts`;
   $('#map-feedback').hidden = true;
@@ -458,7 +509,8 @@ function startRound() {
   $('#hint-occ').disabled = false;
   $('#hint-ini').disabled = false;
   $('#map-reveal').disabled = false;
-  // a resumed mid-round keeps its hints (and their cost): rebuild the chips
+  // a resumed mid-round keeps its hints/wrong guesses (and their cost):
+  // rebuild the chips and the worth readout from the carried-over state.
   if (S.cur.occUsed) {
     $('#hint-occ').disabled = true;
     addHintChip(fig.occupation);
@@ -467,6 +519,8 @@ function startRound() {
     $('#hint-ini').disabled = true;
     addHintChip(`Initials: ${initials(fig.name)}`);
   }
+  S.cur.wrongGuesses.forEach((g) => addGuessChip(g));
+  updateWorth();
   $('#map-next').hidden = true;
   $('#map-streak').hidden = S.streak < 2;
   if (S.streak >= 2) $('#map-streak').textContent = `${S.streak} in a row`;
@@ -508,7 +562,7 @@ function resolveRound(correct) {
   let pts = 0;
   let bonus = 0;
   if (correct) {
-    pts = Math.max(10, 100 - 25 * S.cur.hints - 10 * S.cur.wrongs);
+    pts = worthNow();
     S.streak++;
     S.bestStreak = Math.max(S.bestStreak, S.streak);
     if (S.streak >= 2) bonus = 10;
@@ -537,6 +591,8 @@ function resolveRound(correct) {
   $('#map-reveal').disabled = true;
   $('#map-form').hidden = true;     // resolved: clear the dead controls so
   $('#map-hints').hidden = true;    // the Next button is always in view
+  const worthEl = $('#map-worth');
+  if (worthEl) worthEl.innerHTML = '';   // the round is settled — worth already paid out above
   $('#map-score').textContent = `${S.score} pts`;
   $('#map-streak').hidden = S.streak < 2;
   if (S.streak >= 2) $('#map-streak').textContent = `${S.streak} in a row`;
@@ -638,11 +694,11 @@ export function initMapGame() {
       resolveRound(true);
     } else {
       S.cur.wrongs++;
+      S.cur.wrongGuesses = S.cur.wrongGuesses || [];
+      S.cur.wrongGuesses.push(guess);
       persistSession();
-      const chip = document.createElement('span');
-      chip.className = 'guess-chip';
-      chip.textContent = guess;
-      $('#map-guesses').appendChild(chip);
+      addGuessChip(guess);
+      updateWorth();
       const inp = $('#map-input');
       inp.value = '';
       inp.classList.remove('shake');
@@ -659,6 +715,7 @@ export function initMapGame() {
     $('#hint-occ').disabled = true;
     addHintChip(round().occupation);
     persistSession();
+    updateWorth();
   });
 
   $('#hint-ini').addEventListener('click', () => {
@@ -668,6 +725,7 @@ export function initMapGame() {
     $('#hint-ini').disabled = true;
     addHintChip(`Initials: ${initials(round().name)}`);
     persistSession();
+    updateWorth();
   });
 
   $('#map-reveal').addEventListener('click', () => {
@@ -682,18 +740,14 @@ export function initMapGame() {
   });
 
   $('#map-quit').addEventListener('click', () => {
-    if (S && !S.done) {
-      appConfirm('Quit this session? The score so far will be lost.', 'Quit session')
-        .then((ok) => {
-          if (ok) {
-            S.store.clear();
-            if (S.mode === 'free') renderMapStart();
-            back();
-          }
-        });
-    } else {
-      back();
-    }
+    // Header back arrow: leave the session, same as every other game's back
+    // button — it must not discard progress. The session is already persisted
+    // continuously (persistSession runs after every hint/guess/round), so
+    // just make sure the current state is saved, then go — reopening resumes
+    // exactly here (see resumeFrom/renderMapStart).
+    if (S && !S.done) persistSession();
+    S = null;
+    back();
   });
 
   $('#map-resume').addEventListener('click', resumeSession);

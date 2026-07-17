@@ -1,5 +1,136 @@
 [
  {
+  "id": "tutankhamun",
+  "name": "Tutankhamun",
+  "kind": "portrait",
+  "difficulty": "easy",
+  "variants": [
+   "tutankhamun",
+   "tutankhamen",
+   "tutankhaten",
+   "king tut",
+   "king tutankhamun",
+   "tut",
+   "pharaoh tutankhamun"
+  ],
+  "blurb": "Boy pharaoh of Egypt's 18th dynasty (c. 1341–1323 BC) · his gold funerary mask, tomb discovered 1922",
+  "img": "assets/img/tutankhamun.jpg",
+  "fx": 0.5,
+  "fy": 0.38,
+  "frac": 0.45,
+  "start": 6,
+  "license": "Public domain",
+  "attribution": "Roland Unger",
+  "source": "Wikimedia Commons: CairoEgMuseumTaaMaskMostlyPhotographed.jpg"
+ },
+ {
+  "id": "charlie-chaplin",
+  "name": "Charlie Chaplin",
+  "kind": "portrait",
+  "difficulty": "easy",
+  "variants": [
+   "charlie chaplin",
+   "charles chaplin",
+   "the tramp",
+   "sir charles chaplin",
+   "chaplin"
+  ],
+  "blurb": "Silent-film star as the Tramp (1889–1977) · publicity photo for Essanay Studios, 1915",
+  "img": "assets/img/charlie-chaplin.jpg",
+  "fx": 0.5,
+  "fy": 0.4,
+  "frac": 0.3,
+  "start": 7,
+  "license": "Public domain",
+  "attribution": "P. D. Jankens",
+  "source": "Wikimedia Commons: Charlie Chaplin.jpg"
+ },
+ {
+  "id": "marilyn-monroe",
+  "name": "Marilyn Monroe",
+  "kind": "portrait",
+  "difficulty": "easy",
+  "variants": [
+   "marilyn monroe",
+   "norma jeane",
+   "norma jeane mortenson",
+   "marilyn",
+   "norma jean baker"
+  ],
+  "blurb": "Hollywood's definitive blonde bombshell (1926–1962) · 20th Century Fox publicity still, 1953",
+  "img": "assets/img/marilyn-monroe.jpg",
+  "fx": 0.52,
+  "fy": 0.45,
+  "frac": 0.4,
+  "start": 2,
+  "license": "Public domain",
+  "attribution": "Frank Powolny / 20th Century Fox",
+  "source": "Wikimedia Commons: Monroe 1953 publicity.jpg"
+ },
+ {
+  "id": "elvis-presley",
+  "name": "Elvis Presley",
+  "kind": "portrait",
+  "difficulty": "easy",
+  "variants": [
+   "elvis presley",
+   "elvis",
+   "the king",
+   "elvis aaron presley",
+   "elvis aron presley"
+  ],
+  "blurb": "The King of Rock and Roll (1935–1977) · publicity still for Jailhouse Rock, 1957",
+  "img": "assets/img/elvis-presley.jpg",
+  "fx": 0.5,
+  "fy": 0.42,
+  "frac": 0.35,
+  "start": 6,
+  "license": "Public domain",
+  "attribution": "Metro-Goldwyn-Mayer, Inc.",
+  "source": "Wikimedia Commons: YoungElvisPresley.jpg"
+ },
+ {
+  "id": "socrates",
+  "name": "Socrates",
+  "kind": "portrait",
+  "difficulty": "easy",
+  "variants": [
+   "socrates",
+   "socrates of athens"
+  ],
+  "blurb": "Athenian philosopher who questioned everything (c. 470–399 BC) · Roman marble copy of a lost Lysippos bronze, Louvre",
+  "img": "assets/img/socrates.jpg",
+  "fx": 0.48,
+  "fy": 0.4,
+  "frac": 0.45,
+  "start": 6,
+  "license": "Public domain",
+  "attribution": "Eric Gaba (Sting), photographer",
+  "source": "Wikimedia Commons: Socrates Louvre.jpg"
+ },
+ {
+  "id": "al-capone",
+  "name": "Al Capone",
+  "kind": "portrait",
+  "difficulty": "easy",
+  "variants": [
+   "al capone",
+   "alphonse capone",
+   "scarface",
+   "capone",
+   "alphonse gabriel capone"
+  ],
+  "blurb": "Chicago crime boss of the Prohibition era (1899–1947) · mugshot on his tax-evasion arrest, 1931",
+  "img": "assets/img/al-capone.jpg",
+  "fx": 0.72,
+  "fy": 0.25,
+  "frac": 0.18,
+  "start": 6,
+  "license": "Public domain",
+  "attribution": "Chicago Police Department, Bureau of Identification",
+  "source": "Wikimedia Commons: AlCaponemugshotCPD.jpg"
+ },
+ {
   "id": "che-guevara",
   "name": "Che Guevara",
   "kind": "portrait",
@@ -5372,49 +5503,6 @@
   "source": "Wikimedia Commons: Portraits of Famous Men - Zhu Xi.jpg"
  },
  {
-  "id": "tutankhamun",
-  "name": "Tutankhamun",
-  "kind": "portrait",
-  "difficulty": "easy",
-  "variants": [
-   "tutankhamun",
-   "tutankhamen",
-   "tutankhaten",
-   "king tut",
-   "king tutankhamun",
-   "tut",
-   "pharaoh tutankhamun"
-  ],
-  "blurb": "Boy pharaoh of Egypt's 18th dynasty (c. 1341–1323 BC) · his gold funerary mask, tomb discovered 1922",
-  "img": "assets/img/tutankhamun.jpg",
-  "fx": 0.5,
-  "fy": 0.38,
-  "frac": 0.45,
-  "start": 6,
-  "license": "Public domain",
-  "attribution": "Roland Unger",
-  "source": "Wikimedia Commons: CairoEgMuseumTaaMaskMostlyPhotographed.jpg"
- },
- {
-  "id": "socrates",
-  "name": "Socrates",
-  "kind": "portrait",
-  "difficulty": "easy",
-  "variants": [
-   "socrates",
-   "socrates of athens"
-  ],
-  "blurb": "Athenian philosopher who questioned everything (c. 470–399 BC) · Roman marble copy of a lost Lysippos bronze, Louvre",
-  "img": "assets/img/socrates.jpg",
-  "fx": 0.48,
-  "fy": 0.4,
-  "frac": 0.45,
-  "start": 6,
-  "license": "Public domain",
-  "attribution": "Eric Gaba (Sting), photographer",
-  "source": "Wikimedia Commons: Socrates Louvre.jpg"
- },
- {
   "id": "vlad-impaler",
   "name": "Vlad the Impaler",
   "kind": "portrait",
@@ -5505,50 +5593,6 @@
   "source": "Wikimedia Commons: Fidel Castro, Prime Minister of Cuba. Castro at the United Nations, New York. (cropped).jpg"
  },
  {
-  "id": "charlie-chaplin",
-  "name": "Charlie Chaplin",
-  "kind": "portrait",
-  "difficulty": "easy",
-  "variants": [
-   "charlie chaplin",
-   "charles chaplin",
-   "the tramp",
-   "sir charles chaplin",
-   "chaplin"
-  ],
-  "blurb": "Silent-film star as the Tramp (1889–1977) · publicity photo for Essanay Studios, 1915",
-  "img": "assets/img/charlie-chaplin.jpg",
-  "fx": 0.5,
-  "fy": 0.4,
-  "frac": 0.3,
-  "start": 7,
-  "license": "Public domain",
-  "attribution": "P. D. Jankens",
-  "source": "Wikimedia Commons: Charlie Chaplin.jpg"
- },
- {
-  "id": "al-capone",
-  "name": "Al Capone",
-  "kind": "portrait",
-  "difficulty": "easy",
-  "variants": [
-   "al capone",
-   "alphonse capone",
-   "scarface",
-   "capone",
-   "alphonse gabriel capone"
-  ],
-  "blurb": "Chicago crime boss of the Prohibition era (1899–1947) · mugshot on his tax-evasion arrest, 1931",
-  "img": "assets/img/al-capone.jpg",
-  "fx": 0.72,
-  "fy": 0.25,
-  "frac": 0.18,
-  "start": 6,
-  "license": "Public domain",
-  "attribution": "Chicago Police Department, Bureau of Identification",
-  "source": "Wikimedia Commons: AlCaponemugshotCPD.jpg"
- },
- {
   "id": "billy-the-kid",
   "name": "Billy the Kid",
   "kind": "portrait",
@@ -5571,28 +5615,6 @@
   "source": "Wikimedia Commons: Billy the Kid tintype, Fort Sumner, 1879-80-Edit2.jpg"
  },
  {
-  "id": "marilyn-monroe",
-  "name": "Marilyn Monroe",
-  "kind": "portrait",
-  "difficulty": "easy",
-  "variants": [
-   "marilyn monroe",
-   "norma jeane",
-   "norma jeane mortenson",
-   "marilyn",
-   "norma jean baker"
-  ],
-  "blurb": "Hollywood's definitive blonde bombshell (1926–1962) · 20th Century Fox publicity still, 1953",
-  "img": "assets/img/marilyn-monroe.jpg",
-  "fx": 0.52,
-  "fy": 0.45,
-  "frac": 0.4,
-  "start": 2,
-  "license": "Public domain",
-  "attribution": "Frank Powolny / 20th Century Fox",
-  "source": "Wikimedia Commons: Monroe 1953 publicity.jpg"
- },
- {
   "id": "coco-chanel",
   "name": "Coco Chanel",
   "kind": "portrait",
@@ -5612,28 +5634,6 @@
   "license": "CC BY 4.0",
   "attribution": "Los Angeles Times photographic archive, UCLA",
   "source": "Wikimedia Commons: Coco Chanel in Los Angeles, 1931.jpg"
- },
- {
-  "id": "elvis-presley",
-  "name": "Elvis Presley",
-  "kind": "portrait",
-  "difficulty": "easy",
-  "variants": [
-   "elvis presley",
-   "elvis",
-   "the king",
-   "elvis aaron presley",
-   "elvis aron presley"
-  ],
-  "blurb": "The King of Rock and Roll (1935–1977) · publicity still for Jailhouse Rock, 1957",
-  "img": "assets/img/elvis-presley.jpg",
-  "fx": 0.5,
-  "fy": 0.42,
-  "frac": 0.35,
-  "start": 6,
-  "license": "Public domain",
-  "attribution": "Metro-Goldwyn-Mayer, Inc.",
-  "source": "Wikimedia Commons: YoungElvisPresley.jpg"
  },
  {
   "id": "babe-ruth",
