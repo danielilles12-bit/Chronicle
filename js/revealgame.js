@@ -3,7 +3,7 @@
 // player's cost: the first tear is free, each further tear docks the round's
 // worth, and wrong guesses dock more. No clock — curiosity is the only spender.
 // Mirrors the Map of a Life session shape (10 rounds, persisted, resumable).
-import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp } from './app.js';
+import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage } from './app.js';
 import * as store from './storage.js';
 import { isMatch, registerPool } from './match.js';
 import * as daily from './daily.js';
@@ -456,13 +456,19 @@ function startEdition(sessMode, editionIndex) {
     resumeFrom(sessMode, key, saved);
     return;
   }
-  const rounds = daily.getEdition(MODE, editionIndex);
-  S = {
-    mode: sessMode, dailyKey: key, store: modeStore(sessMode, key), editionIndex,
-    rounds, i: 0, score: 0, streak: 0, bestStreak: 0, results: [],
+  const mode = MODE;   // capture: MODE is stable while the intro overlay is up
+  const begin = () => {
+    const rounds = daily.getEdition(mode, editionIndex);
+    S = {
+      mode: sessMode, dailyKey: key, store: modeStore(sessMode, key), editionIndex,
+      rounds, i: 0, score: 0, streak: 0, bestStreak: 0, results: [],
+    };
+    show('view-reveal');
+    startRound();
   };
-  show('view-reveal');
-  startRound();
+  // First-run intro before a fresh daily only (not resume/practice/locked).
+  if (sessMode === 'daily') maybeIntro(mode, editionIndex, begin);
+  else begin();
 }
 
 export function startRevealDaily(mode, editionIndex) { MODE = mode; startEdition('daily', editionIndex); }
@@ -637,6 +643,7 @@ function renderLockedSummary() {
   } : null;
   const rvShare = $('#rv-sum-share');
   if (rvShare) rvShare.hidden = !S.share;
+  wireTurnThePage('rv-sum-turn', S.editionIndex, isDaily);
   $('#rv-sum-again').hidden = !!S.locked;
 }
 
@@ -689,6 +696,7 @@ export function initRevealGame() {
 
   $('#rv-start').addEventListener('click', startSession);
   $('#rv-resume').addEventListener('click', resumeSession);
+  $('#rv-help').addEventListener('click', () => openIntroHelp(MODE));
 
   $('#rv-form').addEventListener('submit', (e) => {
     e.preventDefault();

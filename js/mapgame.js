@@ -1,5 +1,5 @@
 // "Map of a Life": guess the historical figure from birth/death geography.
-import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp } from './app.js';
+import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage } from './app.js';
 import * as store from './storage.js';
 import { isMatch, registerPool } from './match.js';
 import * as daily from './daily.js';
@@ -452,15 +452,20 @@ function startEdition(mode, editionIndex) {
     resumeFrom(mode, key, saved);
     return;
   }
-  const rounds = daily.getEdition('map', editionIndex);
-  S = {
-    mode, dailyKey: key, store: modeStore(mode, key), editionIndex,
-    rounds, i: 0, score: 0, streak: 0, bestStreak: 0, results: [],
+  const begin = () => {
+    const rounds = daily.getEdition('map', editionIndex);
+    S = {
+      mode, dailyKey: key, store: modeStore(mode, key), editionIndex,
+      rounds, i: 0, score: 0, streak: 0, bestStreak: 0, results: [],
+    };
+    renderWorld();
+    setVb([0, 0, MAP_W, MAP_H]);
+    show('view-map');
+    startRound();
   };
-  renderWorld();
-  setVb([0, 0, MAP_W, MAP_H]);
-  show('view-map');
-  startRound();
+  // First-run intro before a fresh daily only (not resume/practice/locked).
+  if (mode === 'daily') maybeIntro('map', editionIndex, begin);
+  else begin();
 }
 
 export function startMapDaily(editionIndex) { startEdition('daily', editionIndex); }
@@ -642,6 +647,7 @@ function renderLockedSummary() {
   } : null;
   const sumShare = $('#sum-share');
   if (sumShare) sumShare.hidden = !S.share;
+  wireTurnThePage('sum-turn', S.editionIndex, isDaily);
   $('#sum-again').hidden = !!S.locked;
   $('#sum-home').textContent = S.locked ? 'Home' : 'Home';
 }
@@ -684,6 +690,7 @@ export function initMapGame() {
   registerPool('map', DATA.figures);
   attachMapGestures();
   $('#map-start').addEventListener('click', startSession);
+  $('#map-help').addEventListener('click', () => openIntroHelp('map'));
 
   $('#map-form').addEventListener('submit', (e) => {
     e.preventDefault();

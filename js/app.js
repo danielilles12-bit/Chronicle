@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v107';
+const BUILD = 'v108';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -73,7 +73,8 @@ function render() {
   // Rollover: revisiting Home re-evaluates today's edition, so a session left
   // open across local midnight picks up the new day's Today strip without
   // needing a live timer (see spec "Rollover").
-  if (id === 'view-home') { refreshHomeStats(); refreshTodayStrip(); }
+  if (id === 'view-home') { refreshHomeStats(); refreshTodayStrip(); refreshIssueClosed(); }
+  else stopIssueClosedCountdown();
   if (id === 'view-mapstart') renderMapStart();
   if (id === 'view-revealstart') renderRevealStart();
   if (id === 'view-archive') renderArchive();
@@ -285,6 +286,113 @@ export function refreshGameRows() {
 // replaced by the per-row hero + day cards, but the refresh still happens on
 // every Home visit for the same rollover reason (see render()).
 export function refreshTodayStrip() { refreshGameRows(); }
+
+// ---------- Turn the page (Change A: an ending for every day) ----------
+// The next of today's four dailies (home order: Thread, Lifeline, Face Value,
+// Relic == daily.GAMES) with no ledger entry yet, or null once all four are
+// played (won OR lost). "Played" is derived straight from the ledger — no new
+// storage shape.
+function nextUnplayedDaily(n) {
+  return daily.GAMES.find((g) => !store.getDailyEntry(g, n)) || null;
+}
+
+function launchDailyByKey(key, n) {
+  const g = GAME_ROWS.find((x) => x.key === key);
+  if (g) g.launchDaily(n);
+}
+
+// Wire a daily summary's forward button: "Turn the page ›" to the next unplayed
+// game, or "Close the issue ›" (→ Home, where the ending shows) once all four
+// are played. Hidden for practice/free and any non-today edition, so archive/
+// practice flows never surface it. Idempotent (.onclick) — called on every
+// summary render.
+export function wireTurnThePage(btnId, editionIndex, isDaily) {
+  const btn = document.getElementById(btnId);
+  if (!btn) return;
+  const today = daily.todayIndex();
+  if (!isDaily || editionIndex !== today) { btn.hidden = true; btn.onclick = null; return; }
+  const next = nextUnplayedDaily(today);
+  btn.textContent = next ? 'Turn the page ›' : 'Close the issue ›';
+  btn.hidden = false;
+  btn.onclick = () => { if (next) launchDailyByKey(next, today); else goHome(); };
+}
+
+// ---------- First-run intro cards (Change B) ----------
+// One shared overlay, per-game content. Reuses each game's start-screen title +
+// economy copy, tightened (Thread never had a start screen, so its copy is new).
+// Shown once per game before its first daily (misc.introSeen), re-openable any
+// time via the topbar "?" as a dismissable overlay that leaves game state alone.
+const INTRO_CONTENT = {
+  thread: {
+    glyph: 'assets/brand/game-icon-thread.png',
+    title: 'Find the four threads.',
+    copy: 'Sixteen clues hide four secret groups of four. Tap the four you think belong together, then submit.',
+    copy2: 'A solved board scores 100; each wrong group costs 20, down to a floor of 20. Four wrong guesses and the thread snaps.',
+  },
+  map: {
+    glyph: 'assets/brand/game-icon-lifeline.png',
+    title: 'Ten lives, twenty dots.',
+    copy: 'Each round shows where a figure was born and where they died, with the years. Type their name — spelling needn’t be perfect.',
+    copy2: '100 points for an unaided answer (a correct one always pays at least 10). Hints cost 25, wrong guesses 10, revealing scores zero. Each correct answer from the second in a row earns +10.',
+  },
+  who: {
+    glyph: 'assets/brand/game-icon-face-value.png',
+    title: 'Tear towards it.',
+    copy: 'A famous face hides under nine scraps — one is already open. You can only tear scraps touching what’s open, so plot your route.',
+    copy2: 'Each round is worth 100. Tears cost 10, wrong guesses 15, and clue slips 15–25. Two right in a row earns +10.',
+  },
+  what: {
+    glyph: 'assets/brand/game-icon-relic.png',
+    title: 'Tear towards it.',
+    copy: 'A famous artefact hides under nine scraps — one is already open. You can only tear scraps touching what’s open, so plot your route.',
+    copy2: 'Each round is worth 100. Tears cost 10, wrong guesses 15, and clue slips 15–25. Two right in a row earns +10.',
+  },
+};
+
+function fillIntro(gameKey) {
+  const c = INTRO_CONTENT[gameKey];
+  if (!c) return false;
+  $('#intro-glyph').src = c.glyph;
+  $('#intro-title').textContent = c.title;
+  $('#intro-copy').textContent = c.copy;
+  $('#intro-copy2').textContent = c.copy2;
+  return true;
+}
+
+function closeIntro() {
+  const ov = $('#intro-card');
+  if (ov) { ov.hidden = true; ov.onclick = null; }
+}
+
+// First-run gate: show the intro once before a game's first daily, then run
+// begin(). Practice/free never call this, so they never see it.
+export function maybeIntro(gameKey, n, begin) {
+  const seen = (store.getMisc().introSeen || {})[gameKey];
+  if (seen || !fillIntro(gameKey)) { begin(); return; }
+  const ov = $('#intro-card');
+  const btn = $('#intro-play');
+  btn.textContent = `Play № ${n} ›`;
+  btn.onclick = () => {
+    const cur = store.getMisc().introSeen || {};
+    store.setMisc({ introSeen: Object.assign({}, cur, { [gameKey]: true }) });
+    closeIntro();
+    begin();
+  };
+  ov.onclick = null;             // first run: only the button proceeds
+  ov.hidden = false;
+}
+
+// Topbar "?": reopen the same card as a dismissable overlay. No game state is
+// touched — the round underneath is exactly as it was left.
+export function openIntroHelp(gameKey) {
+  if (!fillIntro(gameKey)) return;
+  const ov = $('#intro-card');
+  const btn = $('#intro-play');
+  btn.textContent = 'Got it ›';
+  btn.onclick = closeIntro;
+  ov.onclick = (e) => { if (e.target === ov) closeIntro(); };  // tap-outside dismiss
+  ov.hidden = false;
+}
 
 function initDaily() {
   initArchive();
@@ -565,6 +673,18 @@ function fullHouseDone(n) {
   const ledger = store.getDailyLedger();
   return daily.GAMES.every((g) => ledger.entries[g] && ledger.entries[g][n]);
 }
+// A "win" is any daily that scored above zero; scoring nothing (giving up every
+// round, or losing the Thread board) is a loss. The full-house celebration is
+// the reward for winning all four — a day finished with a loss gets the quiet
+// edition-closed strip instead (Change A). The ledger/streak/punch-card
+// semantics stay completion-based (fullHouseDone), untouched.
+function allWon(n) {
+  const ledger = store.getDailyLedger();
+  return daily.GAMES.every((g) => {
+    const e = ledger.entries[g] && ledger.entries[g][n];
+    return !!e && (e.score || 0) > 0;
+  });
+}
 function dayTotal(n) {
   const ledger = store.getDailyLedger();
   return daily.GAMES.reduce((sum, g) => {
@@ -597,22 +717,47 @@ function fullHouseShare(n) {
   };
 }
 
+// Shared "time to local midnight" readout, reused by the full-house
+// celebration and the edition-closed strip (Change A).
+function countdownText() {
+  const now = new Date();
+  const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+  const ms = midnight - now;
+  const h = String(Math.floor(ms / 3600000)).padStart(2, '0');
+  const m = String(Math.floor((ms % 3600000) / 60000)).padStart(2, '0');
+  const sec = String(Math.floor((ms % 60000) / 1000)).padStart(2, '0');
+  return `Next issue drops in<b>${h}:${m}:${sec}</b>`;
+}
+
 function startCountdown() {
   const el = $('#dd-countdown');
   if (!el) return;
   el.hidden = false;
-  const tick = () => {
-    const now = new Date();
-    const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
-    const ms = midnight - now;
-    const h = String(Math.floor(ms / 3600000)).padStart(2, '0');
-    const m = String(Math.floor((ms % 3600000) / 60000)).padStart(2, '0');
-    const sec = String(Math.floor((ms % 60000) / 1000)).padStart(2, '0');
-    el.innerHTML = `Next issue drops in<b>${h}:${m}:${sec}</b>`;
-  };
+  const tick = () => { el.innerHTML = countdownText(); };
   tick();
   clearInterval(ddCountdownTimer);
   ddCountdownTimer = setInterval(tick, 1000);
+}
+
+// The edition-closed strip: a quiet Home banner shown once all four of today's
+// dailies are played but at least one was lost (an all-won day gets You Made
+// History instead). Its live countdown ticks only while Home is on screen —
+// render() stops it on every non-Home view.
+let icCountdownTimer = null;
+function stopIssueClosedCountdown() { clearInterval(icCountdownTimer); icCountdownTimer = null; }
+
+function refreshIssueClosed() {
+  const strip = $('#issue-closed');
+  if (!strip) return;
+  const n = daily.todayIndex();
+  if (!(n >= 0 && fullHouseDone(n) && !allWon(n))) { strip.hidden = true; stopIssueClosedCountdown(); return; }
+  $('#ic-verdict').textContent = `Issue № ${n}, filed. Some got away.`;
+  $('#ic-score').textContent = dayTotal(n);
+  strip.hidden = false;
+  const tick = () => { $('#ic-countdown').innerHTML = countdownText(); };
+  tick();
+  clearInterval(icCountdownTimer);
+  icCountdownTimer = setInterval(tick, 1000);
 }
 
 function showCelebration(n) {
@@ -676,7 +821,9 @@ function showObituary(streak, lastEdition) {
 
 function maybeCelebrate() {
   const n = daily.todayIndex();
-  if (fullHouseDone(n) && flagGet('df.celebrated') !== String(n)) showCelebration(n);
+  // You Made History is the reward for winning all four (Change A). A day
+  // finished with a loss falls through to the edition-closed strip on Home.
+  if (allWon(n) && flagGet('df.celebrated') !== String(n)) showCelebration(n);
 }
 function maybeMourn() {
   const ledger = store.getDailyLedger();
@@ -742,6 +889,10 @@ async function boot() {
   refreshHomeStats();
   refreshTodayStrip();
   if (!maybeMourn()) maybeCelebrate();
+  // Boot renders Home without going through render() (the view is visible by
+  // default), so paint the edition-closed strip here too — unless a moment
+  // screen (mourn/celebrate) already navigated away.
+  if (trail[trail.length - 1] === 'view-home') refreshIssueClosed();
   setTimeout(prefetchDailyImages, 1200); // after first paint settles
 
   // Deterministic hooks for the automated test-suite.

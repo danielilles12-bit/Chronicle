@@ -198,6 +198,35 @@ button.cal-cell:active { background: var(--ch-parchment); }
 }
 #stranger-line button { position: absolute; right: 6px; top: 4px; font-size: 18px; color: var(--ch-text-muted); padding: 4px 8px; }
 
+/* Edition-closed strip (Change A): the quiet ending for a day finished but not
+   swept — top of Home + the destination of "Close the issue ›". Receipt-
+   adjacent (cream/ink, dashed rule), no CMYK: consolation, not celebration. */
+#issue-closed { margin: 12px 20px 2px; padding: 14px 16px; background: var(--ch-cream); border: 2px solid var(--ch-ink); box-shadow: var(--ch-shadow-card); }
+.ic-verdict { margin: 0; font-family: var(--ch-font-ui); font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; line-height: 1.5; color: var(--ch-text-primary); }
+.ic-row { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-top: 10px; padding-top: 10px; border-top: 2px dashed var(--ch-line-soft); }
+.ic-label { font-family: var(--ch-font-ui); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--ch-text-muted); }
+.ic-row b { font-family: var(--ch-font-display); font-weight: 400; font-size: 30px; line-height: 1; color: var(--ch-text-primary); font-variant-numeric: tabular-nums; }
+.ic-countdown { margin: 10px 0 0; font-family: var(--ch-font-ui); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--ch-text-muted); }
+.ic-countdown b { display: block; margin-top: 2px; font-family: var(--ch-font-display); font-weight: 400; font-size: 22px; letter-spacing: .02em; color: var(--ch-text-primary); }
+
+/* First-run intro card (Change B): one shared overlay, per-game content. Full
+   dot-grid cream screen so it reads like a game's own start screen (reuses the
+   .start-* type); the topbar "?" reopens it over a live game, tap-outside to
+   close. */
+.intro-overlay {
+  position: fixed; inset: 0; z-index: 30;
+  background-color: var(--ch-paper);
+  background-image: radial-gradient(rgba(11,11,11,.09) 1px, transparent 1.2px); background-size: 14px 14px;
+  display: flex; align-items: center; justify-content: center; overflow-y: auto;
+  padding: calc(24px + env(safe-area-inset-top)) 24px calc(24px + env(safe-area-inset-bottom));
+}
+.intro-overlay[hidden] { display: none; }
+.intro-sheet { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; width: 100%; max-width: 360px; }
+.intro-glyph { width: 84px; height: 84px; display: block; margin: 0 auto 4px; }
+.intro-sheet .start-title { margin-top: 0; }
+.intro-sheet .pill.big { margin-top: 18px; max-width: 330px; }
+.topbar-help { font-family: var(--ch-font-ui); font-weight: 700; font-size: 18px; }
+
 /* "New edition off the presses" bar: appears (via js/app.js) once a freshly
    deployed version has installed underneath the running page. Fixed over
    every view — the pull-to-refresh, or tapping it, reloads into the update. */

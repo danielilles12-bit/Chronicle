@@ -1,5 +1,5 @@
 // Connections — group 16 history clues into four hidden categories
-import { $, $$, show, back, goHome, refreshHomeStats, setReceiptStamp } from './app.js';
+import { $, $$, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage } from './app.js';
 import * as store from './storage.js';
 import * as daily from './daily.js';
 import { threadShareText, threadEmojiRows, shareResult, flashShareButton } from './sharecard.js';
@@ -79,28 +79,34 @@ function startEdition(mode, editionIndex) {
   const boards = daily.getEdition('thread', editionIndex);
   const puzzle = boards[0];
   if (!puzzle) return;               // no board available for this tier (shouldn't happen with real content)
-  ensureConnScoreStyles();
-  currentPuzzle = puzzle;
   const key = mode === 'daily' ? daily.dailyKey('thread', editionIndex) : daily.practiceKey('thread', editionIndex);
   const st = modeStore(key);
   const progress = st.get();
-  const tiles = [];
-  puzzle.groups.forEach((group) => {
-    group.items.forEach((item) => tiles.push({ item, colour: group.colour, label: group.label }));
-  });
-  S = {
-    mode, dailyKey: key, store: st, editionIndex,
-    puzzle,
-    tiles: shuffleArray(tiles),
-    selected: new Set(),
-    found: new Set(progress ? progress.found : []),
-    mistakes: progress ? progress.mistakes : 0,
-    guesses: progress ? (progress.guesses || []) : [],
-    done: false,
+  const begin = () => {
+    ensureConnScoreStyles();
+    currentPuzzle = puzzle;
+    const tiles = [];
+    puzzle.groups.forEach((group) => {
+      group.items.forEach((item) => tiles.push({ item, colour: group.colour, label: group.label }));
+    });
+    S = {
+      mode, dailyKey: key, store: st, editionIndex,
+      puzzle,
+      tiles: shuffleArray(tiles),
+      selected: new Set(),
+      found: new Set(progress ? progress.found : []),
+      mistakes: progress ? progress.mistakes : 0,
+      guesses: progress ? (progress.guesses || []) : [],
+      done: false,
+    };
+    $('#conn-puzzle-title').textContent = puzzle.title;
+    renderConnGame();
+    show('view-conn');
   };
-  $('#conn-puzzle-title').textContent = puzzle.title;
-  renderConnGame();
-  show('view-conn');
+  // First-run intro only on a genuinely fresh daily board (no saved progress).
+  const fresh = !progress || (!(progress.found && progress.found.length) && !progress.mistakes);
+  if (mode === 'daily' && fresh) maybeIntro('thread', editionIndex, begin);
+  else begin();
 }
 
 export function startThreadDaily(editionIndex) { startEdition('daily', editionIndex); }
@@ -351,6 +357,7 @@ function renderThreadReceipt({ editionIndex, mode, title, score, solved, perfect
   } : null;
   const shareBtn = $('#conn-sum-share');
   if (shareBtn) shareBtn.hidden = !S.share;
+  wireTurnThePage('conn-sum-turn', editionIndex, isDaily);
   const head = $('#conn-receipt-head');
   if (head) {
     head.textContent = 'Dead Famous · Thread'
@@ -411,6 +418,7 @@ export function initConnectionsGame() {
     renderGrid();
   });
   $('#conn-submit').addEventListener('click', submitGuess);
+  $('#conn-help').addEventListener('click', () => openIntroHelp('thread'));
   const connShare = $('#conn-sum-share');
   if (connShare) {
     connShare.addEventListener('click', async () => {

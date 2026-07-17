@@ -69,6 +69,18 @@
       <p class="dateline" id="dateline"></p>
       <div id="punch-card" hidden aria-label="Full-house streak this week"></div>
     </header>
+    <!-- Edition-closed strip (Change A): the quiet ending shown at the top of
+         Home once all four of today's dailies are played but not all won. An
+         all-won day gets the You Made History celebration instead (see
+         allWon/maybeCelebrate in app.js); this strip is the consolation. -->
+    <div id="issue-closed" hidden>
+      <p class="ic-verdict" id="ic-verdict"></p>
+      <div class="ic-row">
+        <span class="ic-label">Today's total</span>
+        <b id="ic-score">0</b>
+      </div>
+      <p class="ic-countdown" id="ic-countdown"></p>
+    </div>
     <p id="stranger-line" hidden>Four little history games. New issue at midnight — same issue as everyone else.<button id="stranger-close" aria-label="Dismiss">×</button></p>
     <!-- Each .game-row (hero + day-card strip + Archive bar) is built and
          refreshed entirely by js/app.js (renderGameRows/refreshGameRows) from
@@ -113,7 +125,7 @@
     <header class="topbar safe-top">
       <button class="iconbtn" id="map-quit" aria-label="Quit session">‹</button>
       <h2 id="map-progress">Round 1 of 10</h2>
-      <span class="topbar-right"><span id="map-score" aria-label="Score">0 pts</span></span>
+      <span class="topbar-right"><button class="iconbtn topbar-help" id="map-help" aria-label="How to play">?</button><span id="map-score" aria-label="Score">0 pts</span></span>
     </header>
     <div id="map-panel">
       <svg id="map-svg" role="img" aria-label="World map showing birth and death locations"></svg>
@@ -159,6 +171,7 @@
         <span class="df-stamp df-receipt-stamp df-stamp-damnatio" data-stamp-zero hidden>Damnatio memoriae<small>struck from the record</small></span>
       </div>
       <div class="sum-actions">
+        <button class="pill primary big" id="sum-turn" hidden>Turn the page ›</button>
         <button class="pill primary big" id="sum-share" hidden>Share the run</button>
         <button class="pill primary big" id="sum-again">Play again</button>
         <button class="pill ghost big" id="sum-home">Home</button>
@@ -195,7 +208,7 @@
     <header class="topbar safe-top">
       <button class="iconbtn" id="rv-quit" aria-label="Quit session">‹</button>
       <h2 id="rv-progress">Round 1 of 10</h2>
-      <span class="topbar-right"><span id="rv-score" aria-label="Score">0 pts</span></span>
+      <span class="topbar-right"><button class="iconbtn topbar-help" id="rv-help" aria-label="How to play">?</button><span id="rv-score" aria-label="Score">0 pts</span></span>
     </header>
     <div id="rv-panel">
       <div id="rv-frame-wrap">
@@ -251,6 +264,7 @@
         <span class="df-stamp df-receipt-stamp df-stamp-damnatio" data-stamp-zero hidden>Damnatio memoriae<small>struck from the record</small></span>
       </div>
       <div class="sum-actions">
+        <button class="pill primary big" id="rv-sum-turn" hidden>Turn the page ›</button>
         <button class="pill primary big" id="rv-sum-share" hidden>Share the tear-up</button>
         <button class="pill primary big" id="rv-sum-again">Play again</button>
         <button class="pill ghost big" id="rv-sum-home">Home</button>
@@ -263,7 +277,7 @@
     <header class="topbar safe-top">
       <button class="iconbtn" id="conn-quit" aria-label="Back">‹</button>
       <h2 id="conn-puzzle-title"></h2>
-      <span class="topbar-right"><span id="conn-mistakes" class="conn-mistakes-dots"></span></span>
+      <span class="topbar-right"><button class="iconbtn topbar-help" id="conn-help" aria-label="How to play">?</button><span id="conn-mistakes" class="conn-mistakes-dots"></span></span>
     </header>
     <main class="scroll-main">
       <div id="conn-found"></div>
@@ -299,6 +313,7 @@
       </div>
       <div id="conn-sum-groups" style="margin-top:14px;display:flex;flex-direction:column;gap:8px"></div>
       <div class="sum-actions" style="margin-top:20px">
+        <button class="pill primary big" id="conn-sum-turn" hidden>Turn the page ›</button>
         <button class="pill primary big" id="conn-sum-share" hidden>Share the thread</button>
       </div>
     </main>
@@ -357,6 +372,19 @@
         <button class="pill" data-practice-game="what">Relic</button>
       </div>
       <button class="pill ghost sheet-close" id="archive-picker-close">Close</button>
+    </div>
+  </div>
+
+  <!-- First-run intro card (Change B): one shared overlay, per-game content
+       filled by app.js (maybeIntro / openIntroHelp). Shown once before a
+       game's first daily, and reopened over a live game by the topbar "?". -->
+  <div id="intro-card" class="intro-overlay" hidden>
+    <div class="intro-sheet">
+      <img class="intro-glyph" id="intro-glyph" src="" alt="" aria-hidden="true">
+      <h3 class="start-title" id="intro-title"></h3>
+      <p class="start-copy" id="intro-copy"></p>
+      <p class="start-copy small" id="intro-copy2"></p>
+      <button class="pill primary big" id="intro-play">Play ›</button>
     </div>
   </div>
 
