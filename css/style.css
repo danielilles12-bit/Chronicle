@@ -52,6 +52,9 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   font-weight: 400; line-height: .92; color: var(--ch-text-primary); text-transform: uppercase;
 }
 .dateline { margin: 8px 0 0; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--ch-text-primary); font-family: var(--ch-font-ui); }
+/* Card #6: the difficulty whisper — lowercase and muted against the
+   dateline's own bold/uppercase/tracked voice, but otherwise the same line. */
+.dateline-whisper { text-transform: none; font-weight: 600; letter-spacing: normal; color: var(--ch-text-muted); }
 .masthead-sticker { position: absolute; right: 12px; top: 8px; width: 92px; transform: rotate(6deg); }
 
 /* Masthead punch card: this week as die-punched ticket squares (streak). */
@@ -327,6 +330,9 @@ button.cal-cell:active { background: var(--ch-parchment); }
 #map-feedback.info { background: var(--ch-cream); border: 2px solid var(--ch-ink); }
 #map-feedback b.fig { font-family: var(--ch-font-display); font-weight: 400; font-size: 17px; }
 #map-feedback .pts { font-weight: 800; color: var(--ch-gold); }
+/* Lifeline reveal line (Change 4): a fun-fact reward, same weight as the rest
+   of the feedback prose — just its own line, like Face Value's blurb text. */
+#map-feedback .fig-fact { display: block; margin-top: 6px; }
 #map-guesses { display: flex; flex-wrap: wrap; gap: 6px; }
 #map-next { position: sticky; bottom: 2px; }
 .guess-chip {
@@ -449,6 +455,9 @@ button.cal-cell:active { background: var(--ch-parchment); }
   font-size: 12px; font-family: var(--ch-font-display); font-weight: 400; text-transform: uppercase;
   letter-spacing: .06em; margin-bottom: 4px;
 }
+/* Card #12: colorblind print glyphs — always ink, never the group's own
+   tinted text colour, so the shape reads regardless of hue perception. */
+.conn-glyph { color: var(--ch-ink); opacity: .8; margin-right: 4px; font-size: 1em; }
 .conn-group-items { font-size: 14px; font-weight: 600; }
 .conn-actions {
   display: flex; gap: 8px; justify-content: center; margin: 10px 0;

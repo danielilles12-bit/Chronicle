@@ -7,8 +7,19 @@ import * as sfx from './sfx.js';
 
 const MAX_MISTAKES = 4;
 const COLOUR_ORDER = ['yellow', 'green', 'blue', 'purple'];
+// Card #12: colorblind print glyphs — zine ornaments, not an a11y mode toggle.
+// Prefixed on every solved-group label, in-app and on the canvas receipt.
+const GROUP_GLYPH = { yellow: '●', green: '▲', blue: '■', purple: '✦' };
 let S = null;
 let currentPuzzle = null;
+
+// A solved group's label row, glyph-prefixed: "<glyph> ANCIENT ROME". The
+// glyph is its own span so CSS can force ink colour + opacity regardless of
+// the group's tinted background/text colour.
+function groupLabelHTML(colour, label) {
+  const glyph = GROUP_GLYPH[colour] || '';
+  return `<span class="conn-glyph" aria-hidden="true">${glyph}</span>${label}`;
+}
 
 // ---------- scoring ----------
 // NYT-Connections-style mistake penalty: mirrors the "floor + linear penalty"
@@ -136,7 +147,7 @@ function showLockedResult(editionIndex, entry) {
       const group = puzzle.groups.find((g) => g.colour === colour);
       const div = document.createElement('div');
       div.className = `conn-group conn-group-${colour}`;
-      div.innerHTML = `<div class="conn-group-label">${group.label}</div>`
+      div.innerHTML = `<div class="conn-group-label">${groupLabelHTML(colour, group.label)}</div>`
         + `<div class="conn-group-items">${group.items.join(', ')}</div>`;
       reveal.appendChild(div);
     });
@@ -180,7 +191,7 @@ function renderFound() {
     const div = document.createElement('div');
     div.className = `conn-group conn-group-${colour}`;
     div.innerHTML =
-      `<div class="conn-group-label">${group.label}</div>` +
+      `<div class="conn-group-label">${groupLabelHTML(colour, group.label)}</div>` +
       `<div class="conn-group-items">${group.items.join(', ')}</div>`;
     found.appendChild(div);
   });
@@ -278,7 +289,7 @@ function submitGuess() {
     updateMistakesDisplay();
 
     fb.className = 'conn-feedback conn-wrong';
-    fb.textContent = oneAway ? 'One away!' : 'Not quite — try again';
+    fb.textContent = oneAway ? 'One thread loose.' : 'Knot quite.';
     fb.hidden = false;
 
     // shake the grid
@@ -331,7 +342,7 @@ function finishPuzzle() {
     const div = document.createElement('div');
     div.className = `conn-group conn-group-${colour}`;
     div.innerHTML =
-      `<div class="conn-group-label">${group.label}</div>` +
+      `<div class="conn-group-label">${groupLabelHTML(colour, group.label)}</div>` +
       `<div class="conn-group-items">${group.items.join(', ')}</div>`;
     reveal.appendChild(div);
   });
@@ -381,9 +392,11 @@ function renderThreadReceipt({ editionIndex, mode, title, score, solved, perfect
   }
   $('#conn-sum-total').textContent = score;
   setReceiptStamp('view-connsum', score);
-  $('#conn-sum-msg').textContent = perfect ? 'Not a thread out of place.'
+  const msg = perfect ? 'Not a thread out of place.'
     : solved ? (mistakes >= 3 ? 'By a thread.' : 'Frayed, but intact.')
     : 'The thread snapped.';
+  const weekendNote = editionIndex != null ? daily.weekendReceiptMeta(editionIndex) : null;
+  $('#conn-sum-msg').innerHTML = msg + (weekendNote ? `<br>${weekendNote}` : '');
 }
 
 function shuffleTiles() {

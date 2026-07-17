@@ -20,6 +20,18 @@ const WORTH_FLOOR = 10;         // a correct answer never pays less than this
 const CLUE_A_COST = 25;         // "Claim to fame" (who) / "First letters" (what)
 const CLUE_B_COST = 15;         // "Lived" (who) / "Era" (what)
 
+// Card #10 (house-voice verdicts): the moment badge rotates through these
+// deterministically by round index (S.i), never at random, so a reloaded/
+// resumed round always shows the same word it showed before.
+const CORRECT_VERDICTS = [
+  'Dead right.', 'History remembers.', 'Straight to the record.',
+  'Ink it.', 'On the record.', 'First take.',
+];
+const WRONG_VERDICTS = [
+  'Misfiled.', 'The dead disagree.', 'The record says no.',
+  'Citation needed.', 'Not them.',
+];
+
 let S = null;
 let MODE = 'who';               // 'who' = portraits, 'what' = artefacts
 let frameZoom = null;           // pinch-zoom handle for #rv-frame
@@ -324,7 +336,7 @@ export function renderRevealStart(mode) {
   const r = store.getReveal(MODE);
   $('#rv-best').textContent = r.sessions
     ? `Your best: ${r.bestScore} pts · longest streak ${r.bestStreak}`
-    : 'First session — good luck';
+    : 'First run — good luck';
   const saved = store.getRevealSession(MODE);
   const valid = saved && saved.ids && saved.results;
   $('#rv-resume').hidden = !valid;
@@ -574,9 +586,12 @@ function resolveRound(correct) {
   $('#rv-frame').classList.add('df-duotone');
   const badge = $('#rv-badge');
   badge.className = `df-moment-badge${correct ? '' : ' bad'}`;
+  const verdict = correct
+    ? CORRECT_VERDICTS[S.i % CORRECT_VERDICTS.length]
+    : WRONG_VERDICTS[S.i % WRONG_VERDICTS.length];
   badge.innerHTML = correct
-    ? `<b>Correct!</b><small>+${total} PTS</small>`
-    : `<b>Not this time</b><small>0 PTS</small>`;
+    ? `<b>${verdict}</b><small>+${total} PTS</small>`
+    : `<b>${verdict}</b><small>0 PTS</small>`;
   badge.hidden = false;
   $('#rv-worth').innerHTML = '';
 
@@ -619,7 +634,9 @@ function renderLockedSummary() {
     [250, 'The details are coming into focus.'],
     [0, 'Every expert starts by squinting.'],
   ];
-  $('#rv-sum-remark').textContent = remarks.find((x) => S.score >= x[0])[1];
+  const weekendNote = S.editionIndex != null ? daily.weekendReceiptMeta(S.editionIndex) : null;
+  $('#rv-sum-remark').innerHTML = remarks.find((x) => S.score >= x[0])[1]
+    + (weekendNote ? `<br>${weekendNote}` : '');
   const ol = $('#rv-sum-rounds');
   ol.innerHTML = '';
   for (const r2 of S.results) {

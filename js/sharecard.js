@@ -10,6 +10,13 @@ import { track } from './track.js';
 export const SHARE_URL = 'https://deadfamous.app';
 
 const THREAD_EMOJI = { yellow: '🟨', green: '🟩', blue: '🟦', purple: '🟪' };
+// Card #12: colorblind print glyphs. The text emoji-grid share (above) stays
+// pure colour squares — that's the Wordle-family convention, untouched here.
+// The canvas image receipt below additionally prefixes a solved-group row
+// (a guess where all four tiles matched, i.e. a homogeneous row) with its
+// glyph, drawn as ink text so it survives regardless of hue perception.
+const THREAD_GLYPH = { yellow: '●', green: '▲', blue: '■', purple: '✦' };
+const EMOJI_TO_COLOUR = Object.fromEntries(Object.entries(THREAD_EMOJI).map(([c, e]) => [e, c]));
 
 // Row builders are exported so the canvas receipt can reuse the exact same
 // encoding the text uses — one grammar, two renderings.
@@ -119,8 +126,31 @@ async function drawCard(spec) {
   x.font = '700 26px "DF Mono",monospace'; x.fillStyle = '#6B675C';
   x.fillText(spec.unit || 'POINTS', W / 2, cy + 372);
   x.fillStyle = '#0B0B0B';
+  x.textAlign = 'center';
   x.font = '48px -apple-system,"Segoe UI Emoji",sans-serif';
-  (spec.rows || []).slice(0, 4).forEach((row, i) => x.fillText(row, W / 2, cy + 430 + i * 62));
+  // Card #12: a Thread row where all four tiles matched (colours[0] repeated
+  // 4x in the emoji string) is a solved group. Prefix it with the group's
+  // ink-coloured glyph, drawn as text sized like the card's other label-scale
+  // text (30px, matching spec.sub above) — the emoji squares themselves are
+  // left untouched, exactly as the plain-text share grid stays pure colour.
+  (spec.rows || []).slice(0, 4).forEach((row, i) => {
+    const y = cy + 430 + i * 62;
+    if (spec.game === 'THREAD') {
+      const chars = Array.from(row);
+      const colour = chars.length && chars.every((c) => c === chars[0]) ? EMOJI_TO_COLOUR[chars[0]] : null;
+      const glyph = colour ? THREAD_GLYPH[colour] : null;
+      if (glyph) {
+        const rowWidth = x.measureText(row).width;
+        x.save();
+        x.font = '700 30px "DF Mono",monospace';
+        x.fillStyle = 'rgba(11,11,11,.8)';
+        x.textAlign = 'right';
+        x.fillText(glyph, W / 2 - rowWidth / 2 - 16, y + 9);
+        x.restore();
+      }
+    }
+    x.fillText(row, W / 2, y);
+  });
   x.save(); x.translate(W / 2, 1210); x.rotate(-0.06);
   x.strokeStyle = '#E02020'; x.lineWidth = 6; x.strokeRect(-250, -44, 500, 88);
   x.fillStyle = '#E02020'; x.font = '700 40px "DF Mono",monospace';

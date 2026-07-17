@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v109';
+const BUILD = 'v110';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -215,6 +215,17 @@ function renderGameRows() {
   });
 }
 
+// Card #6 (difficulty whisper): the dateline gains a muted, lowercase,
+// em-dash-separated whisper naming today's edition's spot on the Mon->Sun
+// difficulty ladder (daily.weekdayWhisper). Weekday comes from the edition
+// index (not the raw device date) so it honours the ?dailydate= QA override
+// the same way the issue number already does.
+function datelineHTML(n) {
+  const safe = Math.max(0, n);
+  return `Issue № ${safe} // ${daily.weekdayName(safe)} `
+    + `<span class="dateline-whisper">— ${daily.weekdayWhisper(safe)}</span>`;
+}
+
 // 'done' | 'in-progress' | 'not-started' for a past (aired) edition, for the
 // day cards. v1 note (spec "Cautions"): this reads the daily ledger only —
 // practice completions leave no persistent record in any game engine
@@ -256,8 +267,7 @@ export function refreshGameRows() {
   if (!$('#home-rows') || !DATA.figures) return; // boot not finished yet
   renderGameRows();
   const today = Math.max(0, daily.todayIndex());
-  const wd = new Date().toLocaleDateString('en-GB', { weekday: 'long' });
-  $('#dateline').textContent = `Issue № ${today} // ${wd}`;
+  $('#dateline').innerHTML = datelineHTML(today);
   renderPunchCard();
   GAME_ROWS.forEach((g) => {
     const status = daily.dailyStatus(g.key, today);
@@ -494,9 +504,8 @@ function openArchiveEdition(editionIndex) {
 }
 
 function initHome() {
-  const wd = new Date().toLocaleDateString('en-GB', { weekday: 'long' });
-  $('#dateline').textContent = `Issue № ${Math.max(0, daily.todayIndex())} // ${wd}`;
-  // The other three games' free-play "Start a session" views
+  $('#dateline').innerHTML = datelineHTML(daily.todayIndex());
+  // The other three games' free-play "Start a run" views
   // (view-mapstart/view-revealstart) are untouched, but Home no longer links
   // to them directly — free play is reached via Archive → practice (spec
   // "Removals/moves"), so they're hidden routes.

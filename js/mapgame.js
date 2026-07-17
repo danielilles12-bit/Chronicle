@@ -310,7 +310,7 @@ export function renderMapStart() {
   const m = store.getMap();
   $('#map-best').textContent = m.sessions
     ? `Your best: ${m.bestScore} pts · longest streak ${m.bestStreak}`
-    : 'First session — good luck';
+    : 'First run — good luck';
   const saved = store.getSession();
   const valid = saved && saved.ids && saved.results;
   $('#map-resume').hidden = !valid;
@@ -586,7 +586,11 @@ function resolveRound(correct) {
     ? `<b class="fig">${fig.name}</b> — ${figureBio(fig)}. `
       + `<span class="pts">+${total} pts</span>`
       + (bonus ? ` <small>(includes ${bonus} streak bonus)</small>` : '')
-    : `It was <b class="fig">${fig.name}</b> — ${figureBio(fig)}. <span class="pts">0 pts</span>`);
+    : `It was <b class="fig">${fig.name}</b> — ${figureBio(fig)}. <span class="pts">0 pts</span>`)
+    // Lifeline reveal line: a fun-fact reward, styled like Face Value's
+    // blurb-as-reward text. figures.json doesn't carry `fact` on every entry
+    // yet (content grind lands separately) — no-ops invisibly until it does.
+    + (fig.fact ? `<span class="fig-fact">${fig.fact}</span>` : '');
   fb.hidden = false;
 
   $('#map-input').disabled = true;
@@ -620,7 +624,9 @@ function renderLockedSummary() {
     [250, 'Keep digging — every hack starts somewhere.'],
     [0, 'Tomorrow\'s fish and chip paper.'],
   ];
-  $('#sum-remark').textContent = remarks.find((r) => S.score >= r[0])[1];
+  const weekendNote = S.editionIndex != null ? daily.weekendReceiptMeta(S.editionIndex) : null;
+  $('#sum-remark').innerHTML = remarks.find((r) => S.score >= r[0])[1]
+    + (weekendNote ? `<br>${weekendNote}` : '');
   const ol = $('#sum-rounds');
   ol.innerHTML = '';
   for (const r of S.results) {
