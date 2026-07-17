@@ -1,5 +1,5 @@
 // Connections — group 16 history clues into four hidden categories
-import { DATA, $, $$, show, back, goHome, refreshHomeStats, setReceiptStamp } from './app.js';
+import { $, $$, show, back, goHome, refreshHomeStats, setReceiptStamp } from './app.js';
 import * as store from './storage.js';
 import * as daily from './daily.js';
 import { threadShareText, threadEmojiRows, shareResult, flashShareButton } from './sharecard.js';
@@ -29,35 +29,11 @@ function ensureConnScoreStyles() {
     .conn-score-live { font-size: 13px; font-weight: 700; color: var(--ink, #1a1a1a); margin-right: 8px; letter-spacing: .01em; }
     .conn-sum-score { text-align: center; font-size: 34px; font-weight: 800; margin-top: 6px; }
     .conn-sum-score small { display: block; font-size: 13px; font-weight: 600; opacity: .65; margin-top: 2px; }
-    .cw-score { font-size: 12px; font-weight: 600; opacity: .7; }
   `;
   document.head.appendChild(style);
 }
 
-// ---------- puzzle list ----------
-export function renderConnList() {
-  ensureConnScoreStyles();
-  const main = $('#conn-list-main');
-  main.innerHTML = '';
-  DATA.connections.forEach((puzzle) => {
-    const saved = store.getConn(puzzle.id);
-    const progress = !saved ? store.getConnProgress(puzzle.id) : null;
-    const btn = document.createElement('button');
-    btn.className = 'cwitem';
-    const status = saved ? (saved.perfect ? '✓ Perfect' : saved.solved ? '✓ Solved' : 'Try again') :
-      progress ? 'In progress' : '';
-    const statusClass = saved && saved.solved ? 'cw-state done' : 'cw-state';
-    const scoreLine = saved && saved.solved && typeof saved.score === 'number' ? `<span class="cw-score">${saved.score} pts</span>` : '';
-    btn.innerHTML =
-      `<span class="cw-size">${puzzle.groups.length}×4</span>` +
-      `<span class="cw-name">${puzzle.title}</span>` +
-      `<span class="${statusClass}">${status}${scoreLine}</span>`;
-    btn.addEventListener('click', () => startPuzzle(puzzle));
-    main.appendChild(btn);
-  });
-}
-
-// ---------- start a puzzle ----------
+// ---------- shared helpers ----------
 function shuffleArray(arr) {
   const a = arr.slice();
   for (let i = a.length - 1; i > 0; i--) {
@@ -83,55 +59,14 @@ function updateLiveScore() {
   ensureLiveScoreEl().textContent = `${calcScore(true, S.mistakes)} pts`;
 }
 
-// Free puzzles keep using store.getConnProgress/setConnProgress/
-// clearConnProgress (keyed by puzzle.id) exactly as before. Daily and
-// practice attempts use the namespaced generic store so they never collide
-// with a free attempt or with each other.
-function modeStore(mode, key, puzzleId) {
-  if (mode === 'free') {
-    return {
-      get: () => store.getConnProgress(puzzleId),
-      set: (s) => store.setConnProgress(puzzleId, s),
-      clear: () => store.clearConnProgress(puzzleId),
-    };
-  }
+// Daily and practice attempts use the namespaced generic store so they never
+// collide with each other.
+function modeStore(key) {
   return {
     get: () => store.getDailySession(key),
     set: (s) => store.setDailySession(key, s),
     clear: () => store.clearDailySession(key),
   };
-}
-
-function startPuzzle(puzzle) {
-  ensureConnScoreStyles();
-  currentPuzzle = puzzle;
-  // Build flat tile list from all groups
-  const tiles = [];
-  puzzle.groups.forEach((group) => {
-    group.items.forEach((item) => {
-      tiles.push({ item, colour: group.colour, label: group.label });
-    });
-  });
-
-  // Resume any in-progress attempt (found groups + mistakes) so backing out
-  // mid-puzzle via the header arrow doesn't wipe the player's progress.
-  const st = modeStore('free', null, puzzle.id);
-  const progress = st.get();
-
-  S = {
-    mode: 'free', dailyKey: null, store: st, editionIndex: null,
-    puzzle,
-    tiles: shuffleArray(tiles),
-    selected: new Set(),
-    found: new Set(progress ? progress.found : []),       // set of colour strings already solved
-    mistakes: progress ? progress.mistakes : 0,
-    guesses: progress ? (progress.guesses || []) : [],
-    done: false,
-  };
-
-  $('#conn-puzzle-title').textContent = puzzle.title;
-  renderConnGame();
-  show('view-conn');
 }
 
 // ---------- daily / practice entry points ----------
@@ -147,7 +82,7 @@ function startEdition(mode, editionIndex) {
   ensureConnScoreStyles();
   currentPuzzle = puzzle;
   const key = mode === 'daily' ? daily.dailyKey('thread', editionIndex) : daily.practiceKey('thread', editionIndex);
-  const st = modeStore(mode, key, puzzle.id);
+  const st = modeStore(key);
   const progress = st.get();
   const tiles = [];
   puzzle.groups.forEach((group) => {
@@ -177,7 +112,7 @@ function showLockedResult(editionIndex, entry) {
   currentPuzzle = puzzle;
   const detail = entry.detail || {};
   S = {
-    mode: 'daily', dailyKey: daily.dailyKey('thread', editionIndex), store: modeStore('daily', null, null),
+    mode: 'daily', dailyKey: daily.dailyKey('thread', editionIndex), store: modeStore(null),
     editionIndex, puzzle, done: true, locked: true,
     found: new Set(['yellow', 'green', 'blue', 'purple']),
     mistakes: detail.mistakes || 0,
@@ -365,15 +300,7 @@ function finishPuzzle() {
   S.store.clear();
   sfx.play('stamp');
 
-  if (S.mode === 'free') {
-    store.setConn(currentPuzzle.id, { solved, perfect, mistakes: S.mistakes, score });
-    const stats = store.getConnStats();
-    if (solved) stats.solved = (stats.solved || 0) + 1;
-    stats.sessions = (stats.sessions || 0) + 1;
-    stats.bestScore = Math.max(stats.bestScore || 0, score);
-    stats.totalScore = (stats.totalScore || 0) + score;
-    store.setConnStats(stats);
-  } else if (S.mode === 'daily') {
+  if (S.mode === 'daily') {
     daily.recordDailyCompletion('thread', S.editionIndex, {
       score,
       detail: { solved, perfect, mistakes: S.mistakes, guesses: S.guesses || [] },
@@ -493,11 +420,10 @@ export function initConnectionsGame() {
     });
   }
   $('#conn-quit').addEventListener('click', () => {
-    // Header back arrow: leave the puzzle and return to the list, same as
-    // every other game's back button — it must not just undo a selection.
-    // Save progress first so reopening the puzzle resumes where it left off.
+    // Header back arrow: leave the puzzle, same as every other game's back
+    // button — it must not just undo a selection. Save progress first so
+    // reopening the puzzle resumes where it left off.
     if (S && !S.done) persistProgress();
-    if (S && S.mode === 'free') renderConnList();
     S = null;
     back();
   });

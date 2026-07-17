@@ -89,47 +89,13 @@ export function setMisc(patch) {
   saveAll(d);
 }
 
-export function getConn(id) {
-  const d = loadAll();
-  return (d.conns && d.conns[id]) || null;
-}
-export function setConn(id, state) {
-  const d = loadAll();
-  if (!d.conns) d.conns = {};
-  d.conns[id] = state;
-  saveAll(d);
-}
-
-// In-progress Thread (Connections) puzzles — separate from the final
-// solved/perfect/score record above, so backing out mid-puzzle (header
-// back arrow) doesn't discard the player's found groups and mistake count.
-export function getConnProgress(id) {
-  const d = loadAll();
-  return (d.connProgress && d.connProgress[id]) || null;
-}
-export function setConnProgress(id, state) {
-  const d = loadAll();
-  if (!d.connProgress) d.connProgress = {};
-  d.connProgress[id] = state;
-  saveAll(d);
-}
-export function clearConnProgress(id) {
-  const d = loadAll();
-  if (d.connProgress) delete d.connProgress[id];
-  saveAll(d);
-}
-export function getConnStats() {
-  return loadAll().connStats || { solved: 0 };
-}
-export function setConnStats(s) { const d = loadAll(); d.connStats = s; saveAll(d); }
-
 // ---------- Chronicle Daily ----------
 // A generic namespaced-session store used by every game's daily AND practice
 // modes (js/daily.js picks the items; each game engine just needs somewhere
 // to persist an in-progress attempt keyed by a string it controls, e.g.
 // `chronicle.daily.map.42` or `chronicle.practice.who.17`). This mirrors the
-// existing per-game session shapes (mapSession, revealSession_*, connProgress)
-// but namespaced so a daily/practice run never collides with a free session.
+// existing per-game session shapes (mapSession, revealSession_*) but
+// namespaced so a daily/practice run never collides with a free session.
 export function getDailySession(key) {
   const d = loadAll();
   return (d.dailySessions && d.dailySessions[key]) || null;
