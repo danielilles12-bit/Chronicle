@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v104';
+const BUILD = 'v105';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -17,7 +17,7 @@ import { fullHouseShareText, obituaryShareText, shareResult, flashShareButton } 
 import { isMatch } from './match.js';
 import { initMapGame, renderMapStart, startMapDaily, startMapPractice } from './mapgame.js';
 import { initRevealGame, renderRevealStart, startRevealDaily, startRevealPractice } from './revealgame.js';
-import { initConnectionsGame, renderConnList, startThreadDaily, startThreadPractice } from './connectionsgame.js';
+import { initConnectionsGame, startThreadDaily, startThreadPractice } from './connectionsgame.js';
 import * as daily from './daily.js';
 import * as sfx from './sfx.js';
 

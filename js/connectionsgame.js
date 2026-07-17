@@ -505,11 +505,6 @@ export function initConnectionsGame() {
   // land on the spent board itself, a dead end. Same convention as the other
   // three games' summary back buttons (sum-back / rv-sum-back → goHome).
   $('#conn-sum-back').addEventListener('click', () => {
-    renderConnList();
     goHome();
-  });
-  $('#conn-sum-list').addEventListener('click', () => {
-    renderConnList();
-    show('view-connlist');
   });
 }
