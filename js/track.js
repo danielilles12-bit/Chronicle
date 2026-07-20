@@ -28,6 +28,16 @@ export function initTracking() {
   s.addEventListener('load', () => {
     const q = queued; queued = [];
     q.forEach(track);
+    // count.js has counted the pageview (campaign intact) by the time its
+    // load event fires. Now scrub ref/utm params so iOS "Add to Home Screen"
+    // never bakes a campaign into the installed app's start URL — every
+    // later open would re-count as a shared-link visit.
+    if (/[?&](ref|utm_[a-z]+)=/.test(location.search)) {
+      const p = new URLSearchParams(location.search);
+      [...p.keys()].filter((k) => k === 'ref' || k.indexOf('utm_') === 0).forEach((k) => p.delete(k));
+      const qs = p.toString();
+      history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
+    }
   });
   document.head.appendChild(s);
 }

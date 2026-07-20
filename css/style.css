@@ -183,14 +183,22 @@ button.cal-cell:active { background: var(--ch-parchment); }
 
 .conn-list-intro { margin: 12px 20px 0; color: var(--ch-text-secondary); font-size: 14px; font-style: italic; line-height: 1.4; }
 
-#ios-tip {
+#install-tip {
   margin: 0 20px 10px; padding: 12px 38px 12px 14px; position: relative;
   background: var(--ch-cream); border: 1px solid var(--ch-line); border-radius: 12px; font-size: 14px;
   font-family: var(--ch-font-ui); color: var(--ch-text-primary);
 }
-#ios-tip p { margin: 0; }
-#ios-tip .share-glyph { width: 13px; height: 17px; vertical-align: -3px; color: var(--ch-forest); }
-#ios-tip button { position: absolute; right: 8px; top: 6px; font-size: 20px; color: var(--muted); padding: 4px 8px; }
+#install-tip p { margin: 0; }
+#install-tip .share-glyph { width: 13px; height: 17px; vertical-align: -3px; color: var(--ch-forest); }
+#install-tip-close { position: absolute; right: 8px; top: 6px; font-size: 20px; color: var(--muted); padding: 4px 8px; }
+.install-steps { display: flex; flex-direction: column; gap: 5px; margin-top: 9px; }
+.install-step { line-height: 1.45; }
+.install-step b {
+  display: inline-block; width: 18px; height: 18px; margin-right: 4px;
+  border: 1.5px solid var(--ch-forest); border-radius: 50%;
+  font-size: 11px; line-height: 15px; text-align: center; color: var(--ch-forest);
+}
+#install-btn { margin-top: 10px; }
 
 /* First-visit orientation line (see initHome): one sentence, then gone. */
 #stranger-line {

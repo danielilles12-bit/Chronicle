@@ -587,8 +587,8 @@ function resolveRound(correct) {
     S.streak = 0;
   }
   const total = pts + bonus;
-  S.score += total;
   S.results.push({ item, pts: total, correct, torn: S.cur.torn.length, wrongs });
+  S.score = daily.sessionScore(S.results);   // the 0–100 dial: capped round average
   persist();
 
   // The reveal: every scrap flies off, the full image shows with the house
@@ -642,10 +642,10 @@ function renderLockedSummary() {
   $('#rv-sum-total').textContent = S.score;
   setReceiptStamp('view-revealsum', S.score);
   const remarks = [
-    [850, 'A connoisseur of the ages.'],
-    [650, 'A sharp eye for history.'],
-    [450, 'A good eye — keep looking.'],
-    [250, 'The details are coming into focus.'],
+    [90, 'A connoisseur of the ages.'],
+    [75, 'A sharp eye for history.'],
+    [55, 'A good eye — keep looking.'],
+    [30, 'The details are coming into focus.'],
     [0, 'Every expert starts by squinting.'],
   ];
   const weekendNote = S.editionIndex != null ? daily.weekendReceiptMeta(S.editionIndex) : null;

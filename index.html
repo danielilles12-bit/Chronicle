@@ -88,11 +88,16 @@
          so there is exactly one source of truth for the row markup and no
          risk of the four rows drifting apart. -->
     <main class="home-rows" id="home-rows"></main>
-    <div id="ios-tip" hidden>
-      <p><b>Nice one. Now make it an app:</b> tap Share
-        <svg class="share-glyph" viewBox="0 0 14 18" aria-hidden="true"><path d="M7 1 L7 11 M3.5 4.5 L7 1 L10.5 4.5 M2 8 H1 V17 H13 V8 H12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>,
-        then “Add to Home&nbsp;Screen” — it keeps your streak safe.</p>
-      <button id="ios-tip-close" aria-label="Dismiss">×</button>
+    <div id="install-tip" hidden>
+      <p><b>Nice one. Now make it an app</b> — it keeps your streak safe, and works offline.</p>
+      <div id="install-steps" class="install-steps" hidden>
+        <span class="install-step"><b>1</b> Tap Share
+          <svg class="share-glyph" viewBox="0 0 14 18" aria-hidden="true"><path d="M7 1 L7 11 M3.5 4.5 L7 1 L10.5 4.5 M2 8 H1 V17 H13 V8 H12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          in the bar below</span>
+        <span class="install-step"><b>2</b> Choose “Add to Home&nbsp;Screen&nbsp;<svg class="share-glyph" viewBox="0 0 18 18" aria-hidden="true"><rect x="1" y="1" width="16" height="16" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 5.5 V12.5 M5.5 9 H12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>”</span>
+      </div>
+      <button class="pill primary" id="install-btn" hidden>Install — one tap</button>
+      <button id="install-tip-close" aria-label="Dismiss">×</button>
     </div>
     <footer class="home-foot">Works offline · <button type="button" id="ledger-link" class="foot-toggle">The Ledger</button> · <button type="button" id="sound-toggle" class="foot-toggle">Sound on</button> · <span id="build-tag"></span></footer>
   </section>
@@ -113,7 +118,7 @@
       </svg>
       <h3 class="start-title">Ten lives, twenty dots.</h3>
       <p class="start-copy">Each round shows where a historical figure was <b class="b-birth">born</b> and where they <b class="b-death">died</b>, with the years. Type their name — spelling needn’t be perfect.</p>
-      <p class="start-copy small">100 points for an unaided answer (a correct answer always pays at least 10). Hints cost 25, wrong guesses 10, revealing scores zero. Each consecutive correct answer from the second onward earns +10.</p>
+      <p class="start-copy small">100 points for an unaided answer (a correct answer always pays at least 10). Clue slips cost 15–25, wrong guesses 15, revealing scores zero. Each consecutive correct answer from the second onward earns +10. Your issue score is your round average.</p>
       <p class="card-stat" id="map-best"></p>
       <button class="pill primary big" id="map-start">Start a run</button>
       <button class="pill big" id="map-resume" hidden>Resume run</button>
@@ -140,7 +145,7 @@
         <button type="submit" class="pill primary" id="map-guess-btn">Guess</button>
       </form>
       <div id="map-hints">
-        <button class="pill small" id="hint-occ">Claim to fame <span class="cost">−25</span></button>
+        <button class="pill small" id="hint-occ">Claim to fame <span class="cost">−15</span></button>
         <button class="pill small" id="hint-ini">Initials <span class="cost">−25</span></button>
         <button class="pill small ghost" id="map-reveal">Reveal <span class="cost">0 pts</span></button>
       </div>
@@ -196,7 +201,7 @@
       </svg>
       <h3 class="start-title">Tear towards it.</h3>
       <p class="start-copy">A famous <b>face</b> or <b>artefact</b> hides under nine scraps — one is already open. You can only tear scraps <b>touching</b> what's open, so plot your route.</p>
-      <p class="start-copy small">Each round is worth 100. Tears cost 10, wrong guesses 15, and clue slips 15–25 — buy your way to an educated guess. Two right in a row earns +10.</p>
+      <p class="start-copy small">Each round is worth 100. Tears cost 10, wrong guesses 15, and clue slips 15–25 — buy your way to an educated guess. Two right in a row earns +10. Your issue score is your round average.</p>
       <p class="card-stat" id="rv-best"></p>
       <button class="pill primary big" id="rv-start">Start a run</button>
       <button class="pill big" id="rv-resume" hidden>Resume run</button>

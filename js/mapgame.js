@@ -19,8 +19,9 @@ let animId = null;
 
 // ---------- round economy (mirrors Face Value/Relic's worthNow shape) ----------
 const WORTH_START = 100;
-const HINT_COST = 25;     // per hint bought (Claim to fame / Initials)
-const WRONG_COST = 10;    // per wrong guess
+const HINT_OCC_COST = 15; // "Claim to fame" — the lighter slip (matches the reveal games' 15/25 ladder)
+const HINT_INI_COST = 25; // "Initials" — near-decisive with the dates already on the map
+const WRONG_COST = 15;    // per wrong guess (aligned with Face Value/Relic)
 const WORTH_FLOOR = 10;   // a correct answer never pays less than this; giving up pays 0
 
 // ---------- seeded rng (deterministic sessions for tests via ?mapseed=N) ----------
@@ -356,7 +357,10 @@ function ensureWorthEl() {
 function worthNow() {
   const cur = S && S.cur;
   if (!cur) return WORTH_START;
-  return Math.max(WORTH_FLOOR, WORTH_START - HINT_COST * cur.hints - WRONG_COST * cur.wrongs);
+  // Rounds persisted before the per-hint pricing carried only a hint COUNT;
+  // price those at the old flat 25.
+  const hintCost = cur.hintCost != null ? cur.hintCost : 25 * cur.hints;
+  return Math.max(WORTH_FLOOR, WORTH_START - hintCost - WRONG_COST * cur.wrongs);
 }
 
 function updateWorth() {
@@ -497,9 +501,10 @@ function startRound() {
   S.cur = carried
     ? {
         hints: carried.hints, wrongs: carried.wrongs, occUsed: carried.occUsed, iniUsed: carried.iniUsed,
+        hintCost: carried.hintCost != null ? carried.hintCost : 25 * (carried.hints || 0),
         wrongGuesses: carried.wrongGuesses || [], open: true,
       }
-    : { hints: 0, wrongs: 0, occUsed: false, iniUsed: false, wrongGuesses: [], open: true };
+    : { hints: 0, hintCost: 0, wrongs: 0, occUsed: false, iniUsed: false, wrongGuesses: [], open: true };
   $('#map-progress').textContent = `Round ${S.i + 1} of 10`;
   $('#map-score').textContent = `${S.score} pts`;
   $('#map-feedback').hidden = true;
@@ -576,8 +581,8 @@ function resolveRound(correct) {
     S.streak = 0;
   }
   const total = pts + bonus;
-  S.score += total;
   S.results.push({ fig, pts: total, correct, hints: S.cur.hints, wrongs: S.cur.wrongs });
+  S.score = daily.sessionScore(S.results);   // the 0–100 dial: capped round average
   persistSession();
 
   const fb = $('#map-feedback');
@@ -618,10 +623,10 @@ function renderLockedSummary() {
   $('#sum-total').textContent = S.score;
   setReceiptStamp('view-mapsum', S.score);
   const remarks = [
-    [850, 'Front-page material.'],
-    [650, 'Tabloid royalty.'],
-    [450, 'A solid scoop.'],
-    [250, 'Keep digging — every hack starts somewhere.'],
+    [90, 'Front-page material.'],
+    [75, 'Tabloid royalty.'],
+    [55, 'A solid scoop.'],
+    [30, 'Keep digging — every hack starts somewhere.'],
     [0, 'Tomorrow\'s fish and chip paper.'],
   ];
   const weekendNote = S.editionIndex != null ? daily.weekendReceiptMeta(S.editionIndex) : null;
@@ -724,6 +729,7 @@ export function initMapGame() {
   $('#hint-occ').addEventListener('click', () => {
     if (!S || !S.cur.open) return;
     S.cur.hints++;
+    S.cur.hintCost = (S.cur.hintCost || 0) + HINT_OCC_COST;
     S.cur.occUsed = true;
     $('#hint-occ').disabled = true;
     addHintChip(round().occupation);
@@ -734,6 +740,7 @@ export function initMapGame() {
   $('#hint-ini').addEventListener('click', () => {
     if (!S || !S.cur.open) return;
     S.cur.hints++;
+    S.cur.hintCost = (S.cur.hintCost || 0) + HINT_INI_COST;
     S.cur.iniUsed = true;
     $('#hint-ini').disabled = true;
     addHintChip(`Initials: ${initials(round().name)}`);

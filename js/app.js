@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v112';
+const BUILD = 'v113';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -345,19 +345,19 @@ const INTRO_CONTENT = {
     glyph: 'assets/brand/game-icon-lifeline.png',
     title: 'Ten lives, twenty dots.',
     copy: 'Each round shows where a figure was born and where they died, with the years. Type their name — spelling needn’t be perfect.',
-    copy2: '100 points for an unaided answer (a correct one always pays at least 10). Hints cost 25, wrong guesses 10, revealing scores zero. Each correct answer from the second in a row earns +10.',
+    copy2: '100 points for an unaided answer (a correct one always pays at least 10). Clue slips cost 15–25, wrong guesses 15, revealing scores zero. Each correct answer from the second in a row earns +10. Your issue score is your round average.',
   },
   who: {
     glyph: 'assets/brand/game-icon-face-value.png',
     title: 'Tear towards it.',
     copy: 'A famous face hides under nine scraps — one is already open. You can only tear scraps touching what’s open, so plot your route.',
-    copy2: 'Each round is worth 100. Tears cost 10, wrong guesses 15, and clue slips 15–25. Two right in a row earns +10.',
+    copy2: 'Each round is worth 100. Tears cost 10, wrong guesses 15, and clue slips 15–25. Two right in a row earns +10. Your issue score is your round average.',
   },
   what: {
     glyph: 'assets/brand/game-icon-relic.png',
     title: 'Tear towards it.',
     copy: 'A famous artefact hides under nine scraps — one is already open. You can only tear scraps touching what’s open, so plot your route.',
-    copy2: 'Each round is worth 100. Tears cost 10, wrong guesses 15, and clue slips 15–25. Two right in a row earns +10.',
+    copy2: 'Each round is worth 100. Tears cost 10, wrong guesses 15, and clue slips 15–25. Two right in a row earns +10. Your issue score is your round average.',
   },
 };
 
@@ -522,9 +522,34 @@ function initHome() {
     });
   }
 
-  $('#ios-tip-close').addEventListener('click', () => {
-    $('#ios-tip').hidden = true;
-    store.setMisc({ iosTipDismissed: true });
+  $('#install-tip-close').addEventListener('click', () => {
+    $('#install-tip').hidden = true;
+    store.setMisc({ installTipDismissed: true });
+    track('install-tip-dismiss');
+  });
+  // Chromium fires beforeinstallprompt when the app is installable; stow the
+  // event (preventDefault also mutes Chrome's own mini-infobar) and pitch at
+  // OUR moment — after the first finished daily, like the iOS tip.
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredInstall = e;
+    maybeShowInstallTip();
+  });
+  window.addEventListener('appinstalled', () => {
+    track('install-accepted');
+    const tip = $('#install-tip');
+    if (tip) tip.hidden = true;
+  });
+  $('#install-btn').addEventListener('click', () => {
+    const ev = deferredInstall;
+    if (!ev) return;
+    deferredInstall = null;
+    track('install-tip-tap');
+    ev.prompt();
+    ev.userChoice.then((c) => {
+      if (!c || c.outcome !== 'accepted') track('install-declined');
+      $('#install-tip').hidden = true;
+    }).catch(() => {});
   });
 
   // The Ledger (stats) has two doors: tapping the masthead punch card, and the
@@ -566,14 +591,27 @@ function hasAnyDailyCompletion() {
 // The install pitch waits for the first finished daily — the moment a streak
 // exists to protect. "Keeps your streak safe" is literal: Safari wipes a
 // non-installed site's storage after 7 idle days; installed apps are exempt.
+// iOS gets illustrated steps (Apple offers no install API); Chromium gets a
+// real one-tap Install button via the stashed beforeinstallprompt event.
+let deferredInstall = null;
+
+const isStandalone = () => navigator.standalone === true
+  || (window.matchMedia && matchMedia('(display-mode: standalone)').matches);
+
 function maybeShowInstallTip() {
-  const tip = $('#ios-tip');
+  const tip = $('#install-tip');
   if (!tip || !tip.hidden) return;
   if (!hasAnyDailyCompletion()) return;
+  const misc = store.getMisc();
+  if (isStandalone() || misc.installTipDismissed || misc.iosTipDismissed) return;
   const isIOS = /iP(hone|ad|od)/.test(navigator.userAgent);
-  const standalone = navigator.standalone === true
-    || (window.matchMedia && matchMedia('(display-mode: standalone)').matches);
-  if (!isIOS || standalone || store.getMisc().iosTipDismissed) return;
+  if (isIOS) {
+    $('#install-steps').hidden = false;
+  } else if (deferredInstall) {
+    $('#install-btn').hidden = false;
+  } else {
+    return; // no install path on this browser (e.g. desktop Safari/Firefox)
+  }
   const stranger = $('#stranger-line');
   if (stranger) stranger.hidden = true;
   tip.hidden = false;
@@ -881,6 +919,27 @@ function initDayDone() {
 
 async function boot() {
   initTracking();
+  // The opening funnel, one event per boot: installed-app vs browser tab,
+  // first-ever visit vs a return. These four paths are the denominators for
+  // every start/finish/share rate on the dashboard.
+  track(isStandalone() ? 'open-pwa' : 'open-browser');
+  if (store.getMisc().seenBefore) track('open-return');
+  else { track('open-new'); store.setMisc({ seenBefore: true }); }
+  daily.normalizeLedgerScales();
+  // Free-play bests recorded before the rebase were 10-round sums; rescale
+  // them onto the same 0–100 dial (approximate: sum/rounds).
+  const mapStats = store.getMap();
+  if (mapStats.bestScore > 100) {
+    mapStats.bestScore = Math.min(100, Math.round(mapStats.bestScore / 10));
+    store.setMap(mapStats);
+  }
+  for (const m of ['who', 'what']) {
+    const r = store.getReveal(m);
+    if (r.bestScore > 100) {
+      r.bestScore = Math.min(100, Math.round(r.bestScore / 10));
+      store.setReveal(m, r);
+    }
+  }
   sfx.initSfx(); // before the data fetch so sound decoding overlaps it
   try {
     const [figures, world, revealWho, revealWhat, connections] = await Promise.all(

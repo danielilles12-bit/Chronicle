@@ -7,7 +7,10 @@ import { track } from './track.js';
 
 // Full scheme on purpose: bare domains don't linkify in Discord/Slack.
 // The canvas receipt strips the scheme for display.
-export const SHARE_URL = 'https://deadfamous.app';
+// ?ref=share shows shared-link visits under the GoatCounter Campaigns panel
+// ("ref" is in its default campaign params). track.js scrubs the param after
+// the pageview is counted so it never bakes into an installed app's URL.
+export const SHARE_URL = 'https://deadfamous.app/?ref=share';
 
 const THREAD_EMOJI = { yellow: '🟨', green: '🟩', blue: '🟦', purple: '🟪' };
 // Card #12: colorblind print glyphs. The text emoji-grid share (above) stays

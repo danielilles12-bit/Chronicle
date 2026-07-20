@@ -295,7 +295,38 @@ export function recordDailyCompletion(game, editionIndex, detail) {
 
   store.setDailyLedger(ledger);
   track(`finish-${game}`);
+  if (GAMES.every((g) => ledger.entries[g] && ledger.entries[g][editionIndex])) track('finish-day');
   return ledger;
+}
+
+// One session's score on the 0–100 dial: the average round worth, capped so
+// streak bonuses lift weak rounds without pushing a day past a perfect 100.
+// Robust to any round count — 5, 7 or 10 rounds all read on the same dial.
+export function sessionScore(results) {
+  if (!results || !results.length) return 0;
+  const sum = results.reduce((a, r) => a + (r.pts || 0), 0);
+  return Math.min(100, Math.round(sum / results.length));
+}
+
+// One-time migration (v113 scoring rebase): older rounds-game entries stored
+// the SUM of ten rounds (up to ~1090); rebased entries store the capped round
+// average. Rescale old entries so the Ledger and day totals read on one dial.
+export function normalizeLedgerScales() {
+  const ledger = store.getDailyLedger();
+  let changed = false;
+  for (const g of ['map', 'who', 'what']) {
+    const entries = ledger.entries[g] || {};
+    for (const k of Object.keys(entries)) {
+      const en = entries[k];
+      if (en && en.score > 100) {
+        en.score = en.detail && en.detail.length
+          ? sessionScore(en.detail)
+          : Math.min(100, Math.round(en.score / 10));
+        changed = true;
+      }
+    }
+  }
+  if (changed) store.setDailyLedger(ledger);
 }
 
 // Tiny per-game session-key + status helpers shared by every game's daily
