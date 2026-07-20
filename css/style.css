@@ -706,10 +706,18 @@ button.cal-cell:active { background: var(--ch-parchment); }
 }
 
 /* Adjacency tearing: only scraps touching an open scrap are tearable. */
-.df-scrap.locked { cursor: default; }
+.df-scrap.locked { cursor: not-allowed; }
 .df-scrap.locked::after { opacity: .5; }
 .df-scrap.tearable { border: 2px dashed rgba(11,11,11,.75); }
 .df-scrap.tearable:active { filter: brightness(.94); }
+/* Blocked tap: shake instead of silence. `translate` so the shake composes
+   with each scrap's inline rotate and the torn transform. */
+.df-scrap.deny { animation: scrap-deny .28s ease; }
+@keyframes scrap-deny {
+  0%, 100% { translate: 0 0; }
+  30% { translate: -5px 0; }
+  65% { translate: 5px 0; }
+}
 #rv-panel { padding-top: 24px !important; }
 #rv-frame.df-duotone { background-color: #FFFFFF !important; }
 #rv-prompt[hidden] { display: none; }

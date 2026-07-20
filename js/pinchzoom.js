@@ -58,6 +58,13 @@ export function attachPinchZoom(el, opts = {}) {
   }
 
   el.addEventListener('pointerdown', (e) => {
+    // A new primary pointer means no other finger is physically down: anything
+    // still in the map is a ghost whose pointerup/cancel iOS never delivered
+    // (system edge-gesture, app switch). Purge it, or this tap and every later
+    // one reads as a two-finger pinch and the scrap buttons stop getting clicks.
+    if (e.isPrimary && pointers.size) {
+      pointers.clear(); pinch0 = null; pan0 = null;
+    }
     pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
     if (pointers.size === 2) {
       const [a, b] = [...pointers.values()];

@@ -1,7 +1,8 @@
 // "Face Value" / "Relic" — guess the famous face or artefact hidden under a
-// 3x3 grid of paper scraps. Tearing scraps off is the player's choice and the
-// player's cost: the first tear is free, each further tear docks the round's
-// worth, and wrong guesses dock more. No clock — curiosity is the only spender.
+// 3x3 grid of paper scraps. The game opens one scrap on the house; tearing
+// more is the player's choice and the player's cost: every player tear docks
+// the round's worth, and wrong guesses dock more. No clock — curiosity is the
+// only spender.
 // Mirrors the Map of a Life session shape (10 rounds, persisted, resumable).
 import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage } from './app.js';
 import * as store from './storage.js';
@@ -13,7 +14,7 @@ import * as sfx from './sfx.js';
 
 const ROUNDS = 10;
 const SCRAPS = 9;               // 3x3 cover grid
-const TEAR_COST = 10;           // per scrap after the first (first tear is free)
+const TEAR_COST = 10;           // per player tear (the opening scrap is on the house)
 const WRONG_PENALTY = 15;       // per wrong guess
 const WORTH_START = 100;
 const WORTH_FLOOR = 10;         // a correct answer never pays less than this
@@ -232,8 +233,9 @@ function setRoundOffline(off) {
 // ---------- scraps ----------
 // The money scrap is the grid cell holding the focal point (fx/fy map to the
 // frame under cover-fit positioning). The round OPENS with the scrap farthest
-// from it already torn — free — and only scraps orthogonally touching an open
-// scrap can be torn next, so the player plots a route toward the reveal.
+// from it already torn — the game's tear, on the house — and only scraps
+// orthogonally touching an open scrap can be torn next, so the player plots a
+// route toward the reveal. Every tear the PLAYER makes is paid.
 function moneyScrap(item) {
   const c = Math.min(2, Math.floor(item.fx * 3));
   const r = Math.min(2, Math.floor(item.fy * 3));
@@ -269,18 +271,21 @@ function refreshTearable() {
   if (!S || !S.cur) return;
   const torn = new Set(S.cur.torn);
   const open = new Set();
-  for (const t of torn) for (const n of neighbors(t)) if (!torn.has(n)) open.add(n);
+  if (torn.size) {
+    for (const t of torn) for (const n of neighbors(t)) if (!torn.has(n)) open.add(n);
+  } else {
+    for (let i = 0; i < SCRAPS; i++) open.add(i);   // opening tear: anywhere
+  }
   document.querySelectorAll('#rv-scraps .df-scrap').forEach((el) => {
     const i = +el.dataset.i;
-    if (torn.has(i)) return;
-    el.classList.toggle('tearable', open.has(i));
-    el.classList.toggle('locked', !open.has(i));
+    el.classList.toggle('tearable', !torn.has(i) && open.has(i));
+    el.classList.toggle('locked', !torn.has(i) && !open.has(i));
   });
 }
 function worthNow() {
   const cur = S && S.cur;
   if (!cur) return WORTH_START;
-  const paidTears = Math.max(0, cur.torn.length - 1);   // first tear is free
+  const paidTears = Math.max(0, cur.torn.length - 1);   // the game-opened scrap is free; every player tear is paid
   const clueCost = cur.clueCost || 0;                   // bought clue slips
   return Math.max(WORTH_FLOOR, WORTH_START - TEAR_COST * paidTears - WRONG_PENALTY * cur.wrongs - clueCost);
 }
@@ -289,10 +294,10 @@ function updateWorth() {
   const el = $('#rv-worth');
   if (!el || !S || !S.cur) return;
   const label = MODE === 'what' ? 'INK' : 'WORTH';
-  // The round opens with one scrap already torn on the house (that's the
-  // "first tear free" in worthNow's ledger) — say so, then price the rest.
-  // Once the player has torn one themselves the economy is learnt: hush.
-  const hint = S.cur.torn.length <= 1 ? ' · first scrap free · next −10 each' : '';
+  // Price the tears until the player buys their first; then the economy is
+  // learnt: hush. Never say "free" — the freebie is the scrap the game
+  // opened, not the player's first tear (owner correction 2026-07-20).
+  const hint = S.cur.torn.length <= 1 ? ' · each tear −10' : '';
   el.innerHTML = `${label}: <b>${worthNow()} PTS</b>${hint}`;
 }
 
@@ -316,13 +321,22 @@ function tearScrap(i, force) {
   if (!S || !S.cur || !S.cur.open) return;
   const cur = S.cur;
   if (cur.torn.includes(i)) return;
-  // Adjacency rule: a scrap must touch an already-open scrap (the free
-  // starting scrap is torn with force=true).
-  if (!force && !cur.torn.some((t) => neighbors(t).includes(i))) return;
+  // Adjacency rule: a scrap must touch an open one (force = the game's own
+  // opening tear). A blocked tap shakes its head instead of silently doing
+  // nothing.
+  if (!force && cur.torn.length && !cur.torn.some((t) => neighbors(t).includes(i))) {
+    const locked = $(`#rv-scraps [data-i="${i}"]`);
+    if (locked) {
+      locked.classList.remove('deny');
+      void locked.offsetWidth;   // restart the animation on repeat taps
+      locked.classList.add('deny');
+    }
+    return;
+  }
   cur.torn.push(i);
   const el = $(`#rv-scraps [data-i="${i}"]`);
   if (el) el.classList.add('torn');
-  // force = the round's free opening scrap, torn by the game, not the player
+  // force = the round's opening scrap, torn by the game, not the player
   if (!force) sfx.play('tear');
   refreshTearable();
   updateWorth();
@@ -531,7 +545,7 @@ function startRound() {
   if (frameZoom) frameZoom.reset();
   paintCover(item);
   buildScraps();
-  tearScrap(startScrap(item), true);   // the free opening scrap, placed far from the money shot
+  tearScrap(startScrap(item), true);   // the game's opening scrap, placed far from the money shot
   updateWorth();
   setRoundOffline(false);
   ensureDims(item, () => {
