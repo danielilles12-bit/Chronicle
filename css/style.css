@@ -51,7 +51,9 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   font-family: var(--ch-font-display); font-size: 44px; letter-spacing: -0.01em; margin: 0;
   font-weight: 400; line-height: .92; color: var(--ch-text-primary); text-transform: uppercase;
 }
-.dateline { margin: 8px 0 0; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--ch-text-primary); font-family: var(--ch-font-ui); }
+/* padding-right keeps the dateline (and its wrapped whisper) clear of the
+   absolutely-positioned David sticker occupying the masthead's right ~100px. */
+.dateline { margin: 8px 0 0; padding-right: 88px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--ch-text-primary); font-family: var(--ch-font-ui); }
 /* Card #6: the difficulty whisper — lowercase and muted against the
    dateline's own bold/uppercase/tracked voice, but otherwise the same line. */
 .dateline-whisper { text-transform: none; font-weight: 600; letter-spacing: normal; color: var(--ch-text-muted); }
@@ -117,12 +119,20 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 .hero-name { font-family: var(--ch-font-display); font-weight: 400; margin: 0 0 4px; font-size: 26px; text-transform: uppercase; letter-spacing: .01em; color: var(--ch-text-primary); }
 .hero-tagline { margin: 0; color: var(--ch-text-secondary); font-size: 14px; line-height: 1.4; }
 .hero-glyph { width: 66px; height: 66px; flex: none; border: none; display: block; }
-.hero-bottom { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.hero-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .hero-edition {
   font-size: 11px; text-transform: uppercase; letter-spacing: var(--ch-tracking-smallcaps);
   font-weight: 700; color: var(--ch-text-label); font-family: var(--ch-font-ui); white-space: nowrap;
 }
 .hero-status { font-size: 12px; font-weight: 700; color: var(--ch-text-muted); font-family: var(--ch-font-ui); white-space: nowrap; }
+/* "Play ›" reads as a button, not a status report (conversion audit):
+   an ink chip in the same voice as .pill.primary. Done and in-progress
+   states stay quiet coloured text via the row classes below. */
+.hero-card:not(.row-done):not(.row-progress) .hero-status {
+  background: var(--ch-ink); color: var(--ch-text-inverse);
+  border: 2px solid var(--ch-ink); padding: 6px 14px;
+  box-shadow: 2px 2px 0 rgba(11,11,11,.28);
+}
 .hero-card.row-done .hero-status { color: var(--ch-forest); }
 .hero-card.row-progress .hero-status { color: var(--ch-gold); }
 
