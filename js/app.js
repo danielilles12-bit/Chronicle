@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v113';
+const BUILD = 'v114';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -983,7 +983,25 @@ async function boot() {
   window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, { data: DATA, store, isMatch, daily });
 
   const buildTag = $('#build-tag');
-  if (buildTag) buildTag.textContent = BUILD;
+  if (buildTag) {
+    buildTag.textContent = BUILD;
+    // Owner's kill switch: five quick taps on the version number toggle
+    // GoatCounter's own localStorage opt-out ('skipgc' — the same flag
+    // #toggle-goatcounter sets). Exists because the installed app has no
+    // address bar, so the hash route can't reach it there.
+    let taps = 0, tapTimer = null;
+    buildTag.addEventListener('click', () => {
+      taps++;
+      clearTimeout(tapTimer);
+      tapTimer = setTimeout(() => { taps = 0; }, 1200);
+      if (taps < 5) return;
+      taps = 0;
+      const off = localStorage.getItem('skipgc') !== 't';
+      localStorage.setItem('skipgc', off ? 't' : 'f');
+      buildTag.textContent = off ? 'off the record' : 'back on the record';
+      setTimeout(() => { buildTag.textContent = BUILD; }, 2000);
+    });
+  }
 
   if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
     navigator.serviceWorker.register('sw.js').then((reg) => {
