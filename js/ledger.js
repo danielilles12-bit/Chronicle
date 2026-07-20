@@ -115,11 +115,11 @@ export function computeLedger(ledger, today) {
 function flourishLine(data) {
   const scored = data.games.filter((g) => g.bestScore > 0);
   if (!scored.length) {
-    return 'Every issue filed is a day the record remembers.';
+    return 'Every day played is a day history remembers.';
   }
   let top = scored[0];
   scored.forEach((g) => { if (g.bestScore > top.bestScore) top = g; }); // home order breaks ties
-  return `Best byline to date: your ${top.label} desk — ${top.bestScore} in a single issue.`;
+  return `Your crowning glory: ${top.label} — ${top.bestScore} in a single day.`;
 }
 
 // ---------- rendering ----------
@@ -153,13 +153,13 @@ export function renderLedger() {
   // opening date. FLAGGED FOR VOICE REVIEW.
   const since = empty
     ? 'History starts at midnight.'
-    : `Keeping the record since Issue № ${d.firstEdition}.`;
+    : `In the making since № ${d.firstEdition}.`;
 
   const tallies = `
     <div class="ledger-tallies">
-      ${tallyBlock('Issues filed', empty ? '—' : d.issuesFiled)}
+      ${tallyBlock('Days played', empty ? '—' : d.issuesFiled)}
       ${tallyBlock('Full houses', empty ? '—' : d.fullHouses)}
-      ${tallyBlock('Perfect issues', empty ? '—' : d.perfectIssues)}
+      ${tallyBlock('Perfect days', empty ? '—' : d.perfectIssues)}
     </div>`;
 
   const streaks = `
@@ -173,7 +173,7 @@ export function renderLedger() {
     <table class="ledger-table">
       <thead>
         <tr>
-          <th scope="col" class="ledger-desk">Desk</th>
+          <th scope="col" class="ledger-desk">Game</th>
           <th scope="col">Played</th>
           <th scope="col">Win%</th>
           <th scope="col">Cur.</th>
@@ -183,27 +183,27 @@ export function renderLedger() {
       </thead>
       <tbody>${rows}</tbody>
     </table>
-    <p class="ledger-legend">Cur. = current streak · Best = longest run · High = top issue</p>`;
+    <p class="ledger-legend">Cur. = current streak · Best = longest run · High = top day</p>`;
 
   // The earned stamp: books have their fates. Shown only once a perfect issue
   // exists, and it is the page's single red accent. FLAGGED FOR VOICE REVIEW
   // (Latin: "Habent sua fata libelli" — books have their fates).
   const stamp = (!empty && d.perfectIssues > 0)
-    ? `<div class="df-stamp ledger-stamp" aria-label="${d.perfectIssues} perfect issue${d.perfectIssues === 1 ? '' : 's'}">
-         Habent sua fata<small>${d.perfectIssues} perfect issue${d.perfectIssues === 1 ? '' : 's'}</small>
+    ? `<div class="df-stamp ledger-stamp" aria-label="${d.perfectIssues} perfect day${d.perfectIssues === 1 ? '' : 's'}">
+         Habent sua fata<small>${d.perfectIssues} perfect day${d.perfectIssues === 1 ? '' : 's'}</small>
        </div>`
     : '';
 
   const body = empty
-    ? `<p class="ledger-empty-line">No issues filed yet.</p>
-       <p class="ledger-empty-sub">Play today's four and your record opens here.</p>`
+    ? `<p class="ledger-empty-line">Nothing on the record yet.</p>
+       <p class="ledger-empty-sub">Play today's four and your legacy begins here.</p>`
     : `<p class="ledger-flourish">${esc(flourishLine(d))}</p>`;
 
   root.innerHTML = `
     <div class="ledger-sheet${empty ? ' is-empty' : ''}">
       <div class="ledger-masthead">
-        <span class="ledger-kicker">The record</span>
-        <h3 class="ledger-title">The Ledger</h3>
+        <span class="ledger-kicker">For the ages</span>
+        <h3 class="ledger-title">Your Legacy</h3>
         <span class="ledger-since">${esc(since)}</span>
       </div>
       ${tallies}

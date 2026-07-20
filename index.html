@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
 <title>Dead Famous — History as Entertainment</title>
-<meta name="description" content="Four little history games a day: Thread, Lifeline, Face Value and Relic. New issue at midnight — same issue as everyone else. Free, no sign-up.">
+<meta name="description" content="Four little history games a day: Face Value, Lifeline, Relic and Thread. New games at midnight — same games as everyone else. Free, no sign-up.">
 <meta name="theme-color" content="#F2EFE6">
 <!-- Link previews (iMessage/WhatsApp/X/Discord/Slack read these; crawlers never
      run JS so they must stay static). URLs are absolute on purpose. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Dead Famous">
 <meta property="og:title" content="Dead Famous — daily history games">
-<meta property="og:description" content="Four little history games a day. New issue at midnight — same issue as everyone else. Free, no sign-up.">
+<meta property="og:description" content="Four little history games a day. New games at midnight — same games as everyone else. Free, no sign-up.">
 <meta property="og:url" content="https://deadfamous.app/">
 <meta property="og:image" content="https://deadfamous.app/assets/brand/social-card.png">
 <meta property="og:image:width" content="1200">
@@ -19,7 +19,7 @@
 <meta property="og:image:alt" content="Dead Famous — four daily history games. A pop-art David statue in pink sunglasses next to the four game icons.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Dead Famous — daily history games">
-<meta name="twitter:description" content="Four little history games a day. New issue at midnight — same issue as everyone else. Free, no sign-up.">
+<meta name="twitter:description" content="Four little history games a day. New games at midnight — same games as everyone else. Free, no sign-up.">
 <meta name="twitter:image" content="https://deadfamous.app/assets/brand/social-card.png">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/favicon.png">
@@ -67,7 +67,7 @@
       <img class="masthead-sticker" src="assets/brand/david-sticker.png" alt="" aria-hidden="true">
       <h1>Dead<br>Famous</h1>
       <p class="dateline" id="dateline"></p>
-      <div id="punch-card" hidden role="button" tabindex="0" aria-label="Full-house streak this week — open The Ledger"></div>
+      <div id="punch-card" hidden role="button" tabindex="0" aria-label="Full-house streak this week — open Your Legacy"></div>
     </header>
     <!-- Edition-closed strip (Change A): the quiet ending shown at the top of
          Home once all four of today's dailies are played but not all won. An
@@ -82,7 +82,7 @@
       <p class="ic-countdown" id="ic-countdown"></p>
     </div>
     <div id="stranger-hero" hidden>
-      <p class="stranger-headline">Four little history games. New issue at midnight — same issue as everyone else.</p>
+      <p class="stranger-headline">Four little history games. New games at midnight — same games as everyone else.</p>
       <button class="pill primary big" id="stranger-play">Play today ›</button>
     </div>
     <!-- Each .game-row (hero + day-card strip + Archive bar) is built and
@@ -102,7 +102,7 @@
       <button class="pill primary" id="install-btn" hidden>Install — one tap</button>
       <button id="install-tip-close" aria-label="Dismiss">×</button>
     </div>
-    <footer class="home-foot">Works offline · <button type="button" id="ledger-link" class="foot-toggle">The Ledger</button> · <button type="button" id="sound-toggle" class="foot-toggle">Sound on</button> · <span id="build-tag"></span></footer>
+    <footer class="home-foot">Works offline · <button type="button" id="ledger-link" class="foot-toggle">Your Legacy</button> · <button type="button" id="sound-toggle" class="foot-toggle">Sound on</button> · <span id="build-tag"></span></footer>
   </section>
 
   <!-- ============ MAP GAME: START ============ -->
@@ -121,7 +121,7 @@
       </svg>
       <h3 class="start-title">Ten lives, twenty dots.</h3>
       <p class="start-copy">Each round shows where a historical figure was <b class="b-birth">born</b> and where they <b class="b-death">died</b>, with the years. Type their name — spelling needn’t be perfect.</p>
-      <p class="start-copy small">100 points for an unaided answer (a correct answer always pays at least 10). Clue slips cost 15–25, wrong guesses 15, revealing scores zero. Each consecutive correct answer from the second onward earns +10. Your issue score is your round average.</p>
+      <p class="start-copy small">100 points for an unaided answer (a correct answer always pays at least 10). Clue slips cost 15–25, wrong guesses 15, revealing scores zero. Each consecutive correct answer from the second onward earns +10. Your day’s score is your round average.</p>
       <p class="card-stat" id="map-best"></p>
       <button class="pill primary big" id="map-start">Start a run</button>
       <button class="pill big" id="map-resume" hidden>Resume run</button>
@@ -204,7 +204,7 @@
       </svg>
       <h3 class="start-title">Tear towards it.</h3>
       <p class="start-copy">A famous <b>face</b> or <b>artefact</b> hides under nine scraps — one is already open. You can only tear scraps <b>touching</b> what's open, so plot your route.</p>
-      <p class="start-copy small">Each round is worth 100. Tears cost 10, wrong guesses 15, and clue slips 15–25 — buy your way to an educated guess. Two right in a row earns +10. Your issue score is your round average.</p>
+      <p class="start-copy small">Each round is worth 100. Tears cost 10, wrong guesses 15, and clue slips 15–25 — buy your way to an educated guess. Two right in a row earns +10. Your day’s score is your round average.</p>
       <p class="card-stat" id="rv-best"></p>
       <button class="pill primary big" id="rv-start">Start a run</button>
       <button class="pill big" id="rv-resume" hidden>Resume run</button>
@@ -331,7 +331,7 @@
   <section class="view view-loud" id="view-daydone" hidden>
     <header class="topbar safe-top" style="background:transparent;border-bottom-color:var(--ch-ink)">
       <span class="topbar-right"></span>
-      <h2 id="dd-issue">Issue № —</h2>
+      <h2 id="dd-issue">№ —</h2>
       <button class="iconbtn" id="dd-close" aria-label="Close">×</button>
     </header>
     <main class="scroll-main df-moment">
@@ -347,7 +347,7 @@
       </div>
       <p class="dd-countdown" id="dd-countdown" hidden></p>
       <p class="dd-carpet" id="dd-carpet" hidden><span class="df-stamp">Carpet diem</span></p>
-      <p class="dd-postmark" id="dd-milestone" hidden><span class="postmark"><b id="dd-milestone-n">№2</b><small>issues<br>running</small></span></p>
+      <p class="dd-postmark" id="dd-milestone" hidden><span class="postmark"><b id="dd-milestone-n">№2</b><small>days<br>running</small></span></p>
       <div class="sum-actions">
         <button class="pill primary big" id="dd-share">Share today's receipt</button>
         <button class="pill ghost big" id="dd-home">Home</button>
@@ -363,7 +363,7 @@
     </header>
     <div class="df-morgue-banner" aria-hidden="true">
       <span class="df-morgue-title">The Morgue</span>
-      <span class="df-morgue-sticker">Every issue lives forever</span>
+      <span class="df-morgue-sticker">Nothing in here ever dies</span>
     </div>
     <div id="archive-filters" class="archive-filters"></div>
     <main id="archive-list" class="scroll-main"></main>
@@ -376,7 +376,7 @@
   <section class="view" id="view-ledger" hidden>
     <header class="topbar safe-top">
       <button class="iconbtn" data-back aria-label="Back">‹</button>
-      <h2>The Ledger</h2>
+      <h2>Your Legacy</h2>
       <span class="topbar-right"></span>
     </header>
     <main id="ledger-body" class="scroll-main"></main>
@@ -384,7 +384,7 @@
 
   <div id="archive-picker" class="sheet" hidden>
     <div class="sheet-card">
-      <h3 id="archive-picker-title">Issue</h3>
+      <h3 id="archive-picker-title">Day</h3>
       <p class="start-copy small" style="margin:0 0 4px">Practice mode: replayable, doesn't affect streaks.</p>
       <div class="sheet-row">
         <button class="pill" data-practice-game="thread">Thread</button>

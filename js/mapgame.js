@@ -619,15 +619,15 @@ function resolveRound(correct) {
 function renderLockedSummary() {
   const head = document.querySelector('#view-mapsum [data-receipt-head]');
   if (head) head.textContent = 'Dead Famous · Lifeline'
-    + (S.editionIndex != null ? ` · Issue № ${S.editionIndex}` : '');
+    + (S.editionIndex != null ? ` · № ${S.editionIndex}` : '');
   $('#sum-total').textContent = S.score;
   setReceiptStamp('view-mapsum', S.score);
   const remarks = [
-    [90, 'Front-page material.'],
-    [75, 'Tabloid royalty.'],
-    [55, 'A solid scoop.'],
-    [30, 'Keep digging — every hack starts somewhere.'],
-    [0, 'Tomorrow\'s fish and chip paper.'],
+    [90, 'Immortalised.'],
+    [75, 'A household name.'],
+    [55, 'Fifteen minutes of fame.'],
+    [30, 'Getting warm.'],
+    [0, 'A footnote.'],
   ];
   const weekendNote = S.editionIndex != null ? daily.weekendReceiptMeta(S.editionIndex) : null;
   $('#sum-remark').innerHTML = remarks.find((r) => S.score >= r[0])[1]

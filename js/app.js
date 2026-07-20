@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v117';
+const BUILD = 'v118';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -251,7 +251,7 @@ async function ensureData(statusEl) {
 // the same way the issue number already does.
 function datelineHTML(n) {
   const safe = Math.max(0, n);
-  return `Issue № ${safe} // ${daily.weekdayName(safe)} `
+  return `№ ${safe} // ${daily.weekdayName(safe)} `
     + `<span class="dateline-whisper">— ${daily.weekdayWhisper(safe)}</span>`;
 }
 
@@ -303,7 +303,7 @@ export function refreshGameRows() {
     const status = daily.dailyStatus(g.key, today);
     const entry = status === 'done' ? store.getDailyEntry(g.key, today) : null;
     const hero = $(`[data-hero="${g.key}"]`);
-    hero.querySelector('[data-edition]').textContent = `ISSUE № ${Math.max(0, today)}`;
+    hero.querySelector('[data-edition]').textContent = `№ ${Math.max(0, today)}`;
     hero.querySelector('[data-status]').textContent = statusLabel(status, entry && entry.score);
     hero.classList.toggle('row-done', status === 'done');
     hero.classList.toggle('row-progress', status === 'in-progress');
@@ -354,7 +354,7 @@ export function wireTurnThePage(btnId, editionIndex, isDaily) {
   const today = daily.todayIndex();
   if (!isDaily || editionIndex !== today) { btn.hidden = true; btn.onclick = null; return; }
   const next = nextUnplayedDaily(today);
-  btn.textContent = next ? 'Turn the page ›' : 'Close the issue ›';
+  btn.textContent = next ? 'Turn the page ›' : 'Call it a day ›';
   btn.hidden = false;
   btn.onclick = () => { if (next) launchDailyByKey(next, today); else goHome(); };
 }
@@ -375,19 +375,19 @@ const INTRO_CONTENT = {
     glyph: 'assets/brand/game-icon-lifeline.png',
     title: 'Ten lives, twenty dots.',
     copy: 'Each round shows where a figure was born and where they died, with the years. Type their name — spelling needn’t be perfect.',
-    copy2: '100 points for an unaided answer (a correct one always pays at least 10). Clue slips cost 15–25, wrong guesses 15, revealing scores zero. Each correct answer from the second in a row earns +10. Your issue score is your round average.',
+    copy2: '100 points for an unaided answer (a correct one always pays at least 10). Clue slips cost 15–25, wrong guesses 15, revealing scores zero. Each correct answer from the second in a row earns +10. Your day’s score is your round average.',
   },
   who: {
     glyph: 'assets/brand/game-icon-face-value.png',
     title: 'Tear towards it.',
     copy: 'A famous face hides under nine scraps — one is already open. You can only tear scraps touching what’s open, so plot your route.',
-    copy2: 'Each round is worth 100. Tears cost 10, wrong guesses 15, and clue slips 15–25. Two right in a row earns +10. Your issue score is your round average.',
+    copy2: 'Each round is worth 100. Tears cost 10, wrong guesses 15, and clue slips 15–25. Two right in a row earns +10. Your day’s score is your round average.',
   },
   what: {
     glyph: 'assets/brand/game-icon-relic.png',
     title: 'Tear towards it.',
     copy: 'A famous artefact hides under nine scraps — one is already open. You can only tear scraps touching what’s open, so plot your route.',
-    copy2: 'Each round is worth 100. Tears cost 10, wrong guesses 15, and clue slips 15–25. Two right in a row earns +10. Your issue score is your round average.',
+    copy2: 'Each round is worth 100. Tears cost 10, wrong guesses 15, and clue slips 15–25. Two right in a row earns +10. Your day’s score is your round average.',
   },
 };
 
@@ -490,11 +490,11 @@ function renderMonth(monthStart, today, last) {
     if (n < 0 || n > last) {
       cells += `<span class="cal-cell dead">${d}</span>`;
     } else if (n === today) {
-      cells += `<span class="cal-cell today" aria-label="Issue № ${n} — today, on the front page">`
+      cells += `<span class="cal-cell today" aria-label="№ ${n} — today">`
         + `<b>${d}</b><span class="cal-dots">${calDots(n)}</span></span>`;
     } else {
       cells += `<button type="button" class="cal-cell${n > today ? ' future' : ''}" data-edition="${n}"`
-        + ` aria-label="Issue № ${n} · ${daily.weekdayName(n)}">`
+        + ` aria-label="№ ${n} · ${daily.weekdayName(n)}">`
         + `<b>${d}</b><span class="cal-dots">${calDots(n)}</span></button>`;
     }
   }
@@ -830,7 +830,7 @@ function countdownText() {
   const h = String(Math.floor(ms / 3600000)).padStart(2, '0');
   const m = String(Math.floor((ms % 3600000) / 60000)).padStart(2, '0');
   const sec = String(Math.floor((ms % 60000) / 1000)).padStart(2, '0');
-  return `Next issue drops in<b>${h}:${m}:${sec}</b>`;
+  return `New games in<b>${h}:${m}:${sec}</b>`;
 }
 
 function startCountdown() {
@@ -855,7 +855,7 @@ function refreshIssueClosed() {
   if (!strip) return;
   const n = daily.todayIndex();
   if (!(n >= 0 && fullHouseDone(n) && !allWon(n))) { strip.hidden = true; stopIssueClosedCountdown(); return; }
-  $('#ic-verdict').textContent = `Issue № ${n}, filed. Some got away.`;
+  $('#ic-verdict').textContent = `№ ${n}, done. Some got away.`;
   $('#ic-score').textContent = dayTotal(n);
   strip.hidden = false;
   const tick = () => { $('#ic-countdown').innerHTML = countdownText(); };
@@ -869,7 +869,7 @@ function showCelebration(n) {
   sfx.play('fanfare');
   const v = $('#view-daydone');
   v.classList.remove('obituary');
-  $('#dd-issue').textContent = `Issue № ${n}`;
+  $('#dd-issue').textContent = `№ ${n}`;
   $('#dd-title').textContent = 'You made history.';
   $('#dd-score-label').textContent = "Today's total";
   $('#dd-total').textContent = dayTotal(n);
@@ -897,12 +897,12 @@ function showObituary(streak, lastEdition) {
   sfx.play('toll');
   const v = $('#view-daydone');
   v.classList.add('obituary');
-  $('#dd-issue').textContent = `Issue № ${daily.todayIndex()}`;
+  $('#dd-issue').textContent = `№ ${daily.todayIndex()}`;
   $('#dd-title').textContent = "You're history.";
   $('#dd-score-label').textContent = 'Your streak ended at';
   $('#dd-total').textContent = `${streak} days`;
   $('#dd-streak-label').textContent = 'Rest in peace';
-  $('#dd-streak').textContent = `Issues ${Math.max(0, lastEdition - streak + 1)}–${lastEdition}`;
+  $('#dd-streak').textContent = `Days ${Math.max(0, lastEdition - streak + 1)}–${lastEdition}`;
   $('#dd-stamp').hidden = false;
   $('#dd-carpet').hidden = true;
   $('#dd-milestone').hidden = true;
@@ -1128,8 +1128,8 @@ function showNewEditionBar() {
   bar.id = 'new-edition';
   bar.type = 'button';
   bar.innerHTML = document.documentElement.classList.contains('ios')
-    ? '🗞️ New edition off the presses — <b>pull down to refresh</b>'
-    : '🗞️ New edition off the presses — <b>tap to refresh</b>';
+    ? '✨ New version ready — <b>pull down to refresh</b>'
+    : '✨ New version ready — <b>tap to refresh</b>';
   bar.addEventListener('click', () => location.reload());
   document.body.appendChild(bar);
 }

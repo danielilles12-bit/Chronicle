@@ -372,7 +372,7 @@ function renderThreadReceipt({ editionIndex, mode, title, score, solved, perfect
   const head = $('#conn-receipt-head');
   if (head) {
     head.textContent = 'Dead Famous · Thread'
-      + (mode === 'daily' && editionIndex != null ? ` · Issue № ${editionIndex}` : '');
+      + (mode === 'daily' && editionIndex != null ? ` · № ${editionIndex}` : '');
   }
   const rows = $('#conn-sum-rows');
   rows.innerHTML = '';

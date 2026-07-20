@@ -638,7 +638,7 @@ function resolveRound(correct) {
 function renderLockedSummary() {
   const head = document.querySelector('#view-revealsum [data-receipt-head]');
   if (head) head.textContent = `Dead Famous · ${MODE === 'who' ? 'Face Value' : 'Relic'}`
-    + (S.editionIndex != null ? ` · Issue № ${S.editionIndex}` : '');
+    + (S.editionIndex != null ? ` · № ${S.editionIndex}` : '');
   $('#rv-sum-total').textContent = S.score;
   setReceiptStamp('view-revealsum', S.score);
   const remarks = [

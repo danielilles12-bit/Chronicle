@@ -76,7 +76,7 @@ export function weekdayName(n) {
 }
 
 export function editionLabel(n) {
-  return `Issue № ${n} · ${weekdayName(n)}`;
+  return `№ ${n} · ${weekdayName(n)}`;
 }
 
 // ---------- difficulty whisper (Card #6) ----------
@@ -101,8 +101,8 @@ export function weekdayWhisper(n) {
 // brief card #6). Sat/Sun editions get one extra meta-line on their receipts.
 export function weekendReceiptMeta(n) {
   const wd = weekday(n);
-  if (wd === 5) return `Saturday edition — ${WHISPER_LADDER[5]}`;
-  if (wd === 6) return `Sunday edition — ${WHISPER_LADDER[6]}`;
+  if (wd === 5) return `Saturday — ${WHISPER_LADDER[5]}`;
+  if (wd === 6) return `Sunday — ${WHISPER_LADDER[6]}`;
   return null;
 }
 

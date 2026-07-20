@@ -78,7 +78,7 @@ export function fullHouseShareText(issue, scores, total, streak) {
 export function obituaryShareText(streak, fromIssue, toIssue) {
   return lines('DEAD FAMOUS ⚰️',
     `My ${streak}-day streak died.`,
-    `RIP Issues №${fromIssue}–№${toIssue}. MEMENTO MORI.`);
+    `RIP №${fromIssue}–№${toIssue}. MEMENTO MORI.`);
 }
 
 // ---------- the image receipt ----------
