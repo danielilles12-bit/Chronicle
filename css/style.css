@@ -211,6 +211,19 @@ button.cal-cell:active { background: var(--ch-parchment); }
   letter-spacing: .04em; text-transform: uppercase; line-height: 1.55; color: var(--ch-text-primary);
 }
 .is-stranger .df-week, .is-stranger .row-archive, .is-stranger #punch-card { display: none !important; }
+/* The one door gets the house magenta and a periodic nudge — enough to say
+   "press me", quiet enough not to feel like an ad. */
+#stranger-play {
+  background: var(--df-magenta); border-color: var(--ch-ink);
+  animation: cta-nudge 3s ease-in-out infinite;
+}
+#stranger-play:active { background: color-mix(in srgb, var(--df-magenta) 84%, var(--ch-ink)); }
+@keyframes cta-nudge {
+  0%, 86%, 100% { scale: 1; }
+  91% { scale: 1.03; }
+  96% { scale: 0.995; }
+}
+@media (prefers-reduced-motion: reduce) { #stranger-play { animation: none; } }
 
 /* Edition-closed strip (Change A): the quiet ending for a day finished but not
    swept — top of Home + the destination of "Close the issue ›". Receipt-

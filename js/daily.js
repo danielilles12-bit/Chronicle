@@ -243,7 +243,9 @@ export function editionRecipe(n) {
 // streaks. Storage access lives in storage.js; daily.js only computes what
 // goes into it so the streak rule is defined in one place and unit-testable
 // without the DOM/localStorage.
-const GAMES = ['thread', 'map', 'who', 'what'];
+// Order = home presentation order AND "turn the page" flow order (keep in
+// sync with GAME_ROWS in app.js): Face Value, Lifeline, Relic, Thread.
+const GAMES = ['who', 'map', 'what', 'thread'];
 
 // Streak-valid rule ("the press window", Daniel's kinder call 2026-07-10):
 // a completion counts toward streaks if it happened within TWO days of the

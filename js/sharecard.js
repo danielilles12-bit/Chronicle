@@ -70,7 +70,7 @@ export function revealShareText(kind, issue, rounds, score) {
 }
 
 export function fullHouseShareText(issue, scores, total, streak) {
-  const row = `🧵${scores.thread} 🗺️${scores.map} 🖼️${scores.who} 🏺${scores.what} · ${total} PTS`;
+  const row = `🖼️${scores.who} 🗺️${scores.map} 🏺${scores.what} 🧵${scores.thread} · ${total} PTS`;
   const flame = streak > 1 ? `🔥 ${streak}-day streak` : '';
   return lines(`DEAD FAMOUS №${issue} — FULL HOUSE 🏛️`, row, flame);
 }

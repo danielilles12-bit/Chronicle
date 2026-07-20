@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v116';
+const BUILD = 'v117';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -126,18 +126,21 @@ export function refreshHomeStats() {
 }
 
 // ---------- Game rows (hero + day-card strip + Archive bar) ----------
-// One row per game, in the fixed presentation order Thread, Lifeline,
-// Face Value, Relic. `launchDaily`/`launchPractice` take the edition index.
+// One row per game, in the fixed presentation order Face Value, Lifeline,
+// Relic, Thread — most instantly-graspable first, heaviest cold-open last
+// (conversion call, 2026-07-20; keep in sync with GAMES in daily.js, which
+// drives the same order for "turn the page"). `launchDaily`/`launchPractice`
+// take the edition index.
 // Per-row accent tints are Archive Codex versions of NYT's per-game colour
 // coding (spec "Per-row accent tints"): a strong tint for the hero card, a
 // slightly lighter one (lower mix %) for day cards + the Archive bar.
 const GAME_ROWS = [
   {
-    key: 'thread', label: 'Thread', tagline: 'Group 16 clues into four hidden categories.',
-    glyph: 'assets/brand/game-icon-thread.png',
-    tintStrong: 'var(--df-cyan)',
-    tintSoft: 'color-mix(in srgb, var(--df-cyan) 14%, var(--ch-cream))',
-    launchDaily: startThreadDaily, launchPractice: startThreadPractice,
+    key: 'who', label: 'Face Value', tagline: 'A famous face, one scrap at a time.',
+    glyph: 'assets/brand/game-icon-face-value.png',
+    tintStrong: 'var(--df-magenta)',
+    tintSoft: 'color-mix(in srgb, var(--df-magenta) 12%, var(--ch-cream))',
+    launchDaily: (n) => startRevealDaily('who', n), launchPractice: (n) => startRevealPractice('who', n),
   },
   {
     key: 'map', label: 'Lifeline', tagline: 'Born here, died there. Name the figure.',
@@ -147,18 +150,18 @@ const GAME_ROWS = [
     launchDaily: startMapDaily, launchPractice: startMapPractice,
   },
   {
-    key: 'who', label: 'Face Value', tagline: 'A famous face, one scrap at a time.',
-    glyph: 'assets/brand/game-icon-face-value.png',
-    tintStrong: 'var(--df-magenta)',
-    tintSoft: 'color-mix(in srgb, var(--df-magenta) 12%, var(--ch-cream))',
-    launchDaily: (n) => startRevealDaily('who', n), launchPractice: (n) => startRevealPractice('who', n),
-  },
-  {
     key: 'what', label: 'Relic', tagline: 'A famous artefact, one scrap at a time.',
     glyph: 'assets/brand/game-icon-relic.png',
     tintStrong: 'var(--df-red)',
     tintSoft: 'color-mix(in srgb, var(--df-red) 10%, var(--ch-cream))',
     launchDaily: (n) => startRevealDaily('what', n), launchPractice: (n) => startRevealPractice('what', n),
+  },
+  {
+    key: 'thread', label: 'Thread', tagline: 'Group 16 clues into four hidden categories.',
+    glyph: 'assets/brand/game-icon-thread.png',
+    tintStrong: 'var(--df-cyan)',
+    tintSoft: 'color-mix(in srgb, var(--df-cyan) 14%, var(--ch-cream))',
+    launchDaily: startThreadDaily, launchPractice: startThreadPractice,
   },
 ];
 // Kept for the Archive picker (practice-game buttons) and archive-row dots,
@@ -327,8 +330,8 @@ export function refreshGameRows() {
 export function refreshTodayStrip() { refreshGameRows(); }
 
 // ---------- Turn the page (Change A: an ending for every day) ----------
-// The next of today's four dailies (home order: Thread, Lifeline, Face Value,
-// Relic == daily.GAMES) with no ledger entry yet, or null once all four are
+// The next of today's four dailies (home order: Face Value, Lifeline, Relic,
+// Thread == daily.GAMES) with no ledger entry yet, or null once all four are
 // played (won OR lost). "Played" is derived straight from the ledger — no new
 // storage shape.
 function nextUnplayedDaily(n) {
