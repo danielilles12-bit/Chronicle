@@ -4,15 +4,48 @@
 // to disable everything; count.js already skips localhost by itself.
 const CODE = 'deadfamous';
 
-// Event names kept short and stable — they become paths in the GoatCounter
-// dashboard: start-thread, finish-map, share-fullhouse, install-tip-shown…
+// Call sites use the app's terse internal vocabulary (game keys: map = Lifeline,
+// who = Face Value, what = Relic). DISPLAY translates them into the names the
+// GoatCounter dashboard shows: a numbered funnel that reads top-to-bottom as a
+// story — 1 arrived, 2 saw the games, 3 started, 4 finished, 5 full house,
+// 6 shared, 7 installed, 9 something broke. Unmapped names pass through as-is.
+const DISPLAY = {
+  'open-browser': '1-visit-in-browser',
+  'open-pwa': '1-visit-installed-app',
+  'open-new': '1-visitor-first-time',
+  'open-return': '1-visitor-returning',
+  'rows-rendered': '2-saw-the-games',
+  'rows-rendered-slow': '2-saw-the-games-slowly',
+  'cta-tap': '3-tapped-play-today',
+  'start-thread': '3-started-thread',
+  'start-map': '3-started-lifeline',
+  'start-who': '3-started-facevalue',
+  'start-what': '3-started-relic',
+  'finish-thread': '4-finished-thread',
+  'finish-map': '4-finished-lifeline',
+  'finish-who': '4-finished-facevalue',
+  'finish-what': '4-finished-relic',
+  'finish-day': '5-finished-all-four',
+  'share-thread': '6-shared-thread',
+  'share-map': '6-shared-lifeline',
+  'share-who': '6-shared-facevalue',
+  'share-what': '6-shared-relic',
+  'share-fullhouse': '6-shared-full-house',
+  'share-obituary': '6-shared-obituary',
+  'install-tip-shown': '7-install-pitch-shown',
+  'install-tip-tap': '7-install-pitch-tapped',
+  'install-tip-dismiss': '7-install-pitch-dismissed',
+  'install-accepted': '7-installed',
+  'install-declined': '7-install-declined',
+  'app-error': '9-app-error',
+};
 let queued = [];
 
 export function track(event) {
   if (!CODE) return;
   const gc = window.goatcounter;
   if (gc && gc.count) {
-    try { gc.count({ path: event, event: true }); } catch (e) { /* never break the game */ }
+    try { gc.count({ path: DISPLAY[event] || event, event: true }); } catch (e) { /* never break the game */ }
   } else {
     queued.push(event);
   }

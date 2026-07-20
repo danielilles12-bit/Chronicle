@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v115';
+const BUILD = 'v116';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -206,6 +206,8 @@ function renderGameRows() {
   // open-* minus this = visitors who never saw the landing (loading bleed);
   // this minus start-* = visitors who saw it and didn't bite (persuasion bleed).
   track('rows-rendered');
+  // Cards no longer wait on data, so a slow paint means slow HTML/JS delivery.
+  if (performance.now() > 2500) track('rows-rendered-slow');
 
   GAME_ROWS.forEach((g) => {
     $(`[data-hero="${g.key}"]`).addEventListener('click', () => {
@@ -993,6 +995,12 @@ function loadData() {
 
 async function boot() {
   initTracking();
+  // A crash in the wild is otherwise invisible (a broken deploy on one iOS
+  // version, say). One anonymous event per session, no details collected.
+  let errTracked = false;
+  const trackErr = () => { if (!errTracked) { errTracked = true; track('app-error'); } };
+  window.addEventListener('error', trackErr);
+  window.addEventListener('unhandledrejection', trackErr);
   // The opening funnel, one event per boot: installed-app vs browser tab,
   // first-ever visit vs a return. These four paths are the denominators for
   // every start/finish/share rate on the dashboard.
