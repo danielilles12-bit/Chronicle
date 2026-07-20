@@ -200,14 +200,17 @@ button.cal-cell:active { background: var(--ch-parchment); }
 }
 #install-btn { margin-top: 10px; }
 
-/* First-visit orientation line (see initHome): one sentence, then gone. */
-#stranger-line {
-  margin: 12px 24px 0; padding: 10px 36px 10px 12px; position: relative;
+/* The stranger's landing (see applyStrangerMode): headline + one door for
+   visitors with no play history; the regulars' furniture below stays hidden
+   until their first finished daily. */
+#stranger-hero { margin: 14px 24px 4px; display: flex; flex-direction: column; gap: 12px; align-items: stretch; }
+.stranger-headline {
+  margin: 0; padding: 10px 12px;
   background: var(--ch-cream); border: 2px solid var(--ch-ink); box-shadow: 3px 3px 0 var(--ch-ink);
   font-family: var(--ch-font-ui); font-size: 12px; font-weight: 700;
   letter-spacing: .04em; text-transform: uppercase; line-height: 1.55; color: var(--ch-text-primary);
 }
-#stranger-line button { position: absolute; right: 6px; top: 4px; font-size: 18px; color: var(--ch-text-muted); padding: 4px 8px; }
+.is-stranger .df-week, .is-stranger .row-archive, .is-stranger #punch-card { display: none !important; }
 
 /* Edition-closed strip (Change A): the quiet ending for a day finished but not
    swept — top of Home + the destination of "Close the issue ›". Receipt-

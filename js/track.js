@@ -20,6 +20,12 @@ export function track(event) {
 
 export function initTracking() {
   if (!CODE || location.protocol.indexOf('http') !== 0) return;
+  // /index.html and / are the same page: canonicalise before count.js reads
+  // the URL, so the dashboard shows one row (and Add to Home Screen bakes in
+  // the clean path).
+  if (location.pathname.slice(-11) === '/index.html') {
+    history.replaceState(null, '', location.pathname.slice(0, -10) + location.search + location.hash);
+  }
   window.goatcounter = window.goatcounter || {};
   const s = document.createElement('script');
   s.async = true;

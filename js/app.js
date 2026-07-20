@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v114';
+const BUILD = 'v115';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -168,7 +168,7 @@ const TODAY_GAMES = GAME_ROWS;
 function statusLabel(status, score) {
   if (status === 'done') return `Done · ${score} pts`;
   if (status === 'in-progress') return 'In progress';
-  return 'Not started';
+  return 'Play ›';   // an invitation, not a status report (conversion audit 2026-07-20)
 }
 
 // Build the static shell for all four rows once. Called on boot; content
@@ -202,17 +202,41 @@ function renderGameRows() {
     </section>
   `).join('');
   root.dataset.built = '1';
+  // The funnel's missing middle: fires when the four cards actually paint.
+  // open-* minus this = visitors who never saw the landing (loading bleed);
+  // this minus start-* = visitors who saw it and didn't bite (persuasion bleed).
+  track('rows-rendered');
 
   GAME_ROWS.forEach((g) => {
     $(`[data-hero="${g.key}"]`).addEventListener('click', () => {
       track(`start-${g.key}`);
-      g.launchDaily(daily.todayIndex());
+      launchWhenReady(g);
     });
-    $(`[data-archive="${g.key}"]`).addEventListener('click', () => {
+    $(`[data-archive="${g.key}"]`).addEventListener('click', async () => {
+      if (!await ensureData($(`[data-row="${g.key}"] [data-status]`))) return;
       renderArchive();
       show('view-archive');
     });
   });
+}
+
+// Launch a game from Home, waiting out the background data download if the
+// player outran it. The card's own status line doubles as the loading state.
+async function launchWhenReady(g) {
+  const statusEl = document.querySelector(`[data-hero="${g.key}"] [data-status]`);
+  if (!await ensureData(statusEl)) return;
+  g.launchDaily(daily.todayIndex());
+}
+
+async function ensureData(statusEl) {
+  if (dataLoaded) return true;
+  const slow = setTimeout(() => {
+    if (statusEl) statusEl.textContent = 'spinning up the presses…';
+  }, 150);
+  const ok = await loadData();
+  clearTimeout(slow);
+  if (!ok && statusEl) statusEl.textContent = 'offline — tap to retry';
+  return ok;
 }
 
 // Card #6 (difficulty whisper): the dateline gains a muted, lowercase,
@@ -264,8 +288,9 @@ function renderPunchCard() {
 const MAX_DAY_CARDS = 7;
 
 export function refreshGameRows() {
-  if (!$('#home-rows') || !DATA.figures) return; // boot not finished yet
+  if (!$('#home-rows')) return;
   renderGameRows();
+  applyStrangerMode();
   const today = Math.max(0, daily.todayIndex());
   $('#dateline').innerHTML = datelineHTML(today);
   renderPunchCard();
@@ -511,14 +536,15 @@ function initHome() {
   // "Removals/moves"), so they're hidden routes.
   $$('[data-back]').forEach((b) => b.addEventListener('click', back));
 
-  // First-visit orientation: the two facts that make it a shared daily ritual.
-  // Gone forever once dismissed or once any daily has been completed.
-  const stranger = $('#stranger-line');
-  if (stranger && !store.getMisc().orientedDismissed && !hasAnyDailyCompletion()) {
-    stranger.hidden = false;
-    $('#stranger-close').addEventListener('click', () => {
-      stranger.hidden = true;
-      store.setMisc({ orientedDismissed: true });
+  // The stranger's door (conversion Phase 2): one primary CTA straight into
+  // Face Value — the most instantly-graspable first touch. cta-tap measures
+  // the door itself; the standard start-who keeps the game funnel comparable.
+  const ctaBtn = $('#stranger-play');
+  if (ctaBtn) {
+    ctaBtn.addEventListener('click', () => {
+      track('cta-tap');
+      track('start-who');
+      launchWhenReady(GAME_ROWS.find((g) => g.key === 'who'));
     });
   }
 
@@ -588,6 +614,18 @@ function hasAnyDailyCompletion() {
   return daily.GAMES.some((g) => entries[g] && Object.keys(entries[g]).length > 0);
 }
 
+// The stranger's landing (conversion Phase 2): until the first finished
+// daily, Home is one headline and one door — week strips, archive bars and
+// the punch card are regulars' furniture and stay hidden (see .is-stranger
+// rules in style.css). Everything unlocks at the same moment the install
+// pitch arrives: the first completed daily.
+function applyStrangerMode() {
+  const stranger = !hasAnyDailyCompletion();
+  document.body.classList.toggle('is-stranger', stranger);
+  const hero = $('#stranger-hero');
+  if (hero) hero.hidden = !stranger;
+}
+
 // The install pitch waits for the first finished daily — the moment a streak
 // exists to protect. "Keeps your streak safe" is literal: Safari wipes a
 // non-installed site's storage after 7 idle days; installed apps are exempt.
@@ -612,8 +650,6 @@ function maybeShowInstallTip() {
   } else {
     return; // no install path on this browser (e.g. desktop Safari/Firefox)
   }
-  const stranger = $('#stranger-line');
-  if (stranger) stranger.hidden = true;
   tip.hidden = false;
   track('install-tip-shown');
 }
@@ -917,6 +953,44 @@ function initDayDone() {
   });
 }
 
+// ---------- data ----------
+// Memoised loader for the five content files. A failed attempt clears the
+// memo so the next tap retries; success registers the match pools and wires
+// the game modules exactly once — no launch path can outrun this, because
+// every one of them awaits ensureData() first.
+let dataLoaded = false;
+let dataPromise = null;
+function loadData() {
+  if (dataLoaded) return Promise.resolve(true);
+  if (dataPromise) return dataPromise;
+  dataPromise = Promise.all(
+    ['data/figures.json', 'data/worldmap.json', 'data/reveal-who.json',
+     'data/reveal-what.json', 'data/connections.json'].map((u) =>
+      fetch(u).then((r) => {
+        if (!r.ok) throw new Error('failed to load ' + u);
+        return r.json();
+      })),
+  ).then(([figures, world, revealWho, revealWhat, connections]) => {
+    DATA.figures = figures;
+    DATA.world = world;
+    // reveal-who.json (portraits) + reveal-what.json (artefacts) are the
+    // current, actively-curated content files; DATA.reveal is their union,
+    // filtered by `kind` downstream (revealgame.js) exactly as before.
+    DATA.reveal = revealWho.concat(revealWhat);
+    DATA.connections = connections;
+    dataLoaded = true;
+    initMapGame();
+    initRevealGame();
+    initConnectionsGame();
+    setTimeout(prefetchDailyImages, 1200); // after first paint settles
+    return true;
+  }).catch(() => {
+    dataPromise = null;
+    return false;
+  });
+  return dataPromise;
+}
+
 async function boot() {
   initTracking();
   // The opening funnel, one event per boot: installed-app vs browser tab,
@@ -941,33 +1015,14 @@ async function boot() {
     }
   }
   sfx.initSfx(); // before the data fetch so sound decoding overlaps it
-  try {
-    const [figures, world, revealWho, revealWhat, connections] = await Promise.all(
-      ['data/figures.json', 'data/worldmap.json', 'data/reveal-who.json',
-       'data/reveal-what.json', 'data/connections.json'].map((u) =>
-        fetch(u).then((r) => {
-          if (!r.ok) throw new Error('failed to load ' + u);
-          return r.json();
-        })),
-    );
-    DATA.figures = figures;
-    DATA.world = world;
-    // reveal-who.json (portraits) + reveal-what.json (artefacts) are the
-    // current, actively-curated content files; DATA.reveal is their union,
-    // filtered by `kind` downstream (revealgame.js) exactly as before.
-    DATA.reveal = revealWho.concat(revealWhat);
-    DATA.connections = connections;
-  } catch (e) {
-    document.body.innerHTML = '<p style="padding:40px;text-align:center">'
-      + 'Dead Famous could not load its data. Please reload once you are online.</p>';
-    return;
-  }
+
+  // Conversion Phase 1: the landing is static markup + localStorage, so it
+  // paints before a single data byte arrives. The downloads start here and
+  // run behind it; only a tap into a game ever waits on them (ensureData).
+  loadData();
 
   initPullToRefresh();
   initHome();
-  initMapGame();
-  initRevealGame();
-  initConnectionsGame();
   initDaily();
   initDayDone();
   refreshHomeStats();
@@ -977,7 +1032,6 @@ async function boot() {
   // default), so paint the edition-closed strip here too — unless a moment
   // screen (mourn/celebrate) already navigated away.
   if (trail[trail.length - 1] === 'view-home') refreshIssueClosed();
-  setTimeout(prefetchDailyImages, 1200); // after first paint settles
 
   // Deterministic hooks for the automated test-suite.
   window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, { data: DATA, store, isMatch, daily });

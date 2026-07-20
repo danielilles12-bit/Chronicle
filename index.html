@@ -81,7 +81,10 @@
       </div>
       <p class="ic-countdown" id="ic-countdown"></p>
     </div>
-    <p id="stranger-line" hidden>Four little history games. New issue at midnight — same issue as everyone else.<button id="stranger-close" aria-label="Dismiss">×</button></p>
+    <div id="stranger-hero" hidden>
+      <p class="stranger-headline">Four little history games. New issue at midnight — same issue as everyone else.</p>
+      <button class="pill primary big" id="stranger-play">Play today’s issue ›</button>
+    </div>
     <!-- Each .game-row (hero + day-card strip + Archive bar) is built and
          refreshed entirely by js/app.js (renderGameRows/refreshGameRows) from
          one GAME_ROWS template, in order Thread, Lifeline, Face Value, Relic —
