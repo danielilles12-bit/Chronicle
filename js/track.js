@@ -37,7 +37,8 @@ const DISPLAY = {
   'install-tip-dismiss': '7-install-pitch-dismissed',
   'install-accepted': '7-installed',
   'install-declined': '7-install-declined',
-  'app-error': '9-app-error',
+  // Crash beacons arrive pre-named from app.js ('9-app-error-<script>' /
+  // '9-app-rejection-<type>') and pass through the map untouched.
 };
 let queued = [];
 

@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v119';
+const BUILD = 'v120';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -576,7 +576,8 @@ function initHome() {
     if (!ev) return;
     deferredInstall = null;
     track('install-tip-tap');
-    ev.prompt();
+    const p = ev.prompt();
+    if (p && p.catch) p.catch(() => {});
     ev.userChoice.then((c) => {
       if (!c || c.outcome !== 'accepted') track('install-declined');
       $('#install-tip').hidden = true;
@@ -999,11 +1000,29 @@ function loadData() {
 async function boot() {
   initTracking();
   // A crash in the wild is otherwise invisible (a broken deploy on one iOS
-  // version, say). One anonymous event per session, no details collected.
+  // version, say). One anonymous event per session; the event name carries
+  // only a bounded discriminator (script basename / rejection type — never
+  // messages, which can hold URLs). Full detail is kept on the affected
+  // device only (misc.lastError) so a reproducible report can be read there.
   let errTracked = false;
-  const trackErr = () => { if (!errTracked) { errTracked = true; track('app-error'); } };
-  window.addEventListener('error', trackErr);
-  window.addEventListener('unhandledrejection', trackErr);
+  const trackErr = (kind, tag, detail) => {
+    try {
+      store.setMisc({ lastError: { kind, detail: String(detail).slice(0, 300), at: Date.now(), build: BUILD } });
+    } catch (e2) { /* never break on the way down */ }
+    if (errTracked) return;
+    errTracked = true;
+    track(`9-app-${kind}${tag ? '-' + tag : ''}`);
+  };
+  window.addEventListener('error', (e) => {
+    const src = String(e.filename || '').split('/').pop().split('?')[0]
+      .toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 20);
+    trackErr('error', src || 'unknown', `${e.message} @ ${e.filename}:${e.lineno}`);
+  });
+  window.addEventListener('unhandledrejection', (e) => {
+    const nm = (e.reason && e.reason.name ? String(e.reason.name) : 'unknown')
+      .toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 20);
+    trackErr('rejection', nm, e.reason && (e.reason.stack || e.reason.message) || e.reason);
+  });
   // The opening funnel, one event per boot: installed-app vs browser tab,
   // first-ever visit vs a return. These four paths are the denominators for
   // every start/finish/share rate on the dashboard.
