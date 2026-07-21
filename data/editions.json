@@ -1,0 +1,972 @@
+{
+ "schema": 1,
+ "recipeChangeEdition": 23,
+ "editions": {
+  "0": {
+   "date": "2026-06-29",
+   "who": [
+    "tutankhamun",
+    "charlie-chaplin",
+    "marilyn-monroe",
+    "elvis-presley",
+    "socrates",
+    "al-capone",
+    "che-guevara",
+    "mark-twain",
+    "alfred-nobel",
+    "alexander-fleming"
+   ],
+   "map": [
+    "napoleon",
+    "cleopatra",
+    "caesar",
+    "columbus",
+    "einstein",
+    "leonardo",
+    "jfk",
+    "mozart",
+    "joanofarc",
+    "hannibal"
+   ],
+   "what": [
+    "colosseum",
+    "creation-of-adam",
+    "great-wave",
+    "michelangelo-david",
+    "sistine-ceiling",
+    "starry-night",
+    "stonehenge",
+    "mona-lisa",
+    "great-pyramid-giza",
+    "antikythera-mechanism"
+   ],
+   "thread": [
+    "conn-072"
+   ]
+  },
+  "1": {
+   "date": "2026-06-30",
+   "who": [
+    "einstein",
+    "lincoln",
+    "martin-luther-king-jr",
+    "nelson-mandela",
+    "amelia-earhart",
+    "anne-frank",
+    "da-vinci-self",
+    "edgar-allan-poe",
+    "elizabeth-i",
+    "blaise-pascal"
+   ],
+   "map": [
+    "victoria",
+    "mandela",
+    "gandhi",
+    "marx",
+    "marieantoinette",
+    "jesus-christ",
+    "curie",
+    "darwin",
+    "vangogh",
+    "saladin"
+   ],
+   "what": [
+    "taj-mahal",
+    "terracotta-warrior",
+    "the-scream",
+    "tut-mask",
+    "venus-de-milo",
+    "american-gothic",
+    "last-supper",
+    "lycurgus-cup",
+    "pamukkale",
+    "ellora-kailasa"
+   ],
+   "thread": [
+    "conn-081"
+   ]
+  },
+  "2": {
+   "date": "2026-07-01",
+   "who": [
+    "aretha-franklin",
+    "benjamin-franklin",
+    "carl-sagan",
+    "frida-kahlo",
+    "gandhi",
+    "ferdinand-magellan",
+    "florence-nightingale",
+    "frederick-douglass",
+    "boudica",
+    "emily-dickinson"
+   ],
+   "map": [
+    "michael-jackson",
+    "adolf-hitler",
+    "aristotle",
+    "confucius",
+    "vladimir-lenin",
+    "annefrank",
+    "alexander",
+    "nightingale",
+    "suleiman",
+    "vascodagama"
+   ],
+   "what": [
+    "big-ben",
+    "birth-of-venus",
+    "bust-nefertiti",
+    "chichen-itza",
+    "christ-the-redeemer",
+    "pena-palace",
+    "sunflowers",
+    "angkor-wat",
+    "gobekli-tepe",
+    "konark-sun-temple"
+   ],
+   "thread": [
+    "conn-129"
+   ]
+  },
+  "3": {
+   "date": "2026-07-02",
+   "who": [
+    "gautama-buddha",
+    "george-washington",
+    "henry-viii",
+    "isaac-newton",
+    "friedrich-engels",
+    "friedrich-nietzsche",
+    "fyodor-dostoevsky",
+    "geronimo",
+    "francisco-goya",
+    "frederic-chopin"
+   ],
+   "map": [
+    "abraham-lincoln",
+    "muhammad",
+    "johann-wolfgang-von-goethe",
+    "joseph-stalin",
+    "pocahontas",
+    "hugo-chavez",
+    "osama-bin-laden",
+    "diego-maradona",
+    "cook",
+    "tamerlane"
+   ],
+   "what": [
+    "easter-island-moai",
+    "eiffel-tower",
+    "fushimi-inari",
+    "goreme",
+    "aztec-sun-stone",
+    "bayeux-tapestry",
+    "bran-castle",
+    "carcassonne",
+    "moray",
+    "mount-nemrut"
+   ],
+   "thread": [
+    "conn-038"
+   ]
+  },
+  "4": {
+   "date": "2026-07-03",
+   "who": [
+    "jane-austen",
+    "john-f-kennedy",
+    "malcolm-x",
+    "giuseppe-garibaldi",
+    "haile-selassie",
+    "harriet-tubman",
+    "ho-chi-minh",
+    "niccolo-machiavelli",
+    "rene-descartes",
+    "voltaire"
+   ],
+   "map": [
+    "ludwig-van-beethoven",
+    "dante-alighieri",
+    "galileo-galilei",
+    "gerald-ford",
+    "james-madison",
+    "peter-paul-rubens",
+    "indira-gandhi",
+    "catherine",
+    "bolivar",
+    "robert-mugabe"
+   ],
+   "what": [
+    "great-sphinx",
+    "hagia-sophia",
+    "kremlin-walls",
+    "codex-gigas",
+    "girl-pearl-earring",
+    "golden-pavilion",
+    "great-mosque-cordoba",
+    "predjama-castle",
+    "ctesiphon",
+    "fasil-ghebbi"
+   ],
+   "thread": [
+    "conn-087"
+   ]
+  },
+  "5": {
+   "date": "2026-07-04",
+   "who": [
+    "marcus-aurelius",
+    "muhammad-ali",
+    "horatio-nelson",
+    "isambard-brunel",
+    "johann-sebastian-bach",
+    "karl-marx",
+    "wu-zetian",
+    "zheng-he",
+    "adam-smith",
+    "albrecht-durer"
+   ],
+   "map": [
+    "pablo-picasso",
+    "michelangelo",
+    "hernan-cortes",
+    "saddam-hussein",
+    "nikita-khrushchev",
+    "enrico-fermi",
+    "francis-of-assisi",
+    "kim-jong-il",
+    "john-calvin",
+    "edmund-hillary"
+   ],
+   "what": [
+    "leaning-tower-pisa",
+    "machu-picchu",
+    "ishtar-gate",
+    "liberty-leading",
+    "mask-of-agamemnon",
+    "meenakshi-temple",
+    "great-enclosure-zimbabwe",
+    "hammurabi-stele",
+    "himeji-castle",
+    "magna-carta"
+   ],
+   "thread": [
+    "conn-042"
+   ]
+  },
+  "6": {
+   "date": "2026-07-05",
+   "who": [
+    "napoleon",
+    "lord-byron",
+    "louis-xvi",
+    "marie-antoinette",
+    "marie-curie",
+    "alexander-hamilton",
+    "charles-i-england",
+    "charles-v-hre",
+    "diego-velazquez",
+    "el-cid"
+   ],
+   "map": [
+    "charlie-chaplin",
+    "aesop",
+    "pablo-neruda",
+    "horace",
+    "akbar",
+    "antoni-gaudi",
+    "alexei-navalny",
+    "wilhelm-ii",
+    "shimon-peres",
+    "f-scott-fitzgerald"
+   ],
+   "what": [
+    "neuschwanstein-castle",
+    "mont-saint-michel",
+    "mostar-bridge",
+    "pieta-michelangelo",
+    "sagrada-familia",
+    "naqsh-e-rustam",
+    "phaistos-disc",
+    "sacsayhuaman",
+    "alhambra-lions",
+    "arnolfini-portrait"
+   ],
+   "thread": [
+    "conn-045"
+   ]
+  },
+  "7": {
+   "date": "2026-07-06",
+   "who": [
+    "queen-elizabeth-ii",
+    "rasputin",
+    "robert-oppenheimer",
+    "ronald-reagan",
+    "van-gogh-self",
+    "winston-churchill",
+    "ada-lovelace",
+    "michelangelo",
+    "nicholas-ii",
+    "ernest-rutherford"
+   ],
+   "map": [
+    "johann-sebastian-bach",
+    "winston-churchill",
+    "mustafa-kemal-ataturk",
+    "elizabeth-ii",
+    "mark-twain",
+    "thomas-edison",
+    "rene-descartes",
+    "john-quincy-adams",
+    "antonio-vivaldi",
+    "augusto-pinochet"
+   ],
+   "what": [
+    "notre-dame-paris",
+    "parthenon",
+    "petra-treasury",
+    "red-square",
+    "st-basils-cathedral",
+    "the-thinker",
+    "tower-bridge",
+    "sigiriya",
+    "sunday-grande-jatte",
+    "axum-obelisk"
+   ],
+   "thread": [
+    "conn-054"
+   ]
+  },
+  "8": {
+   "date": "2026-07-07",
+   "who": [
+    "alexander-graham-bell",
+    "arthur-conan-doyle",
+    "beethoven",
+    "billie-holiday",
+    "charles-dickens",
+    "dante-alighieri",
+    "oliver-cromwell",
+    "oscar-wilde",
+    "peter-great",
+    "gian-lorenzo-bernini"
+   ],
+   "map": [
+    "sigmund-freud",
+    "miguel-de-cervantes",
+    "augustus",
+    "charles-dickens",
+    "martin-luther-king-jr",
+    "virgil",
+    "diego-velazquez",
+    "silvio-berlusconi",
+    "bob-marley",
+    "grace-kelly"
+   ],
+   "what": [
+    "trevi-fountain",
+    "abu-simbel",
+    "acropolis-athens",
+    "brandenburg-gate",
+    "charles-bridge",
+    "doges-palace",
+    "sutton-hoo-helmet",
+    "taktsang",
+    "venus-willendorf",
+    "baalbek"
+   ],
+   "thread": [
+    "conn-068"
+   ]
+  },
+  "9": {
+   "date": "2026-07-08",
+   "who": [
+    "ella-fitzgerald",
+    "jacques-cousteau",
+    "kublai-khan",
+    "lenin",
+    "leo-tolstoy",
+    "rembrandt-self",
+    "robert-burns",
+    "susan-b-anthony",
+    "gottfried-leibniz",
+    "herman-melville"
+   ],
+   "map": [
+    "archimedes",
+    "franklin-delano-roosevelt",
+    "hans-christian-andersen",
+    "marilyn-monroe",
+    "anton-chekhov",
+    "andrew-jackson",
+    "shinzo-abe",
+    "thomas-mann",
+    "ivan-the-terrible",
+    "greta-garbo"
+   ],
+   "what": [
+    "dome-of-the-rock",
+    "florence-cathedral-dome",
+    "golden-gate-bridge",
+    "golden-temple",
+    "great-wall-china",
+    "windsor-castle",
+    "winged-victory",
+    "alfred-jewel",
+    "benin-bronzes",
+    "carnac-stones"
+   ],
+   "thread": [
+    "conn-036"
+   ]
+  },
+  "10": {
+   "date": "2026-07-09",
+   "who": [
+    "lewis-carroll",
+    "louis-xiv",
+    "mao-zedong",
+    "martin-luther",
+    "theodore-roosevelt",
+    "trotsky",
+    "ulysses-grant",
+    "akbar-great",
+    "immanuel-kant",
+    "ivan-the-terrible"
+   ],
+   "map": [
+    "franz-kafka",
+    "pope-francis",
+    "mao-zedong",
+    "jean-jacques-rousseau",
+    "isaac-asimov",
+    "kim-il-sung",
+    "alexander-graham-bell",
+    "boris-yeltsin",
+    "william-the-conqueror",
+    "alexander-i-of-russia"
+   ],
+   "what": [
+    "itsukushima-shrine",
+    "knossos-palace",
+    "lalibela",
+    "liberty-bell",
+    "amber-fort",
+    "arena-verona",
+    "bagan",
+    "bayon-temple",
+    "chan-chan",
+    "column-marcus-aurelius"
+   ],
+   "thread": [
+    "conn-053"
+   ]
+  },
+  "11": {
+   "date": "2026-07-10",
+   "who": [
+    "mozart",
+    "pocahontas",
+    "queen-victoria",
+    "akhenaten",
+    "al-khwarizmi",
+    "alexander-pushkin",
+    "alexander-von-humboldt",
+    "jacques-louis-david",
+    "jan-van-eyck",
+    "nikolai-gogol"
+   ],
+   "map": [
+    "steve-jobs",
+    "edgar-allan-poe",
+    "che-guevara",
+    "herbert-hoover",
+    "t-s-eliot",
+    "seneca",
+    "ulysses-s-grant",
+    "madeleine-albright",
+    "cato-the-elder",
+    "harper-lee"
+   ],
+   "what": [
+    "milan-cathedral",
+    "mount-rushmore",
+    "peterhof-palace",
+    "blue-mosque",
+    "book-of-kells",
+    "borobudur",
+    "boudhanath",
+    "copan",
+    "cyrus-cylinder",
+    "dead-sea-scrolls"
+   ],
+   "thread": [
+    "conn-002"
+   ]
+  },
+  "12": {
+   "date": "2026-07-11",
+   "who": [
+    "rosa-parks",
+    "saladin",
+    "anton-chekhov",
+    "artemisia-gentileschi",
+    "ataturk",
+    "augustus-caesar",
+    "oda-nobunaga",
+    "philip-ii-spain",
+    "rani-lakshmibai",
+    "raphael"
+   ],
+   "map": [
+    "niccolo-machiavelli",
+    "thomas-jefferson",
+    "marlon-brando",
+    "george-frideric-handel",
+    "montesquieu",
+    "hirohito",
+    "elie-wiesel",
+    "nefertiti",
+    "harriet-tubman",
+    "frederick-barbarossa"
+   ],
+   "what": [
+    "pont-du-gard-aqueduct",
+    "prague-castle",
+    "catalan-atlas",
+    "chambord",
+    "charioteer-delphi",
+    "cologne-cathedral",
+    "elgin-marbles",
+    "gutenberg-bible",
+    "hampi",
+    "jerash"
+   ],
+   "thread": [
+    "conn-027"
+   ]
+  },
+  "13": {
+   "date": "2026-07-12",
+   "who": [
+    "suleiman-magnificent",
+    "chief-joseph",
+    "claude-monet",
+    "confucius",
+    "darwin",
+    "robert-e-lee",
+    "saint-augustine",
+    "samori-ture",
+    "titian",
+    "wellington"
+   ],
+   "map": [
+    "oscar-wilde",
+    "constantine-the-great",
+    "john-milton",
+    "robert-louis-stevenson",
+    "claude-monet",
+    "alexander-iii-of-russia",
+    "cecil-john-rhodes",
+    "josephus",
+    "theodosius-i",
+    "john-king-of-england"
+   ],
+   "what": [
+    "rialto-bridge",
+    "delphi-temple",
+    "forbidden-city",
+    "great-buddha-kamakura",
+    "great-mosque-djenne",
+    "kairouan-mosque",
+    "kilwa-kisiwani-ruins",
+    "kizhi-pogost",
+    "laocoon",
+    "leptis-magna"
+   ],
+   "thread": [
+    "conn-063"
+   ]
+  },
+  "14": {
+   "date": "2026-07-13",
+   "who": [
+    "toni-morrison",
+    "victor-hugo",
+    "alexandre-dumas",
+    "enid-blyton",
+    "hg-wells",
+    "jules-verne",
+    "mussolini",
+    "emmeline-pankhurst",
+    "empress-dowager-cixi",
+    "woodrow-wilson"
+   ],
+   "map": [
+    "adam-smith",
+    "neil-armstrong",
+    "otto-von-bismarck",
+    "lord-byron",
+    "charles-de-gaulle",
+    "benjamin-franklin",
+    "elvis-presley",
+    "yasser-arafat",
+    "saint-peter",
+    "galba"
+   ],
+   "what": [
+    "st-marks-basilica",
+    "statue-of-liberty",
+    "temple-poseidon",
+    "tulum",
+    "vitruvian-man",
+    "winter-palace",
+    "wright-flyer",
+    "gundestrup-cauldron",
+    "hadrians-villa",
+    "longmen-grottoes"
+   ],
+   "thread": [
+    "conn-076"
+   ]
+  },
+  "15": {
+   "date": "2026-07-14",
+   "who": [
+    "rosalind-franklin",
+    "virginia-woolf",
+    "alexander-great",
+    "corazon-aquino",
+    "wangari-maathai",
+    "vlad-impaler",
+    "empress-theodora",
+    "eva-peron",
+    "fdr",
+    "al-mamun"
+   ],
+   "map": [
+    "nikola-tesla",
+    "sophocles",
+    "walt-disney",
+    "george-orwell",
+    "pythagoras",
+    "ernest-hemingway",
+    "erasmus",
+    "ho-chi-minh",
+    "zheng-he",
+    "scipio-africanus"
+   ],
+   "what": [
+    "arc-de-triomphe",
+    "buckingham-palace",
+    "catherine-palace",
+    "edinburgh-castle",
+    "mycenae-lion-gate",
+    "palace-of-versailles",
+    "imperial-state-crown",
+    "karnak-temple",
+    "lascaux",
+    "mapungubwe-gold-rhino"
+   ],
+   "thread": [
+    "conn-052"
+   ]
+  },
+  "16": {
+   "date": "2026-07-15",
+   "who": [
+    "emiliano-zapata",
+    "sun-yat-sen",
+    "fidel-castro",
+    "billy-the-kid",
+    "coco-chanel",
+    "frederick-the-great",
+    "galileo",
+    "george-frideric-handel",
+    "al-mansur",
+    "alp-arslan"
+   ],
+   "map": [
+    "thomas-aquinas",
+    "margaret-thatcher",
+    "genghis-khan",
+    "richard-wagner",
+    "fidel-castro",
+    "judy-garland",
+    "diana-princess-of-wales",
+    "benazir-bhutto",
+    "sulla",
+    "vespasian"
+   ],
+   "what": [
+    "pantheon-rome",
+    "pompeii-forum",
+    "ponte-vecchio",
+    "roman-forum",
+    "schoenbrunn-palace",
+    "leshan-buddha",
+    "lewis-chessmen",
+    "lindisfarne-gospels",
+    "meroe-pyramids",
+    "nabta-playa-circle"
+   ],
+   "thread": [
+    "conn-059"
+   ]
+  },
+  "17": {
+   "date": "2026-07-16",
+   "who": [
+    "babe-ruth",
+    "golda-meir",
+    "louis-armstrong",
+    "alfred-hitchcock",
+    "goethe",
+    "hans-christian-andersen",
+    "hatshepsut",
+    "hernan-cortes",
+    "arthur-schopenhauer",
+    "attila"
+   ],
+   "map": [
+    "rembrandt",
+    "james-joyce",
+    "john-paul-ii",
+    "cicero",
+    "epicurus",
+    "jim-morrison",
+    "john-steinbeck",
+    "vladimir-nabokov",
+    "theodoric-the-great",
+    "clovis-i"
+   ],
+   "what": [
+    "st-peters-basilica",
+    "tower-of-london",
+    "westminster-abbey",
+    "ghent-altarpiece",
+    "meteora",
+    "mildenhall-treasure",
+    "nazca-lines",
+    "nebra-sky-disc",
+    "newgrange-entrance-stone",
+    "ollantaytambo"
+   ],
+   "thread": [
+    "conn-180"
+   ]
+  },
+  "18": {
+   "date": "2026-07-17",
+   "who": [
+    "harry-houdini",
+    "tutankhamun",
+    "charlie-chaplin",
+    "ibn-sina",
+    "ida-b-wells",
+    "jawaharlal-nehru",
+    "jean-jacques-rousseau",
+    "catherine-de-medici",
+    "catherine-great",
+    "cecil-rhodes"
+   ],
+   "map": [
+    "yuri-gagarin",
+    "j-r-r-tolkien",
+    "benedict-xvi",
+    "cyrus-the-great",
+    "sappho",
+    "edith-piaf",
+    "audrey-hepburn",
+    "bernardo-ohiggins",
+    "xuanzang",
+    "zhu-yuanzhang"
+   ],
+   "what": [
+    "colosseum",
+    "creation-of-adam",
+    "great-wave",
+    "olmec-colossal-head",
+    "oseberg-ship",
+    "persepolis",
+    "piri-reis-map",
+    "palmyra",
+    "standard-of-ur",
+    "stone-town-zanzibar-door"
+   ],
+   "thread": [
+    "conn-032"
+   ]
+  },
+  "19": {
+   "date": "2026-07-18",
+   "who": [
+    "marilyn-monroe",
+    "elvis-presley",
+    "joan-of-arc",
+    "justinian-i",
+    "kaiser-wilhelm-ii",
+    "katherine-johnson",
+    "edgar-degas",
+    "eugene-delacroix",
+    "freud",
+    "genghis-khan"
+   ],
+   "map": [
+    "frederic-chopin",
+    "benito-mussolini",
+    "james-a-garfield",
+    "grover-cleveland",
+    "william-howard-taft",
+    "martin-van-buren",
+    "chandragupta-maurya",
+    "averroes",
+    "ptolemy-i-soter",
+    "willem-barentsz"
+   ],
+   "what": [
+    "michelangelo-david",
+    "sistine-ceiling",
+    "portland-vase",
+    "potala-palace",
+    "registan",
+    "rila-monastery",
+    "tassili-rock-art",
+    "tiwanaku",
+    "trajan-column",
+    "uxmal"
+   ],
+   "thread": [
+    "conn-091"
+   ]
+  },
+  "20": {
+   "date": "2026-07-19",
+   "who": [
+    "socrates",
+    "mary-shelley",
+    "michael-faraday",
+    "montezuma-ii",
+    "nicolaus-copernicus",
+    "gustave-courbet",
+    "harun-al-rashid",
+    "henrik-ibsen",
+    "ibn-rushd",
+    "ito-hirobumi"
+   ],
+   "map": [
+    "mikhail-gorbachev",
+    "maya-angelou",
+    "tacitus",
+    "vaclav-havel",
+    "jack-london",
+    "huldrych-zwingli",
+    "piri-reis",
+    "yongle-emperor",
+    "nasir-al-din-al-tusi",
+    "peter-abelard"
+   ],
+   "what": [
+    "starry-night",
+    "rosetta-stone",
+    "sacre-coeur",
+    "school-of-athens",
+    "segovia-aqueduct",
+    "djenne-terracotta",
+    "gedi-ruins",
+    "ishango-bone",
+    "kerma-deffufa",
+    "khami-ruins"
+   ],
+   "thread": [
+    "conn-088"
+   ]
+  },
+  "21": {
+   "date": "2026-07-20",
+   "who": [
+    "al-capone",
+    "che-guevara",
+    "einstein",
+    "lincoln",
+    "martin-luther-king-jr",
+    "nelson-mandela",
+    "amelia-earhart",
+    "peter-paul-rubens",
+    "rabindranath-tagore",
+    "jefferson-davis"
+   ],
+   "map": [
+    "ovid",
+    "stephen-hawking",
+    "marlene-dietrich",
+    "jimmy-carter",
+    "mother-teresa",
+    "henry-ford",
+    "herodotus",
+    "henry-kissinger",
+    "andrew-johnson",
+    "baldwin-i-of-jerusalem"
+   ],
+   "what": [
+    "stonehenge",
+    "taj-mahal",
+    "terracotta-warrior",
+    "the-scream",
+    "tut-mask",
+    "venus-de-milo",
+    "american-gothic",
+    "st-stephens-vienna",
+    "staffordshire-hoard",
+    "utrecht-psalter"
+   ],
+   "thread": [
+    "conn-071"
+   ]
+  },
+  "22": {
+   "date": "2026-07-21",
+   "who": [
+    "anne-frank",
+    "aretha-franklin",
+    "benjamin-franklin",
+    "carl-sagan",
+    "frida-kahlo",
+    "gandhi",
+    "ramesses-ii",
+    "richard-wagner",
+    "sacagawea",
+    "mary-queen-of-scots"
+   ],
+   "map": [
+    "friedrich-engels",
+    "qin-shi-huang",
+    "ferdinand-magellan",
+    "harry-s-truman",
+    "george-h-w-bush",
+    "agatha-christie",
+    "james-buchanan",
+    "james-k-polk",
+    "zachary-taylor",
+    "giuseppe-mazzini"
+   ],
+   "what": [
+    "big-ben",
+    "birth-of-venus",
+    "bust-nefertiti",
+    "chichen-itza",
+    "christ-the-redeemer",
+    "easter-island-moai",
+    "temple-of-hatshepsut",
+    "temple-of-heaven",
+    "tikal",
+    "winchester-bible"
+   ],
+   "thread": [
+    "conn-060"
+   ]
+  }
+ }
+}
