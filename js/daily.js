@@ -420,4 +420,17 @@ export function dailyStatus(game, editionIndex) {
   return session ? 'in-progress' : 'not-started';
 }
 
+// P3.5: a "Report a problem" mailto, subject pre-filled so a fix can be
+// traced back without any backend — no server, so email is the whole
+// mechanism. contentId is a specific record id (the reveal credit panel) or
+// null (a daily summary covering several items — the reporter names the one
+// they mean in the email body).
+export function reportProblemHref(contentId, editionIndex) {
+  const issue = editionIndex != null ? editionIndex : '?';
+  const subject = contentId
+    ? `Dead Famous correction: ${contentId} (issue ${issue})`
+    : `Dead Famous correction: issue ${issue}`;
+  return `mailto:daniel.illes12@gmail.com?subject=${encodeURIComponent(subject)}`;
+}
+
 export { GAMES };

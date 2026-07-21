@@ -220,6 +220,63 @@ function paintFull(item) {
   }
 }
 
+// P3.3: the discreet tap-to-expand photo credit. Only ever called after a
+// round resolves (resolveRound) — never during guessing, so the credit can't
+// leak an answer via image_author/whatever before the reveal. CC-licensed
+// images show the full "Photo: author · licence · Wikimedia Commons" line
+// with author and licence linked (image_source_url / image_license_url);
+// anything without a licence URL (Public domain, or Commons' own "No
+// restrictions" Flickr-Commons tag) has no attribution requirement, so it
+// collapses to a plain "<licence> · Wikimedia Commons" — matching what the
+// Commons record itself asserts, never a guessed "Public domain" label.
+function creditHTML(item) {
+  const author = item.image_author || item.attribution || '';
+  const licenseLabel = item.image_license || item.license || '';
+  const licenseUrl = item.image_license_url || '';
+  const sourceUrl = item.image_source_url || '';
+  if (!author && !licenseLabel) return '';
+
+  const authorHTML = sourceUrl
+    ? `<a href="${sourceUrl}" target="_blank" rel="noopener">${author}</a>` : author;
+  const licenseHTML = licenseUrl
+    ? `<a href="${licenseUrl}" target="_blank" rel="noopener">${licenseLabel}</a>` : licenseLabel;
+
+  // Every reveal gets the same duotone CSS filter (df-duotone, applied a few
+  // lines up in resolveRound) — true of every image at this exact moment
+  // regardless of which record it is, so it's safe to state outright rather
+  // than rely on a per-record modification note this session never backfills.
+  // image_modifications (once populated) can add anything MORE specific
+  // (e.g. a real crop) on top of it.
+  let line;
+  if (licenseUrl && author) {
+    line = `Photo: ${authorHTML} · ${licenseHTML} · Wikimedia Commons · duotone`;
+    if (item.image_modifications) line += `, ${item.image_modifications}`;
+  } else {
+    line = `${licenseHTML || 'Wikimedia Commons'} · Wikimedia Commons`;
+  }
+  const report = `<a class="rv-report-link" href="${daily.reportProblemHref(item.id, S.editionIndex)}">Report a problem</a>`;
+  return line + report;
+}
+
+function showCredit(item) {
+  const btn = $('#rv-credit-btn');
+  const panel = $('#rv-credit-panel');
+  const html = creditHTML(item);
+  if (!html) { btn.hidden = true; panel.hidden = true; return; }
+  panel.innerHTML = html;
+  panel.hidden = true;
+  btn.hidden = false;
+  btn.setAttribute('aria-expanded', 'false');
+}
+
+function toggleCreditPanel() {
+  const btn = $('#rv-credit-btn');
+  const panel = $('#rv-credit-panel');
+  const open = panel.hidden;
+  panel.hidden = !open;
+  btn.setAttribute('aria-expanded', String(open));
+}
+
 function ensureDims(item, cb) {
   const d = dims[item.img];
   if (d && !d.failed) { cb(); return; }
@@ -612,6 +669,9 @@ function startRound() {
   $('#rv-guess-btn').disabled = false;
   $('#rv-next').hidden = true;
   $('#rv-badge').hidden = true;
+  $('#rv-credit-btn').hidden = true;
+  $('#rv-credit-panel').hidden = true;
+  $('#rv-credit-panel').innerHTML = '';
   $('#rv-streak').hidden = S.streak < 2;
   if (S.streak >= 2) $('#rv-streak').textContent = `${S.streak} in a row`;
   setupClues();
@@ -715,16 +775,14 @@ function resolveRound(correct) {
     ? `${verdict} ${item.name}. Plus ${total} points.`
     : `It was ${item.name}. 0 points.`);
 
-  const credit = item.license && item.license !== 'Public domain'
-    ? ` <small class="rv-credit">${item.license}</small>` : '';
   const fb = $('#rv-feedback');
   fb.className = correct ? 'good' : 'info';
-  fb.innerHTML = (correct
+  fb.innerHTML = correct
     ? `<b class="fig">${item.name}</b> — ${item.blurb}. <span class="pts">+${total} pts</span>`
       + (bonus ? ` <small>(includes ${bonus} streak bonus)</small>` : '')
-    : `It was <b class="fig">${item.name}</b> — ${item.blurb}. <span class="pts">0 pts</span>`)
-    + credit;
+    : `It was <b class="fig">${item.name}</b> — ${item.blurb}. <span class="pts">0 pts</span>`;
   fb.hidden = false;
+  showCredit(item);
 
   $('#rv-input').disabled = true;
   $('#rv-guess-btn').disabled = true;
@@ -747,6 +805,7 @@ function renderLockedSummary() {
     + (S.editionIndex != null ? ` · № ${S.editionIndex}` : '');
   $('#rv-sum-total').textContent = S.score;
   setReceiptStamp('view-revealsum', S.score);
+  $('#rv-sum-report').href = daily.reportProblemHref(null, S.editionIndex);
   const remarks = [
     [90, 'A connoisseur of the ages.'],
     [75, 'A sharp eye for history.'],
@@ -845,6 +904,7 @@ export function initRevealGame() {
   $('#rv-start').addEventListener('click', startSession);
   $('#rv-resume').addEventListener('click', resumeSession);
   $('#rv-help').addEventListener('click', () => openIntroHelp(MODE));
+  $('#rv-credit-btn').addEventListener('click', toggleCreditPanel);
 
   $('#rv-form').addEventListener('submit', (e) => {
     e.preventDefault();

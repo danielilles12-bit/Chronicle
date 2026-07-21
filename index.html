@@ -5,14 +5,15 @@
 <!-- Page zoom stays enabled for low-vision players; the game frame opts out
      via touch-action:none and runs its own pinch-zoom (js/pinchzoom.js). -->
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Dead Famous — History as Entertainment</title>
+<title>Dead Famous — Daily History Games</title>
 <meta name="description" content="Four little history games a day: Face Value, Lifeline, Relic and Thread. New games at midnight — same games as everyone else. Free, no sign-up.">
+<link rel="canonical" href="https://deadfamous.app/">
 <meta name="theme-color" content="#F2EFE6">
 <!-- Link previews (iMessage/WhatsApp/X/Discord/Slack read these; crawlers never
      run JS so they must stay static). URLs are absolute on purpose. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Dead Famous">
-<meta property="og:title" content="Dead Famous — daily history games">
+<meta property="og:title" content="Dead Famous — Daily History Games">
 <meta property="og:description" content="Four little history games a day. New games at midnight — same games as everyone else. Free, no sign-up.">
 <meta property="og:url" content="https://deadfamous.app/">
 <meta property="og:image" content="https://deadfamous.app/assets/brand/social-card.png">
@@ -20,9 +21,24 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Dead Famous — four daily history games. A pop-art David statue in pink sunglasses next to the four game icons.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Dead Famous — daily history games">
+<meta name="twitter:title" content="Dead Famous — Daily History Games">
 <meta name="twitter:description" content="Four little history games a day. New games at midnight — same games as everyone else. Free, no sign-up.">
 <meta name="twitter:image" content="https://deadfamous.app/assets/brand/social-card.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Dead Famous",
+  "alternateName": "Dead Famous — Daily History Games",
+  "url": "https://deadfamous.app/",
+  "description": "Four little history games a day: Face Value, Lifeline, Relic and Thread. New games at midnight — same games as everyone else. Free, no sign-up.",
+  "applicationCategory": "Game",
+  "genre": "Trivia",
+  "operatingSystem": "Any (web browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Person", "name": "Daniel Illes" }
+}
+</script>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/favicon.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
@@ -104,7 +120,8 @@
       <button class="pill primary" id="install-btn" hidden>Install — one tap</button>
       <button id="install-tip-close" aria-label="Dismiss">×</button>
     </div>
-    <footer class="home-foot">Works offline · <button type="button" id="ledger-link" class="foot-toggle">Your Legacy</button> · <button type="button" id="sound-toggle" class="foot-toggle">Sound on</button> · <span id="build-tag"></span></footer>
+    <footer class="home-foot">Works offline · <button type="button" id="ledger-link" class="foot-toggle">Your Legacy</button> · <button type="button" id="sound-toggle" class="foot-toggle">Sound on</button> · <span id="build-tag"></span><br>
+      <a href="about.html">About</a> · <a href="sources.html">Sources</a> · <a href="privacy.html">Privacy</a></footer>
   </section>
 
   <!-- ============ MAP GAME: START ============ -->
@@ -188,6 +205,7 @@
         <button class="pill primary big" id="sum-again">Play again</button>
         <button class="pill ghost big" id="sum-home">Home</button>
       </div>
+      <a class="sum-report-link" id="sum-report" href="#">Report a problem</a>
     </main>
   </section>
 
@@ -230,6 +248,8 @@
             <p><b>This round isn't downloaded.</b><br>Reconnect to the internet, then retry.</p>
             <button type="button" class="pill small" id="rv-offline-retry">Retry</button>
           </div>
+          <button type="button" class="rv-credit-btn" id="rv-credit-btn" aria-label="Photo credit" aria-expanded="false" hidden>ⓘ</button>
+          <div class="rv-credit-panel" id="rv-credit-panel" hidden></div>
         </div>
         <div class="df-moment-badge" id="rv-badge" hidden></div>
       </div>
@@ -283,6 +303,7 @@
         <button class="pill primary big" id="rv-sum-again">Play again</button>
         <button class="pill ghost big" id="rv-sum-home">Home</button>
       </div>
+      <a class="sum-report-link" id="rv-sum-report" href="#">Report a problem</a>
     </main>
   </section>
 
@@ -330,6 +351,7 @@
         <button class="pill primary big" id="conn-sum-turn" hidden>Turn the page ›</button>
         <button class="pill primary big" id="conn-sum-share" hidden>Share the thread</button>
       </div>
+      <a class="sum-report-link" id="conn-sum-report" href="#">Report a problem</a>
     </main>
   </section>
 
@@ -341,7 +363,7 @@
       <button class="iconbtn" id="dd-close" aria-label="Close">×</button>
     </header>
     <main class="scroll-main df-moment">
-      <h1 class="dd-title" id="dd-title">You made history.</h1>
+      <h2 class="dd-title" id="dd-title">You made history.</h2>
       <div class="loud-block dd-score">
         <span class="dd-score-label" id="dd-score-label">Today's total</span>
         <b id="dd-total">0</b>

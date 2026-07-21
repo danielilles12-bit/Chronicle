@@ -20,7 +20,12 @@
   "frac": 0.2123425200348275,
   "license": "CC BY-SA 2.0",
   "attribution": "Wikipedia user Diliff",
-  "source": "Wikimedia Commons: Rome Colosseum exterior 2.jpg"
+  "source": "Wikimedia Commons: Rome Colosseum exterior 2.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Rome_Colosseum_exterior_2.jpg",
+  "image_author": "Nicholas Hartmann",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "creation-of-adam",
@@ -40,7 +45,11 @@
   "license": "Public domain",
   "attribution": "Michelangelo",
   "source": "Wikimedia Commons: Michelangelo - Creation of Adam (cropped).jpg",
-  "start": 8
+  "start": 8,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg",
+  "image_author": "Michelangelo",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "great-wave",
@@ -61,7 +70,11 @@
   "license": "Public domain",
   "attribution": "Katsushika Hokusai",
   "source": "Wikimedia Commons: Great Wave off Kanagawa2.jpg",
-  "start": 2
+  "start": 2,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Great_Wave_off_Kanagawa2.jpg",
+  "image_author": "After Katsushika Hokusai",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "michelangelo-david",
@@ -81,7 +94,12 @@
   "license": "CC BY 3.0",
   "attribution": "Jörg Bittner Unna",
   "source": "Wikimedia Commons: 'David' by Michelangelo JBU0001.JPG",
-  "start": 7
+  "start": 7,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:%27David%27_by_Michelangelo_JBU0001.JPG",
+  "image_author": "Jörg Bittner Unna",
+  "image_license": "CC BY 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "mona-lisa",
@@ -101,7 +119,11 @@
   "frac": 0.2,
   "license": "Public domain",
   "attribution": "Leonardo da Vinci",
-  "source": "Wikimedia Commons: Mona Lisa, by Leonardo da Vinci, from C2RMF natural color.jpg"
+  "source": "Wikimedia Commons: Mona Lisa, by Leonardo da Vinci, from C2RMF natural color.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_natural_color.jpg",
+  "image_author": "Leonardo da Vinci",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "sistine-ceiling",
@@ -120,7 +142,12 @@
   "frac": 0.9,
   "license": "CC BY-SA 3.0",
   "attribution": "Michelangelo",
-  "source": "Wikimedia Commons: CAPPELLA SISTINA Ceiling.jpg"
+  "source": "Wikimedia Commons: CAPPELLA SISTINA Ceiling.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:CAPPELLA_SISTINA_Ceiling.jpg",
+  "image_author": "Michelangelo",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "starry-night",
@@ -140,7 +167,11 @@
   "license": "Public domain",
   "attribution": "Vincent van Gogh",
   "source": "Wikimedia Commons: Van Gogh - Starry Night - Google Art Project.jpg",
-  "start": 1
+  "start": 1,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
+  "image_author": "Vincent van Gogh",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "stonehenge",
@@ -159,7 +190,12 @@
   "license": "CC BY 2.0",
   "attribution": "Dave Souza",
   "source": "Wikimedia Commons: Stonehenge2007 07 30.jpg",
-  "start": 5
+  "start": 5,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Stonehenge2007_07_30.jpg",
+  "image_author": "garethwiscombe",
+  "image_license": "CC BY 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "taj-mahal",
@@ -177,7 +213,12 @@
   "frac": 0.18,
   "license": "CC BY-SA 3.0",
   "attribution": "Dhirad, picture edited by J. A. Knudsen",
-  "source": "Wikimedia Commons: Taj Mahal in March 2004.jpg"
+  "source": "Wikimedia Commons: Taj Mahal in March 2004.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Taj_Mahal_in_March_2004.jpg",
+  "image_author": "Dhirad, picture edited by J. A. Knudsen",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "terracotta-warrior",
@@ -200,7 +241,12 @@
   "license": "CC BY-SA 3.0",
   "attribution": "J. Arpon",
   "source": "Wikimedia Commons: Terracota warrior close-up.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Terracota_warrior_close-up.jpg",
+  "image_author": "J. Arpon",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "the-scream",
@@ -219,7 +265,11 @@
   "frac": 0.22,
   "license": "Public domain",
   "attribution": "Edvard Munch",
-  "source": "Wikimedia Commons: Edvard Munch, 1893, The Scream, oil, tempera and pastel on cardboard, 91 x 73 cm, National Gallery of Norway.jpg"
+  "source": "Wikimedia Commons: Edvard Munch, 1893, The Scream, oil, tempera and pastel on cardboard, 91 x 73 cm, National Gallery of Norway.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg",
+  "image_author": "Edvard Munch",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "tut-mask",
@@ -241,7 +291,12 @@
   "license": "CC BY-SA 3.0",
   "attribution": "en:User:MykReeve",
   "source": "Wikimedia Commons: Tutanchamun Maske.jpg",
-  "start": 8
+  "start": 8,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Tutanchamun_Maske.jpg",
+  "image_author": "MykReeve",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "venus-de-milo",
@@ -261,7 +316,11 @@
   "license": "Public domain",
   "attribution": "Gérard Janot",
   "source": "Wikimedia Commons: Venus de Milo Louvre Ma399 n4.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Venus_de_Milo_Louvre_Ma399_n4.jpg",
+  "image_author": "Unknown artist",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "american-gothic",
@@ -279,7 +338,11 @@
   "frac": 0.26,
   "license": "Public domain",
   "attribution": "Grant Wood",
-  "source": "Wikimedia Commons: Grant DeVolson Wood - American Gothic.jpg"
+  "source": "Wikimedia Commons: Grant DeVolson Wood - American Gothic.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Grant_DeVolson_Wood_-_American_Gothic.jpg",
+  "image_author": "Grant Wood",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "big-ben",
@@ -300,7 +363,12 @@
   "license": "CC BY 4.0",
   "attribution": "Julian Herzog (Website)",
   "source": "Wikimedia Commons: Big Ben Elizabeth Tower London 2023 01.jpg",
-  "start": 2
+  "start": 2,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Big_Ben_Elizabeth_Tower_London_2023_01.jpg",
+  "image_author": "Julian Herzog (Website)",
+  "image_license": "CC BY 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "birth-of-venus",
@@ -319,7 +387,11 @@
   "frac": 0.22,
   "license": "Public domain",
   "attribution": "Sandro Botticelli",
-  "source": "Wikimedia Commons: Sandro Botticelli - La nascita di Venere - Google Art Project - edited.jpg"
+  "source": "Wikimedia Commons: Sandro Botticelli - La nascita di Venere - Google Art Project - edited.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg",
+  "image_author": "Sandro Botticelli",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "bust-nefertiti",
@@ -339,7 +411,12 @@
   "license": "CC BY-SA 3.0",
   "attribution": "Philip Pikart",
   "source": "Wikimedia Commons: Nofretete Neues Museum.jpg",
-  "start": 1
+  "start": 1,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Nofretete_Neues_Museum.jpg",
+  "image_author": "Philip Pikart",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "chichen-itza",
@@ -360,7 +437,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Daniel Schwen",
   "source": "Wikimedia Commons: Chichen Itza 3.jpg",
-  "start": 1
+  "start": 1,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Chichen_Itza_3.jpg",
+  "image_author": "Daniel Schwen",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "christ-the-redeemer",
@@ -380,7 +462,12 @@
   "license": "CC BY-SA 3.0 de",
   "attribution": "Arne Müseler",
   "source": "Wikimedia Commons: Christ the Redeemer - Cristo Redentor.jpg",
-  "start": 7
+  "start": 7,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Christ_the_Redeemer_-_Cristo_Redentor.jpg",
+  "image_author": "Arne Müseler",
+  "image_license": "CC BY-SA 3.0 de",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "easter-island-moai",
@@ -401,7 +488,11 @@
   "license": "Public domain",
   "attribution": "Aurbina",
   "source": "Wikimedia Commons: Moai Rano raraku.jpg",
-  "start": 2
+  "start": 2,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Moai_Rano_raraku.jpg",
+  "image_author": "Aurbina",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "eiffel-tower",
@@ -421,7 +512,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "King of Hearts",
   "source": "Wikimedia Commons: Eiffel Tower Paris June 2010.jpg",
-  "start": 1
+  "start": 1,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Eiffel_Tower_Paris_June_2010.jpg",
+  "image_author": "King of Hearts",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "fushimi-inari",
@@ -440,7 +536,12 @@
   "frac": 0.28,
   "license": "CC BY-SA 4.0",
   "attribution": "Basile Morin",
-  "source": "Wikimedia Commons: Torii path with lantern at Fushimi Inari Taisha Shrine, Kyoto, Japan.jpg"
+  "source": "Wikimedia Commons: Torii path with lantern at Fushimi Inari Taisha Shrine, Kyoto, Japan.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Torii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine%2C_Kyoto%2C_Japan.jpg",
+  "image_author": "Basile Morin",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "goreme",
@@ -460,7 +561,12 @@
   "frac": 0.24,
   "license": "CC BY-SA 3.0",
   "attribution": "Brocken Inaglory",
-  "source": "Wikimedia Commons: Göreme Valley in Cappadocia edit1.jpg"
+  "source": "Wikimedia Commons: Göreme Valley in Cappadocia edit1.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:G%C3%B6reme_Valley_in_Cappadocia_edit1.jpg",
+  "image_author": "Brocken Inaglory",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "great-pyramid-giza",
@@ -483,7 +589,11 @@
   "frac": 0.2,
   "license": "Public domain",
   "attribution": "Eduard Spelterini",
-  "source": "Wikimedia Commons: Spelterini Pyramids.jpg"
+  "source": "Wikimedia Commons: Spelterini Pyramids.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Spelterini_Pyramids.jpg",
+  "image_author": "Eduard Spelterini",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "great-sphinx",
@@ -502,7 +612,12 @@
   "frac": 0.2,
   "license": "CC BY-SA 4.0",
   "attribution": "Petar Milošević",
-  "source": "Wikimedia Commons: Great Sphinx (أبو الهول).jpg"
+  "source": "Wikimedia Commons: Great Sphinx (أبو الهول).jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Great_Sphinx_%28%D8%A3%D8%A8%D9%88_%D8%A7%D9%84%D9%87%D9%88%D9%84%29.jpg",
+  "image_author": "Petar Milošević",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "hagia-sophia",
@@ -523,7 +638,12 @@
   "frac": 0.2,
   "license": "CC BY-SA 3.0",
   "attribution": "Arild Vågen",
-  "source": "Wikimedia Commons: Hagia Sophia Mars 2013.jpg"
+  "source": "Wikimedia Commons: Hagia Sophia Mars 2013.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Hagia_Sophia_Mars_2013.jpg",
+  "image_author": "Arild Vågen",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "kremlin-walls",
@@ -543,7 +663,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Dmitry Ivanov",
   "source": "Wikimedia Commons: Moscow Kremlin Towers of south wall.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Moscow_Kremlin_Towers_of_south_wall.jpg",
+  "image_author": "Dmitry Ivanov.",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "last-supper",
@@ -563,7 +688,11 @@
   "frac": 0.15,
   "license": "Public domain",
   "attribution": "Leonardo da Vinci",
-  "source": "Wikimedia Commons: Leonardo da Vinci (1452-1519) - The Last Supper (1495-1498).jpg"
+  "source": "Wikimedia Commons: Leonardo da Vinci (1452-1519) - The Last Supper (1495-1498).jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Leonardo_da_Vinci_%281452-1519%29_-_The_Last_Supper_%281495-1498%29.jpg",
+  "image_author": "Leonardo da Vinci",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "leaning-tower-pisa",
@@ -583,7 +712,12 @@
   "frac": 0.2,
   "license": "CC BY-SA 4.0",
   "attribution": "MHoser",
-  "source": "Wikimedia Commons: The Duomo and Tower of Pisa at sunrise.jpg"
+  "source": "Wikimedia Commons: The Duomo and Tower of Pisa at sunrise.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:The_Duomo_and_Tower_of_Pisa_at_sunrise.jpg",
+  "image_author": "MHoser",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "lycurgus-cup",
@@ -600,7 +734,12 @@
   "frac": 0.16,
   "license": "CC BY 4.0",
   "attribution": "Chappsnet",
-  "source": "Wikimedia Commons: Front of 4th century CE Roman Lycurgus Cup, British Museum (1958,1202.1).jpg"
+  "source": "Wikimedia Commons: Front of 4th century CE Roman Lycurgus Cup, British Museum (1958,1202.1).jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Front_of_4th_century_CE_Roman_Lycurgus_Cup%2C_British_Museum_%281958%2C1202.1%29.jpg",
+  "image_author": "Chappsnet",
+  "image_license": "CC BY 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "machu-picchu",
@@ -619,7 +758,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "PIERRE ANDRE LECLERCQ",
   "source": "Wikimedia Commons: Machu Picchu with Huayna Picchu Pérou (3).jpg",
-  "start": 3
+  "start": 3,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Machu_Picchu_with_Huayna_Picchu_P%C3%A9rou_%283%29.jpg",
+  "image_author": "PIERRE ANDRE LECLERCQ",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "neuschwanstein-castle",
@@ -637,7 +781,12 @@
   "frac": 0.2,
   "license": "CC0",
   "attribution": "Wilfredor",
-  "source": "Wikimedia Commons: Neuschwanstein Castle 2024-02.jpg"
+  "source": "Wikimedia Commons: Neuschwanstein Castle 2024-02.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Neuschwanstein_Castle_2024-02.jpg",
+  "image_author": "Wilfredor",
+  "image_license": "CC0",
+  "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "notre-dame-paris",
@@ -657,7 +806,12 @@
   "frac": 0.2,
   "license": "CC BY-SA 3.0",
   "attribution": "DXR",
-  "source": "Wikimedia Commons: Cathédrale Notre-Dame de Paris, 20 March 2014.jpg"
+  "source": "Wikimedia Commons: Cathédrale Notre-Dame de Paris, 20 March 2014.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Notre-Dame_de_Paris%2C_20_March_2014.jpg",
+  "image_author": "DXR",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "pamukkale",
@@ -676,7 +830,12 @@
   "frac": 0.24,
   "license": "FAL",
   "attribution": "A.Savin",
-  "source": "Wikimedia Commons: TR Pamukkale White Terraces asv2020-02 img16.jpg"
+  "source": "Wikimedia Commons: TR Pamukkale White Terraces asv2020-02 img16.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:TR_Pamukkale_White_Terraces_asv2020-02_img16.jpg",
+  "image_author": "A.Savin",
+  "image_license": "FAL",
+  "image_license_url": "http://artlibre.org/licence/lal/en",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "parthenon",
@@ -694,7 +853,12 @@
   "license": "CC BY-SA 3.0",
   "attribution": "A.Savin",
   "source": "Wikimedia Commons: Attica 06-13 Athens 50 View from Philopappos - Acropolis Hill.jpg",
-  "start": 8
+  "start": 8,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Attica_06-13_Athens_50_View_from_Philopappos_-_Acropolis_Hill.jpg",
+  "image_author": "A.Savin",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "pena-palace",
@@ -714,7 +878,12 @@
   "frac": 0.24,
   "license": "CC BY-SA 3.0",
   "attribution": "CEphoto, Uwe Aranas",
-  "source": "Wikimedia Commons: Sintra Portugal Palácio da Pena-01.jpg"
+  "source": "Wikimedia Commons: Sintra Portugal Palácio da Pena-01.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Sintra_Portugal_Pal%C3%A1cio_da_Pena-01.jpg",
+  "image_author": "CEphoto, Uwe Aranas",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "petra-treasury",
@@ -735,7 +904,12 @@
   "frac": 0.2,
   "license": "CC BY-SA 2.0",
   "attribution": "Al_Khazneh_Petra.jpg: Graham Racher from London, UK\nderivative work: MrPanyGoff",
-  "source": "Wikimedia Commons: Al Khazneh Petra edit 2.jpg"
+  "source": "Wikimedia Commons: Al Khazneh Petra edit 2.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Al_Khazneh_Petra_edit_2.jpg",
+  "image_author": "Al_Khazneh_Petra.jpg: Graham Racher from London, UK\nderivative work: MrPanyGoff",
+  "image_license": "CC BY-SA 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "red-square",
@@ -753,7 +927,12 @@
   "frac": 0.16,
   "license": "CC BY 4.0",
   "attribution": "Yuriy D.K.",
-  "source": "Wikimedia Commons: Red Square in Moscow (general view in 2025).jpg"
+  "source": "Wikimedia Commons: Red Square in Moscow (general view in 2025).jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Red_Square_in_Moscow_%28general_view_in_2025%29.jpg",
+  "image_author": "Юрий Д.К.",
+  "image_license": "CC BY 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "st-basils-cathedral",
@@ -775,7 +954,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Petar Milošević",
   "source": "Wikimedia Commons: Sant Vasily cathedral in Moscow.JPG",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Sant_Vasily_cathedral_in_Moscow.JPG",
+  "image_author": "Petar Milošević",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "sunflowers",
@@ -794,7 +978,11 @@
   "frac": 0.22,
   "license": "Public domain",
   "attribution": "Vincent van Gogh",
-  "source": "Wikimedia Commons: Vincent van Gogh - Sunflowers - VGM F458.jpg"
+  "source": "Wikimedia Commons: Vincent van Gogh - Sunflowers - VGM F458.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Sunflowers_-_VGM_F458.jpg",
+  "image_author": "Vincent van Gogh",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "the-thinker",
@@ -813,7 +1001,11 @@
   "license": "Public domain",
   "attribution": "Andrew Horne",
   "source": "Wikimedia Commons: The Thinker, Auguste Rodin.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:The_Thinker%2C_Auguste_Rodin.jpg",
+  "image_author": "Karora",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "tower-bridge",
@@ -830,7 +1022,12 @@
   "frac": 0.2,
   "license": "CC BY-SA 3.0",
   "attribution": "Diliff",
-  "source": "Wikimedia Commons: Tower Bridge London Dusk Feb 2006.jpg"
+  "source": "Wikimedia Commons: Tower Bridge London Dusk Feb 2006.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Tower_Bridge_London_Dusk_Feb_2006.jpg",
+  "image_author": "Diliff",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "trevi-fountain",
@@ -850,7 +1047,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Diego Delso",
   "source": "Wikimedia Commons: Fuente de Trevi, Roma, Italia, 2022-09-15, DD 02.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Fuente_de_Trevi%2C_Roma%2C_Italia%2C_2022-09-15%2C_DD_02.jpg",
+  "image_author": "Diego Delso",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "abu-simbel",
@@ -869,7 +1071,12 @@
   "frac": 0.26,
   "license": "CC BY-SA 4.0",
   "attribution": "Diego Delso",
-  "source": "Wikimedia Commons: Templo de Ramsés II, Abu Simbel, Egipto, 2022-04-02, DD 03.jpg"
+  "source": "Wikimedia Commons: Templo de Ramsés II, Abu Simbel, Egipto, 2022-04-02, DD 03.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Templo_de_Rams%C3%A9s_II%2C_Abu_Simbel%2C_Egipto%2C_2022-04-02%2C_DD_03.jpg",
+  "image_author": "Diego Delso",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "acropolis-athens",
@@ -889,7 +1096,12 @@
   "license": "CC0",
   "attribution": "George E. Koronaios",
   "source": "Wikimedia Commons: The Acropolis of Athens from Philopappos Hill on June 16, 2020.jpg",
-  "start": 8
+  "start": 8,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:The_Acropolis_of_Athens_from_Philopappos_Hill_on_June_16%2C_2020.jpg",
+  "image_author": "George E. Koronaios",
+  "image_license": "CC0",
+  "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "angkor-wat",
@@ -906,7 +1118,12 @@
   "frac": 0.2,
   "license": "CC BY-SA 4.0",
   "attribution": "Jakub Hałun",
-  "source": "Wikimedia Commons: 20171128 Angkor Wat 5562 DxO.jpg"
+  "source": "Wikimedia Commons: 20171128 Angkor Wat 5562 DxO.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:20171128_Angkor_Wat_5562_DxO.jpg",
+  "image_author": "Jakub Hałun",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "antikythera-mechanism",
@@ -925,7 +1142,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Joyofmuseums",
   "source": "Wikimedia Commons: Antikythera Mechanism - National Archaeological Museum, Athens by Joy of Museum.jpg",
-  "start": 2
+  "start": 2,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Antikythera_Mechanism_-_National_Archaeological_Museum%2C_Athens_by_Joy_of_Museum.jpg",
+  "image_author": "Joyofmuseums",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "aztec-sun-stone",
@@ -946,7 +1168,12 @@
   "frac": 0.2132309824617517,
   "license": "CC0",
   "attribution": "Rosemanios",
-  "source": "Wikimedia Commons: Aztec Sun Stone or Calendar Stone.jpg"
+  "source": "Wikimedia Commons: Aztec Sun Stone or Calendar Stone.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Aztec_Sun_Stone_or_Calendar_Stone.jpg",
+  "image_author": "Gary Todd",
+  "image_license": "CC0",
+  "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "bayeux-tapestry",
@@ -964,7 +1191,11 @@
   "frac": 0.22,
   "license": "Public domain",
   "attribution": "Myrabella",
-  "source": "Wikimedia Commons: Bayeux Tapestry scene57 Harold death.jpg"
+  "source": "Wikimedia Commons: Bayeux Tapestry scene57 Harold death.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Bayeux_Tapestry_scene57_Harold_death.jpg",
+  "image_author": "Myrabella",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "bran-castle",
@@ -984,7 +1215,12 @@
   "frac": 0.24,
   "license": "CC BY-SA 4.0",
   "attribution": "Todor Bozhinov",
-  "source": "Wikimedia Commons: Bran Castle TB1.jpg"
+  "source": "Wikimedia Commons: Bran Castle TB1.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Bran_Castle_TB1.jpg",
+  "image_author": "Todor Bozhinov",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "brandenburg-gate",
@@ -1002,7 +1238,12 @@
   "frac": 0.2,
   "license": "CC BY-SA 3.0",
   "attribution": "Thomas Wolf, www.foto-tw.de",
-  "source": "Wikimedia Commons: Brandenburger Tor abends.jpg"
+  "source": "Wikimedia Commons: Brandenburger Tor abends.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Brandenburger_Tor_abends.jpg",
+  "image_author": "Thomas Wolf, www.foto-tw.de",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "carcassonne",
@@ -1022,7 +1263,12 @@
   "license": "CC BY-SA 3.0",
   "attribution": "Przemek P",
   "source": "Wikimedia Commons: Outer walls of the fortified city of Carcassonne 2.jpg",
-  "start": 8
+  "start": 8,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Outer_walls_of_the_fortified_city_of_Carcassonne_2.jpg",
+  "image_author": "Przemek P",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "charles-bridge",
@@ -1041,7 +1287,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Scotch Mist",
   "source": "Wikimedia Commons: Prague Charles Bridge 2021 30.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Prague_Charles_Bridge_2021_30.jpg",
+  "image_author": "Scotch Mist",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "codex-gigas",
@@ -1060,7 +1311,12 @@
   "frac": 0.16,
   "license": "CC0",
   "attribution": "Herman the Recluse",
-  "source": "Wikimedia Commons: Codex-Gigas-Devil-enhanced.jpg"
+  "source": "Wikimedia Commons: Codex-Gigas-Devil-enhanced.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Codex-Gigas-Devil-enhanced.jpg",
+  "image_author": "Herman the Recluse (Medieval scribe)",
+  "image_license": "CC0",
+  "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "doges-palace",
@@ -1079,7 +1335,12 @@
   "frac": 0.16,
   "license": "CC BY-SA 4.0",
   "attribution": "kallerna",
-  "source": "Wikimedia Commons: Doge's Palace Venice sea facade.jpg"
+  "source": "Wikimedia Commons: Doge's Palace Venice sea facade.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Doge%27s_Palace_Venice_sea_facade.jpg",
+  "image_author": "kallerna",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "dome-of-the-rock",
@@ -1098,7 +1359,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Godot13",
   "source": "Wikimedia Commons: Jerusalem-2013-Temple Mount-Dome of the Rock & Chain 02.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Jerusalem-2013-Temple_Mount-Dome_of_the_Rock_%26_Chain_02.jpg",
+  "image_author": "Godot13",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "ellora-kailasa",
@@ -1119,7 +1385,12 @@
   "frac": 0.24,
   "license": "CC0",
   "attribution": "K. Venkataramana",
-  "source": "Wikimedia Commons: The Kailash Temple (also Kailasanatha),Cave No.16.jpg"
+  "source": "Wikimedia Commons: The Kailash Temple (also Kailasanatha),Cave No.16.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:The_Kailash_Temple_%28also_Kailasanatha%29%2CCave_No.16.jpg",
+  "image_author": "K.Venkataramana",
+  "image_license": "CC0",
+  "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "florence-cathedral-dome",
@@ -1140,7 +1411,12 @@
   "license": "CC BY 2.5",
   "attribution": "Sailko",
   "source": "Wikimedia Commons: Cupola di santa maria del fiore dal campanile di giotto, 01.JPG",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Cupola_di_santa_maria_del_fiore_dal_campanile_di_giotto%2C_01.JPG",
+  "image_author": "sailko",
+  "image_license": "CC BY 2.5",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.5",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "girl-pearl-earring",
@@ -1160,7 +1436,11 @@
   "frac": 0.22,
   "license": "Public domain",
   "attribution": "Johannes Vermeer",
-  "source": "Wikimedia Commons: Girl with a Pearl Earring.jpg"
+  "source": "Wikimedia Commons: Girl with a Pearl Earring.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Girl_with_a_Pearl_Earring.jpg",
+  "image_author": "Johannes Vermeer",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "gobekli-tepe",
@@ -1180,7 +1460,12 @@
   "frac": 0.22,
   "license": "CC BY-SA 4.0",
   "attribution": "Zhengan",
-  "source": "Wikimedia Commons: Göbekli Tepe site (1).JPG"
+  "source": "Wikimedia Commons: Göbekli Tepe site (1).JPG",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_site_%281%29.JPG",
+  "image_author": "Zhengan",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "golden-gate-bridge",
@@ -1199,7 +1484,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Radomianin",
   "source": "Wikimedia Commons: Golden Gate Bridge, north tower detail.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Golden_Gate_Bridge%2C_north_tower_detail.jpg",
+  "image_author": "Radomianin",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "golden-pavilion",
@@ -1220,7 +1510,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Basile Morin",
   "source": "Wikimedia Commons: Water reflection of Kinkaku-ji Temple a sunny day, Kyoto, Japan.jpg",
-  "start": 2
+  "start": 2,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Water_reflection_of_Kinkaku-ji_Temple_a_sunny_day%2C_Kyoto%2C_Japan.jpg",
+  "image_author": "Basile Morin",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "golden-temple",
@@ -1242,7 +1537,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Dey.sandip",
   "source": "Wikimedia Commons: Harmandir Sahib, Amritsar, India.jpg",
-  "start": 3
+  "start": 3,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Harmandir_Sahib%2C_Amritsar%2C_India.jpg",
+  "image_author": "Dey.sandip",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "great-mosque-cordoba",
@@ -1263,7 +1563,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Alvaro.vinuela.carnicero",
   "source": "Wikimedia Commons: Mezquita cordoba arcos flotantes.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Mezquita_cordoba_arcos_flotantes.jpg",
+  "image_author": "Alvaro.vinuela.carnicero",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "great-wall-china",
@@ -1281,7 +1586,12 @@
   "frac": 0.2,
   "license": "CC BY-SA 3.0",
   "attribution": "Jakub Hałun",
-  "source": "Wikimedia Commons: 20090529 Great Wall 8185.jpg"
+  "source": "Wikimedia Commons: 20090529 Great Wall 8185.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:20090529_Great_Wall_8185.jpg",
+  "image_author": "Jakub Hałun",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "ishtar-gate",
@@ -1301,7 +1611,12 @@
   "frac": 0.2,
   "license": "CC0",
   "attribution": "Sinoulpgc",
-  "source": "Wikimedia Commons: Pergamon museum Ishtar Gate.jpg"
+  "source": "Wikimedia Commons: Pergamon museum Ishtar Gate.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Pergamon_museum_Ishtar_Gate.jpg",
+  "image_author": "Sinoulpgc",
+  "image_license": "CC0",
+  "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "itsukushima-shrine",
@@ -1323,7 +1638,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Ian G Shingler",
   "source": "Wikimedia Commons: Miyajima Itsukushima shrine floating tori gate.jpg",
-  "start": 7
+  "start": 7,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Miyajima_Itsukushima_shrine_floating_tori_gate.jpg",
+  "image_author": "Ian G Shingler",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "knossos-palace",
@@ -1342,7 +1662,12 @@
   "frac": 0.18,
   "license": "CC BY-SA 4.0",
   "attribution": "Rigorius",
-  "source": "Wikimedia Commons: Knossos Throne-room 20230604 110755.jpg"
+  "source": "Wikimedia Commons: Knossos Throne-room 20230604 110755.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Knossos_Throne-room_20230604_110755.jpg",
+  "image_author": "Rigorius",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "konark-sun-temple",
@@ -1362,7 +1687,12 @@
   "frac": 0.22,
   "license": "CC BY-SA 4.0",
   "attribution": "Subhrajyoti07",
-  "source": "Wikimedia Commons: Sun Temple Main Structure, Konark, Orissa.jpg"
+  "source": "Wikimedia Commons: Sun Temple Main Structure, Konark, Orissa.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Sun_Temple_Main_Structure%2C_Konark%2C_Orissa.jpg",
+  "image_author": "Subhrajyoti07",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "lalibela",
@@ -1384,7 +1714,12 @@
   "license": "CC BY-SA 3.0",
   "attribution": "Bernard Gagnon",
   "source": "Wikimedia Commons: Bete Giyorgis 01.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Bete_Giyorgis_01.jpg",
+  "image_author": "Bernard Gagnon",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "liberty-bell",
@@ -1402,7 +1737,12 @@
   "frac": 0.17557024233180815,
   "license": "CC BY 2.0",
   "attribution": "Smallbones",
-  "source": "Wikimedia Commons: Liberty Bell 2008.jpg"
+  "source": "Wikimedia Commons: Liberty Bell 2008.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Liberty_Bell_2008.jpg",
+  "image_author": "Tony the Misfit on Flickr",
+  "image_license": "CC BY 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "liberty-leading",
@@ -1421,7 +1761,11 @@
   "frac": 0.2,
   "license": "Public domain",
   "attribution": "Eugène Delacroix",
-  "source": "Wikimedia Commons: Eugène Delacroix - La liberté guidant le peuple.jpg"
+  "source": "Wikimedia Commons: Eugène Delacroix - La liberté guidant le peuple.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Eug%C3%A8ne_Delacroix_-_La_libert%C3%A9_guidant_le_peuple.jpg",
+  "image_author": "Eugène Delacroix",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "mask-of-agamemnon",
@@ -1440,7 +1784,12 @@
   "frac": 0.22,
   "license": "CC0",
   "attribution": "Jebulon",
-  "source": "Wikimedia Commons: Agamemnon mask NAMA Athens Greece.jpg"
+  "source": "Wikimedia Commons: Agamemnon mask NAMA Athens Greece.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Agamemnon_mask_NAMA_Athens_Greece.jpg",
+  "image_author": "Jebulon",
+  "image_license": "CC0",
+  "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "meenakshi-temple",
@@ -1461,7 +1810,12 @@
   "frac": 0.22,
   "license": "CC BY 4.0",
   "attribution": "Vyacheslav Argenberg",
-  "source": "Wikimedia Commons: Meenakshi Temple, Gopuram, Madurai, India.jpg"
+  "source": "Wikimedia Commons: Meenakshi Temple, Gopuram, Madurai, India.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Meenakshi_Temple%2C_Gopuram%2C_Madurai%2C_India.jpg",
+  "image_author": "Vyacheslav Argenberg",
+  "image_license": "CC BY 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "milan-cathedral",
@@ -1480,7 +1834,12 @@
   "frac": 0.16,
   "license": "CC BY-SA 3.0",
   "attribution": "Jiuguang Wang",
-  "source": "Wikimedia Commons: Milan Cathedral from Piazza del Duomo.jpg"
+  "source": "Wikimedia Commons: Milan Cathedral from Piazza del Duomo.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Milan_Cathedral_from_Piazza_del_Duomo.jpg",
+  "image_author": "Jiuguang Wang",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "mont-saint-michel",
@@ -1500,7 +1859,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "W. Bulach",
   "source": "Wikimedia Commons: 00 0572 Mont Saint Michel abbey.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:00_0572_Mont_Saint_Michel_abbey.jpg",
+  "image_author": "W. Bulach",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "moray",
@@ -1519,7 +1883,12 @@
   "frac": 0.24,
   "license": "CC BY-SA 4.0",
   "attribution": "Laslovarga",
-  "source": "Wikimedia Commons: Moray, Peru - Laslovarga (6).jpg"
+  "source": "Wikimedia Commons: Moray, Peru - Laslovarga (6).jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Moray%2C_Peru_-_Laslovarga_%286%29.jpg",
+  "image_author": "Laslovarga",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "mostar-bridge",
@@ -1540,7 +1909,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Ramirez",
   "source": "Wikimedia Commons: Mostar Old Town Panorama 2007.jpg",
-  "start": 3
+  "start": 3,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Mostar_Old_Town_Panorama_2007.jpg",
+  "image_author": "Ramirez",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "mount-nemrut",
@@ -1561,7 +1935,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Emrahuygun",
   "source": "Wikimedia Commons: Giant Statues of Commagene Kingdom.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Giant_Statues_of_Commagene_Kingdom.jpg",
+  "image_author": "Emrahuygun",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "mount-rushmore",
@@ -1580,7 +1959,11 @@
   "license": "Public domain",
   "attribution": "Dean Franklin",
   "source": "Wikimedia Commons: Dean Franklin - 06.04.03 Mount Rushmore Monument (by-sa).jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Dean_Franklin_-_06.04.03_Mount_Rushmore_Monument_%28by-sa%29.jpg",
+  "image_author": "Dean Franklin",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "peterhof-palace",
@@ -1602,7 +1985,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "W. Bulach",
   "source": "Wikimedia Commons: 00 2989 Sampson Fountain - Peterhof, Russia.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:00_2989_Sampson_Fountain_-_Peterhof%2C_Russia.jpg",
+  "image_author": "W. Bulach",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "pieta-michelangelo",
@@ -1622,7 +2010,12 @@
   "license": "CC BY 2.5",
   "attribution": "Stanislav Traykov",
   "source": "Wikimedia Commons: Michelangelo's Pieta 5450 cropncleaned edit.jpg",
-  "start": 8
+  "start": 8,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Michelangelo%27s_Pieta_5450_cropncleaned_edit.jpg",
+  "image_author": "Stanislav Traykov",
+  "image_license": "CC BY 2.5",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.5",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "pont-du-gard-aqueduct",
@@ -1641,7 +2034,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Krzysztof Golik",
   "source": "Wikimedia Commons: Pont du Gard (30).jpg",
-  "start": 5
+  "start": 5,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Pont_du_Gard_%2830%29.jpg",
+  "image_author": "Krzysztof Golik",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "prague-castle",
@@ -1662,7 +2060,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Diego Delso",
   "source": "Wikimedia Commons: Castillo de Praga, Praga, República Checa, 2022-07-02, DD 209.jpg",
-  "start": 8
+  "start": 8,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Castillo_de_Praga%2C_Praga%2C_Rep%C3%BAblica_Checa%2C_2022-07-02%2C_DD_209.jpg",
+  "image_author": "Diego Delso",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "predjama-castle",
@@ -1681,7 +2084,12 @@
   "frac": 0.22,
   "license": "CC BY 4.0",
   "attribution": "Jakub Hałun",
-  "source": "Wikimedia Commons: Predjama Castle, Slovenia, 20240502 0833 7417.jpg"
+  "source": "Wikimedia Commons: Predjama Castle, Slovenia, 20240502 0833 7417.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Predjama_Castle%2C_Slovenia%2C_20240502_0833_7417.jpg",
+  "image_author": "Jakub Hałun",
+  "image_license": "CC BY 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "rialto-bridge",
@@ -1700,7 +2108,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "kallerna",
   "source": "Wikimedia Commons: Ponte di Rialto Venice 1.jpg",
-  "start": 3
+  "start": 3,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Ponte_di_Rialto_Venice_1.jpg",
+  "image_author": "kallerna",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "sagrada-familia",
@@ -1718,7 +2131,12 @@
   "frac": 0.2,
   "license": "CC BY-SA 4.0",
   "attribution": "Alvesgaspar",
-  "source": "Wikimedia Commons: Sagrada Familia March 2015-14a.jpg"
+  "source": "Wikimedia Commons: Sagrada Familia March 2015-14a.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Sagrada_Familia_March_2015-14a.jpg",
+  "image_author": "Alvesgaspar",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "sigiriya",
@@ -1738,7 +2156,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Thushara Nadeeja",
   "source": "Wikimedia Commons: The Sigiriya Rock Fortress.jpg",
-  "start": 3
+  "start": 3,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:The_Sigiriya_Rock_Fortress.jpg",
+  "image_author": "Thushara Nadeeja",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "st-marks-basilica",
@@ -1759,7 +2182,12 @@
   "frac": 0.24,
   "license": "CC BY-SA 4.0",
   "attribution": "Yair Haklai",
-  "source": "Wikimedia Commons: Facade of St. Mark's Basilica-Venice.jpg"
+  "source": "Wikimedia Commons: Facade of St. Mark's Basilica-Venice.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Facade_of_St._Mark%27s_Basilica-Venice.jpg",
+  "image_author": "Yair Haklai",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "statue-of-liberty",
@@ -1779,7 +2207,11 @@
   "license": "Public domain",
   "attribution": "Daniel Schwen",
   "source": "Wikimedia Commons: Statue of Liberty frontal 2.jpg",
-  "start": 7
+  "start": 7,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Statue_of_Liberty_frontal_2.jpg",
+  "image_author": "Daniel Schwen",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "sunday-grande-jatte",
@@ -1799,7 +2231,11 @@
   "frac": 0.2,
   "license": "Public domain",
   "attribution": "Georges Seurat",
-  "source": "Wikimedia Commons: A Sunday on La Grande Jatte, Georges Seurat, 1884.jpg"
+  "source": "Wikimedia Commons: A Sunday on La Grande Jatte, Georges Seurat, 1884.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:A_Sunday_on_La_Grande_Jatte%2C_Georges_Seurat%2C_1884.jpg",
+  "image_author": "Georges Seurat",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "sutton-hoo-helmet",
@@ -1818,7 +2254,12 @@
   "license": "CC BY-SA 2.5",
   "attribution": "Gernot Keller",
   "source": "Wikimedia Commons: Sutton Hoo helmet reconstructed.jpg",
-  "start": 8
+  "start": 8,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Sutton_Hoo_helmet_reconstructed.jpg",
+  "image_author": "Gernot Keller (Own work)- 2008-05-17-SuttonHoo.jpg - cropped & slightly brightened",
+  "image_license": "CC BY-SA 2.5",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/2.5",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "taktsang",
@@ -1839,7 +2280,12 @@
   "frac": 0.22,
   "license": "CC BY 2.0",
   "attribution": "Nina R",
-  "source": "Wikimedia Commons: Paro Taktsang, Bhutan (edited).jpg"
+  "source": "Wikimedia Commons: Paro Taktsang, Bhutan (edited).jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Paro_Taktsang%2C_Bhutan_%28edited%29.jpg",
+  "image_author": "Original:  Nina R from Africa\n\nDerivative work:  UnpetitproleX",
+  "image_license": "CC BY 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "temple-poseidon",
@@ -1858,7 +2304,12 @@
   "frac": 0.16,
   "license": "CC0",
   "attribution": "Jebulon",
-  "source": "Wikimedia Commons: Temple of Poseidon perspective at Cape Sounion Greece.jpg"
+  "source": "Wikimedia Commons: Temple of Poseidon perspective at Cape Sounion Greece.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Temple_of_Poseidon_perspective_at_Cape_Sounion_Greece.jpg",
+  "image_author": "Jebulon",
+  "image_license": "CC0",
+  "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "tulum",
@@ -1877,7 +2328,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Martin Falbisoner",
   "source": "Wikimedia Commons: Tulum - God of the Winds Temple 03.JPG",
-  "start": 1
+  "start": 1,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Tulum_-_God_of_the_Winds_Temple_03.JPG",
+  "image_author": "Martin Falbisoner",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "venus-willendorf",
@@ -1896,7 +2352,12 @@
   "frac": 0.7518796992481201,
   "license": "CC BY 2.5",
   "attribution": "Don Hitchcock",
-  "source": "Wikimedia Commons: Venus von Willendorf 01.jpg"
+  "source": "Wikimedia Commons: Venus von Willendorf 01.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Venus_von_Willendorf_01.jpg",
+  "image_author": "MatthiasKabel",
+  "image_license": "CC BY 2.5",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.5",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "vitruvian-man",
@@ -1914,7 +2375,11 @@
   "frac": 0.2,
   "license": "Public domain",
   "attribution": "Leonardo da Vinci",
-  "source": "Wikimedia Commons: Da Vinci Vitruve Luc Viatour.jpg"
+  "source": "Wikimedia Commons: Da Vinci Vitruve Luc Viatour.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Da_Vinci_Vitruve_Luc_Viatour.jpg",
+  "image_author": "Leonardo da Vinci",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "windsor-castle",
@@ -1933,7 +2398,12 @@
   "license": "CC BY-SA 3.0",
   "attribution": "Ввласенко",
   "source": "Wikimedia Commons: Castle View from Alexandra Park - Round Tower, St George’s Chapel and the Curfew Tower. Windsor, UK.jpg",
-  "start": 2
+  "start": 2,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Castle_View_from_Alexandra_Park_-_Round_Tower%2C_St_George%E2%80%99s_Chapel_and_the_Curfew_Tower._Windsor%2C_UK.jpg",
+  "image_author": "Ввласенко",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "winged-victory",
@@ -1954,7 +2424,10 @@
   "frac": 0.28,
   "license": "Public domain",
   "attribution": "Gérard Janot",
-  "source": "Wikimedia Commons: Nike of Samothrake Louvre Ma2369 n4.jpg"
+  "source": "Wikimedia Commons: Nike of Samothrake Louvre Ma2369 n4.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Nike_of_Samothrake_Louvre_Ma2369_n4.jpg",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "winter-palace",
@@ -1976,7 +2449,12 @@
   "license": "CC BY 4.0",
   "attribution": "Vyacheslav Argenberg",
   "source": "Wikimedia Commons: The Winter Palace and the Alexander Column, Saint Petersburg, Russia.jpg",
-  "start": 8
+  "start": 8,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:The_Winter_Palace_and_the_Alexander_Column%2C_Saint_Petersburg%2C_Russia.jpg",
+  "image_author": "Vyacheslav Argenberg",
+  "image_license": "CC BY 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "wright-flyer",
@@ -1998,7 +2476,11 @@
   "license": "Public domain",
   "attribution": "John T. Daniels",
   "source": "Wikimedia Commons: First flight3.jpg",
-  "start": 3
+  "start": 3,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:First_flight3.jpg",
+  "image_author": "John T. Daniels",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "alfred-jewel",
@@ -2015,7 +2497,11 @@
   "frac": 0.16,
   "license": "CC BY-SA 4.0",
   "attribution": "Geni",
-  "source": "Wikimedia Commons: Alfred Jewel Ashmolean 2014.JPG"
+  "source": "Wikimedia Commons: Alfred Jewel Ashmolean 2014.JPG",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Alfred_Jewel_Ashmolean_2014.JPG",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "amber-fort",
@@ -2035,7 +2521,12 @@
   "frac": 0.22,
   "license": "CC BY-SA 4.0",
   "attribution": "Jakub Hałun",
-  "source": "Wikimedia Commons: Amber Fort, Jaipur, 20191219 1045 9589.jpg"
+  "source": "Wikimedia Commons: Amber Fort, Jaipur, 20191219 1045 9589.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Amber_Fort%2C_Jaipur%2C_20191219_1045_9589.jpg",
+  "image_author": "Jakub Hałun",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "arc-de-triomphe",
@@ -2053,7 +2544,12 @@
   "frac": 0.16,
   "license": "CC BY-SA 3.0",
   "attribution": "Benh LIEU SONG",
-  "source": "Wikimedia Commons: Arc Triomphe.jpg"
+  "source": "Wikimedia Commons: Arc Triomphe.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Arc_Triomphe.jpg",
+  "image_author": "Benh LIEU SONG",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "arena-verona",
@@ -2072,7 +2568,12 @@
   "frac": 0.16,
   "license": "CC BY-SA 4.0",
   "attribution": "Zairon",
-  "source": "Wikimedia Commons: Verona Arena 01.jpg"
+  "source": "Wikimedia Commons: Verona Arena 01.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Verona_Arena_01.jpg",
+  "image_author": "Zairon",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "bagan",
@@ -2092,7 +2593,12 @@
   "license": "CC BY 4.0",
   "attribution": "Vyacheslav Argenberg",
   "source": "Wikimedia Commons: Old Bagan, Myanmar, Landscape of ancient Bagan city.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Old_Bagan%2C_Myanmar%2C_Landscape_of_ancient_Bagan_city.jpg",
+  "image_author": "Vyacheslav Argenberg",
+  "image_license": "CC BY 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "bayon-temple",
@@ -2110,7 +2616,12 @@
   "frac": 0.2,
   "license": "CC BY 2.0",
   "attribution": "Photo Dharma from Penang, Malaysia",
-  "source": "Wikimedia Commons: Angkor - Bayon - 004 Tower Faces (8581824754).jpg"
+  "source": "Wikimedia Commons: Angkor - Bayon - 004 Tower Faces (8581824754).jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Angkor_-_Bayon_-_004_Tower_Faces_%288581824754%29.jpg",
+  "image_author": "Photo Dharma from Penang, Malaysia",
+  "image_license": "CC BY 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "blue-mosque",
@@ -2130,7 +2641,12 @@
   "license": "CC BY-SA 3.0",
   "attribution": "Moonik",
   "source": "Wikimedia Commons: Exterior of Sultan Ahmed I Mosque in Istanbul, Turkey 002.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Exterior_of_Sultan_Ahmed_I_Mosque_in_Istanbul%2C_Turkey_002.jpg",
+  "image_author": "Moonik",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "book-of-kells",
@@ -2148,7 +2664,10 @@
   "frac": 0.22,
   "license": "Public domain",
   "attribution": "Unknown",
-  "source": "Wikimedia Commons: KellsFol034rChiRhoMonogram.jpg"
+  "source": "Wikimedia Commons: KellsFol034rChiRhoMonogram.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:KellsFol034rChiRhoMonogram.jpg",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "borobudur",
@@ -2166,7 +2685,12 @@
   "license": "CC BY-SA 3.0",
   "attribution": "CEphoto, Uwe Aranas",
   "source": "Wikimedia Commons: Borobudur-Temple-Park Indonesia Stupas-of-Borobudur-04.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Borobudur-Temple-Park_Indonesia_Stupas-of-Borobudur-04.jpg",
+  "image_author": "CEphoto, Uwe Aranas",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "boudhanath",
@@ -2186,7 +2710,12 @@
   "frac": 0.24,
   "license": "CC BY-SA 4.0",
   "attribution": "Bernard Gagnon",
-  "source": "Wikimedia Commons: Boudhanath stupa, Kathmandu 01.jpg"
+  "source": "Wikimedia Commons: Boudhanath stupa, Kathmandu 01.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Boudhanath_stupa%2C_Kathmandu_01.jpg",
+  "image_author": "Bernard Gagnon",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "buckingham-palace",
@@ -2203,7 +2732,12 @@
   "frac": 0.16,
   "license": "CC BY 4.0",
   "attribution": "APK",
-  "source": "Wikimedia Commons: Buckingham Palace east front facade.jpg"
+  "source": "Wikimedia Commons: Buckingham Palace east front facade.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Buckingham_Palace_east_front_facade.jpg",
+  "image_author": "APK",
+  "image_license": "CC BY 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "catalan-atlas",
@@ -2220,7 +2754,11 @@
   "frac": 0.15,
   "license": "Public domain",
   "attribution": "Cresques Abraham",
-  "source": "Wikimedia Commons: 1375 Atlas Catalan, Europe 02.jpg"
+  "source": "Wikimedia Commons: 1375 Atlas Catalan, Europe 02.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:1375_Atlas_Catalan%2C_Europe_02.jpg",
+  "image_author": "Cresques Abraham",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "catherine-palace",
@@ -2239,7 +2777,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "W. Bulach",
   "source": "Wikimedia Commons: 00 5105 Catherine Palace (Большой Екатерининский дворец) in Pushkin, Russia.jpg",
-  "start": 3
+  "start": 3,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:00_5105_Catherine_Palace_%28%D0%91%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B9_%D0%95%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D0%B4%D0%B2%D0%BE%D1%80%D0%B5%D1%86%29_in_Pushkin%2C_Russia.jpg",
+  "image_author": "W. Bulach",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "chambord",
@@ -2259,7 +2802,12 @@
   "license": "CC BY-SA 3.0",
   "attribution": "Calips",
   "source": "Wikimedia Commons: France Loir-et-Cher Chambord Chateau 01.jpg",
-  "start": 3
+  "start": 3,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:France_Loir-et-Cher_Chambord_Chateau_01.jpg",
+  "image_author": "No machine-readable author provided. Calips assumed (based on copyright claims).",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "charioteer-delphi",
@@ -2280,7 +2828,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Zde",
   "source": "Wikimedia Commons: The Charioteer of Delphi, 478 BC, AM of Delphi, 201441.jpg",
-  "start": 7
+  "start": 7,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:The_Charioteer_of_Delphi%2C_478_BC%2C_AM_of_Delphi%2C_201441.jpg",
+  "image_author": "Zde",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "cologne-cathedral",
@@ -2301,7 +2854,12 @@
   "license": "CC BY-SA 3.0",
   "attribution": "CEphoto, Uwe Aranas",
   "source": "Wikimedia Commons: Cologne Germany Cologne-Cathedral-West-Facade-01.jpg",
-  "start": 4
+  "start": 4,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Cologne_Germany_Cologne-Cathedral-West-Facade-01.jpg",
+  "image_author": "CEphoto, Uwe Aranas",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "ctesiphon",
@@ -2322,7 +2880,12 @@
   "frac": 0.22,
   "license": "CC BY-SA 4.0",
   "attribution": "Safa.daneshvar",
-  "source": "Wikimedia Commons: 001125-TaqKasra-Iraq-IMG 7914-2.jpg"
+  "source": "Wikimedia Commons: 001125-TaqKasra-Iraq-IMG 7914-2.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:001125-TaqKasra-Iraq-IMG_7914-2.jpg",
+  "image_author": "Safa.daneshvar",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "delphi-temple",
@@ -2342,7 +2905,12 @@
   "license": "CC0",
   "attribution": "Jebulon",
   "source": "Wikimedia Commons: Delphes, Grèce. Temple d'Apollon. Six colonnes.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Delphes%2C_Gr%C3%A8ce._Temple_d%27Apollon._Six_colonnes.jpg",
+  "image_author": "Jebulon",
+  "image_license": "CC0",
+  "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "edinburgh-castle",
@@ -2361,7 +2929,12 @@
   "license": "CC BY-SA 3.0",
   "attribution": "Saffron Blaze",
   "source": "Wikimedia Commons: Edinburgh Castle Rock.jpg",
-  "start": 4
+  "start": 4,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Edinburgh_Castle_Rock.jpg",
+  "image_author": "Saffron Blaze",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "fasil-ghebbi",
@@ -2382,7 +2955,12 @@
   "frac": 0.2,
   "license": "CC BY 2.0",
   "attribution": "Martijn Munneke",
-  "source": "Wikimedia Commons: Fasil Ghebbi (6821475763).jpg"
+  "source": "Wikimedia Commons: Fasil Ghebbi (6821475763).jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Fasil_Ghebbi_%286821475763%29.jpg",
+  "image_author": "Martijn.Munneke from Netherlands",
+  "image_license": "CC BY 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "forbidden-city",
@@ -2400,7 +2978,12 @@
   "frac": 0.2,
   "license": "CC BY-SA 3.0",
   "attribution": "CEphoto, Uwe Aranas",
-  "source": "Wikimedia Commons: Beijing China Forbidden-City-03.jpg"
+  "source": "Wikimedia Commons: Beijing China Forbidden-City-03.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Beijing_China_Forbidden-City-03.jpg",
+  "image_author": "CEphoto, Uwe Aranas",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "great-buddha-kamakura",
@@ -2421,7 +3004,12 @@
   "license": "CC BY-SA 3.0",
   "attribution": "Dirk Beyer",
   "source": "Wikimedia Commons: Kamakura Budda Daibutsu front 1885.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Kamakura_Budda_Daibutsu_front_1885.jpg",
+  "image_author": "Dirk Beyer",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "great-enclosure-zimbabwe",
@@ -2441,7 +3029,12 @@
   "license": "CC BY-SA 2.0",
   "attribution": "Andrew Moore",
   "source": "Wikimedia Commons: East Wall Great Enclosure (47614139601).jpg",
-  "start": 3
+  "start": 3,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:East_Wall_Great_Enclosure_%2847614139601%29.jpg",
+  "image_author": "Andrew Moore from Johannesburg, South Africa",
+  "image_license": "CC BY-SA 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "great-mosque-djenne",
@@ -2461,7 +3054,12 @@
   "frac": 0.26,
   "license": "CC BY-SA 3.0",
   "attribution": "Andy Gilham",
-  "source": "Wikimedia Commons: Great Mosque of Djenné 1.jpg"
+  "source": "Wikimedia Commons: Great Mosque of Djenné 1.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Great_Mosque_of_Djenn%C3%A9_1.jpg",
+  "image_author": "Andy Gilham",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "gundestrup-cauldron",
@@ -2478,7 +3076,12 @@
   "frac": 0.16,
   "license": "CC BY-SA 3.0",
   "attribution": "Nationalmuseet / Lennart Larsen",
-  "source": "Wikimedia Commons: Gundestrup cauldron - F.I.4277.jpg"
+  "source": "Wikimedia Commons: Gundestrup cauldron - F.I.4277.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Gundestrup_cauldron_-_F.I.4277.jpg",
+  "image_author": "Nationalmuseet, Lennart Larsen",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "hadrians-villa",
@@ -2499,7 +3102,12 @@
   "license": "CC BY-SA 2.0",
   "attribution": "Carole Raddato",
   "source": "Wikimedia Commons: The Canopus, Hadrian's Villa, Tivoli (14759103250).jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:The_Canopus%2C_Hadrian%27s_Villa%2C_Tivoli_%2814759103250%29.jpg",
+  "image_author": "Carole Raddato from FRANKFURT, Germany",
+  "image_license": "CC BY-SA 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "hammurabi-stele",
@@ -2520,7 +3128,12 @@
   "license": "CC BY 3.0",
   "attribution": "Mbzt",
   "source": "Wikimedia Commons: P1050763 Louvre code Hammurabi face rwk.JPG",
-  "start": 7
+  "start": 7,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:P1050763_Louvre_code_Hammurabi_face_rwk.JPG",
+  "image_author": "Mbzt",
+  "image_license": "CC BY 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "himeji-castle",
@@ -2540,7 +3153,11 @@
   "license": "Public domain",
   "attribution": "Gorgo",
   "source": "Wikimedia Commons: Himeji Castle 0804 1.jpg",
-  "start": 2
+  "start": 2,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Himeji_Castle_0804_1.jpg",
+  "image_author": "Gorgo",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "imperial-state-crown",
@@ -2559,7 +3176,11 @@
   "frac": 0.22,
   "license": "Public domain",
   "attribution": "Mark Fosh",
-  "source": "Wikimedia Commons: ImperialStateCrown.jpg"
+  "source": "Wikimedia Commons: ImperialStateCrown.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:ImperialStateCrown.jpg",
+  "image_author": "Cyril James Humphries Davenport",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "karnak-temple",
@@ -2579,7 +3200,12 @@
   "frac": 0.24,
   "license": "CC0",
   "attribution": "Tsyganov Sergey",
-  "source": "Wikimedia Commons: Karnak Temple Great Hypostyle Hall 2014.jpg"
+  "source": "Wikimedia Commons: Karnak Temple Great Hypostyle Hall 2014.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Karnak_Temple_Great_Hypostyle_Hall_2014.jpg",
+  "image_author": "Tsyganov Sergey",
+  "image_license": "CC0",
+  "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "lascaux",
@@ -2599,7 +3225,11 @@
   "frac": 0.5594697140792267,
   "license": "Public domain",
   "attribution": "Prof saxx",
-  "source": "Wikimedia Commons: Lascaux painting.jpg"
+  "source": "Wikimedia Commons: Lascaux painting.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Lascaux_painting.jpg",
+  "image_author": "EU",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "leshan-buddha",
@@ -2619,7 +3249,12 @@
   "frac": 0.24,
   "license": "CC BY-SA 4.0",
   "attribution": "Calistemon",
-  "source": "Wikimedia Commons: Leshan Giant Buddha, March 2000 04.jpg"
+  "source": "Wikimedia Commons: Leshan Giant Buddha, March 2000 04.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Leshan_Giant_Buddha%2C_March_2000_04.jpg",
+  "image_author": "Calistemon",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "lewis-chessmen",
@@ -2638,7 +3273,12 @@
   "frac": 0.24,
   "license": "CC BY 2.0",
   "attribution": "Rob Roy",
-  "source": "Wikimedia Commons: The Warder, Lewis Chessmen, British Museum.jpg"
+  "source": "Wikimedia Commons: The Warder, Lewis Chessmen, British Museum.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:The_Warder%2C_Lewis_Chessmen%2C_British_Museum.jpg",
+  "image_author": "Rob Roy",
+  "image_license": "CC BY 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "lindisfarne-gospels",
@@ -2655,7 +3295,11 @@
   "frac": 0.16,
   "license": "Public domain",
   "attribution": "Eadfrith of Lindisfarne",
-  "source": "Wikimedia Commons: Meister des Book of Lindisfarne 002.jpg"
+  "source": "Wikimedia Commons: Meister des Book of Lindisfarne 002.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Meister_des_Book_of_Lindisfarne_002.jpg",
+  "image_author": "Meister des Book of Lindisfarne",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "magna-carta",
@@ -2675,7 +3319,11 @@
   "frac": 0.435346589192743,
   "license": "Public domain",
   "attribution": "British Library",
-  "source": "Wikimedia Commons: Magna Carta (British Library Cotton MS Augustus II.106).jpg"
+  "source": "Wikimedia Commons: Magna Carta (British Library Cotton MS Augustus II.106).jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Magna_Carta_%28British_Library_Cotton_MS_Augustus_II.106%29.jpg",
+  "image_author": "Original authors were the barons and King John of England. Uploaded by Earthsound.",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "meteora",
@@ -2693,7 +3341,12 @@
   "frac": 0.22,
   "license": "CC BY-SA 4.0",
   "attribution": "LBM1948",
-  "source": "Wikimedia Commons: Meteora, 09.jpg"
+  "source": "Wikimedia Commons: Meteora, 09.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Meteora%2C_09.jpg",
+  "image_author": "LBM1948",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "mildenhall-treasure",
@@ -2712,7 +3365,12 @@
   "frac": 0.15,
   "license": "CC0",
   "attribution": "Daderot",
-  "source": "Wikimedia Commons: Mildenhall Great Dish, Late Roman period, silver - British Museum - DSC01383.jpg"
+  "source": "Wikimedia Commons: Mildenhall Great Dish, Late Roman period, silver - British Museum - DSC01383.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Mildenhall_Great_Dish%2C_Late_Roman_period%2C_silver_-_British_Museum_-_DSC01383.jpg",
+  "image_author": "Daderot",
+  "image_license": "CC0",
+  "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "mycenae-lion-gate",
@@ -2731,7 +3389,12 @@
   "frac": 0.16,
   "license": "CC BY-SA 4.0",
   "attribution": "Orlovic",
-  "source": "Wikimedia Commons: Lions Gate detail.JPG"
+  "source": "Wikimedia Commons: Lions Gate detail.JPG",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Lions_Gate_detail.JPG",
+  "image_author": "Orlovic",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "naqsh-e-rustam",
@@ -2753,7 +3416,12 @@
   "license": "CC BY 2.0",
   "attribution": "A. Davey",
   "source": "Wikimedia Commons: Tombs of Achaemenid Kings at Naqsh-e Rustam (4885711726).jpg",
-  "start": 8
+  "start": 8,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Tombs_of_Achaemenid_Kings_at_Naqsh-e_Rustam_%284885711726%29.jpg",
+  "image_author": "A.Davey from Portland, Oregon, EE UU",
+  "image_license": "CC BY 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "nazca-lines",
@@ -2772,7 +3440,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Diego Delso",
   "source": "Wikimedia Commons: Líneas de Nazca, Nazca, Perú, 2015-07-29, DD 52.JPG",
-  "start": 7
+  "start": 7,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:L%C3%ADneas_de_Nazca%2C_Nazca%2C_Per%C3%BA%2C_2015-07-29%2C_DD_52.JPG",
+  "image_author": "Diego Delso",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "nebra-sky-disc",
@@ -2791,7 +3464,12 @@
   "frac": 0.16,
   "license": "CC0",
   "attribution": "Shonagon",
-  "source": "Wikimedia Commons: Himmelsscheibe von Nebra - Landesmuseum für Vorgeschichte in Halle - HD.jpg"
+  "source": "Wikimedia Commons: Himmelsscheibe von Nebra - Landesmuseum für Vorgeschichte in Halle - HD.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Himmelsscheibe_von_Nebra_-_Landesmuseum_f%C3%BCr_Vorgeschichte_in_Halle_-_HD.jpg",
+  "image_author": "Shonagon",
+  "image_license": "CC0",
+  "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "olmec-colossal-head",
@@ -2810,7 +3488,12 @@
   "frac": 0.22,
   "license": "CC0",
   "attribution": "Gary Todd",
-  "source": "Wikimedia Commons: Olmec Colossal Head, San Lorenzo, Veracruz, 1200-600 BC.jpg"
+  "source": "Wikimedia Commons: Olmec Colossal Head, San Lorenzo, Veracruz, 1200-600 BC.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Olmec_Colossal_Head%2C_San_Lorenzo%2C_Veracruz%2C_1200-600_BC.jpg",
+  "image_author": "Gary Todd",
+  "image_license": "CC0",
+  "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "oseberg-ship",
@@ -2830,7 +3513,12 @@
   "license": "CC BY 2.0",
   "attribution": "Larry Lamsa",
   "source": "Wikimedia Commons: Oseberg Ship - Viking Ship Museum (Oslo).jpg",
-  "start": 8
+  "start": 8,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Oseberg_Ship_-_Viking_Ship_Museum_%28Oslo%29.jpg",
+  "image_author": "Larry Lamsa",
+  "image_license": "CC BY 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "palace-of-versailles",
@@ -2850,7 +3538,12 @@
   "license": "CC BY 2.0",
   "attribution": "sybarite48",
   "source": "Wikimedia Commons: Garden facade of the Palace of Versailles 2.jpg",
-  "start": 1
+  "start": 1,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Garden_facade_of_the_Palace_of_Versailles_2.jpg",
+  "image_author": "sybarite48",
+  "image_license": "CC BY 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "pantheon-rome",
@@ -2869,7 +3562,12 @@
   "frac": 0.16,
   "license": "CC BY-SA 4.0",
   "attribution": "Rabax63",
-  "source": "Wikimedia Commons: Pantheon Rom 1 cropped.jpg"
+  "source": "Wikimedia Commons: Pantheon Rom 1 cropped.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Pantheon_Rom_1_cropped.jpg",
+  "image_author": "Rabax63",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "persepolis",
@@ -2888,7 +3586,12 @@
   "frac": 0.22,
   "license": "CC BY-SA 4.0",
   "attribution": "Skot",
-  "source": "Wikimedia Commons: Persepolis – Gate of All Nations 02.jpg"
+  "source": "Wikimedia Commons: Persepolis – Gate of All Nations 02.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Persepolis_%E2%80%93_Gate_of_All_Nations_02.jpg",
+  "image_author": "Skot",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "phaistos-disc",
@@ -2907,7 +3610,11 @@
   "frac": 0.22,
   "license": "Public domain",
   "attribution": "Gleb Simonov",
-  "source": "Wikimedia Commons: Phaistos Disc — Side A.jpg"
+  "source": "Wikimedia Commons: Phaistos Disc — Side A.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Phaistos_Disc_%E2%80%94_Side_A.jpg",
+  "image_author": "Gleb Simonov",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "piri-reis-map",
@@ -2924,7 +3631,11 @@
   "frac": 0.15,
   "license": "Public domain",
   "attribution": "Piri Reis",
-  "source": "Wikimedia Commons: Piri reis world map 01.jpg"
+  "source": "Wikimedia Commons: Piri reis world map 01.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Piri_reis_world_map_01.jpg",
+  "image_author": "Piri Reis",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "pompeii-forum",
@@ -2944,7 +3655,12 @@
   "license": "CC BY-SA 3.0",
   "attribution": "Wknight94",
   "source": "Wikimedia Commons: Forum in Pompeii 2.jpg",
-  "start": 8
+  "start": 8,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Forum_in_Pompeii_2.jpg",
+  "image_author": "Wknight94",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "ponte-vecchio",
@@ -2963,7 +3679,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Diego Delso",
   "source": "Wikimedia Commons: Ponte Vecchio sobre el río Arno, Florencia, Italia, 2022-09-19, DD 02.jpg",
-  "start": 3
+  "start": 3,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Ponte_Vecchio_sobre_el_r%C3%ADo_Arno%2C_Florencia%2C_Italia%2C_2022-09-19%2C_DD_02.jpg",
+  "image_author": "Diego Delso",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "portland-vase",
@@ -2980,7 +3701,12 @@
   "frac": 0.16,
   "license": "CC BY 2.5",
   "attribution": "Marie-Lan Nguyen",
-  "source": "Wikimedia Commons: Portland Vase BM Gem4036 n1 resized white-balanced white bg.png"
+  "source": "Wikimedia Commons: Portland Vase BM Gem4036 n1 resized white-balanced white bg.png",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Portland_Vase_BM_Gem4036_n1_resized_white-balanced_white_bg.png",
+  "image_author": "object: unknown\n\nphoto: Marie-Lan Nguyen (user:Jastrow)",
+  "image_license": "CC BY 2.5",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.5",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "potala-palace",
@@ -2998,7 +3724,12 @@
   "frac": 0.2,
   "license": "CC BY-SA 2.5",
   "attribution": "Luca Galuzzi (Lucag)",
-  "source": "Wikimedia Commons: Potala Palace, former residence of Dalai Lama, 2006.jpg"
+  "source": "Wikimedia Commons: Potala Palace, former residence of Dalai Lama, 2006.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Potala_Palace%2C_former_residence_of_Dalai_Lama%2C_2006.jpg",
+  "image_author": "Luca Galuzzi (Lucag)",
+  "image_license": "CC BY-SA 2.5",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/2.5",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "registan",
@@ -3018,7 +3749,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Benjamin Goetzinger",
   "source": "Wikimedia Commons: Registan square, Samarkand, Uzbekistan.jpg",
-  "start": 8
+  "start": 8,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Registan_square%2C_Samarkand%2C_Uzbekistan.jpg",
+  "image_author": "Benjamin Goetzinger",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "rila-monastery",
@@ -3037,7 +3773,12 @@
   "license": "CC BY 4.0",
   "attribution": "Laurens R. Krol",
   "source": "Wikimedia Commons: 2016-07-31 Bulgaria, Rila Monastery DSC 9213 DxO.jpg",
-  "start": 2
+  "start": 2,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:2016-07-31_Bulgaria%2C_Rila_Monastery_DSC_9213_DxO.jpg",
+  "image_author": "Laurens R. Krol",
+  "image_license": "CC BY 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "roman-forum",
@@ -3056,7 +3797,12 @@
   "frac": 0.16,
   "license": "CC BY-SA 4.0",
   "attribution": "Nicholas Hartmann",
-  "source": "Wikimedia Commons: Roman Forum Temple of Saturn.jpg"
+  "source": "Wikimedia Commons: Roman Forum Temple of Saturn.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Roman_Forum_Temple_of_Saturn.jpg",
+  "image_author": "Nicholas Hartmann",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "rosetta-stone",
@@ -3074,7 +3820,12 @@
   "frac": 0.26,
   "license": "CC BY-SA 4.0",
   "attribution": "Awikimate",
-  "source": "Wikimedia Commons: Rosetta Stone - front face - corrected image.jpg"
+  "source": "Wikimedia Commons: Rosetta Stone - front face - corrected image.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Rosetta_Stone_-_front_face_-_corrected_image.jpg",
+  "image_author": "Awikimate",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "sacre-coeur",
@@ -3097,7 +3848,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Terragio67",
   "source": "Wikimedia Commons: Basilique du Sacré-Cœur de Montmartre - Paris - GT-01 - 2024.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Basilique_du_Sacr%C3%A9-C%C5%93ur_de_Montmartre_-_Paris_-_GT-01_-_2024.jpg",
+  "image_author": "Terragio67",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "sacsayhuaman",
@@ -3117,7 +3873,12 @@
   "frac": 0.24,
   "license": "CC BY-SA 4.0",
   "attribution": "Diego Delso",
-  "source": "Wikimedia Commons: Sacsayhuamán, Cusco, Perú, 2015-07-31, DD 05.JPG"
+  "source": "Wikimedia Commons: Sacsayhuamán, Cusco, Perú, 2015-07-31, DD 05.JPG",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Sacsayhuam%C3%A1n%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_05.JPG",
+  "image_author": "Diego Delso",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "schoenbrunn-palace",
@@ -3137,7 +3898,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "C.Stadler/Bwag",
   "source": "Wikimedia Commons: Wien - Schloss Schönbrunn.JPG",
-  "start": 3
+  "start": 3,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Wien_-_Schloss_Sch%C3%B6nbrunn.JPG",
+  "image_author": "C.Stadler/Bwag",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "school-of-athens",
@@ -3156,7 +3922,11 @@
   "frac": 0.18,
   "license": "Public domain",
   "attribution": "Raphael",
-  "source": "Wikimedia Commons: \"The School of Athens\" by Raffaello Sanzio da Urbino.jpg"
+  "source": "Wikimedia Commons: \"The School of Athens\" by Raffaello Sanzio da Urbino.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg",
+  "image_author": "Raphael",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "segovia-aqueduct",
@@ -3176,7 +3946,12 @@
   "license": "CC BY-SA 3.0 es",
   "attribution": "David Corral Gadea",
   "source": "Wikimedia Commons: Acueducto de Segovia 01.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Acueducto_de_Segovia_01.jpg",
+  "image_author": "David Corral Gadea",
+  "image_license": "CC BY-SA 3.0 es",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0/es/deed.en",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "st-peters-basilica",
@@ -3195,7 +3970,12 @@
   "frac": 0.2,
   "license": "CC BY-SA 3.0",
   "attribution": "Staselnik",
-  "source": "Wikimedia Commons: Facade of Saint Peter's Basilica.jpg"
+  "source": "Wikimedia Commons: Facade of Saint Peter's Basilica.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Facade_of_Saint_Peter%27s_Basilica.jpg",
+  "image_author": "Staselnik",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "st-stephens-vienna",
@@ -3217,7 +3997,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "C.Stadler/Bwag",
   "source": "Wikimedia Commons: Wien - Stephansdom (1).JPG",
-  "start": 2
+  "start": 2,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Wien_-_Stephansdom_%281%29.JPG",
+  "image_author": "C.Stadler/Bwag",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "staffordshire-hoard",
@@ -3235,7 +4020,12 @@
   "license": "CC BY 2.0",
   "attribution": "Jon Callas",
   "source": "Wikimedia Commons: Sheet Gold Plaque, Staffordshire Hoard.jpg",
-  "start": 3
+  "start": 3,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Sheet_Gold_Plaque%2C_Staffordshire_Hoard.jpg",
+  "image_author": "Jon Callas from San Jose, USA",
+  "image_license": "CC BY 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "temple-of-hatshepsut",
@@ -3255,7 +4045,12 @@
   "frac": 0.26,
   "license": "CC BY 4.0",
   "attribution": "Vyacheslav Argenberg",
-  "source": "Wikimedia Commons: Temple of Hatshepsut, Deir el-Bahari, Luxor, Egypt.jpg"
+  "source": "Wikimedia Commons: Temple of Hatshepsut, Deir el-Bahari, Luxor, Egypt.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Temple_of_Hatshepsut%2C_Deir_el-Bahari%2C_Luxor%2C_Egypt.jpg",
+  "image_author": "Vyacheslav Argenberg",
+  "image_license": "CC BY 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "temple-of-heaven",
@@ -3274,7 +4069,12 @@
   "license": "CC0",
   "attribution": "Balon Greyjoy",
   "source": "Wikimedia Commons: 20200110 Temple of Heaven-1.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:20200110_Temple_of_Heaven-1.jpg",
+  "image_author": "Balon Greyjoy",
+  "image_license": "CC0",
+  "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "tikal",
@@ -3294,7 +4094,12 @@
   "frac": 0.24,
   "license": "CC BY-SA 4.0",
   "attribution": "Charles J. Sharp",
-  "source": "Wikimedia Commons: Temple of the Great Jaguar, Tikal, Petén, Guatemala.jpg"
+  "source": "Wikimedia Commons: Temple of the Great Jaguar, Tikal, Petén, Guatemala.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Temple_of_the_Great_Jaguar%2C_Tikal%2C_Pet%C3%A9n%2C_Guatemala.jpg",
+  "image_author": "Charles J. Sharp",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "tower-of-london",
@@ -3314,7 +4119,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "DAVID ILIFF",
   "source": "Wikimedia Commons: London, Tower of London -- 2016 -- 4791.jpg",
-  "start": 3
+  "start": 3,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:London%2C_Tower_of_London_--_2016_--_4791.jpg",
+  "image_author": "Dietmar Rabich",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "uffington-white-horse",
@@ -3334,7 +4144,12 @@
   "license": "CC BY-SA 2.0",
   "attribution": "Dave Price",
   "source": "Wikimedia Commons: Aerial View of Uffington White Horse at Harvest Time - geograph.org.uk - 4403449.jpg",
-  "start": 7
+  "start": 7,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Aerial_View_of_Uffington_White_Horse_at_Harvest_Time_-_geograph.org.uk_-_4403449.jpg",
+  "image_author": "Dave Price",
+  "image_license": "CC BY-SA 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "wat-arun",
@@ -3354,7 +4169,12 @@
   "license": "CC BY-SA 2.0",
   "attribution": "calflier001",
   "source": "Wikimedia Commons: WAT ARUN TEMPLE CHAO PRAYA RIVER BANGKOK THAILAND FEB 2012 (6985905427).jpg",
-  "start": 8
+  "start": 8,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:WAT_ARUN_TEMPLE_CHAO_PRAYA_RIVER_BANGKOK_THAILAND_FEB_2012_%286985905427%29.jpg",
+  "image_author": "calflier001",
+  "image_license": "CC BY-SA 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "westminster-abbey",
@@ -3372,7 +4192,12 @@
   "frac": 0.16,
   "license": "CC BY-SA 2.0",
   "attribution": "Hugh Llewelyn",
-  "source": "Wikimedia Commons: Westminster Abbey (St. Peter) (47537372181).jpg"
+  "source": "Wikimedia Commons: Westminster Abbey (St. Peter) (47537372181).jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Westminster_Abbey_%28St._Peter%29_%2847537372181%29.jpg",
+  "image_author": "Hugh Llewelyn from Keynsham, UK",
+  "image_license": "CC BY-SA 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "alhambra-lions",
@@ -3392,7 +4217,12 @@
   "frac": 0.2,
   "license": "CC0",
   "attribution": "Jebulon",
-  "source": "Wikimedia Commons: Fountain patio de los Leones Alhambra Granada Spain.jpg"
+  "source": "Wikimedia Commons: Fountain patio de los Leones Alhambra Granada Spain.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Fountain_patio_de_los_Leones_Alhambra_Granada_Spain.jpg",
+  "image_author": "Jebulon",
+  "image_license": "CC0",
+  "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "arnolfini-portrait",
@@ -3412,7 +4242,11 @@
   "frac": 0.16,
   "license": "Public domain",
   "attribution": "Jan van Eyck",
-  "source": "Wikimedia Commons: Van Eyck - Arnolfini Portrait.jpg"
+  "source": "Wikimedia Commons: Van Eyck - Arnolfini Portrait.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Van_Eyck_-_Arnolfini_Portrait.jpg",
+  "image_author": "Jan van Eyck",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "axum-obelisk",
@@ -3435,7 +4269,12 @@
   "license": "CC BY-SA 2.0",
   "attribution": "Adam Jones",
   "source": "Wikimedia Commons: Stela in Main Stelae Field - Axum (Aksum) - Ethiopia - 01 (8701108913).jpg",
-  "start": 8
+  "start": 8,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Stela_in_Main_Stelae_Field_-_Axum_%28Aksum%29_-_Ethiopia_-_01_%288701108913%29.jpg",
+  "image_author": "Adam Jones from Kelowna, BC, Canada",
+  "image_license": "CC BY-SA 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "baalbek",
@@ -3455,7 +4294,12 @@
   "frac": 0.22,
   "license": "CC BY 4.0",
   "attribution": "Vyacheslav Argenberg",
-  "source": "Wikimedia Commons: Lebanon, Baalbek, Temple of Bacchus.jpg"
+  "source": "Wikimedia Commons: Lebanon, Baalbek, Temple of Bacchus.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Lebanon%2C_Baalbek%2C_Temple_of_Bacchus.jpg",
+  "image_author": "Vyacheslav Argenberg",
+  "image_license": "CC BY 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "baths-caracalla",
@@ -3473,7 +4317,12 @@
   "frac": 0.16,
   "license": "CC BY-SA 3.0",
   "attribution": "Pascal Reusch",
-  "source": "Wikimedia Commons: Baths of Caracalla 2.JPG"
+  "source": "Wikimedia Commons: Baths of Caracalla 2.JPG",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Baths_of_Caracalla_2.JPG",
+  "image_author": "Pascal Reusch",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "belem-tower",
@@ -3495,7 +4344,12 @@
   "license": "CC BY-SA 3.0",
   "attribution": "Alvesgaspar",
   "source": "Wikimedia Commons: Torre Belém April 2009-4a.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Torre_Bel%C3%A9m_April_2009-4a.jpg",
+  "image_author": "Alvesgaspar",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "benin-bronzes",
@@ -3514,7 +4368,12 @@
   "frac": 0.22,
   "license": "CC BY-SA 4.0",
   "attribution": "Photograph by Mike Peel (www.mikepeel.net).",
-  "source": "Wikimedia Commons: At the British Museum 2024 017.jpg"
+  "source": "Wikimedia Commons: At the British Museum 2024 017.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:At_the_British_Museum_2024_017.jpg",
+  "image_author": "Photograph by Mike Peel (www.mikepeel.net).",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "carnac-stones",
@@ -3535,7 +4394,12 @@
   "license": "CC BY 3.0",
   "attribution": "David Broad",
   "source": "Wikimedia Commons: Carnac Standing Stones Alignment, Carnac, Brittany - panoramio.jpg",
-  "start": 8
+  "start": 8,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Carnac_Standing_Stones_Alignment%2C_Carnac%2C_Brittany_-_panoramio.jpg",
+  "image_author": "David Broad",
+  "image_license": "CC BY 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "chan-chan",
@@ -3554,7 +4418,12 @@
   "license": "CC BY-SA 3.0",
   "attribution": "Kevstan",
   "source": "Wikimedia Commons: Vast Abobe Ruins at Chan Chan.JPG",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Vast_Abobe_Ruins_at_Chan_Chan.JPG",
+  "image_author": "Kevstan",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "chartres-cathedral",
@@ -3574,7 +4443,12 @@
   "license": "CC BY 2.0",
   "attribution": "Elliott Brown",
   "source": "Wikimedia Commons: Cathedral Notre Dame, Chartres (3729893669).jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Cathedral_Notre_Dame%2C_Chartres_%283729893669%29.jpg",
+  "image_author": "Elliott Brown from Birmingham, United Kingdom",
+  "image_license": "CC BY 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "codex-sinaiticus",
@@ -3591,7 +4465,11 @@
   "frac": 0.18,
   "license": "Public domain",
   "attribution": "Unknown scribe",
-  "source": "Wikimedia Commons: Codex Sinaiticus Matthew 1,1-2,5.JPG"
+  "source": "Wikimedia Commons: Codex Sinaiticus Matthew 1,1-2,5.JPG",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Codex_Sinaiticus_Matthew_1%2C1-2%2C5.JPG",
+  "image_author": "Unknown author",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "column-marcus-aurelius",
@@ -3612,7 +4490,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "John Samuel",
   "source": "Wikimedia Commons: Column of Marcus Aurelius, Rome.jpg",
-  "start": 7
+  "start": 7,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Column_of_Marcus_Aurelius%2C_Rome.jpg",
+  "image_author": "John Samuel",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "copan",
@@ -3632,7 +4515,12 @@
   "license": "CC BY 2.5",
   "attribution": "Peter Andersen",
   "source": "Wikimedia Commons: Copán Maya stelae 2.jpg",
-  "start": 7
+  "start": 7,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Cop%C3%A1n_Maya_stelae_2.jpg",
+  "image_author": "Peter Andersen",
+  "image_license": "CC BY 2.5",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.5",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "cyrus-cylinder",
@@ -3650,7 +4538,12 @@
   "frac": 0.2,
   "license": "CC BY-SA 4.0",
   "attribution": "Mike Peel",
-  "source": "Wikimedia Commons: Cyrus Cylinder 2.jpg"
+  "source": "Wikimedia Commons: Cyrus Cylinder 2.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Cyrus_Cylinder_2.jpg",
+  "image_author": "Photograph by Mike Peel (www.mikepeel.net).",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "dead-sea-scrolls",
@@ -3669,7 +4562,11 @@
   "frac": 0.22,
   "license": "Public domain",
   "attribution": "Photography by Ardon Bar Hama (see [2], author of original document is unknown.",
-  "source": "Wikimedia Commons: Great Isaiah Scroll Ch53.jpg"
+  "source": "Wikimedia Commons: Great Isaiah Scroll Ch53.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Great_Isaiah_Scroll_Ch53.jpg",
+  "image_author": "Photography by Ardon Bar Hama (see [2], author of original document is unknown.",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "diamond-sutra",
@@ -3686,7 +4583,11 @@
   "frac": 0.16,
   "license": "CC0",
   "attribution": "British Library",
-  "source": "Wikimedia Commons: Diamond Sutra of 868 AD - The Diamond Sutra (868), frontispiece and text - BL Or. 8210-P.2.jpg"
+  "source": "Wikimedia Commons: Diamond Sutra of 868 AD - The Diamond Sutra (868), frontispiece and text - BL Or. 8210-P.2.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Diamond_Sutra_of_868_AD_-_The_Diamond_Sutra_%28868%29%2C_frontispiece_and_text_-_BL_Or._8210-P.2.jpg",
+  "image_license": "CC0",
+  "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "elgin-marbles",
@@ -3706,7 +4607,11 @@
   "frac": 0.6224852071005915,
   "license": "CC BY-SA 3.0",
   "attribution": "Wikipedia user Thermos",
-  "source": "Wikimedia Commons: Part of the central section-East frieze-Elgin Marbles-British Museum.jpg"
+  "source": "Wikimedia Commons: Part of the central section-East frieze-Elgin Marbles-British Museum.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Part_of_the_central_section-East_frieze-Elgin_Marbles-British_Museum.jpg",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "ghent-altarpiece",
@@ -3725,7 +4630,11 @@
   "frac": 0.15,
   "license": "Public domain",
   "attribution": "Jan van Eyck (presumably Hubert van Eyck)",
-  "source": "Wikimedia Commons: Lamgods open.jpg"
+  "source": "Wikimedia Commons: Lamgods open.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Lamgods_open.jpg",
+  "image_author": "Jan van Eyck / Presumably Hubert van Eyck",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "gutenberg-bible",
@@ -3744,7 +4653,11 @@
   "frac": 0.22,
   "license": "Public domain",
   "attribution": "Miscellaneous Items in High Demand, PPOC, Library of Congress",
-  "source": "Wikimedia Commons: An illuminated page of the...Gutenberg Bible... LCCN2006680004.jpg"
+  "source": "Wikimedia Commons: An illuminated page of the...Gutenberg Bible... LCCN2006680004.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:An_illuminated_page_of_the...Gutenberg_Bible..._LCCN2006680004.jpg",
+  "image_author": "Miscellaneous Items in High Demand, PPOC, Library of Congress",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "gyeongbokgung",
@@ -3765,7 +4678,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Basile Morin",
   "source": "Wikimedia Commons: Front view of the Imperial Throne Hall Geunjeongjeon at Gyeongbokgung Palace with blue sky in Seoul.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Front_view_of_the_Imperial_Throne_Hall_Geunjeongjeon_at_Gyeongbokgung_Palace_with_blue_sky_in_Seoul.jpg",
+  "image_author": "Basile Morin",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "hampi",
@@ -3785,7 +4703,12 @@
   "frac": 0.24,
   "license": "CC BY-SA 4.0",
   "attribution": "Corrector007",
-  "source": "Wikimedia Commons: Stone Chariot at Vittala temple, Hampi.jpg"
+  "source": "Wikimedia Commons: Stone Chariot at Vittala temple, Hampi.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Stone_Chariot_at_Vittala_temple%2C_Hampi.jpg",
+  "image_author": "Corrector007",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "hereford-mappa-mundi",
@@ -3803,7 +4726,11 @@
   "frac": 0.16,
   "license": "Public domain",
   "attribution": "Richard of Haldingham (attrib.)",
-  "source": "Wikimedia Commons: Hereford-Karte.jpg"
+  "source": "Wikimedia Commons: Hereford-Karte.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Hereford-Karte.jpg",
+  "image_author": "Unknown author",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "jerash",
@@ -3823,7 +4750,12 @@
   "license": "CC BY-SA 3.0",
   "attribution": "Bernard Gagnon",
   "source": "Wikimedia Commons: Jerash - Oval Forum 02.jpg",
-  "start": 8
+  "start": 8,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Jerash_-_Oval_Forum_02.jpg",
+  "image_author": "Bernard Gagnon",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "kairouan-mosque",
@@ -3844,7 +4776,12 @@
   "license": "CC BY 2.0",
   "attribution": "Keith Roper",
   "source": "Wikimedia Commons: Courtyard and minaret of the Great Mosque of Kairouan, Tunisia.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Courtyard_and_minaret_of_the_Great_Mosque_of_Kairouan%2C_Tunisia.jpg",
+  "image_author": "Keith Roper",
+  "image_license": "CC BY 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "kilwa-kisiwani-ruins",
@@ -3863,7 +4800,12 @@
   "frac": 0.15,
   "license": "CC BY-SA 4.0",
   "attribution": "Janetmpurdy",
-  "source": "Wikimedia Commons: Great Mosque Kilwa Kisiwani Tanzania.jpg"
+  "source": "Wikimedia Commons: Great Mosque Kilwa Kisiwani Tanzania.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Great_Mosque_Kilwa_Kisiwani_Tanzania.jpg",
+  "image_author": "Janetmpurdy",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "kizhi-pogost",
@@ -3884,7 +4826,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Ladaherra",
   "source": "Wikimedia Commons: Transfiguration Church of Kizhi island.jpg",
-  "start": 8
+  "start": 8,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Transfiguration_Church_of_Kizhi_island.jpg",
+  "image_author": "Ladaherra",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "laocoon",
@@ -3905,7 +4852,12 @@
   "license": "CC BY-SA 3.0",
   "attribution": "Livioandronico2013",
   "source": "Wikimedia Commons: Laocoon and His Sons.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Laocoon_and_His_Sons.jpg",
+  "image_author": "Hagesandros, Athenedoros, and Polydoros",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "las-meninas",
@@ -3924,7 +4876,11 @@
   "frac": 0.15,
   "license": "Public domain",
   "attribution": "Diego Velázquez",
-  "source": "Wikimedia Commons: Las Meninas, by Diego Velázquez, from Prado in Google Earth.jpg"
+  "source": "Wikimedia Commons: Las Meninas, by Diego Velázquez, from Prado in Google Earth.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Las_Meninas%2C_by_Diego_Vel%C3%A1zquez%2C_from_Prado_in_Google_Earth.jpg",
+  "image_author": "Diego Velázquez",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "leptis-magna",
@@ -3943,7 +4899,12 @@
   "frac": 0.24,
   "license": "CC BY-SA 4.0",
   "attribution": "Syed Wali Peeran",
-  "source": "Wikimedia Commons: Leptis Magna, Al-Khums, Libya 4.jpg"
+  "source": "Wikimedia Commons: Leptis Magna, Al-Khums, Libya 4.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Leptis_Magna%2C_Al-Khums%2C_Libya_4.jpg",
+  "image_author": "Syed Wali Peeran",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "library-celsus-ephesus",
@@ -3962,7 +4923,12 @@
   "frac": 0.24,
   "license": "CC BY-SA 3.0",
   "attribution": "Benh LIEU SONG",
-  "source": "Wikimedia Commons: Ephesus Celsus Library Façade.jpg"
+  "source": "Wikimedia Commons: Ephesus Celsus Library Façade.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Ephesus_Celsus_Library_Fa%C3%A7ade.jpg",
+  "image_author": "Benh LIEU SONG",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "longmen-grottoes",
@@ -3982,7 +4948,12 @@
   "frac": 0.24,
   "license": "CC0",
   "attribution": "Gary Todd",
-  "source": "Wikimedia Commons: Ancient Buddhist Grottoes at Longmen- Fengxian Temple, Vairocana Buddha.jpg"
+  "source": "Wikimedia Commons: Ancient Buddhist Grottoes at Longmen- Fengxian Temple, Vairocana Buddha.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Ancient_Buddhist_Grottoes_at_Longmen-_Fengxian_Temple%2C_Vairocana_Buddha.jpg",
+  "image_author": "Gary Todd",
+  "image_license": "CC0",
+  "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "mahabalipuram",
@@ -4003,7 +4974,12 @@
   "license": "CC BY 4.0",
   "attribution": "Vyacheslav Argenberg",
   "source": "Wikimedia Commons: Mamallapuram, Shore Temple, India.jpg",
-  "start": 3
+  "start": 3,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Mamallapuram%2C_Shore_Temple%2C_India.jpg",
+  "image_author": "Vyacheslav Argenberg",
+  "image_license": "CC BY 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "mapungubwe-gold-rhino",
@@ -4021,7 +4997,12 @@
   "frac": 0.18,
   "license": "CC BY-SA 4.0",
   "attribution": "Sian Tiley-Nel / University of Pretoria Museums",
-  "source": "Wikimedia Commons: UP rhino.JPG"
+  "source": "Wikimedia Commons: UP rhino.JPG",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:UP_rhino.JPG",
+  "image_author": "Sian Tiley-Nel",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "matsumoto-castle",
@@ -4041,7 +5022,12 @@
   "license": "CC BY 2.0",
   "attribution": "tsuruta yosuke",
   "source": "Wikimedia Commons: 松本城 - Matsumoto Castle - Flickr - tsuruta yosuke.jpg",
-  "start": 8
+  "start": 8,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:%E6%9D%BE%E6%9C%AC%E5%9F%8E_-_Matsumoto_Castle_-_Flickr_-_tsuruta_yosuke.jpg",
+  "image_author": "tsuruta yosuke from Nagano, Japan",
+  "image_license": "CC BY 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "meroe-pyramids",
@@ -4063,7 +5049,12 @@
   "license": "CC BY 2.0",
   "attribution": "Laurent de Walick",
   "source": "Wikimedia Commons: Meroe Pyramids - 33110830438.jpg",
-  "start": 5
+  "start": 5,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Meroe_Pyramids_-_33110830438.jpg",
+  "image_author": "Laurent de Walick",
+  "image_license": "CC BY 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "mesa-verde",
@@ -4082,7 +5073,12 @@
   "frac": 0.24,
   "license": "CC BY-SA 3.0",
   "attribution": "Massimo Catarinella",
-  "source": "Wikimedia Commons: MesaVerdeNationalParkCliffPalace.jpg"
+  "source": "Wikimedia Commons: MesaVerdeNationalParkCliffPalace.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:MesaVerdeNationalParkCliffPalace.jpg",
+  "image_author": "Massimo Catarinella",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "nabta-playa-circle",
@@ -4103,7 +5099,12 @@
   "license": "CC BY-SA 3.0",
   "attribution": "Raymbetz",
   "source": "Wikimedia Commons: Calendar aswan.JPG",
-  "start": 0
+  "start": 0,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Calendar_aswan.JPG",
+  "image_author": "Raymbetz",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "newgrange-entrance-stone",
@@ -4122,7 +5123,12 @@
   "frac": 0.26,
   "license": "CC BY 2.0",
   "attribution": "Mark McElroy",
-  "source": "Wikimedia Commons: Entrance Stone - Newgrange - Detail.jpg"
+  "source": "Wikimedia Commons: Entrance Stone - Newgrange - Detail.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Entrance_Stone_-_Newgrange_-_Detail.jpg",
+  "image_author": "Mark McElroy",
+  "image_license": "CC BY 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "ollantaytambo",
@@ -4141,7 +5147,12 @@
   "license": "CC BY 2.0",
   "attribution": "Chuck Moravec",
   "source": "Wikimedia Commons: Ollantaytambo Inca terraces1.jpg",
-  "start": 2
+  "start": 2,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Ollantaytambo_Inca_terraces1.jpg",
+  "image_author": "Chuck Moravec",
+  "image_license": "CC BY 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "olympia-stadium",
@@ -4161,7 +5172,12 @@
   "license": "CC BY 2.0",
   "attribution": "Erik Drost",
   "source": "Wikimedia Commons: Ancient Olympic Stadium Entrance (5987161338).jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Ancient_Olympic_Stadium_Entrance_%285987161338%29.jpg",
+  "image_author": "Erik Drost",
+  "image_license": "CC BY 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "palenque-temple",
@@ -4181,7 +5197,12 @@
   "license": "CC BY-SA 3.0",
   "attribution": "Strobilomyces",
   "source": "Wikimedia Commons: Palenque Temple of Inscriptions.JPG",
-  "start": 2
+  "start": 2,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Palenque_Temple_of_Inscriptions.JPG",
+  "image_author": "Strobilomyces",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "palmyra",
@@ -4200,7 +5221,12 @@
   "frac": 0.22,
   "license": "CC BY-SA 3.0",
   "attribution": "Bernard Gagnon",
-  "source": "Wikimedia Commons: Palmyra - Monumental Arch.jpg"
+  "source": "Wikimedia Commons: Palmyra - Monumental Arch.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Palmyra_-_Monumental_Arch.jpg",
+  "image_author": "Bernard Gagnon",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "prambanan",
@@ -4220,7 +5246,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Gunawan Kartapranata",
   "source": "Wikimedia Commons: Shiva Temple of Prambanan in Java Indonesia.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Shiva_Temple_of_Prambanan_in_Java_Indonesia.jpg",
+  "image_author": "Gunawan Kartapranata",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "sanchi-stupa",
@@ -4240,7 +5271,12 @@
   "frac": 0.24,
   "license": "CC BY-SA 3.0",
   "attribution": "Bernard Gagnon",
-  "source": "Wikimedia Commons: Stupa 1, Sanchi 02.jpg"
+  "source": "Wikimedia Commons: Stupa 1, Sanchi 02.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Stupa_1%2C_Sanchi_02.jpg",
+  "image_author": "Bernard Gagnon",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "shwedagon-pagoda",
@@ -4260,7 +5296,12 @@
   "license": "CC BY 4.0",
   "attribution": "Vyacheslav Argenberg",
   "source": "Wikimedia Commons: Shwedagon Pagoda, Golden stupa, Yangon, Myanmar.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Shwedagon_Pagoda%2C_Golden_stupa%2C_Yangon%2C_Myanmar.jpg",
+  "image_author": "Vyacheslav Argenberg",
+  "image_license": "CC BY 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "standard-of-ur",
@@ -4278,7 +5319,12 @@
   "frac": 0.22,
   "license": "CC BY-SA 3.0",
   "attribution": "BabelStone",
-  "source": "Wikimedia Commons: Standard of Ur front view.jpg"
+  "source": "Wikimedia Commons: Standard of Ur front view.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Standard_of_Ur_front_view.jpg",
+  "image_author": "BabelStone",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "stone-town-zanzibar-door",
@@ -4297,7 +5343,12 @@
   "frac": 0.16,
   "license": "CC BY-SA 2.0",
   "attribution": "Adam Jones",
-  "source": "Wikimedia Commons: Detail of Carved Wooden Door - Stone Town - Zanzibar - Tanzania (8841700340).jpg"
+  "source": "Wikimedia Commons: Detail of Carved Wooden Door - Stone Town - Zanzibar - Tanzania (8841700340).jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Detail_of_Carved_Wooden_Door_-_Stone_Town_-_Zanzibar_-_Tanzania_%288841700340%29.jpg",
+  "image_author": "Adam Jones from Kelowna, BC, Canada",
+  "image_license": "CC BY-SA 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "summer-palace",
@@ -4317,7 +5368,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Alexturner85",
   "source": "Wikimedia Commons: Summer Palace over Kunming Lake and Nanhu Island.jpg",
-  "start": 2
+  "start": 2,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Summer_Palace_over_Kunming_Lake_and_Nanhu_Island.jpg",
+  "image_author": "Alexturner85",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "tara-brooch",
@@ -4334,7 +5390,12 @@
   "frac": 0.16,
   "license": "CC BY-SA 3.0",
   "attribution": "Johnbod",
-  "source": "Wikimedia Commons: Ireland 2010 etc 029.jpg"
+  "source": "Wikimedia Commons: Ireland 2010 etc 029.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Ireland_2010_etc_029.jpg",
+  "image_author": "Johnbod",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "tassili-rock-art",
@@ -4353,7 +5414,12 @@
   "frac": 0.16,
   "license": "CC BY-SA 4.0",
   "attribution": "IssamBarhoumi",
-  "source": "Wikimedia Commons: The Tanzoumaitak cave painting in Tassili n'ajjer.jpg"
+  "source": "Wikimedia Commons: The Tanzoumaitak cave painting in Tassili n'ajjer.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:The_Tanzoumaitak_cave_painting_in_Tassili_n%27ajjer.jpg",
+  "image_author": "IssamBarhoumi",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "teotihuacan-pyramid-sun",
@@ -4373,7 +5439,12 @@
   "license": "CC BY-SA 3.0",
   "attribution": "Daniel Case",
   "source": "Wikimedia Commons: Pyramid of the Sun, Teotihuacan, from path to parking lot.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Pyramid_of_the_Sun%2C_Teotihuacan%2C_from_path_to_parking_lot.jpg",
+  "image_author": "Daniel Case",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "tiwanaku",
@@ -4395,7 +5466,11 @@
   "frac": 0.24,
   "license": "Public domain",
   "attribution": "Bgabel",
-  "source": "Wikimedia Commons: Bol-tihuanaco-sonnentor.jpg"
+  "source": "Wikimedia Commons: Bol-tihuanaco-sonnentor.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Bol-tihuanaco-sonnentor.jpg",
+  "image_author": "Bgabel",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "trajan-column",
@@ -4414,7 +5489,11 @@
   "frac": 0.8507916200223892,
   "license": "Public domain",
   "attribution": "Flickr user Jean-Pierre Dalbéra",
-  "source": "Wikimedia Commons: Trajan's Column (48423812647).jpg"
+  "source": "Wikimedia Commons: Trajan's Column (48423812647).jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Trajan%27s_Column_%2848423812647%29.jpg",
+  "image_author": "Gary Todd from Xinzheng, China",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "trundholm-sun-chariot",
@@ -4433,7 +5512,12 @@
   "frac": 0.16,
   "license": "CC BY-SA 3.0",
   "attribution": "Nationalmuseet / John Lee",
-  "source": "Wikimedia Commons: Solvognen DO-6865 2000.jpg"
+  "source": "Wikimedia Commons: Solvognen DO-6865 2000.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Solvognen_DO-6865_2000.jpg",
+  "image_author": "Nationalmuseet, John Lee",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "uxmal",
@@ -4453,7 +5537,12 @@
   "license": "CC BY 2.0",
   "attribution": "Sharon Hahn Darlin",
   "source": "Wikimedia Commons: Pyramid of the Magician (Pirámide del Adivino), Zona Arqueológica de Uxmal, Yucatan, Mexico.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Pyramid_of_the_Magician_%28Pir%C3%A1mide_del_Adivino%29%2C_Zona_Arqueol%C3%B3gica_de_Uxmal%2C_Yucatan%2C_Mexico.jpg",
+  "image_author": "Sharon Hahn Darlin",
+  "image_license": "CC BY 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "warren-cup",
@@ -4470,7 +5559,12 @@
   "frac": 0.16,
   "license": "CC BY 2.0",
   "attribution": "Ashley Van Haeften",
-  "source": "Wikimedia Commons: Warren Cup - musical instruments.jpg"
+  "source": "Wikimedia Commons: Warren Cup - musical instruments.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Warren_Cup_-_musical_instruments.jpg",
+  "image_author": "Ashley Van Haeften",
+  "image_license": "CC BY 2.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "wawel-castle",
@@ -4490,7 +5584,12 @@
   "license": "CC BY-SA 3.0",
   "attribution": "Vvlasenko",
   "source": "Wikimedia Commons: Wawel Castle view from south. Krakow, Poland.jpg",
-  "start": 3
+  "start": 3,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Wawel_Castle_view_from_south._Krakow%2C_Poland.jpg",
+  "image_author": "Ввласенко",
+  "image_license": "CC BY-SA 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "djenne-terracotta",
@@ -4509,7 +5608,12 @@
   "frac": 0.16,
   "license": "CC0",
   "attribution": "Metropolitan Museum of Art (photo: Wmpearl)",
-  "source": "Wikimedia Commons: Seated figure grom Mali, 13th century, Djenné peoples, Metropolitan Museum of Art, 1981.218.JPG"
+  "source": "Wikimedia Commons: Seated figure grom Mali, 13th century, Djenné peoples, Metropolitan Museum of Art, 1981.218.JPG",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Seated_figure_grom_Mali%2C_13th_century%2C_Djenn%C3%A9_peoples%2C_Metropolitan_Museum_of_Art%2C_1981.218.JPG",
+  "image_author": "Wmpearl",
+  "image_license": "CC0",
+  "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "gedi-ruins",
@@ -4527,7 +5631,12 @@
   "frac": 0.16,
   "license": "CC BY-SA 4.0",
   "attribution": "Skaranja",
-  "source": "Wikimedia Commons: Palace at Gedi Ruins.jpg"
+  "source": "Wikimedia Commons: Palace at Gedi Ruins.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Palace_at_Gedi_Ruins.jpg",
+  "image_author": "Skaranja",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "hope-diamond",
@@ -4546,7 +5655,11 @@
   "license": "Public domain",
   "attribution": "Unknown authorUnknown author",
   "source": "Wikimedia Commons: The Hope Diamond - SIA.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:The_Hope_Diamond_-_SIA.jpg",
+  "image_author": "Unknown author",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "ishango-bone",
@@ -4565,7 +5678,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "JhowieNitnek",
   "source": "Wikimedia Commons: Ishango bone.jpg",
-  "start": 1
+  "start": 1,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Ishango_bone.jpg",
+  "image_author": "JhowieNitnek",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "kerma-deffufa",
@@ -4585,7 +5703,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Lassi",
   "source": "Wikimedia Commons: Kerma-Deffufa.jpg",
-  "start": 3
+  "start": 3,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Kerma-Deffufa.jpg",
+  "image_author": "Lassi",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "khami-ruins",
@@ -4605,7 +5728,12 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Robert Stewart Burrett",
   "source": "Wikimedia Commons: Khami Ruins, so-called Monolith Platform.jpg",
-  "start": 8
+  "start": 8,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Khami_Ruins%2C_so-called_Monolith_Platform.jpg",
+  "image_author": "Robert Stewart Burrett",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "ziggurat-ur",
@@ -4625,7 +5753,12 @@
   "license": "CC BY 3.0",
   "attribution": "Hardnfast",
   "source": "Wikimedia Commons: Ancient ziggurat at Ali Air Base Iraq 2005.jpg",
-  "start": 2
+  "start": 2,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Ancient_ziggurat_at_Ali_Air_Base_Iraq_2005.jpg",
+  "image_author": "Hardnfast",
+  "image_license": "CC BY 3.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/3.0",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "utrecht-psalter",
@@ -4642,7 +5775,11 @@
   "frac": 0.16,
   "license": "Public domain",
   "attribution": "Unknown monks, c. 800",
-  "source": "Wikimedia Commons: Utrecht Psalter.jpg"
+  "source": "Wikimedia Commons: Utrecht Psalter.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Utrecht_Psalter.jpg",
+  "image_author": "Unknown monks c. 800",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "winchester-bible",
@@ -4659,7 +5796,11 @@
   "frac": 0.16,
   "license": "Public domain",
   "attribution": "Unknown Winchester miniaturist",
-  "source": "Wikimedia Commons: God addressing Jeremiah, Winchester Bible, 1160-75 (22797800517).jpg"
+  "source": "Wikimedia Commons: God addressing Jeremiah, Winchester Bible, 1160-75 (22797800517).jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:God_addressing_Jeremiah%2C_Winchester_Bible%2C_1160-75_%2822797800517%29.jpg",
+  "image_author": "Levan Ramishvili from Tbilisi, Georgia",
+  "image_license": "Public domain",
+  "image_retrieved": "2026-07-21"
  },
  {
   "id": "herculaneum-frescoes",
@@ -4683,6 +5824,11 @@
   "license": "CC0",
   "attribution": "Jebulon",
   "source": "Wikimedia Commons: MANNapoli 9058 couple painting.jpg",
-  "start": 6
+  "start": 6,
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:MANNapoli_9058_couple_painting.jpg",
+  "image_author": "Jebulon",
+  "image_license": "CC0",
+  "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "image_retrieved": "2026-07-21"
  }
 ]

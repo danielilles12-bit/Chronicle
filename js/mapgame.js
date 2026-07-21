@@ -650,6 +650,7 @@ function renderLockedSummary() {
     + (S.editionIndex != null ? ` · № ${S.editionIndex}` : '');
   $('#sum-total').textContent = S.score;
   setReceiptStamp('view-mapsum', S.score);
+  $('#sum-report').href = daily.reportProblemHref(null, S.editionIndex);
   const remarks = [
     [90, 'Immortalised.'],
     [75, 'A household name.'],

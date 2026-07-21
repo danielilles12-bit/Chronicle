@@ -4,5 +4,5 @@
  "min_lifeline_km": 250,
  "max_same_country": 3,
  "max_same_era": 3,
- "require_sources": false
+ "require_sources": true
 }

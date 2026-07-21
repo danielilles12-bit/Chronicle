@@ -7,7 +7,7 @@
 //   new worker precaches the shell, skipWaiting+claim take over immediately ->
 //   app.js sees controllerchange and shows the NEW EDITION bar -> the user's
 //   pull-to-refresh (or a tap on the bar) reloads into the new version.
-const VERSION = 'deadfamous-v123';
+const VERSION = 'deadfamous-v124';
 
 // Daily-content cache: survives version bumps so updating the app never
 // re-downloads the whole archive, served stale-while-revalidate below.
@@ -28,6 +28,12 @@ const ASSETS = [
   './index.html',
   './css/brand-tokens.css',
   './css/style.css',
+  // P3.4: how-to-play is the one static content page worth precaching (it's
+  // the natural "help" destination and is tiny); about/sources/corrections/
+  // privacy/404 stay out to keep the install small — they cache themselves
+  // on first visit via the generic fetch handler below.
+  './how-to-play.html',
+  './css/pages.css',
   './assets/fonts/archivo-black.woff2',
   './assets/fonts/archivo-regular.woff2',
   './assets/fonts/archivo-bold.woff2',
@@ -126,13 +132,19 @@ self.addEventListener('fetch', (e) => {
   e.respondWith(
     caches.match(req, { ignoreSearch: true }).then((hit) => {
       if (hit) return hit;
-      if (req.mode === 'navigate') {
-        return caches.match('./index.html').then((page) => page || fetch(req));
-      }
       return fetch(req).then((res) => {
         const copy = res.clone();
         caches.open(VERSION).then((c) => c.put(req, copy));
         return res;
+      }).catch(() => {
+        // Offline and this exact page was never cached: for a real page
+        // navigation, the app shell is a better dead end than a browser
+        // error screen. (P3.4: about/sources/corrections/privacy/404 are
+        // real standalone pages now, not SPA routes — this fallback only
+        // kicks in when the network is actually unreachable, not on every
+        // cache miss, so a first-time online visit to any of them fetches
+        // the real page instead of silently showing the app shell.)
+        if (req.mode === 'navigate') return caches.match('./index.html');
       });
     }),
   );

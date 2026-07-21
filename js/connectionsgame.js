@@ -437,6 +437,7 @@ function renderThreadReceipt({ editionIndex, mode, title, score, solved, perfect
   }
   $('#conn-sum-total').textContent = score;
   setReceiptStamp('view-connsum', score);
+  $('#conn-sum-report').href = daily.reportProblemHref(null, editionIndex);
   const msg = perfect ? 'Not a thread out of place.'
     : solved ? (mistakes >= 3 ? 'By a thread.' : 'Frayed, but intact.')
     : 'The thread snapped.';

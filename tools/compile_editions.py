@@ -33,6 +33,9 @@ from datetime import date, timedelta
 from math import asin, cos, radians, sin, sqrt
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from trust_schema import is_sourced  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 MANIFEST = ROOT / "data/editions.json"
 PROPOSED = ROOT / "data/editions.proposed.json"
@@ -380,7 +383,14 @@ def cmd_propose(args):
         return None if la is None else (on_date - la).days
 
     def eligible(game, item, on_date, day_answers, extra_reject):
-        """Hard constraints only. Returns (ok, reason)."""
+        """Hard constraints only. Returns (ok, reason).
+
+        require_sources is checked here, inside propose, which by
+        construction only ever considers unaired editions after `start`
+        (today or later) — freeze (past/aired editions) and approve
+        (promoting an already-generated proposal) never call this, so
+        flipping the flag on automatically scopes it to editions proposed
+        from now on without any extra date bookkeeping (P3.6)."""
         g = gap_days(game, item["id"], on_date)
         if g is not None and g < floor:
             return False, f"aired {g}d ago (floor {floor})"
@@ -391,8 +401,9 @@ def cmd_propose(args):
             if haversine_km(item["birth"], item["death"]) < cfg["min_lifeline_km"] \
                     and not item.get("allow_close"):
                 return False, f"birth-death < {cfg['min_lifeline_km']}km"
-        if cfg["require_sources"] and not item.get("source"):
-            return False, "unsourced (require_sources on)"
+        if cfg["require_sources"] and not is_sourced(item):
+            return False, "unsourced or unconfident (require_sources on — " \
+                          "needs fact_sources[] + a confidence tag; see P3.1/P3.6)"
         if game == "thread":
             if thread_answer_keys(item) & day_answers:
                 return False, "tile/label collides with today's answers"

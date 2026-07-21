@@ -171,6 +171,8 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 
 .home-foot { text-align: center; color: var(--ch-text-muted); font-size: 12px; padding: 4px 0 calc(16px + env(safe-area-inset-bottom)); font-family: var(--ch-font-ui); }
 .foot-toggle { background: none; border: none; padding: 0; font: inherit; color: inherit; text-decoration: underline; cursor: pointer; }
+.home-foot a { color: inherit; }
+.home-foot br { content: ''; display: block; margin-top: 4px; }
 
 /* ---------- Archive ---------- */
 .archive-filters { display: flex; gap: 6px; overflow-x: auto; padding: 10px 20px; border-bottom: 1px solid var(--ch-line); background: var(--ch-paper); }
@@ -402,6 +404,32 @@ button.cal-cell:active { background: var(--ch-parchment); }
   box-shadow: var(--ch-shadow-card); border: 3px solid var(--ch-ink);
   transition: width .35s ease, aspect-ratio .35s ease;   /* morph to the image's shape on reveal */
 }
+/* P3.3: discreet tap-to-expand photo credit — ink-coloured glyph at low
+   opacity so it reads as quiet furniture, not a UI control competing with
+   the reveal moment; only shown post-resolution (see resolveRound). */
+.rv-credit-btn {
+  position: absolute; right: 6px; bottom: 6px; z-index: 5;
+  width: 30px; height: 30px; border-radius: 50%; border: none; padding: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--ch-font-ui); font-size: 16px; line-height: 1;
+  background: rgba(11,11,11,.4); color: rgba(245,242,232,.92);
+}
+.rv-credit-btn:active { background: rgba(11,11,11,.6); }
+.rv-credit-panel {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 4;
+  background: rgba(242,239,230,.95); color: var(--ch-text-primary);
+  border-top: 2px solid var(--ch-ink);
+  font-family: var(--ch-font-ui); font-size: 11px; line-height: 1.45;
+  padding: 8px 30px 8px 10px;
+}
+.rv-credit-panel a { color: var(--ch-text-primary); }
+.rv-credit-panel .rv-report-link { display: block; margin-top: 4px; color: var(--ch-text-muted); font-size: 10px; }
+
+/* P3.5: same muted "Report a problem" link, on each daily summary screen */
+.sum-report-link {
+  display: block; text-align: center; margin: 14px 0 0;
+  font-family: var(--ch-font-ui); font-size: 11px; color: var(--ch-text-muted);
+}
 #rv-timerbar {
   width: min(76vw, 38dvh); height: 6px; border-radius: 999px;
   background: rgba(43,33,24,.12); overflow: hidden;
@@ -431,7 +459,6 @@ button.cal-cell:active { background: var(--ch-parchment); }
 #rv-feedback.info { background: var(--ch-cream); border: 2px solid var(--ch-ink); }
 #rv-feedback b.fig { font-family: var(--ch-font-display); font-weight: 400; font-size: 17px; }
 #rv-feedback .pts { font-weight: 800; color: var(--ch-gold); }
-.rv-credit { color: var(--ch-text-muted); font-size: 11px; }
 #rv-next { position: sticky; bottom: 2px; }
 
 /* ---------- Map start & summary ---------- */

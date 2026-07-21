@@ -99,8 +99,8 @@ def hint_family(source):
 
 def query_batch(titles):
     """titles: list of 'File:...' strings (<=50). Returns dict of
-    requested-title -> {'license': str|None, 'artist': str|None} or None
-    (file missing / no imageinfo)."""
+    requested-title -> {'license': str|None, 'artist': str|None,
+    'license_url': str|None} or None (file missing / no imageinfo)."""
     try:
         d = api({
             "action": "query",
@@ -136,7 +136,11 @@ def query_batch(titles):
 
         lic = get("LicenseShortName") or get("License") or get("UsageTerms")
         artist = get("Artist")
-        result[orig_title] = {"license": lic or None, "artist": artist or None}
+        license_url = get("LicenseUrl")
+        result[orig_title] = {
+            "license": lic or None, "artist": artist or None,
+            "license_url": license_url or None,
+        }
     return result
 
 

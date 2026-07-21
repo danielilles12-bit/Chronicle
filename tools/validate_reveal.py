@@ -9,6 +9,9 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from trust_schema import validate_trust_fields  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 DIFFICULTIES = {"easy", "medium", "hard"}
 
@@ -52,6 +55,7 @@ def check_reveal(path):
                 warn(f"{path}: variant {v!r} shared by {variant_owner[v]} and {iid} "
                      f"(allowed — matcher is per-item — but check it's intentional)")
             variant_owner[v] = iid
+        validate_trust_fields(it, f"{path} {iid}", err, warn, has_images=True)
     return len(items)
 
 
@@ -93,6 +97,7 @@ def check_figures():
         dy = (f.get("death") or {}).get("year")
         if isinstance(by, int) and isinstance(dy, int) and by >= dy:
             err(f"figures {fid}: birth {by} not before death {dy}")
+        validate_trust_fields(f, f"figures {fid}", err, warn, has_images=False)
     return len(figs)
 
 

@@ -1,0 +1,67 @@
+/* Static content pages (about/how-to-play/sources/corrections/privacy/404).
+   Loaded ONLY by those pages — never by index.html — so the app shell's
+   precache stays lean (P3.4). Reuses brand-tokens.css + the .masthead/#app/
+   .scroll-main shell from style.css; this file adds just the long-form
+   reading typography and page-to-page nav those don't need. */
+
+.page-main {
+  max-width: 640px; width: 100%; margin: 0 auto; min-width: 0;
+  padding: 16px 20px calc(32px + env(safe-area-inset-bottom));
+  box-sizing: border-box;
+}
+.page-main h2 {
+  font-family: var(--ch-font-display); font-weight: 400; font-size: 22px;
+  text-transform: uppercase; letter-spacing: .01em; margin: 28px 0 8px;
+  color: var(--ch-text-primary);
+}
+.page-main h2:first-child { margin-top: 4px; }
+.page-main p, .page-main li { font-size: 15.5px; line-height: 1.55; color: var(--ch-text-primary); }
+.page-main p { margin: 0 0 12px; }
+.page-main ul, .page-main ol { margin: 0 0 12px; padding-left: 22px; }
+.page-main a { color: var(--ch-text-primary); }
+.page-main small { color: var(--ch-text-muted); }
+
+.page-back {
+  display: inline-block; margin: 14px 20px 0; font-family: var(--ch-font-ui);
+  font-size: 13px; font-weight: 700; color: var(--ch-text-primary); text-decoration: none;
+}
+.page-back:active { opacity: .6; }
+
+/* Quiet cross-links between the static pages themselves + back to the app —
+   same voice as .home-foot. */
+.page-nav {
+  text-align: center; color: var(--ch-text-muted); font-size: 12px;
+  font-family: var(--ch-font-ui); padding: 4px 20px calc(20px + env(safe-area-inset-bottom));
+  line-height: 1.8;
+}
+.page-nav a { color: inherit; }
+
+/* Sources register: one row per credited image. Plain, dense, scannable —
+   this is a legal register, not a moment screen. */
+.reg-table { width: 100%; border-collapse: collapse; margin: 8px 0 24px; font-size: 13.5px; }
+.reg-table th, .reg-table td {
+  text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--ch-line-soft);
+  vertical-align: top;
+}
+.reg-table th {
+  font-family: var(--ch-font-ui); font-size: 11px; text-transform: uppercase;
+  letter-spacing: .04em; color: var(--ch-text-muted); font-weight: 700;
+}
+.reg-table td.reg-name { font-weight: 700; white-space: nowrap; }
+.reg-table-wrap { overflow-x: auto; }
+
+.corr-empty {
+  border: 2px solid var(--ch-ink); background: var(--ch-cream); padding: 16px;
+  font-family: var(--ch-font-ui); font-size: 13px; color: var(--ch-text-muted); text-align: center;
+}
+
+.privacy-toggle-note {
+  border: 2px solid var(--ch-ink); background: var(--ch-cream); padding: 14px 16px;
+  margin: 4px 0 20px;
+}
+
+.notfound-main {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  justify-content: center; gap: 10px; min-height: 60dvh; padding: 20px;
+}
+.notfound-main h2 { margin-top: 0; }

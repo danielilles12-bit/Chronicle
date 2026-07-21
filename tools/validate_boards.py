@@ -10,6 +10,9 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from trust_schema import validate_trust_fields  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 COLOURS = {"yellow", "green", "blue", "purple"}
 DIFFICULTIES = {"easy", "medium", "hard"}
@@ -70,6 +73,7 @@ def check_connections(boards):
         for dup, n in Counter(all_items).items():
             if n > 1:
                 err(f"connections {bid}: item '{dup}' appears in more than one group")
+        validate_trust_fields(b, f"connections {bid}", err, warn, has_images=False)
     for item, where in item_boards.items():
         if len(where) > 2:
             warn(f"connections: item '{item}' used in {len(where)} boards: {sorted(where)}")
