@@ -47,9 +47,13 @@ def is_match(pg, guess, item, pool_key=None):
 
 def main():
     with server() as base, sync_playwright() as p:
-        with page_on(p, "webkit") as (pg, errors):
-            pg.goto(base + "/")
-            pg.wait_for_function("window.__CHRONICLE_TEST__ !== undefined")
+        with page_on(p, "chromium") as (pg, errors):
+            pg.goto(base + "/index.html?test=1")
+            # Boot sets the hook object before the data files finish
+            # downloading — wait for the pools themselves.
+            pg.wait_for_function(
+                "window.__CHRONICLE_TEST__ && __CHRONICLE_TEST__.data.figures"
+                " && __CHRONICLE_TEST__.data.reveal")
 
             figures = pg.evaluate("window.__CHRONICLE_TEST__.data.figures")
             reveal = pg.evaluate("window.__CHRONICLE_TEST__.data.reveal")

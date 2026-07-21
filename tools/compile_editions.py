@@ -735,6 +735,87 @@ def cmd_approve(args):
 
 
 # ---------------------------------------------------------------------------
+# verify — the CI/test gate (P4.1/P4.2). Read-only, offline, fast.
+# ---------------------------------------------------------------------------
+def cmd_verify(args):
+    """Check the manifest end-to-end: parses, contiguous, dates match the
+    epoch, every id resolves, every who/what image exists, recipe sizes hold
+    for compiled editions, and no answer appears in two games on one day.
+    Collisions in LEGACY editions (n < recipeChangeEdition, frozen history
+    produced by the old collision-blind algorithm) are warnings; in compiled
+    editions they are errors. Exits non-zero on any error."""
+    manifest_path = Path(args.manifest) if args.manifest else MANIFEST
+    errors, warns = [], []
+    err, warn = errors.append, warns.append
+
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except Exception as e:  # unreadable manifest = nothing airs tomorrow
+        print(f"verify: FATAL — cannot read {manifest_path}: {e}", file=sys.stderr)
+        return 1
+    editions = manifest.get("editions")
+    change = manifest.get("recipeChangeEdition")
+    if not isinstance(editions, dict) or not editions:
+        print("verify: FATAL — manifest has no editions", file=sys.stderr)
+        return 1
+    if not isinstance(change, int):
+        err(f"recipeChangeEdition is {change!r}, expected an int")
+        change = 10 ** 9  # treat everything as legacy so checks still run
+
+    pools = load_pools()
+    by_id = {g: {x["id"]: x for x in pools[g]} for g in GAMES}
+
+    keys = sorted(int(k) for k in editions)
+    if keys != list(range(keys[0], keys[-1] + 1)):
+        err(f"editions are not contiguous: {keys[0]}..{keys[-1]} has holes")
+    if keys and keys[0] != 0:
+        warn(f"manifest starts at edition {keys[0]}, not 0")
+
+    for k in keys:
+        ed = editions[str(k)]
+        legacy = k < change
+        where = f"edition {k} ({ed.get('date', '?')})"
+        if ed.get("date") != edition_date(k).isoformat():
+            err(f"{where}: date should be {edition_date(k).isoformat()}")
+
+        names = {}  # normalised display name -> (game, id), cross-game collision net
+        for game in GAMES:
+            ids = ed.get(game) or []
+            if len(set(ids)) != len(ids):
+                err(f"{where}: duplicate id inside '{game}': {ids}")
+            want = 1 if game == "thread" else (10 if legacy else 5)
+            if len(ids) != want:
+                (warn if legacy else err)(
+                    f"{where}: '{game}' has {len(ids)} ids, expected {want}")
+            for i in ids:
+                item = by_id[game].get(i)
+                if item is None:
+                    err(f"{where}: '{game}' id '{i}' resolves to nothing")
+                    continue
+                if game in ("who", "what"):
+                    img = ROOT / item.get("img", "")
+                    if not item.get("img") or not img.is_file():
+                        err(f"{where}: image missing for {game}/{i}: {item.get('img')}")
+                if game != "thread":
+                    nm = normalise(item.get("name", ""))
+                    if nm in names and names[nm][0] != game:
+                        og, oi = names[nm]
+                        (warn if legacy else err)(
+                            f"{where}: answer collision — '{nm}' is both "
+                            f"{og}/{oi} and {game}/{i}")
+                    names[nm] = (game, i)
+
+    for w in warns:
+        print(f"WARN  {w}")
+    for e2 in errors:
+        print(f"ERROR {e2}", file=sys.stderr)
+    print(f"verify: {len(keys)} editions ({keys[0]}..{keys[-1]}, recipe change "
+          f"at {manifest.get('recipeChangeEdition')}) — "
+          f"{len(errors)} errors, {len(warns)} warnings")
+    return 1 if errors else 0
+
+
+# ---------------------------------------------------------------------------
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -745,9 +826,13 @@ def main():
     p.add_argument("--days", type=int, default=14)
     a = sub.add_parser("approve", help="promote proposed editions into the manifest")
     a.add_argument("--through", required=True, metavar="YYYY-MM-DD")
+    v = sub.add_parser("verify", help="validate the live manifest (CI gate): "
+                                      "ids resolve, images exist, no collisions")
+    v.add_argument("--manifest", default=None,
+                   help="alternate manifest path (CI broken-manifest test)")
     args = ap.parse_args()
     return {"freeze": cmd_freeze, "propose": cmd_propose,
-            "approve": cmd_approve}[args.cmd](args)
+            "approve": cmd_approve, "verify": cmd_verify}[args.cmd](args)
 
 
 if __name__ == "__main__":

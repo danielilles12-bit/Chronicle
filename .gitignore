@@ -26,3 +26,15 @@ tools/out/minis3.json
 tools/out/minis4.json
 tools/out/minis_new.json
 ANALYTICS_DIGEST.md
+
+# Compiler working files + review sheets carry UNAIRED answers — GitHub Pages
+# serves this whole repo, so they must never be tracked (CI enforces this).
+data/editions.proposed.json
+tools/out/
+
+# Session planning docs (same rule as the design-artifact block above)
+CLAUDE.md
+CLAUDE_CODE_BUILD_PLAN.md
+DEAD_FAMOUS_AUDITED_PLAN.md
+DEAD_FAMOUS_PLAN_RESPONSE.md
+plan-review.html

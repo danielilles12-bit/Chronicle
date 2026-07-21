@@ -1,34 +1,46 @@
 #!/usr/bin/env python3
-"""Run the full verification suite: puzzle validator + all Playwright tests."""
+"""The full verification suite (P4.1): data validators first, then the
+Playwright suite against a local static server. This is what CI runs and
+what the end-of-session ritual means by "run the tests".
+
+  python3 tests/run_all.py            # everything
+  python3 tests/run_all.py --fast     # validators only (no browser)
+"""
 import os
 import subprocess
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.join(HERE, "..")
+ROOT = os.path.abspath(os.path.join(HERE, ".."))
 
-STEPS = [
-    ("validator", os.path.join(ROOT, "tools", "validate_puzzles.py")),
-    ("crosswords", os.path.join(HERE, "test_crosswords.py")),
-    ("map game", os.path.join(HERE, "test_mapgame.py")),
-    ("zoom in", os.path.join(HERE, "test_reveal.py")),
-    ("pwa/offline", os.path.join(HERE, "test_pwa.py")),
-    ("screenshots", os.path.join(HERE, "screenshots.py")),
+VALIDATORS = [
+    ("reveal data", [os.path.join(ROOT, "tools", "validate_reveal.py")]),
+    ("board data", [os.path.join(ROOT, "tools", "validate_boards.py")]),
+    ("image rights", [os.path.join(ROOT, "tools", "audit_rights.py")]),  # offline mode
+    ("manifest verify", [os.path.join(ROOT, "tools", "compile_editions.py"), "verify"]),
+]
+
+BROWSER = [
+    ("answer matching", [os.path.join(HERE, "match_harness.py")]),
+    ("smoke: core", [os.path.join(HERE, "test_smoke_core.py")]),
+    ("smoke: daily flow", [os.path.join(HERE, "test_daily_flow.py")]),
+    ("smoke: resilience", [os.path.join(HERE, "test_resilience.py")]),
 ]
 
 
 def main():
+    steps = VALIDATORS + ([] if "--fast" in sys.argv[1:] else BROWSER)
     results = []
-    for name, path in STEPS:
-        print("\n===== %s =====" % name)
-        rc = subprocess.run([sys.executable, "-u", path]).returncode
+    for name, cmd in steps:
+        print("\n===== %s =====" % name, flush=True)
+        rc = subprocess.run([sys.executable, "-u"] + cmd, cwd=ROOT).returncode
         results.append((name, rc))
         if rc != 0:
             print("STEP FAILED:", name)
     print("\n===== SUMMARY =====")
     bad = 0
     for name, rc in results:
-        print("  %-12s %s" % (name, "PASS" if rc == 0 else "FAIL(%d)" % rc))
+        print("  %-18s %s" % (name, "PASS" if rc == 0 else "FAIL(%d)" % rc))
         bad += rc != 0
     sys.exit(1 if bad else 0)
 

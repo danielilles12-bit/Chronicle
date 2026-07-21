@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v124';
+const BUILD = 'v125';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -493,7 +493,15 @@ function initArchive() {
         }
         btn.textContent = label;
         picker.hidden = true;
-        g.launchPractice(n);
+        // The repair window (streak rule, Daniel's kinder call 2026-07-10):
+        // an edition still completable-for-streak (within 2 days of airing,
+        // daily.isStreakValid) and not yet in the ledger launches as the
+        // DAILY — this is the only path that can heal a missed day. Anything
+        // older, or already completed, is practice as before.
+        const today = daily.todayIndex();
+        const repairable = daily.isStreakValid(n, today) && !store.getDailyEntry(g.key, n);
+        if (repairable) g.launchDaily(n);
+        else g.launchPractice(n);
       });
     });
     const closeBtn = $('#archive-picker-close');
