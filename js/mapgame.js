@@ -1,5 +1,5 @@
 // "Map of a Life": guess the historical figure from birth/death geography.
-import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage } from './app.js';
+import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, testHooksEnabled } from './app.js';
 import * as store from './storage.js';
 import { isMatch, registerPool } from './match.js';
 import * as daily from './daily.js';
@@ -542,9 +542,11 @@ function startRound() {
   animateTo(S.homeBox);
 
   persistSession();
-  window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
-    mapRound: { index: S.i, id: fig.id, name: fig.name },
-  });
+  if (testHooksEnabled()) {
+    window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
+      mapRound: { index: S.i, id: fig.id, name: fig.name },
+    });
+  }
 }
 
 function addHintChip(text) {
@@ -690,9 +692,11 @@ function finishSession() {
   refreshHomeStats();
 
   renderLockedSummary();
-  window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
-    mapSession: { score: S.score, results: S.results.map((r) => ({ id: r.fig.id, pts: r.pts, correct: r.correct })) },
-  });
+  if (testHooksEnabled()) {
+    window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
+      mapSession: { score: S.score, results: S.results.map((r) => ({ id: r.fig.id, pts: r.pts, correct: r.correct })) },
+    });
+  }
   show('view-mapsum');
 }
 

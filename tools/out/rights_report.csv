@@ -1,0 +1,537 @@
+file,id,stored_license,filename_hint,commons_license,verdict
+reveal-who.json,tutankhamun,Public domain,,Public domain,OK
+reveal-who.json,charlie-chaplin,Public domain,,Public domain,OK
+reveal-who.json,marilyn-monroe,Public domain,,Public domain,OK
+reveal-who.json,elvis-presley,Public domain,,Public domain,OK
+reveal-who.json,socrates,Public domain,,Public domain,OK
+reveal-who.json,al-capone,Public domain,,Public domain,OK
+reveal-who.json,che-guevara,Public domain,,Public domain,OK
+reveal-who.json,einstein,Public domain,,Public domain,OK
+reveal-who.json,lincoln,Public domain,,Public domain,OK
+reveal-who.json,martin-luther-king-jr,Public domain,,Public domain,OK
+reveal-who.json,nelson-mandela,CC BY 2.0,,CC BY 2.0,OK
+reveal-who.json,amelia-earhart,Public domain,,Public domain,OK
+reveal-who.json,anne-frank,Public domain,,Public domain,OK
+reveal-who.json,aretha-franklin,Public domain,,Public domain,OK
+reveal-who.json,benjamin-franklin,Public domain,,Public domain,OK
+reveal-who.json,carl-sagan,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-who.json,frida-kahlo,Public domain,,Public domain,OK
+reveal-who.json,gandhi,Public domain,,Public domain,OK
+reveal-who.json,gautama-buddha,Public domain,,Public domain,OK
+reveal-who.json,george-washington,Public domain,,Public domain,OK
+reveal-who.json,henry-viii,Public domain,,Public domain,OK
+reveal-who.json,isaac-newton,Public domain,,Public domain,OK
+reveal-who.json,jane-austen,Public domain,,Public domain,OK
+reveal-who.json,john-f-kennedy,Public domain,,Public domain,OK
+reveal-who.json,malcolm-x,Public domain,,Public domain,OK
+reveal-who.json,marcus-aurelius,Public domain,,Public domain,OK
+reveal-who.json,mark-twain,Public domain,,Public domain,OK
+reveal-who.json,muhammad-ali,Public domain,,Public domain,OK
+reveal-who.json,napoleon,Public domain,,Public domain,OK
+reveal-who.json,queen-elizabeth-ii,Public domain,,Public domain,OK
+reveal-who.json,rasputin,Public domain,,Public domain,OK
+reveal-who.json,robert-oppenheimer,Public domain,,Public domain,OK
+reveal-who.json,ronald-reagan,Public domain,,Public domain,OK
+reveal-who.json,van-gogh-self,Public domain,,Public domain,OK
+reveal-who.json,winston-churchill,Public domain,,Public domain,OK
+reveal-who.json,ada-lovelace,Public domain,,Public domain,OK
+reveal-who.json,alexander-fleming,Public domain,,Public domain,OK
+reveal-who.json,alexander-graham-bell,CC0,,CC0,OK
+reveal-who.json,alfred-nobel,Public domain,,Public domain,OK
+reveal-who.json,arthur-conan-doyle,Public domain,,Public domain,OK
+reveal-who.json,beethoven,Public domain,,Public domain,OK
+reveal-who.json,billie-holiday,Public domain,,Public domain,OK
+reveal-who.json,blaise-pascal,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-who.json,boudica,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-who.json,charles-dickens,Public domain,,Public domain,OK
+reveal-who.json,da-vinci-self,Public domain,,Public domain,OK
+reveal-who.json,dante-alighieri,Public domain,,Public domain,OK
+reveal-who.json,edgar-allan-poe,Public domain,,Public domain,OK
+reveal-who.json,elizabeth-i,Public domain,,Public domain,OK
+reveal-who.json,ella-fitzgerald,Public domain,,Public domain,OK
+reveal-who.json,emily-dickinson,Public domain,,Public domain,OK
+reveal-who.json,ferdinand-magellan,Public domain,,Public domain,OK
+reveal-who.json,florence-nightingale,Public domain,,Public domain,OK
+reveal-who.json,francisco-goya,Public domain,,Public domain,OK
+reveal-who.json,frederic-chopin,Public domain,,Public domain,OK
+reveal-who.json,frederick-douglass,Public domain,,Public domain,OK
+reveal-who.json,friedrich-engels,Public domain,,Public domain,OK
+reveal-who.json,friedrich-nietzsche,Public domain,,Public domain,OK
+reveal-who.json,fyodor-dostoevsky,Public domain,,Public domain,OK
+reveal-who.json,geronimo,CC BY 4.0,,CC BY 4.0,OK
+reveal-who.json,giuseppe-garibaldi,Public domain,,Public domain,OK
+reveal-who.json,haile-selassie,Public domain,,Public domain,OK
+reveal-who.json,harriet-tubman,Public domain,,Public domain,OK
+reveal-who.json,ho-chi-minh,Public domain,,Public domain,OK
+reveal-who.json,horatio-nelson,Public domain,,Public domain,OK
+reveal-who.json,isambard-brunel,Public domain,,Public domain,OK
+reveal-who.json,jacques-cousteau,Public domain,,Public domain,OK
+reveal-who.json,johann-sebastian-bach,Public domain,,Public domain,OK
+reveal-who.json,karl-marx,Public domain,,Public domain,OK
+reveal-who.json,kublai-khan,Public domain,,Public domain,OK
+reveal-who.json,lenin,Public domain,,Public domain,OK
+reveal-who.json,leo-tolstoy,Public domain,,Public domain,OK
+reveal-who.json,lewis-carroll,CC0,,CC0,OK
+reveal-who.json,lord-byron,Public domain,,Public domain,OK
+reveal-who.json,louis-xiv,CC0,,CC0,OK
+reveal-who.json,louis-xvi,Public domain,,Public domain,OK
+reveal-who.json,mao-zedong,Public domain,,Public domain,OK
+reveal-who.json,marie-antoinette,Public domain,,Public domain,OK
+reveal-who.json,marie-curie,Public domain,,Public domain,OK
+reveal-who.json,martin-luther,Public domain,,Public domain,OK
+reveal-who.json,michelangelo,Public domain,,Public domain,OK
+reveal-who.json,mozart,Public domain,,Public domain,OK
+reveal-who.json,niccolo-machiavelli,Public domain,,Public domain,OK
+reveal-who.json,nicholas-ii,Public domain,,Public domain,OK
+reveal-who.json,oliver-cromwell,Public domain,,Public domain,OK
+reveal-who.json,oscar-wilde,Public domain,,Public domain,OK
+reveal-who.json,peter-great,Public domain,,Public domain,OK
+reveal-who.json,pocahontas,Public domain,,Public domain,OK
+reveal-who.json,queen-victoria,Public domain,,Public domain,OK
+reveal-who.json,rembrandt-self,Public domain,,Public domain,OK
+reveal-who.json,rene-descartes,Public domain,,Public domain,OK
+reveal-who.json,robert-burns,Public domain,,Public domain,OK
+reveal-who.json,rosa-parks,Public domain,,Public domain,OK
+reveal-who.json,saladin,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-who.json,suleiman-magnificent,Public domain,,Public domain,OK
+reveal-who.json,susan-b-anthony,Public domain,,,UNVERIFIED
+reveal-who.json,theodore-roosevelt,Public domain,,Public domain,OK
+reveal-who.json,toni-morrison,Public domain,,Public domain,OK
+reveal-who.json,trotsky,Public domain,,Public domain,OK
+reveal-who.json,ulysses-grant,Public domain,,Public domain,OK
+reveal-who.json,victor-hugo,Public domain,,Public domain,OK
+reveal-who.json,voltaire,CC0,,CC0,OK
+reveal-who.json,wu-zetian,Public domain,,Public domain,OK
+reveal-who.json,zheng-he,Public domain,,Public domain,OK
+reveal-who.json,adam-smith,Public domain,,Public domain,OK
+reveal-who.json,akbar-great,Public domain,,Public domain,OK
+reveal-who.json,akhenaten,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-who.json,al-khwarizmi,CC0,,CC0,OK
+reveal-who.json,albrecht-durer,Public domain,,Public domain,OK
+reveal-who.json,alexander-hamilton,Public domain,,Public domain,OK
+reveal-who.json,alexander-pushkin,Public domain,,Public domain,OK
+reveal-who.json,alexander-von-humboldt,Public domain,,Public domain,OK
+reveal-who.json,alexandre-dumas,Public domain,,Public domain,OK
+reveal-who.json,anton-chekhov,Public domain,,Public domain,OK
+reveal-who.json,artemisia-gentileschi,Public domain,,Public domain,OK
+reveal-who.json,ataturk,Public domain,,Public domain,OK
+reveal-who.json,augustus-caesar,Public domain,,Public domain,OK
+reveal-who.json,charles-i-england,Public domain,,Public domain,OK
+reveal-who.json,charles-v-hre,Public domain,,Public domain,OK
+reveal-who.json,chief-joseph,Public domain,,Public domain,OK
+reveal-who.json,claude-monet,Public domain,,Public domain,OK
+reveal-who.json,confucius,Public domain,,Public domain,OK
+reveal-who.json,darwin,Public domain,,Public domain,OK
+reveal-who.json,diego-velazquez,Public domain,,Public domain,OK
+reveal-who.json,el-cid,CC BY-SA 2.0,,CC BY-SA 2.0,OK
+reveal-who.json,emmeline-pankhurst,Public domain,,Public domain,OK
+reveal-who.json,empress-dowager-cixi,Public domain,,Public domain,OK
+reveal-who.json,empress-theodora,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-who.json,enid-blyton,Public domain,,Public domain,OK
+reveal-who.json,ernest-rutherford,Public domain,,Public domain,OK
+reveal-who.json,eva-peron,Public domain,,Public domain,OK
+reveal-who.json,fdr,CC BY 2.0,,CC BY 2.0,OK
+reveal-who.json,frederick-the-great,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-who.json,galileo,Public domain,,Public domain,OK
+reveal-who.json,george-frideric-handel,Public domain,,Public domain,OK
+reveal-who.json,gian-lorenzo-bernini,Public domain,,Public domain,OK
+reveal-who.json,goethe,Public domain,,Public domain,OK
+reveal-who.json,gottfried-leibniz,Public domain,,Public domain,OK
+reveal-who.json,hans-christian-andersen,Public domain,,Public domain,OK
+reveal-who.json,hatshepsut,CC0,,CC0,OK
+reveal-who.json,herman-melville,Public domain,,Public domain,OK
+reveal-who.json,hernan-cortes,Public domain,,Public domain,OK
+reveal-who.json,hg-wells,Public domain,,Public domain,OK
+reveal-who.json,ibn-sina,CC BY 4.0,,CC BY 4.0,OK
+reveal-who.json,ida-b-wells,Public domain,,Public domain,OK
+reveal-who.json,immanuel-kant,Public domain,,Public domain,OK
+reveal-who.json,ivan-the-terrible,Public domain,,Public domain,OK
+reveal-who.json,jacques-louis-david,Public domain,,Public domain,OK
+reveal-who.json,jan-van-eyck,Public domain,,Public domain,OK
+reveal-who.json,jawaharlal-nehru,Public domain,,Public domain,OK
+reveal-who.json,jean-jacques-rousseau,Public domain,,Public domain,OK
+reveal-who.json,joan-of-arc,Public domain,,Public domain,OK
+reveal-who.json,jules-verne,Public domain,,Public domain,OK
+reveal-who.json,justinian-i,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-who.json,kaiser-wilhelm-ii,Public domain,,Public domain,OK
+reveal-who.json,katherine-johnson,Public domain,,Public domain,OK
+reveal-who.json,mary-shelley,Public domain,,Public domain,OK
+reveal-who.json,michael-faraday,Public domain,,Public domain,OK
+reveal-who.json,montezuma-ii,Public domain,,Public domain,OK
+reveal-who.json,mussolini,Public domain,,Public domain,OK
+reveal-who.json,nicolaus-copernicus,Public domain,,Public domain,OK
+reveal-who.json,nikolai-gogol,Public domain,,Public domain,OK
+reveal-who.json,oda-nobunaga,Public domain,,Public domain,OK
+reveal-who.json,peter-paul-rubens,Public domain,,Public domain,OK
+reveal-who.json,philip-ii-spain,Public domain,,Public domain,OK
+reveal-who.json,rabindranath-tagore,Public domain,,Public domain,OK
+reveal-who.json,ramesses-ii,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-who.json,rani-lakshmibai,Public domain,,Public domain,OK
+reveal-who.json,raphael,CC BY 4.0,,CC BY 4.0,OK
+reveal-who.json,richard-wagner,Public domain,,Public domain,OK
+reveal-who.json,robert-e-lee,Public domain,,Public domain,OK
+reveal-who.json,rosalind-franklin,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-who.json,sacagawea,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-who.json,saint-augustine,Public domain,,Public domain,OK
+reveal-who.json,sally-ride,Public domain,,Public domain,OK
+reveal-who.json,samori-ture,Public domain,,Public domain,OK
+reveal-who.json,shakespeare,Public domain,,Public domain,OK
+reveal-who.json,sitting-bull,Public domain,,Public domain,OK
+reveal-who.json,sojourner-truth,Public domain,,Public domain,OK
+reveal-who.json,stonewall-jackson,Public domain,,,UNVERIFIED
+reveal-who.json,tchaikovsky,Public domain,,Public domain,OK
+reveal-who.json,thomas-jefferson,Public domain,,Public domain,OK
+reveal-who.json,titian,Public domain,,Public domain,OK
+reveal-who.json,tokugawa-ieyasu,Public domain,,Public domain,OK
+reveal-who.json,toussaint-louverture,Public domain,,Public domain,OK
+reveal-who.json,vasco-da-gama,Public domain,,Public domain,OK
+reveal-who.json,virginia-woolf,Public domain,,Public domain,OK
+reveal-who.json,wellington,Public domain,,Public domain,OK
+reveal-who.json,woodrow-wilson,Public domain,,Public domain,OK
+reveal-who.json,al-mamun,Public domain,,,UNVERIFIED
+reveal-who.json,al-mansur,Public domain,,,UNVERIFIED
+reveal-who.json,alexander-great,CC0,,CC0,OK
+reveal-who.json,alp-arslan,Public domain,,,UNVERIFIED
+reveal-who.json,arthur-schopenhauer,Public domain,,Public domain,OK
+reveal-who.json,attila,CC BY 4.0,,CC BY 4.0,OK
+reveal-who.json,benito-juarez,Public domain,,Public domain,OK
+reveal-who.json,bismarck,Public domain,,Public domain,OK
+reveal-who.json,carl-linnaeus,Public domain,,Public domain,OK
+reveal-who.json,catherine-de-medici,Public domain,,Public domain,OK
+reveal-who.json,catherine-great,Public domain,,Public domain,OK
+reveal-who.json,cecil-rhodes,Public domain,,Public domain,OK
+reveal-who.json,charlemagne,Public domain,,Public domain,OK
+reveal-who.json,christopher-columbus,Public domain,,Public domain,OK
+reveal-who.json,corazon-aquino,Public domain,,Public domain,OK
+reveal-who.json,david-hume,Public domain,,Public domain,OK
+reveal-who.json,denis-diderot,Public domain,,Public domain,OK
+reveal-who.json,dian-fossey,Public domain,,Public domain,OK
+reveal-who.json,edgar-degas,Public domain,,Public domain,OK
+reveal-who.json,elizabeth-cady-stanton,Public domain,,Public domain,OK
+reveal-who.json,eugene-delacroix,Public domain,,Public domain,OK
+reveal-who.json,franz-schubert,Public domain,,Public domain,OK
+reveal-who.json,freud,Public domain,,Public domain,OK
+reveal-who.json,friedrich-schiller,Public domain,,Public domain,OK
+reveal-who.json,genghis-khan,Public domain,,Public domain,OK
+reveal-who.json,giuseppe-verdi,Public domain,,Public domain,OK
+reveal-who.json,gustave-courbet,Public domain,,Public domain,OK
+reveal-who.json,harun-al-rashid,Public domain,,,UNVERIFIED
+reveal-who.json,helen-keller,Public domain,,Public domain,OK
+reveal-who.json,henrik-ibsen,Public domain,,Public domain,OK
+reveal-who.json,honore-de-balzac,Public domain,,Public domain,OK
+reveal-who.json,hurrem-sultan,Public domain,,Public domain,OK
+reveal-who.json,ibn-rushd,CC BY 4.0,,CC BY 4.0,OK
+reveal-who.json,ito-hirobumi,Public domain,,Public domain,OK
+reveal-who.json,james-clerk-maxwell,CC0,,CC0,OK
+reveal-who.json,jefferson-davis,Public domain,,Public domain,OK
+reveal-who.json,john-locke,Public domain,,Public domain,OK
+reveal-who.json,jose-marti,CC0,,CC0,OK
+reveal-who.json,joseph-haydn,Public domain,,Public domain,OK
+reveal-who.json,joseph-stalin,Public domain,,Public domain,OK
+reveal-who.json,louis-pasteur,Public domain,,Public domain,OK
+reveal-who.json,mary-anning,Public domain,,Public domain,OK
+reveal-who.json,mary-queen-of-scots,Public domain,,Public domain,OK
+reveal-who.json,mary-wollstonecraft,Public domain,,Public domain,OK
+reveal-who.json,mongkut,Public domain,,Public domain,OK
+reveal-who.json,montesquieu,Public domain,,Public domain,OK
+reveal-who.json,niels-bohr,Public domain,,Public domain,OK
+reveal-who.json,paul-cezanne,Public domain,,Public domain,OK
+reveal-who.json,pope-leo-xiii,Public domain,,Public domain,OK
+reveal-who.json,pope-pius-xii,Public domain,,No restrictions,MISMATCH
+reveal-who.json,queen-nzinga,Public domain,,Public domain,OK
+reveal-who.json,qutuz,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-who.json,rachel-carson,Public domain,,Public domain,OK
+reveal-who.json,ralph-waldo-emerson,CC0,,CC0,OK
+reveal-who.json,saigo-takamori,Public domain,,Public domain,OK
+reveal-who.json,samuel-morse,Public domain,,Public domain,OK
+reveal-who.json,shaka-zulu,Public domain,,Public domain,OK
+reveal-who.json,simon-bolivar,Public domain,,Public domain,OK
+reveal-who.json,simone-de-beauvoir,Public domain,,Public domain,OK
+reveal-who.json,sylvia-plath,Public domain,,Public domain,OK
+reveal-who.json,thomas-hobbes,Public domain,,Public domain,OK
+reveal-who.json,togo-heihachiro,Public domain,,Public domain,OK
+reveal-who.json,vercingetorix,Public domain,,Public domain,OK
+reveal-who.json,walt-whitman,Public domain,,Public domain,OK
+reveal-who.json,walter-scott,Public domain,,Public domain,OK
+reveal-who.json,wangari-maathai,CC BY 3.0,,CC BY 3.0 br,OK
+reveal-who.json,anne-boleyn,Public domain,,Public domain,OK
+reveal-who.json,ashoka-great,CC0,,CC0,OK
+reveal-who.json,ban-zhao,Public domain,,Public domain,OK
+reveal-who.json,baybars,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-who.json,chien-shiung-wu,Public domain,,No restrictions,MISMATCH
+reveal-who.json,chulalongkorn,Public domain,,Public domain,OK
+reveal-who.json,clara-barton,Public domain,,Public domain,OK
+reveal-who.json,cleopatra,CC BY-SA 2.0,,CC BY-SA 2.0,OK
+reveal-who.json,emmy-noether,Public domain,,Public domain,OK
+reveal-who.json,fukuzawa-yukichi,Public domain,,Public domain,OK
+reveal-who.json,george-eliot,Public domain,,,UNVERIFIED
+reveal-who.json,ibn-al-haytham,Public domain,,Public domain,OK
+reveal-who.json,jane-addams,Public domain,,Public domain,OK
+reveal-who.json,joseph-lister,Public domain,,Public domain,OK
+reveal-who.json,julius-caesar,Public domain,,Public domain,OK
+reveal-who.json,kosem-sultan,Public domain,,Public domain,OK
+reveal-who.json,lise-meitner,Public domain,,Public domain,OK
+reveal-who.json,mihrimah-sultan,CC0,,CC0,OK
+reveal-who.json,naresuan,Public domain,,Public domain,OK
+reveal-who.json,nikola-tesla,Public domain,,Public domain,OK
+reveal-who.json,nogi-maresuke,Public domain,,Public domain,OK
+reveal-who.json,sima-qian,CC BY 4.0,,CC BY 4.0,OK
+reveal-who.json,thomas-edison,Public domain,,Public domain,OK
+reveal-who.json,vera-rubin,CC BY 4.0,,CC BY 4.0,OK
+reveal-who.json,al-biruni,Public domain,,Public domain,OK
+reveal-who.json,ibn-arabi,Public domain,,,UNVERIFIED
+reveal-who.json,kido-takayoshi,Public domain,,Public domain,OK
+reveal-who.json,okubo-toshimichi,Public domain,,Public domain,OK
+reveal-who.json,wang-yangming,Public domain,,Public domain,OK
+reveal-who.json,yamagata-aritomo,Public domain,,Public domain,OK
+reveal-who.json,zhu-xi,Public domain,,Public domain,OK
+reveal-who.json,vlad-impaler,Public domain,,,UNVERIFIED
+reveal-who.json,emiliano-zapata,Public domain,,Public domain,OK
+reveal-who.json,sun-yat-sen,Public domain,,Public domain,OK
+reveal-who.json,fidel-castro,Public domain,,Public domain,OK
+reveal-who.json,billy-the-kid,Public domain,,Public domain,OK
+reveal-who.json,coco-chanel,CC BY 4.0,,CC BY 4.0,OK
+reveal-who.json,babe-ruth,Public domain,,Public domain,OK
+reveal-who.json,golda-meir,Public domain,,Public domain,OK
+reveal-who.json,louis-armstrong,Public domain,,Public domain,OK
+reveal-who.json,alfred-hitchcock,Public domain,,Public domain,OK
+reveal-who.json,harry-houdini,Public domain,,Public domain,OK
+reveal-what.json,colosseum,CC BY-SA 2.0,,CC BY-SA 4.0,OK
+reveal-what.json,creation-of-adam,Public domain,,Public domain,OK
+reveal-what.json,great-wave,Public domain,,Public domain,OK
+reveal-what.json,michelangelo-david,CC BY 3.0,,CC BY 3.0,OK
+reveal-what.json,mona-lisa,Public domain,,Public domain,OK
+reveal-what.json,sistine-ceiling,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,starry-night,Public domain,,Public domain,OK
+reveal-what.json,stonehenge,CC BY 2.0,,CC BY 2.0,OK
+reveal-what.json,taj-mahal,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,terracotta-warrior,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,the-scream,Public domain,,,UNVERIFIED
+reveal-what.json,tut-mask,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,venus-de-milo,Public domain,,Public domain,OK
+reveal-what.json,american-gothic,Public domain,,Public domain,OK
+reveal-what.json,big-ben,CC BY 4.0,,CC BY 4.0,OK
+reveal-what.json,birth-of-venus,Public domain,,Public domain,OK
+reveal-what.json,bust-nefertiti,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,chichen-itza,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,christ-the-redeemer,CC BY-SA 3.0 de,,CC BY-SA 3.0 de,OK
+reveal-what.json,easter-island-moai,Public domain,,Public domain,OK
+reveal-what.json,eiffel-tower,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,fushimi-inari,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,goreme,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,great-pyramid-giza,Public domain,,Public domain,OK
+reveal-what.json,great-sphinx,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,hagia-sophia,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,kremlin-walls,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,last-supper,Public domain,,Public domain,OK
+reveal-what.json,leaning-tower-pisa,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,lycurgus-cup,CC BY 4.0,,CC BY 4.0,OK
+reveal-what.json,machu-picchu,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,neuschwanstein-castle,CC0,,CC0,OK
+reveal-what.json,notre-dame-paris,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,pamukkale,FAL,,FAL,OK
+reveal-what.json,parthenon,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,pena-palace,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,petra-treasury,CC BY-SA 2.0,,CC BY-SA 2.0,OK
+reveal-what.json,red-square,CC BY 4.0,,CC BY 4.0,OK
+reveal-what.json,st-basils-cathedral,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,sunflowers,Public domain,,Public domain,OK
+reveal-what.json,the-thinker,Public domain,,Public domain,OK
+reveal-what.json,tower-bridge,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,trevi-fountain,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,abu-simbel,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,acropolis-athens,CC0,,CC0,OK
+reveal-what.json,angkor-wat,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,antikythera-mechanism,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,aztec-sun-stone,CC0,,CC0,OK
+reveal-what.json,bayeux-tapestry,Public domain,,Public domain,OK
+reveal-what.json,bran-castle,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,brandenburg-gate,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,carcassonne,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,charles-bridge,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,codex-gigas,CC0,,CC0,OK
+reveal-what.json,doges-palace,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,dome-of-the-rock,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,ellora-kailasa,CC0,,CC0,OK
+reveal-what.json,florence-cathedral-dome,CC BY 2.5,,CC BY 2.5,OK
+reveal-what.json,girl-pearl-earring,Public domain,,Public domain,OK
+reveal-what.json,gobekli-tepe,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,golden-gate-bridge,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,golden-pavilion,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,golden-temple,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,great-mosque-cordoba,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,great-wall-china,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,ishtar-gate,CC0,,CC0,OK
+reveal-what.json,itsukushima-shrine,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,knossos-palace,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,konark-sun-temple,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,lalibela,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,liberty-bell,CC BY 2.0,,CC BY 2.0,OK
+reveal-what.json,liberty-leading,Public domain,,Public domain,OK
+reveal-what.json,mask-of-agamemnon,CC0,,CC0,OK
+reveal-what.json,meenakshi-temple,CC BY 4.0,,CC BY 4.0,OK
+reveal-what.json,milan-cathedral,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,mont-saint-michel,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,moray,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,mostar-bridge,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,mount-nemrut,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,mount-rushmore,Public domain,CC BY-SA,Public domain,OK
+reveal-what.json,peterhof-palace,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,pieta-michelangelo,CC BY 2.5,,CC BY 2.5,OK
+reveal-what.json,pont-du-gard-aqueduct,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,prague-castle,CC BY-SA 4.0,,,UNVERIFIED
+reveal-what.json,predjama-castle,CC BY 4.0,,CC BY 4.0,OK
+reveal-what.json,rialto-bridge,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,sagrada-familia,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,sigiriya,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,st-marks-basilica,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,statue-of-liberty,Public domain,,Public domain,OK
+reveal-what.json,sunday-grande-jatte,Public domain,,Public domain,OK
+reveal-what.json,sutton-hoo-helmet,CC BY-SA 2.5,,CC BY-SA 2.5,OK
+reveal-what.json,taktsang,CC BY 2.0,,CC BY 2.0,OK
+reveal-what.json,temple-poseidon,CC0,,CC0,OK
+reveal-what.json,tulum,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,venus-willendorf,CC BY 2.5,,CC BY 2.5,OK
+reveal-what.json,vitruvian-man,Public domain,,Public domain,OK
+reveal-what.json,windsor-castle,CC BY-SA 3.0,,,UNVERIFIED
+reveal-what.json,winged-victory,Public domain,,Public domain,OK
+reveal-what.json,winter-palace,CC BY 4.0,,CC BY 4.0,OK
+reveal-what.json,wright-flyer,Public domain,,Public domain,OK
+reveal-what.json,alfred-jewel,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,amber-fort,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,arc-de-triomphe,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,arena-verona,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,bagan,CC BY 4.0,,CC BY 4.0,OK
+reveal-what.json,bayon-temple,CC BY 2.0,,CC BY 2.0,OK
+reveal-what.json,blue-mosque,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,book-of-kells,Public domain,,Public domain,OK
+reveal-what.json,borobudur,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,boudhanath,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,buckingham-palace,CC BY 4.0,,CC BY 4.0,OK
+reveal-what.json,catalan-atlas,Public domain,,Public domain,OK
+reveal-what.json,catherine-palace,CC BY-SA 4.0,,,UNVERIFIED
+reveal-what.json,chambord,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,charioteer-delphi,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,cologne-cathedral,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,ctesiphon,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,delphi-temple,CC0,,CC0,OK
+reveal-what.json,edinburgh-castle,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,fasil-ghebbi,CC BY 2.0,,CC BY 2.0,OK
+reveal-what.json,forbidden-city,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,great-buddha-kamakura,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,great-enclosure-zimbabwe,CC BY-SA 2.0,,CC BY-SA 2.0,OK
+reveal-what.json,great-mosque-djenne,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,gundestrup-cauldron,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,hadrians-villa,CC BY-SA 2.0,,CC BY-SA 2.0,OK
+reveal-what.json,hammurabi-stele,CC BY 3.0,,CC BY 3.0,OK
+reveal-what.json,himeji-castle,Public domain,,Public domain,OK
+reveal-what.json,imperial-state-crown,Public domain,,Public domain,OK
+reveal-what.json,karnak-temple,CC0,,CC0,OK
+reveal-what.json,lascaux,Public domain,,Public domain,OK
+reveal-what.json,leshan-buddha,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,lewis-chessmen,CC BY 2.0,,CC BY 2.0,OK
+reveal-what.json,lindisfarne-gospels,Public domain,,Public domain,OK
+reveal-what.json,magna-carta,Public domain,,Public domain,OK
+reveal-what.json,meteora,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,mildenhall-treasure,CC0,,CC0,OK
+reveal-what.json,mycenae-lion-gate,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,naqsh-e-rustam,CC BY 2.0,,CC BY 2.0,OK
+reveal-what.json,nazca-lines,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,nebra-sky-disc,CC0,,CC0,OK
+reveal-what.json,olmec-colossal-head,CC0,,CC0,OK
+reveal-what.json,oseberg-ship,CC BY 2.0,,CC BY 2.0,OK
+reveal-what.json,palace-of-versailles,CC BY 2.0,,CC BY 2.0,OK
+reveal-what.json,pantheon-rome,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,persepolis,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,phaistos-disc,Public domain,,Public domain,OK
+reveal-what.json,piri-reis-map,Public domain,,Public domain,OK
+reveal-what.json,pompeii-forum,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,ponte-vecchio,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,portland-vase,CC BY 2.5,,CC BY 2.5,OK
+reveal-what.json,potala-palace,CC BY-SA 2.5,,CC BY-SA 2.5,OK
+reveal-what.json,registan,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,rila-monastery,CC BY 4.0,,CC BY 4.0,OK
+reveal-what.json,roman-forum,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,rosetta-stone,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,sacre-coeur,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,sacsayhuaman,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,schoenbrunn-palace,CC BY-SA 4.0,,,UNVERIFIED
+reveal-what.json,school-of-athens,Public domain,,Public domain,OK
+reveal-what.json,segovia-aqueduct,CC BY-SA 3.0 es,,CC BY-SA 3.0 es,OK
+reveal-what.json,st-peters-basilica,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,st-stephens-vienna,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,staffordshire-hoard,CC BY 2.0,,CC BY 2.0,OK
+reveal-what.json,temple-of-hatshepsut,CC BY 4.0,,CC BY 4.0,OK
+reveal-what.json,temple-of-heaven,CC0,,CC0,OK
+reveal-what.json,tikal,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,tower-of-london,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,uffington-white-horse,CC BY-SA 2.0,,CC BY-SA 2.0,OK
+reveal-what.json,wat-arun,CC BY-SA 2.0,,CC BY-SA 2.0,OK
+reveal-what.json,westminster-abbey,CC BY-SA 2.0,,CC BY-SA 2.0,OK
+reveal-what.json,alhambra-lions,CC0,,CC0,OK
+reveal-what.json,arnolfini-portrait,Public domain,,Public domain,OK
+reveal-what.json,axum-obelisk,CC BY-SA 2.0,,CC BY-SA 2.0,OK
+reveal-what.json,baalbek,CC BY 4.0,,CC BY 4.0,OK
+reveal-what.json,baths-caracalla,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,belem-tower,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,benin-bronzes,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,carnac-stones,CC BY 3.0,,CC BY 3.0,OK
+reveal-what.json,chan-chan,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,chartres-cathedral,CC BY 2.0,,CC BY 2.0,OK
+reveal-what.json,codex-sinaiticus,Public domain,,Public domain,OK
+reveal-what.json,column-marcus-aurelius,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,copan,CC BY 2.5,,CC BY 2.5,OK
+reveal-what.json,cyrus-cylinder,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,dead-sea-scrolls,Public domain,,Public domain,OK
+reveal-what.json,diamond-sutra,CC0,,CC0,OK
+reveal-what.json,elgin-marbles,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,ghent-altarpiece,Public domain,,Public domain,OK
+reveal-what.json,gutenberg-bible,Public domain,,Public domain,OK
+reveal-what.json,gyeongbokgung,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,hampi,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,hereford-mappa-mundi,Public domain,,Public domain,OK
+reveal-what.json,jerash,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,kairouan-mosque,CC BY 2.0,,CC BY 2.0,OK
+reveal-what.json,kilwa-kisiwani-ruins,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,kizhi-pogost,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,laocoon,CC BY-SA 3.0,,CC BY-SA 4.0,OK
+reveal-what.json,las-meninas,Public domain,,Public domain,OK
+reveal-what.json,leptis-magna,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,library-celsus-ephesus,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,longmen-grottoes,CC0,,CC0,OK
+reveal-what.json,mahabalipuram,CC BY 4.0,,CC BY 4.0,OK
+reveal-what.json,mapungubwe-gold-rhino,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,matsumoto-castle,CC BY 2.0,,CC BY 2.0,OK
+reveal-what.json,meroe-pyramids,CC BY 2.0,,CC BY 2.0,OK
+reveal-what.json,mesa-verde,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,nabta-playa-circle,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,newgrange-entrance-stone,CC BY 2.0,,CC BY 2.0,OK
+reveal-what.json,ollantaytambo,CC BY 2.0,,CC BY 2.0,OK
+reveal-what.json,olympia-stadium,CC BY 2.0,,CC BY 2.0,OK
+reveal-what.json,palenque-temple,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,palmyra,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,prambanan,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,sanchi-stupa,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,shwedagon-pagoda,CC BY 4.0,,CC BY 4.0,OK
+reveal-what.json,standard-of-ur,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,stone-town-zanzibar-door,CC BY-SA 2.0,,CC BY-SA 2.0,OK
+reveal-what.json,summer-palace,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,tara-brooch,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,tassili-rock-art,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,teotihuacan-pyramid-sun,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,tiwanaku,Public domain,,Public domain,OK
+reveal-what.json,trajan-column,Public domain,,Public domain,OK
+reveal-what.json,trundholm-sun-chariot,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,uxmal,CC BY 2.0,,CC BY 2.0,OK
+reveal-what.json,warren-cup,CC BY 2.0,,CC BY 2.0,OK
+reveal-what.json,wawel-castle,CC BY-SA 3.0,,CC BY-SA 3.0,OK
+reveal-what.json,djenne-terracotta,CC0,,CC0,OK
+reveal-what.json,gedi-ruins,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,hope-diamond,Public domain,,Public domain,OK
+reveal-what.json,ishango-bone,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,kerma-deffufa,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,khami-ruins,CC BY-SA 4.0,,CC BY-SA 4.0,OK
+reveal-what.json,ziggurat-ur,CC BY 3.0,,CC BY 3.0,OK
+reveal-what.json,utrecht-psalter,Public domain,,Public domain,OK
+reveal-what.json,winchester-bible,Public domain,,Public domain,OK
+reveal-what.json,herculaneum-frescoes,CC0,,CC0,OK

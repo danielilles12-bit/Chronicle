@@ -508,7 +508,7 @@
   "fx": 0.575,
   "fy": 0.39,
   "frac": 0.26,
-  "license": "CC BY 2.0",
+  "license": "Public domain",
   "attribution": "MM",
   "source": "Wikimedia Commons: Marcus Aurelius Capitoline Hill September 2015-1.jpg",
   "start": 6
@@ -1169,7 +1169,7 @@
   "fx": 0.5125,
   "fy": 0.586,
   "frac": 0.25,
-  "license": "Public domain",
+  "license": "CC BY 4.0",
   "attribution": "Wellcome Collection",
   "source": "Wikimedia Commons: Portrait of Geronimo, the Apache chief, 1898 Wellcome L0036038.jpg",
   "start": 6
@@ -1459,7 +1459,7 @@
   "fx": 0.49,
   "fy": 0.32,
   "frac": 0.32234574763757656,
-  "license": "Public domain",
+  "license": "CC0",
   "attribution": "Hyacinthe Rigaud",
   "source": "Wikimedia Commons: Louis XIV Rigaud Condé Chantilly.jpg"
  },
@@ -2271,7 +2271,7 @@
   "fx": 0.5,
   "fy": 0.19,
   "frac": 0.48262548262548255,
-  "license": "CC BY-SA 3.0",
+  "license": "Public domain",
   "attribution": "Till Niermann",
   "source": "Wikimedia Commons: Statue-Augustus.jpg",
   "start": 8
@@ -2566,7 +2566,7 @@
   "fx": 0.475,
   "fy": 0.393,
   "frac": 0.18532366071428572,
-  "license": "Public domain",
+  "license": "CC BY 2.0",
   "attribution": "Leon Perskie",
   "source": "Wikimedia Commons: FDR 1944 Color Portrait.jpg"
  },
@@ -5066,7 +5066,7 @@
   "fx": 0.4875,
   "fy": 0.393,
   "frac": 0.22,
-  "license": "CC0",
+  "license": "CC BY-SA 2.0",
   "attribution": "Metropolitan Museum of Art",
   "source": "Wikimedia Commons: Portrait Bust of a Woman (called Cleopatra).jpg",
   "_image_fix": true,
@@ -5199,7 +5199,7 @@
   "fx": 0.504,
   "fy": 0.229,
   "frac": 0.22,
-  "license": "CC BY 2.0",
+  "license": "Public domain",
   "attribution": "Ángel M. Felicísimo",
   "source": "Wikimedia Commons: Retrato de Julio César (26724093101).jpg",
   "start": 7

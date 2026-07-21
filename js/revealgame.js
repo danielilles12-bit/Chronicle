@@ -4,7 +4,7 @@
 // the round's worth, and wrong guesses dock more. No clock — curiosity is the
 // only spender.
 // Mirrors the Map of a Life session shape (10 rounds, persisted, resumable).
-import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage } from './app.js';
+import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, testHooksEnabled } from './app.js';
 import * as store from './storage.js';
 import { isMatch, registerPool } from './match.js';
 import * as daily from './daily.js';
@@ -556,18 +556,20 @@ function startRound() {
   });
   prefetchRounds();
   persist();
-  window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
-    revealRound: { index: S.i, id: item.id, name: item.name, kind: item.kind },
-    revealDebug: {
-      tear: tearScrap,
-      tornCount: () => (S && S.cur ? S.cur.torn.length : 0),
-      worth: worthNow,
-      // Back-compat shim for the old timed harness: progress p ≈ tearing
-      // through the grid. p=0 → no tears, p=1 → all nine scraps torn.
-      setProgress: (p) => { for (let k = 0; k < Math.round(p * SCRAPS); k++) tearScrap(k); },
-      getP: () => (S && S.cur ? S.cur.torn.length / SCRAPS : null),
-    },
-  });
+  if (testHooksEnabled()) {
+    window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
+      revealRound: { index: S.i, id: item.id, name: item.name, kind: item.kind },
+      revealDebug: {
+        tear: tearScrap,
+        tornCount: () => (S && S.cur ? S.cur.torn.length : 0),
+        worth: worthNow,
+        // Back-compat shim for the old timed harness: progress p ≈ tearing
+        // through the grid. p=0 → no tears, p=1 → all nine scraps torn.
+        setProgress: (p) => { for (let k = 0; k < Math.round(p * SCRAPS); k++) tearScrap(k); },
+        getP: () => (S && S.cur ? S.cur.torn.length / SCRAPS : null),
+      },
+    });
+  }
 }
 
 function resolveRound(correct) {
@@ -702,9 +704,11 @@ function finishSession() {
   refreshHomeStats();
 
   renderLockedSummary();
-  window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
-    revealSession: { score: S.score, results: S.results.map((r3) => ({ id: r3.item.id, pts: r3.pts, correct: r3.correct })) },
-  });
+  if (testHooksEnabled()) {
+    window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
+      revealSession: { score: S.score, results: S.results.map((r3) => ({ id: r3.item.id, pts: r3.pts, correct: r3.correct })) },
+    });
+  }
   show('view-revealsum');
 }
 

@@ -10,10 +10,18 @@ import { track } from './track.js';
 
 // ---------- config ----------
 export const EPOCH = new Date(2026, 5, 29); // 2026-06-29, a Monday (local, month is 0-based)
-// Only a week of future editions is previewable in the archive — the unaired
-// run must not be browsable in production ("same issue as everyone else").
-// For QA browsing of the full run, use a local server with this raised.
-export const ARCHIVE_PREVIEW_EDITIONS = 7;
+// No future editions are previewable in the archive — the unaired run must
+// not be browsable in production ("same issue as everyone else"). For QA
+// browsing, ?preview=N raises the window, honoured ONLY on a local server so
+// no live URL can ever reach unaired content.
+function previewEditions() {
+  if (typeof location === 'undefined') return 0;
+  const host = location.hostname;
+  if (host !== 'localhost' && host !== '127.0.0.1') return 0;
+  const m = location.search.match(/[?&]preview=(\d+)/);
+  return m ? +m[1] : 0;
+}
+export const ARCHIVE_PREVIEW_EDITIONS = previewEditions();
 
 // Rounds games (Lifeline, Face Value, Relic): 10 rounds/day, [easy, medium, hard]
 // counts per weekday (0=Mon...6=Sun). Ordered within an edition: E, then M, then H.

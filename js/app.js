@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v120';
+const BUILD = 'v121';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -25,6 +25,15 @@ import { renderLedger } from './ledger.js';
 export const DATA = { figures: null, world: null, reveal: null, connections: null };
 export const $ = (sel) => document.querySelector(sel);
 export const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+
+// window.__CHRONICLE_TEST__ exposes answer data and game internals to the
+// Python test-suite. Never ship it to players: every assignment site checks
+// this gate — localhost (where the tests run) or an explicit ?test=1.
+export function testHooksEnabled() {
+  return location.hostname === 'localhost'
+    || location.hostname === '127.0.0.1'
+    || /[?&]test=1(&|$)/.test(location.search);
+}
 
 // ---------- router ----------
 const trail = ['view-home'];
@@ -510,11 +519,11 @@ function renderArchive() {
   if (!main || !DATA.figures) return;
   main.innerHTML = '';
   const today = daily.todayIndex();
-  // Visibility rule (spec): n < today (aired) OR n <= today + preview. Pre-
-  // launch ARCHIVE_PREVIEW_EDITIONS is Infinity ("everything visible"); cap
-  // the render window at a generous but finite lookahead so the calendar
-  // stays finite even with an Infinity config.
-  const last = today + (Number.isFinite(daily.ARCHIVE_PREVIEW_EDITIONS) ? daily.ARCHIVE_PREVIEW_EDITIONS : 180);
+  // Visibility rule (spec): n < today (aired) OR n <= today + preview.
+  // ARCHIVE_PREVIEW_EDITIONS is 0 in production (localhost ?preview=N raises
+  // it for QA); cap the render window so the calendar stays finite even if
+  // a QA override is huge.
+  const last = today + Math.min(Number.isFinite(daily.ARCHIVE_PREVIEW_EDITIONS) ? daily.ARCHIVE_PREVIEW_EDITIONS : 0, 180);
   const firstMonth = daily.editionDate(0);
   const stop = new Date(firstMonth.getFullYear(), firstMonth.getMonth(), 1);
   const lastDate = daily.editionDate(Math.max(0, last));
@@ -757,12 +766,14 @@ function initPullToRefresh() {
     settle();
   }, { passive: true });
 
-  window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
-    ptr: {
-      isArmed: () => armed,
-      isPulling: () => pulling,
-    },
-  });
+  if (testHooksEnabled()) {
+    window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
+      ptr: {
+        isArmed: () => armed,
+        isPulling: () => pulling,
+      },
+    });
+  }
 }
 
 
@@ -1064,7 +1075,9 @@ async function boot() {
   if (trail[trail.length - 1] === 'view-home') refreshIssueClosed();
 
   // Deterministic hooks for the automated test-suite.
-  window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, { data: DATA, store, isMatch, daily });
+  if (testHooksEnabled()) {
+    window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, { data: DATA, store, isMatch, daily });
+  }
 
   const buildTag = $('#build-tag');
   if (buildTag) {

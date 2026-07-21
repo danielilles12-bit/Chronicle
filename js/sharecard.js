@@ -172,7 +172,15 @@ async function drawCard(spec) {
 // along on share sheets that accept files (iOS 15+). Cancelling the sheet is
 // respected silently; no sheet at all falls back to the clipboard.
 export async function shareResult({ text, card, trackAs }) {
-  if (trackAs) track(trackAs);
+  const outcome = await performShare(text, card);
+  // Count what actually happened, not the button tap: only 'shared' fires the
+  // success event; copied/cancelled/failed each get their own suffixed event
+  // so abandoned share sheets never inflate the share numbers.
+  if (trackAs) track(outcome === 'shared' ? trackAs : `${trackAs}-${outcome}`);
+  return outcome;
+}
+
+async function performShare(text, card) {
   if (card && navigator.share && navigator.canShare) {
     try {
       const blob = await drawCard(card);

@@ -78,7 +78,7 @@
   "fx": 0.43,
   "fy": 0.25,
   "frac": 0.28,
-  "license": "Public domain",
+  "license": "CC BY 3.0",
   "attribution": "Jörg Bittner Unna",
   "source": "Wikimedia Commons: 'David' by Michelangelo JBU0001.JPG",
   "start": 7
@@ -118,7 +118,7 @@
   "fx": 0.18,
   "fy": 0.2,
   "frac": 0.9,
-  "license": "Public domain",
+  "license": "CC BY-SA 3.0",
   "attribution": "Michelangelo",
   "source": "Wikimedia Commons: CAPPELLA SISTINA Ceiling.jpg"
  },
@@ -156,7 +156,7 @@
   "fx": 0.1125,
   "fy": 0.8103550295857989,
   "frac": 0.3,
-  "license": "CC BY-SA 2.0",
+  "license": "CC BY 2.0",
   "attribution": "Dave Souza",
   "source": "Wikimedia Commons: Stonehenge2007 07 30.jpg",
   "start": 5
@@ -258,7 +258,7 @@
   "fx": 0.5,
   "fy": 0.34,
   "frac": 0.28,
-  "license": "CC BY-SA 3.0",
+  "license": "Public domain",
   "attribution": "Gérard Janot",
   "source": "Wikimedia Commons: Venus de Milo Louvre Ma399 n4.jpg",
   "start": 6
@@ -398,7 +398,7 @@
   "fx": 0.55,
   "fy": 0.88,
   "frac": 0.26,
-  "license": "CC BY-SA 2.0",
+  "license": "Public domain",
   "attribution": "Aurbina",
   "source": "Wikimedia Commons: Moai Rano raraku.jpg",
   "start": 2
@@ -810,7 +810,7 @@
   "fx": 0.42334754797441365,
   "fy": 0.6521428571428571,
   "frac": 0.28,
-  "license": "CC BY-SA 3.0",
+  "license": "Public domain",
   "attribution": "Andrew Horne",
   "source": "Wikimedia Commons: The Thinker, Auguste Rodin.jpg",
   "start": 6
@@ -944,7 +944,7 @@
   "fx": 0.3,
   "fy": 0.3,
   "frac": 0.2132309824617517,
-  "license": "CC BY-SA 2.0",
+  "license": "CC0",
   "attribution": "Rosemanios",
   "source": "Wikimedia Commons: Aztec Sun Stone or Calendar Stone.jpg"
  },
@@ -1400,7 +1400,7 @@
   "fx": 0.475763429927131,
   "fy": 0.9248371428571428,
   "frac": 0.17557024233180815,
-  "license": "CC BY-SA 2.0",
+  "license": "CC BY 2.0",
   "attribution": "Smallbones",
   "source": "Wikimedia Commons: Liberty Bell 2008.jpg"
  },
@@ -1776,7 +1776,7 @@
   "fx": 0.539,
   "fy": 0.217,
   "frac": 0.2,
-  "license": "CC BY-SA 4.0",
+  "license": "Public domain",
   "attribution": "Daniel Schwen",
   "source": "Wikimedia Commons: Statue of Liberty frontal 2.jpg",
   "start": 7
@@ -1894,7 +1894,7 @@
   "fx": 0.45,
   "fy": 0.24,
   "frac": 0.7518796992481201,
-  "license": "CC BY-SA 3.0",
+  "license": "CC BY 2.5",
   "attribution": "Don Hitchcock",
   "source": "Wikimedia Commons: Venus von Willendorf 01.jpg"
  },
@@ -1952,7 +1952,7 @@
   "fx": 0.375,
   "fy": 0.25,
   "frac": 0.28,
-  "license": "CC BY-SA 3.0",
+  "license": "Public domain",
   "attribution": "Gérard Janot",
   "source": "Wikimedia Commons: Nike of Samothrake Louvre Ma2369 n4.jpg"
  },
@@ -2517,7 +2517,7 @@
   "fx": 0.5,
   "fy": 0.1,
   "frac": 0.5766062602965403,
-  "license": "CC BY-SA 3.0",
+  "license": "CC BY 3.0",
   "attribution": "Mbzt",
   "source": "Wikimedia Commons: P1050763 Louvre code Hammurabi face rwk.JPG",
   "start": 7
@@ -2597,7 +2597,7 @@
   "fx": 0.6840236686390533,
   "fy": 0.4996860743484348,
   "frac": 0.5594697140792267,
-  "license": "CC BY-SA 4.0",
+  "license": "Public domain",
   "attribution": "Prof saxx",
   "source": "Wikimedia Commons: Lascaux painting.jpg"
  },
@@ -2673,7 +2673,7 @@
   "fx": 0.16272189349112426,
   "fy": 0.7823267054036285,
   "frac": 0.435346589192743,
-  "license": "CC BY 4.0",
+  "license": "Public domain",
   "attribution": "British Library",
   "source": "Wikimedia Commons: Magna Carta (British Library Cotton MS Augustus II.106).jpg"
  },
@@ -4412,7 +4412,7 @@
   "fx": 0.3,
   "fy": 0.3,
   "frac": 0.8507916200223892,
-  "license": "CC BY 2.0",
+  "license": "Public domain",
   "attribution": "Flickr user Jean-Pierre Dalbéra",
   "source": "Wikimedia Commons: Trajan's Column (48423812647).jpg"
  },
