@@ -314,7 +314,7 @@
   "source": "Wikimedia Commons: Anne Frank lacht naar de schoolfotograaf.jpg",
   "start": 6,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Anne_Frank_lacht_naar_de_schoolfotograaf.jpg",
-  "image_author": "Unknown author",
+  "image_author": "http://www.annefrank.org/nl/Anne-Frank/De-nazis-bezetten-Nederland/Naar-het-Joods-Lyceum/",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -734,7 +734,7 @@
   "attribution": "Unknown photographer",
   "source": "Wikimedia Commons: Grigori Rasputin 1916.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Grigori_Rasputin_1916.jpg",
-  "image_author": "Unknown author",
+  "image_author": "[1] [2] [3]",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -901,7 +901,7 @@
   "attribution": "Unknown photographer",
   "source": "Wikimedia Commons: Alexander Graham Bell 1895 NPG 77 363.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Alexander_Graham_Bell_1895_NPG_77_363.jpg",
-  "image_author": "Unknown author",
+  "image_author": "Smithsonian NPG",
   "image_license": "CC0",
   "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
   "image_retrieved": "2026-07-21"
@@ -1207,7 +1207,7 @@
   "source": "Wikimedia Commons: Emily Dickinson daguerreotype (Restored).jpg",
   "start": 8,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Emily_Dickinson_daguerreotype_%28Restored%29.jpg",
-  "image_author": "Unknown author",
+  "image_author": "Yale University Manuscripts & Archives Digital Images Database [1]",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -1231,7 +1231,7 @@
   "attribution": "Crispijn van de Passe the Elder",
   "source": "Wikimedia Commons: Retrato de Hernando de Magallanes.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Retrato_de_Hernando_de_Magallanes.jpg",
-  "image_author": "Unknown artist",
+  "image_author": "Alamy",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -1506,7 +1506,7 @@
   "attribution": "Unknown photographer",
   "source": "Wikimedia Commons: Ho Chi Minh 1946.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Ho_Chi_Minh_1946.jpg",
-  "image_author": "Unknown author",
+  "image_author": "This image has been extracted from another file",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -2183,7 +2183,7 @@
   "attribution": "photographer unknown",
   "source": "Wikimedia Commons: Rosa Parks, November 1956 (cropped).jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Rosa_Parks%2C_November_1956_%28cropped%29.jpg",
-  "image_author": "Unknown author",
+  "image_author": "Retrieved from the Rosa Parks papers at the Library of Congress via https://www.loc.gov/resource/ppmsca.38464/. Previously published as early as May 24, 1957 in The Call (Kansas City, Missouri). Also published June 19, 1957 in The Morning Call (Paterson, New Jersey).",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -2323,7 +2323,7 @@
   "attribution": "Unknown photographer",
   "source": "Wikimedia Commons: Portrait of Leon Trotsky.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Leon_Trotsky.jpg",
-  "image_author": "Unknown author",
+  "image_author": "https://www.marxists.org/archive/trotsky/photo/lt-1920-02.htm",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -2416,7 +2416,7 @@
   "attribution": "Unknown",
   "source": "Wikimedia Commons: 則天大聖皇帝像圖.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:%E5%89%87%E5%A4%A9%E5%A4%A7%E8%81%96%E7%9A%87%E5%B8%9D%E5%83%8F%E5%9C%96.jpg",
-  "image_author": "Unknown author",
+  "image_author": "一代女皇不叫武则天 也不叫武曌更不叫武媚娘",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -2441,7 +2441,8 @@
   "start": 8,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Zheng_He%2C_published_about_1600.jpg",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "image_author": "Hattendorf, John J. (ed.) (2007). The Oxford Encyclopedia of Maritime History. Oxford University Press. Print ISBN-13: 9780195130751. eISBN: 9780195307405. DOI: 10.1093/acref/9780195130751.001.0001. Accessed from the online version at http://www.oxfordreference.com/view/10.1093/acref/9780195130751.001.0001/acref-9780195130751-e-0927?rskey=jzLD9G&result=927"
  },
  {
   "id": "adam-smith",
@@ -2484,7 +2485,7 @@
   "attribution": "Unknown",
   "source": "Wikimedia Commons: Emperor Akbar, Los Angeles County Museum of Art.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Emperor_Akbar%2C_Los_Angeles_County_Museum_of_Art.jpg",
-  "image_author": "Unknown author",
+  "image_author": "1",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -2720,7 +2721,7 @@
   "source": "Wikimedia Commons: Atatürk Kemal.jpg",
   "start": 8,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Atat%C3%BCrk_Kemal.jpg",
-  "image_author": "Unknown author",
+  "image_author": "https://i.pinimg.com/originals/ef/53/f2/ef53f289f5fe4a8036e2330e55d9a929.jpg",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -2796,7 +2797,8 @@
   "source": "Wikimedia Commons: Titian - Portrait of Charles V Seated - WGA22964.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Titian_-_Portrait_of_Charles_V_Seated_-_WGA22964.jpg",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "image_author": "Web Gallery of Art:   Image  Info about artworkwga QS:P11807,\"t/tiziano/10/22/05charle\""
  },
  {
   "id": "chief-joseph",
@@ -3029,7 +3031,7 @@
   "attribution": "Unknown photographer",
   "source": "Wikimedia Commons: Enid Blyton c. 1923.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Enid_Blyton_c._1923.jpg",
-  "image_author": "Unknown author",
+  "image_author": "https://www.spiegel.de/geschichte/fuenf-freunde-hanni-und-nanni-enid-blytons-heile-welt-mit-abgruenden-a-1240483.html",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -3077,7 +3079,7 @@
   "attribution": "Unknown photographer",
   "source": "Wikimedia Commons: Evita color.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Evita_color.jpg",
-  "image_author": "Unknown author",
+  "image_author": "Archivo gráfico de la Nación",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -3290,7 +3292,8 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Large_Kneeling_Statue_of_Hatshepsut_MET_DP116049.jpg",
   "image_license": "CC0",
   "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "image_author": "This file was donated to Wikimedia Commons as part of a project by the Metropolitan Museum of Art. See the Image and Data Resources Open Access Policy"
  },
  {
   "id": "herman-melville",
@@ -3357,7 +3360,7 @@
   "attribution": "Unknown photographer",
   "source": "Wikimedia Commons: Portrait of H. G. Wells.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_H._G._Wells.jpg",
-  "image_author": "Unknown author",
+  "image_author": "The story of the House of Cassell: https://archive.org/stream/storyofhouseofca00cassrich#page/218/mode/2up",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -3381,7 +3384,8 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Avicenna%3B_anon.%2C_Wellcome_M0009341.jpg",
   "image_license": "CC BY 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "image_author": "https://wellcomeimages.org/indexplus/obf_images/6f/a2/ea820b07c4061b2083742b4f1a8c.jpg\n\nGallery: https://wellcomeimages.org/indexplus/image/M0009341.html\nWellcome Collection gallery (2018-04-01): https://wellcomecollection.org/works/m3ftmxk4 CC-BY-4.0"
  },
  {
   "id": "ida-b-wells",
@@ -3773,7 +3777,7 @@
   "attribution": "Unknown (Toruń portrait)",
   "source": "Wikimedia Commons: Nikolaus Kopernikus.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Nikolaus_Kopernikus.jpg",
-  "image_author": "Unknown author",
+  "image_author": "http://www.frombork.art.pl/Ang10.htm\nhttps://www.welt.de/img/kultur/mobile152954235/1212503297-ci102l-w1024/Kopernikus-Gemaelde-in-Krakau.jpg",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -3818,7 +3822,7 @@
   "attribution": "Unknown (16th century)",
   "source": "Wikimedia Commons: Portrait of Oda Nobunaga (Hideyoshi Kiyomasa Memorial Hall) Cropped.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Oda_Nobunaga_%28Hideyoshi_Kiyomasa_Memorial_Hall%29_Cropped.jpg",
-  "image_author": "Unknown author",
+  "image_author": "https://artsandculture.google.com/asset/portrait-of-oda-nobunaga-unknown-japanese-painter/lwFtuIbYlylnTA",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -3866,7 +3870,7 @@
   "attribution": "Titian",
   "source": "Wikimedia Commons: Titian - Portrait of Philip II in Armour - WGA22970.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Titian_-_Portrait_of_Philip_II_in_Armour_-_WGA22970.jpg",
-  "image_author": "Unknown author",
+  "image_author": "Current version: https://gallerix.org/storeroom/720112932/N/1324837374/\nWeb Gallery of Art:   Image  Info about artworkwga QS:P11807,\"t/tiziano/10/22/09philip\"",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -3888,7 +3892,7 @@
   "attribution": "Unknown author",
   "source": "Wikimedia Commons: Rabindranath Tagore.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Rabindranath_Tagore.jpg",
-  "image_author": "Unknown author",
+  "image_author": "southasiajournal.net",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -3939,7 +3943,7 @@
   "attribution": "Unknown",
   "source": "Wikimedia Commons: Rani Lakshmibai from a painting.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Rani_Lakshmibai_from_a_painting.jpg",
-  "image_author": "Unknown author",
+  "image_author": "The Indian War Of Independence 1857 (1947 Ed.)\nby Vinayak Damodar Sawarkar\n\nhttps://archive.org/details/in.ernet.dli.2015.280954/",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -4573,7 +4577,8 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Attila_the_Hun._Drawing%2C_c._1789._Wellcome_V0009107.jpg",
   "image_license": "CC BY 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "image_author": "https://wellcomeimages.org/indexplus/obf_images/63/65/5732c4ff9a383722b4c5c035e109.jpg\n\nGallery: https://wellcomeimages.org/indexplus/image/V0009107.html\nWellcome Collection gallery (2018-03-23): https://wellcomecollection.org/works/jtjy99eb CC-BY-4.0"
  },
  {
   "id": "benito-juarez",
@@ -4596,7 +4601,7 @@
   "source": "Wikimedia Commons: Benito Juárez standing photo.jpg",
   "start": 3,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Benito_Ju%C3%A1rez_standing_photo.jpg",
-  "image_author": "Unknown author",
+  "image_author": "https://inehrm.gob.mx/es/inehrm/juarez",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -4827,7 +4832,7 @@
   "attribution": "Louis-Michel van Loo",
   "source": "Wikimedia Commons: Louis-Michel van Loo - Portrait of Denis Diderot - WGA13440.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Louis-Michel_van_Loo_-_Portrait_of_Denis_Diderot_-_WGA13440.jpg",
-  "image_author": "Unknown author",
+  "image_author": "Web Gallery of Art:   Image  Info about artworkwga QS:P11807,\"l/loo/louis/diderot\"",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -4918,7 +4923,8 @@
   "source": "Wikimedia Commons: Eugène Delacroix - Self-Portrait - WGA6192.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Eug%C3%A8ne_Delacroix_-_Self-Portrait_-_WGA6192.jpg",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "image_author": "Web Gallery of Art:   Image  Info about artworkwga QS:P11807,\"d/delacroi/3/311delac\""
  },
  {
   "id": "franz-schubert",
@@ -5005,7 +5011,7 @@
   "attribution": "Chinese imperial court painter",
   "source": "Wikimedia Commons: YuanEmperorAlbumGenghisPortrait.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:YuanEmperorAlbumGenghisPortrait.jpg",
-  "image_author": "Unknown author",
+  "image_author": "Digitized by National Palace Museum; file is directly from Shuge",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -5096,7 +5102,7 @@
   "attribution": "Unknown photographer",
   "source": "Wikimedia Commons: Helen KellerA.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Helen_KellerA.jpg",
-  "image_author": "Unknown author",
+  "image_author": "This image  is available from the United States Library of Congress's Prints and Photographs division under the digital ID cph.3c12513.This tag does not indicate the copyright status of the attached work. A normal copyright tag is still required. See Commons:Licensing.",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -5164,7 +5170,7 @@
   "attribution": "Unknown artist",
   "source": "Wikimedia Commons: Portrait of Roxelana (aka Hurrem Sultan).jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Roxelana_%28aka_Hurrem_Sultan%29.jpg",
-  "image_author": "Unknown author",
+  "image_author": "immediate image source: [1]",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -5188,7 +5194,8 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Averroes_Wellcome_M0004111.jpg",
   "image_license": "CC BY 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "image_author": "https://wellcomeimages.org/indexplus/obf_images/51/0a/ab3cf29b6c65148af4ecc7bcd4a8.jpg\n\nGallery: https://wellcomeimages.org/indexplus/image/M0004111.html\nWellcome Collection gallery (2018-04-01): https://wellcomecollection.org/works/b3vqvxw4 CC-BY-4.0"
  },
  {
   "id": "ito-hirobumi",
@@ -5208,7 +5215,7 @@
   "attribution": "Unknown, Constitutional Government Documents Collection",
   "source": "Wikimedia Commons: ITŌ Hirobumi (b).jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:IT%C5%8C_Hirobumi_%28b%29.jpg",
-  "image_author": "Unknown author",
+  "image_author": "Rekidai Shusho tou Shashin (歴代首相等写真)\n\nConstitutional Government Documents Collection, #1142",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -5971,7 +5978,7 @@
   "source": "Wikimedia Commons: Anne Boleyn.jpg",
   "start": 6,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Anne_Boleyn.jpg",
-  "image_author": "anonymous",
+  "image_author": "Scanned from the book The National Portrait Gallery History of the Kings and Queens of England by David Williamson, ISBN 1855142287.",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -6183,7 +6190,7 @@
   "attribution": "Unknown, National Diet Library",
   "source": "Wikimedia Commons: Fukuzawa Yukichi.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Fukuzawa_Yukichi.jpg",
-  "image_author": "Unknown author",
+  "image_author": "This image is available from the website of the National Diet Library",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -6253,7 +6260,8 @@
   "start": 6,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Jane_Addams_-_DPLA_-_931a363b0b56d5f4e8b7829b483b128d.jpg",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "image_author": "File URL IIIF manifest Catalog record"
  },
  {
   "id": "joseph-lister",
@@ -6275,7 +6283,7 @@
   "source": "Wikimedia Commons: Joseph Lister 1902.jpg",
   "start": 2,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Joseph_Lister_1902.jpg",
-  "image_author": "Unknown author",
+  "image_author": "Weltrundschau zu Reclams Universum 1902",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -6414,7 +6422,7 @@
   "source": "Wikimedia Commons: N.Tesla.JPG",
   "start": 2,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:N.Tesla.JPG",
-  "image_author": "Unknown author",
+  "image_author": "Downloaded from: https://historyrat.wordpress.com/2013/01/13/lighting-the-1893-worlds-fair-the-race-to-light-the-world/",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -6462,7 +6470,8 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:%E6%AD%B7%E4%BB%A3%E8%81%96%E8%B3%A2%E5%8D%8A%E8%BA%AB%E5%83%8F_%E5%86%8A_%E5%8F%B8%E9%A6%AC%E9%81%B7_%28Sima_Qian%29.png",
   "image_license": "CC BY 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "image_author": "歷代聖賢半身像　冊　司馬遷. 故宮典藏資料檢索. National Palace Museum."
  },
  {
   "id": "thomas-edison",
@@ -6553,7 +6562,7 @@
   "attribution": "Unknown illustrator",
   "source": "Wikimedia Commons: Ibn ʿArabi, Sayr mulhimah min al-Sharq wa-al-Gharb.png",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Ibn_%CA%BFArabi%2C_Sayr_mulhimah_min_al-Sharq_wa-al-Gharb.png",
-  "image_author": "Unknown author",
+  "image_author": "Scanned Photo from a book entitled Sayr mulhimah : min al-Sharq wa-al-Gharb, first translated into Arabic and published in Egypt in 1381 AH = 1961 CE. Check OCLC",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -6575,7 +6584,7 @@
   "attribution": "Unknown photographer",
   "source": "Wikimedia Commons: Kido London Portrait original.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Kido_London_Portrait_original.jpg",
-  "image_author": "Unknown author",
+  "image_author": "Uchi naru kaikoku",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -6597,7 +6606,7 @@
   "attribution": "Unknown, National Diet Library",
   "source": "Wikimedia Commons: Toshimichi Okubo 4.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Toshimichi_Okubo_4.jpg",
-  "image_author": "Unknown author",
+  "image_author": "This image is available from the website of the National Diet Library",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },

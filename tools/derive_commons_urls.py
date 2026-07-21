@@ -63,6 +63,29 @@ def clean_author(name):
     return name
 
 
+_GENERIC_AUTHOR_RE = re.compile(
+    r"^(unknown (author|artist|photographer)|anonymous|own work|self[- ]?published)$",
+    re.IGNORECASE)
+# Commons' Credit field commonly ends "(Own work)" or "(<year>)" — boilerplate
+# that adds nothing over the bare name once it's standing in for Artist.
+_CREDIT_SUFFIX_RE = re.compile(r"\s*\((?:Own work|\d{4})\)\s*$")
+
+
+def best_author(artist, credit):
+    """Some Commons files leave Artist empty/generic and record the real
+    photographer only in Credit (e.g. Artist='', Credit='Marie-Lan Nguyen
+    (2007)') — Commons' own file-page UI falls back to Credit for display in
+    exactly this case, so we do too. Prefers a real Artist name; only drops
+    to Credit when Artist is empty or itself generic ("Unknown author")."""
+    a = clean_author(artist)
+    if a and not _GENERIC_AUTHOR_RE.match(a):
+        return a
+    c = _CREDIT_SUFFIX_RE.sub("", (credit or "").strip()).strip()
+    if c and not _GENERIC_AUTHOR_RE.match(c):
+        return c
+    return a or c or None
+
+
 def commons_file_url(filename):
     # MediaWiki canonicalises spaces to underscores in titles; percent-encode
     # everything else so the URL hits the page directly, no redirect hop.
@@ -158,8 +181,9 @@ def main():
                 continue
 
             rec["image_source_url"] = source_url
-            if info.get("artist"):
-                rec["image_author"] = clean_author(info["artist"])
+            author = best_author(info.get("artist"), info.get("credit"))
+            if author:
+                rec["image_author"] = author
             if commons_lic:
                 rec["image_license"] = commons_lic
             if info.get("license_url"):

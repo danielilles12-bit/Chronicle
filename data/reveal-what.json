@@ -318,7 +318,7 @@
   "source": "Wikimedia Commons: Venus de Milo Louvre Ma399 n4.jpg",
   "start": 6,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Venus_de_Milo_Louvre_Ma399_n4.jpg",
-  "image_author": "Unknown artist",
+  "image_author": "Jastrow",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -2427,7 +2427,8 @@
   "source": "Wikimedia Commons: Nike of Samothrake Louvre Ma2369 n4.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Nike_of_Samothrake_Louvre_Ma2369_n4.jpg",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "image_author": "Marie-Lan Nguyen"
  },
  {
   "id": "winter-palace",
@@ -2501,7 +2502,8 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Alfred_Jewel_Ashmolean_2014.JPG",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "image_author": "Photo by user:geni"
  },
  {
   "id": "amber-fort",
@@ -4467,7 +4469,7 @@
   "attribution": "Unknown scribe",
   "source": "Wikimedia Commons: Codex Sinaiticus Matthew 1,1-2,5.JPG",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Codex_Sinaiticus_Matthew_1%2C1-2%2C5.JPG",
-  "image_author": "Unknown author",
+  "image_author": "Codex Sinaiticus",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -4587,7 +4589,8 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Diamond_Sutra_of_868_AD_-_The_Diamond_Sutra_%28868%29%2C_frontispiece_and_text_-_BL_Or._8210-P.2.jpg",
   "image_license": "CC0",
   "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "image_author": "This file has been provided by the British Library from its digital collections. Links to the British Library's website may be broken as the library recovers from a October 2023 cyber attack, and will be updated once material becomes accessible online. For more information on the attack see: https://www.bl.uk/about/cyber-attack"
  },
  {
   "id": "elgin-marbles",
@@ -4611,7 +4614,8 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Part_of_the_central_section-East_frieze-Elgin_Marbles-British_Museum.jpg",
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "image_author": "Yair Haklai"
  },
  {
   "id": "ghent-altarpiece",
@@ -4728,7 +4732,7 @@
   "attribution": "Richard of Haldingham (attrib.)",
   "source": "Wikimedia Commons: Hereford-Karte.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Hereford-Karte.jpg",
-  "image_author": "Unknown author",
+  "image_author": "unesco.org.uk",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
@@ -5657,7 +5661,7 @@
   "source": "Wikimedia Commons: The Hope Diamond - SIA.jpg",
   "start": 6,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:The_Hope_Diamond_-_SIA.jpg",
-  "image_author": "Unknown author",
+  "image_author": "http://siarchives.si.edu/collections/siris_sic_8819",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21"
  },
