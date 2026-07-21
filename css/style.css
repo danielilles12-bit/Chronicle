@@ -57,6 +57,14 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 /* Card #6: the difficulty whisper — lowercase and muted against the
    dateline's own bold/uppercase/tracked voice, but otherwise the same line. */
 .dateline-whisper { text-transform: none; font-weight: 600; letter-spacing: normal; color: var(--ch-text-muted); }
+
+/* P1.5: the one-shot explicit wrong-guess line (first wrong guess anywhere)
+   and the polite screen-reader live region (visually hidden, never seen). */
+.df-wrong-note { margin: 6px 0 0; font-size: 13px; font-weight: 700; color: var(--df-red); font-family: var(--ch-font-ui); }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
 .masthead-sticker { position: absolute; right: 12px; top: 8px; width: 92px; transform: rotate(6deg); }
 
 /* Masthead punch card: this week as die-punched ticket squares (streak). */
@@ -125,6 +133,9 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   font-weight: 700; color: var(--ch-text-label); font-family: var(--ch-font-ui); white-space: nowrap;
 }
 .hero-status { font-size: 12px; font-weight: 700; color: var(--ch-text-muted); font-family: var(--ch-font-ui); white-space: nowrap; }
+/* P1.4: the expected-time whisper on each hero card — same quiet voice as
+   .dateline-whisper, riding the edition line. */
+.hero-time { text-transform: none; font-weight: 600; letter-spacing: normal; color: var(--ch-text-muted); }
 /* "Play ›" reads as a button, not a status report (conversion audit):
    an ink chip in the same voice as .pill.primary. Done and in-progress
    states stay quiet coloured text via the row classes below. */

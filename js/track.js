@@ -26,6 +26,14 @@ const DISPLAY = {
   'finish-who': '4-finished-facevalue',
   'finish-what': '4-finished-relic',
   'finish-day': '5-finished-all-four',
+  // Encore (post-daily bonus runs — practice family, tracked for uptake).
+  'encore-who': '3-started-encore-facevalue',
+  'encore-map': '3-started-encore-lifeline',
+  'encore-what': '3-started-encore-relic',
+  // The daily manifest didn't cover an edition it should have (approve not
+  // run, or editions.json failed to load) — the emergency fallback served
+  // cursor arithmetic instead. The daily still existed; this is the alarm.
+  'err-manifest-missing': '9-manifest-missing',
   'share-thread': '6-shared-thread',
   'share-map': '6-shared-lifeline',
   'share-who': '6-shared-facevalue',

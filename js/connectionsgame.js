@@ -1,5 +1,5 @@
 // Connections — group 16 history clues into four hidden categories
-import { $, $$, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage } from './app.js';
+import { $, $$, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, announce } from './app.js';
 import * as store from './storage.js';
 import * as daily from './daily.js';
 import { threadShareText, threadEmojiRows, shareResult, flashShareButton } from './sharecard.js';
@@ -291,6 +291,9 @@ function submitGuess() {
     fb.className = 'conn-feedback conn-wrong';
     fb.textContent = oneAway ? 'One thread loose.' : 'Knot quite.';
     fb.hidden = false;
+    // P1.5: wrong guesses are announced politely (Thread's visible feedback
+    // line already carries the explicit text).
+    announce(oneAway ? 'Wrong group — one away.' : 'Wrong group.');
 
     // shake the grid
     const grid = $('#conn-grid');

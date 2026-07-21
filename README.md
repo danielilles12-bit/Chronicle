@@ -1,69 +1,47 @@
-# Chronicle — History Games
+# Dead Famous — Daily History Games
 
-Hi Daniel! This is your history games app. It's a **Progressive Web App (PWA)**:
-a website that installs onto your iPhone's home screen and then behaves like a
-real app — full screen, custom icon, and it works with no internet connection
-after the first load.
+Hi Daniel! This is your history games app (live at **deadfamous.app**). It's a
+**Progressive Web App (PWA)**: a website that installs onto your iPhone's home
+screen and then behaves like a real app — full screen, custom icon, and it
+works with no internet connection after the first load.
 
 ## What's inside
 
-**The Crossword** — history-themed crosswords in the style of NYT Games:
-- 5 Minis (5×5), 3 Midis (7×7), 2 full-size grids
-- Tap a square to select it; tap it again to switch between Across and Down
-- The bar under the grid shows the current clue; arrows move between clues
-- The ☰ button shows all clues; the ✓ button lets you check or reveal
-  a square, a word, or the whole puzzle
-- A timer runs while you solve; you get the celebration only when every
-  square is correct
-- Your progress is saved automatically, even if you close the app
+Four daily games, one issue per day — the same puzzles for every player on the
+same calendar day, everywhere:
 
-**Lifeline** (formerly Map of a Life) — guess the historical figure from geography:
-- A green dot marks where they were born (with the year); a red ring marks
-  where they died (with the year)
-- Type the name — spelling doesn't have to be perfect, and nicknames like
-  "JFK" work
-- Sessions are 10 rounds. Unaided correct answers score 100 points; hints
-  cost 25 each, wrong guesses 10; "Reveal" ends a round with 0. Answer
-  several in a row for a streak bonus.
+**Face Value** — a famous face hides under nine paper scraps; one is already
+open. Tear scraps (each tear costs points) and type the name. 5 rounds a day.
 
-**Daily + Archive** — everyone gets the same puzzles on the same day:
-- The Today strip on the home screen shows the day's Edition (e.g.
-  "Edition #12 · Friday") with four tiles: Thread, Lifeline, Face Value,
-  Relic. Each tile shows Not started / In progress / Done — tap it to play
-  that game's daily.
-- A daily's 10 rounds (or, for Thread, the single board) are the same for
-  every player on the same calendar day, and harder puzzles are mixed in
-  later in the week (Monday is easiest, the weekend hardest).
-- Finishing a daily locks it — reopening the tile shows your result instead
-  of letting you replay. Completing every game on the day it airs builds a
-  streak, shown alongside your per-game streaks.
-- **Archive** (via "Archive ›" on the Today strip) lists past editions, each
-  marked with which of the four games you've completed. Opening an edition
-  from the Archive plays it in **Practice** mode: replayable as many times
-  as you like, and it never affects streaks or the daily record.
-- The big game cards below the Today strip still work exactly as before —
-  free, unlimited, un-tracked practice sessions any time.
+**Lifeline** — a world map shows where a historical figure was born (green
+dot) and died (red ring), with the years. Type the name — spelling doesn't
+have to be perfect, and nicknames like "JFK" work. 5 rounds a day.
 
-## Known limitations and substitutions
+**Relic** — like Face Value, but a famous artefact, building or artwork hides
+under the scraps. 5 rounds a day.
 
-- **The two full-size crosswords are genuine 15×15 grids** with standard
-  rotational symmetry — no substitution was needed in the end (it took three
-  generations of construction software overnight). Grid-spanning marquee
-  answers include GROVER CLEVELAND, EIGHT-TRACK TAPES, VERSAILLES and
-  METTERNICH. A small number of entries are modern pop culture rather than
-  history (e.g. ANAKIN, MTV) — their clues are pinned to dates so even those
-  read as history.
-- **Offline testing note:** complete offline behaviour is verified
-  automatically in Chrome's engine; the WebKit test harness has a known quirk
-  reloading offline pages, so the same flow there is best-effort. On a real
-  iPhone, installed PWAs work offline (that's the whole point) — load the app
-  once online first.
-- Map-game scoring in full: 100 points for an unaided correct answer; −25 per
-  hint, −10 per wrong guess, but a correct answer always pays at least 10;
-  "Reveal" scores 0; every consecutive correct answer from the second onward
-  adds a +10 streak bonus.
-- Pinch-zoom is disabled app-wide, which is standard for app-like games but is
-  a deliberate accessibility trade-off; all text is sized for readability.
+**Thread** — sixteen clues hide four secret groups of four (in the style of
+NYT Connections). One board a day; four wrong guesses and the thread snaps.
+
+**Scoring** — every round is worth 100 points. Tears, clue slips and wrong
+guesses each cost some of it; a day's score for a game is the round average,
+so every game reads on the same 0–100 dial. Mondays are gentlest and the
+difficulty climbs through the week to a Sunday stinker.
+
+**The daily rhythm:**
+- The day's puzzles come from a pre-compiled schedule
+  (`data/editions.json`, built and approved via `tools/compile_editions.py`).
+- Finishing a daily locks it — reopening shows your result, not a replay.
+- Completing any one game's daily keeps that game's streak alive; completing
+  all four is the celebrated **full house**. A missed day can be repaired
+  from the archive within two days.
+- **Encore** — after a finished daily, "Encore: 5 more ›" offers a bonus run
+  drawn only from puzzles that have already aired. Replayable, never affects
+  scores or streaks.
+- **Back Issues (The Morgue)** — the trailing 7 aired days, replayable in
+  Practice mode (no effect on streaks or the record). Older issues retire.
+- **Your Legacy** — the stats page: days played, full houses, streaks and
+  bests, reached from the masthead punch card or the home footer.
 
 ## Put it on the web, free (one-time, ~10 minutes)
 
@@ -95,7 +73,7 @@ click, with GitHub Pages:
 3. Scroll down and tap **Add to Home Screen**.
 4. Tap **Add** (top right).
 
-You now have a "Chronicle" icon on your home screen. Open it from there —
+You now have a "Dead Famous" icon on your home screen. Open it from there —
 no Safari bars, just the app. After that first visit it works on the plane,
 in the basement, anywhere: everything is stored on the phone.
 
@@ -111,16 +89,19 @@ python3 -m http.server 8000
 …then open `http://localhost:8000` in a browser. (Opening `index.html`
 directly by double-click won't work fully — PWAs need to be served.)
 
-## How it was tested
+`?dailydate=YYYY-MM-DD` on the URL previews any date's edition (QA only).
 
-Every shipped crossword is checked by an automated validator (structure,
-symmetry, interlock, no junk) and solved end-to-end by an automated browser
-pretending to be an iPhone. The map game is played through complete sessions
-with typos, hints, wrong answers and reveals, and the exact scores are
-verified. The offline behaviour and the install manifest are also tested
-automatically. Tests live in `tests/`, screenshots of every screen in
-`screenshots/`, and an independent review log in `CRITIC_REPORT.md`.
+## How it's checked
+
+Content going into the schedule passes scripted validators
+(`tools/validate_*.py`) and the edition compiler's own collision, repeat-gap
+and rights checks; each proposed week gets a human review sheet
+(`tools/out/review-*.html`) before approval. The old crossword-era automated
+browser suite in `tests/` is retired and a fresh end-to-end suite for the four
+live games is planned — until then, changes are verified by hand in the
+browser.
 
 Data sources: country outlines derived from Natural Earth (public domain);
-crossword fill vocabulary assisted by the Crossword Nexus collaborative word
-list; all historical facts written and double-checked for this app.
+portrait and artefact images from Wikimedia Commons with per-image licences
+recorded in the data files; all historical facts written and double-checked
+for this app.

@@ -1,6 +1,7 @@
 // "Map of a Life": guess the historical figure from birth/death geography.
-import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, testHooksEnabled } from './app.js';
+import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, teachWrongGuess, testHooksEnabled } from './app.js';
 import * as store from './storage.js';
+import { track } from './track.js';
 import { isMatch, registerPool } from './match.js';
 import * as daily from './daily.js';
 import { mapShareText, mapEmojiRow, shareResult, flashShareButton } from './sharecard.js';
@@ -318,7 +319,7 @@ export function renderMapStart() {
   if (valid) {
     $('#map-resume').textContent = saved.results.length >= saved.ids.length
       ? `See your results (${saved.score} pts)`
-      : `Resume — round ${saved.results.length + 1} of 10 (${saved.score} pts)`;
+      : `Resume — round ${saved.results.length + 1} of ${saved.ids.length} (${saved.score} pts)`;
   }
 }
 
@@ -426,9 +427,9 @@ function resumeFrom(mode, key, saved) {
 function startSession() {
   const rng = makeRng();
   const by = (d) => DATA.figures.filter((f) => f.difficulty === d);
-  const picks = shuffled(by('easy'), rng).slice(0, 4)
-    .concat(shuffled(by('medium'), rng).slice(0, 3))
-    .concat(shuffled(by('hard'), rng).slice(0, 3));
+  const picks = shuffled(by('easy'), rng).slice(0, 2)
+    .concat(shuffled(by('medium'), rng).slice(0, 2))
+    .concat(shuffled(by('hard'), rng).slice(0, 1));
   S = {
     mode: 'free', dailyKey: null, store: modeStore('free', null),
     rounds: shuffled(picks, rng),
@@ -475,6 +476,25 @@ function startEdition(mode, editionIndex) {
 export function startMapDaily(editionIndex) { startEdition('daily', editionIndex); }
 export function startMapPractice(editionIndex) { startEdition('practice', editionIndex); }
 
+// Encore (locked decision #6): 5 more figures drawn from previously-aired
+// editions only (daily.encoreItems), through the practice machinery — no
+// ledger, no streak, no record. Nothing is persisted: every Encore is a
+// fresh sample, so there is nothing to resume.
+function startMapEncore() {
+  const rounds = daily.encoreItems('map', daily.todayIndex());
+  if (!rounds.length) return;
+  track('encore-map');
+  S = {
+    mode: 'practice', encore: true, dailyKey: null,
+    store: { get: () => null, set: () => {}, clear: () => {} },
+    rounds, i: 0, score: 0, streak: 0, bestStreak: 0, results: [],
+  };
+  renderWorld();
+  setVb([0, 0, MAP_W, MAP_H]);
+  show('view-map');
+  startRound();
+}
+
 // A locked (already-completed) daily: reuse the summary view read-only —
 // rebuild S.results from the ledger detail so finishSession's render can be
 // reused verbatim.
@@ -505,10 +525,11 @@ function startRound() {
         wrongGuesses: carried.wrongGuesses || [], open: true,
       }
     : { hints: 0, hintCost: 0, wrongs: 0, occUsed: false, iniUsed: false, wrongGuesses: [], open: true };
-  $('#map-progress').textContent = `Round ${S.i + 1} of 10`;
+  $('#map-progress').textContent = `Round ${S.i + 1} of ${S.rounds.length}`;
   $('#map-score').textContent = `${S.score} pts`;
   $('#map-feedback').hidden = true;
   $('#map-feedback').innerHTML = '';
+  $('#map-wrong-note').hidden = true;
   $('#map-form').hidden = false;
   $('#map-hints').hidden = false;
   $('#map-hint-chips').innerHTML = '';
@@ -661,7 +682,15 @@ function renderLockedSummary() {
   const sumShare = $('#sum-share');
   if (sumShare) sumShare.hidden = !S.share;
   wireTurnThePage('sum-turn', S.editionIndex, isDaily);
-  $('#sum-again').hidden = !!S.locked;
+  // Encore lives on daily summaries (and on an Encore's own summary — it's
+  // replayable), never on practice/free ones. Hidden too when the aired pool
+  // has nothing to offer (early-epoch edge).
+  const sumEncore = $('#sum-encore');
+  if (sumEncore) {
+    sumEncore.hidden = !((isDaily || S.encore)
+      && daily.encoreItems('map', daily.todayIndex()).length > 0);
+  }
+  $('#sum-again').hidden = !!S.locked || !!S.encore;
   $('#sum-home').textContent = S.locked ? 'Home' : 'Home';
 }
 
@@ -721,6 +750,9 @@ export function initMapGame() {
       persistSession();
       addGuessChip(guess);
       updateWorth();
+      // P1.5: announce every wrong guess politely; the explicit line shows
+      // once — the first wrong guess anywhere (teachWrongGuess one-shots it).
+      teachWrongGuess('map-wrong-note', `Not them — −${WRONG_COST}`);
       const inp = $('#map-input');
       inp.value = '';
       inp.classList.remove('shake');
@@ -781,6 +813,7 @@ export function initMapGame() {
     back();              // drop the summary from the view trail
     startSession();
   });
+  $('#sum-encore').addEventListener('click', startMapEncore);
   $('#sum-home').addEventListener('click', goHome);
   const sumShareBtn = $('#sum-share');
   if (sumShareBtn) {

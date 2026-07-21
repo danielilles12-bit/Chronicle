@@ -3,16 +3,17 @@
 // more is the player's choice and the player's cost: every player tear docks
 // the round's worth, and wrong guesses dock more. No clock — curiosity is the
 // only spender.
-// Mirrors the Map of a Life session shape (10 rounds, persisted, resumable).
-import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, testHooksEnabled } from './app.js';
+// Mirrors the Map of a Life session shape (5 rounds, persisted, resumable).
+import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, teachWrongGuess, testHooksEnabled } from './app.js';
 import * as store from './storage.js';
+import { track } from './track.js';
 import { isMatch, registerPool } from './match.js';
 import * as daily from './daily.js';
 import { revealShareText, revealEmojiRow, shareResult, flashShareButton } from './sharecard.js';
 import { attachPinchZoom } from './pinchzoom.js';
 import * as sfx from './sfx.js';
 
-const ROUNDS = 10;
+const ROUNDS = 5;               // free-play run length (dailies take theirs from the edition)
 const SCRAPS = 9;               // 3x3 cover grid
 const TEAR_COST = 10;           // per player tear (the opening scrap is on the house)
 const WRONG_PENALTY = 15;       // per wrong guess
@@ -297,7 +298,11 @@ function updateWorth() {
   // Price the tears until the player buys their first; then the economy is
   // learnt: hush. Never say "free" — the freebie is the scrap the game
   // opened, not the player's first tear (owner correction 2026-07-20).
-  const hint = S.cur.torn.length <= 1 ? ' · each tear −10' : '';
+  // Teach-by-doing (P1.5): on a player's first-ever Face Value daily the
+  // price stays up through the first PAID tear too, so the 100 → 90 drop
+  // reads as cause and effect rather than a mystery.
+  const hint = S.cur.torn.length <= 1 || (S.teach && S.cur.torn.length <= 2)
+    ? ' · each tear −10' : '';
   el.innerHTML = `${label}: <b>${worthNow()} PTS</b>${hint}`;
 }
 
@@ -415,7 +420,7 @@ function persist() {
 function pickRounds(rng) {
   const items = pool();
   const by = (d) => shuffled(items.filter((x) => x.difficulty === d), rng);
-  const want = { easy: 4, medium: 3, hard: 3 };
+  const want = { easy: 2, medium: 2, hard: 1 };
   const picks = [];
   const pools = { easy: by('easy'), medium: by('medium'), hard: by('hard') };
   for (const d of ['easy', 'medium', 'hard']) picks.push(...pools[d].slice(0, want[d]));
@@ -493,12 +498,43 @@ function startEdition(sessMode, editionIndex) {
     startRound();
   };
   // First-run intro before a fresh daily only (not resume/practice/locked).
-  if (sessMode === 'daily') maybeIntro(mode, editionIndex, begin);
-  else begin();
+  // Teach-by-doing (P1.5): Face Value skips the up-front rules card entirely —
+  // a first-timer tears immediately, the worth line prices the tears in
+  // context (see updateWorth, held one tear longer on the very first daily),
+  // and the "?" opens the full card on demand. Other games keep their intro.
+  if (sessMode === 'daily' && mode === 'who') {
+    const seenIntro = !!(store.getMisc().introSeen || {}).who;
+    if (!seenIntro) {
+      store.setMisc({ introSeen: Object.assign({}, store.getMisc().introSeen || {}, { who: true }) });
+    }
+    begin();
+    if (S) S.teach = !seenIntro;
+  } else if (sessMode === 'daily') {
+    maybeIntro(mode, editionIndex, begin);
+  } else {
+    begin();
+  }
 }
 
 export function startRevealDaily(mode, editionIndex) { MODE = mode; startEdition('daily', editionIndex); }
 export function startRevealPractice(mode, editionIndex) { MODE = mode; startEdition('practice', editionIndex); }
+
+// Encore (locked decision #6): 5 more rounds drawn from previously-aired
+// editions only (daily.encoreItems), run through the practice machinery —
+// no ledger, no streak, no score record. Nothing is persisted: every Encore
+// is a fresh sample, so there is nothing to resume.
+function startRevealEncore() {
+  const rounds = daily.encoreItems(MODE, daily.todayIndex());
+  if (!rounds.length) return;
+  track(`encore-${MODE}`);
+  S = {
+    mode: 'practice', encore: true, dailyKey: null,
+    store: { get: () => null, set: () => {}, clear: () => {} },
+    rounds, i: 0, score: 0, streak: 0, bestStreak: 0, results: [],
+  };
+  show('view-reveal');
+  startRound();
+}
 
 function showLockedResult(editionIndex, entry) {
   S = {
@@ -526,6 +562,7 @@ function startRound() {
     ? 'Who is this? Tear towards the answer.' : 'What is this? Tear towards the answer.';
   $('#rv-feedback').hidden = true;
   $('#rv-feedback').innerHTML = '';
+  $('#rv-wrong-note').hidden = true;
   $('#rv-form').hidden = false;
   $('#rv-controls').hidden = false;
   $('#rv-guesses').innerHTML = '';
@@ -677,7 +714,15 @@ function renderLockedSummary() {
   const rvShare = $('#rv-sum-share');
   if (rvShare) rvShare.hidden = !S.share;
   wireTurnThePage('rv-sum-turn', S.editionIndex, isDaily);
-  $('#rv-sum-again').hidden = !!S.locked;
+  // Encore lives on daily summaries (and on an Encore's own summary — it's
+  // replayable), never on practice/free ones. Hidden too when the aired pool
+  // has nothing to offer (early-epoch edge).
+  const rvEncore = $('#rv-sum-encore');
+  if (rvEncore) {
+    rvEncore.hidden = !((isDaily || S.encore)
+      && daily.encoreItems(MODE, daily.todayIndex()).length > 0);
+  }
+  $('#rv-sum-again').hidden = !!S.locked || !!S.encore;
 }
 
 function finishSession() {
@@ -754,6 +799,10 @@ export function initRevealGame() {
       chip.appendChild(penalty);
       $('#rv-guesses').appendChild(chip);
       updateWorth();
+      // P1.5: announce every wrong guess politely; show the explicit line
+      // once — the first wrong guess anywhere (teachWrongGuess one-shots it).
+      teachWrongGuess('rv-wrong-note',
+        MODE === 'who' ? `Not them — −${WRONG_PENALTY}` : `Not that — −${WRONG_PENALTY}`);
       const inp = $('#rv-input');
       inp.value = '';
       inp.classList.remove('shake');
@@ -817,5 +866,6 @@ export function initRevealGame() {
   }
   $('#rv-sum-back').addEventListener('click', goHome);
   $('#rv-sum-again').addEventListener('click', () => { back(); startSession(); });
+  $('#rv-sum-encore').addEventListener('click', startRevealEncore);
   $('#rv-sum-home').addEventListener('click', goHome);
 }

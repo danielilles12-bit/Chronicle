@@ -121,7 +121,7 @@
         <circle cx="98" cy="26" r="8" fill="none" stroke="var(--ch-map-origin)" stroke-width="3"/>
         <circle cx="98" cy="26" r="3" fill="var(--ch-map-origin)"/>
       </svg>
-      <h3 class="start-title">Ten lives, twenty dots.</h3>
+      <h3 class="start-title">Five lives, ten dots.</h3>
       <p class="start-copy">Each round shows where a historical figure was <b class="b-birth">born</b> and where they <b class="b-death">died</b>, with the years. Type their name — spelling needn’t be perfect.</p>
       <p class="start-copy small">100 points for an unaided answer (a correct answer always pays at least 10). Clue slips cost 15–25, wrong guesses 15, revealing scores zero. Each consecutive correct answer from the second onward earns +10. Your day’s score is your round average.</p>
       <p class="card-stat" id="map-best"></p>
@@ -134,7 +134,7 @@
   <section class="view view-game" id="view-map" hidden>
     <header class="topbar safe-top">
       <button class="iconbtn" id="map-quit" aria-label="Quit run">‹</button>
-      <h2 id="map-progress">Round 1 of 10</h2>
+      <h2 id="map-progress">Round 1 of 5</h2>
       <span class="topbar-right"><button class="iconbtn topbar-help" id="map-help" aria-label="How to play">?</button><span id="map-score" aria-label="Score">0 pts</span></span>
     </header>
     <div id="map-panel">
@@ -156,6 +156,7 @@
       </div>
       <div id="map-hint-chips"></div>
       <div id="map-guesses"></div>
+      <p class="df-wrong-note" id="map-wrong-note" hidden></p>
       <button class="pill primary big" id="map-next" hidden>Next round ›</button>
     </main>
   </section>
@@ -183,6 +184,7 @@
       <div class="sum-actions">
         <button class="pill primary big" id="sum-turn" hidden>Turn the page ›</button>
         <button class="pill primary big" id="sum-share" hidden>Share the run</button>
+        <button class="pill big" id="sum-encore" hidden>Encore: 5 more ›</button>
         <button class="pill primary big" id="sum-again">Play again</button>
         <button class="pill ghost big" id="sum-home">Home</button>
       </div>
@@ -217,7 +219,7 @@
   <section class="view view-game" id="view-reveal" hidden>
     <header class="topbar safe-top">
       <button class="iconbtn" id="rv-quit" aria-label="Quit run">‹</button>
-      <h2 id="rv-progress">Round 1 of 10</h2>
+      <h2 id="rv-progress">Round 1 of 5</h2>
       <span class="topbar-right"><button class="iconbtn topbar-help" id="rv-help" aria-label="How to play">?</button><span id="rv-score" aria-label="Score">0 pts</span></span>
     </header>
     <div id="rv-panel">
@@ -249,6 +251,7 @@
       </div>
       <div id="rv-hint-chips"></div>
       <div id="rv-guesses"></div>
+      <p class="df-wrong-note" id="rv-wrong-note" hidden></p>
       <button class="pill primary big" id="rv-next" hidden>Next ›</button>
     </main>
   </section>
@@ -276,6 +279,7 @@
       <div class="sum-actions">
         <button class="pill primary big" id="rv-sum-turn" hidden>Turn the page ›</button>
         <button class="pill primary big" id="rv-sum-share" hidden>Share the tear-up</button>
+        <button class="pill big" id="rv-sum-encore" hidden>Encore: 5 more ›</button>
         <button class="pill primary big" id="rv-sum-again">Play again</button>
         <button class="pill ghost big" id="rv-sum-home">Home</button>
       </div>
@@ -420,6 +424,10 @@
       </div>
     </div>
   </div>
+
+  <!-- One polite live region for game feedback (P1.5; extended in Session 4).
+       Visually hidden — screen readers only. -->
+  <div id="sr-live" class="sr-only" aria-live="polite"></div>
 </div>
 <script type="module" src="js/app.js"></script>
 </body>

@@ -10,21 +10,12 @@ import { track } from './track.js';
 
 // ---------- config ----------
 export const EPOCH = new Date(2026, 5, 29); // 2026-06-29, a Monday (local, month is 0-based)
-// No future editions are previewable in the archive — the unaired run must
-// not be browsable in production ("same issue as everyone else"). For QA
-// browsing, ?preview=N raises the window, honoured ONLY on a local server so
-// no live URL can ever reach unaired content.
-function previewEditions() {
-  if (typeof location === 'undefined') return 0;
-  const host = location.hostname;
-  if (host !== 'localhost' && host !== '127.0.0.1') return 0;
-  const m = location.search.match(/[?&]preview=(\d+)/);
-  return m ? +m[1] : 0;
-}
-export const ARCHIVE_PREVIEW_EDITIONS = previewEditions();
 
-// Rounds games (Lifeline, Face Value, Relic): 10 rounds/day, [easy, medium, hard]
-// counts per weekday (0=Mon...6=Sun). Ordered within an edition: E, then M, then H.
+// LEGACY recipe — rounds games (Lifeline, Face Value, Relic) at 10 rounds/day,
+// [easy, medium, hard] counts per weekday (0=Mon...6=Sun), ordered E, M, H.
+// Editions >= recipeChangeEdition are 5 rounds/day and come from the manifest
+// (getEdition below); this arithmetic serves pre-manifest history and the
+// missing-manifest emergency, so its numbers must NEVER change.
 export const RECIPE = [
   [7, 2, 1], // Mon
   [6, 3, 1], // Tue
@@ -189,11 +180,47 @@ function poolFor(game) {
   return [];
 }
 
+// ---------- manifest-driven selection (Session 3) ----------
+// data/editions.json is the compiled manifest (tools/compile_editions.py):
+// exact item ids per game per edition. Aired editions are frozen there
+// forever, new ones arrive via propose/approve. When the manifest holds an
+// edition it always wins — a frozen edition stays identical even if the pool
+// files are later reordered. The cursor arithmetic below remains for two
+// jobs: history (editions the manifest might not carry, n < recipeChangeEdition)
+// and the emergency (an edition past the switch that was never approved) —
+// so the daily NEVER fails to exist.
+let manifestMissTracked = false;
+
+function manifestEdition(game, n) {
+  const man = DATA.editions;
+  const ed = man && man.editions && man.editions[n];
+  const ids = ed && ed[game];
+  if (!ids || !ids.length) return null;
+  const byId = new Map(poolFor(game).map((x) => [x.id, x]));
+  const items = ids.map((id) => byId.get(id)).filter(Boolean);
+  return items.length ? items : null;   // ids that resolve to nothing = treat as missing
+}
+
+// Fired (once per session) when an edition that SHOULD be manifest-served is
+// not: either the manifest file never loaded, or n is past the recipe switch
+// and its edition was never approved. Legacy-era editions falling back to
+// arithmetic are normal, not an emergency.
+function trackManifestMiss(n) {
+  const man = DATA.editions;
+  if (man && n < man.recipeChangeEdition) return;
+  if (manifestMissTracked) return;
+  manifestMissTracked = true;
+  track('err-manifest-missing');
+}
+
 // getEdition(game, n) -> ordered list of item objects for that edition.
 // game: 'map' | 'who' | 'what' | 'thread'
 // For 'thread' the return is a 1-element array [board] (kept as an array for
 // a uniform call shape across games).
 export function getEdition(game, n) {
+  const fromManifest = manifestEdition(game, n);
+  if (fromManifest) return fromManifest;
+  trackManifestMiss(n);
   const items = poolFor(game);
   if (game === 'thread') {
     const tier = THREAD_TIER[weekday(n)];
@@ -235,6 +262,42 @@ export function getEdition(game, n) {
 
   const out = [];
   TIERS.forEach((tier) => out.push(...byTierPicks[tier]));
+  return out;
+}
+
+// ---------- Encore (locked decision #6) ----------
+// After a finished daily, an optional extra run drawn ONLY from previously-
+// aired editions (any edition <= today, under either recipe) — never unaired
+// content, that would burn the schedule. Excludes items in today's edition,
+// prefers items that haven't aired in the last week (the ones the player is
+// least likely to have fresh in mind); random within that. New sample every
+// call — Encore is replayable by design.
+export function encoreItems(game, todayN, count = 5) {
+  if (todayN < 0) return [];
+  const exclude = new Set(getEdition(game, todayN).map((x) => x.id));
+  const aired = new Map();     // id -> item, across every aired edition
+  const recent = new Set();    // aired within the last 7 editions
+  for (let n = 0; n <= todayN; n++) {
+    for (const item of getEdition(game, n)) {
+      if (exclude.has(item.id)) continue;
+      aired.set(item.id, item);
+      if (n >= todayN - 7) recent.add(item.id);
+    }
+  }
+  const sample = (arr, k) => {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a.slice(0, k);
+  };
+  const pool = [...aired.values()];
+  const out = sample(pool.filter((x) => !recent.has(x.id)), count);
+  if (out.length < count) {
+    const used = new Set(out.map((x) => x.id));
+    out.push(...sample(pool.filter((x) => !used.has(x.id)), count - out.length));
+  }
   return out;
 }
 

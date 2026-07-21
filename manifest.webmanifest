@@ -1,7 +1,7 @@
 {
   "name": "Dead Famous — History as Entertainment",
   "short_name": "Dead Famous",
-  "description": "History\u2019s greatest hits, two minutes a day: Thread, Lifeline, Face Value and Relic.",
+  "description": "History\u2019s greatest hits, a few minutes a day: Face Value, Lifeline, Relic and Thread.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

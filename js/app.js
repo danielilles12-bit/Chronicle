@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v121';
+const BUILD = 'v122';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -22,7 +22,7 @@ import * as daily from './daily.js';
 import * as sfx from './sfx.js';
 import { renderLedger } from './ledger.js';
 
-export const DATA = { figures: null, world: null, reveal: null, connections: null };
+export const DATA = { figures: null, world: null, reveal: null, connections: null, editions: null };
 export const $ = (sel) => document.querySelector(sel);
 export const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 
@@ -144,30 +144,32 @@ export function refreshHomeStats() {
 // coding (spec "Per-row accent tints"): a strong tint for the hero card, a
 // slightly lighter one (lower mix %) for day cards + the Archive bar.
 const GAME_ROWS = [
+  // `time` is the expected-time whisper on the hero card (P1.4): muted and
+  // small next to the issue number, same voice as the dateline whisper.
   {
     key: 'who', label: 'Face Value', tagline: 'A famous face, one scrap at a time.',
-    glyph: 'assets/brand/game-icon-face-value.png',
+    glyph: 'assets/brand/game-icon-face-value.png', time: '~3 min',
     tintStrong: 'var(--df-magenta)',
     tintSoft: 'color-mix(in srgb, var(--df-magenta) 12%, var(--ch-cream))',
     launchDaily: (n) => startRevealDaily('who', n), launchPractice: (n) => startRevealPractice('who', n),
   },
   {
     key: 'map', label: 'Lifeline', tagline: 'Born here, died there. Name the figure.',
-    glyph: 'assets/brand/game-icon-lifeline.png',
+    glyph: 'assets/brand/game-icon-lifeline.png', time: '~3 min',
     tintStrong: 'var(--df-yellow)',
     tintSoft: 'color-mix(in srgb, var(--df-yellow) 18%, var(--ch-cream))',
     launchDaily: startMapDaily, launchPractice: startMapPractice,
   },
   {
     key: 'what', label: 'Relic', tagline: 'A famous artefact, one scrap at a time.',
-    glyph: 'assets/brand/game-icon-relic.png',
+    glyph: 'assets/brand/game-icon-relic.png', time: '~3 min',
     tintStrong: 'var(--df-red)',
     tintSoft: 'color-mix(in srgb, var(--df-red) 10%, var(--ch-cream))',
     launchDaily: (n) => startRevealDaily('what', n), launchPractice: (n) => startRevealPractice('what', n),
   },
   {
     key: 'thread', label: 'Thread', tagline: 'Group 16 clues into four hidden categories.',
-    glyph: 'assets/brand/game-icon-thread.png',
+    glyph: 'assets/brand/game-icon-thread.png', time: '~2 min',
     tintStrong: 'var(--df-cyan)',
     tintSoft: 'color-mix(in srgb, var(--df-cyan) 14%, var(--ch-cream))',
     launchDaily: startThreadDaily, launchPractice: startThreadPractice,
@@ -312,7 +314,8 @@ export function refreshGameRows() {
     const status = daily.dailyStatus(g.key, today);
     const entry = status === 'done' ? store.getDailyEntry(g.key, today) : null;
     const hero = $(`[data-hero="${g.key}"]`);
-    hero.querySelector('[data-edition]').textContent = `№ ${Math.max(0, today)}`;
+    hero.querySelector('[data-edition]').innerHTML =
+      `№ ${Math.max(0, today)}<span class="hero-time"> · ${g.time}</span>`;
     hero.querySelector('[data-status]').textContent = statusLabel(status, entry && entry.score);
     hero.classList.toggle('row-done', status === 'done');
     hero.classList.toggle('row-progress', status === 'in-progress');
@@ -382,7 +385,7 @@ const INTRO_CONTENT = {
   },
   map: {
     glyph: 'assets/brand/game-icon-lifeline.png',
-    title: 'Ten lives, twenty dots.',
+    title: 'Five lives, ten dots.',
     copy: 'Each round shows where a figure was born and where they died, with the years. Type their name — spelling needn’t be perfect.',
     copy2: '100 points for an unaided answer (a correct one always pays at least 10). Clue slips cost 15–25, wrong guesses 15, revealing scores zero. Each correct answer from the second in a row earns +10. Your day’s score is your round average.',
   },
@@ -449,6 +452,29 @@ function initDaily() {
   initArchive();
 }
 
+// ---------- screen-reader announcements (P1.5) ----------
+// One polite live region for game feedback (#sr-live in index.html, visually
+// hidden — announcements never change how anything looks). Session 4 extends
+// this to worth changes, correct answers and completions across all games.
+export function announce(text) {
+  const el = $('#sr-live');
+  if (!el) return;
+  el.textContent = '';               // clear first so a repeated message re-announces
+  setTimeout(() => { el.textContent = text; }, 30);
+}
+
+// First wrong guess anywhere (P1.5): the strikethrough guess chip alone is
+// too subtle the first time it ever happens — surface the explicit line once,
+// in context, then let the chip carry it (the live region still announces
+// every wrong guess for screen readers).
+export function teachWrongGuess(noteId, text) {
+  announce(text.replace('−', 'minus '));
+  if (store.getMisc().wrongTaught) return;
+  store.setMisc({ wrongTaught: true });
+  const el = document.getElementById(noteId);
+  if (el) { el.textContent = text; el.hidden = false; }
+}
+
 // ---------- Archive / Practice ----------
 // The Morgue is a CALENDAR (owner call 2026-07-15): month grids, newest month
 // first, one tappable cell per aired edition. Replaces the old flat
@@ -480,11 +506,11 @@ function calDots(n) {
   }).join('');
 }
 
-// One month's grid, Monday-first. `today`/`last` are edition indices; cells
-// outside [0, last] render as dead numbers, today is marked but not tappable
-// (its edition lives on the front page), future-but-previewable editions are
-// tappable at reduced weight (pre-launch QA browsing).
-function renderMonth(monthStart, today, last) {
+// One month's grid, Monday-first. `today`/`first`/`last` are edition indices;
+// only [first, last] (the trailing aired window) renders as tappable cells.
+// Today is marked but not tappable (its edition lives on the front page);
+// everything else — older aired days included — renders as dead numbers.
+function renderMonth(monthStart, today, first, last) {
   const sec = document.createElement('section');
   sec.className = 'cal-month';
   const title = monthStart.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
@@ -493,20 +519,20 @@ function renderMonth(monthStart, today, last) {
   const lead = (monthStart.getDay() + 6) % 7;
   const daysInMonth = new Date(monthStart.getFullYear(), monthStart.getMonth() + 1, 0).getDate();
   let cells = '';
-  for (let i = 0; i < lead; i++) cells += '<span class="cal-cell blank"></span>';
   for (let d = 1; d <= daysInMonth; d++) {
     const n = daily.editionIndex(new Date(monthStart.getFullYear(), monthStart.getMonth(), d));
-    if (n < 0 || n > last) {
-      cells += `<span class="cal-cell dead">${d}</span>`;
-    } else if (n === today) {
+    if (n === today) {
       cells += `<span class="cal-cell today" aria-label="№ ${n} — today">`
         + `<b>${d}</b><span class="cal-dots">${calDots(n)}</span></span>`;
-    } else {
-      cells += `<button type="button" class="cal-cell${n > today ? ' future' : ''}" data-edition="${n}"`
+    } else if (n >= first && n <= last) {
+      cells += `<button type="button" class="cal-cell" data-edition="${n}"`
         + ` aria-label="№ ${n} · ${daily.weekdayName(n)}">`
         + `<b>${d}</b><span class="cal-dots">${calDots(n)}</span></button>`;
+    } else {
+      cells += `<span class="cal-cell dead">${d}</span>`;
     }
   }
+  for (let i = 0; i < lead; i++) cells = '<span class="cal-cell blank"></span>' + cells;
   sec.innerHTML = `<h3 class="cal-title">${title}</h3><div class="cal-grid">${dows}${cells}</div>`;
   sec.querySelectorAll('[data-edition]').forEach((b) => {
     b.addEventListener('click', () => openArchiveEdition(+b.dataset.edition));
@@ -519,17 +545,18 @@ function renderArchive() {
   if (!main || !DATA.figures) return;
   main.innerHTML = '';
   const today = daily.todayIndex();
-  // Visibility rule (spec): n < today (aired) OR n <= today + preview.
-  // ARCHIVE_PREVIEW_EDITIONS is 0 in production (localhost ?preview=N raises
-  // it for QA); cap the render window so the calendar stays finite even if
-  // a QA override is huge.
-  const last = today + Math.min(Number.isFinite(daily.ARCHIVE_PREVIEW_EDITIONS) ? daily.ARCHIVE_PREVIEW_EDITIONS : 0, 180);
-  const firstMonth = daily.editionDate(0);
-  const stop = new Date(firstMonth.getFullYear(), firstMonth.getMonth(), 1);
-  const lastDate = daily.editionDate(Math.max(0, last));
-  let cursor = new Date(lastDate.getFullYear(), lastDate.getMonth(), 1);
+  // The Morgue holds the trailing 7 aired days ONLY (locked decision #4):
+  // older editions go dark, which frees their content for rescheduling later
+  // without feeling stale. No future previews of any kind — the unaired run
+  // must never be browsable (QA uses ?dailydate= instead).
+  const first = Math.max(0, today - 7);
+  const last = today - 1;
+  const newest = daily.editionDate(Math.max(0, today));
+  const oldest = daily.editionDate(Math.max(0, Math.min(first, today)));
+  const stop = new Date(oldest.getFullYear(), oldest.getMonth(), 1);
+  let cursor = new Date(newest.getFullYear(), newest.getMonth(), 1);
   while (cursor >= stop) {
-    main.appendChild(renderMonth(cursor, today, last));
+    main.appendChild(renderMonth(cursor, today, first, last));
     cursor = new Date(cursor.getFullYear(), cursor.getMonth() - 1, 1);
   }
 }
@@ -986,10 +1013,19 @@ function loadData() {
       fetch(u).then((r) => {
         if (!r.ok) throw new Error('failed to load ' + u);
         return r.json();
-      })),
-  ).then(([figures, world, revealWho, revealWhat, connections]) => {
+      }))
+      // editions.json is the daily manifest (Session 3). Unlike the five
+      // content files its absence must never block the games — getEdition
+      // falls back to cursor arithmetic — so a failed fetch resolves null
+      // instead of failing the whole Promise.all. (Session 4 later splits
+      // all of these into independent loads.)
+      .concat(fetch('data/editions.json')
+        .then((r) => (r.ok ? r.json() : null))
+        .catch(() => null)),
+  ).then(([figures, world, revealWho, revealWhat, connections, editions]) => {
     DATA.figures = figures;
     DATA.world = world;
+    DATA.editions = editions;
     // reveal-who.json (portraits) + reveal-what.json (artefacts) are the
     // current, actively-curated content files; DATA.reveal is their union,
     // filtered by `kind` downstream (revealgame.js) exactly as before.
@@ -1121,18 +1157,20 @@ async function boot() {
   }
 }
 
-// Warm today's + tomorrow's Face Value / Relic images so the dailies stay
-// playable offline (the aeroplane rule, owner report 2026-07-15): each
-// request routes through the service worker, which files the bytes into the
-// version-bump-proof df-img cache. Sequential so it never competes with an
-// image the player is actually looking at; tomorrow's edition rides along as
-// a buffer for a day spent entirely offline.
+// Warm today's Face Value / Relic images so the dailies stay playable offline
+// (the aeroplane rule, owner report 2026-07-15): each request routes through
+// the service worker, which files the bytes into the version-bump-proof
+// df-img cache. Sequential so it never competes with an image the player is
+// actually looking at. Installed apps (standalone) also warm tomorrow's
+// edition as a buffer for a day spent entirely offline — browser tabs don't,
+// since the daily shrank to 5+5 files and casual visitors shouldn't pay for
+// a tomorrow they may never open (P5.3, brought forward).
 function prefetchDailyImages() {
   const today = daily.todayIndex();
   if (today < 0) return;
   const urls = [];
   const seen = new Set();
-  for (const n of [today, today + 1]) {
+  for (const n of (isStandalone() ? [today, today + 1] : [today])) {
     for (const game of ['who', 'what']) {
       for (const item of daily.getEdition(game, n)) {
         if (item.img && !seen.has(item.img)) { seen.add(item.img); urls.push(item.img); }
