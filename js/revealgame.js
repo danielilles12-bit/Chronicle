@@ -4,7 +4,7 @@
 // the round's worth, and wrong guesses dock more. No clock — curiosity is the
 // only spender.
 // Mirrors the Map of a Life session shape (5 rounds, persisted, resumable).
-import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, teachWrongGuess, testHooksEnabled } from './app.js';
+import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, teachWrongGuess, announce, testHooksEnabled } from './app.js';
 import * as store from './storage.js';
 import { track } from './track.js';
 import { isMatch, registerPool } from './match.js';
@@ -109,6 +109,20 @@ function addHintChip(text) {
   $('#rv-hint-chips').appendChild(chip);
 }
 
+// One strikethrough guess chip (same shape as mapgame's) — used live on a
+// wrong guess and again when a resumed round rebuilds its chips.
+function addGuessChip(text) {
+  const chip = document.createElement('span');
+  chip.className = 'guess-chip';
+  const guessText = document.createElement('span');
+  guessText.textContent = text;
+  chip.appendChild(guessText);
+  const penalty = document.createElement('small');
+  penalty.textContent = `-${WRONG_PENALTY}`;
+  chip.appendChild(penalty);
+  $('#rv-guesses').appendChild(chip);
+}
+
 // Label the two clue buttons for this round's MODE, re-enable them, and hide
 // button B when its clue has no content (an undatable Relic).
 function setupClues() {
@@ -142,6 +156,8 @@ function buyClue(which) {
   $(which === 'a' ? '#rv-clue-a' : '#rv-clue-b').disabled = true;
   addHintChip(`${def.label}: ${value}`);
   updateWorth();
+  announce(`${def.label}: ${value}. Worth ${worthNow()} points.`);
+  persist();   // P2.1: bought clues survive a quit/reopen
 }
 
 // ---------- rng (shared shape with mapgame) ----------
@@ -345,6 +361,10 @@ function tearScrap(i, force) {
   if (!force) sfx.play('tear');
   refreshTearable();
   updateWorth();
+  if (!force) {
+    announce(`Worth ${worthNow()} points.`);
+    persist();   // P2.1: every paid tear is saved the moment it happens
+  }
 }
 
 // ---------- session ----------
@@ -405,14 +425,22 @@ function prefetchRounds() {
   next();
 }
 
-// Only completed rounds are persisted; resuming restarts the current round
-// with its scraps back in place (and its worth reset) — same convention as
-// the old timed rounds, where the clock restarted fresh.
+// P2.1: the current round's spent state (torn scraps, wrong guesses, bought
+// clues and their cost) rides along with every save, mirroring mapgame's
+// persistSession/pendingCur pattern — so a resumed round is SCORE-IDENTICAL
+// to never having left: same open scraps, same worth, same chips.
 function persist() {
   S.store.set({
     ids: S.rounds.map((x) => x.id),
     score: S.score, streak: S.streak, bestStreak: S.bestStreak,
     editionIndex: S.editionIndex,
+    cur: S.cur && S.cur.open
+      ? {
+          torn: S.cur.torn.slice(), wrongs: S.cur.wrongs,
+          clueA: !!S.cur.clueA, clueB: !!S.cur.clueB, clueCost: S.cur.clueCost || 0,
+          wrongGuesses: (S.cur.wrongGuesses || []).slice(),
+        }
+      : null,
     results: S.results.map((r) => ({ id: r.item.id, pts: r.pts, correct: r.correct })),
   });
 }
@@ -467,6 +495,7 @@ function resumeFrom(sessMode, key, saved) {
     i: Math.min(next, saved.ids.length - 1),
     score: saved.score, streak: saved.streak, bestStreak: saved.bestStreak,
     results: saved.results.map((r) => ({ item: byId(r.id), pts: r.pts, correct: r.correct })),
+    pendingCur: saved.cur || null,
   };
   if (next >= saved.ids.length) { finishSession(); return; }
   show('view-reveal');
@@ -554,8 +583,20 @@ function round() { return S.rounds[S.i]; }
 
 function startRound() {
   const item = round();
-  S.cur = { open: true, torn: [], wrongs: 0, clueCost: 0, clueA: false, clueB: false };
+  // P2.1: a mid-round save carries the round's spent state back in — same
+  // torn scraps, same wrong guesses, same bought clues, so worthNow() lands
+  // on exactly the number the player left behind.
+  const carried = S.pendingCur;
+  S.pendingCur = null;
+  S.cur = carried
+    ? {
+        open: true, torn: (carried.torn || []).slice(), wrongs: carried.wrongs || 0,
+        clueCost: carried.clueCost || 0, clueA: !!carried.clueA, clueB: !!carried.clueB,
+        wrongGuesses: (carried.wrongGuesses || []).slice(),
+      }
+    : { open: true, torn: [], wrongs: 0, clueCost: 0, clueA: false, clueB: false, wrongGuesses: [] };
   $('#rv-progress').textContent = `Round ${S.i + 1} of ${S.rounds.length}`;
+  announce(`Round ${S.i + 1} of ${S.rounds.length}.`);
   $('#rv-score').textContent = `${S.score} pts`;
   $('#rv-prompt').hidden = false;
   $('#rv-prompt').textContent = item.kind === 'portrait'
@@ -574,6 +615,18 @@ function startRound() {
   $('#rv-streak').hidden = S.streak < 2;
   if (S.streak >= 2) $('#rv-streak').textContent = `${S.streak} in a row`;
   setupClues();
+  // Resumed round: put the bought-clue chips (values re-derive from the item)
+  // and the wrong-guess chips back exactly as they were.
+  const defs = clueDefs();
+  if (S.cur.clueA) {
+    $('#rv-clue-a').disabled = true;
+    addHintChip(`${defs.a.label}: ${defs.a.value()}`);
+  }
+  if (S.cur.clueB) {
+    $('#rv-clue-b').disabled = true;
+    addHintChip(`${defs.b.label}: ${defs.b.value()}`);
+  }
+  (S.cur.wrongGuesses || []).forEach((g) => addGuessChip(g));
   // Back to the square scrap window (clears any inline aspect/width the last
   // reveal morphed the frame to).
   const frame = $('#rv-frame');
@@ -582,7 +635,17 @@ function startRound() {
   if (frameZoom) frameZoom.reset();
   paintCover(item);
   buildScraps();
-  tearScrap(startScrap(item), true);   // the game's opening scrap, placed far from the money shot
+  if (S.cur.torn.length) {
+    // Resumed round: the already-torn scraps (opening scrap included) go
+    // straight back to open — no sounds, no re-charging.
+    for (const t of S.cur.torn) {
+      const el = $(`#rv-scraps [data-i="${t}"]`);
+      if (el) el.classList.add('torn');
+    }
+    refreshTearable();
+  } else {
+    tearScrap(startScrap(item), true);   // the game's opening scrap, placed far from the money shot
+  }
   updateWorth();
   setRoundOffline(false);
   ensureDims(item, () => {
@@ -647,6 +710,10 @@ function resolveRound(correct) {
     : `<b>${verdict}</b><small>0 PTS</small>`;
   badge.hidden = false;
   $('#rv-worth').innerHTML = '';
+  // P2.4: the verdict, spoken — correct answers and reveals alike.
+  announce(correct
+    ? `${verdict} ${item.name}. Plus ${total} points.`
+    : `It was ${item.name}. 0 points.`);
 
   const credit = item.license && item.license !== 'Public domain'
     ? ` <small class="rv-credit">${item.license}</small>` : '';
@@ -749,6 +816,7 @@ function finishSession() {
   refreshHomeStats();
 
   renderLockedSummary();
+  announce(`Run complete. Final score ${S.score} points.`);
   if (testHooksEnabled()) {
     window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
       revealSession: { score: S.score, results: S.results.map((r3) => ({ id: r3.item.id, pts: r3.pts, correct: r3.correct })) },
@@ -789,20 +857,16 @@ export function initRevealGame() {
       // A wrong guess docks the round's worth (see worthNow) — guessing blind
       // is a real gamble, not a free spin.
       S.cur.wrongs = (S.cur.wrongs || 0) + 1;
-      const chip = document.createElement('span');
-      chip.className = 'guess-chip';
-      const guessText = document.createElement('span');
-      guessText.textContent = guess;
-      chip.appendChild(guessText);
-      const penalty = document.createElement('small');
-      penalty.textContent = `-${WRONG_PENALTY}`;
-      chip.appendChild(penalty);
-      $('#rv-guesses').appendChild(chip);
+      S.cur.wrongGuesses = S.cur.wrongGuesses || [];
+      S.cur.wrongGuesses.push(guess);
+      persist();   // P2.1: wrong guesses (and their cost) survive a quit/reopen
+      addGuessChip(guess);
       updateWorth();
       // P1.5: announce every wrong guess politely; show the explicit line
       // once — the first wrong guess anywhere (teachWrongGuess one-shots it).
-      teachWrongGuess('rv-wrong-note',
-        MODE === 'who' ? `Not them — −${WRONG_PENALTY}` : `Not that — −${WRONG_PENALTY}`);
+      const wrongText = MODE === 'who' ? `Not them — −${WRONG_PENALTY}` : `Not that — −${WRONG_PENALTY}`;
+      teachWrongGuess('rv-wrong-note', wrongText,
+        `${wrongText}. Worth ${worthNow()} points.`);
       const inp = $('#rv-input');
       inp.value = '';
       inp.classList.remove('shake');
@@ -847,10 +911,10 @@ export function initRevealGame() {
 
   $('#rv-quit').addEventListener('click', () => {
     // Header back arrow: leave the session, same as every other game's back
-    // button — it must not discard progress. persist() already runs at the
-    // start of every round (so completed rounds + score are captured); make
-    // sure that's saved, then go. Reopening resumes at this round (fresh
-    // scraps — same convention as any mid-round refresh, see resumeFrom).
+    // button — it must not discard progress. The session is persisted
+    // continuously (persist runs after every tear/clue/guess/round — P2.1),
+    // so just make sure the current state is saved, then go. Reopening
+    // resumes exactly here: same scraps, same clues, same worth.
     if (S && !S.done) persist();
     S = null;
     back();

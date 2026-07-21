@@ -1,5 +1,5 @@
 // "Map of a Life": guess the historical figure from birth/death geography.
-import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, teachWrongGuess, testHooksEnabled } from './app.js';
+import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, teachWrongGuess, announce, testHooksEnabled } from './app.js';
 import * as store from './storage.js';
 import { track } from './track.js';
 import { isMatch, registerPool } from './match.js';
@@ -526,6 +526,7 @@ function startRound() {
       }
     : { hints: 0, hintCost: 0, wrongs: 0, occUsed: false, iniUsed: false, wrongGuesses: [], open: true };
   $('#map-progress').textContent = `Round ${S.i + 1} of ${S.rounds.length}`;
+  announce(`Round ${S.i + 1} of ${S.rounds.length}.`);
   $('#map-score').textContent = `${S.score} pts`;
   $('#map-feedback').hidden = true;
   $('#map-feedback').innerHTML = '';
@@ -620,6 +621,10 @@ function resolveRound(correct) {
     // yet (content grind lands separately) — no-ops invisibly until it does.
     + (fig.fact ? `<span class="fig-fact">${fig.fact}</span>` : '');
   fb.hidden = false;
+  // P2.4: the verdict, spoken — correct answers and reveals alike.
+  announce(correct
+    ? `Correct — ${fig.name}. Plus ${total} points.`
+    : `It was ${fig.name}. 0 points.`);
 
   $('#map-input').disabled = true;
   $('#map-guess-btn').disabled = true;
@@ -721,6 +726,7 @@ function finishSession() {
   refreshHomeStats();
 
   renderLockedSummary();
+  announce(`Run complete. Final score ${S.score} points.`);
   if (testHooksEnabled()) {
     window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, {
       mapSession: { score: S.score, results: S.results.map((r) => ({ id: r.fig.id, pts: r.pts, correct: r.correct })) },
@@ -752,7 +758,8 @@ export function initMapGame() {
       updateWorth();
       // P1.5: announce every wrong guess politely; the explicit line shows
       // once — the first wrong guess anywhere (teachWrongGuess one-shots it).
-      teachWrongGuess('map-wrong-note', `Not them — −${WRONG_COST}`);
+      teachWrongGuess('map-wrong-note', `Not them — −${WRONG_COST}`,
+        `Not them — −${WRONG_COST}. Worth ${worthNow()} points.`);
       const inp = $('#map-input');
       inp.value = '';
       inp.classList.remove('shake');
@@ -771,6 +778,7 @@ export function initMapGame() {
     addHintChip(round().occupation);
     persistSession();
     updateWorth();
+    announce(`Claim to fame: ${round().occupation}. Worth ${worthNow()} points.`);
   });
 
   $('#hint-ini').addEventListener('click', () => {
@@ -782,6 +790,7 @@ export function initMapGame() {
     addHintChip(`Initials: ${initials(round().name)}`);
     persistSession();
     updateWorth();
+    announce(`Initials: ${initials(round().name)}. Worth ${worthNow()} points.`);
   });
 
   $('#map-reveal').addEventListener('click', () => {

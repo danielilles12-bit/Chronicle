@@ -197,18 +197,45 @@ function renderFound() {
   });
 }
 
+// P2.4: tiles are real <button type="button">s — natively tabbable, Enter/
+// Space toggles via click, aria-pressed carries the selection state. CSS
+// (.conn-tile button reset in style.css) keeps them pixel-identical to the
+// old divs.
 function renderGrid() {
   const grid = $('#conn-grid');
   grid.innerHTML = '';
   const remaining = S.tiles.filter((t) => !S.found.has(t.colour));
   remaining.forEach((tile, i) => {
-    const div = document.createElement('div');
-    div.className = 'conn-tile' + (S.selected.has(i) ? ' conn-selected' : '');
-    div.textContent = tile.item;
-    div.addEventListener('click', () => onTapTile(i));
-    grid.appendChild(div);
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'conn-tile' + (S.selected.has(i) ? ' conn-selected' : '');
+    btn.dataset.i = i;
+    btn.setAttribute('aria-pressed', S.selected.has(i) ? 'true' : 'false');
+    btn.textContent = tile.item;
+    btn.addEventListener('click', () => onTapTile(i));
+    grid.appendChild(btn);
   });
   fitConnTiles();
+}
+
+// Toggle selection classes/aria in place instead of rebuilding the grid, so
+// keyboard focus stays where it is between taps.
+function updateTileSelection() {
+  for (const el of $$('#conn-grid .conn-tile')) {
+    const sel = S.selected.has(+el.dataset.i);
+    el.classList.toggle('conn-selected', sel);
+    el.setAttribute('aria-pressed', sel ? 'true' : 'false');
+  }
+}
+
+// After a submit resolves, focus can be stranded (the Submit button disables
+// itself; a solved group's tiles vanish). Hand it to the first tile so a
+// keyboard player keeps playing without hunting.
+function restoreGridFocus() {
+  const active = document.activeElement;
+  if (active && active !== document.body && !active.disabled) return;
+  const first = document.querySelector('#conn-grid .conn-tile');
+  if (first) first.focus({ preventScroll: true });
 }
 
 // Shrink each tile's font until its whole-word text fits — no mid-word breaks.
@@ -236,7 +263,7 @@ function onTapTile(i) {
     S.selected.add(i);
   }
   $('#conn-submit').disabled = S.selected.size !== 4;
-  renderGrid();
+  updateTileSelection();
 }
 
 function updateMistakesDisplay() {
@@ -269,14 +296,20 @@ function submitGuess() {
     S.selected = new Set();
     fb.hidden = true;
     sfx.play('correct');
+    const group = S.puzzle.groups.find((g) => g.colour === colours[0]);
 
     if (S.found.size === S.puzzle.groups.length) {
       // all found
       S.done = true;
+      announce(`Correct — ${group.label}. All four groups found.`);
       setTimeout(() => finishPuzzle(), 400);
     } else {
+      announce(`Correct — ${group.label}. ${S.found.size} of 4 groups found.`);
       persistProgress();
       renderConnGame();
+      // P2.4: the solved group's tiles just left the grid — hand focus to
+      // the next tile so keyboard play continues seamlessly.
+      restoreGridFocus();
     }
   } else {
     // Check if one away
@@ -291,9 +324,11 @@ function submitGuess() {
     fb.className = 'conn-feedback conn-wrong';
     fb.textContent = oneAway ? 'One thread loose.' : 'Knot quite.';
     fb.hidden = false;
-    // P1.5: wrong guesses are announced politely (Thread's visible feedback
-    // line already carries the explicit text).
-    announce(oneAway ? 'Wrong group — one away.' : 'Wrong group.');
+    // P1.5/P2.4: wrong guesses are announced politely, with the guesses left
+    // (Thread's visible feedback line already carries the explicit text).
+    const left = MAX_MISTAKES - S.mistakes;
+    announce((oneAway ? 'Wrong group — one away.' : 'Wrong group.')
+      + (left > 0 ? ` ${left} guess${left === 1 ? '' : 'es'} left.` : ''));
 
     // shake the grid
     const grid = $('#conn-grid');
@@ -301,7 +336,7 @@ function submitGuess() {
     void grid.offsetWidth;
     grid.classList.add('conn-shake');
 
-    renderGrid();
+    updateTileSelection();
     $('#conn-submit').disabled = true;
 
     if (S.mistakes >= MAX_MISTAKES) {
@@ -309,6 +344,9 @@ function submitGuess() {
       setTimeout(() => finishPuzzle(), 600);
     } else {
       persistProgress();
+      // P2.4: Submit just disabled itself under the keyboard — hand focus
+      // back to the grid.
+      restoreGridFocus();
     }
   }
 }
@@ -350,6 +388,10 @@ function finishPuzzle() {
     reveal.appendChild(div);
   });
 
+  // P2.4: the game's verdict, spoken.
+  announce(solved
+    ? `Board solved. ${score} points.`
+    : 'The thread snapped. 0 points.');
   show('view-connsum');
 }
 
@@ -431,7 +473,7 @@ export function initConnectionsGame() {
   $('#conn-deselect').addEventListener('click', () => {
     S.selected = new Set();
     $('#conn-submit').disabled = true;
-    renderGrid();
+    updateTileSelection();
   });
   $('#conn-submit').addEventListener('click', submitGuess);
   $('#conn-help').addEventListener('click', () => openIntroHelp('thread'));
