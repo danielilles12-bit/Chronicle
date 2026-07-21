@@ -1,0 +1,63 @@
+# Dead Famous CI (P4.2): every push and PR runs the repo checks, the data
+# validators and the Playwright smoke suite. Deploys are gated: GitHub Pages
+# serves the `release` branch (Daniel's one-time Settings change), and the
+# promote job below fast-forwards `release` only when main is green — so a
+# red build simply never reaches players' phones.
+#
+# (When Session 8 moves hosting to Cloudflare Pages, point CF at `release`;
+# this same gate carries over unchanged.)
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: write   # the promote job pushes the `release` branch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Playwright
+        run: pip install playwright==1.60.0
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ runner.os }}-1.60.0
+
+      - name: Install Chromium
+        run: python -m playwright install --with-deps chromium
+
+      # Fail fast on the cheap gates: BUILD/VERSION lock + unaired-content
+      # leak guard (see tools/repo_checks.py).
+      - name: Repo checks
+        run: python tools/repo_checks.py
+
+      # Validators (reveal/boards/rights/manifest verify — ids resolve,
+      # images exist, collision check) + the full browser smoke suite.
+      - name: Full suite
+        run: python tests/run_all.py
+
+  promote:
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Fast-forward only: if release ever diverges this fails loudly
+      # instead of rewriting it.
+      - name: Promote green main to release
+        run: git push origin HEAD:release
