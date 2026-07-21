@@ -229,7 +229,7 @@ function renderGameRows() {
       launchWhenReady(g);
     });
     $(`[data-archive="${g.key}"]`).addEventListener('click', async () => {
-      if (!await ensureData($(`[data-row="${g.key}"] [data-status]`))) return;
+      if (!await ensureGameData(g.key, $(`[data-row="${g.key}"] [data-status]`))) return;
       renderArchive();
       show('view-archive');
     });
@@ -237,22 +237,12 @@ function renderGameRows() {
 }
 
 // Launch a game from Home, waiting out the background data download if the
-// player outran it. The card's own status line doubles as the loading state.
+// player outran it. The card's own status line doubles as the loading state,
+// and gates only on the files THIS game needs (P2.2).
 async function launchWhenReady(g) {
   const statusEl = document.querySelector(`[data-hero="${g.key}"] [data-status]`);
-  if (!await ensureData(statusEl)) return;
+  if (!await ensureGameData(g.key, statusEl)) return;
   g.launchDaily(daily.todayIndex());
-}
-
-async function ensureData(statusEl) {
-  if (dataLoaded) return true;
-  const slow = setTimeout(() => {
-    if (statusEl) statusEl.textContent = 'spinning up the presses…';
-  }, 150);
-  const ok = await loadData();
-  clearTimeout(slow);
-  if (!ok && statusEl) statusEl.textContent = 'offline — tap to retry';
-  return ok;
 }
 
 // Card #6 (difficulty whisper): the dateline gains a muted, lowercase,
@@ -452,10 +442,11 @@ function initDaily() {
   initArchive();
 }
 
-// ---------- screen-reader announcements (P1.5) ----------
+// ---------- screen-reader announcements (P1.5 + P2.4) ----------
 // One polite live region for game feedback (#sr-live in index.html, visually
-// hidden — announcements never change how anything looks). Session 4 extends
-// this to worth changes, correct answers and completions across all games.
+// hidden — announcements never change how anything looks). Carries, across
+// all four games: worth changes, wrong/correct verdicts, Thread one-away,
+// round starts and game completion.
 export function announce(text) {
   const el = $('#sr-live');
   if (!el) return;
@@ -466,9 +457,11 @@ export function announce(text) {
 // First wrong guess anywhere (P1.5): the strikethrough guess chip alone is
 // too subtle the first time it ever happens — surface the explicit line once,
 // in context, then let the chip carry it (the live region still announces
-// every wrong guess for screen readers).
-export function teachWrongGuess(noteId, text) {
-  announce(text.replace('−', 'minus '));
+// every wrong guess for screen readers). `srText`, when given, is a fuller
+// spoken-only variant (e.g. with the new worth) — the visible one-shot note
+// always shows `text` unchanged.
+export function teachWrongGuess(noteId, text, srText) {
+  announce((srText || text).replace('−', 'minus '));
   if (store.getMisc().wrongTaught) return;
   store.setMisc({ wrongTaught: true });
   const el = document.getElementById(noteId);
@@ -486,11 +479,21 @@ function initArchive() {
   const picker = $('#archive-picker');
   if (picker) {
     picker.querySelectorAll('[data-practice-game]').forEach((btn) => {
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', async () => {
         const g = TODAY_GAMES.find((x) => x.key === btn.dataset.practiceGame);
         const n = +picker.dataset.editionIndex;
+        if (!g) return;
+        // P2.2: a practice launch gates on ITS game's files (the picker can
+        // launch any game, whatever row opened the archive). The button
+        // carries the loading/failure state, then gets its label back.
+        const label = btn.textContent;
+        if (!await ensureGameData(g.key, btn)) {
+          setTimeout(() => { btn.textContent = label; }, 1800);
+          return;
+        }
+        btn.textContent = label;
         picker.hidden = true;
-        if (g) g.launchPractice(n);
+        g.launchPractice(n);
       });
     });
     const closeBtn = $('#archive-picker-close');
@@ -542,7 +545,10 @@ function renderMonth(monthStart, today, first, last) {
 
 function renderArchive() {
   const main = $('#archive-list');
-  if (!main || !DATA.figures) return;
+  // The calendar itself needs no content files (dates + the ledger only), so
+  // it renders whatever the data situation — per-game gating happens on the
+  // practice buttons instead (P2.2).
+  if (!main) return;
   main.innerHTML = '';
   const today = daily.todayIndex();
   // The Morgue holds the trailing 7 aired days ONLY (locked decision #4):
@@ -998,50 +1004,111 @@ function initDayDone() {
 }
 
 // ---------- data ----------
-// Memoised loader for the five content files. A failed attempt clears the
-// memo so the next tap retries; success registers the match pools and wires
-// the game modules exactly once — no launch path can outrun this, because
-// every one of them awaits ensureData() first.
-let dataLoaded = false;
-let dataPromise = null;
-function loadData() {
-  if (dataLoaded) return Promise.resolve(true);
-  if (dataPromise) return dataPromise;
-  dataPromise = Promise.all(
-    ['data/figures.json', 'data/worldmap.json', 'data/reveal-who.json',
-     'data/reveal-what.json', 'data/connections.json'].map((u) =>
-      fetch(u).then((r) => {
-        if (!r.ok) throw new Error('failed to load ' + u);
-        return r.json();
-      }))
-      // editions.json is the daily manifest (Session 3). Unlike the five
-      // content files its absence must never block the games — getEdition
-      // falls back to cursor arithmetic — so a failed fetch resolves null
-      // instead of failing the whole Promise.all. (Session 4 later splits
-      // all of these into independent loads.)
-      .concat(fetch('data/editions.json')
-        .then((r) => (r.ok ? r.json() : null))
-        .catch(() => null)),
-  ).then(([figures, world, revealWho, revealWhat, connections, editions]) => {
-    DATA.figures = figures;
-    DATA.world = world;
-    DATA.editions = editions;
+// Independent per-file loading (P2.2): each game's launch gates only on the
+// files IT needs, so one broken file can no longer take all four games down.
+// A file that loaded once stays good in memory for the whole session; across
+// restarts the service worker's stale-while-revalidate (sw.js DATA_CACHE)
+// serves the last good copy. editions.json (the daily manifest) is attempted
+// with every gate but its failure never blocks anything — getEdition falls
+// back to the legacy arithmetic (Session 3) and fires err-manifest-missing.
+const DATA_FILES = {
+  figures: 'data/figures.json',
+  world: 'data/worldmap.json',
+  revealWho: 'data/reveal-who.json',
+  revealWhat: 'data/reveal-what.json',
+  connections: 'data/connections.json',
+  editions: 'data/editions.json',
+};
+const GAME_NEEDS = {
+  map: ['figures', 'world'],
+  who: ['revealWho', 'revealWhat'],
+  what: ['revealWho', 'revealWhat'],
+  thread: ['connections'],
+};
+const fileData = {};        // key -> parsed JSON, kept once loaded (last-good)
+const filePromises = {};    // key -> in-flight fetch; cleared on failure so a tap retries
+const fileErrTracked = {};  // one 'err-data-<basename>' beacon per file per session
+
+function loadFile(key) {
+  if (fileData[key] !== undefined) return Promise.resolve(true);
+  if (filePromises[key]) return filePromises[key];
+  filePromises[key] = fetch(DATA_FILES[key])
+    .then((r) => {
+      if (!r.ok) throw new Error('failed to load ' + DATA_FILES[key]);
+      return r.json();
+    })
+    .then((json) => {
+      fileData[key] = json;
+      wireLoadedGames();
+      return true;
+    })
+    .catch(() => {
+      filePromises[key] = null;
+      if (!fileErrTracked[key]) {
+        fileErrTracked[key] = true;
+        track('err-data-' + DATA_FILES[key].split('/').pop().replace('.json', ''));
+      }
+      return false;
+    });
+  return filePromises[key];
+}
+
+// As each game's file set completes, publish it into DATA and wire that
+// game's module exactly once — no launch path can outrun this, because every
+// one of them awaits ensureGameData() first.
+const wiredGames = {};
+function wireLoadedGames() {
+  if (!wiredGames.map && fileData.figures !== undefined && fileData.world !== undefined) {
+    wiredGames.map = true;
+    DATA.figures = fileData.figures;
+    DATA.world = fileData.world;
+    initMapGame();
+  }
+  if (!wiredGames.reveal && fileData.revealWho !== undefined && fileData.revealWhat !== undefined) {
+    wiredGames.reveal = true;
     // reveal-who.json (portraits) + reveal-what.json (artefacts) are the
     // current, actively-curated content files; DATA.reveal is their union,
     // filtered by `kind` downstream (revealgame.js) exactly as before.
-    DATA.reveal = revealWho.concat(revealWhat);
-    DATA.connections = connections;
-    dataLoaded = true;
-    initMapGame();
+    DATA.reveal = fileData.revealWho.concat(fileData.revealWhat);
     initRevealGame();
+  }
+  if (!wiredGames.thread && fileData.connections !== undefined) {
+    wiredGames.thread = true;
+    DATA.connections = fileData.connections;
     initConnectionsGame();
-    setTimeout(prefetchDailyImages, 1200); // after first paint settles
-    return true;
-  }).catch(() => {
-    dataPromise = null;
-    return false;
-  });
-  return dataPromise;
+  }
+  if (fileData.editions !== undefined) DATA.editions = fileData.editions;
+}
+
+// Boot-time warm-up: start every download in parallel, then prefetch today's
+// images once the reveal pools AND the manifest attempt have settled (the
+// manifest names which items today's edition actually holds).
+function loadAllData() {
+  const editionsAttempt = loadFile('editions');
+  Object.keys(DATA_FILES).forEach((k) => { if (k !== 'editions') loadFile(k); });
+  Promise.all([loadFile('revealWho'), loadFile('revealWhat'), editionsAttempt])
+    .then(([who, what]) => {
+      if (who && what) setTimeout(prefetchDailyImages, 1200); // after first paint settles
+    });
+}
+
+// Gate a launch on one game's files. `statusEl` (the tapped card's status
+// line) doubles as the loading state; a failure names itself there and the
+// same tap retries. The editions manifest is awaited too — so a fast first
+// tap can't race it and serve fallback arithmetic — but its result never
+// blocks: the Session 3 fallback covers it.
+async function ensureGameData(gameKey, statusEl) {
+  const needs = GAME_NEEDS[gameKey] || [];
+  if (needs.every((k) => fileData[k] !== undefined) && fileData.editions !== undefined) return true;
+  const slow = setTimeout(() => {
+    if (statusEl) statusEl.textContent = 'spinning up the presses…';
+  }, 150);
+  const results = await Promise.all(needs.map(loadFile));
+  await loadFile('editions');
+  clearTimeout(slow);
+  const ok = results.every(Boolean);
+  if (!ok && statusEl) statusEl.textContent = 'couldn’t load — tap to retry';
+  return ok;
 }
 
 async function boot() {
@@ -1095,8 +1162,9 @@ async function boot() {
 
   // Conversion Phase 1: the landing is static markup + localStorage, so it
   // paints before a single data byte arrives. The downloads start here and
-  // run behind it; only a tap into a game ever waits on them (ensureData).
-  loadData();
+  // run behind it; only a tap into a game ever waits on the files that game
+  // needs (ensureGameData).
+  loadAllData();
 
   initPullToRefresh();
   initHome();

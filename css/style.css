@@ -458,6 +458,23 @@ button.cal-cell:active { background: var(--ch-parchment); }
 .sum-list .sum-pts.zero { color: var(--ch-text-muted); font-weight: 400; }
 .sum-actions { display: flex; flex-direction: column; gap: 10px; }
 
+/* P2.3: the one-time "saves aren't sticking" notice (quota/private mode).
+   Created by js/storage.js only when a write actually throws — a brand-new
+   element, so nothing existing changes visually. Sits below the NEW EDITION
+   bar (z 90), above sheets/overlays. */
+.df-save-toast {
+  position: fixed; left: 12px; right: 12px;
+  bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  z-index: 80; display: flex; align-items: center; gap: 10px;
+  background: var(--ch-ink); color: var(--ch-paper);
+  border: 2px solid var(--ch-ink); box-shadow: 3px 3px 0 rgba(11,11,11,.35);
+  padding: 10px 12px; font-family: var(--ch-font-ui); font-size: 13px; font-weight: 700;
+}
+.df-save-toast-close {
+  margin-left: auto; flex: 0 0 auto; background: none; border: 0; color: inherit;
+  font-size: 20px; line-height: 1; padding: 2px 6px; cursor: pointer;
+}
+
 /* Desktop niceties */
 @media (min-width: 700px) {
   body { background: #E4DFCE; }
@@ -481,6 +498,16 @@ button.cal-cell:active { background: var(--ch-parchment); }
      so long single words fit on one line; multi-word tiles wrap at spaces. */
   min-width: 0; overflow: hidden; overflow-wrap: normal; word-break: normal; hyphens: manual;
 }
+/* P2.4: tiles are real <button>s now (keyboard + screen-reader play). These
+   lines strip the UA button chrome so they render pixel-identical to the old
+   divs; the focus ring is keyboard-only (:focus-visible), so touch and mouse
+   play look exactly as before. */
+.conn-tile {
+  appearance: none; -webkit-appearance: none;
+  font-family: inherit; letter-spacing: inherit; margin: 0;
+}
+.conn-tile:focus { outline: none; }
+.conn-tile:focus-visible { outline: 2.5px solid var(--ch-ink); outline-offset: 2px; }
 .conn-tile:active { transform: translate(2px,2px); box-shadow: .5px .5px 0 var(--ch-ink); }
 .conn-selected { background: var(--df-cyan); color: var(--ch-ink); border-color: var(--ch-ink); }
 .conn-grid.conn-shake { animation: shake .35s ease; }

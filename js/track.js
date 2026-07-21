@@ -34,6 +34,21 @@ const DISPLAY = {
   // run, or editions.json failed to load) — the emergency fallback served
   // cursor arithmetic instead. The daily still existed; this is the alarm.
   'err-manifest-missing': '9-manifest-missing',
+  // P2.2: one data file failed to download (once per file per session). The
+  // other games stayed playable; the affected card showed a named retry.
+  'err-data-figures': '9-data-figures-failed',
+  'err-data-worldmap': '9-data-worldmap-failed',
+  'err-data-reveal-who': '9-data-reveal-who-failed',
+  'err-data-reveal-what': '9-data-reveal-what-failed',
+  'err-data-connections': '9-data-connections-failed',
+  'err-data-editions': '9-data-editions-failed',
+  // P2.3: player-storage health. recovered = main blob was corrupt, the
+  // backup copy saved the day; lost = both copies unreadable, fresh start;
+  // err-save = writes are failing right now (quota/private mode), the
+  // player was shown the one-time notice.
+  'err-save-recovered': '9-save-recovered-from-backup',
+  'err-save-lost': '9-save-lost-both-copies',
+  'err-save': '9-save-failing',
   'share-thread': '6-shared-thread',
   'share-map': '6-shared-lifeline',
   'share-who': '6-shared-facevalue',
