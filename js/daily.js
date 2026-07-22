@@ -369,7 +369,44 @@ export function recordDailyCompletion(game, editionIndex, detail) {
   store.setDailyLedger(ledger);
   track(`finish-${game}`);
   if (GAMES.every((g) => ledger.entries[g] && ledger.entries[g][editionIndex])) track('finish-day');
+  trackRitualWeek(completedOn);
   return ledger;
+}
+
+// P5.1: "showed up" already governs streaks (locked decision #2 — any one
+// game's daily counts, not all four); ritual-week reuses the same bar. Weeks
+// are Math.floor(editionIndex / 7) rather than a real ISO-week string —
+// EPOCH is itself a Monday, so this lines up exactly with real Mon-Sun
+// calendar weeks, with none of a year-boundary string's edge cases. Fires
+// once per week, the first time a device's distinct "showed up" editions
+// that week reaches three.
+function trackRitualWeek(completedOn) {
+  const misc = store.getMisc();
+  const week = Math.floor(completedOn / 7);
+  const days = new Set(misc.ritualWeek === week ? (misc.ritualDays || []) : []);
+  if (days.has(completedOn)) return;   // already counted (another game finished the same day)
+  days.add(completedOn);
+  const patch = { ritualWeek: week, ritualDays: [...days] };
+  if (days.size >= 3 && misc.ritualFiredWeek !== week) {
+    track('ritual-week');
+    patch.ritualFiredWeek = week;
+  }
+  store.setMisc(patch);
+}
+
+// P5.1: derived from the ledger rather than stamped on first completion, so
+// it's correct immediately for players who completed dailies before this
+// shipped too — no migration step. Used by app.js's boot-time D1/D7/D30
+// return check.
+export function firstCompletedEdition() {
+  const entries = store.getDailyLedger().entries || {};
+  let min = null;
+  GAMES.forEach((g) => {
+    Object.values(entries[g] || {}).forEach((e) => {
+      if (e && Number.isFinite(e.completedOn) && (min == null || e.completedOn < min)) min = e.completedOn;
+    });
+  });
+  return min;
 }
 
 // One session's score on the 0–100 dial: the average round worth, capped so

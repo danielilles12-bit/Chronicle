@@ -46,13 +46,36 @@
     not people.</p>
 
     <div class="privacy-toggle-note">
-      <p style="margin:0"><b>Opting out today:</b> tap the small version
-      number in the app's home-screen footer five times quickly. It'll flash
-      "off the record" to confirm — tap it five times again to turn analytics
-      back on. This sets the same flag GoatCounter's own opt-out uses, stored
-      only on your device. A friendlier one-tap switch on this page is coming;
-      the five-tap version works today.</p>
+      <p style="margin:0 0 10px">Analytics are currently
+      <b id="privacy-gc-state">on</b> for this device.</p>
+      <p style="margin:0 0 10px">
+      <button type="button" id="privacy-gc-toggle" class="foot-toggle">Turn them off</button>
+      </p>
+      <p style="margin:0">It sets the same on-device flag as tapping the small
+      version number in the app's home-screen footer five times quickly (that
+      shortcut still works too). Nothing is ever sent anywhere either way —
+      this only changes whether GoatCounter runs at all.</p>
     </div>
+    <script>
+      (function () {
+        var KEY = 'skipgc';
+        var stateEl = document.getElementById('privacy-gc-state');
+        var btn = document.getElementById('privacy-gc-toggle');
+        function isOff() {
+          try { return localStorage.getItem(KEY) === 't'; } catch (e) { return false; }
+        }
+        function paint() {
+          var off = isOff();
+          stateEl.textContent = off ? 'off' : 'on';
+          btn.textContent = off ? 'Turn them on' : 'Turn them off';
+        }
+        btn.addEventListener('click', function () {
+          try { localStorage.setItem(KEY, isOff() ? 'f' : 't'); } catch (e) { /* private mode */ }
+          paint();
+        });
+        paint();
+      })();
+    </script>
 
     <h2>Images and data</h2>
     <p>Portrait and artefact images come from Wikimedia Commons under their

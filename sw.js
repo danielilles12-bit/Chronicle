@@ -7,7 +7,7 @@
 //   new worker precaches the shell, skipWaiting+claim take over immediately ->
 //   app.js sees controllerchange and shows the NEW EDITION bar -> the user's
 //   pull-to-refresh (or a tap on the bar) reloads into the new version.
-const VERSION = 'deadfamous-v125';
+const VERSION = 'deadfamous-v126';
 
 // Daily-content cache: survives version bumps so updating the app never
 // re-downloads the whole archive, served stale-while-revalidate below.
@@ -87,6 +87,15 @@ self.addEventListener('activate', (e) => {
   );
 });
 
+// P5.1: a failed cache write (quota exceeded, private-mode storage limits) is
+// invisible from inside the worker — GoatCounter only runs on a page — so
+// tell every open client once; app.js dedupes to one beacon per session.
+function notifyImgCacheFail() {
+  self.clients.matchAll().then((clients) => {
+    clients.forEach((c) => c.postMessage({ type: 'df-img-cache-fail' }));
+  });
+}
+
 self.addEventListener('fetch', (e) => {
   const req = e.request;
   if (req.method !== 'GET') return;
@@ -104,7 +113,7 @@ self.addEventListener('fetch', (e) => {
       const hit = await c.match(req, { ignoreSearch: true });
       if (hit) return hit;
       const res = await fetch(req);
-      if (res && res.ok) c.put(req, res.clone());
+      if (res && res.ok) c.put(req, res.clone()).catch(notifyImgCacheFail);
       return res;
     }));
     return;

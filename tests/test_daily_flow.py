@@ -98,6 +98,10 @@ def rollover(p, base):
         assert page.evaluate(
             "__CHRONICLE_TEST__.store.getDailySession('chronicle.daily.who.%d')"
             % (N - 1)) is not None, "yesterday's session lost on rollover"
+        # P5.1: the boot that first notices a rolled-over in-progress daily
+        # fires abandon-<game> once.
+        assert "4x-abandoned-facevalue" in H.gc_events(page), (
+            "rollover should fire abandon-who: %r" % H.gc_events(page))
         page.click('[data-archive="who"]')
         page.wait_for_selector("#view-archive:not([hidden])")
         cell = page.locator('#archive-list [data-edition="%d"]' % (N - 1))
@@ -169,7 +173,23 @@ def encore(p, base):
         H.fail_on_errors(errors, "encore")
 
 
-TESTS = [daily_lock_and_repair, rollover, archive_window, encore]
+# ---------- return_milestones ----------
+def return_milestones(p, base):
+    """D1/D7/D30 return one-shots (P5.1) fire together on the first boot that
+    crosses each threshold, counted in editions since the first-ever
+    completed daily — never a wall-clock timestamp."""
+    with H.app(p) as (page, errors, _ctx):
+        H.boot(page, base, H.edition_date(N - 10))
+        H.seed_completion(page, "who", N - 10, score=70)
+        H.boot(page, base, H.edition_date(N - 2))   # 8 editions later: crosses D1 and D7
+        events = H.gc_events(page)
+        assert "8-return-d1" in events, "missing ret-d1: %r" % events
+        assert "8-return-d7" in events, "missing ret-d7: %r" % events
+        assert "8-return-d30" not in events, "ret-d30 fired too early: %r" % events
+        H.fail_on_errors(errors, "return_milestones")
+
+
+TESTS = [daily_lock_and_repair, rollover, archive_window, encore, return_milestones]
 
 
 def main():

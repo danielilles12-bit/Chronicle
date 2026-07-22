@@ -1,8 +1,9 @@
 // Connections — group 16 history clues into four hidden categories
-import { $, $$, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, announce } from './app.js';
+import { $, $$, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, announce, consumeShareLaunch } from './app.js';
 import * as store from './storage.js';
 import * as daily from './daily.js';
-import { threadShareText, threadEmojiRows, shareResult, flashShareButton } from './sharecard.js';
+import { threadShareText, threadEmojiRows, shareResult, flashShareButton, shareUrl } from './sharecard.js';
+import { track, durationBucket } from './track.js';
 import * as sfx from './sfx.js';
 
 const MAX_MISTAKES = 4;
@@ -83,6 +84,10 @@ function modeStore(key) {
 // ---------- daily / practice entry points ----------
 // Thread daily/practice opens the edition's single board directly (no list).
 function startEdition(mode, editionIndex) {
+  // P5.2: consumed synchronously (no await between app.js setting it and
+  // this read), so it's safe even though the intro overlay can defer begin()
+  // behind a user tap — fromShare is closed over either way.
+  const fromShare = mode === 'daily' && consumeShareLaunch('thread');
   if (mode === 'daily') {
     const entry = store.getDailyEntry('thread', editionIndex);
     if (entry) { showLockedResult(editionIndex, entry); return; }
@@ -93,6 +98,7 @@ function startEdition(mode, editionIndex) {
   const key = mode === 'daily' ? daily.dailyKey('thread', editionIndex) : daily.practiceKey('thread', editionIndex);
   const st = modeStore(key);
   const progress = st.get();
+  if (mode === 'daily' && progress) track('resume-thread');
   const begin = () => {
     ensureConnScoreStyles();
     currentPuzzle = puzzle;
@@ -108,6 +114,8 @@ function startEdition(mode, editionIndex) {
       found: new Set(progress ? progress.found : []),
       mistakes: progress ? progress.mistakes : 0,
       guesses: progress ? (progress.guesses || []) : [],
+      startedAt: (progress && progress.startedAt) || Date.now(),
+      fromShare,
       done: false,
     };
     $('#conn-puzzle-title').textContent = puzzle.title;
@@ -171,6 +179,7 @@ function persistProgress() {
     found: [...S.found],
     mistakes: S.mistakes,
     guesses: S.guesses || [],
+    startedAt: S.startedAt,
   });
 }
 
@@ -280,6 +289,7 @@ function updateMistakesDisplay() {
 
 function submitGuess() {
   if (S.selected.size !== 4 || S.done) return;
+  if (S.fromShare) { S.fromShare = false; track('answer-from-share-thread'); }
   const remaining = S.tiles.filter((t) => !S.found.has(t.colour));
   const selectedTiles = [...S.selected].map((i) => remaining[i]);
   const colours = selectedTiles.map((t) => t.colour);
@@ -363,6 +373,9 @@ function finishPuzzle() {
       score,
       detail: { solved, perfect, mistakes: S.mistakes, guesses: S.guesses || [] },
     });
+    const outcome = !solved ? 'lost' : (S.mistakes === 0 ? 'clean' : 'fought');
+    track(`round-thread-${outcome}`);
+    track(`dur-thread-${durationBucket(Date.now() - (S.startedAt || Date.now()))}`);
     S.locked = true;
   }
   // practice mode: no ledger, no puzzle-list record, no stats — replayable.
@@ -408,6 +421,7 @@ function renderThreadReceipt({ editionIndex, mode, title, score, solved, perfect
     card: {
       game: 'THREAD', glyph: '🧵', score, sub: `ISSUE № ${editionIndex}`,
       rows: threadEmojiRows(guesses),
+      url: shareUrl('thread'),
     },
     trackAs: 'share-thread',
   } : null;

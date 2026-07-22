@@ -77,6 +77,24 @@ def daily_all_four(p, base):
             assert e["completedOn"] == N
         assert led["fullHouse"]["streak"] >= 1
 
+        # P5.1: every round here was answered correctly, first try, with no
+        # clues bought — each should read as a "clean" outcome, and the whole
+        # (fast, headless) run as the fastest duration bucket. Expected count
+        # comes from the ledger's own detail, not a hardcoded round count —
+        # today's manifest edition may still be pre-recipe-change (10 rounds)
+        # rather than the target 5 (P1.4).
+        events = H.gc_events(page)
+        game_display = {"who": "facevalue", "map": "lifeline", "what": "relic", "thread": "thread"}
+        for g, name in game_display.items():
+            assert ("4-dur-%s-u2" % name) in events, (
+                "missing fast duration bucket for %s: %r" % (g, events))
+            clean = "4-round-%s-clean" % name
+            entry = led["entries"][g][str(N)]
+            expected = 1 if g == "thread" else len(entry["detail"])
+            assert events.count(clean) == expected, (
+                "expected %d clean round outcomes for %s, got %d: %r"
+                % (expected, g, events.count(clean), events))
+
         page.click("#dd-home")
         page.wait_for_selector("#view-home:not([hidden])")
         page.wait_for_selector("#punch-card:not([hidden])")
@@ -115,6 +133,8 @@ def outcomes_reveal(p, base):
         page.wait_for_selector("#rv-badge:not([hidden])")
         assert "0 pts" in page.inner_text("#rv-badge").lower()
         assert "it was" in page.inner_text("#rv-feedback").lower()
+        assert "4-round-facevalue-lost" in H.gc_events(page), (
+            "give-up should record a lost round outcome")
         H.fail_on_errors(errors, "outcomes_reveal")
 
 
@@ -135,6 +155,8 @@ def outcomes_map(p, base):
         page.click("#map-reveal")
         page.wait_for_selector("#map-feedback:not([hidden])")
         assert "0 pts" in page.inner_text("#map-feedback").lower()
+        assert "4-round-lifeline-lost" in H.gc_events(page), (
+            "give-up should record a lost round outcome")
         H.fail_on_errors(errors, "outcomes_map")
 
 
@@ -158,6 +180,8 @@ def outcomes_thread(p, base):
         assert "snapped" in page.inner_text("#conn-sum-msg").lower()
         led = H.ledger(page)
         assert led["entries"]["thread"][str(N)]["score"] == 0
+        assert "4-round-thread-lost" in H.gc_events(page), (
+            "a snapped thread should record a lost round outcome")
         H.fail_on_errors(errors, "outcomes_thread")
 
 
@@ -187,6 +211,8 @@ def resume_reveal(p, base):
         assert page.locator("#rv-guesses .guess-chip").count() == 1
         assert page.locator("#rv-hint-chips .hint-chip").count() == 1
         assert page.locator("#rv-clue-a").is_disabled()
+        assert "3-resume-facevalue" in H.gc_events(page), (
+            "resuming a saved daily should fire resume-who")
         H.fail_on_errors(errors, "resume_reveal")
 
 
@@ -210,6 +236,8 @@ def resume_map(p, base):
         assert page.locator("#map-guesses .guess-chip").count() == 1
         assert page.locator("#map-hint-chips .hint-chip").count() == 1
         assert page.locator("#hint-ini").is_disabled()
+        assert "3-resume-lifeline" in H.gc_events(page), (
+            "resuming a saved daily should fire resume-map")
         H.fail_on_errors(errors, "resume_map")
 
 

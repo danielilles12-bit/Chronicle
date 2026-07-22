@@ -194,6 +194,13 @@ export function clearDailySession(key) {
   saveAll(d);
 }
 
+// P5.1: every in-progress daily session's key, for app.js's boot-time
+// abandoned-daily check — the one caller that needs to enumerate rather than
+// address a single session it already knows the key for.
+export function getDailySessionKeys() {
+  return Object.keys(loadAll().dailySessions || {});
+}
+
 // The ledger: one completion record per (game, editionIndex), plus per-game
 // streaks and the cross-game "full house" streak. Kept as one small object
 // so daily.js's pure streak math (nextStreak) can read/write it in one place.

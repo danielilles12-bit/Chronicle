@@ -10,7 +10,18 @@ import { track } from './track.js';
 // ?ref=share shows shared-link visits under the GoatCounter Campaigns panel
 // ("ref" is in its default campaign params). track.js scrubs the param after
 // the pageview is counted so it never bakes into an installed app's URL.
-export const SHARE_URL = 'https://deadfamous.app/?ref=share';
+//
+// P5.2: a per-game share additionally carries ?play=<game>, which app.js's
+// boot router reads to open that game's TODAY daily directly — Wordle
+// convention, the recipient plays their own today, never the sender's issue
+// — instead of the generic home page (whose CTA only ever opens Face Value).
+// fullhouse/obituary shares have no single game to route to, so they keep
+// the bare link. Plain validated params on purpose — no signing, see the
+// discarded X1 card in the audited plan.
+const BASE_URL = 'https://deadfamous.app/';
+export function shareUrl(game) {
+  return game ? `${BASE_URL}?play=${game}&ref=share` : `${BASE_URL}?ref=share`;
+}
 
 const THREAD_EMOJI = { yellow: '🟨', green: '🟩', blue: '🟦', purple: '🟪' };
 // Card #12: colorblind print glyphs. The text emoji-grid share (above) stays
@@ -36,9 +47,8 @@ export function revealEmojiRow(rounds) {
   }).join('');
 }
 
-function lines(...parts) {
-  if (SHARE_URL) parts.push(SHARE_URL);
-  return parts.filter(Boolean).join('\n');
+function lines(url, ...parts) {
+  return parts.concat(url ? [url] : []).filter(Boolean).join('\n');
 }
 
 // ---------- per-game share text ----------
@@ -47,7 +57,7 @@ export function threadShareText(issue, d) {
   const human = d.perfect ? 'Flawless.'
     : d.solved ? `${d.mistakes} slip${d.mistakes === 1 ? '' : 's'}${d.title ? ` — ${d.title.toUpperCase()} had me` : ''}.`
     : `${d.title ? d.title.toUpperCase() : 'The board'} beat me.`;
-  return lines(`THREAD №${issue} 🧵`, grid, human);
+  return lines(shareUrl('thread'), `THREAD №${issue} 🧵`, grid, human);
 }
 
 export function mapShareText(issue, rounds, score) {
@@ -58,7 +68,7 @@ export function mapShareText(issue, rounds, score) {
   if (hints) bits.push(`${hints} hint${hints === 1 ? '' : 's'}`);
   if (coffins) bits.push(`${coffins} funeral${coffins === 1 ? '' : 's'}`);
   const human = `${score} pts${bits.length ? ' · ' + bits.join(', ') : ' · a clean sweep'}`;
-  return lines(`LIFELINE №${issue} 🗺️`, row, human);
+  return lines(shareUrl('map'), `LIFELINE №${issue} 🗺️`, row, human);
 }
 
 export function revealShareText(kind, issue, rounds, score) {
@@ -66,17 +76,17 @@ export function revealShareText(kind, issue, rounds, score) {
   const glyph = kind === 'who' ? '🖼️' : '🏺';
   const row = revealEmojiRow(rounds);
   const scraps = rounds.reduce((s, r) => s + (r.torn || 0), 0);
-  return lines(`${name} №${issue} ${glyph}`, row, `${score} pts · ${scraps} scraps torn`);
+  return lines(shareUrl(kind), `${name} №${issue} ${glyph}`, row, `${score} pts · ${scraps} scraps torn`);
 }
 
 export function fullHouseShareText(issue, scores, total, streak) {
   const row = `🖼️${scores.who} 🗺️${scores.map} 🏺${scores.what} 🧵${scores.thread} · ${total} PTS`;
   const flame = streak > 1 ? `🔥 ${streak}-day streak` : '';
-  return lines(`DEAD FAMOUS №${issue} — FULL HOUSE 🏛️`, row, flame);
+  return lines(shareUrl(), `DEAD FAMOUS №${issue} — FULL HOUSE 🏛️`, row, flame);
 }
 
 export function obituaryShareText(streak, fromIssue, toIssue) {
-  return lines('DEAD FAMOUS ⚰️',
+  return lines(shareUrl(), 'DEAD FAMOUS ⚰️',
     `My ${streak}-day streak died.`,
     `RIP №${fromIssue}–№${toIssue}. MEMENTO MORI.`);
 }
@@ -91,7 +101,7 @@ function sticker() {
   return stickerImg;
 }
 
-// spec: { game, glyph, score, rows: ['🟩🟨…', …], sub, stamp } → PNG blob.
+// spec: { game, glyph, score, rows: ['🟩🟨…', …], sub, stamp, url } → PNG blob.
 async function drawCard(spec) {
   try { if (document.fonts && document.fonts.ready) await document.fonts.ready; } catch (e) { /* draw anyway */ }
   const W = 1080, H = 1350;
@@ -159,9 +169,9 @@ async function drawCard(spec) {
   x.fillStyle = '#E02020'; x.font = '700 40px "DF Mono",monospace';
   x.fillText(spec.stamp || 'CARPET DIEM', 0, -20);
   x.restore();
-  if (SHARE_URL) {
+  if (spec.url) {
     x.fillStyle = '#0B0B0B'; x.font = '700 28px "DF Mono",monospace';
-    x.fillText(SHARE_URL.replace(/^https?:\/\//, ''), W / 2, 1286);
+    x.fillText(spec.url.replace(/^https?:\/\//, ''), W / 2, 1286);
   }
   x.textAlign = 'left';
   return new Promise((res) => cv.toBlob(res, 'image/png'));

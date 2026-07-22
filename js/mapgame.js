@@ -1,10 +1,10 @@
 // "Map of a Life": guess the historical figure from birth/death geography.
-import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, teachWrongGuess, announce, testHooksEnabled } from './app.js';
+import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, teachWrongGuess, announce, testHooksEnabled, consumeShareLaunch } from './app.js';
 import * as store from './storage.js';
-import { track } from './track.js';
+import { track, roundOutcome, durationBucket } from './track.js';
 import { isMatch, registerPool } from './match.js';
 import * as daily from './daily.js';
-import { mapShareText, mapEmojiRow, shareResult, flashShareButton } from './sharecard.js';
+import { mapShareText, mapEmojiRow, shareResult, flashShareButton, shareUrl } from './sharecard.js';
 import * as sfx from './sfx.js';
 
 const MAP_W = 1000, MAP_H = 500;
@@ -328,6 +328,7 @@ function persistSession() {
     ids: S.rounds.map((f) => f.id),
     i: S.i, score: S.score, streak: S.streak, bestStreak: S.bestStreak,
     editionIndex: S.editionIndex,
+    startedAt: S.startedAt,
     cur: S.cur && S.cur.open
       ? {
           hints: S.cur.hints, wrongs: S.cur.wrongs, occUsed: !!S.cur.occUsed, iniUsed: !!S.cur.iniUsed,
@@ -390,7 +391,7 @@ function resumeSession() {
 
 // Shared resume path for free/daily/practice: `saved` is the persisted
 // session shape (ids/i/score/streak/bestStreak/results/cur/editionIndex).
-function resumeFrom(mode, key, saved) {
+function resumeFrom(mode, key, saved, fromShare) {
   const byId = (id) => DATA.figures.find((f) => f.id === id);
   // The round to play is always the first one without a stored result —
   // a session saved mid-round (answered, "Next" untapped) must NOT replay
@@ -412,6 +413,8 @@ function resumeFrom(mode, key, saved) {
       fig: byId(r.id), pts: r.pts, correct: r.correct, hints: r.hints, wrongs: r.wrongs,
     })),
     pendingCur: saved.cur || null,
+    startedAt: saved.startedAt || Date.now(),
+    fromShare: !!fromShare,
   };
   if (next >= saved.ids.length) {
     // every round already answered when the app died: go straight to results
@@ -448,13 +451,18 @@ function startSession() {
 // the ledger (separate `chronicle.practice.*` storage key).
 function startEdition(mode, editionIndex) {
   const key = mode === 'daily' ? daily.dailyKey('map', editionIndex) : daily.practiceKey('map', editionIndex);
+  // P5.2: consumed synchronously (no await between app.js setting it and
+  // this read), so it's safe even though the intro overlay can defer begin()
+  // behind a user tap — fromShare is closed over either way.
+  const fromShare = mode === 'daily' && consumeShareLaunch('map');
   if (mode === 'daily') {
     const entry = store.getDailyEntry('map', editionIndex);
     if (entry) { showLockedResult(editionIndex, entry); return; }
   }
   const saved = store.getDailySession(key);
   if (saved && saved.ids && saved.results) {
-    resumeFrom(mode, key, saved);
+    if (mode === 'daily') track('resume-map');
+    resumeFrom(mode, key, saved, fromShare);
     return;
   }
   const begin = () => {
@@ -462,6 +470,7 @@ function startEdition(mode, editionIndex) {
     S = {
       mode, dailyKey: key, store: modeStore(mode, key), editionIndex,
       rounds, i: 0, score: 0, streak: 0, bestStreak: 0, results: [],
+      startedAt: Date.now(), fromShare,
     };
     renderWorld();
     setVb([0, 0, MAP_W, MAP_H]);
@@ -607,6 +616,7 @@ function resolveRound(correct) {
   const total = pts + bonus;
   S.results.push({ fig, pts: total, correct, hints: S.cur.hints, wrongs: S.cur.wrongs });
   S.score = daily.sessionScore(S.results);   // the 0–100 dial: capped round average
+  if (S.mode === 'daily') track(`round-map-${roundOutcome(correct, S.cur.hints, S.cur.wrongs)}`);
   persistSession();
 
   const fb = $('#map-feedback');
@@ -682,6 +692,7 @@ function renderLockedSummary() {
     card: {
       game: 'LIFELINE', glyph: '🗺️', score: S.score, sub: `ISSUE № ${S.editionIndex}`,
       rows: [mapEmojiRow(S.results.slice(0, 5)), mapEmojiRow(S.results.slice(5))].filter(Boolean),
+      url: shareUrl('map'),
     },
     trackAs: 'share-map',
   } : null;
@@ -721,6 +732,7 @@ function finishSession() {
       score: S.score,
       detail: S.results.map((r) => ({ id: r.fig.id, pts: r.pts, correct: r.correct, hints: r.hints })),
     });
+    track(`dur-map-${durationBucket(Date.now() - (S.startedAt || Date.now()))}`);
     S.locked = true;
   }
   // practice mode: no ledger, no best-score update — replayable, no trace.
@@ -748,6 +760,7 @@ export function initMapGame() {
     if (!S || !S.cur.open) return;
     const guess = $('#map-input').value.trim();
     if (!guess) return;
+    if (S.fromShare) { S.fromShare = false; track('answer-from-share-map'); }
     if (isMatch(guess, round(), 'map')) {
       resolveRound(true);
     } else {

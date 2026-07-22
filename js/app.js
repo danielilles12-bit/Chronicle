@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v125';
+const BUILD = 'v126';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -13,7 +13,7 @@ if (/iP(hone|ad|od)/.test(navigator.userAgent)
 
 import * as store from './storage.js';
 import { track, initTracking } from './track.js';
-import { fullHouseShareText, obituaryShareText, shareResult, flashShareButton } from './sharecard.js';
+import { fullHouseShareText, obituaryShareText, shareResult, flashShareButton, shareUrl } from './sharecard.js';
 import { isMatch } from './match.js';
 import { initMapGame, renderMapStart, startMapDaily, startMapPractice } from './mapgame.js';
 import { initRevealGame, renderRevealStart, startRevealDaily, startRevealPractice } from './revealgame.js';
@@ -710,6 +710,92 @@ function maybeShowInstallTip() {
   track('install-tip-shown');
 }
 
+// ---------- P5.2: share deep links ----------
+// A ?play=<game> link (thread|map|who|what) routes straight into that
+// game's TODAY daily instead of the generic home page, whose CTA only ever
+// opens Face Value. Recipients play their OWN today (Wordle convention), so
+// any issue number a sender's link might carry is purely informational and
+// is never read here — only the game key matters.
+//
+// shareLaunchGame is set the instant routeSharedPlay calls g.launchDaily and
+// consumed synchronously by that game's startEdition (mapgame.js/
+// revealgame.js/connectionsgame.js), which flags its own session so the
+// first answer submitted can fire answer-from-share-<game>. No async gap
+// between the two calls, so a single module variable is safe — at most one
+// game ever launches this way per boot.
+let shareLaunchGame = null;
+export function consumeShareLaunch(gameKey) {
+  if (shareLaunchGame !== gameKey) return false;
+  shareLaunchGame = null;
+  return true;
+}
+
+async function routeSharedPlay() {
+  const params = new URLSearchParams(location.search);
+  const game = params.get('play');
+  const valid = ['thread', 'map', 'who', 'what'].indexOf(game) !== -1;
+  if (valid) {
+    track(`land-share-${game}`);
+    const g = GAME_ROWS.find((x) => x.key === game);
+    if (g && await ensureGameData(game, null)) {
+      shareLaunchGame = game;
+      track(`start-from-share-${game}`);
+      g.launchDaily(daily.todayIndex());
+    }
+  }
+  // Scrub after routing (track.js does the same for ref/utm): an installed
+  // "Add to Home Screen" must never bake a share route into the app's
+  // permanent start URL, or every later open would re-route as a share.
+  if (params.has('play')) {
+    params.delete('play');
+    const qs = params.toString();
+    history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
+  }
+}
+
+// ---------- P5.1: abandoned dailies + return milestones ----------
+// A daily session still open when local midnight passed it by is
+// "abandoned" — checked once per boot, fired once per (game, edition) the
+// first boot that notices and never again. finishSession always clears its
+// own session key on completion, so any leftover session for an edition
+// that's no longer today really was left mid-round, not a stale-but-done one.
+function checkAbandonedDailies() {
+  const today = daily.todayIndex();
+  const misc = store.getMisc();
+  const seen = new Set(misc.abandonSeen || []);
+  let changed = false;
+  store.getDailySessionKeys().forEach((key) => {
+    const m = /^chronicle\.daily\.(map|who|what|thread)\.(-?\d+)$/.exec(key);
+    if (!m || seen.has(key)) return;
+    const game = m[1];
+    const n = +m[2];
+    if (n >= today) return;
+    seen.add(key);
+    changed = true;
+    if (!store.getDailyEntry(game, n)) track(`abandon-${game}`);
+  });
+  if (changed) store.setMisc({ abandonSeen: [...seen] });
+}
+
+// Return one-shots: a device that skips day 1 and resurfaces on day 9 fires
+// ret-d1 and ret-d7 together on that one boot; ret-d30 only once 30+
+// editions have actually passed since the first-ever completed daily. Local
+// edition-index arithmetic only — never a wall-clock timestamp or anything
+// that could compare across devices.
+const RETURN_THRESHOLDS = [['ret-d1', 1], ['ret-d7', 7], ['ret-d30', 30]];
+function checkReturnMilestones() {
+  const first = daily.firstCompletedEdition();
+  if (first == null) return;
+  const daysSince = daily.todayIndex() - first;
+  const misc = store.getMisc();
+  const fired = new Set(misc.retFired || []);
+  let changed = false;
+  RETURN_THRESHOLDS.forEach(([evt, days]) => {
+    if (daysSince >= days && !fired.has(evt)) { track(evt); fired.add(evt); changed = true; }
+  });
+  if (changed) store.setMisc({ retFired: [...fired] });
+}
+
 // ---------- boot ----------
 
 // The queen pull, riding native physics (iOS only). The overscroll bounce
@@ -868,6 +954,7 @@ function fullHouseShare(n) {
       game: 'FULL HOUSE', glyph: '🏛️', score: total, sub: `ISSUE № ${n}`,
       rows: [`🧵 ${scores.thread}   🗺️ ${scores.map}`, `🖼️ ${scores.who}   🏺 ${scores.what}`]
         .concat(streak > 1 ? [`🔥 ${streak}-day streak`] : []),
+      url: shareUrl(),
     },
     trackAs: 'share-fullhouse',
     idle: "Share today's receipt",
@@ -966,6 +1053,7 @@ function showObituary(streak, lastEdition) {
       game: 'IN MEMORIAM', glyph: '⚰️', score: streak, unit: 'DAYS',
       sub: `ISSUES №${Math.max(0, lastEdition - streak + 1)}–№${lastEdition}`,
       rows: [], stamp: 'MEMENTO MORI',
+      url: shareUrl(),
     },
     trackAs: 'share-obituary',
     idle: 'Share the obituary',
@@ -1152,6 +1240,8 @@ async function boot() {
   if (store.getMisc().seenBefore) track('open-return');
   else { track('open-new'); store.setMisc({ seenBefore: true }); }
   daily.normalizeLedgerScales();
+  checkAbandonedDailies();
+  checkReturnMilestones();
   // Free-play bests recorded before the rebase were 10-round sums; rescale
   // them onto the same 0–100 dial (approximate: sum/rounds).
   const mapStats = store.getMap();
@@ -1173,6 +1263,7 @@ async function boot() {
   // run behind it; only a tap into a game ever waits on the files that game
   // needs (ensureGameData).
   loadAllData();
+  routeSharedPlay();
 
   initPullToRefresh();
   initHome();
@@ -1213,6 +1304,17 @@ async function boot() {
   }
 
   if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
+    // P5.1: the image cache lives inside the service worker, which has no
+    // window.goatcounter of its own — a failed cache write posts a message
+    // here instead. One beacon per session, same shape as every other
+    // err-* dedupe in this file.
+    let imgCacheErrTracked = false;
+    navigator.serviceWorker.addEventListener('message', (e) => {
+      if (e.data && e.data.type === 'df-img-cache-fail' && !imgCacheErrTracked) {
+        imgCacheErrTracked = true;
+        track('err-img-cache');
+      }
+    });
     navigator.serviceWorker.register('sw.js').then((reg) => {
       // iOS only re-checks sw.js on a cold launch — resuming from the app
       // switcher is not a navigation — so ask for an update check on every

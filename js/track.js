@@ -83,7 +83,65 @@ const DISPLAY = {
   // Crash beacons arrive pre-named from app.js ('9-app-error-<script>' /
   // '9-app-rejection-<type>') and pass through the map untouched.
 };
+
+// P5.1: round outcome / duration / resume / abandon / share-funnel families
+// are a game x bucket cross-product (56 entries) — generated rather than
+// hand-typed so a mistyped bucket name can't silently create an uncounted
+// event. Numbering extends the story above: 1 = arrived (a share landing is
+// a specific flavour of arriving), 3 = started/still playing (resume, and
+// the share funnel's start/answer steps, are both "mid-session" signals),
+// 4 = how a round or the whole daily resolved, 4x = a daily rollover left
+// UNresolved — kept out of the "4" family entirely, exactly like
+// 6x-share-cancelled is kept out of 6-shared above — and 8 = the player
+// came back days or weeks later (the one gap left in the single-digit
+// scheme, reserved for retention).
+const GAME_DISPLAY_NAME = { map: 'lifeline', who: 'facevalue', what: 'relic', thread: 'thread' };
+Object.keys(GAME_DISPLAY_NAME).forEach((g) => {
+  const name = GAME_DISPLAY_NAME[g];
+  // Thread has no hint mechanic — see roundOutcome/finishPuzzle's own
+  // clean/fought/lost (mistake-count based, not hints-based) logic.
+  const outcomes = g === 'thread' ? ['clean', 'fought', 'lost'] : ['clean', 'hinted', 'fought', 'lost'];
+  outcomes.forEach((o) => { DISPLAY[`round-${g}-${o}`] = `4-round-${name}-${o}`; });
+  ['u2', 'u5', 'o5'].forEach((b) => { DISPLAY[`dur-${g}-${b}`] = `4-dur-${name}-${b}`; });
+  DISPLAY[`resume-${g}`] = `3-resume-${name}`;
+  DISPLAY[`abandon-${g}`] = `4x-abandoned-${name}`;
+  DISPLAY[`land-share-${g}`] = `1-land-share-${name}`;
+  DISPLAY[`start-from-share-${g}`] = `3-start-from-share-${name}`;
+  DISPLAY[`answer-from-share-${g}`] = `3-answer-from-share-${name}`;
+});
+DISPLAY['ret-d1'] = '8-return-d1';
+DISPLAY['ret-d7'] = '8-return-d7';
+DISPLAY['ret-d30'] = '8-return-d30';
+DISPLAY['ritual-week'] = '8-ritual-week';
+// P2.2's file-load family covers data/*.json; this is the one other place a
+// player's device can silently fail to persist something useful (the image
+// cache, when storage is full or private-mode limits kick in) — sw.js can't
+// call track() itself (no window.goatcounter inside a service worker), so it
+// posts a message and app.js relays it here, once per session.
+DISPLAY['err-img-cache'] = '9-img-cache-failed';
+
 let queued = [];
+
+// P5.1: round outcome bucket, shared by mapgame.js/revealgame.js (Thread
+// computes its own — mistake-count based, no hint mechanic). Priority: a
+// wrong guess before the correct answer always reads as "fought", even if a
+// clue was also bought — "hinted" is reserved for a clean run helped only by
+// a clue, never a struggled one.
+export function roundOutcome(correct, hints, wrongs) {
+  if (!correct) return 'lost';
+  if (wrongs > 0) return 'fought';
+  if (hints > 0) return 'hinted';
+  return 'clean';
+}
+
+// P5.1: duration bucket for a completed daily, from a session-start
+// timestamp kept in that game's session blob (see mapgame.js/revealgame.js/
+// connectionsgame.js persist functions).
+export function durationBucket(ms) {
+  if (ms < 120000) return 'u2';
+  if (ms < 300000) return 'u5';
+  return 'o5';
+}
 
 export function track(event) {
   if (!CODE) return;

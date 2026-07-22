@@ -4,12 +4,12 @@
 // the round's worth, and wrong guesses dock more. No clock — curiosity is the
 // only spender.
 // Mirrors the Map of a Life session shape (5 rounds, persisted, resumable).
-import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, teachWrongGuess, announce, testHooksEnabled } from './app.js';
+import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, teachWrongGuess, announce, testHooksEnabled, consumeShareLaunch } from './app.js';
 import * as store from './storage.js';
-import { track } from './track.js';
+import { track, roundOutcome, durationBucket } from './track.js';
 import { isMatch, registerPool } from './match.js';
 import * as daily from './daily.js';
-import { revealShareText, revealEmojiRow, shareResult, flashShareButton } from './sharecard.js';
+import { revealShareText, revealEmojiRow, shareResult, flashShareButton, shareUrl } from './sharecard.js';
 import { attachPinchZoom } from './pinchzoom.js';
 import * as sfx from './sfx.js';
 
@@ -491,6 +491,7 @@ function persist() {
     ids: S.rounds.map((x) => x.id),
     score: S.score, streak: S.streak, bestStreak: S.bestStreak,
     editionIndex: S.editionIndex,
+    startedAt: S.startedAt,
     cur: S.cur && S.cur.open
       ? {
           torn: S.cur.torn.slice(), wrongs: S.cur.wrongs,
@@ -538,7 +539,7 @@ function resumeSession() {
 }
 
 // Shared resume path for free/daily/practice.
-function resumeFrom(sessMode, key, saved) {
+function resumeFrom(sessMode, key, saved, fromShare) {
   const st = modeStore(sessMode, key);
   if (saved.ids.some((id) => !byId(id)) || saved.results.some((r) => !byId(r.id))) {
     st.clear();
@@ -553,6 +554,8 @@ function resumeFrom(sessMode, key, saved) {
     score: saved.score, streak: saved.streak, bestStreak: saved.bestStreak,
     results: saved.results.map((r) => ({ item: byId(r.id), pts: r.pts, correct: r.correct })),
     pendingCur: saved.cur || null,
+    startedAt: saved.startedAt || Date.now(),
+    fromShare: !!fromShare,
   };
   if (next >= saved.ids.length) { finishSession(); return; }
   show('view-reveal');
@@ -564,13 +567,18 @@ function resumeFrom(sessMode, key, saved) {
 function startEdition(sessMode, editionIndex) {
   if (MODE !== 'who' && MODE !== 'what') return;
   const key = sessMode === 'daily' ? daily.dailyKey(MODE, editionIndex) : daily.practiceKey(MODE, editionIndex);
+  // P5.2: consumed synchronously (no await between app.js setting it and
+  // this read), so it's safe even though the intro overlay can defer begin()
+  // behind a user tap — fromShare is closed over either way.
+  const fromShare = sessMode === 'daily' && consumeShareLaunch(MODE);
   if (sessMode === 'daily') {
     const entry = store.getDailyEntry(MODE, editionIndex);
     if (entry) { showLockedResult(editionIndex, entry); return; }
   }
   const saved = store.getDailySession(key);
   if (saved && saved.ids && saved.results) {
-    resumeFrom(sessMode, key, saved);
+    if (sessMode === 'daily') track(`resume-${MODE}`);
+    resumeFrom(sessMode, key, saved, fromShare);
     return;
   }
   const mode = MODE;   // capture: MODE is stable while the intro overlay is up
@@ -579,6 +587,7 @@ function startEdition(sessMode, editionIndex) {
     S = {
       mode: sessMode, dailyKey: key, store: modeStore(sessMode, key), editionIndex,
       rounds, i: 0, score: 0, streak: 0, bestStreak: 0, results: [],
+      startedAt: Date.now(), fromShare,
     };
     show('view-reveal');
     startRound();
@@ -751,6 +760,10 @@ function resolveRound(correct) {
   const total = pts + bonus;
   S.results.push({ item, pts: total, correct, torn: S.cur.torn.length, wrongs });
   S.score = daily.sessionScore(S.results);   // the 0–100 dial: capped round average
+  if (S.mode === 'daily') {
+    const hints = (S.cur.clueA ? 1 : 0) + (S.cur.clueB ? 1 : 0);
+    track(`round-${MODE}-${roundOutcome(correct, hints, wrongs)}`);
+  }
   persist();
 
   // The reveal: every scrap flies off, the full image shows with the house
@@ -834,6 +847,7 @@ function renderLockedSummary() {
       glyph: MODE === 'who' ? '🖼️' : '🏺',
       score: S.score, sub: `ISSUE № ${S.editionIndex}`,
       rows: [revealEmojiRow(S.results.slice(0, 5)), revealEmojiRow(S.results.slice(5))].filter(Boolean),
+      url: shareUrl(MODE),
     },
     trackAs: `share-${MODE}`,
   } : null;
@@ -869,6 +883,7 @@ function finishSession() {
       // torn/wrongs feed the Share 2.0 emoji row (🟩 clean, 🟨 laboured, 🟥 lost)
       detail: S.results.map((r3) => ({ id: r3.item.id, pts: r3.pts, correct: r3.correct, torn: r3.torn, wrongs: r3.wrongs })),
     });
+    track(`dur-${MODE}-${durationBucket(Date.now() - (S.startedAt || Date.now()))}`);
     S.locked = true;
   }
   // practice mode: no ledger, no best-score update — replayable, no trace.
@@ -911,6 +926,7 @@ export function initRevealGame() {
     if (!S || !S.cur || !S.cur.open) return;
     const guess = $('#rv-input').value.trim();
     if (!guess) return;
+    if (S.fromShare) { S.fromShare = false; track(`answer-from-share-${MODE}`); }
     if (isMatch(guess, round(), MODE)) {
       resolveRound(true);
     } else {

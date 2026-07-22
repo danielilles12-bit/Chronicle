@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Resilience suite (P4.1): share clipboard fallback, storage corruption +
-quota failure, offline play of the current issue, service-worker update bar.
+"""Resilience suite (P4.1/P5.2): share clipboard fallback, share deep-link
+landing, storage corruption + quota failure, offline play of the current
+issue, service-worker update bar.
 """
 import functools
 import http.server
@@ -38,12 +39,53 @@ def share_fallback(p, base):
             ".indexOf('Copied') === 0")
         clip = page.evaluate("navigator.clipboard.readText()")
         assert ("THREAD №%d" % N) in clip, "clipboard text wrong: %r" % clip[:80]
+        assert "?play=thread&ref=share" in clip, (
+            "Thread's receipt should carry its own game deep link: %r" % clip)
         events = H.gc_events(page)
         assert "6-shared-thread-copied" in events, (
             "copied event missing from analytics: %r" % events)
         assert "6-shared-thread" not in events, (
             "a clipboard copy must not count as a full share")
         H.fail_on_errors(errors, "share_fallback")
+
+
+# ---------- share_landing (P5.2) ----------
+def share_landing(p, base):
+    """A ?play=<game> deep link (Wordle convention): lands, routes into that
+    game's TODAY daily regardless of any issue the sender's link carried, and
+    scrubs the param. Events fire in order land -> start -> answer. An
+    unrecognised game value is ignored — no route, no land event — rather
+    than crashing or falling through to some default game.
+
+    One browser, two sequential boots (same pattern as test_daily_flow's
+    rollover) — each H.boot is a full page.goto/reload, which re-arms the
+    GC_STUB init script for a clean window.__gc, so the two checks don't
+    need separate browser launches."""
+    with H.app(p) as (page, errors, _ctx):
+        H.boot(page, base, DATE, extra="&play=nonsense")
+        assert page.locator("#view-home").is_visible(), (
+            "an invalid ?play= value should leave Home showing")
+        assert "play=" not in page.evaluate("location.search"), (
+            "an invalid ?play= value should still be scrubbed")
+        assert not any(e.startswith("1-land-share-") for e in H.gc_events(page)), (
+            "an invalid ?play= value must not count as a share landing")
+
+        H.boot(page, base, DATE, extra="&play=thread")
+        board = H.thread_board(page, N)
+        H.dismiss_intro(page)
+        page.wait_for_selector("#view-conn:not([hidden])")
+        assert page.inner_text("#conn-puzzle-title").lower() == board["title"].lower(), (
+            "share link should route to TODAY's Thread daily")
+        assert "play=" not in page.evaluate("location.search"), (
+            "share param not scrubbed from the URL")
+        H.click_tiles(page, board["groups"][0]["items"])
+        page.click("#conn-submit")
+        events = H.gc_events(page)
+        land = events.index("1-land-share-thread")
+        start = events.index("3-start-from-share-thread")
+        answer = events.index("3-answer-from-share-thread")
+        assert land < start < answer, "share funnel events out of order: %r" % events
+        H.fail_on_errors(errors, "share_landing")
 
 
 # ---------- storage ----------
@@ -191,7 +233,7 @@ def sw_update(p, base_unused):
         srv.shutdown()
 
 
-TESTS = [share_fallback, storage_corrupt, storage_quota,
+TESTS = [share_fallback, share_landing, storage_corrupt, storage_quota,
          offline_current_issue, sw_update]
 
 
