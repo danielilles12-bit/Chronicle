@@ -7,7 +7,7 @@
 //   new worker precaches the shell, skipWaiting+claim take over immediately ->
 //   app.js sees controllerchange and shows the NEW EDITION bar -> the user's
 //   pull-to-refresh (or a tap on the bar) reloads into the new version.
-const VERSION = 'deadfamous-v126';
+const VERSION = 'deadfamous-v127';
 
 // Daily-content cache: survives version bumps so updating the app never
 // re-downloads the whole archive, served stale-while-revalidate below.
@@ -96,6 +96,19 @@ function notifyImgCacheFail() {
   });
 }
 
+// P5.3b: IMG_CACHE is otherwise unbounded — every edition ever opened adds
+// its images and nothing ever leaves. Cap it at 300 entries (~a month of
+// dailies at 10 images/day) by dropping the OLDEST puts once over.
+// Cache.keys() returns entries in insertion order, so the first `excess`
+// keys are exactly the ones to drop.
+const IMG_CACHE_MAX = 300;
+async function evictImgCache(cache) {
+  const keys = await cache.keys();
+  const excess = keys.length - IMG_CACHE_MAX;
+  if (excess <= 0) return;
+  await Promise.all(keys.slice(0, excess).map((k) => cache.delete(k)));
+}
+
 self.addEventListener('fetch', (e) => {
   const req = e.request;
   if (req.method !== 'GET') return;
@@ -113,27 +126,33 @@ self.addEventListener('fetch', (e) => {
       const hit = await c.match(req, { ignoreSearch: true });
       if (hit) return hit;
       const res = await fetch(req);
-      if (res && res.ok) c.put(req, res.clone()).catch(notifyImgCacheFail);
+      if (res && res.ok) {
+        await c.put(req, res.clone()).catch(notifyImgCacheFail);
+        e.waitUntil(evictImgCache(c));
+      }
       return res;
     }));
     return;
   }
 
-  // Daily content: serve the cached copy instantly, refresh it in the
-  // background. Content therefore lags one open at most, works offline after
-  // the first online boot, and never gates a version update.
+  // Daily content (P5.3b): network-first with a 3s ceiling, falling back to
+  // the last cached copy. A correction pushed to main now lands on the very
+  // next online open instead of lagging one open behind; a slow or offline
+  // connection still serves instantly from cache, and the network attempt is
+  // kept alive via waitUntil so a late reply still refreshes the cache for
+  // next time.
   if (url.pathname.includes('/data/')) {
     e.respondWith(caches.open(DATA_CACHE).then(async (c) => {
-      const hit = await c.match(req, { ignoreSearch: true });
-      const refresh = fetch(req).then((res) => {
+      const network = fetch(req).then((res) => {
         if (res && res.ok) c.put(req, res.clone());
         return res;
-      });
-      if (hit) {
-        e.waitUntil(refresh.catch(() => {}));
-        return hit;
-      }
-      return refresh;
+      }).catch(() => null);
+      e.waitUntil(network);
+      const timeout = new Promise((resolve) => setTimeout(resolve, 3000));
+      const res = await Promise.race([network, timeout]);
+      if (res) return res;
+      const hit = await c.match(req, { ignoreSearch: true });
+      return hit || network;
     }));
     return;
   }

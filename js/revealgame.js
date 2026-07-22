@@ -4,7 +4,7 @@
 // the round's worth, and wrong guesses dock more. No clock — curiosity is the
 // only spender.
 // Mirrors the Map of a Life session shape (5 rounds, persisted, resumable).
-import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, teachWrongGuess, announce, testHooksEnabled, consumeShareLaunch } from './app.js';
+import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, teachWrongGuess, announce, testHooksEnabled, consumeShareLaunch, w800Url, loadImgFallback } from './app.js';
 import * as store from './storage.js';
 import { track, roundOutcome, durationBucket } from './track.js';
 import { isMatch, registerPool } from './match.js';
@@ -183,7 +183,7 @@ function shuffled(arr, rng) {
 }
 
 // ---------- image painting ----------
-const dims = {};               // img path -> {w,h}, cached after first load
+const dims = {};               // img path -> {w,h,src} | {failed:true}, cached after first load
 
 // The frame shows a square window into the image, covered by scraps. The
 // window is `cover`-fit and biased toward the item's focal point so the
@@ -191,10 +191,15 @@ const dims = {};               // img path -> {w,h}, cached after first load
 function paintCover(item) {
   const frame = $('#rv-frame');
   frame.classList.remove('df-duotone');
-  frame.style.backgroundImage = `url("${item.img}")`;
   frame.style.backgroundColor = '#111';
   frame.style.backgroundSize = 'cover';
   frame.style.backgroundPosition = `${(item.fx * 100).toFixed(1)}% ${(item.fy * 100).toFixed(1)}%`;
+  // P5.3a: dims[item.img].src (once resolved by ensureDims/prefetchRounds) is
+  // whichever URL actually loaded, w800 or original; before that's known,
+  // guess w800 optimistically — the ensureDims callback below repaints once
+  // the real answer is in, correcting a wrong guess (e.g. a missing variant).
+  const d = dims[item.img];
+  frame.style.backgroundImage = `url("${(d && d.src) || w800Url(item.img)}")`;
 }
 
 // On reveal the frame drops the square scrap-grid shape and morphs to the
@@ -205,10 +210,10 @@ function paintCover(item) {
 // failed) fall back to the old `contain` square.
 function paintFull(item) {
   const frame = $('#rv-frame');
-  frame.style.backgroundImage = `url("${item.img}")`;
   frame.style.backgroundPosition = 'center';
   frame.style.backgroundRepeat = 'no-repeat';
   const d = dims[item.img];
+  frame.style.backgroundImage = `url("${(d && d.src) || w800Url(item.img)}")`;
   if (d && d.w && d.h) {
     frame.style.aspectRatio = `${d.w} / ${d.h}`;
     frame.style.width = d.h > d.w
@@ -280,12 +285,11 @@ function toggleCreditPanel() {
 function ensureDims(item, cb) {
   const d = dims[item.img];
   if (d && !d.failed) { cb(); return; }
-  const img = new Image();
-  img.onload = () => { dims[item.img] = { w: img.naturalWidth, h: img.naturalHeight }; cb(); };
   // A failed load is remembered (so the round can show its honest offline
   // notice) but never treated as real dims — Retry clears it and reloads.
-  img.onerror = () => { dims[item.img] = { failed: true }; cb(); };
-  img.src = item.img;
+  loadImgFallback(item.img,
+    (img, src) => { dims[item.img] = { w: img.naturalWidth, h: img.naturalHeight, src }; cb(); },
+    () => { dims[item.img] = { failed: true }; cb(); });
 }
 
 // Honest offline state (owner report 2026-07-15, the aeroplane case): if the
@@ -474,10 +478,9 @@ function prefetchRounds() {
     const item = queue.shift();
     if (!item || !S) return;
     if (dims[item.img]) { next(); return; }
-    const img = new Image();
-    img.onload = () => { dims[item.img] = { w: img.naturalWidth, h: img.naturalHeight }; next(); };
-    img.onerror = () => next();
-    img.src = item.img;
+    loadImgFallback(item.img,
+      (img, src) => { dims[item.img] = { w: img.naturalWidth, h: img.naturalHeight, src }; next(); },
+      () => next());
   };
   next();
 }
@@ -722,6 +725,7 @@ function startRound() {
     if (!S || !S.cur || !S.cur.open || round() !== item) return;
     const d = dims[item.img];
     if (d && d.failed) setRoundOffline(true);
+    else paintCover(item);   // repaint with the now-resolved src (w800 or fallback)
   });
   prefetchRounds();
   persist();

@@ -1,0 +1,21 @@
+# Cloudflare Pages (P5.4). Static hosting only — no build step reads this;
+# Cloudflare applies it directly to the deployed output.
+
+# Puzzle images (originals + w800 variants) never change at a given URL —
+# fetch_commons.py always writes a fresh id when a photo is replaced — so
+# browsers and Cloudflare's edge can hold onto them forever.
+/assets/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# The service worker script must be re-checked on every visit (js/app.js
+# already forces this on every wake-up) or deploys never reach installed
+# apps — never let a CDN or browser cache serve a stale copy.
+/sw.js
+  Cache-Control: no-cache
+
+# The manifest that decides which puzzles are live today. Everything else in
+# /data/ is served network-first with a fallback by the service worker
+# (sw.js) regardless of HTTP caching, but the manifest specifically must
+# never be served stale from an intermediate cache.
+/data/editions.json
+  Cache-Control: no-cache

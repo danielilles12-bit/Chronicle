@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v126';
+const BUILD = 'v127';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -1335,6 +1335,33 @@ async function boot() {
   }
 }
 
+// P5.3a: assets/img/w800/<name>.webp is a pre-generated copy of every source
+// image (tools/build_image_variants.py) — longest edge 800px, same aspect
+// ratio, a fraction of the bytes. Every image load below tries it first and
+// falls back to the full original on any error (missing variant, a
+// generation miss) — a plain onerror swap, no feature detection needed
+// (WebP support is universal in 2026).
+export function w800Url(path) {
+  const slash = path.lastIndexOf('/');
+  const name = path.slice(slash + 1).replace(/\.[a-zA-Z0-9]+$/, '.webp');
+  return `${path.slice(0, slash + 1)}w800/${name}`;
+}
+
+// Loads `path` via its w800 variant, swapping to the full original if that
+// 404s or fails to decode. onload(img, resolvedSrc) fires with whichever
+// Image actually loaded; onerror fires only if BOTH attempts fail.
+export function loadImgFallback(path, onload, onerror) {
+  const img = new Image();
+  img.onload = () => onload(img, w800Url(path));
+  img.onerror = () => {
+    const orig = new Image();
+    orig.onload = () => onload(orig, path);
+    orig.onerror = onerror;
+    orig.src = path;
+  };
+  img.src = w800Url(path);
+}
+
 // Warm today's Face Value / Relic images so the dailies stay playable offline
 // (the aeroplane rule, owner report 2026-07-15): each request routes through
 // the service worker, which files the bytes into the version-bump-proof
@@ -1358,10 +1385,7 @@ function prefetchDailyImages() {
   const next = () => {
     const u = urls.shift();
     if (!u) return;
-    const img = new Image();
-    img.onload = next;
-    img.onerror = next;
-    img.src = u;
+    loadImgFallback(u, next, next);
   };
   next();
 }
