@@ -11,6 +11,9 @@ Subcommands:
                             5 who + 5 map + 5 what + 1 thread recipe, into
                             data/editions.proposed.json (NOT the live manifest)
                             plus a human review sheet tools/out/review-<date>.html.
+  review                    Re-render the review sheet from the EXISTING
+                            proposals file without re-rolling any content
+                            (e.g. after a sheet-template change).
   approve --through DATE    Promote proposed editions with date <= DATE into
                             data/editions.json. Refuses aired dates; never
                             rewrites an existing manifest entry.
@@ -568,6 +571,126 @@ def cmd_propose(args):
 COLOUR_HEX = {"yellow": "#E7C24A", "green": "#69A85C", "blue": "#5B8DC9",
               "purple": "#9B6BB3"}
 
+# Verdict/comment widget injected under every puzzle. State lives in the
+# browser's localStorage (survives refresh); "Copy"/"Save" export only the
+# flagged/commented items as plain text for Daniel to hand back in chat.
+RV_JS = r"""
+(function () {
+  var NS = "dfrv:" + RVGEN + ":";
+  function get(k) {
+    try { return JSON.parse(localStorage.getItem(NS + k)) || {}; }
+    catch (e) { return {}; }
+  }
+  function set(k, v) {
+    try { localStorage.setItem(NS + k, JSON.stringify(v)); } catch (e) {}
+  }
+  var VERDICTS = [["air", "✅ fine"], ["swap", "🔄 swap"],
+                  ["fix", "✏️ fix"]];
+  var els = Array.prototype.slice.call(document.querySelectorAll(".rv"));
+  els.forEach(function (el) {
+    var key = el.dataset.rv;
+    var btns = document.createElement("div");
+    btns.className = "vbtns";
+    VERDICTS.forEach(function (v) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.textContent = v[1];
+      b.dataset.v = v[0];
+      if (get(key).v === v[0]) b.classList.add("on");
+      b.onclick = function () {
+        var st = get(key);
+        st.v = st.v === v[0] ? "" : v[0];
+        set(key, st);
+        Array.prototype.forEach.call(btns.children, function (x) {
+          x.classList.toggle("on", x.dataset.v === st.v);
+        });
+        paint();
+      };
+      btns.appendChild(b);
+    });
+    var ta = document.createElement("textarea");
+    ta.placeholder = "comment…";
+    ta.value = get(key).c || "";
+    ta.oninput = function () {
+      var st = get(key);
+      st.c = ta.value;
+      set(key, st);
+      paint();
+    };
+    el.appendChild(btns);
+    el.appendChild(ta);
+  });
+
+  var bar = document.createElement("div");
+  bar.id = "rvbar";
+  var count = document.createElement("span");
+  var copyB = document.createElement("button");
+  copyB.textContent = "Copy verdicts";
+  var saveB = document.createElement("button");
+  saveB.textContent = "Save verdicts file";
+  bar.appendChild(count);
+  bar.appendChild(copyB);
+  bar.appendChild(saveB);
+  document.body.appendChild(bar);
+
+  function collect() {
+    var flags = 0, byEd = {}, order = [];
+    els.forEach(function (el) {
+      var st = get(el.dataset.rv);
+      var note = (st.c || "").trim();
+      var flagged = st.v === "swap" || st.v === "fix";
+      el.classList.toggle("flagged", flagged);
+      if (!flagged && !note) return;
+      flags++;
+      var parts = (el.dataset.rvl || el.dataset.rv).split(" · ");
+      var ed = parts[0];
+      if (!byEd[ed]) { byEd[ed] = []; order.push(ed); }
+      byEd[ed].push("  [" + (st.v || "note") + "] " +
+        parts.slice(1).join(" · ") + (note ? " — " + note : ""));
+    });
+    var out = ["Dead Famous edition review " + RVGEN + " — verdicts"];
+    order.forEach(function (ed) {
+      out.push(ed);
+      out.push.apply(out, byEd[ed]);
+    });
+    out.push(flags ? "(everything not listed: fine to air)"
+                   : "(no flags — everything fine to air)");
+    return { text: out.join("\n"), flags: flags };
+  }
+  function paint() {
+    count.textContent = collect().flags + " flagged / commented";
+  }
+  copyB.onclick = function () {
+    var t = collect().text;
+    function ok() {
+      copyB.textContent = "Copied ✓";
+      setTimeout(function () { copyB.textContent = "Copy verdicts"; }, 1500);
+    }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = t;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); ok(); } catch (e) { alert(t); }
+      document.body.removeChild(ta);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t).then(ok, fallback);
+    } else fallback();
+  };
+  saveB.onclick = function () {
+    var blob = new Blob([collect().text], { type: "text/plain" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "deadfamous-verdicts-" + RVGEN + ".txt";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+  paint();
+})();
+"""
+
 
 def scrap_grid_svg(open_cell, money_cell):
     cells = []
@@ -621,11 +744,15 @@ def write_review_sheet(proposed, pools, id_index, manifest):
                     f'{scrap_grid_svg(start_scrap(it), money_scrap(it))}<br>'
                     f'<small>{e(it.get("blurb", ""))}</small><br>'
                     f'<small class="meta">{e(it.get("license") or "NO LICENCE")} · '
-                    f'{e(it.get("attribution", ""))} · {gap_label(gp)}</small></div></div>')
+                    f'{e(it.get("attribution", ""))} · {gap_label(gp)}</small>'
+                    f'<div class="rv" data-rv="{n}:{game}:{e(item_id)}"'
+                    f' data-rvl="№ {n} · {title} · {e(it["name"])}"></div>'
+                    f'</div></div>')
             rows.append("</div>")
 
         rows.append("<h3>Lifeline</h3><table><tr><th>figure</th><th>tier</th>"
-                    "<th>birth → death</th><th>km</th><th>history</th></tr>")
+                    "<th>birth → death</th><th>km</th><th>history</th>"
+                    "<th>your verdict</th></tr>")
         for item_id in ed["map"]:
             it = id_index["map"][item_id]
             km = haversine_km(it["birth"], it["death"])
@@ -636,7 +763,9 @@ def write_review_sheet(proposed, pools, id_index, manifest):
                 f'<td>{e(it["difficulty"])}</td>'
                 f'<td><small>{e(it["birth"]["place"])} {it["birth"]["year"]} → '
                 f'{e(it["death"]["place"])} {it["death"]["year"]}</small></td>'
-                f'<td>{km:,.0f}</td><td><small>{gap_label(gp)}</small></td></tr>')
+                f'<td>{km:,.0f}</td><td><small>{gap_label(gp)}</small></td>'
+                f'<td class="rvcell"><div class="rv" data-rv="{n}:map:{e(item_id)}"'
+                f' data-rvl="№ {n} · Lifeline · {e(it["name"])}"></div></td></tr>')
         rows.append("</table>")
 
         board = id_index["thread"][ed["thread"][0]]
@@ -647,7 +776,13 @@ def write_review_sheet(proposed, pools, id_index, manifest):
             hexc = COLOUR_HEX.get(g.get("colour"), "#999")
             rows.append(f'<div class="tgroup" style="border-left:14px solid {hexc}">'
                         f'<b>{e(g["label"])}</b>: {e(" · ".join(g["items"]))}</div>')
+        rows.append(f'<div class="rv rvwide" data-rv="{n}:thread:{e(board["id"])}"'
+                    f' data-rvl="№ {n} · Thread · {e(board.get("title", board["id"]))}"></div>')
         rows.append("</section>")
+
+    rows.append('<section class="edition"><h2>Anything else</h2>'
+                '<div class="rv rvwide" data-rv="general"'
+                ' data-rvl="General · overall notes"></div></section>')
 
     n_warn = sum(len(v) for v in proposed["warnings"].values())
     doc = f"""<!doctype html><meta charset="utf-8">
@@ -672,6 +807,24 @@ def write_review_sheet(proposed, pools, id_index, manifest):
  .tgroup {{ background: #fff; border: 1px solid #C9C4B4; padding: .35rem .6rem;
            margin: .25rem 0 }}
  .config {{ color: #6B675C; font-size: .85rem }}
+ .rv {{ margin-top: .4rem }}
+ .rv .vbtns {{ display: flex; gap: .3rem; margin-bottom: .25rem }}
+ .rv button {{ font: inherit; font-size: .75rem; padding: .1rem .5rem;
+              border: 1px solid #C9C4B4; background: #F7F5EC; cursor: pointer }}
+ .rv button.on {{ background: #0B0B0B; color: #fff; border-color: #0B0B0B }}
+ .rv textarea {{ width: 100%; box-sizing: border-box; min-height: 2.1rem;
+                font: inherit; font-size: .8rem; border: 1px solid #C9C4B4;
+                padding: .25rem .4rem; background: #FFFDF6; resize: vertical }}
+ .rv.flagged textarea {{ border-color: #E02020; border-width: 2px }}
+ .rvcell {{ min-width: 11rem }}
+ .rvwide {{ max-width: 40rem }}
+ #rvbar {{ position: fixed; bottom: 0; left: 0; right: 0; background: #0B0B0B;
+          color: #F2EFE6; display: flex; gap: .8rem; align-items: center;
+          padding: .5rem 1rem; font-size: .85rem; z-index: 9 }}
+ #rvbar button {{ font: inherit; padding: .25rem .8rem; cursor: pointer;
+                 border: 2px solid #F2EFE6; background: transparent; color: #F2EFE6 }}
+ #rvbar button:hover {{ background: #F2EFE6; color: #0B0B0B }}
+ body {{ padding-bottom: 4.5rem }}
 </style>
 <h1>Edition review — proposed {e(proposed['generatedOn'])}</h1>
 <p class="config">Recipe 5 who + 5 map + 5 what + 1 thread ·
@@ -681,10 +834,28 @@ min Lifeline {cfg['min_lifeline_km']}km · {len(proposed['editions'])} editions 
 opens torn, black is the money shot.</p>
 {''.join(rows)}
 """
+    doc += ("<script>var RVGEN = "
+            + json.dumps(proposed["generatedOn"])
+            + ";" + RV_JS + "</script>\n")
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     out = OUT_DIR / f"review-{proposed['generatedOn']}.html"
     out.write_text(doc, encoding="utf-8")
     return out
+
+
+def cmd_review(_args):
+    """Re-render the review sheet from the existing proposals file. Never
+    touches the proposals themselves — safe after a sheet-template change."""
+    if not PROPOSED.exists():
+        print("review: no data/editions.proposed.json — run propose first.",
+              file=sys.stderr)
+        return 1
+    proposed = json.loads(PROPOSED.read_text(encoding="utf-8"))
+    pools = load_pools()
+    id_index = {g: {x["id"]: x for x in pools[g]} for g in GAMES}
+    sheet = write_review_sheet(proposed, pools, id_index, load_manifest())
+    print(f"review: sheet re-rendered -> {sheet.relative_to(ROOT)}")
+    return 0
 
 
 # ---------------------------------------------------------------------------
@@ -824,6 +995,8 @@ def main():
                                   "client algorithm")
     p = sub.add_parser("propose", help="draft the next N unaired editions")
     p.add_argument("--days", type=int, default=14)
+    sub.add_parser("review", help="re-render the review sheet from existing "
+                                  "proposals (no content re-roll)")
     a = sub.add_parser("approve", help="promote proposed editions into the manifest")
     a.add_argument("--through", required=True, metavar="YYYY-MM-DD")
     v = sub.add_parser("verify", help="validate the live manifest (CI gate): "
@@ -832,7 +1005,8 @@ def main():
                    help="alternate manifest path (CI broken-manifest test)")
     args = ap.parse_args()
     return {"freeze": cmd_freeze, "propose": cmd_propose,
-            "approve": cmd_approve, "verify": cmd_verify}[args.cmd](args)
+            "review": cmd_review, "approve": cmd_approve,
+            "verify": cmd_verify}[args.cmd](args)
 
 
 if __name__ == "__main__":
