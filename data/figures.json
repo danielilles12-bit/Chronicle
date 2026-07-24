@@ -885,7 +885,8 @@
    "lon": 39.61
   },
   "difficulty": "easy",
-  "fact": "Tradition holds he could not read or write; the Quran was gathered into one text only after he died"
+  "fact": "Tradition holds he could not read or write; the Quran was gathered into one text only after he died",
+  "reserve": true
  },
  {
   "id": "johann-wolfgang-von-goethe",
@@ -3534,7 +3535,7 @@
    "laden",
    "osama bin laden"
   ],
-  "occupation": "Jihadist and terrorist",
+  "occupation": "Founder of al-Qaeda who orchestrated the September 11 attacks",
   "birth": {
    "year": 1957,
    "place": "Riyadh, Saudi Arabia",
@@ -3548,7 +3549,7 @@
    "lon": 73.24
   },
   "difficulty": "medium",
-  "fact": "He grew up the son of a construction billionaire who rebuilt Mecca's mosques for the Saudi king"
+  "fact": "Nearly 3,000 people died in the attacks he orchestrated — at the World Trade Center, the Pentagon, and a field in Pennsylvania"
  },
  {
   "id": "diego-maradona",
@@ -4076,7 +4077,8 @@
    "lon": 125.75
   },
   "difficulty": "medium",
-  "fact": "North Korea raised an estimated 140,000 monuments to him, and his portrait still hangs in every home"
+  "fact": "North Korea raised an estimated 140,000 monuments to him, and his portrait still hangs in every home",
+  "reserve": true
  },
  {
   "id": "alexander-graham-bell",
@@ -5244,7 +5246,8 @@
    "lon": 125.75
   },
   "difficulty": "hard",
-  "fact": "Had a South Korean director and his actress wife kidnapped, then forced them to make his own Godzilla knockoff"
+  "fact": "Had a South Korean director and his actress wife kidnapped, then forced them to make his own Godzilla knockoff",
+  "reserve": true
  },
  {
   "id": "john-calvin",
@@ -7473,7 +7476,8 @@
    "lat": -7.16,
    "lon": -78.51
   },
-  "fact": "He agreed to be baptized only to escape burning — Inca belief held a burned body couldn't reach the afterlife"
+  "fact": "He agreed to be baptized only to escape burning — Inca belief held a burned body couldn't reach the afterlife",
+  "reserve": true
  },
  {
   "id": "ernest-shackleton",
@@ -7567,7 +7571,8 @@
    "lat": -12.05,
    "lon": -77.04
   },
-  "fact": "His father paid for his education from afar, but the two never once met face to face"
+  "fact": "His father paid for his education from afar, but the two never once met face to face",
+  "reserve": true
  },
  {
   "id": "geronimo",
@@ -7686,7 +7691,8 @@
    "lat": 48.19,
    "lon": 16.31
   },
-  "fact": "He slept in a narrow iron bed and had his valet wake him at half past three to start the paperwork"
+  "fact": "He slept in a narrow iron bed and had his valet wake him at half past three to start the paperwork",
+  "reserve": true
  },
  {
   "id": "archduke-franz-ferdinand",
@@ -7735,7 +7741,8 @@
    "lat": 56.84,
    "lon": 60.6
   },
-  "fact": "His daughters had sewn diamonds into their corsets — the jewels deflected bullets and dragged out the killing"
+  "fact": "His daughters had sewn diamonds into their corsets — the jewels deflected bullets and dragged out the killing",
+  "reserve": true
  },
  {
   "id": "rasputin",
@@ -8499,7 +8506,8 @@
    "lat": -34.36,
    "lon": 18.47
   },
-  "fact": "He named the cape he'd rounded 'Cape of Storms' — the king renamed it Good Hope to sell the voyage"
+  "fact": "He named the cape he'd rounded 'Cape of Storms' — the king renamed it Good Hope to sell the voyage",
+  "reserve": true
  },
  {
   "id": "henry-the-navigator",
@@ -8522,7 +8530,8 @@
    "lat": 37.01,
    "lon": -8.94
   },
-  "fact": "He never once sailed on a voyage of exploration himself — he just funded and sent others"
+  "fact": "He never once sailed on a voyage of exploration himself — he just funded and sent others",
+  "reserve": true
  },
  {
   "id": "el-cid",
@@ -8639,7 +8648,8 @@
    "lat": 8.83,
    "lon": -77.63
   },
-  "fact": "The discoverer of the Pacific was beheaded on false treason charges ordered by his own fiancée's father"
+  "fact": "The discoverer of the Pacific was beheaded on false treason charges ordered by his own fiancée's father",
+  "reserve": true
  },
  {
   "id": "alexander-nevsky",
@@ -8825,7 +8835,8 @@
    "lat": 76.25,
    "lon": 62.2
   },
-  "fact": "His crew wintered in a driftwood hut fighting off polar bears; he died as the ice finally released them"
+  "fact": "His crew wintered in a driftwood hut fighting off polar bears; he died as the ice finally released them",
+  "reserve": true
  },
  {
   "id": "afonso-de-albuquerque",
@@ -8848,7 +8859,8 @@
    "lat": 15.3,
    "lon": 74.08
   },
-  "fact": "He tried to blockade the Red Sea and starve Mecca's pilgrim trade — the first Christian fleet ever to try it"
+  "fact": "He tried to blockade the Red Sea and starve Mecca's pilgrim trade — the first Christian fleet ever to try it",
+  "reserve": true
  },
  {
   "id": "nicolaus-copernicus",
@@ -9082,7 +9094,8 @@
    "lat": 37.78,
    "lon": 20.8
   },
-  "fact": "Accused of dissecting a still-living man, sentenced to a Jerusalem pilgrimage — he died on the way back"
+  "fact": "Accused of dissecting a still-living man, sentenced to a Jerusalem pilgrimage — he died on the way back",
+  "reserve": true
  },
  {
   "id": "kamehameha-i",
@@ -9128,7 +9141,8 @@
    "lat": 30.04,
    "lon": 31.24
   },
-  "fact": "His 1513 map charted South America with eerie accuracy; decades later the Ottomans beheaded him anyway"
+  "fact": "His 1513 map charted South America with eerie accuracy; decades later the Ottomans beheaded him anyway",
+  "reserve": true
  },
  {
   "id": "hayreddin-barbarossa",
@@ -9176,7 +9190,8 @@
    "lat": 34.98,
    "lon": 127.98
   },
-  "fact": "At Myeongnyang he held a strait against 133 Japanese warships with just 13 of his own — and won"
+  "fact": "At Myeongnyang he held a strait against 133 Japanese warships with just 13 of his own — and won",
+  "reserve": true
  },
  {
   "id": "christine-de-pizan",
@@ -9199,7 +9214,8 @@
    "lat": 48.93,
    "lon": 2.05
   },
-  "fact": "Widowed with children to feed, she became Europe's first person to earn a living purely by writing"
+  "fact": "Widowed with children to feed, she became Europe's first person to earn a living purely by writing",
+  "reserve": true
  },
  {
   "id": "yongle-emperor",
@@ -9269,7 +9285,8 @@
    "lat": 41.01,
    "lon": 28.98
   },
-  "fact": "A captured slave girl, she became the sultan's only legal wife — unheard of in Ottoman tradition"
+  "fact": "A captured slave girl, she became the sultan's only legal wife — unheard of in Ottoman tradition",
+  "reserve": true
  },
  {
   "id": "nasir-al-din-al-tusi",
@@ -9293,7 +9310,8 @@
    "lat": 33.31,
    "lon": 44.36
   },
-  "fact": "His Mongol-funded observatory produced a geometric trick Copernicus may have borrowed centuries later"
+  "fact": "His Mongol-funded observatory produced a geometric trick Copernicus may have borrowed centuries later",
+  "reserve": true
  },
  {
   "id": "francisco-vazquez-de-coronado",
@@ -9317,7 +9335,8 @@
    "lat": 19.43,
    "lon": -99.13
   },
-  "fact": "He bankrupted himself chasing legendary cities of gold and found only mud-brick villages"
+  "fact": "He bankrupted himself chasing legendary cities of gold and found only mud-brick villages",
+  "reserve": true
  },
  {
   "id": "peter-abelard",
@@ -9387,7 +9406,8 @@
    "lat": 31.13,
    "lon": 33.8
   },
-  "fact": "His own brother turned down the crown as blasphemous — Baldwin had no such qualms and took it"
+  "fact": "His own brother turned down the crown as blasphemous — Baldwin had no such qualms and took it",
+  "reserve": true
  },
  {
   "id": "simon-de-montfort",
@@ -9410,7 +9430,8 @@
    "lat": 52.1,
    "lon": -1.92
   },
-  "fact": "The father of England's Parliament was killed at Evesham, then castrated and beheaded as a trophy"
+  "fact": "The father of England's Parliament was killed at Evesham, then castrated and beheaded as a trophy",
+  "reserve": true
  },
  {
   "id": "toussaint-louverture",
@@ -9480,7 +9501,8 @@
    "lat": 45.07,
    "lon": 7.69
   },
-  "fact": "Exiled after 1848, he became the first foreigner since Lafayette to address the US Congress"
+  "fact": "Exiled after 1848, he became the first foreigner since Lafayette to address the US Congress",
+  "reserve": true
  },
  {
   "id": "jose-marti",
@@ -9846,7 +9868,8 @@
    "lat": -11.5,
    "lon": -54.0
   },
-  "fact": "His hunt for a lost Amazon city inspired Conan Doyle's The Lost World — then the jungle took him too"
+  "fact": "His hunt for a lost Amazon city inspired Conan Doyle's The Lost World — then the jungle took him too",
+  "reserve": true
  },
  {
   "id": "robert-falcon-scott",
@@ -10076,7 +10099,8 @@
    "lat": 51.51,
    "lon": -0.13
   },
-  "fact": "His memoir helped end Britain's slave trade — historians still debate if he was truly born in Africa"
+  "fact": "His memoir helped end Britain's slave trade — historians still debate if he was truly born in Africa",
+  "reserve": true
  },
  {
   "id": "louis-riel",
@@ -10099,7 +10123,8 @@
    "lat": 50.45,
    "lon": -104.62
   },
-  "fact": "After his first rebellion, he spent two years in an asylum under a fake name before leading a second one"
+  "fact": "After his first rebellion, he spent two years in an asylum under a fake name before leading a second one",
+  "reserve": true
  },
  {
   "id": "rudolf-nureyev",
@@ -10483,7 +10508,8 @@
    "lat": -25.28,
    "lon": -57.59
   },
-  "fact": "Exiled in Paraguay, he was killed by a bazooka round fired at his limousine from a nearby rooftop porch"
+  "fact": "Exiled in Paraguay, he was killed by a bazooka round fired at his limousine from a nearby rooftop porch",
+  "reserve": true
  },
  {
   "id": "frantz-fanon",
@@ -10598,7 +10624,8 @@
    "lat": 51.3,
    "lon": -0.33
   },
-  "fact": "Churchill put him in charge of aircraft production — Dowding said no one else could have done it"
+  "fact": "Churchill put him in charge of aircraft production — Dowding said no one else could have done it",
+  "reserve": true
  },
  {
   "id": "emperor-pedro-ii",
@@ -10670,7 +10697,8 @@
    "lat": 48.86,
    "lon": 2.35
   },
-  "fact": "He mailed George Washington the actual key to the Bastille; it still hangs at Mount Vernon"
+  "fact": "He mailed George Washington the actual key to the Bastille; it still hangs at Mount Vernon",
+  "reserve": true
  },
  {
   "id": "samuel-baker",
@@ -10693,7 +10721,8 @@
    "lat": 50.53,
    "lon": -3.61
   },
-  "fact": "He won his wife Florence by bribing her captors at an Ottoman slave auction on the Danube"
+  "fact": "He won his wife Florence by bribing her captors at an Ottoman slave auction on the Danube",
+  "reserve": true
  },
  {
   "id": "mary-kingsley",
@@ -10716,7 +10745,8 @@
    "lat": -34.19,
    "lon": 18.43
   },
-  "fact": "Her thick Victorian skirt saved her life, cushioning a fall onto a spiked animal trap"
+  "fact": "Her thick Victorian skirt saved her life, cushioning a fall onto a spiked animal trap",
+  "reserve": true
  },
  {
   "id": "roger-casement",
@@ -10739,7 +10769,8 @@
    "lat": 51.51,
    "lon": -0.13
   },
-  "fact": "Diaries detailing his sex life were leaked by British intelligence to sink his reprieve petition"
+  "fact": "Diaries detailing his sex life were leaked by British intelligence to sink his reprieve petition",
+  "reserve": true
  },
  {
   "id": "roger-williams",
@@ -10762,7 +10793,8 @@
    "lon": -71.41
   },
   "note": "Birth year is conventionally given as c.1603.",
-  "fact": "Banished for dissent, he insisted on buying Providence's land from the Narragansett rather than take it"
+  "fact": "Banished for dissent, he insisted on buying Providence's land from the Narragansett rather than take it",
+  "reserve": true
  },
  {
   "id": "john-winthrop",
@@ -10784,7 +10816,8 @@
    "lat": 42.36,
    "lon": -71.06
   },
-  "fact": "Aboard the Arbella he preached the colony would be a city upon a hill, watched by all"
+  "fact": "Aboard the Arbella he preached the colony would be a city upon a hill, watched by all",
+  "reserve": true
  },
  {
   "id": "william-penn",
@@ -10852,7 +10885,8 @@
    "lat": 51.43,
    "lon": -2.19
   },
-  "fact": "He died in a shooting accident the day before his public showdown with Burton over the Nile"
+  "fact": "He died in a shooting accident the day before his public showdown with Burton over the Nile",
+  "reserve": true
  },
  {
   "id": "richard-francis-burton",
@@ -10899,7 +10933,8 @@
    "lat": 45.79,
    "lon": 11.91
   },
-  "fact": "A factory machine tore off part of her scalp at thirteen; she wore flamboyant hats to hide the scars"
+  "fact": "A factory machine tore off part of her scalp at thirteen; she wore flamboyant hats to hide the scars",
+  "reserve": true
  },
  {
   "id": "wilfred-thesiger",
@@ -10922,7 +10957,8 @@
    "lat": 51.51,
    "lon": -0.13
   },
-  "fact": "He despised the motor car, blaming engines for shrinking a world he loved wild"
+  "fact": "He despised the motor car, blaming engines for shrinking a world he loved wild",
+  "reserve": true
  },
  {
   "id": "gertrude-bell",
@@ -10944,7 +10980,8 @@
    "lat": 33.32,
    "lon": 44.36
   },
-  "fact": "She scaled peaks across the Alps first; one summit in the Bernese Oberland still bears her name"
+  "fact": "She scaled peaks across the Alps first; one summit in the Bernese Oberland still bears her name",
+  "reserve": true
  },
  {
   "id": "arthur-evans",
@@ -10967,7 +11004,8 @@
    "lat": 51.75,
    "lon": -1.26
   },
-  "fact": "He rebuilt Knossos in concrete from his own imagination, inventing as much as he excavated"
+  "fact": "He rebuilt Knossos in concrete from his own imagination, inventing as much as he excavated",
+  "reserve": true
  },
  {
   "id": "mary-leakey",
@@ -10990,7 +11028,8 @@
    "lat": -1.29,
    "lon": 36.82
   },
-  "fact": "She uncovered 3.6-million-year-old footprints at Laetoli, proof our ancestors walked upright"
+  "fact": "She uncovered 3.6-million-year-old footprints at Laetoli, proof our ancestors walked upright",
+  "reserve": true
  },
  {
   "id": "louis-leakey",
@@ -11012,7 +11051,8 @@
    "lat": 51.51,
    "lon": -0.13
   },
-  "fact": "With no science degree himself, he handpicked Goodall, Fossey and Galdikas to study great apes"
+  "fact": "With no science degree himself, he handpicked Goodall, Fossey and Galdikas to study great apes",
+  "reserve": true
  },
  {
   "id": "abd-el-kader",
@@ -11036,7 +11076,8 @@
    "lat": 33.51,
    "lon": 36.29
   },
-  "fact": "The Algerian who fought France for years sheltered thousands of Damascus Christians in his own home"
+  "fact": "The Algerian who fought France for years sheltered thousands of Damascus Christians in his own home",
+  "reserve": true
  },
  {
   "id": "tewodros-ii",
@@ -11061,7 +11102,8 @@
    "lon": 39.2
   },
   "note": "Birth details are often approximate.",
-  "fact": "Cornered at Magdala, he shot himself with a pistol once gifted to him by Queen Victoria"
+  "fact": "Cornered at Magdala, he shot himself with a pistol once gifted to him by Queen Victoria",
+  "reserve": true
  },
  {
   "id": "menelik-ii",
@@ -11084,7 +11126,8 @@
    "lat": 9.03,
    "lon": 38.74
   },
-  "fact": "At Adwa in 1896 his army crushed an invading European power, the first to do so in the colonial age"
+  "fact": "At Adwa in 1896 his army crushed an invading European power, the first to do so in the colonial age",
+  "reserve": true
  },
  {
   "id": "fridtjof-nansen",
@@ -11130,7 +11173,8 @@
    "lat": 69.08,
    "lon": -97.75
   },
-  "fact": "His lost crew left cut marks on their own bones, the last resort of men starving in the ice"
+  "fact": "His lost crew left cut marks on their own bones, the last resort of men starving in the ice",
+  "reserve": true
  },
  {
   "id": "robert-peary",
@@ -11153,7 +11197,8 @@
    "lat": 38.91,
    "lon": -77.04
   },
-  "fact": "His own diary later cast doubt on whether he ever actually reached the pole he was credited with"
+  "fact": "His own diary later cast doubt on whether he ever actually reached the pole he was credited with",
+  "reserve": true
  },
  {
   "id": "matthew-henson",
@@ -11175,7 +11220,8 @@
    "lat": 40.71,
    "lon": -74.01
   },
-  "fact": "He likely stood at the North Pole before his commander, then waited decades for anyone to say so"
+  "fact": "He likely stood at the North Pole before his commander, then waited decades for anyone to say so",
+  "reserve": true
  },
  {
   "id": "john-reed",
@@ -11222,7 +11268,8 @@
    "lat": 35.68,
    "lon": 139.76
   },
-  "fact": "Blind in one eye, he became one of the first Westerners ever naturalized as a Japanese citizen"
+  "fact": "Blind in one eye, he became one of the first Westerners ever naturalized as a Japanese citizen",
+  "reserve": true
  },
  {
   "id": "william-adams",
@@ -11367,7 +11414,8 @@
    "lat": 41.89,
    "lon": 12.49
   },
-  "fact": "Paraded through Rome in golden chains, she ended her days as a Roman society philosopher"
+  "fact": "Paraded through Rome in golden chains, she ended her days as a Roman society philosopher",
+  "reserve": true
  },
  {
   "id": "empress-matilda",
@@ -12059,7 +12107,8 @@
    "lat": 45.35,
    "lon": 36.47
   },
-  "fact": "He'd spent a lifetime dosing himself against poison and, at the end, found he couldn't die by it"
+  "fact": "He'd spent a lifetime dosing himself against poison and, at the end, found he couldn't die by it",
+  "reserve": true
  },
  {
   "id": "pyrrhus-of-epirus",
@@ -12257,7 +12306,8 @@
    "lat": 36.69,
    "lon": 53.55
   },
-  "fact": "He marched an entire Armenian trading town to Isfahan just to seize its silk network intact"
+  "fact": "He marched an entire Armenian trading town to Isfahan just to seize its silk network intact",
+  "reserve": true
  },
  {
   "id": "metternich",
@@ -12427,7 +12477,8 @@
    "lat": 45.07,
    "lon": 7.69
   },
-  "fact": "The architect of a united Italy died months after the crown he built, before Rome ever joined it"
+  "fact": "The architect of a united Italy died months after the crown he built, before Rome ever joined it",
+  "reserve": true
  },
  {
   "id": "georges-clemenceau",
@@ -12601,7 +12652,8 @@
    "lat": 48.21,
    "lon": 16.37
   },
-  "fact": "Louis XIV sneered at his looks and refused him a French commission; Austria took him instead and won"
+  "fact": "Louis XIV sneered at his looks and refused him a French commission; Austria took him instead and won",
+  "reserve": true
  },
  {
   "id": "alexander-suvorov",
@@ -12649,7 +12701,8 @@
    "lat": 51.26,
    "lon": 15.57
   },
-  "fact": "He took a bullet clean through the skull near one eye, survived, then took a second in nearly the same spot"
+  "fact": "He took a bullet clean through the skull near one eye, survived, then took a second in nearly the same spot",
+  "reserve": true
  },
  {
   "id": "michel-ney",
@@ -12673,6 +12726,7 @@
    "lat": 48.86,
    "lon": 2.35
   },
-  "fact": "He'd sworn to bring Napoleon back in an iron cage, then joined him instead; the firing squad came for that"
+  "fact": "He'd sworn to bring Napoleon back in an iron cage, then joined him instead; the firing squad came for that",
+  "reserve": true
  }
 ]

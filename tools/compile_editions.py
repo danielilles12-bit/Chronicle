@@ -129,6 +129,28 @@ def load_config():
         "max_same_country": 3,
         "max_same_era": 3,
         "require_sources": False,
+        # --- Part B taste rules (24 Jul 2026 owner brief) -------------------
+        # Variety caps, applied per 5-item game-round (who/map/what each
+        # scored separately; see tools/fame/tags.json for region/era/
+        # occupation_family — items with no tag data are wildcards, never
+        # blocked). Caps relax (log a warning, never a hard failure) only if
+        # a thin pool genuinely can't fill the day's quota otherwise.
+        "max_region_per_round": 2,        # >2 items sharing one macroregion in a round gets skipped
+        "max_occupation_per_round": 1,    # >1 item sharing one occupation_family (who/map only — objects have no occupation_family) gets skipped
+        "min_era_diversity_per_round": 2, # best-effort goal, nudged for via ranking bias, not a hard block
+        "era_novelty_bonus": 8.0,         # ranking nudge size (same units as western_bias_weight below) toward a not-yet-represented era when a round is short of min_era_diversity_per_round
+        # Guaranteed "banker": every who/what day must contain >=1 item this
+        # confidently recognisable (never five genuine unknowns in one day).
+        "banker_fame_threshold": 75,      # fame score 0-100 (tools/fame/fame_scores.json) counting as a "banker" — ~top quartile across every class as of the 22 Jul fame run
+        "banker_pv_pct_preference": 60,   # soft tiebreak only: among banker-repair candidates, prefer higher pv_pct
+        # Western-audience (UK/Europe/US) recognisability weighting: on
+        # non-Sunday, non-hard slots, nudge ranking toward higher pv_pct
+        # (English-Wikipedia-specific recognisability) among similarly-famous
+        # candidates — a soft bias on selection ORDER, never a hard filter.
+        "icon_fame_threshold": 90,        # fame score at/above which an item is an "icon" (Great Wall, Taj Mahal, Angkor Wat...) exempt from the pv_pct tiebreak — ~top decile across every class
+        "western_bias_weight": 0.5,       # pv_pct (0-100) x this = ranking nudge; 0 disables the bias entirely
+        "western_bias_hard_exempt": True,    # 'hard' tier slots never get the bias — reserved for deeper/international cuts
+        "western_bias_sunday_exempt": True,  # Sunday's slots never get the bias — the week's deepest-cut day
     }
     if CONFIG_PATH.exists():
         defaults.update(json.loads(CONFIG_PATH.read_text(encoding="utf-8")))
@@ -357,6 +379,96 @@ def thread_answer_keys(board):
 
 
 # ---------------------------------------------------------------------------
+# Part B signals — tools/fame/{fame_scores,tags}.json (24 Jul 2026 content
+# audit byproducts, NOT core game data). Every rule below that reads a
+# signal must degrade gracefully when it's missing: a record with no match
+# is a wildcard, never a rejection, and the files being absent entirely just
+# disables the taste rules rather than crashing propose.
+# ---------------------------------------------------------------------------
+FAME_SCORES_PATH = ROOT / "tools/fame/fame_scores.json"
+TAGS_PATH = ROOT / "tools/fame/tags.json"
+
+
+def load_signal_indices():
+    """normalise(name-or-variant) -> fame_scores record / tags record.
+
+    Live data records don't carry a wiki_title, so this fuzzy-matches on
+    display text: each live item's own name, then its variants in order,
+    against fame_scores.json's (name, wiki_title) and tags.json's
+    (people ++ objects) keys. First hit wins. Coverage measured 24 Jul 2026:
+    ~97-100% of who/what/map on fame/pv_pct, ~71-89% on era/region/
+    occupation — the remainder simply carry no signal (see item_signal)."""
+    fame_idx, tag_idx = {}, {}
+    try:
+        scores = json.loads(FAME_SCORES_PATH.read_text(encoding="utf-8"))["scores"]
+        for r in scores:
+            for key in (r.get("name"), r.get("wiki_title")):
+                if key:
+                    fame_idx.setdefault(normalise(key), r)
+    except Exception as e:
+        print(f"propose: WARNING — could not load {FAME_SCORES_PATH.relative_to(ROOT)}: "
+              f"{e} (fame/pv_pct signals disabled for this run)", file=sys.stderr)
+    try:
+        tags = json.loads(TAGS_PATH.read_text(encoding="utf-8"))
+        for k, v in tags.get("people", {}).items():
+            tag_idx.setdefault(normalise(k), v)
+        for k, v in tags.get("objects", {}).items():
+            tag_idx.setdefault(normalise(k), v)
+    except Exception as e:
+        print(f"propose: WARNING — could not load {TAGS_PATH.relative_to(ROOT)}: "
+              f"{e} (region/era/occupation signals disabled for this run)", file=sys.stderr)
+    return fame_idx, tag_idx
+
+
+_SIGNAL_CACHE = {}  # (game, id) -> merged signal dict, memoised per process
+
+
+def item_signal(game, item, fame_idx, tag_idx):
+    """Best-effort signal lookup for one live item. Returns a dict with
+    whatever of {fame, pv_pct, era, region, occupation_family, kind} could be
+    matched; unresolved keys are None. Callers MUST treat None as 'no
+    opinion' — never as a reason to exclude or penalise the item."""
+    key = (game, item["id"])
+    cached = _SIGNAL_CACHE.get(key)
+    if cached is not None:
+        return cached
+    names = [item.get("name")] + list(item.get("variants") or [])
+    fame_rec = tag_rec = None
+    for nm in names:
+        if not nm:
+            continue
+        nk = normalise(nm)
+        if fame_rec is None:
+            fame_rec = fame_idx.get(nk)
+        if tag_rec is None:
+            tag_rec = tag_idx.get(nk)
+        if fame_rec is not None and tag_rec is not None:
+            break
+    sig = {
+        "fame": (fame_rec or {}).get("fame"),
+        "pv_pct": (fame_rec or {}).get("pv_pct"),
+        "era": (tag_rec or {}).get("era"),
+        "region": (tag_rec or {}).get("region"),
+        "occupation_family": (tag_rec or {}).get("occupation_family"),
+        "kind": (tag_rec or {}).get("kind"),
+    }
+    _SIGNAL_CACHE[key] = sig
+    return sig
+
+
+def western_bias_score(sig, cfg):
+    """Lower sorts earlier (preferred) in `ranked`. Zero (neutral) when
+    there's no fame signal at all, or when the item is famous enough to be
+    an "icon" that transcends English-Wikipedia-specific traffic (Part B
+    rule 5) — pv_pct only nudges the broad "solidly good, not one-name-
+    famous" middle of the pool, never icons and never unmatched items."""
+    fame, pv = sig.get("fame"), sig.get("pv_pct")
+    if fame is None or pv is None or fame >= cfg["icon_fame_threshold"]:
+        return 0.0
+    return -pv * cfg["western_bias_weight"]
+
+
+# ---------------------------------------------------------------------------
 # propose
 # ---------------------------------------------------------------------------
 def cmd_propose(args):
@@ -374,10 +486,22 @@ def cmd_propose(args):
 
     floor = cfg["repeat_floor_days"]
     target = cfg["repeat_target_days"]
+    fame_idx, tag_idx = load_signal_indices()
 
-    by_tier = {g: {t: [x for x in pools[g] if x["difficulty"] == t] for t in TIERS}
+    # Reserve mechanism (Part A, 24 Jul 2026): "reserve": true on a live
+    # record pulls it out of every normal-day candidate pool below — it
+    # simply never appears in by_tier/thread_by_tier, so it can never be
+    # picked by propose. It is NOT removed from the data files, and it is
+    # NOT filtered out of `pools`/`id_index` (unfiltered — freeze, verify and
+    # the review sheet all resolve ids against the full pool, since already-
+    # approved manifest editions may legitimately reference a now-reserved
+    # id). Encore (js/daily.js encoreItems) replays past editions by id and
+    # never looks at this field either way, so a reserved item that has
+    # aired at least once keeps working there with zero extra code.
+    by_tier = {g: {t: [x for x in pools[g] if x["difficulty"] == t and not x.get("reserve")]
+                   for t in TIERS}
                for g in ("who", "map", "what")}
-    thread_by_tier = {t: [x for x in pools["thread"] if x["difficulty"] == t]
+    thread_by_tier = {t: [x for x in pools["thread"] if x["difficulty"] == t and not x.get("reserve")]
                       for t in TIERS}
     id_index = {g: {x["id"]: x for x in pools[g]} for g in GAMES}
 
@@ -385,7 +509,7 @@ def cmd_propose(args):
         la = last_aired.get((game, item_id))
         return None if la is None else (on_date - la).days
 
-    def eligible(game, item, on_date, day_answers, extra_reject):
+    def eligible(game, item, on_date, day_answers, extra_reject, day_subjects=None):
         """Hard constraints only. Returns (ok, reason).
 
         require_sources is checked here, inside propose, which by
@@ -393,7 +517,17 @@ def cmd_propose(args):
         (today or later) — freeze (past/aired editions) and approve
         (promoting an already-generated proposal) never call this, so
         flipping the flag on automatically scopes it to editions proposed
-        from now on without any extra date bookkeeping (P3.6)."""
+        from now on without any extra date bookkeeping (P3.6).
+
+        day_subjects (Part B rule 2, 24 Jul 2026): the union of every
+        variant string already committed today, across every game including
+        Thread — the "same underlying subject" heuristic. If none of
+        `item`'s own variants overlap it, it's unrelated to anything already
+        scheduled today; an overlap means some other candidate already
+        picked today shares a distinctive alias with this one (e.g. two
+        different Pompeii artefacts), so it's rejected same as a straight
+        answer collision. Deliberately coarse per spec — flagged in the
+        compiler's report, not hardened into a fragile detector."""
         g = gap_days(game, item["id"], on_date)
         if g is not None and g < floor:
             return False, f"aired {g}d ago (floor {floor})"
@@ -408,21 +542,36 @@ def cmd_propose(args):
             return False, "unsourced or unconfident (require_sources on — " \
                           "needs fact_sources[] + a confidence tag; see P3.1/P3.6)"
         if game == "thread":
-            if thread_answer_keys(item) & day_answers:
+            keys = thread_answer_keys(item)
+            if keys & day_answers:
                 return False, "tile/label collides with today's answers"
+            if day_subjects and keys & day_subjects:
+                return False, "tile/label shares a subject with today's picks"
         else:
             if normalise(item["name"]) in day_answers:
                 return False, "answer already used today"
+            if day_subjects:
+                item_variants = {normalise(v) for v in item.get("variants") or []}
+                if item_variants & day_subjects:
+                    return False, "shares a distinctive variant with today's picks (same subject)"
         if extra_reject and item["id"] in extra_reject:
             return False, "already picked today"
         return True, ""
 
-    def ranked(pool, game, on_date):
-        """Never-aired first, then longest-since-aired, then pool order."""
+    def ranked(pool, game, on_date, bias_fn=None):
+        """Never-aired first, then longest-since-aired, then the Part B
+        ranking bias (western-audience pv_pct tiebreak + era-novelty nudge,
+        24 Jul 2026 — zero for every candidate when bias_fn is None), then
+        pool order (curated best-first, per QUALITY_RUBRIC.md). Because most
+        of a growing pool is never-aired, the first two keys tie for the
+        bulk of candidates and the bias becomes the real differentiator —
+        which is exactly where it should matter most: picking what enters
+        rotation for the first time."""
         def key(pair):
             i, item = pair
             la = last_aired.get((game, item["id"]))
-            return (0 if la is None else 1, la or date.min, i)
+            b = bias_fn(item) if bias_fn else 0.0
+            return (0 if la is None else 1, la or date.min, b, i)
         return [item for _, item in sorted(enumerate(pool), key=key)]
 
     editions = {}
@@ -433,6 +582,9 @@ def cmd_propose(args):
         on_date = edition_date(n)
         wd = weekday(n)
         day_answers = set()
+        day_subjects = set()  # Part B rule 2: variants of every item picked
+                               # today, any game — the "same underlying
+                               # subject" net (see eligible()'s day_subjects)
         picked_today = {g: [] for g in GAMES}
         warns = []
 
@@ -447,12 +599,79 @@ def cmd_propose(args):
             if game in ("who", "what") and not item.get("license"):
                 note("licence-missing", game, item["id"], "no licence field")
 
+        def ensure_banker(game, chosen, chosen_ids):
+            """Part B rule 3 (who/what only): every day needs >=1 item at or
+            above banker_fame_threshold — never five genuine unknowns. If the
+            round as picked has none, try swapping the LOWEST-fame pick
+            *within its own tier* (so the day's difficulty mix survives) for
+            the best eligible candidate anywhere in the pool. Among fame-
+            qualified candidates, banker_pv_pct_preference is a soft
+            tiebreak: an English-Wikipedia-legible pick (pv_pct at or above
+            the preference) is offered before a candidate that only clears
+            the fame bar on strength of a less Western-recognisable record —
+            fame is still the hard gate, pv_pct only reorders who's tried
+            first among those that already pass it. Best-effort: if no safe
+            swap exists this never raises Shortage, it just flags the day
+            for a human look."""
+            def fame_of(it):
+                return item_signal(game, it, fame_idx, tag_idx).get("fame")
+
+            def pv_of(it):
+                return item_signal(game, it, fame_idx, tag_idx).get("pv_pct")
+
+            def is_banker(it):
+                f = fame_of(it)
+                return f is not None and f >= cfg["banker_fame_threshold"]
+
+            if any(is_banker(it) for it in chosen):
+                return chosen
+            # Pre-filter to fame-qualified candidates (the hard gate), THEN
+            # order by the pv_pct preference bucket, THEN by fame within
+            # each bucket — filtering first keeps this correct regardless of
+            # how the two orderings interact (no reliance on one sorted
+            # pass staying monotonic in fame).
+            qualified = [it for t in TIERS for it in by_tier[game][t] if is_banker(it)]
+
+            def pv_bucket(it):
+                pv = pv_of(it)
+                return 0 if (pv is not None and pv >= cfg["banker_pv_pct_preference"]) else 1
+
+            pool = sorted(qualified,
+                          key=lambda it: (pv_bucket(it), -fame_of(it)))
+            for cand in pool:
+                f = fame_of(cand)
+                if cand["id"] in chosen_ids:
+                    continue
+                same_tier = [it for it in chosen if it["difficulty"] == cand["difficulty"]] or chosen
+                weakest = min(same_tier, key=lambda it: (fame_of(it) if fame_of(it) is not None else -1))
+                w_variants = {normalise(v) for v in weakest.get("variants") or []}
+                chosen_ids.discard(weakest["id"])
+                day_answers.discard(normalise(weakest["name"]))
+                day_subjects.difference_update(w_variants)
+                ok, _ = eligible(game, cand, on_date, day_answers, chosen_ids, day_subjects)
+                if not ok:
+                    chosen_ids.add(weakest["id"])
+                    day_answers.add(normalise(weakest["name"]))
+                    day_subjects.update(w_variants)
+                    continue
+                chosen_ids.add(cand["id"])
+                day_answers.add(normalise(cand["name"]))
+                day_subjects.update(normalise(v) for v in cand.get("variants") or [])
+                note("banker-repair", game, cand["id"],
+                     f"swapped in as the day's guaranteed banker (fame {f:.1f}), "
+                     f"replacing {weakest['id']}")
+                return [cand if it is weakest else it for it in chosen]
+            note("no-banker", game, None,
+                 "no top-quartile-fame item available for this day's round "
+                 "even after a repair attempt — flagging for manual review")
+            return chosen
+
         try:
             # --- Thread first: one board, least flexible pool -------------
             tier = THREAD_TIER[wd]
             board = None
             for cand in ranked(thread_by_tier[tier], "thread", on_date):
-                ok, _ = eligible("thread", cand, on_date, day_answers, None)
+                ok, _ = eligible("thread", cand, on_date, day_answers, None, day_subjects)
                 if ok:
                     board = cand
                     break
@@ -460,52 +679,136 @@ def cmd_propose(args):
                 raise Shortage(n, "thread", tier, 1, 0)
             picked_today["thread"] = [board["id"]]
             day_answers |= thread_answer_keys(board)
+            day_subjects |= thread_answer_keys(board)
             soft_checks("thread", board)
 
             # --- Rounds games: who, map, what -----------------------------
             # Two passes, like the client: every tier's PRIMARY quota is
             # served from its own pool first, then shortfalls backfill from
             # the adjacent tier — so a starved easy tier can never strip the
-            # medium pool before medium's own quota is met.
+            # medium pool before medium's own quota is met. Part B layers
+            # three more things into this same pass structure: variety caps
+            # (region/occupation — strict first, relaxed only if a tier
+            # can't otherwise be filled), a ranking bias (western-audience
+            # pv_pct tiebreak + era-novelty nudge, rules 1 & 5), and — after
+            # both passes — a guaranteed-banker repair (rule 3).
             for game in ("who", "map", "what"):
                 counts = NEW_RECIPE[wd]
                 chosen_ids = set()
+                round_region = Counter()   # macroregion -> count so far this round
+                round_occ = Counter()      # occupation_family -> count so far (who/map)
+                round_era = set()          # eras already represented this round
                 got_by_tier = {t: [] for t in TIERS}
-                for ti, tier in enumerate(TIERS):
-                    need = counts[ti]
-                    for cand in ranked(by_tier[game][tier], game, on_date):
-                        if len(got_by_tier[tier]) == need:
+
+                def bias_for(tier):
+                    exempt = (cfg["western_bias_sunday_exempt"] and wd == 6) or \
+                             (cfg["western_bias_hard_exempt"] and tier == "hard")
+                    want_era = len(round_era) < cfg["min_era_diversity_per_round"]
+
+                    def bias(item):
+                        sig = item_signal(game, item, fame_idx, tag_idx)
+                        score = 0.0 if exempt else western_bias_score(sig, cfg)
+                        if want_era and sig.get("era") and sig["era"] not in round_era:
+                            score -= cfg["era_novelty_bonus"]
+                        return score
+                    return bias
+
+                def caps_ok(item):
+                    sig = item_signal(game, item, fame_idx, tag_idx)
+                    region = sig.get("region")
+                    if region and round_region[region] >= cfg["max_region_per_round"]:
+                        return False
+                    occ = sig.get("occupation_family") if game in ("who", "map") else None
+                    if occ and round_occ[occ] >= cfg["max_occupation_per_round"]:
+                        return False
+                    return True
+
+                def commit(item):
+                    chosen_ids.add(item["id"])
+                    day_answers.add(normalise(item["name"]))
+                    day_subjects.update(normalise(v) for v in item.get("variants") or [])
+                    sig = item_signal(game, item, fame_idx, tag_idx)
+                    if sig.get("region"):
+                        round_region[sig["region"]] += 1
+                    if sig.get("occupation_family"):
+                        round_occ[sig["occupation_family"]] += 1
+                    if sig.get("era"):
+                        round_era.add(sig["era"])
+
+                def fill(pool_tier, need, slot_tier, relax_caps, backfill_note_tier=None):
+                    """Pick up to `need` items from by_tier[game][pool_tier],
+                    one at a time (so caps/era-novelty react after each
+                    pick). slot_tier is the day's REQUESTED tier — the
+                    western-bias exemption depends on that, not on which
+                    pool a backfilled item is borrowed from."""
+                    got = []
+                    for _ in range(need):
+                        cand_pool = ranked(by_tier[game][pool_tier], game, on_date,
+                                          bias_fn=bias_for(slot_tier))
+                        pick = None
+                        for cand in cand_pool:
+                            if cand["id"] in chosen_ids:
+                                continue
+                            ok, _ = eligible(game, cand, on_date, day_answers,
+                                             chosen_ids, day_subjects)
+                            if not ok:
+                                continue
+                            if not relax_caps and not caps_ok(cand):
+                                continue
+                            pick = cand
                             break
-                        ok, _ = eligible(game, cand, on_date, day_answers, chosen_ids)
-                        if ok:
-                            got_by_tier[tier].append(cand)
-                            chosen_ids.add(cand["id"])
-                            day_answers.add(normalise(cand["name"]))
-                # Backfill pass: the repeat floor is sacred; the difficulty
-                # mix bends first (flagged for the review sheet).
+                        if pick is None:
+                            break
+                        commit(pick)
+                        if backfill_note_tier:
+                            note("tier-backfill", game, pick["id"],
+                                 f"{pool_tier} item in a {backfill_note_tier} slot — "
+                                 f"{backfill_note_tier} pool blocked by the {floor}-day floor")
+                        got.append(pick)
+                    return got
+
                 for ti, tier in enumerate(TIERS):
                     need = counts[ti]
-                    if len(got_by_tier[tier]) >= need:
+                    if need <= 0:
+                        continue
+                    got_by_tier[tier] = fill(tier, need, tier, relax_caps=False)
+                    short = need - len(got_by_tier[tier])
+                    if short > 0:
+                        extra = fill(tier, short, tier, relax_caps=True)
+                        if extra:
+                            note("variety-cap-relaxed", game, None,
+                                 f"{tier}: relaxed the region/occupation caps to "
+                                 f"fill {len(extra)} more slot(s)")
+                        got_by_tier[tier] += extra
+                # Backfill pass: the repeat floor is sacred; the difficulty
+                # mix bends next (flagged); variety caps bend last of all,
+                # and only inside this already-relaxed backfill (flagged
+                # separately so the two are never confused on the sheet).
+                for ti, tier in enumerate(TIERS):
+                    need = counts[ti]
+                    if need <= 0 or len(got_by_tier[tier]) >= need:
                         continue
                     lender = "medium" if tier in ("hard", "easy") else "easy"
-                    for cand in ranked(by_tier[game][lender], game, on_date):
-                        if len(got_by_tier[tier]) == need:
-                            break
-                        ok, _ = eligible(game, cand, on_date, day_answers, chosen_ids)
-                        if ok:
-                            got_by_tier[tier].append(cand)
-                            chosen_ids.add(cand["id"])
-                            day_answers.add(normalise(cand["name"]))
-                            note("tier-backfill", game, cand["id"],
-                                 f"{lender} item in a {tier} slot — {tier} "
-                                 f"pool blocked by the {floor}-day floor")
+                    short = need - len(got_by_tier[tier])
+                    extra = fill(lender, short, tier, relax_caps=False, backfill_note_tier=tier)
+                    if len(extra) < short:
+                        more = fill(lender, short - len(extra), tier, relax_caps=True,
+                                   backfill_note_tier=tier)
+                        if more:
+                            note("variety-cap-relaxed", game, None,
+                                 f"{tier} backfill: relaxed the region/occupation caps too")
+                        extra += more
+                    got_by_tier[tier] += extra
                     if len(got_by_tier[tier]) < need:
                         raise Shortage(n, game, tier, need, len(got_by_tier[tier]))
+
                 chosen = []
                 for tier in TIERS:
-                    for item in got_by_tier[tier]:
-                        soft_checks(game, item)
                     chosen.extend(got_by_tier[tier])
+                if game in ("who", "what"):
+                    chosen = ensure_banker(game, chosen, chosen_ids)
+                for item in chosen:
+                    soft_checks(game, item)
                 picked_today[game] = [x["id"] for x in chosen]
 
             # --- Edition-level spread warnings (Lifeline figures only:

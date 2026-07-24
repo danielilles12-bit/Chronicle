@@ -41,7 +41,20 @@ function localMidnight(d) {
   return new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime();
 }
 
+// Dev-only gate for the ?dailydate= override below: true only for local/
+// offline serving (localhost, 127.0.0.1, an empty hostname, or a direct
+// file:// open), never for the real deployed host. This is what makes the
+// override safe to leave in shipped code — deadfamous.app's hostname can
+// never match, so no query string on the production site can ever change
+// which edition is shown, regardless of what a real player types in the URL.
+function devHostAllowed() {
+  if (typeof location === 'undefined') return false;
+  const h = location.hostname;
+  return h === 'localhost' || h === '127.0.0.1' || h === '' || location.protocol === 'file:';
+}
+
 function testDateOverride() {
+  if (!devHostAllowed()) return null;
   const m = (typeof location !== 'undefined' ? location.search : '').match(/[?&]dailydate=(\d{4})-(\d{2})-(\d{2})/);
   if (!m) return null;
   return new Date(+m[1], +m[2] - 1, +m[3]);

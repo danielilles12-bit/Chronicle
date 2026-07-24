@@ -4,5 +4,15 @@
  "min_lifeline_km": 250,
  "max_same_country": 3,
  "max_same_era": 3,
- "require_sources": true
+ "require_sources": false,
+ "max_region_per_round": 2,
+ "max_occupation_per_round": 1,
+ "min_era_diversity_per_round": 2,
+ "era_novelty_bonus": 8.0,
+ "banker_fame_threshold": 75,
+ "banker_pv_pct_preference": 60,
+ "icon_fame_threshold": 90,
+ "western_bias_weight": 0.5,
+ "western_bias_hard_exempt": true,
+ "western_bias_sunday_exempt": true
 }

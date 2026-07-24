@@ -32,6 +32,19 @@ export function normalize(s) {
   const cleaned = String(s)
     .toLowerCase()
     .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    // "&" is conventionally written glued to its neighbours in abbreviations
+    // ("V&A", "AT&T") rather than as a space-delimited word. Drop it outright
+    // (not replaced by a space, unlike other punctuation below) so "v&a"
+    // stays the single token "va". Replacing it with a space instead would
+    // split it into "v" and "a" — and that lone "a" is then indistinguishable
+    // from the indefinite article and gets stripped by the loop below,
+    // silently collapsing "the v&a" to the single character "v", which is
+    // too short to ever match anything (see MIN_GUESS_LEN / isMatch's
+    // g.length < 2 guard). When "&" already sits between spaces ("Victoria &
+    // Albert Museum"), dropping it vs. spacing it produces the same result
+    // once whitespace collapses below, so this only changes glued-together
+    // abbreviations.
+    .replace(/&/g, '')
     .replace(/[^a-z0-9\s]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
