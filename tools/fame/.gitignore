@@ -1,0 +1,18 @@
+# Bulk caches, raw harvests and large regenerable intermediates stay local;
+# scripts, specs, intake batches and small calibration/pool files are
+# committed so the fame index is reproducible.
+cache
+cache.nosync/
+raw/
+gap_report.json
+current_inventory.json
+image_availability.json
+fame_scores.json
+metrics_wave*.jsonl
+metrics_input_wave*.json
+universe_people.json
+universe_objects.json
+tags.json
+pool_proposal.json
+test_gap.json
+test_scores.json

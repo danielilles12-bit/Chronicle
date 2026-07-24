@@ -51,6 +51,10 @@ function clueOccupation(item) {
   return occ.trim().replace(/[·,\s]+$/, '').trim();
 }
 function clueYears(item) {
+  // Explicit `years` field (curated, e.g. "1884–1972") wins over scraping the
+  // blurb: some blurbs' first parenthetical is a role/tenure date (Truman's
+  // presidency, not his lifespan), which made "Lived" show the wrong fact.
+  if (item.years) return String(item.years).trim();
   const m = (item.blurb || '').match(/\(([^)]*\d[^)]*)\)/);   // first parens holding a digit
   return m ? m[1].trim() : null;
 }
@@ -71,7 +75,12 @@ function clueInitials(name) {
 // (a) an N-th-century phrase, (b) a year tagged BC/BCE/AD/CE, (c) a plain
 // modern year (1000–2100, with optional "c.", range, or decade "s"). Returns
 // null when the blurb is genuinely undatable so the Era clue can be hidden.
-function extractEra(blurb) {
+function extractEra(item) {
+  // Same curated override as clueYears: an explicit `years` field wins over
+  // scraping the blurb (some blurbs lead with a restoration or rediscovery
+  // date, which made "Era" show the wrong period).
+  if (item.years) return String(item.years).trim();
+  const blurb = item.blurb;
   if (!blurb) return null;
   let m = blurb.match(/\b\d{1,2}(?:st|nd|rd|th)[ -]centur(?:y|ies)(?:\s+(?:BC|BCE|AD|CE))?/i);
   if (m) return m[0].trim();
@@ -98,7 +107,7 @@ function clueDefs() {
   }
   return {
     a: { label: 'First letters', cost: CLUE_A_COST, value: () => clueInitials(item.name) },
-    b: { label: 'Era', cost: CLUE_B_COST, value: () => extractEra(item.blurb) },
+    b: { label: 'Era', cost: CLUE_B_COST, value: () => extractEra(item) },
   };
 }
 
@@ -399,20 +408,26 @@ function buildScraps() {
   }
 }
 
+// A blocked tap shakes its scrap instead of doing nothing — covers both an
+// already-torn scrap (nothing left to tear) and an adjacency-locked one.
+function denyTap(i) {
+  const el = $(`#rv-scraps [data-i="${i}"]`);
+  if (el) {
+    el.classList.remove('deny');
+    void el.offsetWidth;   // restart the animation on repeat taps
+    el.classList.add('deny');
+  }
+}
+
 function tearScrap(i, force) {
   if (!S || !S.cur || !S.cur.open) return;
   const cur = S.cur;
-  if (cur.torn.includes(i)) return;
+  if (cur.torn.includes(i)) { denyTap(i); return; }
   // Adjacency rule: a scrap must touch an open one (force = the game's own
   // opening tear). A blocked tap shakes its head instead of silently doing
   // nothing.
   if (!force && cur.torn.length && !cur.torn.some((t) => neighbors(t).includes(i))) {
-    const locked = $(`#rv-scraps [data-i="${i}"]`);
-    if (locked) {
-      locked.classList.remove('deny');
-      void locked.offsetWidth;   // restart the animation on repeat taps
-      locked.classList.add('deny');
-    }
+    denyTap(i);
     return;
   }
   cur.torn.push(i);

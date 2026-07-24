@@ -706,6 +706,11 @@
    "pisa tower",
    "leaning tower"
   ],
+  "reject": [
+   "pisa cathedral",
+   "cathedral of pisa",
+   "duomo di pisa"
+  ],
   "blurb": "Bell tower two centuries in the building (1173–1372) — leaning before it was even finished · Italy",
   "img": "assets/img/leaning-tower-pisa.jpg",
   "fx": 0.5,
@@ -845,7 +850,9 @@
   "kind": "artefact",
   "difficulty": "easy",
   "variants": [
-   "parthenon"
+   "parthenon",
+   "acropolis",
+   "acropolis of athens"
   ],
   "blurb": "Temple of Athena on the Acropolis (438 BC) · it stood nearly 2,000 years intact — until a 1687 mortar shell hit gunpowder stored inside by the Ottomans",
   "img": "assets/img/parthenon.jpg",
@@ -871,7 +878,8 @@
    "pena palace",
    "palacio da pena",
    "palace of pena",
-   "pena national palace"
+   "pena national palace",
+   "pena"
   ],
   "blurb": "Portugal's flamboyant Romanticist palace crowning the hills of Sintra, 19th century · its architect mashed Gothic, Moorish, Renaissance and Manueline styles onto one building, on a whim",
   "img": "assets/img/pena-palace.jpg",
@@ -971,7 +979,8 @@
   "variants": [
    "sunflowers",
    "sunflowers by van gogh",
-   "les tournesols"
+   "les tournesols",
+   "van gogh sunflowers"
   ],
   "blurb": "Vincent van Gogh, 1888 · painted for the guest bedroom of the Yellow House in Arles, while van Gogh awaited his friend Paul Gauguin",
   "img": "assets/img/sunflowers.jpg",
@@ -1066,7 +1075,7 @@
    "abu simbel temple",
    "great temple of ramesses ii"
   ],
-  "blurb": "Ramesses II's rock-cut colossi guarding Nubia — sliced into 1,000+ blocks and reassembled 65 metres higher in a spectacular 1960s UNESCO rescue from the rising Aswan Dam waters, 13th century BC.",
+  "blurb": "Ramesses II's rock-cut colossi guarding Nubia — sliced into 1,000+ blocks and reassembled 65 metres higher in a spectacular 1960s UNESCO rescue from the rising Aswan Dam waters, 13th century BC",
   "img": "assets/img/abu-simbel.jpg",
   "fx": 0.4,
   "fy": 0.5,
@@ -1088,7 +1097,8 @@
   "variants": [
    "acropolis of athens",
    "acropolis",
-   "athenian acropolis"
+   "athenian acropolis",
+   "parthenon"
   ],
   "blurb": "Citadel with the Parthenon (5th century BC) · in 1941, two Greek teenagers scaled the rock by night and tore down the Nazi flag — an early act of resistance",
   "img": "assets/img/acropolis-athens.jpg",
@@ -1111,7 +1121,8 @@
   "kind": "artefact",
   "difficulty": "medium",
   "variants": [
-   "angkor wat"
+   "angkor wat",
+   "angkor"
   ],
   "blurb": "Khmer temple complex (12th century) · It's today the only building on any national flag — Cambodia's",
   "img": "assets/img/angkor-wat.jpg",
@@ -1161,7 +1172,8 @@
    "aztec calendar stone",
    "stone of the sun",
    "aztec calendar",
-   "piedra del sol"
+   "piedra del sol",
+   "sun stone"
   ],
   "blurb": "24-tonne carved calendar stone, c. 1502–1520 (reign of Moctezuma II) · despite the name, it likely wasn't a calendar — more likely an altar, dug up by accident in 1790",
   "img": "assets/img/aztec-sun-stone.jpg",
@@ -1231,7 +1243,8 @@
   "difficulty": "easy",
   "variants": [
    "brandenburg gate",
-   "brandenburger tor"
+   "brandenburger tor",
+   "brandenburg"
   ],
   "blurb": "Neoclassical gate topped by the Quadriga (1791) · Napoleon carted its bronze Quadriga to Paris as war booty in 1806; Prussians brought it home in 1814",
   "img": "assets/img/brandenburg-gate.jpg",
@@ -1329,7 +1342,8 @@
   "variants": [
    "doge's palace",
    "doges palace",
-   "palazzo ducale"
+   "palazzo ducale",
+   "ducal palace"
   ],
   "blurb": "Venetian Gothic seat of government, mainly 14th-15th century · connected to the prison by the Bridge of Sighs — Casanova was held there, and pulled off a famous jail escape",
   "img": "assets/img/doges-palace.jpg",
@@ -1404,7 +1418,16 @@
    "florence cathedral dome",
    "brunelleschi's dome",
    "duomo florence dome",
-   "santa maria del fiore dome"
+   "santa maria del fiore dome",
+   "florence cathedral",
+   "duomo",
+   "il duomo",
+   "florence duomo",
+   "duomo of florence",
+   "duomo di firenze",
+   "santa maria del fiore",
+   "cattedrale di santa maria del fiore",
+   "brunelleschi dome"
   ],
   "blurb": "Brunelleschi's self-supporting dome, completed 1436 · Brunelleschi built it with no scaffolding, inventing new hoisting machines to pull it off",
   "img": "assets/img/florence-cathedral-dome.jpg",
@@ -1532,7 +1555,8 @@
    "golden temple amritsar",
    "darbar sahib"
   ],
-  "blurb": "Sikhism's holiest shrine, gilded and mirrored in its sacred pool at Amritsar — its free kitchen (langar) feeds over 100,000 visitors a day, no questions asked.",
+  "blurb": "Sikhism's holiest shrine, gilded and mirrored in its sacred pool at Amritsar — its free kitchen (langar) feeds over 100,000 visitors a day, no questions asked",
+  "years": "16th century",
   "img": "assets/img/golden-temple.jpg",
   "fx": 0.45,
   "fy": 0.3,
@@ -1556,9 +1580,11 @@
    "great mosque of cordoba",
    "mezquita",
    "cordoba mosque",
-   "mosque of cordoba"
+   "mosque of cordoba",
+   "la mezquita"
   ],
   "blurb": "Striped double arches of the Mezquita (8th–10th century) · Charles V reportedly regretted the cathedral built inside it, saying they'd ruined something unique",
+  "years": "8th–10th century",
   "img": "assets/img/great-mosque-cordoba.jpg",
   "fx": 0.5,
   "fy": 0.93,
@@ -1631,9 +1657,12 @@
    "itsukushima",
    "floating torii",
    "miyajima",
-   "itsukushima jinja"
+   "itsukushima jinja",
+   "torii gate",
+   "great torii"
   ],
   "blurb": "Japan's vermilion torii gate that floats at high tide, off Miyajima · The great vermilion gate isn't anchored to the seabed at all — it stands upright purely under its own weight",
+  "years": "12th century",
   "img": "assets/img/itsukushima-shrine.jpg",
   "fx": 0.75,
   "fy": 0.55,
@@ -1710,6 +1739,7 @@
    "church of st george"
   ],
   "blurb": "Ethiopia's cross-shaped church hewn down into living rock, 12th–13th century · legend says angels carved by night, after the king survived poisoning and dreamed of a new Jerusalem",
+  "years": "12th–13th century",
   "img": "assets/img/lalibela.jpg",
   "fx": 0.5,
   "fy": 0.52,
@@ -1780,7 +1810,7 @@
    "agamemnon mask",
    "agamemnon"
   ],
-  "blurb": "Schliemann cabled the King of Greece 'I have gazed upon the face of Agamemnon' when he found it in 1876 — except it predates the Trojan War by roughly 300 years, so it isn't Agamemnon's face at all.",
+  "blurb": "Schliemann cabled the King of Greece 'I have gazed upon the face of Agamemnon' when he found it in 1876 — except it predates the Trojan War by roughly 300 years, so it isn't Agamemnon's face at all",
   "img": "assets/img/mask-of-agamemnon.jpg",
   "fx": 0.5,
   "fy": 0.68,
@@ -1828,7 +1858,10 @@
   "variants": [
    "milan cathedral",
    "duomo di milano",
-   "duomo of milan"
+   "duomo of milan",
+   "duomo",
+   "il duomo",
+   "milan duomo"
   ],
   "blurb": "Gothic cathedral with 135 spires, begun 1386 · nearly six centuries in the making — not officially finished until 1965, with a last set of bronze doors",
   "img": "assets/img/milan-cathedral.jpg",
@@ -2054,7 +2087,9 @@
    "prague castle",
    "prazsky hrad",
    "st vitus cathedral",
-   "saint vitus cathedral"
+   "saint vitus cathedral",
+   "st vitus",
+   "saint vitus"
   ],
   "blurb": "Hilltop castle complex with St Vitus Cathedral, founded 9th century · twice, disputes were settled by throwing officials out the window — the 1618 one sparked the Thirty Years' War",
   "img": "assets/img/prague-castle.jpg",
@@ -2081,7 +2116,7 @@
    "predjama",
    "predjamski grad"
   ],
-  "blurb": "Renaissance castle built into the mouth of a cliff cave in Slovenia — where, according to legend, the outlaw knight Erazem was killed by a cannonball while using the privy, the one weak point in an otherwise impregnable fortress.",
+  "blurb": "Renaissance castle built into the mouth of a cliff cave in Slovenia — where, according to legend, the outlaw knight Erazem was killed by a cannonball while using the privy, the one weak point in an otherwise impregnable fortress",
   "img": "assets/img/predjama-castle.jpg",
   "fx": 0.4,
   "fy": 0.4,
@@ -2102,7 +2137,8 @@
   "difficulty": "easy",
   "variants": [
    "rialto bridge",
-   "ponte di rialto"
+   "ponte di rialto",
+   "rialto"
   ],
   "blurb": "Stone bridge over the Grand Canal, completed 1591 · Michelangelo and Palladio both had designs rejected — critics predicted the arch built would collapse",
   "img": "assets/img/rialto-bridge.jpg",
@@ -2177,9 +2213,12 @@
    "st marks basilica",
    "saint mark's basilica",
    "san marco",
-   "basilica di san marco"
+   "basilica di san marco",
+   "st marks",
+   "saint marks"
   ],
   "blurb": "Venice's golden Byzantine basilica on the Piazza San Marco · Venetian merchants reportedly smuggled St Mark's relics from Alexandria hidden under pork, past customs",
+  "years": "11th century",
   "img": "assets/img/st-marks-basilica.jpg",
   "fx": 0.5,
   "fy": 0.35,
@@ -2250,7 +2289,7 @@
    "sutton hoo helmet",
    "the sutton hoo helmet"
   ],
-  "blurb": "c. 625 AD · British Museum, London — found in a ship burial in a Suffolk field in 1939, the discovery behind the 2021 Netflix film The Dig.",
+  "blurb": "c. 625 AD · British Museum, London — found in a ship burial in a Suffolk field in 1939, the discovery behind the 2021 Netflix film The Dig",
   "img": "assets/img/sutton-hoo-helmet.jpg",
   "fx": 0.2,
   "fy": 0.35,
@@ -2299,7 +2338,9 @@
   "variants": [
    "temple of poseidon",
    "temple of poseidon sounion",
-   "sounion temple"
+   "sounion temple",
+   "sounion",
+   "cape sounion"
   ],
   "blurb": "Doric marble temple on a sea cliff, 5th century BC · Lord Byron carved his own name into one of its marble columns in 1810 — the graffiti is still legible today",
   "img": "assets/img/temple-poseidon.jpg",
@@ -2349,7 +2390,7 @@
    "the venus of willendorf",
    "willendorf venus"
   ],
-  "blurb": "c. 28,000–25,000 BC · Natural History Museum, Vienna — carved before farming, writing, or the wheel existed, making her one of the oldest known artworks by tens of thousands of years.",
+  "blurb": "c. 28,000–25,000 BC · Natural History Museum, Vienna — carved before farming, writing, or the wheel existed, making her one of the oldest known artworks by tens of thousands of years",
   "img": "assets/img/venus-willendorf.jpg",
   "fx": 0.45,
   "fy": 0.24,
@@ -2710,7 +2751,7 @@
    "boudha stupa",
    "boudhanath stupa"
   ],
-  "blurb": "One of the world's largest Buddhist stupas, its painted all-seeing eyes watching over Kathmandu.",
+  "blurb": "One of the world's largest Buddhist stupas, its painted all-seeing eyes watching over Kathmandu",
   "img": "assets/img/boudhanath.jpg",
   "fx": 0.35,
   "fy": 0.3,
@@ -2730,7 +2771,8 @@
   "kind": "artefact",
   "difficulty": "easy",
   "variants": [
-   "buckingham palace"
+   "buckingham palace",
+   "buckingham"
   ],
   "blurb": "London residence of the British monarch, remodelled 1913 · in 1982, an intruder scaled the wall and sat on the Queen's bed chatting with her, unnoticed",
   "img": "assets/img/buckingham-palace.jpg",
@@ -2801,7 +2843,7 @@
    "chambord",
    "château de chambord"
   ],
-  "blurb": "France's most flamboyant Loire château, its famous double-helix staircase rumoured to have been sketched by Leonardo da Vinci, begun for François I in 1519.",
+  "blurb": "France's most flamboyant Loire château, its famous double-helix staircase rumoured to have been sketched by Leonardo da Vinci, begun for François I in 1519",
   "img": "assets/img/chambord.jpg",
   "fx": 0.5,
   "fy": 0.4,
@@ -2928,7 +2970,8 @@
    "edinburgh castle",
    "edinburgh"
   ],
-  "blurb": "Scotland's royal fortress atop a volcanic crag — besieged more than any other place in Britain, roughly 26 times across 1,100 years.",
+  "blurb": "Scotland's royal fortress atop a volcanic crag — besieged more than any other place in Britain, roughly 26 times across 1,100 years",
+  "years": "12th century onwards",
   "img": "assets/img/edinburgh-castle.jpg",
   "fx": 0.15,
   "fy": 0.42,
@@ -3128,7 +3171,7 @@
    "stele of hammurabi",
    "hammurabi stele"
   ],
-  "blurb": "c. 1754 BC · Louvre, Paris — one of the oldest deciphered law codes of real length, and the source of the phrase 'an eye for an eye'.",
+  "blurb": "c. 1754 BC · Louvre, Paris — one of the oldest deciphered law codes of real length, and the source of the phrase 'an eye for an eye'",
   "img": "assets/img/hammurabi-stele.jpg",
   "fx": 0.5,
   "fy": 0.1,
@@ -3177,7 +3220,7 @@
    "the imperial state crown",
    "crown jewels"
   ],
-  "blurb": "1937 · Tower of London, London — set with over 2,800 diamonds, it's worn by the monarch only a few times a year, most famously at the State Opening of Parliament.",
+  "blurb": "1937 · Tower of London, London — set with over 2,800 diamonds, it's worn by the monarch only a few times a year, most famously at the State Opening of Parliament",
   "img": "assets/img/imperial-state-crown.jpg",
   "fx": 0.3,
   "fy": 0.82,
@@ -3274,7 +3317,7 @@
    "the lewis chessmen",
    "lewis chess pieces"
   ],
-  "blurb": "c. 1150–1200 AD · British Museum, London — their bug-eyed, beard-chewing berserker rooks helped inspire the wizard's chess set in the Harry Potter films.",
+  "blurb": "c. 1150–1200 AD · British Museum, London — their bug-eyed, beard-chewing berserker rooks helped inspire the wizard's chess set in the Harry Potter films",
   "img": "assets/img/lewis-chessmen.jpg",
   "fx": 0.4748785798023782,
   "fy": 0.455,
@@ -3342,7 +3385,7 @@
    "meteora",
    "meteora monasteries"
   ],
-  "blurb": "Greek Orthodox monasteries perched atop sheer rock pinnacles — one doubled as a villain's lair in the Bond film For Your Eyes Only.",
+  "blurb": "Greek Orthodox monasteries perched atop sheer rock pinnacles — one doubled as a villain's lair in the Bond film For Your Eyes Only",
   "img": "assets/img/meteora.jpg",
   "fx": 0.35,
   "fy": 0.12,
@@ -3825,7 +3868,7 @@
    "rosetta stone",
    "the rosetta stone"
   ],
-  "blurb": "196 BC · British Museum, London — the same decree carved three times, in hieroglyphs, Demotic, and Greek, which is what let Champollion crack hieroglyphs at last.",
+  "blurb": "196 BC · British Museum, London — the same decree carved three times, in hieroglyphs, Demotic, and Greek, which is what let Champollion crack hieroglyphs at last",
   "img": "assets/img/rosetta-stone.jpg",
   "fx": 0.45,
   "fy": 0.62,
@@ -4100,7 +4143,7 @@
    "tikal temple",
    "temple i"
   ],
-  "blurb": "Maya temple-pyramid towering over the Guatemalan rainforest, c. 700 AD — its jungle-topped silhouette played the rebel base on Yavin 4 in the original Star Wars.",
+  "blurb": "Maya temple-pyramid towering over the Guatemalan rainforest, c. 700 AD — its jungle-topped silhouette played the rebel base on Yavin 4 in the original Star Wars",
   "img": "assets/img/tikal.jpg",
   "fx": 0.5,
   "fy": 0.32,
@@ -4149,7 +4192,7 @@
    "white horse of uffington",
    "uffington horse"
   ],
-  "blurb": "Britain's stylised chalk hill-figure above Oxfordshire, cut c. 1000 BC — legend places St George's dragon-slaying on the bare hill just below it.",
+  "blurb": "Britain's stylised chalk hill-figure above Oxfordshire, cut c. 1000 BC — legend places St George's dragon-slaying on the bare hill just below it",
   "img": "assets/img/uffington-white-horse.jpg",
   "fx": 0.45,
   "fy": 0.38,
@@ -4223,7 +4266,7 @@
    "patio de los leones",
    "lion fountain alhambra"
   ],
-  "blurb": "Fountain courtyard of the Alhambra (14th century) · Granada, Spain — its twelve marble lions are one of the rare figurative sculptures in Islamic art, which traditionally avoided depicting animals and people.",
+  "blurb": "Fountain courtyard of the Alhambra (14th century) · Granada, Spain — its twelve marble lions are one of the rare figurative sculptures in Islamic art, which traditionally avoided depicting animals and people",
   "img": "assets/img/alhambra-lions.jpg",
   "fx": 0.5,
   "fy": 0.6,
@@ -4248,7 +4291,7 @@
    "arnolfini wedding",
    "the arnolfini wedding"
   ],
-  "blurb": "Jan van Eyck, 1434 · National Gallery, London — look for the tiny convex mirror on the back wall: it reflects the whole room, including two figures who may be the painter himself.",
+  "blurb": "Jan van Eyck, 1434 · National Gallery, London — look for the tiny convex mirror on the back wall: it reflects the whole room, including two figures who may be the painter himself",
   "img": "assets/img/arnolfini-portrait.jpg",
   "fx": 0.5,
   "fy": 0.12,
@@ -4274,7 +4317,7 @@
    "stelae of aksum",
    "aksum stelae"
   ],
-  "blurb": "Towering carved granite stelae of an ancient Ethiopian kingdom, c. 4th century AD — one was looted by Mussolini's Italy in 1937 and only returned, in pieces, by cargo plane in 2005.",
+  "blurb": "Towering carved granite stelae of an ancient Ethiopian kingdom, c. 4th century AD — one was looted by Mussolini's Italy in 1937 and only returned, in pieces, by cargo plane in 2005",
   "img": "assets/img/axum-obelisk.jpg",
   "fx": 0.5,
   "fy": 0.4,
@@ -4300,7 +4343,7 @@
    "baalbek temple",
    "heliopolis"
   ],
-  "blurb": "Lebanon's colossal Roman temple complex, 2nd century AD — raised on some of the largest cut stones ever used in construction, including a nearby block weighing close to 1,000 tonnes.",
+  "blurb": "Lebanon's colossal Roman temple complex, 2nd century AD — raised on some of the largest cut stones ever used in construction, including a nearby block weighing close to 1,000 tonnes",
   "img": "assets/img/baalbek.jpg",
   "fx": 0.55,
   "fy": 0.45,
@@ -4495,7 +4538,7 @@
    "column of aurelius",
    "aurelian column"
   ],
-  "blurb": "Rome's spiralling marble war record — deliberately modelled on Trajan's Column, but starring a very different, much bloodier war, 2nd century AD.",
+  "blurb": "Rome's spiralling marble war record — deliberately modelled on Trajan's Column, but starring a very different, much bloodier war, 2nd century AD",
   "img": "assets/img/column-marcus-aurelius.jpg",
   "fx": 0.4,
   "fy": 0.33,
@@ -4544,7 +4587,7 @@
    "cyrus cylinder",
    "cylinder of cyrus"
   ],
-  "blurb": "Clay cylinder in which Cyrus the Great, fresh off conquering Babylon in 539 BC, freed its captives and restored their gods — later hailed as history's first human-rights charter.",
+  "blurb": "Clay cylinder in which Cyrus the Great, fresh off conquering Babylon in 539 BC, freed its captives and restored their gods — later hailed as history's first human-rights charter",
   "img": "assets/img/cyrus-cylinder.jpg",
   "fx": 0.5,
   "fy": 0.42,
@@ -4568,7 +4611,7 @@
    "great isaiah scroll",
    "dead sea scroll"
   ],
-  "blurb": "Discovered in 1947 when a Bedouin shepherd boy threw a rock into a cave and heard something break.",
+  "blurb": "Discovered in 1947 when a Bedouin shepherd boy threw a rock into a cave and heard something break",
   "img": "assets/img/dead-sea-scrolls.jpg",
   "fx": 0.5,
   "fy": 0.5,
@@ -4614,7 +4657,7 @@
    "parthenon marbles",
    "the parthenon marbles"
   ],
-  "blurb": "c. 447–438 BC · British Museum, London — at the center of a 200-year tug-of-war between Athens and London over whether they belong on the Parthenon.",
+  "blurb": "c. 447–438 BC · British Museum, London — at the center of a 200-year tug-of-war between Athens and London over whether they belong on the Parthenon",
   "img": "assets/img/elgin-marbles.jpg",
   "fx": 0.3079881656804734,
   "fy": 0.5657790927021696,
@@ -4833,7 +4876,7 @@
    "kizhi island",
    "transfiguration church kizhi"
   ],
-  "blurb": "Russia's stacked-dome wooden churches on an island in Lake Onega, built without a single nail, 18th century.",
+  "blurb": "Russia's stacked-dome wooden churches on an island in Lake Onega, built without a single nail, 18th century",
   "img": "assets/img/kizhi-pogost.jpg",
   "fx": 0.4,
   "fy": 0.35,
@@ -4860,7 +4903,7 @@
    "laocoon",
    "laocoön"
   ],
-  "blurb": "c. 40–30 BC · Vatican Museums, Rome — its 1506 rediscovery in a Roman vineyard was attended by Michelangelo himself, and helped kick off the Renaissance craze for classical sculpture.",
+  "blurb": "c. 40–30 BC · Vatican Museums, Rome — its 1506 rediscovery in a Roman vineyard was attended by Michelangelo himself, and helped kick off the Renaissance craze for classical sculpture",
   "img": "assets/img/laocoon.jpg",
   "fx": 0.7869571428571429,
   "fy": 0.4642857142857143,
@@ -4885,7 +4928,7 @@
    "the maids of honour",
    "the ladies-in-waiting"
   ],
-  "blurb": "Diego Velázquez, 1656 · Museo del Prado, Madrid — Velázquez painted himself into the scene, brush in hand, working on the very canvas we're looking at.",
+  "blurb": "Diego Velázquez, 1656 · Museo del Prado, Madrid — Velázquez painted himself into the scene, brush in hand, working on the very canvas we're looking at",
   "img": "assets/img/las-meninas.jpg",
   "fx": 0.5065635286372614,
   "fy": 0.7535714285714286,
@@ -4932,7 +4975,7 @@
    "celsus library",
    "library of celsus ephesus"
   ],
-  "blurb": "Roman marble library facade at Ephesus, c. 117 AD — Celsus himself is buried in a stone sarcophagus beneath it, making his library also his tomb.",
+  "blurb": "Roman marble library facade at Ephesus, c. 117 AD — Celsus himself is buried in a stone sarcophagus beneath it, making his library also his tomb",
   "img": "assets/img/library-celsus-ephesus.jpg",
   "fx": 0.5,
   "fy": 0.5,
@@ -5058,7 +5101,7 @@
    "pyramids of meroe",
    "meroe"
   ],
-  "blurb": "Steep royal pyramids of the Kushite kings in Sudan, c. 300 BC–300 AD — there are more pyramids here than in all of Egypt.",
+  "blurb": "Steep royal pyramids of the Kushite kings in Sudan, c. 300 BC–300 AD — there are more pyramids here than in all of Egypt",
   "img": "assets/img/meroe-pyramids.jpg",
   "fx": 0.2,
   "fy": 0.35,
@@ -5084,7 +5127,7 @@
    "cliff palace",
    "mesa verde cliff palace"
   ],
-  "blurb": "Ancestral Puebloan cliff dwellings beneath a Colorado canyon rim, 13th century — Cliff Palace is the largest cliff dwelling in North America, abandoned within a generation for reasons still debated.",
+  "blurb": "Ancestral Puebloan cliff dwellings beneath a Colorado canyon rim, 13th century — Cliff Palace is the largest cliff dwelling in North America, abandoned within a generation for reasons still debated",
   "img": "assets/img/mesa-verde.jpg",
   "fx": 0.5,
   "fy": 0.4,
@@ -5134,7 +5177,7 @@
    "newgrange entrance stone",
    "bru na boinne"
   ],
-  "blurb": "Ireland's Neolithic passage tomb, carved with spirals and older than Stonehenge and the Great Pyramid of Giza alike, c. 3200 BC.",
+  "blurb": "Ireland's Neolithic passage tomb, carved with spirals and older than Stonehenge and the Great Pyramid of Giza alike, c. 3200 BC",
   "img": "assets/img/newgrange-entrance-stone.jpg",
   "fx": 0.5,
   "fy": 0.5,
@@ -5208,7 +5251,7 @@
    "temple of the inscriptions",
    "temple of inscriptions"
   ],
-  "blurb": "Maya pyramid-tomb rising from the Chiapas jungle — its ruler Pakal's carved sarcophagus lid is the image conspiracy theorists insist shows an ancient astronaut, 7th century AD.",
+  "blurb": "Maya pyramid-tomb rising from the Chiapas jungle — its ruler Pakal's carved sarcophagus lid is the image conspiracy theorists insist shows an ancient astronaut, 7th century AD",
   "img": "assets/img/palenque-temple.jpg",
   "fx": 0.5,
   "fy": 0.42,
@@ -5257,7 +5300,7 @@
    "candi prambanan",
    "prambanan temple"
   ],
-  "blurb": "Java's soaring Hindu temple compound of pointed spires, 9th century AD — local legend says it was built in a single night, one temple short of a cursed princess's demand for a thousand.",
+  "blurb": "Java's soaring Hindu temple compound of pointed spires, 9th century AD — local legend says it was built in a single night, one temple short of a cursed princess's demand for a thousand",
   "img": "assets/img/prambanan.jpg",
   "fx": 0.5,
   "fy": 0.35,
@@ -5332,7 +5375,7 @@
    "standard of ur",
    "royal standard of ur"
   ],
-  "blurb": "Despite the name, nobody actually knows what it was for — Woolley's 'battle standard' theory has since given way to guesses that it's a lyre soundbox or a treasure chest.",
+  "blurb": "Despite the name, nobody actually knows what it was for — Woolley's 'battle standard' theory has since given way to guesses that it's a lyre soundbox or a treasure chest",
   "img": "assets/img/standard-of-ur.jpg",
   "fx": 0.5,
   "fy": 0.5,
@@ -5381,7 +5424,7 @@
    "summer palace beijing",
    "yiheyuan"
   ],
-  "blurb": "Beijing's imperial lakeside garden-palace, rebuilt in the 1880s by the Dowager Empress Cixi — reportedly using funds meant for China's navy.",
+  "blurb": "Beijing's imperial lakeside garden-palace, rebuilt in the 1880s by the Dowager Empress Cixi — reportedly using funds meant for China's navy",
   "img": "assets/img/summer-palace.jpg",
   "fx": 0.55,
   "fy": 0.3,
@@ -5453,7 +5496,7 @@
    "teotihuacan",
    "pyramid of the sun teotihuacan"
   ],
-  "blurb": "Colossal stepped pyramid at Teotihuacán, Mexico — the third-largest pyramid on Earth, built c. 200 AD by a civilisation whose own name for itself has been lost to time.",
+  "blurb": "Colossal stepped pyramid at Teotihuacán, Mexico — the third-largest pyramid on Earth, built c. 200 AD by a civilisation whose own name for itself has been lost to time",
   "img": "assets/img/teotihuacan-pyramid-sun.jpg",
   "fx": 0.5,
   "fy": 0.4,
@@ -5505,7 +5548,7 @@
    "trajans column",
    "column of trajan"
   ],
-  "blurb": "113 AD · Trajan's Forum, Rome — Trajan's entire Dacian military campaign spirals up the column in relief; unrolled, the frieze would stretch some 200 metres.",
+  "blurb": "113 AD · Trajan's Forum, Rome — Trajan's entire Dacian military campaign spirals up the column in relief; unrolled, the frieze would stretch some 200 metres",
   "img": "assets/img/trajan-column.jpg",
   "fx": 0.3,
   "fy": 0.3,
@@ -5575,7 +5618,7 @@
   "variants": [
    "warren cup"
   ],
-  "blurb": "Its explicit homoerotic relief scenes made it too controversial for the British Museum to put on public display for decades after acquiring it.",
+  "blurb": "Its explicit homoerotic relief scenes made it too controversial for the British Museum to put on public display for decades after acquiring it",
   "img": "assets/img/warren-cup.jpg",
   "fx": 0.65,
   "fy": 0.4,
@@ -5671,7 +5714,7 @@
    "hope diamond",
    "the hope diamond"
   ],
-  "blurb": "Once part of the French Crown Jewels, stolen during the Revolution — it's trailed a 'curse' legend ever since, with owners said to have met ruin, madness, or the guillotine.",
+  "blurb": "Once part of the French Crown Jewels, stolen during the Revolution — it's trailed a 'curse' legend ever since, with owners said to have met ruin, madness, or the guillotine",
   "img": "assets/img/hope-diamond.jpg",
   "fx": 0.5,
   "fy": 0.5,
@@ -5770,7 +5813,7 @@
    "great ziggurat of ur",
    "ziggurat ur"
   ],
-  "blurb": "Sumer's stepped brick temple-mountain at Ur, c. 2100 BC — built for the moon god Nanna in the city the Bible names as Abraham's birthplace.",
+  "blurb": "Sumer's stepped brick temple-mountain at Ur, c. 2100 BC — built for the moon god Nanna in the city the Bible names as Abraham's birthplace",
   "img": "assets/img/ziggurat-ur.jpg",
   "fx": 0.45,
   "fy": 0.45,
@@ -5984,7 +6027,8 @@
    "space shuttle",
    "nasa space shuttle",
    "shuttle",
-   "space shuttle discovery"
+   "space shuttle discovery",
+   "discovery"
   ],
   "blurb": "NASA's reusable orbiter fleet, first flew in 1981 · Discovery alone flew 39 missions — more spaceflights than any other single spacecraft in history",
   "img": "assets/img/space-shuttle.jpg",
@@ -6291,6 +6335,7 @@
    "the houses of parliament"
   ],
   "blurb": "Seat of the UK Parliament, rebuilt after an 1834 fire destroyed almost the whole medieval palace · only Westminster Hall, with its 14th-century hammerbeam roof, survived largely intact",
+  "years": "1840–1876",
   "img": "assets/img/palace-of-westminster.jpg",
   "fx": 0.22,
   "fy": 0.32,
@@ -6338,7 +6383,7 @@
    "old ironsides",
    "constitution"
   ],
-  "blurb": "Commissioned in 1797 · nicknamed 'Old Ironsides' after War of 1812 sailors swore they saw British cannonballs bounce off her oak hull — she's still a commissioned US Navy ship today, the oldest afloat in the world.",
+  "blurb": "Commissioned in 1797 · nicknamed 'Old Ironsides' after War of 1812 sailors swore they saw British cannonballs bounce off her oak hull — she's still a commissioned US Navy ship today, the oldest afloat in the world",
   "img": "assets/img/uss-constitution.jpg",
   "fx": 0.44,
   "fy": 0.75,
@@ -6363,7 +6408,7 @@
    "capitol building",
    "the capitol"
   ],
-  "blurb": "Its cast-iron dome was finished in 1866, after Lincoln insisted construction continue all through the Civil War as proof the Union would endure — the bronze Statue of Freedom was hoisted onto the very top in December 1863.",
+  "blurb": "Its cast-iron dome was finished in 1866, after Lincoln insisted construction continue all through the Civil War as proof the Union would endure — the bronze Statue of Freedom was hoisted onto the very top in December 1863",
   "img": "assets/img/us-capitol.jpg",
   "fx": 0.5,
   "fy": 0.33,
@@ -6385,7 +6430,7 @@
    "british museum",
    "the british museum"
   ],
-  "blurb": "Britain's first national public museum, opened its doors in 1759 · it has never charged general admission in over 260 years, a condition written into the founding Act of Parliament.",
+  "blurb": "Britain's first national public museum, opened its doors in 1759 · it has never charged general admission in over 260 years, a condition written into the founding Act of Parliament",
   "img": "assets/img/british-museum.jpg",
   "fx": 0.586,
   "fy": 0.435,
@@ -6411,7 +6456,7 @@
    "koh-i-noor diamond",
    "mountain of light"
   ],
-  "blurb": "Seized by the British East India Company in 1849 · a legend claims the diamond curses any man who wears it — every royal owner since has been a queen or queen consort.",
+  "blurb": "Seized by the British East India Company in 1849 · a legend claims the diamond curses any man who wears it — every royal owner since has been a queen or queen consort",
   "img": "assets/img/koh-i-noor.jpg",
   "fx": 0.5,
   "fy": 0.5,
@@ -6435,7 +6480,7 @@
    "artemision",
    "temple of diana"
   ],
-  "blurb": "One of the Seven Wonders of the Ancient World, rebuilt after a fire in 356 BC · legend says it burned down the same night Alexander the Great was born, allegedly torched by a man seeking eternal fame.",
+  "blurb": "One of the Seven Wonders of the Ancient World, rebuilt after a fire in 356 BC · legend says it burned down the same night Alexander the Great was born, allegedly torched by a man seeking eternal fame",
   "img": "assets/img/temple-artemis.jpg",
   "fx": 0.73,
   "fy": 0.3,
@@ -6458,7 +6503,7 @@
    "enola gay",
    "the enola gay"
   ],
-  "blurb": "Dropped the atomic bomb 'Little Boy' on Hiroshima on 6 August 1945 · pilot Paul Tibbets named the B-29 after his own mother the night before the mission.",
+  "blurb": "Dropped the atomic bomb 'Little Boy' on Hiroshima on 6 August 1945 · pilot Paul Tibbets named the B-29 after his own mother the night before the mission",
   "img": "assets/img/enola-gay.jpg",
   "fx": 0.35,
   "fy": 0.15,
@@ -6480,9 +6525,11 @@
    "lighthouse of alexandria",
    "pharos of alexandria",
    "pharos lighthouse",
-   "great lighthouse of alexandria"
+   "great lighthouse of alexandria",
+   "pharos"
   ],
-  "blurb": "Built c. 280 BC on the island of Pharos · it stood for over 1,600 years until earthquakes toppled it for good in the 14th century — no photograph or accurate scale drawing survives, only ancient descriptions and coins.",
+  "blurb": "Built c. 280 BC on the island of Pharos · it stood for over 1,600 years until earthquakes toppled it for good in the 14th century — no photograph or accurate scale drawing survives, only ancient descriptions and coins",
+  "years": "c. 280 BC",
   "img": "assets/img/lighthouse-alexandria.jpg",
   "fx": 0.52,
   "fy": 0.35,
@@ -6505,7 +6552,7 @@
    "holy sepulchre",
    "church of the resurrection"
   ],
-  "blurb": "This Crusader-era church was consecrated in 1149 on the site venerated as Christ's crucifixion and burial place · a wooden ladder left on a windowsill has stayed there since at least 1728, because moving it would break the fragile 'status quo' agreement between its rival Christian custodians.",
+  "blurb": "This Crusader-era church was consecrated in 1149 on the site venerated as Christ's crucifixion and burial place · a wooden ladder left on a windowsill has stayed there since at least 1728, because moving it would break the fragile 'status quo' agreement between its rival Christian custodians",
   "img": "assets/img/holy-sepulchre.jpg",
   "fx": 0.65,
   "fy": 0.44,
@@ -6529,7 +6576,7 @@
    "lal qila",
    "lal qilla"
   ],
-  "blurb": "Shah Jahan's citadel for his new capital was completed in 1648 · every Indian Prime Minister has delivered the nation's Independence Day speech from its ramparts since 1947.",
+  "blurb": "Shah Jahan's citadel for his new capital was completed in 1648 · every Indian Prime Minister has delivered the nation's Independence Day speech from its ramparts since 1947",
   "img": "assets/img/red-fort.jpg",
   "fx": 0.48,
   "fy": 0.416,
@@ -6553,7 +6600,7 @@
    "st. paul's cathedral",
    "st pauls"
   ],
-  "blurb": "Christopher Wren's masterpiece was completed in 1710, after the Great Fire destroyed its medieval predecessor · a 1940 photograph of its dome rising through Blitz smoke, captioned 'St Paul's Survives', became one of the most famous images of the Second World War.",
+  "blurb": "Christopher Wren's masterpiece was completed in 1710, after the Great Fire destroyed its medieval predecessor · a 1940 photograph of its dome rising through Blitz smoke, captioned 'St Paul's Survives', became one of the most famous images of the Second World War",
   "img": "assets/img/st-pauls-cathedral.jpg",
   "fx": 0.578,
   "fy": 0.387,
@@ -6574,9 +6621,10 @@
   "difficulty": "easy",
   "variants": [
    "chrysler building",
-   "the chrysler building"
+   "the chrysler building",
+   "chrysler"
   ],
-  "blurb": "Completed in 1930 · its stainless-steel spire was secretly built in pieces inside the fire shaft and hoisted into place in about 90 minutes, a surprise move that let it beat a rival tower to become the world's tallest building — for less than a year.",
+  "blurb": "Completed in 1930 · its stainless-steel spire was secretly built in pieces inside the fire shaft and hoisted into place in about 90 minutes, a surprise move that let it beat a rival tower to become the world's tallest building — for less than a year",
   "img": "assets/img/chrysler-building.jpg",
   "fx": 0.51,
   "fy": 0.235,
@@ -6599,7 +6647,7 @@
    "the colossus of rhodes",
    "colossus"
   ],
-  "blurb": "Erected around 280 BC to celebrate Rhodes surviving a year-long siege · it toppled in an earthquake after just 54 years standing — contrary to popular legend, it never straddled the harbour entrance with ships passing beneath its legs.",
+  "blurb": "Erected around 280 BC to celebrate Rhodes surviving a year-long siege · it toppled in an earthquake after just 54 years standing — contrary to popular legend, it never straddled the harbour entrance with ships passing beneath its legs",
   "img": "assets/img/colossus-rhodes.jpg",
   "fx": 0.65,
   "fy": 0.4,
@@ -6623,7 +6671,7 @@
    "met museum",
    "the metropolitan museum of art"
   ],
-  "blurb": "Founded in 1870 by a group of American businessmen, financiers and artists who wanted a national art institution to rival Europe's · its collection now spans over 5,000 years of world culture and some 2 million objects.",
+  "blurb": "Founded in 1870 by a group of American businessmen, financiers and artists who wanted a national art institution to rival Europe's · its collection now spans over 5,000 years of world culture and some 2 million objects",
   "img": "assets/img/met-museum.jpg",
   "fx": 0.5,
   "fy": 0.66,
@@ -6646,7 +6694,7 @@
    "hoover dam",
    "boulder dam"
   ],
-  "blurb": "Completed in 1936, two years ahead of schedule · engineers embedded cooling pipes in the concrete because a mass that size would otherwise still be curing today — it would have taken over a century to cool naturally on its own.",
+  "blurb": "Completed in 1936, two years ahead of schedule · engineers embedded cooling pipes in the concrete because a mass that size would otherwise still be curing today — it would have taken over a century to cool naturally on its own",
   "img": "assets/img/hoover-dam.jpg",
   "fx": 0.33,
   "fy": 0.3,
@@ -6669,7 +6717,7 @@
    "the voynich manuscript",
    "voynich"
   ],
-  "blurb": "Carbon-dated to 1404-1438 · its unknown script has defeated every attempt at decryption for over a century, including a 1940s US Army study group led by cryptographer William Friedman, famed for breaking Japanese wartime codes.",
+  "blurb": "Carbon-dated to 1404-1438 · its unknown script has defeated every attempt at decryption for over a century, including a 1940s US Army study group led by cryptographer William Friedman, famed for breaking Japanese wartime codes",
   "img": "assets/img/voynich-manuscript.jpg",
   "fx": 0.5,
   "fy": 0.55,
@@ -6691,7 +6739,7 @@
    "washington monument",
    "the washington monument"
   ],
-  "blurb": "Construction stalled for over two decades and resumed only in 1877 · by then the marble supply had changed, leaving a visible colour change roughly a third of the way up the obelisk that's still there today.",
+  "blurb": "Construction stalled for over two decades and resumed only in 1877 · by then the marble supply had changed, leaving a visible colour change roughly a third of the way up the obelisk that's still there today",
   "img": "assets/img/washington-monument.jpg",
   "fx": 0.488,
   "fy": 0.435,
@@ -6715,9 +6763,10 @@
    "al aqsa mosque",
    "al-qibli mosque",
    "al qibli mosque",
-   "farthest mosque"
+   "farthest mosque",
+   "al aqsa"
   ],
-  "blurb": "Islam's third-holiest site, first built in the early 8th century AD and rebuilt repeatedly after earthquakes · its silver dome only reached its current look in 1983, replacing an anodized aluminium roof installed after a 1969 arson attack.",
+  "blurb": "Islam's third-holiest site, first built in the early 8th century AD and rebuilt repeatedly after earthquakes · its silver dome only reached its current look in 1983, replacing an anodized aluminium roof installed after a 1969 arson attack",
   "img": "assets/img/al-aqsa-mosque.jpg",
   "fx": 0.289,
   "fy": 0.354,
@@ -6741,7 +6790,7 @@
    "hanging gardens",
    "gardens of babylon"
   ],
-  "blurb": "Said to have been built by King Nebuchadnezzar II around 600 BC for a homesick wife who missed the mountains of her homeland · no archaeological trace of the gardens has ever been found in Babylon itself, leading some historians to argue they actually stood in Nineveh, over 300 miles away.",
+  "blurb": "Said to have been built by King Nebuchadnezzar II around 600 BC for a homesick wife who missed the mountains of her homeland · no archaeological trace of the gardens has ever been found in Babylon itself, leading some historians to argue they actually stood in Nineveh, over 300 miles away",
   "img": "assets/img/hanging-gardens.jpg",
   "fx": 0.5,
   "fy": 0.755,
@@ -6791,7 +6840,8 @@
    "musée d'orsay",
    "musee dorsay",
    "orsay museum",
-   "gare d'orsay"
+   "gare d'orsay",
+   "orsay"
   ],
   "blurb": "A former Beaux-Arts railway station built for the 1900 Paris World's Fair, converted into a museum of Impressionist and Post-Impressionist art in 1986",
   "img": "assets/img/musee-dorsay.jpg",
@@ -6920,7 +6970,9 @@
   "variants": [
    "mausoleum at halicarnassus",
    "mausoleum of halicarnassus",
-   "tomb of mausolus"
+   "tomb of mausolus",
+   "halicarnassus",
+   "mausoleum"
   ],
   "blurb": "Built around 350 BC as the tomb of the Persian satrap Mausolus — one of the Seven Wonders of the Ancient World, and the origin of the word \"mausoleum\"",
   "img": "assets/img/mausoleum-halicarnassus.jpg",
@@ -6971,6 +7023,7 @@
    "wadi biban el muluk"
   ],
   "blurb": "Burial ground for New Kingdom pharaohs from the 16th to the 11th century BC · over 60 tombs have been found here, including Tutankhamun's in 1922",
+  "years": "16th–11th century BC",
   "img": "assets/img/valley-of-kings.jpg",
   "fx": 0.65,
   "fy": 0.45,
@@ -7019,7 +7072,8 @@
    "cullinan",
    "cullinan rough",
    "cullinan i",
-   "great star of africa"
+   "great star of africa",
+   "star of africa"
   ],
   "blurb": "Found in a South African mine in 1905 at 3,106 carats — still the largest gem-quality rough diamond ever discovered · later cut into stones set in the Sovereign's Sceptre and Crown Jewels",
   "img": "assets/img/cullinan-diamond.jpg",
@@ -7067,7 +7121,8 @@
    "miroku bosatsu",
    "koryuji maitreya",
    "the pensive bodhisattva",
-   "hanka shiyui"
+   "hanka shiyui",
+   "miroku"
   ],
   "blurb": "Carved from a single piece of red-pine in 7th-century Japan · one of the first objects Japan ever designated a National Treasure, in 1951",
   "img": "assets/img/maitreya-koryuji.jpg",
@@ -7140,7 +7195,8 @@
    "victoria and albert museum",
    "victoria & albert museum",
    "the v&a",
-   "v and a museum"
+   "v and a museum",
+   "v and a"
   ],
   "blurb": "Founded in 1852 after the Great Exhibition, its collection spans 5,000 years of art and design — including a full-size plaster cast of Trajan's Column, split in two to fit",
   "img": "assets/img/victoria-albert-museum.jpg",
@@ -7659,7 +7715,8 @@
    "centre pompidou",
    "centre georges pompidou",
    "pompidou centre",
-   "pompidou center"
+   "pompidou center",
+   "pompidou"
   ],
   "blurb": "Paris's inside-out museum, opened in 1977 · its pipework is colour-coded by function — blue for air conditioning, green for water, yellow for electricity, red for the escalators and lifts",
   "img": "assets/img/centre-pompidou.jpg",
@@ -7684,7 +7741,10 @@
    "saint catherine's monastery",
    "st catherine's monastery",
    "saint catherine's monastery, sinai",
-   "monastery of the god-trodden mount sinai"
+   "monastery of the god-trodden mount sinai",
+   "st catherines monastery",
+   "saint catherines monastery",
+   "st catherine monastery"
   ],
   "blurb": "Byzantine emperor Justinian I had this fortress-monastery built between 548 and 565 AD at the foot of Mount Sinai, on the spot tradition marks as the Burning Bush · it's the oldest continuously inhabited Christian monastery on Earth",
   "img": "assets/img/st-catherines-monastery.jpg",
@@ -7757,6 +7817,7 @@
    "bhimbetka"
   ],
   "blurb": "Indian rock shelters holding some of the subcontinent's oldest art, the earliest paintings estimated at roughly 10,000 years old · archaeologist V.S. Wakankar rediscovered the site in 1957 after the hills reminded him of France's painted caves",
+  "years": "c. 8000 BC",
   "img": "assets/img/bhimbetka.jpg",
   "fx": 0.43,
   "fy": 0.44,
@@ -7779,7 +7840,10 @@
    "khufu ship",
    "khufu's ship",
    "solar barque of khufu",
-   "cheops boat"
+   "cheops boat",
+   "solar boat",
+   "solar barge",
+   "khufu boat"
   ],
   "blurb": "Buried beside the Great Pyramid around 2500 BC and rediscovered in 1954 · the 1,224 disassembled cedar pieces were painstakingly rebuilt over a decade without a single nail — the planks are lashed together with rope",
   "img": "assets/img/khufu-ship.jpg",
@@ -7803,7 +7867,8 @@
    "rijksmuseum",
    "rijksmuseum amsterdam",
    "the rijksmuseum",
-   "dutch national museum"
+   "dutch national museum",
+   "rijks museum"
   ],
   "blurb": "Dutch national museum in Amsterdam, opened 1885 · designed with a public passage straight through the building for cyclists, who fought (and won) to keep it during a 2013 renovation",
   "img": "assets/img/rijksmuseum.jpg",
@@ -7926,7 +7991,11 @@
    "national gallery of art",
    "national gallery of art west building",
    "nga",
-   "west building"
+   "west building",
+   "national gallery",
+   "national gallery washington",
+   "national gallery of art washington",
+   "national gallery dc"
   ],
   "blurb": "Washington DC's West Building opened 1941 · funded entirely by banker Andrew Mellon, who insisted the museum never be named after him",
   "img": "assets/img/national-gallery-art.jpg",
@@ -7952,7 +8021,8 @@
    "mahabodhi temple complex",
    "temple of the great awakening",
    "bodh gaya temple",
-   "mahabodhi vihara"
+   "mahabodhi vihara",
+   "mahabodhi"
   ],
   "blurb": "Buddhist temple in Bodh Gaya marking the spot of the Buddha's enlightenment, current tower rebuilt c. 5th–6th century CE · restored again in the 1880s by British archaeologist Alexander Cunningham",
   "img": "assets/img/mahabodhi-temple.jpg",
@@ -8118,9 +8188,11 @@
   "variants": [
    "elephanta caves",
    "gharapuri caves",
-   "caves of elephanta"
+   "caves of elephanta",
+   "elephanta"
   ],
   "blurb": "Rock-cut Hindu cave temples on an island near Mumbai, carved c. 5th–8th century AD · named by Portuguese sailors after a giant stone elephant statue that once stood at the dock",
+  "years": "5th–8th century AD",
   "img": "assets/img/elephanta-caves.jpg",
   "fx": 0.34,
   "fy": 0.3,
@@ -8165,7 +8237,8 @@
   "variants": [
    "badshahi mosque",
    "badshahi masjid",
-   "the badshahi mosque"
+   "the badshahi mosque",
+   "badshahi"
   ],
   "blurb": "Lahore mosque built in 1673 under Mughal emperor Aurangzeb · it stayed the largest mosque in the world for close to 300 years",
   "img": "assets/img/badshahi-mosque.jpg",
@@ -8257,7 +8330,8 @@
   "kind": "artefact",
   "difficulty": "hard",
   "variants": [
-   "codex alexandrinus"
+   "codex alexandrinus",
+   "alexandrinus"
   ],
   "blurb": "A 5th-century Greek Bible manuscript, one of the oldest nearly-complete copies in existence · gifted to England's Charles I in 1627 by Constantinople's patriarch",
   "img": "assets/img/codex-alexandrinus.jpg",
@@ -8354,7 +8428,7 @@
    "forth rail bridge",
    "forth railway bridge"
   ],
-  "blurb": "Completed in 1890 as the world's first major steel cantilever bridge · relentless repainting became so proverbial it entered the language as 'painting the Forth Bridge' — until a 2011 recoat finally came with a 25-year guarantee.",
+  "blurb": "Completed in 1890 as the world's first major steel cantilever bridge · relentless repainting became so proverbial it entered the language as 'painting the Forth Bridge' — until a 2011 recoat finally came with a 25-year guarantee",
   "img": "assets/img/forth-bridge.jpg",
   "fx": 0.42,
   "fy": 0.3,
@@ -8378,7 +8452,7 @@
    "palace of winds",
    "palace of the winds"
   ],
-  "blurb": "Built in 1799 for the women of Jaipur's royal household · its five-tier pink facade is pierced by 953 tiny windows yet is only one room deep behind them.",
+  "blurb": "Built in 1799 for the women of Jaipur's royal household · its five-tier pink facade is pierced by 953 tiny windows yet is only one room deep behind them",
   "img": "assets/img/hawa-mahal.jpg",
   "fx": 0.5,
   "fy": 0.42,
@@ -8405,7 +8479,7 @@
    "imperial regalia",
    "japanese crown jewels"
   ],
-  "blurb": "Mythologised since Japan's Kojiki chronicle was compiled in 712 AD · reportedly no reigning emperor has ever seen all three treasures together — they're kept apart, wrapped, and never publicly displayed.",
+  "blurb": "Mythologised since Japan's Kojiki chronicle was compiled in 712 AD · reportedly no reigning emperor has ever seen all three treasures together — they're kept apart, wrapped, and never publicly displayed",
   "img": "assets/img/imperial-regalia-japan.jpg",
   "fx": 0.5,
   "fy": 0.3,
@@ -8428,7 +8502,7 @@
    "van gogh museum",
    "the van gogh museum"
   ],
-  "blurb": "Opened in Amsterdam in 1973 to house the world's largest Van Gogh collection · its architect, Gerrit Rietveld, died nine years before its doors ever opened.",
+  "blurb": "Opened in Amsterdam in 1973 to house the world's largest Van Gogh collection · its architect, Gerrit Rietveld, died nine years before its doors ever opened",
   "img": "assets/img/van-gogh-museum.jpg",
   "fx": 0.35,
   "fy": 0.35,
@@ -8451,7 +8525,7 @@
    "independence hall",
    "pennsylvania state house"
   ],
-  "blurb": "Completed in 1753 as the Pennsylvania State House · both the Declaration of Independence and the US Constitution were signed under this one roof, eleven years apart.",
+  "blurb": "Completed in 1753 as the Pennsylvania State House · both the Declaration of Independence and the US Constitution were signed under this one roof, eleven years apart",
   "img": "assets/img/independence-hall.jpg",
   "fx": 0.51,
   "fy": 0.45,
@@ -8475,7 +8549,7 @@
    "the art institute of chicago",
    "chicago art institute"
   ],
-  "blurb": "Opened for the 1893 World's Columbian Exposition · the two bronze lions added a year later are nicknamed 'Stand' and 'Roar' and get dressed in jerseys whenever a Chicago team makes the playoffs.",
+  "blurb": "Opened for the 1893 World's Columbian Exposition · the two bronze lions added a year later are nicknamed 'Stand' and 'Roar' and get dressed in jerseys whenever a Chicago team makes the playoffs",
   "img": "assets/img/art-institute-chicago.jpg",
   "fx": 0.5,
   "fy": 0.3,
@@ -8498,7 +8572,7 @@
    "lahore fort",
    "shahi qila"
   ],
-  "blurb": "Rebuilt in red sandstone from 1566 under Akbar, with later Mughal additions including the mirrored Sheesh Mahal · one candle's flame there multiplies into a thousand reflected stars.",
+  "blurb": "Rebuilt in red sandstone from 1566 under Akbar, with later Mughal additions including the mirrored Sheesh Mahal · one candle's flame there multiplies into a thousand reflected stars",
   "img": "assets/img/lahore-fort.jpg",
   "fx": 0.5,
   "fy": 0.48,
@@ -8522,7 +8596,7 @@
    "the book of roger",
    "nuzhat al mushtaq"
   ],
-  "blurb": "Finished in 1154 for King Roger II of Sicily after 15 years' work · a giant silver planisphere of the same map, said to weigh over 100kg, was destroyed by rioters within years of its making.",
+  "blurb": "Finished in 1154 for King Roger II of Sicily after 15 years' work · a giant silver planisphere of the same map, said to weigh over 100kg, was destroyed by rioters within years of its making",
   "img": "assets/img/tabula-rogeriana.jpg",
   "fx": 0.5,
   "fy": 0.45,
@@ -8544,7 +8618,7 @@
    "park guell",
    "parc guell"
   ],
-  "blurb": "Designed by Antoni Gaudí from 1900 as a luxury housing estate · only two of the planned 60 houses were ever built, and Gaudí himself lived in one for nearly 20 years.",
+  "blurb": "Designed by Antoni Gaudí from 1900 as a luxury housing estate · only two of the planned 60 houses were ever built, and Gaudí himself lived in one for nearly 20 years",
   "img": "assets/img/park-guell.jpg",
   "fx": 0.5,
   "fy": 0.68,
@@ -8566,9 +8640,10 @@
   "variants": [
    "egyptian museum",
    "egyptian museum cairo",
-   "museum of egyptian antiquities"
+   "museum of egyptian antiquities",
+   "cairo museum"
   ],
-  "blurb": "Opened on Cairo's Tahrir Square in 1902 · Tutankhamun's treasures sat in the same un-air-conditioned display cases there for over a century before finally moving out in the 2020s.",
+  "blurb": "Opened on Cairo's Tahrir Square in 1902 · Tutankhamun's treasures sat in the same un-air-conditioned display cases there for over a century before finally moving out in the 2020s",
   "img": "assets/img/egyptian-museum.jpg",
   "fx": 0.5,
   "fy": 0.58,
@@ -8592,7 +8667,7 @@
    "motherland calls",
    "rodina mat zovyot"
   ],
-  "blurb": "Unveiled in 1967 atop Mamayev Kurgan, the hill where the fiercest fighting of Stalingrad raged · at 85 metres tall it was, for over a decade, the tallest statue on Earth.",
+  "blurb": "Unveiled in 1967 atop Mamayev Kurgan, the hill where the fiercest fighting of Stalingrad raged · at 85 metres tall it was, for over a decade, the tallest statue on Earth",
   "img": "assets/img/motherland-calls.jpg",
   "fx": 0.28,
   "fy": 0.34,
@@ -8617,7 +8692,7 @@
    "the tres riches heures",
    "book of hours of the duke of berry"
   ],
-  "blurb": "Begun around 1412 by the Limbourg brothers for the Duke of Berry · all three brothers and their patron died within months of each other in 1416, leaving pages like this one unfinished for 70 years.",
+  "blurb": "Begun around 1412 by the Limbourg brothers for the Duke of Berry · all three brothers and their patron died within months of each other in 1416, leaving pages like this one unfinished for 70 years",
   "img": "assets/img/tres-riches-heures.jpg",
   "fx": 0.53,
   "fy": 0.27,
@@ -8639,9 +8714,10 @@
    "national air and space museum",
    "air and space museum",
    "smithsonian air and space museum",
-   "nasm"
+   "nasm",
+   "air and space"
   ],
-  "blurb": "Opened on the National Mall in 1976, days before the US Bicentennial · it became, within its first year, one of the most-visited museums on Earth.",
+  "blurb": "Opened on the National Mall in 1976, days before the US Bicentennial · it became, within its first year, one of the most-visited museums on Earth",
   "img": "assets/img/air-space-museum.jpg",
   "fx": 0.28,
   "fy": 0.25,
@@ -8667,7 +8743,7 @@
    "palatine chapel",
    "charlemagne's chapel"
   ],
-  "blurb": "Consecrated in 805 AD as Charlemagne's palace chapel · German kings were crowned inside for over five centuries, and in 1978 it became one of the first sites ever named a UNESCO World Heritage Site.",
+  "blurb": "Consecrated in 805 AD as Charlemagne's palace chapel · German kings were crowned inside for over five centuries, and in 1978 it became one of the first sites ever named a UNESCO World Heritage Site",
   "img": "assets/img/aachen-cathedral.jpg",
   "fx": 0.46,
   "fy": 0.4,
@@ -8690,9 +8766,10 @@
    "daigo fukuryu maru",
    "lucky dragon 5",
    "lucky dragon no 5",
-   "dai go fukuryu maru"
+   "dai go fukuryu maru",
+   "lucky dragon"
   ],
-  "blurb": "Caught in radioactive fallout from the US 'Castle Bravo' H-bomb test in 1954 · the crew's ash-dusted return helped inspire that same year's Godzilla and ignited Japan's anti-nuclear movement.",
+  "blurb": "Caught in radioactive fallout from the US 'Castle Bravo' H-bomb test in 1954 · the crew's ash-dusted return helped inspire that same year's Godzilla and ignited Japan's anti-nuclear movement",
   "img": "assets/img/daigo-fukuryu-maru.jpg",
   "fx": 0.6,
   "fy": 0.58,
@@ -8718,7 +8795,7 @@
    "sea of light",
    "sea of light diamond"
   ],
-  "blurb": "Looted from the Mughal treasury during Nader Shah's 1739 sack of Delhi, likely a sister-stone to the Koh-i-Noor · at roughly 182 carats it's one of the largest pink diamonds on Earth.",
+  "blurb": "Looted from the Mughal treasury during Nader Shah's 1739 sack of Delhi, likely a sister-stone to the Koh-i-Noor · at roughly 182 carats it's one of the largest pink diamonds on Earth",
   "img": "assets/img/daria-i-noor.jpg",
   "fx": 0.51,
   "fy": 0.62,
@@ -8742,7 +8819,7 @@
    "kiss by klimt",
    "der kuss"
   ],
-  "blurb": "Painted in 1907-08 during Klimt's 'Golden Phase' · real gold leaf went into the paint, a nod to his father's trade as a gold engraver, and the Austrian state bought it straight off the exhibition wall.",
+  "blurb": "Painted in 1907-08 during Klimt's 'Golden Phase' · real gold leaf went into the paint, a nod to his father's trade as a gold engraver, and the Austrian state bought it straight off the exhibition wall",
   "img": "assets/img/kiss-klimt.jpg",
   "fx": 0.53,
   "fy": 0.16,
@@ -8764,9 +8841,10 @@
    "royal palace of caserta",
    "caserta palace",
    "reggia di caserta",
-   "palace of caserta"
+   "palace of caserta",
+   "caserta"
   ],
-  "blurb": "Built from 1752 for the Bourbon kings of Naples to out-do Versailles · its 1,200 rooms later doubled as the royal palace of Naboo in the Star Wars prequels.",
+  "blurb": "Built from 1752 for the Bourbon kings of Naples to out-do Versailles · its 1,200 rooms later doubled as the royal palace of Naboo in the Star Wars prequels",
   "img": "assets/img/caserta-palace.jpg",
   "fx": 0.44,
   "fy": 0.52,
@@ -8794,7 +8872,7 @@
    "hindenburg disaster",
    "hindenburg airship"
   ],
-  "blurb": "The largest flying machine ever built caught fire while docking at Lakehurst, New Jersey on 6 May 1937 · radio reporter Herbert Morrison's anguished live broadcast, 'Oh, the humanity!', made it one of the first disasters ever captured in real time.",
+  "blurb": "The largest flying machine ever built caught fire while docking at Lakehurst, New Jersey on 6 May 1937 · radio reporter Herbert Morrison's anguished live broadcast, 'Oh, the humanity!', made it one of the first disasters ever captured in real time",
   "img": "assets/img/hindenburg.jpg",
   "fx": 0.75,
   "fy": 0.654,
@@ -8818,7 +8896,7 @@
    "little mermaid statue",
    "den lille havfrue"
   ],
-  "blurb": "Unveiled in Copenhagen harbour in 1913 · she's been beheaded twice and lost an arm to vandals, yet remains one of the most photographed statues on Earth.",
+  "blurb": "Unveiled in Copenhagen harbour in 1913 · she's been beheaded twice and lost an arm to vandals, yet remains one of the most photographed statues on Earth",
   "img": "assets/img/little-mermaid-statue.jpg",
   "fx": 0.62,
   "fy": 0.37,
@@ -8843,7 +8921,7 @@
    "villa of mysteries",
    "pompeii"
   ],
-  "blurb": "Frescoed around 60–50 BC · the room's continuous, life-size frieze is one of antiquity's best-preserved paintings, believed to show a bride's initiation into the cult of Dionysus — buried by Vesuvius in AD 79 and not excavated until 1909.",
+  "blurb": "Frescoed around 60–50 BC · the room's continuous, life-size frieze is one of antiquity's best-preserved paintings, believed to show a bride's initiation into the cult of Dionysus — buried by Vesuvius in AD 79 and not excavated until 1909",
   "img": "assets/img/villa-of-mysteries.jpg",
   "fx": 0.84,
   "fy": 0.48,

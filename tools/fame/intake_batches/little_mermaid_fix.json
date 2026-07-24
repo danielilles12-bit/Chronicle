@@ -1,0 +1,25 @@
+{
+  "id": "little-mermaid-statue",
+  "name": "The Little Mermaid (statue)",
+  "kind": "artefact",
+  "difficulty": "hard",
+  "variants": [
+    "the little mermaid",
+    "little mermaid",
+    "little mermaid statue",
+    "den lille havfrue"
+  ],
+  "blurb": "Unveiled in Copenhagen harbour in 1913 · she's been beheaded twice and lost an arm to vandals, yet remains one of the most photographed statues on Earth.",
+  "img": "assets/img/little-mermaid-statue.jpg",
+  "fx": 0.62,
+  "fy": 0.37,
+  "frac": 0.3,
+  "license": "CC BY 4.0",
+  "attribution": "Richard Maack",
+  "source": "Wikimedia Commons: Denmark, Copenhagen, Little Mermaid, Langelinie Promenade 150422-25.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Denmark,_Copenhagen,_Little_Mermaid,_Langelinie_Promenade_150422-25.jpg",
+  "image_author": "Richard Maack",
+  "image_license": "CC BY 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/4.0",
+  "image_retrieved": "2026-07-24"
+}

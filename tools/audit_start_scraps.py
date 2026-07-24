@@ -38,8 +38,14 @@ def money_scrap(fx, fy):
     return r * 3 + c
 
 
-def start_scrap(fx, fy):
+def start_scrap(fx, fy, override=None):
     m = money_scrap(fx, fy)
+    # Curated override (js/revealgame.js's startScrap): honoured whenever it's
+    # a valid, in-range cell that isn't the money cell itself — the audit must
+    # render exactly what the app actually shows, not the calculated default
+    # an override was written to replace.
+    if isinstance(override, int) and 0 <= override <= 8 and override != m:
+        return override
     mr, mc = divmod(m, 3)
     best, bd = 0, -1
     for i in [0, 2, 6, 8, 1, 3, 5, 7, 4]:   # corners first, deterministic
@@ -75,7 +81,7 @@ def render_card(item, out_path):
     w, h = src.size
     x0, y0, s = window_box(w, h, item["fx"], item["fy"])
     money = money_scrap(item["fx"], item["fy"])
-    start = start_scrap(item["fx"], item["fy"])
+    start = start_scrap(item["fx"], item["fy"], item.get("start"))
 
     window = src.crop((int(x0), int(y0), int(x0 + s), int(y0 + s))) \
                 .resize((WINDOW, WINDOW), Image.LANCZOS)

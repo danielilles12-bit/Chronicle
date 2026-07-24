@@ -1,0 +1,78 @@
+Dead Famous pool proposal — Daniel's verdicts 2026-07-24 (verbatim from review page)
+
+[QUEUE] INCLUDE: Adolf Hitler, Jesus, Benito Mussolini, Little Boy, Enola Gay,
+Confucius, Joseph Smith, Adolf Eichmann, Gautama Buddha, Guru Nanak
+[QUEUE] EXCLUDE: Muhammad, Auschwitz Birkenau, Rwandan genocide memorial sites
+
+[CONTESTED] RETIRE: Carcassonne (but add the castle/fortified-city as its own item,
+answer must accept "carcassonne"), Cappadocia, Pamukkale, Moray, Stone Town
+Zanzibar Door, Olympia Stadium
+[CONTESTED] KEEP: Great Mosque of Kairouan, Naqsh-e Rustam, Carnac Stones,
+Gedi Ruins, Great Buddha of Kamakura, Rila Monastery
+
+[EXEMPTIONS] none granted
+
+[VETO ADDS — Relic] Boeing 747, Burj Khalifa, Volkswagen Beetle, Carthage,
+Willis Tower, One World Trade Center, Ephesus, Fabergé egg, Taipei 101, Tyre,
+Petronas Towers, Ford Model T, CN Tower, Delphi, London Eye, Guernica, Memphis,
+Museum of Modern Art, Burj Al Arab, The Shard, Thebes, Mycenae, Lumbini, Byblos,
+Robben Island, Marina Bay Sands
+
+[NEW RELIC RULES — apply to everything, now and forever]
+1. Specific thing, not a type of thing. (A named historic individual aircraft
+   could be in; the model line is out.)
+2. Modern buildings out: anything built in the last 10-20 years, and anything
+   legitimately called contemporary. (His vetoes extended this to modern
+   skyscrapers generally, incl. 1970s towers.)
+3. Whole cities/towns/villages/countries OUT; buildings, sculptures, ruins of a
+   specific building, parts of a building IN. For famous ancient sites: the more
+   famous, the more a SPECIFIC PART should stand in for the whole (Villa of the
+   Mysteries in, Pompeii out). Less-famous non-Western sites may stay wholesale
+   (Gedi). Tie-break: iconic single image/viewpoint or extreme distinctiveness
+   from any angle → in (Cahokia Mounds in; answer accepts "cahokia").
+   The test: "if a user sees an image of this, will they reasonably think this
+   is a fair inclusion in Relic?"
+
+[AMENDMENT 24 Jul] Chichen Itza stays IN WHOLESALE (no swap to El Castillo) —
+passes the tie-break: iconic image represents the whole site.
+
+[ARTICULATION] The tie-break, stated cleanly ("the postcard test"): does the
+name evoke exactly ONE picture in most minds? If the site and a single image
+are fused (Chichen Itza = El Castillo view, Machu Picchu = terrace view),
+wholesale inclusion is fair. If the name evokes an area/experience with no
+single image (Pompeii, Cappadocia), use the iconic specific part instead.
+
+[AMENDMENT 2] Teotihuacan ALSO stays IN WHOLESALE (no swap to Pyramid of the
+Sun). Refined principle: it's about what the name MEANS in common usage —
+"Teotihuacan" and "Chichen Itza" effectively denote 1-2 specific buildings,
+so the term and the image line up. "Pompeii" denotes a sprawling area — too
+big, no alignment. Swap-to-part only when the name denotes more than the
+picture can show.
+
+[CANONICAL TEST — supersedes all prior articulations] Player's perspective,
+two parts. Shown the famous image: (1) FAIRNESS — will the player think
+"yes, that's a fair Relic puzzle"? (2) ANSWER EXPECTATION — will they
+reasonably expect the site/common name to be accepted, or would they expect
+to need the specific building/ruin/artefact name? Inclusion AND answer
+aliases both follow from what the player would expect, not from taxonomy.
+Consequence: where site and famous part are fused, accept BOTH as answers
+(Chichen Itza / El Castillo).
+
+[AMENDMENT 3] Petra ALSO stays IN WHOLESALE — by the canonical test, the
+famous image (Treasury facade) makes players expect "Petra" as the answer.
+Aliases accept "al-khazneh"/"treasury" too. Pompeii remains the lone swap
+(→ Villa of the Mysteries, alias "pompeii").
+
+[ARTICULATION 2 — "count the postcards"] Petra has ONE iconic image (Treasury
+from the Siq) → name and image fused → wholesale in. Pompeii has MANY iconic
+images (wall paintings, casts, streets), each of something IN Pompeii, not OF
+Pompeii → name bigger than any picture → must name the specific thing shown.
+Consistent with the canonical player test; useful as the mechanical tiebreak.
+
+[FLAGGED-CONFIRM RESOLUTION 24 Jul] Daniel: "agree with your judgment calls" →
+KEEP Space Shuttle, Saturn V, Moai, Sydney Opera House. CUT Troy.
+Guernica (painting), Louvre Pyramid, Space Needle: stay out (no word given).
+
+[AMENDMENT 4] Guernica THE PAINTING (wiki_title "Guernica (Picasso)") is
+definitely IN — the original veto was against the ambiguous "Guernica" row;
+now that it's confirmed as the painting, include it. Alias: "guernica".

@@ -1275,22 +1275,22 @@
   "groups": [
    {
     "colour": "yellow",
-    "label": "Lost cities rediscovered centuries later",
-    "items": [
-     "Petra",
-     "Troy",
-     "Knossos",
-     "Mohenjo-daro"
-    ]
-   },
-   {
-    "colour": "green",
     "label": "Archaeologists who made a career-defining find",
     "items": [
      "Howard Carter",
      "Heinrich Schliemann",
      "Hiram Bingham",
      "Arthur Evans"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Cities the jungle swallowed",
+    "items": [
+     "Angkor Wat",
+     "Tikal",
+     "Calakmul",
+     "Copan"
     ]
    },
    {
@@ -1305,12 +1305,12 @@
    },
    {
     "colour": "purple",
-    "label": "Reburied and forgotten under jungle growth",
+    "label": "Celebrated finds that turned out to be fakes",
     "items": [
-     "Angkor Wat",
-     "Tikal",
-     "Calakmul",
-     "Copan"
+     "Piltdown Man",
+     "Cardiff Giant",
+     "Vinland Map",
+     "Crystal Skulls"
     ]
    }
   ]
@@ -1368,17 +1368,17 @@
   "groups": [
    {
     "colour": "yellow",
-    "label": "Italian Renaissance painters",
+    "label": "Painters of the Venetian school",
     "items": [
-     "Raphael",
      "Titian",
-     "Botticelli",
-     "Tintoretto"
+     "Tintoretto",
+     "Veronese",
+     "Bellini"
     ]
    },
    {
     "colour": "green",
-    "label": "Famous astronomers",
+    "label": "Astronomers who redrew the heavens",
     "items": [
      "Galileo",
      "Kepler",
@@ -1398,7 +1398,7 @@
    },
    {
     "colour": "purple",
-    "label": "Renaissance patrons & rulers",
+    "label": "Italian patrons who paid the bills",
     "items": [
      "Lorenzo de' Medici",
      "Pope Julius II",
@@ -1646,46 +1646,46 @@
  },
  {
   "id": "conn-004",
-  "title": "Died in Exile",
+  "title": "Last Known Address",
   "groups": [
    {
     "colour": "yellow",
-    "label": "Napoleon's life",
+    "label": "Islands used to hold prisoners and exiles",
     "items": [
-     "Corsica",
-     "Elba",
-     "St Helena",
-     "Waterloo"
+     "Alcatraz",
+     "Robben Island",
+     "Devil's Island",
+     "Patmos"
     ]
    },
    {
     "colour": "green",
-    "label": "Leaders who died far from home",
+    "label": "Monarchs who lost the throne and died abroad",
     "items": [
-     "Napoleon III",
-     "Trotsky",
-     "Idi Amin",
+     "Kaiser Wilhelm II",
+     "Mehmed VI",
+     "Alfonso XIII",
      "Shah of Iran"
     ]
    },
    {
     "colour": "blue",
-    "label": "Islands of imprisonment",
+    "label": "Writers banished by the state",
     "items": [
-     "Robben Island",
-     "Devil's Island",
-     "Patmos",
-     "Alcatraz"
+     "Ovid",
+     "Machiavelli",
+     "Victor Hugo",
+     "Karl Marx"
     ]
    },
    {
     "colour": "purple",
-    "label": "Deposed monarchs of 1917-1922",
+    "label": "Official ways to cast a person out",
     "items": [
-     "Nicholas II",
-     "Mehmed VI",
-     "Charles I of Austria",
-     "Constantine I of Greece"
+     "Ostracism",
+     "Proscription",
+     "Transportation",
+     "Excommunication"
     ]
    }
   ],
@@ -1817,7 +1817,7 @@
      "Gregory the Great",
      "Gregory VII",
      "Gregory IX",
-     "Gregory XIII"
+     "Gregory XVI"
     ]
    },
    {
@@ -1881,47 +1881,47 @@
  },
  {
   "id": "conn-137",
-  "title": "In the Style Of",
+  "title": "True Colours",
   "difficulty": "hard",
   "groups": [
    {
     "colour": "yellow",
-    "label": "Grand European styles",
+    "label": "Political movements known by their shirts",
     "items": [
-     "Gothic",
-     "Romanesque",
-     "Baroque",
-     "Rococo"
+     "Blackshirts",
+     "Brownshirts",
+     "Redshirts",
+     "Blueshirts"
     ]
    },
    {
     "colour": "green",
-    "label": "Movements of modern architecture",
+    "label": "Dyes once worth more than gold",
     "items": [
-     "Art Deco",
-     "Bauhaus",
-     "Brutalism",
-     "Modernism"
+     "Tyrian purple",
+     "Cochineal",
+     "Indigo",
+     "Saffron"
     ]
    },
    {
     "colour": "blue",
-    "label": "Features of a Gothic cathedral",
+    "label": "Pigments that poisoned the painter",
     "items": [
-     "Flying buttress",
-     "Gargoyle",
-     "Rose window",
-     "Spire"
+     "Scheele's green",
+     "Lead white",
+     "Vermilion",
+     "Orpiment"
     ]
    },
    {
     "colour": "purple",
-    "label": "Styles named for English monarchs",
+    "label": "Historic figures nicknamed for a colour",
     "items": [
-     "Georgian",
-     "Victorian",
-     "Tudor",
-     "Edwardian"
+     "Harald Bluetooth",
+     "Erik the Red",
+     "The Black Prince",
+     "William Rufus"
     ]
    }
   ]

@@ -7843,7 +7843,9 @@
   "difficulty": "medium",
   "variants": [
    "catherine of aragon",
-   "katherine of aragon"
+   "katherine of aragon",
+   "catherine aragon",
+   "katherine aragon"
   ],
   "occupation": "First wife of Henry VIII",
   "birth": {
@@ -8540,7 +8542,8 @@
   "variants": [
    "el cid",
    "rodrigo diaz de vivar",
-   "cid campeador"
+   "cid campeador",
+   "cid"
   ],
   "occupation": "Castilian military leader",
   "birth": {
@@ -8562,7 +8565,8 @@
   "name": "Ibn Khaldun",
   "difficulty": "medium",
   "variants": [
-   "ibn khaldun"
+   "ibn khaldun",
+   "khaldun"
   ],
   "occupation": "Arab historian and philosopher",
   "birth": {
@@ -8657,7 +8661,8 @@
   "difficulty": "medium",
   "variants": [
    "alexander nevsky",
-   "aleksandr nevsky"
+   "aleksandr nevsky",
+   "nevsky"
   ],
   "occupation": "Russian prince and military commander",
   "birth": {
@@ -8890,7 +8895,8 @@
   "name": "Tycho Brahe",
   "difficulty": "medium",
   "variants": [
-   "tycho brahe"
+   "tycho brahe",
+   "brahe"
   ],
   "occupation": "Danish astronomer",
   "birth": {
@@ -9440,7 +9446,9 @@
   "variants": [
    "toussaint louverture",
    "toussaint l'ouverture",
-   "toussaint breda"
+   "toussaint breda",
+   "louverture",
+   "toussaint"
   ],
   "occupation": "Leader of the Haitian Revolution",
   "birth": {
@@ -9510,7 +9518,8 @@
   "difficulty": "medium",
   "variants": [
    "jose marti",
-   "josé martí"
+   "josé martí",
+   "marti"
   ],
   "occupation": "Cuban poet and independence leader",
   "birth": {
@@ -9534,7 +9543,8 @@
   "variants": [
    "sun yat-sen",
    "sun yat sen",
-   "sun zhongshan"
+   "sun zhongshan",
+   "sun yatsen"
   ],
   "occupation": "Revolutionary and first president of the Republic of China",
   "birth": {
@@ -9556,7 +9566,8 @@
   "name": "Rosa Luxemburg",
   "difficulty": "medium",
   "variants": [
-   "rosa luxemburg"
+   "rosa luxemburg",
+   "luxemburg"
   ],
   "occupation": "Revolutionary socialist theorist",
   "birth": {
@@ -9579,7 +9590,8 @@
   "difficulty": "medium",
   "variants": [
    "wernher von braun",
-   "von braun"
+   "von braun",
+   "braun"
   ],
   "occupation": "Rocket engineer",
   "birth": {
@@ -9601,7 +9613,8 @@
   "name": "Hedy Lamarr",
   "difficulty": "medium",
   "variants": [
-   "hedy lamarr"
+   "hedy lamarr",
+   "lamarr"
   ],
   "occupation": "Actress and inventor",
   "birth": {
@@ -9623,7 +9636,8 @@
   "name": "Diego Rivera",
   "difficulty": "easy",
   "variants": [
-   "diego rivera"
+   "diego rivera",
+   "rivera"
   ],
   "occupation": "Muralist painter",
   "birth": {
@@ -9878,7 +9892,9 @@
   "variants": [
    "robert falcon scott",
    "captain scott",
-   "scott of the antarctic"
+   "scott of the antarctic",
+   "scott",
+   "robert scott"
   ],
   "occupation": "Royal Navy officer and polar explorer",
   "birth": {
@@ -10222,7 +10238,8 @@
   "name": "Jimi Hendrix",
   "difficulty": "easy",
   "variants": [
-   "jimi hendrix"
+   "jimi hendrix",
+   "hendrix"
   ],
   "occupation": "Guitarist and singer",
   "birth": {
@@ -10244,7 +10261,8 @@
   "name": "Simon Wiesenthal",
   "difficulty": "medium",
   "variants": [
-   "simon wiesenthal"
+   "simon wiesenthal",
+   "wiesenthal"
   ],
   "occupation": "Nazi hunter and Holocaust survivor",
   "birth": {
@@ -10266,7 +10284,8 @@
   "name": "Marcus Garvey",
   "difficulty": "medium",
   "variants": [
-   "marcus garvey"
+   "marcus garvey",
+   "garvey"
   ],
   "occupation": "Pan-Africanist political activist",
   "birth": {
@@ -10335,7 +10354,8 @@
   "name": "George Mallory",
   "difficulty": "hard",
   "variants": [
-   "george mallory"
+   "george mallory",
+   "mallory"
   ],
   "occupation": "Mountaineer",
   "birth": {
@@ -10357,7 +10377,8 @@
   "name": "Isadora Duncan",
   "difficulty": "easy",
   "variants": [
-   "isadora duncan"
+   "isadora duncan",
+   "duncan"
   ],
   "occupation": "Dancer",
   "birth": {
@@ -10402,7 +10423,8 @@
   "name": "Idi Amin",
   "difficulty": "easy",
   "variants": [
-   "idi amin"
+   "idi amin",
+   "amin"
   ],
   "occupation": "President of Uganda",
   "birth": {
@@ -10446,7 +10468,8 @@
   "name": "George Gershwin",
   "difficulty": "easy",
   "variants": [
-   "george gershwin"
+   "george gershwin",
+   "gershwin"
   ],
   "occupation": "Composer",
   "birth": {
@@ -10516,7 +10539,8 @@
   "name": "Frantz Fanon",
   "difficulty": "hard",
   "variants": [
-   "frantz fanon"
+   "frantz fanon",
+   "fanon"
   ],
   "occupation": "Psychiatrist and anti-colonial writer",
   "birth": {
@@ -10538,7 +10562,8 @@
   "name": "Anna Pavlova",
   "difficulty": "medium",
   "variants": [
-   "anna pavlova"
+   "anna pavlova",
+   "pavlova"
   ],
   "occupation": "Ballerina",
   "birth": {
@@ -10895,7 +10920,8 @@
   "variants": [
    "richard francis burton",
    "richard burton",
-   "sir richard burton"
+   "sir richard burton",
+   "burton"
   ],
   "occupation": "explorer and translator",
   "birth": {
@@ -11229,7 +11255,8 @@
   "difficulty": "hard",
   "variants": [
    "john reed",
-   "jack reed"
+   "jack reed",
+   "reed"
   ],
   "occupation": "revolutionary journalist",
   "birth": {

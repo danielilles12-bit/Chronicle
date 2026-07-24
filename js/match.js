@@ -418,6 +418,35 @@ export const REJECTED_GUESSES = {
   stonehenge: ['stonehedge'],
 };
 
+// Data-driven per-item reject list: `item.reject` (curated in data/*.json)
+// names guesses that read as plausible for THIS item but actually name a
+// different, specific thing the photo/blurb tends to foreground — e.g.
+// "Pisa Cathedral" guessed at the Leaning Tower of Pisa, a neighbouring
+// building the same shot usually includes. Checked with the exact same
+// forgiving comparison used to ACCEPT a variant just above (stringsMatch's
+// fuzz/covers plus the title-stripping fallback), so a near-miss retype of
+// the rejected phrase is caught too — then inverted: a hit here blocks the
+// guess outright. This runs before rules 1-3 below ever get a chance to
+// accept it via containment or a distinctive core token — the Pisa case:
+// "pisa" alone is a distinctive core token for the tower, so without this
+// early check "Pisa Cathedral" sails straight through rule 3. Per-item only,
+// unlike REJECTED_GUESSES above — never a pool-wide veto.
+function matchesReject(figure, g, gNoTitle, guessToks, singleToken) {
+  const rejects = figure.reject;
+  if (!rejects || !rejects.length) return false;
+  for (const raw of rejects) {
+    const c = normalize(raw);
+    if (!c) continue;
+    if (stringsMatch(g, c)) return true;
+    const cNoTitle = stripTitle(c);
+    if (gNoTitle && stringsMatch(gNoTitle, c)) return true;
+    if (cNoTitle && !singleToken && stringsMatch(g, cNoTitle)) return true;
+    if (gNoTitle && cNoTitle && stringsMatch(gNoTitle, cNoTitle)) return true;
+    if (containsPhrase(guessToks, toTokenList(c))) return true;
+  }
+  return false;
+}
+
 // A guess with >= 2 non-stopword tokens counts as "multi-token" for the
 // purposes of the containment/distinctive-core carve-out (rule 1). A guess
 // like "the wall" (1 meaningful token) doesn't qualify just because it has
@@ -446,6 +475,10 @@ export function isMatch(guess, figure, poolKey) {
   const cands = [figure.name].concat(figure.variants || []);
   const guessToksAll = toTokenList(g);
   const singleToken = meaningfulTokenCount(guessToksAll) < 2;
+
+  // Per-item reject list: blocks the guess before any acceptance path below
+  // (direct variant match, containment, or distinctive-core) gets to run.
+  if (matchesReject(figure, g, gNoTitle, guessToksAll, singleToken)) return false;
 
   for (const raw of cands) {
     const c = normalize(raw);

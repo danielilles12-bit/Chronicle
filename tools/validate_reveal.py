@@ -5,7 +5,9 @@ Run from repo root: python3 tools/validate_reveal.py
 Exits non-zero on any ERROR.
 """
 import json
+import re
 import sys
+import unicodedata
 from collections import Counter
 from pathlib import Path
 
@@ -19,9 +21,98 @@ errors, warns = [], []
 err = errors.append
 warn = warns.append
 
+# ---------- doubled punctuation (blurbs / figures.fact) ----------
+# Any run of 2+ terminal-punctuation characters is suspicious EXCEPT a
+# genuine 3-dot ellipsis ("...") — so "..", "!.", "?.", ",," and runs of 4+
+# dots all flag, but a legitimate "..." does not.
+PUNCT_RUN_RE = re.compile(r"[.!?,]{2,}")
+
+
+def bad_punct_runs(text):
+    return [m.group(0) for m in PUNCT_RUN_RE.finditer(text or "") if m.group(0) != "..."]
+
+
+# ---------- clueYears() parity (js/revealgame.js) ----------
+# Mirrors clueYears() exactly: an explicit `years` field wins, else the first
+# parenthetical in the blurb that holds a digit.
+def clue_years(item):
+    years = item.get("years")
+    if years:
+        return str(years).strip()
+    m = re.search(r"\(([^)]*\d[^)]*)\)", item.get("blurb") or "")
+    return m.group(1).strip() if m else None
+
+
+# A "Lived" clue must be a lifespan, never an office/tenure date. "r." (regnal
+# "reigned") is checked with a word boundary so it can't false-positive inside
+# an unrelated abbreviation like "Mr.".
+ROLE_WORD_RE = re.compile(
+    r"\b(?:president|reign|in office|pope|elected|crowned|tenure)\b|\br\.",
+    re.IGNORECASE,
+)
+
+# ---------- normalize() parity (js/match.js) ----------
+# A lighter-weight port: lowercase, strip accents/punctuation, drop a
+# trailing "by <artist>" clause, drop articles, fold written ordinals to
+# roman numerals — enough to catch a reject entry that (after the same
+# normalization the matcher applies) is really just the item's own name or
+# an accepted variant in disguise.
+ARTICLES = {"the", "a", "an"}
+NUMWORDS = {
+    "first": "i", "second": "ii", "third": "iii", "fourth": "iv", "fifth": "v",
+    "sixth": "vi", "seventh": "vii", "eighth": "viii", "ninth": "ix", "tenth": "x",
+    "eleventh": "xi", "twelfth": "xii", "thirteenth": "xiii", "fourteenth": "xiv",
+    "fifteenth": "xv", "sixteenth": "xvi",
+}
+ROMAN_BY_NUM = ["", "i", "ii", "iii", "iv", "v", "vi", "vii", "viii",
+                "ix", "x", "xi", "xii", "xiii", "xiv", "xv", "xvi"]
+
+
+def _num_to_roman(tok):
+    if tok in NUMWORDS:
+        return NUMWORDS[tok]
+    m = re.match(r"^(\d{1,2})(?:st|nd|rd|th)?$", tok)
+    if m and 1 <= int(m.group(1)) <= 16:
+        return ROMAN_BY_NUM[int(m.group(1))]
+    return tok
+
+
+def match_normalize(s):
+    s = unicodedata.normalize("NFD", str(s).lower())
+    s = "".join(c for c in s if not unicodedata.combining(c))
+    s = s.replace("&", "")
+    s = re.sub(r"[^a-z0-9\s]", " ", s)
+    s = re.sub(r"\s+", " ", s).strip()
+    if not s:
+        return ""
+    out = []
+    for tok in s.split(" "):
+        if tok == "by":
+            break
+        if tok in ARTICLES:
+            continue
+        out.append(_num_to_roman(tok))
+    return " ".join(out)
+
+
+def check_reject_hygiene(item, iid, label, err):
+    """error if a reject entry normalizes to the item's own name/variant."""
+    rejects = item.get("reject") or []
+    if not rejects:
+        return
+    accepted = {match_normalize(item.get("name", ""))}
+    accepted.update(match_normalize(v) for v in (item.get("variants") or []))
+    accepted.discard("")
+    for r in rejects:
+        nr = match_normalize(r)
+        if nr and nr in accepted:
+            err(f"{label} {iid}: reject entry {r!r} normalizes to its own "
+                f"name/variant ({nr!r}) — self-contradicting")
+
 
 def check_reveal(path):
     items = json.loads((ROOT / path).read_text())
+    is_who = path.endswith("reveal-who.json")
     for dup, n in Counter(x.get("id") for x in items).items():
         if n > 1:
             err(f"{path}: duplicate id {dup}")
@@ -31,6 +122,16 @@ def check_reveal(path):
         for field in ("name", "kind", "img", "blurb", "license", "source"):
             if not str(it.get(field) or "").strip():
                 err(f"{path} {iid}: missing {field}")
+        for run in bad_punct_runs(it.get("blurb")):
+            err(f"{path} {iid}: doubled punctuation {run!r} in blurb")
+        if is_who:
+            val = clue_years(it)
+            if not val:
+                if it.get("kind") == "portrait":
+                    warn(f"{path} {iid}: Lived clue (clueYears) yields no value — clue B would be blank")
+            elif ROLE_WORD_RE.search(val):
+                err(f"{path} {iid}: Lived clue {val!r} reads like an office/role date, not a lifespan")
+        check_reject_hygiene(it, iid, path, err)
         if it.get("difficulty") not in DIFFICULTIES:
             err(f"{path} {iid}: bad difficulty {it.get('difficulty')!r}")
         img = ROOT / it.get("img", "")
@@ -74,6 +175,9 @@ def check_figures():
             err(f"figures {fid}: bad difficulty")
         if not str(f.get("occupation") or "").strip():
             err(f"figures {fid}: missing occupation")
+        for run in bad_punct_runs(f.get("fact")):
+            err(f"figures {fid}: doubled punctuation {run!r} in fact")
+        check_reject_hygiene(f, fid, "figures", err)
         for v in f.get("variants") or []:
             if v != v.lower().strip():
                 err(f"figures {fid}: variant not normalized: {v!r}")

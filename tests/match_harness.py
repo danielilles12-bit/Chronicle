@@ -150,6 +150,54 @@ def main():
             check("'xyz' (3 chars, below guard rail) does NOT containment/core-match unrelated item",
                   not is_match(pg, "xyz", napoleon, "map"))
 
+            # ---------------- REJECT LIST: every item.reject entry, auto -----------
+            # Data-driven per-item rejects (js/match.js's matchesReject) are curated
+            # in data/*.json — this loop auto-covers whatever's there right now,
+            # across all three pools, with no hardcoded item list to maintain.
+            # 0 cases (harmlessly) until the data agent starts populating `reject`.
+            reject_cases = 0
+            for key, items in pools:
+                for it in items:
+                    for rej in (it.get("reject") or []):
+                        reject_cases += 1
+                        check("%s/%s: reject %r does NOT match" % (key, it["id"], rej),
+                              not is_match(pg, rej, it, key))
+            print("reject cases checked (from item.reject entries): %d" % reject_cases)
+
+            # ---------------- NAMED REGRESSION CASES (launch-review P0s) -----------
+            # Permanent cases from the 2026-08-03 launch review. Some of these rely
+            # on variant/reject additions the DATA agent is landing in parallel —
+            # they may fail here until that data lands; see the session report.
+            def find_or_flag(items, item_id, label):
+                it = next((x for x in items if x["id"] == item_id), None)
+                check("%s: item id %r exists in data" % (label, item_id), it is not None)
+                return it
+
+            escobar = find_or_flag(who, "pablo-escobar", "escobar regression case")
+            if escobar:
+                check("'escobar' matches pablo-escobar",
+                      is_match(pg, "escobar", escobar, "who"))
+
+            hg_wells = find_or_flag(who, "hg-wells", "hg wells regression case")
+            if hg_wells:
+                check("'hg wells' matches hg-wells",
+                      is_match(pg, "hg wells", hg_wells, "who"))
+
+            eisenhower = find_or_flag(who, "eisenhower", "eisenhower regression case")
+            if eisenhower:
+                check("'eisenhower' matches eisenhower (who)",
+                      is_match(pg, "eisenhower", eisenhower, "who"))
+
+            nga = find_or_flag(what, "national-gallery-art", "national gallery regression case")
+            if nga:
+                check("'national gallery washington' matches national-gallery-art",
+                      is_match(pg, "national gallery washington", nga, "what"))
+
+            pisa = find_or_flag(what, "leaning-tower-pisa", "pisa cathedral reject case")
+            if pisa:
+                check("'pisa cathedral' does NOT match leaning-tower-pisa (reject)",
+                      not is_match(pg, "pisa cathedral", pisa, "what"))
+
             fail_on_errors(errors, "match harness")
 
     print("\n%d passed, %d failed" % (passed, failed))

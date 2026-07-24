@@ -556,7 +556,8 @@
    "john f kennedy",
    "jfk",
    "john kennedy",
-   "john fitzgerald kennedy"
+   "john fitzgerald kennedy",
+   "jack kennedy"
   ],
   "blurb": "US President (1917–1963) · his brain vanished from the National Archives in 1966 and has never been found",
   "img": "assets/img/john-f-kennedy.jpg",
@@ -846,7 +847,8 @@
    "ada lovelace",
    "countess of lovelace",
    "augusta ada king",
-   "ada byron"
+   "ada byron",
+   "lovelace"
   ],
   "blurb": "Mathematician, wrote the first computer algorithm (1815-1852) · portrait by Alfred Edward Chalon",
   "img": "assets/img/ada-lovelace.jpg",
@@ -891,7 +893,9 @@
   "difficulty": "easy",
   "variants": [
    "alexander graham bell",
-   "alexander bell"
+   "alexander bell",
+   "bell",
+   "graham bell"
   ],
   "blurb": "Inventor whose first words down a telephone line were 'Mr. Watson, come here, I want to see you' (1847-1922) · photo, 1895",
   "img": "assets/img/alexander-graham-bell.jpg",
@@ -937,7 +941,8 @@
   "variants": [
    "arthur conan doyle",
    "conan doyle",
-   "sir arthur conan doyle"
+   "sir arthur conan doyle",
+   "doyle"
   ],
   "blurb": "Creator of Sherlock Holmes (1859–1930) · killed Holmes in 1893; ten years of reader fury brought the detective back",
   "img": "assets/img/arthur-conan-doyle.jpg",
@@ -981,7 +986,8 @@
   "difficulty": "easy",
   "variants": [
    "billie holiday",
-   "lady day"
+   "lady day",
+   "holiday"
   ],
   "blurb": "Jazz singer known for Strange Fruit (1915-1959) · photo by William P. Gottlieb, Downbeat, 1947",
   "img": "assets/img/billie-holiday.jpg",
@@ -1099,7 +1105,8 @@
   "variants": [
    "dante alighieri",
    "dante",
-   "dante aligheri"
+   "dante aligheri",
+   "alighieri"
   ],
   "blurb": "Poet of the Divine Comedy (1265–1321) · exiled from Florence under threat of death, he never once set foot there again",
   "img": "assets/img/dante-alighieri.jpg",
@@ -1173,7 +1180,8 @@
   "difficulty": "easy",
   "variants": [
    "ella fitzgerald",
-   "the first lady of song"
+   "the first lady of song",
+   "fitzgerald"
   ],
   "blurb": "Jazz vocalist known as the First Lady of Song (1917–1996) · meant to dance at the Apollo's amateur night, lost her nerve, sang instead, and won",
   "img": "assets/img/ella-fitzgerald.jpg",
@@ -1566,7 +1574,8 @@
   "difficulty": "easy",
   "variants": [
    "jacques cousteau",
-   "jacques-yves cousteau"
+   "jacques-yves cousteau",
+   "cousteau"
   ],
   "blurb": "French naval officer and ocean explorer (1910–1997) · co-invented the Aqua-Lung regulator, the device that made modern scuba diving possible",
   "img": "assets/img/jacques-cousteau.jpg",
@@ -1708,7 +1717,8 @@
   "variants": [
    "lewis carroll",
    "charles dodgson",
-   "charles lutwidge dodgson"
+   "charles lutwidge dodgson",
+   "carroll"
   ],
   "blurb": "English author of Alice's Adventures in Wonderland (1832–1898) · was the pen name of Charles Dodgson, an Oxford math don who shot some 3,000 photographs",
   "img": "assets/img/lewis-carroll.jpg",
@@ -2174,7 +2184,8 @@
   "difficulty": "easy",
   "variants": [
    "rosa parks",
-   "rosa louise parks"
+   "rosa louise parks",
+   "parks"
   ],
   "blurb": "American civil rights activist (1913–2005) whose refusal to give up her bus seat in Montgomery sparked a 381-day boycott that helped break segregated transit · photograph, Rosa Parks papers, Library of Congress",
   "img": "assets/img/rosa-parks.jpg",
@@ -2201,6 +2212,7 @@
    "salah ad-din yusuf"
   ],
   "blurb": "Sultan of Egypt and Syria who reunified the Muslim world and recaptured Jerusalem (r. 1174–1193) · gave his wealth away to the poor and died so broke his family had to borrow for his funeral",
+  "years": "c. 1137–1193",
   "img": "assets/img/saladin.jpg",
   "fx": 0.4875,
   "fy": 0.532,
@@ -2226,6 +2238,7 @@
    "suleyman"
   ],
   "blurb": "Ottoman Sultan at the height of the empire's power (r. 1520–1566) · moonlighted as a serious poet under the pen name Muhibbi, meaning 'the lover'",
+  "years": "1494–1566",
   "img": "assets/img/suleiman-magnificent.jpg",
   "fx": 0.375,
   "fy": 0.588,
@@ -2290,7 +2303,8 @@
   "variants": [
    "toni morrison",
    "chloe anthony wofford",
-   "chloe wofford"
+   "chloe wofford",
+   "morrison"
   ],
   "blurb": "Nobel Prize-winning novelist, author of Beloved (1931-2019) · photo by Bernard Gotfryd",
   "img": "assets/img/toni-morrison.jpg",
@@ -2359,7 +2373,8 @@
   "kind": "portrait",
   "difficulty": "easy",
   "variants": [
-   "victor hugo"
+   "victor hugo",
+   "hugo"
   ],
   "blurb": "Author of Les Misérables and The Hunchback of Notre-Dame (1802–1885) · two million people packed Paris for his funeral — more than the city's population",
   "img": "assets/img/victor-hugo.jpg",
@@ -2504,6 +2519,7 @@
    "ikhnaton"
   ],
   "blurb": "Egyptian pharaoh who broke with tradition to worship the sun disk Aten (r. c. 1353–1336 BC) · limestone bust showing his distinctive elongated skull, Kestner Museum, Hannover",
+  "years": "c. 1380–1336 BC",
   "img": "assets/img/akhenaten.jpg",
   "fx": 0.3625,
   "fy": 0.517,
@@ -3024,7 +3040,8 @@
   "kind": "portrait",
   "difficulty": "easy",
   "variants": [
-   "enid blyton"
+   "enid blyton",
+   "blyton"
   ],
   "blurb": "English children's author, creator of Noddy and the Famous Five (1897–1968) · wrote up to 50 books a year — and sued when a librarian said she used ghostwriters",
   "img": "assets/img/enid-blyton.jpg",
@@ -3286,6 +3303,7 @@
    "maatkare hatshepsut"
   ],
   "blurb": "Female pharaoh of Egypt's 18th Dynasty (r. c. 1479–1458 BC) · after her death her name was chiselled off monuments and her statues taken down",
+  "years": "c. 1507–1458 BC",
   "img": "assets/img/hatshepsut.jpg",
   "fx": 0.4875,
   "fy": 0.721,
@@ -3353,7 +3371,8 @@
   "variants": [
    "h g wells",
    "h. g. wells",
-   "herbert george wells"
+   "herbert george wells",
+   "hg wells"
   ],
   "blurb": "Author of The War of the Worlds and The Time Machine (1866–1946) · his 1914 novel coined 'atomic bombs' — and helped inspire the real thing",
   "img": "assets/img/hg-wells.jpg",
@@ -3585,7 +3604,8 @@
   "kind": "portrait",
   "difficulty": "easy",
   "variants": [
-   "jules verne"
+   "jules verne",
+   "verne"
   ],
   "blurb": "French author of Twenty Thousand Leagues Under the Sea (1828–1905) · his 1865 novel put a Moon launch in Florida and a splashdown at sea, like Apollo",
   "img": "assets/img/jules-verne.jpg",
@@ -4382,7 +4402,8 @@
   "kind": "portrait",
   "difficulty": "easy",
   "variants": [
-   "virginia woolf"
+   "virginia woolf",
+   "woolf"
   ],
   "blurb": "English modernist novelist (1882–1941) · drowned herself in the River Ouse, her coat pockets filled with stones",
   "img": "assets/img/virginia-woolf.jpg",
@@ -4784,7 +4805,8 @@
   "difficulty": "easy",
   "variants": [
    "corazon aquino",
-   "cory aquino"
+   "cory aquino",
+   "aquino"
   ],
   "blurb": "First female President of the Philippines (1933–2009) · a self-described housewife who toppled a dictatorship after her husband's murder",
   "img": "assets/img/corazon-aquino.jpg",
@@ -5397,7 +5419,8 @@
   "kind": "portrait",
   "difficulty": "medium",
   "variants": [
-   "mary anning"
+   "mary anning",
+   "anning"
   ],
   "blurb": "English fossil collector and palaeontologist (1799–1847) · found the first plesiosaur; the Geological Society credit went to a man",
   "img": "assets/img/mary-anning.jpg",
@@ -5661,7 +5684,8 @@
   "kind": "portrait",
   "difficulty": "medium",
   "variants": [
-   "rachel carson"
+   "rachel carson",
+   "carson"
   ],
   "blurb": "Marine biologist and author of Silent Spring (1907–1964) · the pesticide lobby spent a fortune smearing her as she quietly fought cancer",
   "img": "assets/img/rachel-carson.jpg",
@@ -5731,7 +5755,8 @@
   "variants": [
    "samuel morse",
    "samuel f b morse",
-   "samuel fb morse"
+   "samuel fb morse",
+   "morse"
   ],
   "blurb": "Inventor of the telegraph and Morse code, who also helped introduce daguerreotype photography to America and personally taught this photo's photographer, Mathew Brady (1791-1872) · photo by Mathew Brady",
   "img": "assets/img/samuel-morse.jpg",
@@ -6010,6 +6035,7 @@
    "asoka"
   ],
   "blurb": "Mauryan emperor who turned to Buddhism after the bloody Kalinga war (r. c. 268–232 BC) · no portrait survives from his lifetime — modern statue",
+  "years": "c. 304–232 BC",
   "img": "assets/img/ashoka-great.jpg",
   "fx": 0.4875,
   "fy": 0.23,
@@ -6177,7 +6203,8 @@
   "kind": "portrait",
   "difficulty": "medium",
   "variants": [
-   "emmy noether"
+   "emmy noether",
+   "noether"
   ],
   "blurb": "Mathematician known for Noether's theorem (1882–1935) · Einstein's obituary named her the most significant creative mathematical genius among women yet",
   "img": "assets/img/emmy-noether.jpg",
@@ -6247,7 +6274,8 @@
   "variants": [
    "ibn al-haytham",
    "alhazen",
-   "ibn al haytham"
+   "ibn al haytham",
+   "haytham"
   ],
   "blurb": "Pioneer of the scientific method and optics (c.965–1040) · reportedly feigned madness to escape the caliph, then wrote his Optics under house arrest",
   "img": "assets/img/ibn-al-haytham.jpg",
@@ -6268,7 +6296,8 @@
   "kind": "portrait",
   "difficulty": "medium",
   "variants": [
-   "jane addams"
+   "jane addams",
+   "addams"
   ],
   "blurb": "Social reformer who co-founded Hull House and became the first American woman to win the Nobel Peace Prize, in 1931 (1860-1935) · studio portrait photo",
   "img": "assets/img/jane-addams.jpg",
@@ -6292,7 +6321,8 @@
   "variants": [
    "joseph lister",
    "lord lister",
-   "baron lister"
+   "baron lister",
+   "lister"
   ],
   "blurb": "Surgeon who pioneered antiseptic surgery (1827–1912) · Listerine was named in his honour — he had nothing to do with the mouthwash",
   "img": "assets/img/joseph-lister.jpg",
@@ -6361,7 +6391,8 @@
   "kind": "portrait",
   "difficulty": "medium",
   "variants": [
-   "lise meitner"
+   "lise meitner",
+   "meitner"
   ],
   "blurb": "Physicist who co-discovered nuclear fission (1878–1968) · named nuclear fission and explained it; the Nobel went to Otto Hahn alone",
   "img": "assets/img/lise-meitner.jpg",
@@ -6575,7 +6606,8 @@
   "variants": [
    "ibn arabi",
    "ibn al-arabi",
-   "muhyiddin ibn arabi"
+   "muhyiddin ibn arabi",
+   "arabi"
   ],
   "blurb": "Andalusian Sufi mystic and philosopher (1165–1240) · revered as 'the Greatest Master' — and condemned as a heretic, depending who you asked",
   "img": "assets/img/ibn-arabi.jpg",
@@ -6718,7 +6750,8 @@
    "dracula",
    "count dracula",
    "prince vlad",
-   "vlad iii dracula"
+   "vlad iii dracula",
+   "vlad"
   ],
   "blurb": "Wallachian prince and the inspiration for Dracula (1431–1477) · lurid German pamphlets made him an early printing-press bestseller, centuries before Stoker",
   "img": "assets/img/vlad-impaler.jpg",
@@ -7070,7 +7103,8 @@
    "jimmy carter",
    "james earl carter",
    "james earl carter jr",
-   "president carter"
+   "president carter",
+   "carter"
   ],
   "blurb": "39th US president and peanut farmer (1924–2024) · the first US president born in a hospital",
   "img": "assets/img/jimmy-carter.jpg",
@@ -7115,7 +7149,8 @@
   "difficulty": "medium",
   "variants": [
    "john lennon",
-   "john winston lennon"
+   "john winston lennon",
+   "lennon"
   ],
   "blurb": "English musician and co-founder of the Beatles (1940–1980) · signed an autograph for his killer outside his apartment hours before being shot",
   "img": "assets/img/john-lennon.jpg",
@@ -7165,7 +7200,8 @@
   "variants": [
    "pope francis",
    "jorge bergoglio",
-   "jorge mario bergoglio"
+   "jorge mario bergoglio",
+   "francis"
   ],
   "blurb": "Argentine pope, the first from the Americas (1936–2025) · worked nightclub door duty as a young bouncer before entering the priesthood",
   "img": "assets/img/pope-francis.jpg",
@@ -7190,7 +7226,8 @@
    "dwight eisenhower",
    "dwight d eisenhower",
    "dwight david eisenhower",
-   "ike"
+   "ike",
+   "eisenhower"
   ],
   "blurb": "34th US president and WWII Supreme Allied Commander (1890–1969) · had a putting green installed outside the Oval Office so he could practice between meetings",
   "img": "assets/img/eisenhower.jpg",
@@ -7237,7 +7274,8 @@
   "variants": [
    "walt disney",
    "walter disney",
-   "walter elias disney"
+   "walter elias disney",
+   "disney"
   ],
   "blurb": "American animator and founder of the Walt Disney Company (1901–1966) · his first studio, Laugh-O-Gram, went bankrupt years before Mickey Mouse ever appeared",
   "img": "assets/img/walt-disney.jpg",
@@ -7327,7 +7365,8 @@
   "difficulty": "medium",
   "variants": [
    "robin williams",
-   "robin mcclaurin williams"
+   "robin mcclaurin williams",
+   "williams"
   ],
   "blurb": "American actor and comedian (1951–2014) · improvised so much dialogue as Aladdin's Genie that Disney had nine hours of usable footage",
   "img": "assets/img/robin-williams.jpg",
@@ -7398,7 +7437,8 @@
   "difficulty": "medium",
   "variants": [
    "judy garland",
-   "frances ethel gumm"
+   "frances ethel gumm",
+   "garland"
   ],
   "blurb": "American actress and singer, best known as Dorothy in The Wizard of Oz (1922–1969) · the studio nearly cut 'Over the Rainbow' from the film for slowing the pace",
   "img": "assets/img/judy-garland.jpg",
@@ -7444,7 +7484,8 @@
    "frank sinatra",
    "francis albert sinatra",
    "ol blue eyes",
-   "the chairman of the board"
+   "the chairman of the board",
+   "sinatra"
   ],
   "blurb": "American singer and actor, leader of the 'Rat Pack' (1915–1998) · won a Best Supporting Actor Oscar for From Here to Eternity (1953) after a comeback campaign of relentless lobbying",
   "img": "assets/img/frank-sinatra.jpg",
@@ -7467,7 +7508,8 @@
   "variants": [
    "saddam hussein",
    "saddam",
-   "saddam hussein al tikriti"
+   "saddam hussein al tikriti",
+   "hussein"
   ],
   "blurb": "President and dictator of Iraq (1937–2006) · was captured in 2003 hiding in an eight-foot underground 'spider hole' near Tikrit",
   "img": "assets/img/saddam-hussein.jpg",
@@ -7545,6 +7587,7 @@
    "truman"
   ],
   "blurb": "33rd U.S. President (1945–1953) · the middle initial 'S' in his name stood for nothing — a compromise between two grandfathers, Anderson Shipp and Solomon",
+  "years": "1884–1972",
   "img": "assets/img/truman.jpg",
   "fx": 0.5,
   "fy": 0.3,
@@ -7661,7 +7704,8 @@
    "johnny cash",
    "john r. cash",
    "the man in black",
-   "man in black"
+   "man in black",
+   "cash"
   ],
   "blurb": "Country and rockabilly singer-songwriter (1932–2003) · his 1968 concert for inmates at Folsom State Prison, recorded live, revived a career many thought was over",
   "img": "assets/img/johnny-cash.jpg",
@@ -7899,7 +7943,8 @@
    "tupac shakur",
    "tupac",
    "2pac",
-   "tupac amaru shakur"
+   "tupac amaru shakur",
+   "shakur"
   ],
   "blurb": "Rapper and actor (1971–1996) · named after Túpac Amaru II, the 18th-century Peruvian revolutionary who led an uprising against Spanish colonial rule",
   "img": "assets/img/tupac.jpg",
@@ -7923,7 +7968,8 @@
    "mother teresa",
    "saint teresa of calcutta",
    "teresa of calcutta",
-   "anjeze gonxhe bojaxhiu"
+   "anjeze gonxhe bojaxhiu",
+   "teresa"
   ],
   "blurb": "Catholic nun, founder of the Missionaries of Charity (1910–1997) · letters published after her death revealed she privately described decades of spiritual darkness and doubt",
   "img": "assets/img/mother-teresa.jpg",
@@ -8107,7 +8153,8 @@
   "variants": [
    "george orwell",
    "eric blair",
-   "eric arthur blair"
+   "eric arthur blair",
+   "orwell"
   ],
   "blurb": "English writer and journalist behind 1984 and Animal Farm (1903–1950) · born Eric Arthur Blair, he was shot through the throat by a sniper while fighting in the Spanish Civil War and survived",
   "img": "assets/img/george-orwell.jpg",
@@ -8152,7 +8199,8 @@
   "difficulty": "hard",
   "variants": [
    "agatha christie",
-   "dame agatha christie"
+   "dame agatha christie",
+   "christie"
   ],
   "blurb": "British crime novelist behind Poirot and Miss Marple (1890–1976) · vanished for 11 days in 1926, sparking a nationwide manhunt, and never once explained what happened",
   "img": "assets/img/agatha-christie.jpg",
@@ -8223,7 +8271,8 @@
   "variants": [
    "john wayne",
    "the duke",
-   "marion morrison"
+   "marion morrison",
+   "wayne"
   ],
   "blurb": "American film actor who became the face of the Western (1907–1979) · picked up the nickname 'Duke' as a boy, after his pet Airedale terrier of the same name, not any horse",
   "img": "assets/img/john-wayne.jpg",
@@ -8455,7 +8504,8 @@
   "difficulty": "easy",
   "variants": [
    "paul newman",
-   "paul leonard newman"
+   "paul leonard newman",
+   "newman"
   ],
   "blurb": "American actor known for Cool Hand Luke and The Sting (1925–2008) · founded the Newman's Own food brand as a joke among friends; it has since donated every cent of profit, over $500 million, to charity",
   "img": "assets/img/paul-newman.jpg",
@@ -8552,7 +8602,8 @@
   "difficulty": "easy",
   "variants": [
    "neil armstrong",
-   "neil alden armstrong"
+   "neil alden armstrong",
+   "armstrong"
   ],
   "blurb": "Astronaut and first person to walk on the Moon (1930–2012) · carried scraps of the Wright Flyer's wing fabric and propeller to the lunar surface in his kit",
   "img": "assets/img/neil-armstrong.jpg",
@@ -8576,7 +8627,8 @@
    "chiang kai-shek",
    "chiang kai shek",
    "generalissimo chiang",
-   "jiang jieshi"
+   "jiang jieshi",
+   "chiang"
   ],
   "blurb": "Nationalist Chinese generalissimo and later president of Taiwan (1887–1975) · was kidnapped by his own generals in 1936's Xi'an Incident and forced to accept an alliance against Japan instead of the Communists",
   "img": "assets/img/chiang-kai-shek.jpg",
@@ -8602,7 +8654,7 @@
    "selena quintanilla-perez",
    "selena quintanilla perez"
   ],
-  "blurb": "Tejano singer known as the Queen of Tejano Music (1971–1995) · became the first Tejano artist to win a Grammy, for the 1993 live album Selena Live!",
+  "blurb": "Tejano singer known as the Queen of Tejano Music (1971–1995) · became the first Tejano artist to win a Grammy, for her 1993 live album Selena Live",
   "img": "assets/img/selena.jpg",
   "fx": 0.5,
   "fy": 0.35,
@@ -8645,7 +8697,8 @@
   "difficulty": "hard",
   "variants": [
    "kurt cobain",
-   "kurt donald cobain"
+   "kurt donald cobain",
+   "cobain"
   ],
   "blurb": "Nirvana frontman and reluctant voice of grunge (1967–1994) · wrote 'Smells Like Teen Spirit' after a friend graffitied the words on his wall, quoting a deodorant brand he'd never heard of",
   "img": "assets/img/kurt-cobain.jpg",
@@ -8804,6 +8857,7 @@
    "king david of israel"
   ],
   "blurb": "Biblical king of Israel who slew Goliath (r. c. 1010–970 BC) · traditionally credited with composing many of the Psalms, and said to have soothed King Saul's troubled moods by playing the harp",
+  "years": "c. 1040–970 BC",
   "img": "assets/img/david.jpg",
   "fx": 0.4,
   "fy": 0.28,
@@ -8846,7 +8900,8 @@
   "difficulty": "medium",
   "variants": [
    "isaac asimov",
-   "isaak yudovich ozimov"
+   "isaak yudovich ozimov",
+   "asimov"
   ],
   "blurb": "Biochemist and science-fiction writer who devised the Three Laws of Robotics (1920–1992) · published roughly 500 books, spanning nearly every category of the Dewey Decimal system",
   "img": "assets/img/isaac-asimov.jpg",
@@ -8935,7 +8990,8 @@
   "difficulty": "medium",
   "variants": [
    "david lynch",
-   "david keith lynch"
+   "david keith lynch",
+   "lynch"
   ],
   "blurb": "Surrealist filmmaker behind Eraserhead and Twin Peaks (1946–2025) · actor Jack Nance kept his character's upswept hairdo touched up for the five stop-start years it took to shoot Eraserhead",
   "img": "assets/img/david-lynch.jpg",
@@ -8984,6 +9040,7 @@
    "king solomon of israel"
   ],
   "blurb": "Biblical king of Israel renowned for his wisdom (r. c. 970–931 BC) · settled a maternity dispute by proposing to cut the baby in two, then awarded it to the mother who begged him to stop",
+  "years": "c. 990–931 BC",
   "img": "assets/img/solomon.jpg",
   "fx": 0.38,
   "fy": 0.28,
@@ -9049,7 +9106,8 @@
   "variants": [
    "frank lloyd wright",
    "f l wright",
-   "frank wright"
+   "frank wright",
+   "wright"
   ],
   "blurb": "Architect (1867–1959) · his Fallingwater cantilevers so far over a waterfall that the contractor secretly doubled Wright's rebar, likely saving it from collapse",
   "img": "assets/img/frank-lloyd-wright.jpg",
@@ -9191,7 +9249,8 @@
   "variants": [
    "ruhollah khomeini",
    "ayatollah khomeini",
-   "imam khomeini"
+   "imam khomeini",
+   "khomeini"
   ],
   "blurb": "Supreme Leader of Iran (1902–1989) · led the 1979 revolution from exile in Paris, his sermons smuggled into Iran on cassette tapes",
   "img": "assets/img/khomeini.jpg",
@@ -9359,7 +9418,9 @@
    "jackie kennedy",
    "jacqueline kennedy",
    "jackie o",
-   "jacqueline bouvier kennedy"
+   "jacqueline bouvier kennedy",
+   "onassis",
+   "jackie onassis"
   ],
   "blurb": "US First Lady, later a book editor (1929–1994) · spent her last two decades editing books at Viking and Doubleday, insisting on no special treatment",
   "img": "assets/img/jackie-kennedy.jpg",
@@ -9500,7 +9561,9 @@
    "mohammed ali jinnah",
    "quaid-e-azam",
    "quaid-i-azam",
-   "quaid e azam"
+   "quaid e azam",
+   "jinnah",
+   "ali jinnah"
   ],
   "blurb": "Founder of Pakistan (1876–1948) · secretly dying of tuberculosis throughout partition — only his sister and doctor knew before his death just over a year later",
   "img": "assets/img/jinnah.jpg",
@@ -9660,7 +9723,8 @@
   "variants": [
    "richard feynman",
    "richard p feynman",
-   "dick feynman"
+   "dick feynman",
+   "feynman"
   ],
   "blurb": "American theoretical physicist (1918–1988) · cracked colleagues' safes for fun at Los Alamos during the Manhattan Project, sometimes leaving notes inside to spook them",
   "img": "assets/img/richard-feynman.jpg",
@@ -9865,7 +9929,8 @@
   "difficulty": "easy",
   "variants": [
    "pablo escobar",
-   "pablo emilio escobar gaviria"
+   "pablo emilio escobar gaviria",
+   "escobar"
   ],
   "blurb": "Colombian drug lord (1949–1993) · Forbes listed him among the world's wealthiest people for seven straight years, with a peak net worth estimated near $30 billion",
   "img": "assets/img/pablo-escobar.jpg",
@@ -9934,7 +9999,8 @@
   "variants": [
    "vivien leigh",
    "vivian leigh",
-   "vivien mary hartley"
+   "vivien mary hartley",
+   "leigh"
   ],
   "blurb": "English actress (1913–1967) · beat out well over a thousand other actresses screen-tested for the role of Scarlett O'Hara in Gone with the Wind",
   "img": "assets/img/vivien-leigh.jpg",
@@ -9980,7 +10046,8 @@
   "variants": [
    "osama bin laden",
    "bin laden",
-   "osama"
+   "osama",
+   "laden"
   ],
   "blurb": "Founder of al-Qaeda and architect of the September 11 attacks (1957–2011) · killed by US Navy SEALs in a raid on his compound in Pakistan",
   "img": "assets/img/bin-laden.jpg",
