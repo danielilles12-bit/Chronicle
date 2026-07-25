@@ -23,7 +23,12 @@ What it does:
        raw cached API responses (cache/pageviews/, cache/languages/):
          - pv_stat: a trimmed, recency-excluding, spike-resistant read on
            monthly pageviews (falls back to pageviews_5y/60 if the cache
-           entry is missing or unreadable).
+           entry is missing or unreadable). When the article was RENAMED
+           inside the window the pageviews API splits its series across the
+           old and new titles; RENAMED_FROM below lists every such pool
+           article and the series are summed month-by-month before any
+           statistic is taken. `pv_merged_from` on each output row records
+           which former titles were folded in.
          - family_consensus: fraction (0-1) of 8 language families that
            have at least one Wikipedia edition of the article (falls back
            to a languages-count heuristic under the same condition).
@@ -103,6 +108,61 @@ def _final_n_months(window_end, n=3):
 
 
 WINDOW_FINAL_3_MONTHS = _final_n_months(PAGEVIEWS_END, 3)
+
+
+# ---------------------------------------------------------------------------
+# Renamed articles -- former enwiki titles whose pageviews belong to the same
+# subject (25 Jul 2026)
+#
+# The Wikimedia pageviews API is keyed by the *title as requested*, not by the
+# page. When an article is moved inside the 5-year window the series splits in
+# two: the new title reads near-zero before the move, the old title near-zero
+# after it, and neither is the article's real traffic. pv_stat is a trimmed
+# monthly MEDIAN, so the half of the window that sits in the dead zone drags
+# the median straight into it and fame collapses. Nicholas II read fame 57.9
+# on 2.2 million views; Kim Il-sung 50.3 on 2.8 million.
+#
+# The fix is to reassemble the series: sum the two (or more) titles month by
+# month before computing any statistic. Every pair below was confirmed against
+# the enwiki move log (action=query&list=logevents&letype=move) -- the move is
+# a real page move to this exact target, dated inside 2020-07..2025-06 -- and
+# the former title's monthly series was fetched into the same cache directory
+# fetch_metrics.py writes, so this stays a pure cache read.
+#
+# Summing includes the residual traffic the old title still draws as a
+# redirect. That is deliberate: a reader who arrives via the old name is a
+# reader of this article, and the point of the statistic is audience size.
+#
+# A former title with no cache entry is skipped, not fatal -- the merge just
+# degrades to whatever it can reach, exactly like the rest of this file.
+# Regenerate the cache entries with fetch_metrics.py if this list grows.
+# ---------------------------------------------------------------------------
+RENAMED_FROM = {
+    "Al-Khwarizmi": ["Muhammad ibn Musa al-Khwarizmi"],       # 2023-08-07
+    "Amber Fort": ["Amer Fort"],                              # 2021-09-10
+    "Baybars": ["Baibars"],                                   # 2022-09-27
+    "Blue Mosque, Istanbul": ["Sultan Ahmed Mosque"],         # 2022-01-06
+    "Boudha Stupa": ["Boudhanath"],                           # 2024-10-04
+    "Cnut": ["Cnut the Great"],                               # 2022-01-09
+    "Frederick Barbarossa": ["Frederick I, Holy Roman Emperor"],   # 2022-09-04
+    "Gustavus Adolphus": ["Gustavus Adolphus of Sweden"],     # 2021-06-17
+    "Kailasa Temple, Ellora": ["Kailasa temple, Ellora",
+                               "Kailasatempel"],              # 2020-08-29 / 2021-09-18
+    "Kim Il Sung": ["Kim Il-sung"],                           # 2023-04-16
+    "Kim Jong Il": ["Kim Jong-il"],                           # 2023-04-16
+    "Mehmed II": ["Mehmed the Conqueror"],                    # moved back and forth 2022-2025
+    "Mithridates VI Eupator": ["Mithridates VI"],             # 2021-01-19
+    "Mortuary temple of Hatshepsut": ["Mortuary Temple of Hatshepsut"],  # 2023-06-11
+    "Nazca lines": ["Nazca Lines"],                           # 2024-04-15
+    "Nebra sky disc": ["Nebra sky disk"],                     # 2021-10-26
+    "Nicholas II": ["Nicholas II of Russia"],                 # 2024-02-19
+    "Otto the Great": ["Otto I, Holy Roman Emperor"],         # 2022-04-23
+    "The Buddha": ["Gautama Buddha"],                         # 2022-10-20
+    "Theodora (wife of Justinian I)": ["Theodora (6th century)"],   # 2021-01-24
+    "Wangarĩ Maathai": ["Wangari Maathai"],                   # 2024-04-08
+    "Wilhelm II": ["Wilhelm II, German Emperor"],             # 2023-11-04
+    "William Adams (samurai)": ["William Adams (pilot)"],     # 2024-06-12
+}
 
 
 # ---------------------------------------------------------------------------
@@ -203,8 +263,47 @@ def _num_or_zero(value):
 # Per-title refined metrics, read straight from fetch_metrics.py's cache
 # ---------------------------------------------------------------------------
 
+def _monthly_series(title):
+    """[(timestamp, views)] straight out of the cache, or None."""
+    cached = _load_cache_json(_cache_path("pageviews", _title_to_underscored(title)))
+    if not isinstance(cached, dict):
+        return None, None
+    body = cached.get("body")
+    if cached.get("ok") and isinstance(body, dict) and isinstance(body.get("items"), list):
+        series = []
+        for it in body["items"]:
+            ts, views = it.get("timestamp"), it.get("views")
+            if ts is None or views is None:
+                continue
+            series.append((ts, views))
+        return series, cached
+    return None, cached
+
+
+def merged_monthly_series(title):
+    """Monthly series for `title`, summed month-by-month with the series of
+    every title it was renamed FROM (see RENAMED_FROM). Returns
+    (series, merged_titles) where series is [(timestamp, views)] sorted by
+    timestamp, or (None, []) when the canonical title has no usable cache."""
+    base, _ = _monthly_series(title)
+    if base is None:
+        return None, []
+    totals = {}
+    for ts, v in base:
+        totals[ts] = totals.get(ts, 0) + v
+    merged = []
+    for former in RENAMED_FROM.get(title, []):
+        extra, _ = _monthly_series(former)
+        if not extra:
+            continue
+        merged.append(former)
+        for ts, v in extra:
+            totals[ts] = totals.get(ts, 0) + v
+    return sorted(totals.items()), merged
+
+
 def compute_pv_stat(record):
-    """Returns (pv_stat, pv_fallback, spike_driven)."""
+    """Returns (pv_stat, pv_fallback, spike_driven, merged_titles)."""
     wiki_title = record.get("wiki_title")
     resolved = record.get("resolved_title") or wiki_title
     underscored = _title_to_underscored(resolved)
@@ -214,18 +313,12 @@ def compute_pv_stat(record):
     fallback_stat = (pageviews_5y / 60.0) if isinstance(pageviews_5y, (int, float)) else 0.0
 
     if not isinstance(cached, dict):
-        return fallback_stat, True, False
+        return fallback_stat, True, False, []
 
     body = cached.get("body")
     if cached.get("ok") and isinstance(body, dict) and isinstance(body.get("items"), list):
-        series = []
-        for it in body["items"]:
-            ts = it.get("timestamp")
-            views = it.get("views")
-            if ts is None or views is None:
-                continue
-            series.append((ts, views))
-        series.sort(key=lambda x: x[0])
+        series, merged_titles = merged_monthly_series(resolved)
+        series = series or []
 
         kept = [v for ts, v in series if ts[:6] not in WINDOW_FINAL_3_MONTHS]
         kept_sorted = sorted(kept)
@@ -251,16 +344,16 @@ def compute_pv_stat(record):
             pv_stat = 0.7 * percentile(trimmed, 50) + 0.3 * percentile(trimmed, 20)
         else:
             pv_stat = 0.0
-        return pv_stat, False, spike
+        return pv_stat, False, spike, merged_titles
 
     if cached.get("ok") is False:
         # A definitive, cached negative result (typically 404 not_found) --
         # this is real evidence of zero pageviews, not a data-quality gap,
         # so it does NOT count as a fallback.
-        return 0.0, False, False
+        return 0.0, False, False, []
 
     # Unexpected/malformed shape.
-    return fallback_stat, True, False
+    return fallback_stat, True, False, []
 
 
 def compute_family_consensus(record):
@@ -418,7 +511,7 @@ def main():
             cls = "other"
             object_kind = None
 
-        pv_stat, pv_fallback, spike_driven = compute_pv_stat(rec)
+        pv_stat, pv_fallback, spike_driven, merged_titles = compute_pv_stat(rec)
         family_consensus, fam_fallback = compute_family_consensus(rec)
 
         universe_rank = None
@@ -433,6 +526,7 @@ def main():
             "pv_stat": pv_stat,
             "pv_fallback": pv_fallback,
             "spike_driven": spike_driven,
+            "pv_merged_from": merged_titles,
             "family_consensus": family_consensus,
             "fam_fallback": fam_fallback,
             "pageviews_5y": rec.get("pageviews_5y"),
@@ -485,6 +579,7 @@ def main():
                 "family_consensus": round(it["family_consensus"], 4),
                 "spike_driven": it["spike_driven"],
                 "pv_stat": round(it["pv_stat"], 2),
+                "pv_merged_from": it["pv_merged_from"],
                 "pageviews_5y": it["pageviews_5y"],
                 "languages": it["languages"],
                 "inlinks": it["inlinks"],

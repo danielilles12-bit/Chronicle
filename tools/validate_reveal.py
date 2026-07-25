@@ -430,6 +430,28 @@ TITLE_STATUS_BLURB = {
     "unresolved": "could not be resolved to any Wikipedia article",
 }
 
+# ---------- Wikipedia SUBJECT health (the same file) ----------
+# The check above proves the article exists, isn't a disambiguation page and
+# is long enough. It cannot prove the article is about the right THING, and
+# the 25 Jul 2026 re-tier audit found eight pool items where it wasn't —
+# every one of them reporting status "ok". `sunflowers` resolved to
+# Helianthus, the sunflower plant *genus*, and inherited the flower's fame of
+# 93.1, which nearly promoted a van Gogh canvas to easy; `olympia-stadium`
+# resolved to Detroit Olympia, an American ice-hockey arena.
+#
+# tools/fame/build_salience.py's check_subjects() is the online half (a
+# Wikidata instance-of type check plus a name↔title token check that the
+# item's own `variants` can satisfy); this is the offline assertion over its
+# output, and it degrades exactly like the status check above — an older
+# title_health.json without the field reports "unknown" and is treated as
+# not-yet-checked rather than as a failure.
+SUBJECT_STATUS_BLURB = {
+    "type_mismatch": "resolves to a Wikipedia article about the WRONG KIND "
+                     "of subject",
+    "name_mismatch": "resolves to a Wikipedia article whose title names "
+                     "something else",
+}
+
 
 def check_title_health():
     if not TITLE_HEALTH_PATH.exists():
@@ -444,14 +466,34 @@ def check_title_health():
 
     rows = data.get("items") or []
     covered = {(r.get("game"), r.get("id")) for r in rows}
+    n_unchecked = 0
     for r in rows:
         status = r.get("status")
-        if status == "ok":
+        if status != "ok":
+            blurb = TITLE_STATUS_BLURB.get(status, f"has title status {status!r}")
+            err(f"{r.get('game')} {r.get('id')}: {blurb} "
+                f"({r.get('wiki_title')!r}) — add a verified title to "
+                f"TITLE_OVERRIDES in tools/fame/build_salience.py")
             continue
-        blurb = TITLE_STATUS_BLURB.get(status, f"has title status {status!r}")
+        subject = r.get("subject_status")
+        if subject is None or subject == "unknown":
+            # No Wikidata item behind the article (or a title_health.json
+            # generated before the subject check existed): not evidence of a
+            # problem, just an absence of evidence.
+            n_unchecked += 1
+            continue
+        if subject == "ok":
+            continue
+        blurb = SUBJECT_STATUS_BLURB.get(
+            subject, f"has subject status {subject!r}")
+        detail = r.get("subject_detail")
         err(f"{r.get('game')} {r.get('id')}: {blurb} "
-            f"({r.get('wiki_title')!r}) — add a verified title to "
-            f"TITLE_OVERRIDES in tools/fame/build_salience.py")
+            f"({r.get('wiki_title')!r}"
+            + (f" — {detail}" if detail else "") + ") — pin the right "
+            f"article in TITLE_OVERRIDES in tools/fame/build_salience.py")
+    if n_unchecked:
+        warn(f"title health: {n_unchecked} item(s) have no Wikidata subject "
+             f"check (regenerate with tools/fame/build_salience.py)")
 
     # New pool items that predate the last health run have never been
     # checked. That is a warning, not an error: it must not block a content

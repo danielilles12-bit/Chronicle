@@ -42,8 +42,10 @@ Everything is written to tools/fame/salience.json with each component kept
 separate so the blend stays inspectable and arguable.
 
 Python 3.9 stdlib only. READ-ONLY with respect to data/, js/, and every
-existing tools/fame file. Writes only: tools/fame/salience.json and
-tools/fame/raw/salience_*.json (HTTP cache).
+existing tools/fame file. Writes only: tools/fame/salience.json,
+tools/fame/title_health.json (the small committed artefact
+tools/validate_reveal.py asserts on) and tools/fame/raw/salience_*.json
+(HTTP cache).
 """
 
 import argparse
@@ -54,6 +56,7 @@ import math
 import re
 import sys
 import time
+import unicodedata
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -66,6 +69,7 @@ RAW_DIR = SCRIPT_DIR / "raw"
 # Same UA family as fetch_metrics.py / wputils.py so enwiki sees one client.
 USER_AGENT = "DeadFamousIntake/1.0 (daniel.illes12@gmail.com)"
 EN_API = "https://en.wikipedia.org/w/api.php"
+WD_API = "https://www.wikidata.org/w/api.php"
 
 RATE_PER_SEC = 8.0
 MIN_INTERVAL = 1.0 / RATE_PER_SEC
@@ -135,6 +139,13 @@ def api(params, offline=False):
     params.setdefault("format", "json")
     params.setdefault("formatversion", "2")
     url = EN_API + "?" + urllib.parse.urlencode(params, safe="|")
+    return fetch_json(url, offline=offline)
+
+
+def wd_api(params, offline=False):
+    params = dict(params)
+    params.setdefault("format", "json")
+    url = WD_API + "?" + urllib.parse.urlencode(params, safe="|")
     return fetch_json(url, offline=offline)
 
 
@@ -778,11 +789,28 @@ POOL_FILES = [("who", "data/reveal-who.json"),
 # durable record -- current_inventory.json is gitignored and regenerated, so
 # a fix applied only there does not survive.
 # ---------------------------------------------------------------------------
+# A SECOND defect class, found by the 25 Jul 2026 re-tier audit: an item can
+# resolve to a real, healthy, long article that is simply the WRONG SUBJECT.
+# `sunflowers` resolved to Helianthus, the sunflower plant genus, and its
+# fame of 93.1 -- the flower's -- almost promoted a van Gogh painting to
+# easy. `olympia-stadium` resolved to Detroit Olympia, an American ice-hockey
+# arena. Nothing in the disambiguation/length check can see any of this: the
+# articles are all perfectly healthy, they are just about something else.
+# check_subjects() below is the guard; the entries marked "wrong-subject fix"
+# are the eight pool items it found. Every one was verified live against the
+# enwiki API and Wikidata on 25 Jul 2026.
 TITLE_OVERRIDES = {
     ("who", "charles-v-hre"): "Charles V, Holy Roman Emperor",
     ("who", "empress-theodora"): "Theodora (wife of Justinian I)",
     ("who", "mihrimah-sultan"): "Mihrimah Sultan (daughter of Suleiman I)",
+    # wrong-subject fix: resolved to "Self-portrait (van Gogh, Paris)", one
+    # particular canvas (and one with no pageview history at all, so the item
+    # scored a fame of ~0). The Face Value answer is the painter.
+    ("who", "van-gogh-self"): "Vincent van Gogh",
     ("map", "charles-v-hre"): "Charles V, Holy Roman Emperor",
+    # wrong-subject fix: resolved to "Abdul Qadir", a Wikidata *given-name*
+    # page, not to the Algerian emir who fought the French conquest.
+    ("map", "abd-el-kader"): "Emir Abdelkader",
     ("map", "john-reed"): "John Reed (journalist)",
     ("map", "john-smith"): "John Smith (explorer)",
     ("map", "seneca"): "Seneca the Younger",
@@ -790,12 +818,33 @@ TITLE_OVERRIDES = {
     ("map", "william-adams"): "William Adams (samurai)",
     ("what", "christ-the-redeemer"): "Christ the Redeemer (statue)",
     ("what", "cyrene"): "Cyrene, Libya",
+    # not a defect, just pinned: "Djenne Terracotta" has no article of its
+    # own, and the site the figures were dug out of is the nearest true
+    # subject. Recorded here so a future name-lookup can't drift off it.
+    ("what", "djenne-terracotta"): "Djenné-Djenno",
     ("what", "fram-ship"): "Fram (ship)",
+    # wrong-subject fix: resolved to "The Temple of the Golden Pavilion",
+    # Mishima's 1956 NOVEL about the arson, not to the building.
+    ("what", "golden-pavilion"): "Kinkaku-ji",
+    # wrong-subject fix: "Great Buddha of Kamakura" is a redirect; enwiki
+    # covers the statue inside the temple's article and has no separate one,
+    # so this is the correct target and the name mismatch is expected.
+    ("what", "great-buddha-kamakura"): "Kōtoku-in",
     ("what", "hindenburg"): "LZ 129 Hindenburg",
     ("what", "merv"): "Merv",
+    # wrong-subject fix: resolved to "David", the biblical king, instead of
+    # Michelangelo's marble of him.
+    ("what", "michelangelo-david"): "David (Michelangelo)",
+    # wrong-subject fix: resolved to "Detroit Olympia", a US ice-hockey
+    # arena demolished in 1987.
+    ("what", "olympia-stadium"): "Stadium at Olympia",
     ("what", "mikasa"): "Japanese battleship Mikasa",
     ("what", "sacre-coeur"): "Sacré-Cœur, Paris",
     ("what", "st-stephens-vienna"): "St. Stephen's Cathedral, Vienna",
+    # wrong-subject fix (x2): both van Gogh canvases resolved to Helianthus,
+    # the plant genus. enwiki covers the paintings as one series article.
+    ("what", "sunflowers"): "Sunflowers (Van Gogh series)",
+    ("what", "sunflowers-munich"): "Sunflowers (Van Gogh series)",
     ("what", "temple-poseidon"): "Temple of Poseidon, Sounion",
     ("what", "vasa-ship"): "Vasa (ship)",
     ("what", "world-trade-center"): "World Trade Center (1973–2001)",
@@ -821,7 +870,8 @@ def check_titles(titles, offline=False, verbose=True):
         try:
             for data in api_continue({
                 "action": "query", "titles": "|".join(batch),
-                "prop": "info|pageprops", "ppprop": "disambiguation",
+                "prop": "info|pageprops",
+                "ppprop": "disambiguation|wikibase_item",
                 "redirects": "1",
             }, offline=offline):
                 q = data.get("query", {})
@@ -833,8 +883,9 @@ def check_titles(titles, offline=False, verbose=True):
                     p = pages.get(cur)
                     if p is None:
                         continue
+                    props = p.get("pageprops") or {}
                     missing = "missing" in p
-                    disambig = "disambiguation" in (p.get("pageprops") or {})
+                    disambig = "disambiguation" in props
                     length = p.get("length")
                     if missing:
                         status = "missing"
@@ -846,11 +897,272 @@ def check_titles(titles, offline=False, verbose=True):
                         status = "ok"
                     out[raw] = {"resolved": cur, "missing": missing,
                                 "disambiguation": disambig, "length": length,
-                                "status": status}
+                                "status": status,
+                                "qid": props.get("wikibase_item")}
         except Exception as exc:                          # noqa: BLE001
             if verbose:
                 print("  title check: batch failed (%s)" % exc, file=sys.stderr)
     return out
+
+
+# ---------------------------------------------------------------------------
+# Wrong-SUBJECT check (25 Jul 2026)
+#
+# check_titles() proves an article exists, is not a disambiguation page and
+# is long enough. It cannot prove the article is about the RIGHT THING, and
+# the re-tier audit found eight pool items where it was not -- every one of
+# them reporting status "ok":
+#
+#   what/sunflowers, what/sunflowers-munich -> Helianthus (the plant genus)
+#   what/olympia-stadium                    -> Detroit Olympia (ice-hockey arena)
+#   what/golden-pavilion                    -> Mishima's 1956 novel
+#   what/michelangelo-david                 -> David, the biblical king
+#   what/great-buddha-kamakura              -> Kotoku-in, the temple
+#   map/abd-el-kader                        -> "Abdul Qadir", a given-name page
+#   who/van-gogh-self                       -> one particular canvas, 0 pageviews
+#
+# Two independent signals, because neither alone catches all eight and each
+# catches cases the other cannot:
+#
+#   1. TYPE. Wikidata "instance of" (P31) on the resolved article, checked
+#      against what the item's pool can possibly be: Face Value and Lifeline
+#      items are PEOPLE, Relic items are PHYSICAL THINGS. Measured over the
+#      whole 1,331-item pool this flagged 6 items and every one was a real
+#      defect -- zero false positives. It is what catches a painting sitting
+#      in a person pool, or a taxon / a novel / a human / a given-name page
+#      sitting in the artefact pool. It cannot catch a wrong subject of the
+#      RIGHT type (Detroit Olympia really is a stadium).
+#
+#   2. NAME. The resolved title must share a plausible token with the item's
+#      display name or with one of its curated `variants` (the same aliases
+#      the live matcher accepts). Token comparison folds accents *including*
+#      the ones NFD leaves alone (Turkish dotless i, o-slash, l-stroke),
+#      accepts a >=4-character prefix as a match ("gold"/"golden",
+#      "rhino"/"rhinoceros") and accepts one edit in tokens of >=5 characters
+#      ("Rustam"/"Rostam"), because without that fuzz the transliteration and
+#      spelling variants in this corpus dominate the output. Measured over
+#      the whole pool it flagged 6 items, 5 of them real defects and 1
+#      ("Djenne Terracotta" -> the site the figures were dug out of) a title
+#      no better one exists for -- 0.45% of the pool flagged, 1 in 6 of them
+#      a false alarm, and that one is silenced the moment the title is pinned.
+#
+# An item with a hand-verified TITLE_OVERRIDE is exempt from the NAME signal
+# (that is what the override IS -- a human saying "yes, this odd-looking
+# title is the right article"). Nothing is exempt from the TYPE signal.
+# ---------------------------------------------------------------------------
+
+# P31 values that mean "this article is about a person". Q5 covers 962 of the
+# 967 person-pool items on its own; the rest are the scriptural/legendary
+# figures the pool legitimately contains (Abraham, Moses, Solomon, Jesus).
+PERSON_CLASSES = {
+    "Q5",            # human
+    "Q20643955",     # human biblical figure
+    "Q3375731",      # historical character
+    "Q21070568",     # human whose existence is disputed
+    "Q13002315",     # legendary figure
+    "Q4271324",      # mythical character
+    "Q18563360",     # Quranic character
+    "Q178885",       # deity
+    "Q825",          # God in Christianity
+}
+
+# P31 values that mean "this article is NOT about a physical thing you could
+# photograph" -- i.e. impossible for a Relic item, whose whole round is a
+# photograph of the object. Deliberately narrow: the artefact pool's real P31
+# values run to hundreds of building/site/artwork classes, so this is a
+# blocklist of the categorically-impossible, not an allowlist of the allowed.
+# ("written work" is NOT here: the Book of Kells and friends are written
+# works and also very much physical objects.)
+NON_PHYSICAL_CLASSES = {
+    "Q5",            # human
+    "Q20643955",     # human biblical figure
+    "Q16521",        # taxon
+    "Q4167410",      # Wikimedia disambiguation page
+    "Q12308941",     # male given name
+    "Q11879590",     # female given name
+    "Q101352",       # family name
+    "Q7725634",      # literary work
+    "Q8261",         # novel
+    "Q49084",        # short story
+    "Q25379",        # play
+    "Q11424",        # film
+    "Q7366",         # song
+    "Q134556",       # single
+    "Q5398426",      # television series
+}
+
+MIN_PREFIX_MATCH = 4      # "gold" ~ "golden"; 3 is too loose ("abd" ~ "abdul")
+MIN_EDIT_MATCH_LEN = 5    # "rustam" ~ "rostam" only for tokens this long
+# Structural words that carry no identifying weight in a title-vs-name match.
+NAME_STOPWORDS = {
+    "the", "a", "an", "of", "and", "in", "at", "on", "de", "di", "du",
+    "von", "van", "der", "den", "da", "la", "le", "el", "al",
+}
+# NFD decomposition leaves these alone, so fold them by hand or "Topkapi
+# Palace" never matches "Topkapı Palace".
+EXTRA_FOLD = {"ı": "i", "ø": "o", "đ": "d", "ł": "l", "ß": "ss",
+              "æ": "ae", "œ": "oe", "ð": "d", "þ": "th"}
+
+
+def fold_tokens(s):
+    """Lowercased, accent-folded, stopword-stripped token set."""
+    s = (s or "").lower()
+    s = "".join(EXTRA_FOLD.get(c, c) for c in s)
+    s = unicodedata.normalize("NFD", s)
+    s = "".join(c for c in s if not unicodedata.combining(c))
+    s = re.sub(r"[^a-z0-9]+", " ", s)
+    return {t for t in s.split() if t and t not in NAME_STOPWORDS}
+
+
+def _edit_distance_le_1(a, b):
+    if abs(len(a) - len(b)) > 1:
+        return False
+    if len(a) > len(b):
+        a, b = b, a
+    i = j = 0
+    edits = 0
+    while i < len(a) and j < len(b):
+        if a[i] == b[j]:
+            i += 1
+            j += 1
+            continue
+        edits += 1
+        if edits > 1:
+            return False
+        if len(a) == len(b):
+            i += 1
+        j += 1
+    return edits + (len(b) - j) + (len(a) - i) <= 1
+
+
+def tokens_match(x, y):
+    if x == y:
+        return True
+    lo, hi = (x, y) if len(x) <= len(y) else (y, x)
+    if len(lo) >= MIN_PREFIX_MATCH and hi.startswith(lo):
+        return True
+    if min(len(x), len(y)) >= MIN_EDIT_MATCH_LEN and _edit_distance_le_1(x, y):
+        return True
+    return False
+
+
+def _covered_by(small, big):
+    """Every token of `small` has a match somewhere in `big`."""
+    return bool(small) and all(any(tokens_match(s, b) for b in big) for s in small)
+
+
+def strip_title_qualifier(title):
+    """"Charles V, Holy Roman Emperor" -> "Charles V"; "Fram (ship)" -> "Fram".
+
+    enwiki disambiguates by appending a parenthetical or a comma clause, and
+    the item's own name never carries it, so the stripped form is what a
+    name<->title comparison should use in the title-is-shorter direction."""
+    t = re.sub(r"\s*\([^)]*\)\s*$", "", title or "")
+    return t.split(",")[0]
+
+
+def name_is_plausible(title, name, variants):
+    """True when `title` plausibly names the same thing as the item does."""
+    full = fold_tokens(title)
+    short = fold_tokens(strip_title_qualifier(title))
+    for cand in [name] + list(variants or []):
+        toks = fold_tokens(cand)
+        if not toks:
+            continue
+        if _covered_by(toks, full) or _covered_by(short, toks):
+            return True
+    return False
+
+
+def harvest_instance_of(qids, offline=False, verbose=True):
+    """{QID: [P31 QIDs]} from Wikidata, 50 entities per request."""
+    out = {}
+    qids = [q for q in dict.fromkeys(qids) if q]
+    for i in range(0, len(qids), 50):
+        batch = qids[i:i + 50]
+        try:
+            data = wd_api({"action": "wbgetentities", "ids": "|".join(batch),
+                           "props": "claims"}, offline=offline)
+        except Exception as exc:                          # noqa: BLE001
+            if verbose:
+                print("  instance-of: batch failed (%s)" % exc, file=sys.stderr)
+            continue
+        for qid, ent in (data.get("entities") or {}).items():
+            vals = []
+            for claim in ((ent.get("claims") or {}).get("P31") or []):
+                dv = ((claim.get("mainsnak") or {}).get("datavalue") or {}).get("value")
+                if isinstance(dv, dict) and dv.get("id"):
+                    vals.append(dv["id"])
+            out[qid] = vals
+    if verbose:
+        print("  instance-of: %d/%d entities" % (len(out), len(qids)),
+              file=sys.stderr)
+    return out
+
+
+def check_subjects(items, health, offline=False, verbose=True):
+    """Annotate every item with subject_status / instance_of / wikidata_id.
+
+    subject_status is one of:
+      ok             both signals pass (or the item has no resolved title,
+                     which the existing title check already reports)
+      type_mismatch  the article is categorically the wrong KIND of thing
+      name_mismatch  the article's title names something else entirely, and
+                     no hand-verified TITLE_OVERRIDE says otherwise
+      unknown        no Wikidata item behind the article; NAME still applies
+    """
+    qids = [(health.get(r["wiki_title"]) or {}).get("qid")
+            for r in items if r.get("wiki_title")]
+    p31 = harvest_instance_of([q for q in qids if q], offline=offline,
+                              verbose=verbose)
+    counts = collections.Counter()
+    for r in items:
+        title = r.get("wiki_title")
+        r["wikidata_id"] = None
+        r["instance_of"] = None
+        r["subject_status"] = "ok"
+        r["subject_detail"] = None
+        if not title:
+            continue
+        h = health.get(title) or {}
+        qid = h.get("qid")
+        classes = p31.get(qid or "") or []
+        r["wikidata_id"] = qid
+        r["instance_of"] = classes or None
+
+        is_person_pool = r["game"] in ("who", "map")
+        if classes:
+            if is_person_pool and not (set(classes) & PERSON_CLASSES):
+                r["subject_status"] = "type_mismatch"
+                r["subject_detail"] = (
+                    "a %s pool item resolved to an article that is not a "
+                    "person (instance of %s)" % (r["game"], ", ".join(classes)))
+            elif not is_person_pool and (set(classes) & NON_PHYSICAL_CLASSES):
+                bad = sorted(set(classes) & NON_PHYSICAL_CLASSES)
+                r["subject_status"] = "type_mismatch"
+                r["subject_detail"] = (
+                    "a Relic item resolved to an article that is not a "
+                    "physical object (instance of %s)" % ", ".join(bad))
+        else:
+            # No Wikidata item behind the article, or Wikidata was
+            # unreachable (--offline with a cold cache). Either way the TYPE
+            # signal has nothing to say, and saying nothing must not read as
+            # a pass -- the name signal below still applies.
+            r["subject_status"] = "unknown"
+            r["subject_detail"] = ("no Wikidata instance-of behind the "
+                                   "article — type check not run")
+
+        if r["subject_status"] in ("ok", "unknown") and \
+                (r["game"], r["id"]) not in TITLE_OVERRIDES:
+            if not name_is_plausible(title, r.get("name"), r.get("variants")):
+                r["subject_status"] = "name_mismatch"
+                r["subject_detail"] = (
+                    "the title shares no word with the item's name or any of "
+                    "its variants")
+        counts[r["subject_status"]] += 1
+    if verbose:
+        print("  subject check: %s" % dict(counts), file=sys.stderr)
+    return counts
 
 
 def build_item_universe(offline=False, verbose=True):
@@ -890,6 +1202,11 @@ def build_item_universe(offline=False, verbose=True):
                 title = name_to_title.get(norm_name(e.get("name", "")))
                 src = "final_pools" if title else None
             rec = {"id": e["id"], "game": game, "name": e.get("name"),
+                   # the live matcher's accepted aliases; check_subjects uses
+                   # them so a legitimate alternate spelling of the subject
+                   # ("Kinkaku-ji" for "The Golden Pavilion") is not read as
+                   # a wrong-article resolution.
+                   "variants": e.get("variants") or [],
                    "difficulty": e.get("difficulty"),
                    "wiki_title": title, "title_source": src,
                    "title_status": None}
@@ -933,6 +1250,9 @@ def build_item_universe(offline=False, verbose=True):
     if verbose and dropped:
         print("  %d pool items resolved to a disambiguation/missing/short "
               "article (see title_health.json)" % dropped, file=sys.stderr)
+
+    # A healthy article can still be the WRONG article -- see check_subjects.
+    check_subjects(items, health, offline=offline, verbose=verbose)
 
     extra = set()
     for fname, key in (("universe_people.json", "people"),
@@ -1221,6 +1541,7 @@ def main():
             "difficulty": it["difficulty"], "wiki_title": t,
             "title_source": it["title_source"],
             "title_status": it.get("title_status"),
+            "subject_status": it.get("subject_status"),
             "salience": round(r["salience"], 2) if r else None,
             "low_confidence": bool(r) and not isinstance(r["pv_stat"], (int, float)),
             "fame": (r or {}).get("fame"),
@@ -1304,26 +1625,45 @@ def main():
             "title_source": it["title_source"],
             "status": it.get("title_status") or "unresolved",
             "article_bytes": it.get("title_length"),
+            "wikidata_id": it.get("wikidata_id"),
+            "instance_of": it.get("instance_of"),
+            "subject_status": it.get("subject_status") or "unknown",
+            "subject_detail": it.get("subject_detail"),
         })
     health_rows.sort(key=lambda r: (r["game"], r["id"]))
     bad = [r for r in health_rows if r["status"] != "ok"]
+    wrong_subject = [r for r in health_rows
+                     if r["subject_status"] not in ("ok", "unknown")]
     health_path = SCRIPT_DIR / "title_health.json"
     health_path.write_text(json.dumps({
         "generatedOn": GENERATED_ON,
         "what_this_is": (
             "Which English Wikipedia article each Dead Famous pool item "
-            "resolves to, and whether that article is real. Pool records in "
-            "data/*.json carry no wiki_title, so items are resolved by "
-            "display name; a bare ambiguous name lands on a disambiguation "
-            "page and scores near zero on every fame/salience metric. "
-            "tools/validate_reveal.py fails the build on any status that is "
-            "not 'ok'. Regenerate with: python3 tools/fame/build_salience.py"
+            "resolves to, whether that article is real, and whether it is "
+            "about the right subject. Pool records in data/*.json carry no "
+            "wiki_title, so items are resolved by display name; a bare "
+            "ambiguous name lands on a disambiguation page and scores near "
+            "zero on every fame/salience metric ('status'), and a name that "
+            "belongs to something else lands on a healthy article about the "
+            "wrong thing ('subject_status'). tools/validate_reveal.py fails "
+            "the build on either. Regenerate with: "
+            "python3 tools/fame/build_salience.py"
         ),
         "min_article_bytes": MIN_ARTICLE_BYTES,
+        "subject_check": (
+            "subject_status: ok | type_mismatch (Wikidata instance-of says "
+            "the article is the wrong KIND of thing for this pool -- a "
+            "painting in a people pool, a taxon or a novel in the artefact "
+            "pool) | name_mismatch (the title shares no word with the item's "
+            "name or any of its variants, and no hand-verified "
+            "TITLE_OVERRIDES entry vouches for it) | unknown (no Wikidata "
+            "item behind the article)."
+        ),
         "counts": {
             "items": len(health_rows),
             "ok": len(health_rows) - len(bad),
             "not_ok": len(bad),
+            "wrong_subject": len(wrong_subject),
         },
         "items": health_rows,
     }, indent=1, ensure_ascii=False), encoding="utf-8")
