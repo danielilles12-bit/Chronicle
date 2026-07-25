@@ -4659,16 +4659,6 @@
   "groups": [
    {
     "colour": "yellow",
-    "label": "English queens who ruled in their own right",
-    "items": [
-     "Elizabeth II",
-     "Mary I",
-     "Victoria",
-     "Anne"
-    ]
-   },
-   {
-    "colour": "green",
     "label": "Castles the Normans built in England",
     "items": [
      "Tower of London",
@@ -4678,13 +4668,23 @@
     ]
    },
    {
+    "colour": "green",
+    "label": "Countries that go by a different name now",
+    "items": [
+     "Burma",
+     "Ceylon",
+     "Siam",
+     "Rhodesia"
+    ]
+   },
+   {
     "colour": "blue",
     "label": "World War II Normandy towns fought over after D-Day",
     "items": [
      "Caen",
      "Carentan",
      "Saint-Lo",
-     "Bayeux"
+     "Sainte-Mere-Eglise"
     ]
    },
    {
@@ -4692,7 +4692,7 @@
     "label": "Also pieces on a chessboard",
     "items": [
      "Castle",
-     "Queen",
+     "Pawn",
      "Bishop",
      "Knight"
     ]
@@ -4936,47 +4936,47 @@
  },
  {
   "id": "conn-070",
-  "title": "Weight of the World",
+  "title": "Household Names",
   "difficulty": "easy",
   "groups": [
    {
     "colour": "yellow",
-    "label": "World War II Allied leaders",
+    "label": "Ways to tell the time before the mechanical clock",
     "items": [
-     "Churchill",
-     "Stalin",
-     "Roosevelt",
-     "de Gaulle"
+     "Sundial",
+     "Hourglass",
+     "Water clock",
+     "Candle clock"
     ]
    },
    {
     "colour": "green",
-    "label": "Axis leaders of World War II",
+    "label": "Surnames that began as a medieval trade",
     "items": [
-     "Hitler",
-     "Mussolini",
-     "Hirohito",
-     "Tojo"
+     "Cooper",
+     "Fletcher",
+     "Chandler",
+     "Wainwright"
     ]
    },
    {
     "colour": "blue",
-    "label": "Ancient monuments still standing today",
+    "label": "Patented by a woman",
     "items": [
-     "Pantheon",
-     "Parthenon",
-     "Pont du Gard",
-     "Great Pyramid of Giza"
+     "Windscreen wiper",
+     "Dishwasher",
+     "Kevlar",
+     "Life raft"
     ]
    },
    {
     "colour": "purple",
-    "label": "Wartime conferences held in 1945",
+    "label": "Everyday English words borrowed from India",
     "items": [
-     "Yalta",
-     "Potsdam",
-     "San Francisco",
-     "Malta"
+     "Bungalow",
+     "Shampoo",
+     "Pyjamas",
+     "Loot"
     ]
    }
   ]
@@ -5265,47 +5265,47 @@
  },
  {
   "id": "conn-075",
-  "title": "The Long Shadow",
+  "title": "Mind How You Go",
   "difficulty": "easy",
   "groups": [
    {
     "colour": "yellow",
-    "label": "Classical orders of Greek and Roman architecture",
+    "label": "Fixtures of the English seaside holiday",
     "items": [
-     "Doric",
-     "Ionic",
-     "Corinthian",
-     "Tuscan"
+     "Pier",
+     "Bathing machine",
+     "Deckchair",
+     "Beach hut"
     ]
    },
    {
     "colour": "green",
-    "label": "Kingdoms carved from Alexander's empire after his death",
+    "label": "Types of hat",
     "items": [
-     "Ptolemaic Egypt",
-     "Seleucid Empire",
-     "Antigonid Macedon",
-     "Kingdom of Pergamon"
+     "Bowler",
+     "Fedora",
+     "Trilby",
+     "Top hat"
     ]
    },
    {
     "colour": "blue",
-    "label": "Famous sackings of great cities",
+    "label": "Horse-drawn ways to cross a city",
     "items": [
-     "Sack of Rome",
-     "Sack of Persepolis",
-     "Fall of Carthage",
-     "Sack of Constantinople"
+     "Hansom cab",
+     "Omnibus",
+     "Hackney carriage",
+     "Horse tram"
     ]
    },
    {
     "colour": "purple",
-    "label": "Also names for a Greek temple part",
+    "label": "Denounced as a menace to the young when they were new",
     "items": [
-     "Pediment",
-     "Frieze",
-     "Cella",
-     "Entablature"
+     "Novels",
+     "Bicycles",
+     "Comic books",
+     "Pinball"
     ]
    }
   ]
@@ -5515,22 +5515,22 @@
    },
    {
     "colour": "green",
-    "label": "Explorers who searched for a Northwest Passage",
-    "items": [
-     "Jacques Cartier",
-     "Henry Hudson",
-     "Martin Frobisher",
-     "John Cabot"
-    ]
-   },
-   {
-    "colour": "blue",
     "label": "Numbered medieval Crusades",
     "items": [
      "First Crusade",
      "Second Crusade",
      "Third Crusade",
      "Fourth Crusade"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Coins that were once real money in Britain",
+    "items": [
+     "Groat",
+     "Farthing",
+     "Shilling",
+     "Guinea"
     ]
    },
    {
