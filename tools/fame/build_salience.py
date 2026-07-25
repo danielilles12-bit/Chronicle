@@ -759,6 +759,99 @@ POOL_FILES = [("who", "data/reveal-who.json"),
               ("map", "data/figures.json"),
               ("what", "data/reveal-what.json")]
 
+# ---------------------------------------------------------------------------
+# Title overrides -- (game, id) -> canonical enwiki title.
+#
+# The live pool records in data/*.json carry NO wiki_title field at all, so
+# every downstream tool has to resolve an item from its display *name*. When
+# that name is a bare ambiguous string ("Seneca", "Charles V", "Vasa") the
+# lookup lands on a DISAMBIGUATION page: a few hundred bytes of links, with
+# no pageviews, no inbound links and no WikiProject assessments. The item
+# then scores near zero on any metric derived from it.
+#
+# That is what produced the launch review's headline claim that Mihrimah
+# Sultan sat at the 13.9th fame percentile: her item resolved to a 531-byte
+# disambiguation stub, not to her 23 KB biography.
+#
+# Every title below was verified live against the enwiki API: it exists, it
+# is not a disambiguation page, and it is over 1,500 bytes. This dict is the
+# durable record -- current_inventory.json is gitignored and regenerated, so
+# a fix applied only there does not survive.
+# ---------------------------------------------------------------------------
+TITLE_OVERRIDES = {
+    ("who", "charles-v-hre"): "Charles V, Holy Roman Emperor",
+    ("who", "empress-theodora"): "Theodora (wife of Justinian I)",
+    ("who", "mihrimah-sultan"): "Mihrimah Sultan (daughter of Suleiman I)",
+    ("map", "charles-v-hre"): "Charles V, Holy Roman Emperor",
+    ("map", "john-reed"): "John Reed (journalist)",
+    ("map", "john-smith"): "John Smith (explorer)",
+    ("map", "seneca"): "Seneca the Younger",
+    ("map", "thomas-cochrane"): "Thomas Cochrane, 10th Earl of Dundonald",
+    ("map", "william-adams"): "William Adams (samurai)",
+    ("what", "christ-the-redeemer"): "Christ the Redeemer (statue)",
+    ("what", "cyrene"): "Cyrene, Libya",
+    ("what", "fram-ship"): "Fram (ship)",
+    ("what", "hindenburg"): "LZ 129 Hindenburg",
+    ("what", "merv"): "Merv",
+    ("what", "mikasa"): "Japanese battleship Mikasa",
+    ("what", "sacre-coeur"): "Sacré-Cœur, Paris",
+    ("what", "st-stephens-vienna"): "St. Stephen's Cathedral, Vienna",
+    ("what", "temple-poseidon"): "Temple of Poseidon, Sounion",
+    ("what", "vasa-ship"): "Vasa (ship)",
+    ("what", "world-trade-center"): "World Trade Center (1973–2001)",
+}
+
+# An article shorter than this is either a disambiguation page that has not
+# been tagged as one, a redirect stub, or a placeholder -- in every case it
+# carries no usable signal.
+MIN_ARTICLE_BYTES = 1500
+
+
+def check_titles(titles, offline=False, verbose=True):
+    """{title: {"resolved", "missing", "disambiguation", "length", "status"}}
+
+    `status` is one of ok / disambiguation / missing / too_short. This is the
+    check that build_item_universe applies to every resolved title and that
+    title_health.json exposes to the offline validator.
+    """
+    out = {}
+    titles = [t for t in dict.fromkeys(titles) if t]
+    for i in range(0, len(titles), 50):
+        batch = titles[i:i + 50]
+        try:
+            for data in api_continue({
+                "action": "query", "titles": "|".join(batch),
+                "prop": "info|pageprops", "ppprop": "disambiguation",
+                "redirects": "1",
+            }, offline=offline):
+                q = data.get("query", {})
+                norm = {n["from"]: n["to"] for n in q.get("normalized", [])}
+                redir = {r["from"]: r["to"] for r in q.get("redirects", [])}
+                pages = {p["title"]: p for p in q.get("pages", [])}
+                for raw in batch:
+                    cur = redir.get(norm.get(raw, raw), norm.get(raw, raw))
+                    p = pages.get(cur)
+                    if p is None:
+                        continue
+                    missing = "missing" in p
+                    disambig = "disambiguation" in (p.get("pageprops") or {})
+                    length = p.get("length")
+                    if missing:
+                        status = "missing"
+                    elif disambig:
+                        status = "disambiguation"
+                    elif (length or 0) < MIN_ARTICLE_BYTES:
+                        status = "too_short"
+                    else:
+                        status = "ok"
+                    out[raw] = {"resolved": cur, "missing": missing,
+                                "disambiguation": disambig, "length": length,
+                                "status": status}
+        except Exception as exc:                          # noqa: BLE001
+            if verbose:
+                print("  title check: batch failed (%s)" % exc, file=sys.stderr)
+    return out
+
 
 def build_item_universe(offline=False, verbose=True):
     """Returns (items, extra_titles).
@@ -788,14 +881,18 @@ def build_item_universe(offline=False, verbose=True):
     for game, rel in POOL_FILES:
         path = REPO_ROOT / rel
         for e in json.loads(path.read_text(encoding="utf-8")):
-            title = inv_by_game[game].get(e["id"])
-            src = "inventory"
+            title = TITLE_OVERRIDES.get((game, e["id"]))
+            src = "override" if title else None
+            if not title:
+                title = inv_by_game[game].get(e["id"])
+                src = "inventory" if title else None
             if not title:
                 title = name_to_title.get(norm_name(e.get("name", "")))
                 src = "final_pools" if title else None
             rec = {"id": e["id"], "game": game, "name": e.get("name"),
                    "difficulty": e.get("difficulty"),
-                   "wiki_title": title, "title_source": src}
+                   "wiki_title": title, "title_source": src,
+                   "title_status": None}
             items.append(rec)
             if not title:
                 unresolved.append(rec)
@@ -814,6 +911,28 @@ def build_item_universe(offline=False, verbose=True):
             if t:
                 r["wiki_title"] = t
                 r["title_source"] = "name-lookup"
+
+    # Health-check every resolved title. A name-lookup that landed on a
+    # disambiguation page is WORSE than no title at all: it yields a
+    # confident-looking near-zero score instead of an honest blank. Drop
+    # those back to unresolved rather than scoring the wrong page.
+    health = check_titles([r["wiki_title"] for r in items if r["wiki_title"]],
+                          offline=offline, verbose=verbose)
+    dropped = 0
+    for r in items:
+        h = health.get(r["wiki_title"] or "")
+        if not h:
+            continue
+        r["title_status"] = h["status"]
+        r["title_length"] = h["length"]
+        if h["status"] != "ok":
+            dropped += 1
+            if r["title_source"] == "name-lookup":
+                r["wiki_title"] = None
+                r["title_source"] = None
+    if verbose and dropped:
+        print("  %d pool items resolved to a disambiguation/missing/short "
+              "article (see title_health.json)" % dropped, file=sys.stderr)
 
     extra = set()
     for fname, key in (("universe_people.json", "people"),
@@ -911,12 +1030,24 @@ def main():
 
     print("[6/6] scoring", file=sys.stderr)
 
+    # A title with no fame_scores record has no class either, and the
+    # fallback "other" bucket holds only a dozen titles -- percentile
+    # ranking inside it is noise (one such item came out at 100.0 and
+    # another at 25.0 purely because of bucket size). The game a pool item
+    # belongs to tells us the class directly: who/map are people, what is
+    # an object, and "artefact" is build_scores.py's catch-all object class.
+    class_hint = {}
+    for it in items:
+        if it["wiki_title"]:
+            class_hint.setdefault(it["wiki_title"],
+                                  "artefact" if it["game"] == "what" else "person")
+
     # ---- per-title raw signal assembly ----
     rows = []
     for title in all_titles:
         f = fame.get(title) or {}
         fct = facts.get(title) or {}
-        cls = f.get("class") or "other"
+        cls = f.get("class") or class_hint.get(title) or "other"
         pv = f.get("pv_stat")
         inl = f.get("inlinks")
         length = fct.get("length")
@@ -1049,6 +1180,13 @@ def main():
             "fame": r["fame"],
             "divergence": (round(r["salience"] - r["fame"], 2)
                            if isinstance(r["fame"], (int, float)) else None),
+            # A title absent from fame_scores.json has no pageview or inlink
+            # data, so density/depth fall back to a neutral 50 and the fame
+            # anchor to 50 too: the whole score then rests on WikiProject
+            # ratings alone. Such a score is a hint, never grounds for a
+            # scheduling decision -- run fetch_metrics.py + build_scores.py
+            # over the title first.
+            "low_confidence": not isinstance(r["pv_stat"], (int, float)),
             "components": {
                 "history_importance": (round(r["hist_raw"], 1)
                                        if r["hist_raw"] is not None else None),
@@ -1082,7 +1220,9 @@ def main():
             "id": it["id"], "game": it["game"], "name": it["name"],
             "difficulty": it["difficulty"], "wiki_title": t,
             "title_source": it["title_source"],
+            "title_status": it.get("title_status"),
             "salience": round(r["salience"], 2) if r else None,
+            "low_confidence": bool(r) and not isinstance(r["pv_stat"], (int, float)),
             "fame": (r or {}).get("fame"),
             "divergence": (round(r["salience"] - r["fame"], 2)
                            if r and isinstance(r["fame"], (int, float))
@@ -1148,9 +1288,52 @@ def main():
     }
     Path(args.out).write_text(json.dumps(output, indent=1, ensure_ascii=False),
                               encoding="utf-8")
+
+    # ---- title_health.json: the committed, offline-checkable guard ----
+    #
+    # salience.json is large and gitignored, so it cannot be what the test
+    # suite checks. This file is small, committed, and is the artefact
+    # tools/validate_reveal.py reads: it records, for every pool item, which
+    # enwiki article the item resolves to and whether that article is real.
+    # Regenerate it whenever the pools change.
+    health_rows = []
+    for it in items:
+        health_rows.append({
+            "game": it["game"], "id": it["id"], "name": it["name"],
+            "wiki_title": it["wiki_title"],
+            "title_source": it["title_source"],
+            "status": it.get("title_status") or "unresolved",
+            "article_bytes": it.get("title_length"),
+        })
+    health_rows.sort(key=lambda r: (r["game"], r["id"]))
+    bad = [r for r in health_rows if r["status"] != "ok"]
+    health_path = SCRIPT_DIR / "title_health.json"
+    health_path.write_text(json.dumps({
+        "generatedOn": GENERATED_ON,
+        "what_this_is": (
+            "Which English Wikipedia article each Dead Famous pool item "
+            "resolves to, and whether that article is real. Pool records in "
+            "data/*.json carry no wiki_title, so items are resolved by "
+            "display name; a bare ambiguous name lands on a disambiguation "
+            "page and scores near zero on every fame/salience metric. "
+            "tools/validate_reveal.py fails the build on any status that is "
+            "not 'ok'. Regenerate with: python3 tools/fame/build_salience.py"
+        ),
+        "min_article_bytes": MIN_ARTICLE_BYTES,
+        "counts": {
+            "items": len(health_rows),
+            "ok": len(health_rows) - len(bad),
+            "not_ok": len(bad),
+        },
+        "items": health_rows,
+    }, indent=1, ensure_ascii=False), encoding="utf-8")
+
     print("Wrote %s (%d titles, %d items). HTTP: %d requests, %d cache hits."
           % (args.out, len(out_titles), len(out_items),
              STATS["requests"], STATS["cache_hits"]), file=sys.stderr)
+    print("Wrote %s (%d ok, %d not ok)."
+          % (health_path, len(health_rows) - len(bad), len(bad)),
+          file=sys.stderr)
 
 
 if __name__ == "__main__":

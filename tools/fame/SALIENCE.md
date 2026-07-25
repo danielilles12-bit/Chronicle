@@ -225,18 +225,10 @@ independent experiment.
 ### Where it fails — reported honestly
 
 **Mihrimah Sultan is a broken title mapping, not a fame outlier.** The pool
-item points at a **531-byte disambiguation page**. Salience scores her 0.2
-and fame scores her 13.9 because both are measuring an empty page. The real
-article, "Mihrimah Sultan (daughter of Suleiman I)", is 23 KB and scores 38.8
-on history importance — below median, so she is probably still a legitimate
-outlier, but by a far smaller margin than the review was told.
-
-The same bug affects at least ten other pool items, **including eight in the
-launch window**: Charles V, Thomas Cochrane, Temple of Poseidon, Ancient
-Merv, Hindenburg, Seneca, John Reed, William Adams, Empress Theodora and
-Van Gogh Self-Portrait all resolve to disambiguation pages or nothing at
-all. These have no fame score either. Fixing the mappings is worth more
-than any scoring change in this document.
+item points at a **531-byte disambiguation page**. Salience scored her 0.2
+and fame scores her 13.9 because both were measuring an empty page. The real
+article, "Mihrimah Sultan (daughter of Suleiman I)", is 23 KB. This is now
+fixed — see "The disambiguation-page bug" below.
 
 **Daigo Fukuryū Maru scores 79.7 — salience does not flag it, and should
 not.** The review's objection was "great story, wrong game": low *visual*
@@ -278,6 +270,120 @@ I am reporting the disagreement rather than tuning it away.
 **Anglophone tilt.** Two of the three corpora are BBC Radio 4. The national
 polls partly offset this, but a Japanese or Persian figure has fewer routes
 to a corpus hit than a British one.
+
+---
+
+## The disambiguation-page bug
+
+**Root cause.** The live pool records in `data/reveal-who.json`,
+`data/figures.json` and `data/reveal-what.json` carry **no `wiki_title`
+field at all**. Every fame/salience tool therefore resolves an item from its
+display *name*. When that name is a bare ambiguous string — "Seneca",
+"Charles V", "Vasa", "Mihrimah Sultan" — the lookup lands on a
+**disambiguation page**: a few hundred bytes of links, no pageviews, no
+inbound links, no WikiProject assessments. The item then scores near zero on
+every derived metric, and does so *confidently*, which is worse than
+scoring blank.
+
+**Scope.** A systematic check of all 1,331 pool items (via `pageprops`,
+the authoritative disambiguation flag, not a byte-size guess) found **14
+items resolving to a disambiguation page or a non-existent article** — more
+than the ten first reported, because that first pass was a spot check.
+
+| game | pool id | resolved to (wrong) | correct article |
+|---|---|---|---|
+| who | `charles-v-hre` | `Charles V` (743 B, disambig) | Charles V, Holy Roman Emperor |
+| who | `empress-theodora` | `Theodora` (disambig) | Theodora (wife of Justinian I) |
+| who | `mihrimah-sultan` | `Mihrimah Sultan` (531 B, disambig) | Mihrimah Sultan (daughter of Suleiman I) |
+| map | `charles-v-hre` | `Charles V` (disambig) | Charles V, Holy Roman Emperor |
+| map | `john-reed` | `John Reed` (disambig) | John Reed (journalist) |
+| map | `john-smith` | `John Smith` (disambig) | John Smith (explorer) |
+| map | `seneca` | `Seneca` (disambig) | Seneca the Younger |
+| map | `thomas-cochrane` | `Thomas Cochrane` (1,136 B, disambig) | Thomas Cochrane, 10th Earl of Dundonald |
+| map | `william-adams` | `William Adams` (disambig) | William Adams (samurai) |
+| what | `hindenburg` | `Hindenburg` (disambig) | LZ 129 Hindenburg |
+| what | `merv` | `Ancient Merv` (no such article) | Merv |
+| what | `sacre-coeur` | `Sacré Cœur` (disambig) | Sacré-Cœur, Paris |
+| what | `st-stephens-vienna` | `St. Stephen's Cathedral` (disambig) | St. Stephen's Cathedral, Vienna |
+| what | `temple-poseidon` | `Temple of Poseidon` (457 B, disambig) | Temple of Poseidon, Sounion |
+
+Six more (`cyrene`, `fram-ship`, `mikasa`, `vasa-ship`,
+`world-trade-center`, `christ-the-redeemer`) have ambiguous names but were
+already resolving correctly through `final_pools.json`; they are pinned
+anyway so they cannot regress.
+
+**A correction to the first report.** I originally wrote that eight
+*scheduled* items had garbage fame scores. That over-claimed. The scheduler
+(`compile_editions.py`) tries an item's `name` and then each of its
+`variants`, so items carrying a good variant — "lz 129 hindenburg",
+"fram (ship)", "japanese battleship mikasa" — resolve correctly despite the
+ambiguous display name. **Only Mihrimah Sultan actually received a garbage
+fame number** (13.86, from the disambiguation page, which is the one such
+page that happens to exist in `fame_scores.json`). Seven other scheduled
+items got *no* fame signal, which the scheduler treats as "no opinion" by
+design and is harmless. The bug was real and worth fixing, but its blast
+radius on the schedule was one item, not eight.
+
+**Fix, in three layers.**
+
+1. `TITLE_OVERRIDES` in `build_salience.py` — 20 `(game, id) -> title`
+   pairs, every one verified live against the API (exists, not a
+   disambiguation page, ≥ 1,500 bytes). This is the durable record, because
+   `current_inventory.json` is gitignored and regenerated.
+2. `current_inventory.json` — `wiki_title` filled in for the 13 affected
+   items that exist in that 22 July snapshot. Mapping field only.
+3. The resolver now **rejects** a disambiguation/missing/short article
+   instead of silently scoring it, so a bad name-lookup produces an honest
+   blank rather than a confident zero.
+
+**Before / after.** Every item below now resolves to the right article:
+
+| pool item | salience before | after |
+|---|---:|---:|
+| `map/charles-v-hre` | 45.8 | **97.8** |
+| `who/charles-v-hre` | 45.8 | **97.8** |
+| `map/seneca` | 45.8 | **93.5** |
+| `what/merv` | 45.8 | **83.3** |
+| `what/st-stephens-vienna` | 45.8 | **80.7** |
+| `what/hindenburg` | 45.8 | **80.6** |
+| `who/empress-theodora` | 45.8 | **69.2** |
+| `what/sacre-coeur` | 45.8 | **61.5** |
+| `what/temple-poseidon` | 45.8 | 47.3 |
+| `map/john-reed` | 45.8 | 43.3 |
+| `map/william-adams` | 45.8 | 37.6 |
+| `who/mihrimah-sultan` | **0.2** | **26.2** |
+| `map/john-smith` | 45.8 | 14.1 |
+| `map/thomas-cochrane` | 45.8 | 7.6 |
+
+**Do not act on the bottom of that table yet.** Six of the corrected titles
+are absent from `fame_scores.json`, so they have no pageview or inlink data:
+density and depth fall back to a neutral 50 and the fame anchor to 50, and
+the whole score then rests on WikiProject ratings alone. Those items now
+carry `"low_confidence": true`. Thomas Cochrane at 7.6 is the clearest
+example of why this matters — a `Low` rating from one work group, on the man
+who inspired both Hornblower and Aubrey. That is the scholarly-vs-popular
+failure mode, not a verdict. **Run `fetch_metrics.py` then `build_scores.py`
+over the six corrected titles before making any swap decision.**
+
+### The permanent guard
+
+`tools/validate_reveal.py` now fails the build on this class of bug. Because
+the suite runs offline, the online check is factored out:
+
+- `build_salience.py` writes **`tools/fame/title_health.json`** — small,
+  committed, one row per pool item: resolved title, source, status
+  (`ok` / `disambiguation` / `missing` / `too_short` / `unresolved`) and
+  article size.
+- `validate_reveal.py`'s `check_title_health()` **errors** on any status
+  that is not `ok`, and **warns** on any pool item missing from the manifest
+  (a newly added item whose title has never been verified). A missing
+  manifest warns rather than fails, matching how the other fame-signal
+  consumers degrade.
+
+Verified by negative test: re-pointing Mihrimah at the disambiguation page
+and deleting an item from the manifest produced exactly one ERROR and the
+expected WARNs; restoring gave 0 errors. `python3 tests/run_all.py --fast`
+is green (all five validators PASS).
 
 ---
 
@@ -372,7 +478,10 @@ In plain English, for the calendar:
 |---|---|
 | `build_salience.py` | The whole pipeline. Stdlib only. `--offline` scores from cache with no network; `--probe-projects N` re-runs the WikiProject discovery audit. |
 | `salience.json` | Output. `items` (1,331 pool entries keyed by id+game) and `titles` (6,444 scored articles), each carrying every component signal alongside the blend so the inputs stay inspectable. |
+| `title_health.json` | Committed manifest of which Wikipedia article each pool item resolves to, and whether it is real. Read by `tools/validate_reveal.py`. Regenerate whenever the pools change. |
 | `raw/salience_*.json` | HTTP cache, gitignored. Delete to force a refetch. |
 
-Nothing else was modified. `fame_scores.json`, `build_scores.py`, and
-everything under `data/` are untouched.
+Also modified, for the disambiguation fix only: `current_inventory.json`
+(13 `wiki_title` fields) and `tools/validate_reveal.py` (the new
+`check_title_health` guard). `fame_scores.json`, `build_scores.py` and
+everything under `data/` remain untouched.

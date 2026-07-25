@@ -409,15 +409,75 @@ def check_figures():
     return len(figs)
 
 
+# ---------- Wikipedia title health (tools/fame/title_health.json) ----------
+# Pool records carry no wiki_title, so every fame/salience tool resolves an
+# item from its display name. A bare ambiguous name ("Seneca", "Charles V",
+# "Vasa") lands on a DISAMBIGUATION page — a few hundred bytes of links with
+# no pageviews, no inbound links and no WikiProject assessments — and the
+# item then scores near zero on every metric derived from it. That is what
+# put Mihrimah Sultan at the "13.9th fame percentile" in the launch review:
+# her item resolved to a 531-byte disambiguation stub, not her biography.
+#
+# The online check lives in tools/fame/build_salience.py, which writes
+# title_health.json; this is the offline assertion over its output. The file
+# being absent disables the check rather than failing the suite, matching how
+# the other fame-signal consumers degrade (see compile_editions.load_signal_indices).
+TITLE_HEALTH_PATH = ROOT / "tools/fame/title_health.json"
+TITLE_STATUS_BLURB = {
+    "disambiguation": "resolves to a Wikipedia DISAMBIGUATION page",
+    "missing": "resolves to a Wikipedia article that does not exist",
+    "too_short": "resolves to an implausibly short Wikipedia article",
+    "unresolved": "could not be resolved to any Wikipedia article",
+}
+
+
+def check_title_health():
+    if not TITLE_HEALTH_PATH.exists():
+        warn("title health: tools/fame/title_health.json missing — Wikipedia "
+             "title check skipped (regenerate with tools/fame/build_salience.py)")
+        return 0
+    try:
+        data = json.loads(TITLE_HEALTH_PATH.read_text())
+    except (OSError, ValueError) as e:
+        warn(f"title health: could not read title_health.json ({e}) — check skipped")
+        return 0
+
+    rows = data.get("items") or []
+    covered = {(r.get("game"), r.get("id")) for r in rows}
+    for r in rows:
+        status = r.get("status")
+        if status == "ok":
+            continue
+        blurb = TITLE_STATUS_BLURB.get(status, f"has title status {status!r}")
+        err(f"{r.get('game')} {r.get('id')}: {blurb} "
+            f"({r.get('wiki_title')!r}) — add a verified title to "
+            f"TITLE_OVERRIDES in tools/fame/build_salience.py")
+
+    # New pool items that predate the last health run have never been
+    # checked. That is a warning, not an error: it must not block a content
+    # session, but it should be visible so the manifest gets regenerated.
+    for game, rel in (("who", "data/reveal-who.json"),
+                      ("map", "data/figures.json"),
+                      ("what", "data/reveal-what.json")):
+        for e in json.loads((ROOT / rel).read_text()):
+            if (game, e.get("id")) not in covered:
+                warn(f"{game} {e.get('id')}: not in title_health.json — "
+                     f"Wikipedia title never verified (regenerate with "
+                     f"tools/fame/build_salience.py)")
+    return len(rows)
+
+
 def main():
     nwho = check_reveal("data/reveal-who.json")
     nwhat = check_reveal("data/reveal-what.json")
     nfig = check_figures()
+    ntitles = check_title_health()
     for w in warns:
         print(f"WARN  {w}")
     for e in errors:
         print(f"ERROR {e}")
-    print(f"reveal-who {nwho}, reveal-what {nwhat}, figures {nfig} — "
+    print(f"reveal-who {nwho}, reveal-what {nwhat}, figures {nfig}, "
+          f"titles checked {ntitles} — "
           f"{len(errors)} errors, {len(warns)} warnings")
     sys.exit(1 if errors else 0)
 
