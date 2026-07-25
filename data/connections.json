@@ -956,7 +956,7 @@
    },
    {
     "colour": "green",
-    "label": "Kings and warlords who broke Rome",
+    "label": "Barbarian kings who took Roman ground",
     "items": [
      "Alaric",
      "Odoacer",
@@ -1070,10 +1070,10 @@
    },
    {
     "colour": "purple",
-    "label": "Cold War showdowns outside the battlefield",
+    "label": "Cold War showdowns with no medals at stake",
     "items": [
      "Fischer vs Spassky",
-     "Miracle on Ice",
+     "Space Race",
      "Nureyev Defection",
      "Kitchen Debate"
     ]
@@ -1248,7 +1248,7 @@
    },
    {
     "colour": "blue",
-    "label": "Signalling without wires",
+    "label": "Signalling without electricity",
     "items": [
      "Semaphore",
      "Heliograph",
@@ -1275,7 +1275,7 @@
   "groups": [
    {
     "colour": "yellow",
-    "label": "Archaeologists who made a career-defining find",
+    "label": "Made the find that made their name",
     "items": [
      "Howard Carter",
      "Heinrich Schliemann",
@@ -1287,7 +1287,7 @@
     "colour": "green",
     "label": "Cities the jungle swallowed",
     "items": [
-     "Angkor Wat",
+     "Angkor",
      "Tikal",
      "Calakmul",
      "Copan"
@@ -1300,7 +1300,7 @@
      "Linear B",
      "Cuneiform",
      "Hieroglyphs",
-     "Oracle Bones"
+     "Brahmi"
     ]
    },
    {
@@ -1822,7 +1822,7 @@
    },
    {
     "colour": "purple",
-    "label": "The medieval papacy in crisis",
+    "label": "Words for a papacy in crisis",
     "items": [
      "Avignon Papacy",
      "Western Schism",
@@ -1896,7 +1896,7 @@
    },
    {
     "colour": "green",
-    "label": "Dyes once worth more than gold",
+    "label": "Dyes once worth a fortune by the ounce",
     "items": [
      "Tyrian purple",
      "Cochineal",
@@ -1906,7 +1906,7 @@
    },
    {
     "colour": "blue",
-    "label": "Pigments that poisoned the painter",
+    "label": "Pigments with poison in the recipe",
     "items": [
      "Scheele's green",
      "Lead white",

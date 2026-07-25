@@ -731,8 +731,10 @@
   "id": "michael-jackson",
   "name": "Michael Jackson",
   "variants": [
-   "jackson",
-   "michael jackson"
+   "michael jackson",
+   "mj",
+   "king of pop",
+   "the king of pop"
   ],
   "occupation": "Singer and dancer",
   "birth": {
@@ -2495,9 +2497,10 @@
   "id": "herodotus",
   "name": "Herodotus",
   "variants": [
-   "herodotus"
+   "herodotus",
+   "herodotus of halicarnassus"
   ],
-  "occupation": "Historian",
+  "occupation": "Greek chronicler of the Persian Wars",
   "birth": {
    "year": -484,
    "place": "Halicarnassus, Turkey",
@@ -3969,7 +3972,7 @@
   "name": "Andrew Jackson",
   "variants": [
    "andrew jackson",
-   "jackson"
+   "old hickory"
   ],
   "occupation": "7th President of the United States",
   "birth": {
@@ -5830,7 +5833,7 @@
   "variants": [
    "josephus"
   ],
-  "occupation": "Author and historian",
+  "occupation": "Jewish general turned Roman historian",
   "birth": {
    "year": 37,
    "place": "Jerusalem, Israel",
@@ -7774,7 +7777,9 @@
   "variants": [
    "catherine de' medici",
    "catherine de medici",
-   "catherine de medicis"
+   "catherine de medicis",
+   "catherine medici",
+   "caterina de medici"
   ],
   "occupation": "Queen of France and power behind three kings",
   "birth": {
@@ -7820,7 +7825,9 @@
   "name": "Anne of Cleves",
   "difficulty": "medium",
   "variants": [
-   "anne of cleves"
+   "anne of cleves",
+   "anna of cleves",
+   "anne von kleve"
   ],
   "occupation": "Fourth wife of Henry VIII",
   "birth": {
@@ -9521,6 +9528,12 @@
    "josé martí",
    "marti"
   ],
+  "reject": [
+   "martin",
+   "san martin",
+   "jose de san martin",
+   "josé de san martín"
+  ],
   "occupation": "Cuban poet and independence leader",
   "birth": {
    "year": 1853,
@@ -9753,7 +9766,17 @@
   "variants": [
    "t. e. lawrence",
    "t e lawrence",
-   "lawrence of arabia"
+   "te lawrence",
+   "thomas edward lawrence",
+   "lawrence of arabia",
+   "lawrence"
+  ],
+  "reject": [
+   "d h lawrence",
+   "dh lawrence",
+   "david herbert lawrence",
+   "ernest lawrence",
+   "jennifer lawrence"
   ],
   "occupation": "British officer known as Lawrence of Arabia",
   "birth": {
@@ -9892,9 +9915,15 @@
   "variants": [
    "robert falcon scott",
    "captain scott",
+   "captain robert scott",
    "scott of the antarctic",
-   "scott",
    "robert scott"
+  ],
+  "reject": [
+   "scott fitzgerald",
+   "f scott fitzgerald",
+   "roald amundsen",
+   "ernest shackleton"
   ],
   "occupation": "Royal Navy officer and polar explorer",
   "birth": {
@@ -9940,7 +9969,10 @@
   "variants": [
    "w. e. b. du bois",
    "web du bois",
-   "w.e.b. du bois"
+   "w.e.b. du bois",
+   "w e b dubois",
+   "du bois",
+   "dubois"
   ],
   "occupation": "Sociologist and civil rights activist",
   "birth": {
@@ -10216,7 +10248,15 @@
   "name": "Nina Simone",
   "difficulty": "easy",
   "variants": [
-   "nina simone"
+   "nina simone",
+   "simone",
+   "eunice waymon",
+   "eunice kathleen waymon"
+  ],
+  "reject": [
+   "simone de beauvoir",
+   "simone weil",
+   "simone signoret"
   ],
   "occupation": "Singer and civil rights activist",
   "birth": {
@@ -11379,6 +11419,7 @@
    "leif erikson",
    "leif eriksson",
    "leif ericson",
+   "leif erickson",
    "leif the lucky"
   ],
   "occupation": "Norse explorer who reached America five centuries before Columbus",
@@ -11524,7 +11565,10 @@
    "henry iv of france",
    "henry iv",
    "henri iv",
+   "henri iv of france",
    "henry iv france",
+   "henry of navarre",
+   "henri de navarre",
    "good king henry"
   ],
   "occupation": "French king who reckoned Paris well worth a Mass",
@@ -12612,8 +12656,9 @@
   "difficulty": "medium",
   "variants": [
    "stonewall jackson",
-   "jackson",
+   "stonewall",
    "thomas jackson",
+   "thomas jonathan jackson",
    "thomas stonewall jackson"
   ],
   "occupation": "Confederate general who stood like a stone wall",

@@ -287,11 +287,15 @@ function hasExtraneousRegnal(guessToks, variantToks) {
 
 // Rule 2: containment — does `variant` (as a whole word-sequence) appear
 // inside `guessToks`, exact token match, no per-token fuzz? A variant that is
-// entirely stopwords can never satisfy this on its own (guard rail). Blocked
-// when the guess carries a regnal numeral the variant doesn't account for.
+// entirely stopwords OR honorific titles can never satisfy this on its own
+// (guard rail): "the Queen" is a real short-form for Elizabeth II and must
+// still match exactly, but the bare token "queen" must never carry a longer
+// guess that names somebody else's title — "Queen Victoria", "queen of
+// England". Blocked when the guess carries a regnal numeral the variant
+// doesn't account for.
 function containsPhrase(guessToks, variantToks) {
   if (!variantToks.length) return false;
-  if (variantToks.every((t) => CORE_STOPWORDS.has(t))) return false;
+  if (variantToks.every((t) => CORE_STOPWORDS.has(t) || TITLES.has(t))) return false;
   if (hasExtraneousRegnal(guessToks, variantToks)) return false;
   const n = variantToks.length;
   for (let i = 0; i + n <= guessToks.length; i++) {
@@ -367,6 +371,23 @@ function covers(guessToks, candToks) {
   return true;
 }
 
+// The same containment, but demanding every candidate word appear VERBATIM —
+// no per-word typo budget. This is the version that counts as naming the item
+// outright (see stringsMatchStrong): "Leaning Tower of Pisa Cathedral" really
+// does contain "leaning tower of pisa", whereas "José de San Martín" only
+// "contains" José Martí by spending a typo turning "martin" into "marti" —
+// which is a different man, not a longhand for the same one.
+function coversExact(guessToks, candToks) {
+  if (candToks.length < 2) return false;
+  const pool = guessToks.slice();
+  for (const ct of candToks) {
+    const hit = pool.indexOf(ct);
+    if (hit < 0) return false;
+    pool.splice(hit, 1);
+  }
+  return true;
+}
+
 // Per-token fuzzy equality: same word count, each pair either identical, one
 // edit apart (capped, never two), or a doubled-letter respelling. "hagiya
 // sofiya" ~ "hagia sofia" (one edit per word); "t s elliott" ~ "t s eliot"
@@ -384,7 +405,15 @@ function tokenwiseFuzzyEqual(gToks, cToks) {
 // candidate string, both already normalized. Factored out so the
 // title-stripping fallback in isMatch can rerun the same checks on
 // de-titled strings without duplicating the logic.
-function stringsMatch(g, c) {
+// `namesOther` (set only by isMatch, when the whole normalized guess is
+// exactly some OTHER pool item's name/variant) switches off the containment
+// paths: a guess that spells out another item's name in full names THAT item,
+// even when this item's name happens to be a word-subset of it — "Muhammad
+// Ali Jinnah" contains "Muhammad Ali", "José de San Martín" all but contains
+// "José Martí". Equality and word-for-word comparison are untouched, so two
+// items that genuinely share a short form ("Duomo", "Sunflowers", "Bertie")
+// still both match it.
+function stringsMatch(g, c, namesOther) {
   if (g === c) return true;
   if (numeralKey(c) !== numeralKey(g)) return false; // regnal numbers must agree
   const gToks = tokens(g), cToks = tokens(c);
@@ -405,7 +434,39 @@ function stringsMatch(g, c) {
   } else if (tokenwiseFuzzyEqual(gToks, cToks)) {
     return true;
   }
+  if (namesOther) return false;
   return covers(gToks, cToks);
+}
+
+// The unambiguous half of stringsMatch: the guess NAMES this candidate
+// outright — identical after normalization, or word-for-word with at most the
+// usual typo per word, or the candidate's every word present VERBATIM inside a
+// longer guess. Everything stringsMatch additionally forgives (a lone word one
+// edit off, a dropped space, a typo-tolerant containment) is deliberately left
+// out: those are the loose paths a curated `reject` entry is entitled to veto.
+function stringsMatchStrong(g, c, namesOther) {
+  if (g === c) return true;
+  if (numeralKey(c) !== numeralKey(g)) return false;
+  const gToks = tokens(g), cToks = tokens(c);
+  // Word-for-word fuzz only once there are at least two words to agree on: a
+  // single word one edit from a single-word variant ("martin" vs "martí") is
+  // the most collision-prone comparison in the whole matcher, so it stays in
+  // the rejectable tier below.
+  if (gToks.length > 1 && tokenwiseFuzzyEqual(gToks, cToks)) return true;
+  if (namesOther) return false;
+  return coversExact(gToks, cToks);
+}
+
+// Run one comparator over the four title-stripping combinations of guess and
+// candidate. Stripping the title off the CANDIDATE is skipped for single-token
+// guesses — see the note in isMatch.
+function compareTitled(cmp, g, gNoTitle, c, singleToken) {
+  if (cmp(g, c)) return true;
+  const cNoTitle = stripTitle(c);
+  if (gNoTitle && cmp(gNoTitle, c)) return true;
+  if (cNoTitle && !singleToken && cmp(g, cNoTitle)) return true;
+  if (gNoTitle && cNoTitle && cmp(gNoTitle, cNoTitle)) return true;
+  return false;
 }
 
 // Owner-calibrated permanent rejections: guesses that are plausible-looking
@@ -423,26 +484,40 @@ export const REJECTED_GUESSES = {
 // different, specific thing the photo/blurb tends to foreground — e.g.
 // "Pisa Cathedral" guessed at the Leaning Tower of Pisa, a neighbouring
 // building the same shot usually includes. Checked with the exact same
-// forgiving comparison used to ACCEPT a variant just above (stringsMatch's
-// fuzz/covers plus the title-stripping fallback), so a near-miss retype of
-// the rejected phrase is caught too — then inverted: a hit here blocks the
-// guess outright. This runs before rules 1-3 below ever get a chance to
-// accept it via containment or a distinctive core token — the Pisa case:
-// "pisa" alone is a distinctive core token for the tower, so without this
-// early check "Pisa Cathedral" sails straight through rule 3. Per-item only,
-// unlike REJECTED_GUESSES above — never a pool-wide veto.
+// forgiving comparison used to ACCEPT a variant (stringsMatch's fuzz/covers
+// plus the title-stripping fallback), so a near-miss retype of the rejected
+// phrase is caught too — then inverted: a hit here blocks the guess outright.
+//
+// ORDERING (owner report 2026-07-24): this runs AFTER the strong acceptance
+// pass and BEFORE the loose ones. A guess that names this item outright is
+// already home — "Leaning Tower of Pisa Cathedral" spells out the tower's own
+// name and merely mentions the neighbour, so refusing it would tell a right
+// player they were wrong. What the reject list is for is the loose paths: a
+// lone-word typo, a bare variant swallowed by a longer phrase, and above all
+// the distinctive core token — "pisa" alone is distinctive for the tower, so
+// without this veto "Pisa Cathedral" and "Pisa Baptistery" sail straight
+// through rule 3. Per-item only, unlike REJECTED_GUESSES above — never a
+// pool-wide veto.
 function matchesReject(figure, g, gNoTitle, guessToks, singleToken) {
   const rejects = figure.reject;
   if (!rejects || !rejects.length) return false;
   for (const raw of rejects) {
     const c = normalize(raw);
     if (!c) continue;
-    if (stringsMatch(g, c)) return true;
-    const cNoTitle = stripTitle(c);
-    if (gNoTitle && stringsMatch(gNoTitle, c)) return true;
-    if (cNoTitle && !singleToken && stringsMatch(g, cNoTitle)) return true;
-    if (gNoTitle && cNoTitle && stringsMatch(gNoTitle, cNoTitle)) return true;
+    if (compareTitled((a, b) => stringsMatch(a, b), g, gNoTitle, c, singleToken)) return true;
     if (containsPhrase(guessToks, toTokenList(c))) return true;
+  }
+  return false;
+}
+
+// Is the whole normalized guess exactly some OTHER pool item's name/variant?
+// Then it names that thing, not this one. Used to switch off the containment
+// paths (see stringsMatch/stringsMatchStrong) and rules 2-3 below.
+function namesAnotherPoolItem(pool, id, g) {
+  if (!pool) return false;
+  for (const [otherId, otherEntry] of pool.byId) {
+    if (otherId === id) continue;
+    if (otherEntry.variantStrs.includes(g)) return true;
   }
   return false;
 }
@@ -473,30 +548,48 @@ export function isMatch(guess, figure, poolKey) {
 
   const gNoTitle = stripTitle(g);
   const cands = [figure.name].concat(figure.variants || []);
-  const guessToksAll = toTokenList(g);
-  const singleToken = meaningfulTokenCount(guessToksAll) < 2;
+  const guessToks = toTokenList(g);
+  const singleToken = meaningfulTokenCount(guessToks) < 2;
 
-  // Per-item reject list: blocks the guess before any acceptance path below
-  // (direct variant match, containment, or distinctive-core) gets to run.
-  if (matchesReject(figure, g, gNoTitle, guessToksAll, singleToken)) return false;
+  // Collision guard: if the normalized guess is exactly some OTHER pool item's
+  // name/variant, it names that other thing, not this one. It switches off
+  // every containment path — the covers/coversExact halves of rule 1 as well
+  // as rules 2-3 — but never equality or word-for-word comparison, so two
+  // items that legitimately share an exact nickname/variant string (two
+  // "Queen Mary"s, two "Sunflowers", Florence's and Milan's "Duomo") can each
+  // still be matched by that shared short form.
+  const namesOther = namesAnotherPoolItem(pool, figure.id, g);
 
+  // Rule 1a — the STRONG pass: the guess names this item outright (see
+  // stringsMatchStrong). Runs before the reject list, so a right answer that
+  // happens to mention a rejected neighbour is still a right answer.
+  //
+  // Title/honorific-insensitive throughout: strip a leading "queen"/"king"/…
+  // from whichever side(s) have one, then compare again. Covers "queen mary"
+  // vs "mary i" as well as a guess without a title against a variant that
+  // happens to carry one. Stripping the title off the CANDIDATE is skipped
+  // for single-token guesses: it would manufacture a bare-fragment comparison
+  // ("mary" vs "queen mary" stripped to "mary") that rule 1 never allows a
+  // lone-word guess to win on — "mary" alone must not match "Mary, Queen of
+  // Scots" just because one of her variants happens to start with a title.
+  const strong = (a, b) => stringsMatchStrong(a, b, namesOther);
   for (const raw of cands) {
     const c = normalize(raw);
     if (!c) continue;
-    if (stringsMatch(g, c)) return true;
-    // Title/honorific-insensitive fallback: strip a leading "queen"/"king"/…
-    // from whichever side(s) have one, then compare again. Covers "queen
-    // mary" vs "mary i" as well as a guess without a title against a variant
-    // that happens to carry one. Stripping the title off the CANDIDATE is
-    // skipped for single-token guesses: it would manufacture a bare-fragment
-    // comparison ("mary" vs "queen mary" stripped to "mary") that rule 1
-    // never allows a lone-word guess to win on — "mary" alone must not
-    // match "Mary, Queen of Scots" just because one of her variants happens
-    // to start with a title.
-    const cNoTitle = stripTitle(c);
-    if (gNoTitle && stringsMatch(gNoTitle, c)) return true;
-    if (cNoTitle && !singleToken && stringsMatch(g, cNoTitle)) return true;
-    if (gNoTitle && cNoTitle && stringsMatch(gNoTitle, cNoTitle)) return true;
+    if (compareTitled(strong, g, gNoTitle, c, singleToken)) return true;
+  }
+
+  // Per-item reject list: blocks the guess before every remaining (forgiving)
+  // acceptance path — rule 1b's fuzz, containment, and distinctive-core.
+  if (matchesReject(figure, g, gNoTitle, guessToks, singleToken)) return false;
+
+  // Rule 1b — the FORGIVING pass: the rest of stringsMatch (a lone word one
+  // edit out, a dropped space, typo-tolerant containment).
+  const loose = (a, b) => stringsMatch(a, b, namesOther);
+  for (const raw of cands) {
+    const c = normalize(raw);
+    if (!c) continue;
+    if (compareTitled(loose, g, gNoTitle, c, singleToken)) return true;
   }
 
   // Rule 1 guard: a guess with fewer than 2 meaningful tokens can only ever
@@ -511,20 +604,7 @@ export function isMatch(guess, figure, poolKey) {
   // still have matched a short variant exactly above (e.g. "cid").
   if (g.length < MIN_GUESS_LEN) return false;
 
-  // Collision guard: if the normalized guess is exactly some OTHER pool
-  // item's name/variant, it names that other thing, not this one — block
-  // the containment/distinctive-core carve-outs below regardless of how
-  // fuzzy/containing the guess might otherwise look against the current
-  // item. Scoped to here (not the direct variant-list match above) so two
-  // items that legitimately share an exact nickname/variant string (e.g.
-  // two "Queen Mary"s) can still both be matched by their own shared name.
-  if (pool) {
-    for (const [otherId, otherEntry] of pool.byId) {
-      if (otherId === figure.id) continue;
-      if (otherEntry.variantStrs.includes(g)) return false;
-    }
-  }
-  const guessToks = guessToksAll;
+  if (namesOther) return false;
 
   // Rule 2: containment — any accepted variant, as a whole word sequence,
   // found inside the (longer) guess.

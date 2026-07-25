@@ -32,6 +32,42 @@ def bad_punct_runs(text):
     return [m.group(0) for m in PUNCT_RUN_RE.finditer(text or "") if m.group(0) != "..."]
 
 
+# ---------- terminal punctuation layer (js/revealgame.js) ----------
+# The renderer (withTerminalPunct) appends "." to a blurb ONLY when it doesn't
+# already end in its own terminal mark — so the data must never carry a bare
+# "." (that would just be redundant next to the appended one), but "!"/"?"
+# endings are fine: the renderer leaves those alone and shows them as-is.
+def ends_bare_period(text):
+    t = (text or "").rstrip()
+    return t.endswith(".") and not t.endswith("...")
+
+
+# ---------- `years` field sanity (js/revealgame.js clueYears/extractEra) ----------
+# Loose lifespan/era shape: digits, ordinal suffixes, "century"/"centuries",
+# an en dash or hyphen, "c.", BC/BCE/AD/CE, and the odd trailing "onwards" seen
+# in real curated entries (e.g. "12th century onwards"). Anything left over
+# after stripping those tokens is a WARN, not an ERROR — this is a loose sanity
+# check, not a strict grammar.
+YEARS_TOKEN_RE = re.compile(
+    r"\d+|century|centuries|onwards|BCE|BC|AD|CE|c\.|st|nd|rd|th|[\s,.\-–]",
+    re.IGNORECASE,
+)
+
+
+def odd_years(value):
+    if not isinstance(value, str):
+        return f"not a string ({value!r})"
+    s = value.strip()
+    if not s:
+        return "empty"
+    if not re.search(r"\d", s):
+        return "no digit"
+    leftover = YEARS_TOKEN_RE.sub("", s).strip()
+    if leftover:
+        return f"unexpected characters {leftover!r}"
+    return None
+
+
 # ---------- clueYears() parity (js/revealgame.js) ----------
 # Mirrors clueYears() exactly: an explicit `years` field wins, else the first
 # parenthetical in the blurb that holds a digit.
@@ -124,6 +160,13 @@ def check_reveal(path):
                 err(f"{path} {iid}: missing {field}")
         for run in bad_punct_runs(it.get("blurb")):
             err(f"{path} {iid}: doubled punctuation {run!r} in blurb")
+        if ends_bare_period(it.get("blurb")):
+            err(f"{path} {iid}: blurb ends in a bare '.' — the renderer appends "
+                f"this itself (js/revealgame.js withTerminalPunct); strip it from the data")
+        if "years" in it and it.get("years") is not None:
+            reason = odd_years(it.get("years"))
+            if reason:
+                warn(f"{path} {iid}: years {it.get('years')!r} looks odd ({reason})")
         if is_who:
             val = clue_years(it)
             if not val:

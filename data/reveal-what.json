@@ -709,7 +709,14 @@
   "reject": [
    "pisa cathedral",
    "cathedral of pisa",
-   "duomo di pisa"
+   "duomo di pisa",
+   "pisa baptistery",
+   "pisa baptistry",
+   "baptistery of pisa",
+   "baptistry of pisa",
+   "battistero di pisa",
+   "piazza dei miracoli",
+   "campo dei miracoli"
   ],
   "blurb": "Bell tower two centuries in the building (1173–1372) — leaning before it was even finished · Italy",
   "img": "assets/img/leaning-tower-pisa.jpg",
@@ -6456,6 +6463,7 @@
    "koh-i-noor diamond",
    "mountain of light"
   ],
+  "years": "c. 17th century",
   "blurb": "Seized by the British East India Company in 1849 · a legend claims the diamond curses any man who wears it — every royal owner since has been a queen or queen consort",
   "img": "assets/img/koh-i-noor.jpg",
   "fx": 0.5,
@@ -6920,6 +6928,7 @@
    "topkapi sarayi",
    "topkapı sarayı"
   ],
+  "years": "1460–1856",
   "blurb": "Ottoman sultans ruled from this sprawling Istanbul palace complex from the 1460s until the 19th century, when they moved to the newer Dolmabahçe",
   "img": "assets/img/topkapi-palace.jpg",
   "fx": 0.51,
@@ -6972,7 +6981,14 @@
    "mausoleum of halicarnassus",
    "tomb of mausolus",
    "halicarnassus",
-   "mausoleum"
+   "mausoleum of mausolus",
+   "tomb of mausolus at halicarnassus"
+  ],
+  "reject": [
+   "taj mahal",
+   "lincoln memorial",
+   "temple of artemis",
+   "temple of artemis at ephesus"
   ],
   "blurb": "Built around 350 BC as the tomb of the Persian satrap Mausolus — one of the Seven Wonders of the Ancient World, and the origin of the word \"mausoleum\"",
   "img": "assets/img/mausoleum-halicarnassus.jpg",
@@ -7691,7 +7707,11 @@
   "variants": [
    "wanderer above the sea of fog",
    "the wanderer above the sea of fog",
-   "wanderer above a sea of fog"
+   "wanderer above a sea of fog",
+   "wanderer above the mist",
+   "the wanderer",
+   "wanderer",
+   "der wanderer uber dem nebelmeer"
   ],
   "blurb": "Caspar David Friedrich's Romantic icon, painted around 1818 · the craggy peaks are a total invention — Friedrich collaged them from several real outcrops in the Elbe Sandstone Mountains, no such view actually exists",
   "img": "assets/img/wanderer-sea-fog.jpg",
@@ -7992,10 +8012,19 @@
    "national gallery of art west building",
    "nga",
    "west building",
-   "national gallery",
    "national gallery washington",
    "national gallery of art washington",
+   "national gallery washington dc",
    "national gallery dc"
+  ],
+  "reject": [
+   "national gallery london",
+   "the national gallery london",
+   "national gallery of london",
+   "national gallery in london",
+   "national portrait gallery",
+   "us capitol",
+   "united states capitol"
   ],
   "blurb": "Washington DC's West Building opened 1941 · funded entirely by banker Andrew Mellon, who insisted the museum never be named after him",
   "img": "assets/img/national-gallery-art.jpg",
@@ -8665,7 +8694,10 @@
   "variants": [
    "the motherland calls",
    "motherland calls",
-   "rodina mat zovyot"
+   "rodina mat zovyot",
+   "rodina mat",
+   "mother motherland",
+   "mamayev kurgan statue"
   ],
   "blurb": "Unveiled in 1967 atop Mamayev Kurgan, the hill where the fiercest fighting of Stalingrad raged · at 85 metres tall it was, for over a decade, the tallest statue on Earth",
   "img": "assets/img/motherland-calls.jpg",

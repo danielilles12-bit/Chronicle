@@ -365,8 +365,16 @@ function refreshTearable() {
   }
   document.querySelectorAll('#rv-scraps .df-scrap').forEach((el) => {
     const i = +el.dataset.i;
-    el.classList.toggle('tearable', !torn.has(i) && open.has(i));
-    el.classList.toggle('locked', !torn.has(i) && !open.has(i));
+    const isTorn = torn.has(i);
+    const isLocked = !isTorn && !open.has(i);
+    el.classList.toggle('tearable', !isTorn && open.has(i));
+    el.classList.toggle('locked', isLocked);
+    // a11y: a locked scrap is a real disabled control, not just a dashed
+    // border; an already-torn one (invisible — nothing left to tear) leaves
+    // the DOM in place but drops out of the tab order.
+    el.setAttribute('aria-disabled', String(isLocked));
+    if (isTorn) el.setAttribute('tabindex', '-1');
+    else el.removeAttribute('tabindex');
   });
 }
 function worthNow() {
@@ -410,24 +418,40 @@ function buildScraps() {
 
 // A blocked tap shakes its scrap instead of doing nothing — covers both an
 // already-torn scrap (nothing left to tear) and an adjacency-locked one.
-function denyTap(i) {
+// Two more channels ride along, neither of which changes how anything looks
+// at rest: (1) prefers-reduced-motion collapses the shake to ~.01s (see the
+// global override in style.css) so those users get a held, non-animated
+// outline flash instead, timed in JS so that same override can't crush it
+// too; (2) a polite live-region announcement (app.js's shared #sr-live) for
+// screen readers, who feel a shake even less than reduced-motion users do.
+const DENY_REASON_TEXT = {
+  torn: 'Already torn.',
+  locked: 'Choose a scrap next to an open space.',
+};
+function denyTap(i, reason) {
   const el = $(`#rv-scraps [data-i="${i}"]`);
   if (el) {
     el.classList.remove('deny');
     void el.offsetWidth;   // restart the animation on repeat taps
     el.classList.add('deny');
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      el.classList.add('deny-static');
+      clearTimeout(el._denyStaticTimer);
+      el._denyStaticTimer = setTimeout(() => el.classList.remove('deny-static'), 450);
+    }
   }
+  announce(DENY_REASON_TEXT[reason] || DENY_REASON_TEXT.locked);
 }
 
 function tearScrap(i, force) {
   if (!S || !S.cur || !S.cur.open) return;
   const cur = S.cur;
-  if (cur.torn.includes(i)) { denyTap(i); return; }
+  if (cur.torn.includes(i)) { denyTap(i, 'torn'); return; }
   // Adjacency rule: a scrap must touch an open one (force = the game's own
   // opening tear). A blocked tap shakes its head instead of silently doing
   // nothing.
   if (!force && cur.torn.length && !cur.torn.some((t) => neighbors(t).includes(i))) {
-    denyTap(i);
+    denyTap(i, 'locked');
     return;
   }
   cur.torn.push(i);
@@ -760,6 +784,18 @@ function startRound() {
   }
 }
 
+// The renderer owns the reveal's terminal punctuation, not the data: append
+// "." only when the blurb doesn't already end in its own terminal mark ("!"
+// and "?" earn their keep — a blurb like "...her 1993 live album Selena
+// Live!" must not lose that "!" to a blind appended "."). Data policy (see
+// tools/validate_reveal.py) is the mirror image: blurbs must not end in a
+// bare "." — this is the layer that supplies it.
+const TERMINAL_PUNCT_RE = /[.!?…]['")’”\]]*$/;
+function withTerminalPunct(text) {
+  const t = (text || '').trim();
+  return TERMINAL_PUNCT_RE.test(t) ? t : `${t}.`;
+}
+
 function resolveRound(correct) {
   const item = round();
   if (!S.cur.open) return;
@@ -810,9 +846,9 @@ function resolveRound(correct) {
   const fb = $('#rv-feedback');
   fb.className = correct ? 'good' : 'info';
   fb.innerHTML = correct
-    ? `<b class="fig">${item.name}</b> — ${item.blurb}. <span class="pts">+${total} pts</span>`
+    ? `<b class="fig">${item.name}</b> — ${withTerminalPunct(item.blurb)} <span class="pts">+${total} pts</span>`
       + (bonus ? ` <small>(includes ${bonus} streak bonus)</small>` : '')
-    : `It was <b class="fig">${item.name}</b> — ${item.blurb}. <span class="pts">0 pts</span>`;
+    : `It was <b class="fig">${item.name}</b> — ${withTerminalPunct(item.blurb)} <span class="pts">0 pts</span>`;
   fb.hidden = false;
   showCredit(item);
 

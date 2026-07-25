@@ -817,6 +817,15 @@ button.cal-cell:active { background: var(--ch-parchment); }
   30% { translate: -5px 0; }
   65% { translate: 5px 0; }
 }
+/* Reduced-motion equivalent: the shake above collapses to ~.01s under the
+   global prefers-reduced-motion override further up this file, which reads
+   as nothing happening. .deny-static is added/removed on a JS timer instead
+   of a CSS animation duration (so that same override can't crush it too) and
+   only ever paints under reduced motion — normal-motion appearance, and
+   every scrap at rest, is unchanged either way. */
+@media (prefers-reduced-motion: reduce) {
+  .df-scrap.deny-static { outline: 3px solid var(--ch-gold); outline-offset: -3px; }
+}
 #rv-panel { padding-top: 24px !important; }
 #rv-frame.df-duotone { background-color: #FFFFFF !important; }
 #rv-prompt[hidden] { display: none; }

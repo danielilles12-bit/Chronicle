@@ -5123,7 +5123,7 @@
    "helen keller",
    "keller"
   ],
-  "blurb": "Deafblind from infancy, she learned language at a water pump with Anne Sullivan — then wrote 14 books (1880–1968)",
+  "blurb": "Deafblind from infancy, and the author of 14 books anyway (1880–1968) · language arrived at a water pump, spelled into her hand by Anne Sullivan",
   "img": "assets/img/helen-keller.jpg",
   "fx": 0.55,
   "fy": 0.499,
@@ -5329,6 +5329,12 @@
    "josé martí",
    "marti",
    "martí"
+  ],
+  "reject": [
+   "martin",
+   "san martin",
+   "jose de san martin",
+   "josé de san martín"
   ],
   "blurb": "Cuban poet and independence leader who died fighting Spanish rule (1853–1895) · photograph by Juan Bautista Valdés, Kingston, Jamaica, 1892",
   "img": "assets/img/jose-marti.jpg",
@@ -5826,7 +5832,8 @@
   "difficulty": "medium",
   "variants": [
    "simone de beauvoir",
-   "de beauvoir"
+   "de beauvoir",
+   "beauvoir"
   ],
   "blurb": "Philosopher and author of The Second Sex (1908–1986) · her lifelong pact with Sartre ranked their love 'essential', all others 'contingent'",
   "img": "assets/img/simone-de-beauvoir.jpg",
@@ -5847,7 +5854,11 @@
   "kind": "portrait",
   "difficulty": "medium",
   "variants": [
-   "sylvia plath"
+   "sylvia plath",
+   "plath"
+  ],
+  "reject": [
+   "plato"
   ],
   "blurb": "American poet, author of The Bell Jar (1932–1963) · before her death she sealed the kitchen to spare her sleeping children",
   "img": "assets/img/sylvia-plath.jpg",
@@ -6009,7 +6020,7 @@
    "queen anne boleyn",
    "boleyn"
   ],
-  "blurb": "Queen of England (c. 1501–1536) · an expert swordsman was fetched from Calais to behead her; a sword beat the axe for mercy",
+  "blurb": "Queen of England for a thousand days (c. 1501–1536) · an expert swordsman was fetched from Calais to behead her; a sword beat the axe for mercy",
   "img": "assets/img/anne-boleyn.jpg",
   "fx": 0.37,
   "fy": 0.455,
@@ -7127,7 +7138,8 @@
   "variants": [
    "richard nixon",
    "richard milhous nixon",
-   "tricky dick"
+   "tricky dick",
+   "nixon"
   ],
   "blurb": "37th US president (1913–1994) · sparred with Khrushchev in an impromptu 'Kitchen Debate' beside a model American kitchen in 1959",
   "img": "assets/img/nixon.jpg",
@@ -7250,9 +7262,10 @@
   "variants": [
    "steve jobs",
    "steven jobs",
-   "steven paul jobs"
+   "steven paul jobs",
+   "jobs"
   ],
-  "blurb": "Co-founder of Apple (1955–2011) · funded Apple's 1976 launch partly by selling his Volkswagen microbus",
+  "blurb": "Co-founder who came back to save Apple (1955–2011) · funded Apple's 1976 launch partly by selling his Volkswagen microbus",
   "img": "assets/img/steve-jobs.jpg",
   "fx": 0.5,
   "fy": 0.32,
@@ -7320,7 +7333,12 @@
   "kind": "portrait",
   "difficulty": "easy",
   "variants": [
-   "whitney houston"
+   "whitney houston",
+   "houston"
+  ],
+  "reject": [
+   "sam houston",
+   "houston texas"
   ],
   "blurb": "American singer and actress (1963–2012) · her 1991 Super Bowl anthem became the best-selling version of the US national anthem ever recorded",
   "img": "assets/img/whitney-houston.jpg",
@@ -7460,7 +7478,8 @@
   "difficulty": "hard",
   "variants": [
    "stephen hawking",
-   "stephen william hawking"
+   "stephen william hawking",
+   "hawking"
   ],
   "blurb": "English theoretical physicist and author of A Brief History of Time (1942–2018) · given two years to live after his 1963 ALS diagnosis, he lived over 50 more",
   "img": "assets/img/stephen-hawking.jpg",
@@ -7801,6 +7820,10 @@
   "variants": [
    "plato",
    "aristocles"
+  ],
+  "reject": [
+   "plath",
+   "sylvia plath"
   ],
   "blurb": "Philosopher and founder of Athens' Academy (c. 428–348 BC) · 'Plato' was reportedly a wrestling coach's nickname for his broad build — his birth name was Aristocles",
   "img": "assets/img/plato.jpg",
@@ -8654,7 +8677,7 @@
    "selena quintanilla-perez",
    "selena quintanilla perez"
   ],
-  "blurb": "Tejano singer known as the Queen of Tejano Music (1971–1995) · became the first Tejano artist to win a Grammy, for her 1993 live album Selena Live",
+  "blurb": "Tejano singer known as the Queen of Tejano Music (1971–1995) · became the first Tejano artist to win a Grammy, for her 1993 live album Selena Live!",
   "img": "assets/img/selena.jpg",
   "fx": 0.5,
   "fy": 0.35,
@@ -9252,7 +9275,7 @@
    "imam khomeini",
    "khomeini"
   ],
-  "blurb": "Supreme Leader of Iran (1902–1989) · led the 1979 revolution from exile in Paris, his sermons smuggled into Iran on cassette tapes",
+  "blurb": "Cleric who became Iran's first Supreme Leader (1902–1989) · ran the 1979 revolution from a Paris suburb, his sermons smuggled home on cassette tapes",
   "img": "assets/img/khomeini.jpg",
   "fx": 0.5,
   "fy": 0.35,
@@ -9514,7 +9537,7 @@
    "kurosawa akira",
    "kurosawa"
   ],
-  "blurb": "Film director (1910–1998) · filmed 'Seven Samurai's battles with multiple telephoto cameras so actors wouldn't know which one was rolling",
+  "blurb": "Japanese film director of samurai epics (1910–1998) · filmed 'Seven Samurai's battles with multiple telephoto cameras so actors wouldn't know which one was rolling",
   "img": "assets/img/kurosawa.jpg",
   "fx": 0.55,
   "fy": 0.32,
@@ -10024,7 +10047,7 @@
    "herodotus",
    "herodotus of halicarnassus"
   ],
-  "blurb": "Greek historian (c. 484–425 BC) · dubbed 'the Father of History' by Cicero, though critics in his own time called him 'the Father of Lies' for his tall tales",
+  "blurb": "Greek chronicler of the Persian Wars (c. 484–425 BC) · dubbed 'the Father of History' by Cicero, though critics in his own time called him 'the Father of Lies' for his tall tales",
   "img": "assets/img/herodotus.jpg",
   "fx": 0.48,
   "fy": 0.28,
