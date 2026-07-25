@@ -1658,7 +1658,7 @@
   "id": "itsukushima-shrine",
   "name": "Itsukushima Shrine",
   "kind": "artefact",
-  "difficulty": "easy",
+  "difficulty": "medium",
   "variants": [
    "itsukushima shrine",
    "itsukushima",
@@ -2141,7 +2141,7 @@
   "id": "rialto-bridge",
   "name": "Rialto Bridge",
   "kind": "artefact",
-  "difficulty": "easy",
+  "difficulty": "medium",
   "variants": [
    "rialto bridge",
    "ponte di rialto",
@@ -2539,7 +2539,7 @@
   "id": "alfred-jewel",
   "name": "Alfred Jewel",
   "kind": "artefact",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "alfred jewel"
   ],
@@ -2562,7 +2562,7 @@
   "id": "amber-fort",
   "name": "Amber Fort",
   "kind": "artefact",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "amber fort",
    "amer fort",
@@ -3024,7 +3024,7 @@
   "id": "forbidden-city",
   "name": "The Forbidden City",
   "kind": "artefact",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "forbidden city",
    "palace museum beijing"
@@ -3410,7 +3410,7 @@
   "id": "mildenhall-treasure",
   "name": "Mildenhall Treasure",
   "kind": "artefact",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "mildenhall treasure",
    "mildenhall great dish",
@@ -3535,7 +3535,7 @@
   "id": "olmec-colossal-head",
   "name": "Olmec Colossal Head",
   "kind": "artefact",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "olmec colossal head",
    "olmec head",
@@ -3822,7 +3822,7 @@
   "id": "rila-monastery",
   "name": "Rila Monastery",
   "kind": "artefact",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "rila monastery",
    "rila"
@@ -4418,7 +4418,7 @@
   "id": "benin-bronzes",
   "name": "Benin Bronzes",
   "kind": "artefact",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "benin bronzes",
    "benin bronze",
@@ -4728,7 +4728,7 @@
   "id": "gyeongbokgung",
   "name": "Gyeongbokgung",
   "kind": "artefact",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "gyeongbokgung",
    "gyeongbok palace",
@@ -5202,7 +5202,7 @@
   "id": "ollantaytambo",
   "name": "Ollantaytambo",
   "kind": "artefact",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "ollantaytambo",
    "ollantaytambo fortress"
@@ -5400,7 +5400,7 @@
   "id": "stone-town-zanzibar-door",
   "name": "Stone Town Zanzibar Door",
   "kind": "artefact",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "stone town zanzibar door",
    "zanzibar door",
@@ -5450,7 +5450,7 @@
   "id": "tara-brooch",
   "name": "Tara Brooch",
   "kind": "artefact",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "tara brooch"
   ],
@@ -5473,7 +5473,7 @@
   "id": "tassili-rock-art",
   "name": "Tassili Rock Art",
   "kind": "artefact",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "tassili rock art",
    "tassili n'ajjer rock art",
@@ -5716,7 +5716,7 @@
   "id": "hope-diamond",
   "name": "Hope Diamond",
   "kind": "artefact",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "hope diamond",
    "the hope diamond"
@@ -6431,7 +6431,7 @@
   "id": "british-museum",
   "name": "British Museum",
   "kind": "artefact",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "british museum",
    "the british museum"
@@ -6527,7 +6527,7 @@
   "id": "lighthouse-alexandria",
   "name": "Lighthouse of Alexandria",
   "kind": "artefact",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "lighthouse of alexandria",
    "pharos of alexandria",
@@ -6553,7 +6553,7 @@
   "id": "holy-sepulchre",
   "name": "Church of the Holy Sepulchre",
   "kind": "artefact",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "church of the holy sepulchre",
    "holy sepulchre",
@@ -6577,7 +6577,7 @@
   "id": "red-fort",
   "name": "Red Fort",
   "kind": "artefact",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "red fort",
    "lal qila",
@@ -6648,7 +6648,7 @@
   "id": "colossus-rhodes",
   "name": "Colossus of Rhodes",
   "kind": "artefact",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "colossus of rhodes",
    "the colossus of rhodes",
@@ -6718,7 +6718,7 @@
   "id": "voynich-manuscript",
   "name": "Voynich Manuscript",
   "kind": "artefact",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "voynich manuscript",
    "the voynich manuscript",
@@ -7330,7 +7330,7 @@
   "id": "amber-room",
   "name": "Amber Room",
   "kind": "artefact",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "amber room",
    "the amber room"
@@ -7375,7 +7375,7 @@
   "id": "masada",
   "name": "Masada",
   "kind": "artefact",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "masada",
    "metzada"
@@ -7607,7 +7607,7 @@
   "id": "lanse-aux-meadows",
   "name": "L'Anse aux Meadows National Historic Site",
   "kind": "artefact",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "l'anse aux meadows",
    "lanse aux meadows",
@@ -7828,7 +7828,7 @@
   "id": "bhimbetka",
   "name": "Rock Shelters of Bhimbetka",
   "kind": "artefact",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "rock shelters of bhimbetka",
    "bhimbetka rock shelters",
@@ -7907,7 +7907,7 @@
   "id": "merv",
   "name": "Ancient Merv",
   "kind": "artefact",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "ancient merv",
    "merv",
@@ -8094,7 +8094,7 @@
   "id": "cyrene",
   "name": "Cyrene",
   "kind": "artefact",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "cyrene",
    "cyrene libya",
@@ -8792,7 +8792,7 @@
   "id": "daigo-fukuryu-maru",
   "name": "Daigo Fukuryū Maru",
   "kind": "artefact",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "daigo fukuryu maru",
    "lucky dragon 5",
@@ -8920,7 +8920,7 @@
   "id": "little-mermaid-statue",
   "name": "The Little Mermaid (statue)",
   "kind": "artefact",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "the little mermaid",
    "little mermaid",

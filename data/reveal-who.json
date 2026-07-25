@@ -1101,7 +1101,7 @@
   "id": "dante-alighieri",
   "name": "Dante Alighieri",
   "kind": "portrait",
-  "difficulty": "easy",
+  "difficulty": "medium",
   "variants": [
    "dante alighieri",
    "dante",
@@ -1523,7 +1523,7 @@
   "id": "horatio-nelson",
   "name": "Horatio Nelson",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "horatio nelson",
    "admiral nelson",
@@ -1761,7 +1761,7 @@
   "id": "louis-xiv",
   "name": "Louis XIV",
   "kind": "portrait",
-  "difficulty": "easy",
+  "difficulty": "medium",
   "variants": [
    "louis xiv",
    "louis the fourteenth",
@@ -1880,7 +1880,7 @@
   "id": "martin-luther",
   "name": "Martin Luther",
   "kind": "portrait",
-  "difficulty": "easy",
+  "difficulty": "medium",
   "variants": [
    "martin luther",
    "luther"
@@ -2020,7 +2020,7 @@
   "id": "oscar-wilde",
   "name": "Oscar Wilde",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "oscar wilde",
    "wilde"
@@ -2158,7 +2158,7 @@
   "id": "robert-burns",
   "name": "Robert Burns",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "robert burns",
    "burns",
@@ -2230,7 +2230,7 @@
   "id": "suleiman-magnificent",
   "name": "Suleiman the Magnificent",
   "kind": "portrait",
-  "difficulty": "easy",
+  "difficulty": "medium",
   "variants": [
    "suleiman the magnificent",
    "suleiman i",
@@ -2275,7 +2275,7 @@
   "id": "theodore-roosevelt",
   "name": "Theodore Roosevelt",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "theodore roosevelt",
    "teddy roosevelt",
@@ -2347,7 +2347,7 @@
   "id": "ulysses-grant",
   "name": "Ulysses S. Grant",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "ulysses s grant",
    "ulysses grant",
@@ -2465,7 +2465,7 @@
   "id": "adam-smith",
   "name": "Adam Smith",
   "kind": "portrait",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "adam smith"
   ],
@@ -2702,7 +2702,7 @@
   "id": "artemisia-gentileschi",
   "name": "Artemisia Gentileschi",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "artemisia gentileschi"
   ],
@@ -2895,7 +2895,7 @@
   "id": "darwin",
   "name": "Charles Darwin",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "charles darwin",
    "darwin"
@@ -3108,7 +3108,7 @@
   "id": "fdr",
   "name": "Franklin D. Roosevelt",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "franklin d roosevelt",
    "franklin roosevelt",
@@ -3296,7 +3296,7 @@
   "id": "hatshepsut",
   "name": "Hatshepsut",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "hatshepsut",
    "hatchepsut",
@@ -3321,7 +3321,7 @@
   "id": "herman-melville",
   "name": "Herman Melville",
   "kind": "portrait",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "herman melville",
    "melville"
@@ -3391,7 +3391,7 @@
   "id": "ibn-sina",
   "name": "Ibn Sina",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "ibn sina",
    "avicenna"
@@ -3414,7 +3414,7 @@
   "id": "ida-b-wells",
   "name": "Ida B. Wells",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "ida b wells",
    "ida wells",
@@ -3623,7 +3623,7 @@
   "id": "justinian-i",
   "name": "Justinian I",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "justinian",
    "justinian i",
@@ -3736,7 +3736,7 @@
   "id": "montezuma-ii",
   "name": "Montezuma II",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "montezuma",
    "montezuma ii",
@@ -3853,7 +3853,7 @@
   "id": "peter-paul-rubens",
   "name": "Peter Paul Rubens",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "peter paul rubens",
    "rubens",
@@ -3876,7 +3876,7 @@
   "id": "philip-ii-spain",
   "name": "Philip II of Spain",
   "kind": "portrait",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "philip ii of spain",
    "philip ii",
@@ -4257,7 +4257,7 @@
   "id": "tchaikovsky",
   "name": "Pyotr Tchaikovsky",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "pyotr tchaikovsky",
    "tchaikovsky",
@@ -4328,7 +4328,7 @@
   "id": "tokugawa-ieyasu",
   "name": "Tokugawa Ieyasu",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "tokugawa",
    "ieyasu",
@@ -4351,7 +4351,7 @@
   "id": "toussaint-louverture",
   "name": "Toussaint Louverture",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "toussaint louverture",
    "toussaint l'ouverture",
@@ -4563,7 +4563,7 @@
   "id": "arthur-schopenhauer",
   "name": "Arthur Schopenhauer",
   "kind": "portrait",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "arthur schopenhauer",
    "schopenhauer"
@@ -4635,7 +4635,7 @@
   "id": "bismarck",
   "name": "Otto von Bismarck",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "otto von bismarck",
    "bismarck",
@@ -4706,7 +4706,7 @@
   "id": "catherine-great",
   "name": "Catherine the Great",
   "kind": "portrait",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "catherine the great",
    "catherine ii",
@@ -4730,7 +4730,7 @@
   "id": "cecil-rhodes",
   "name": "Cecil Rhodes",
   "kind": "portrait",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "cecil rhodes",
    "rhodes"
@@ -4910,7 +4910,7 @@
   "id": "elizabeth-cady-stanton",
   "name": "Elizabeth Cady Stanton",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "elizabeth cady stanton",
    "elizabeth stanton",
@@ -4958,7 +4958,7 @@
   "id": "franz-schubert",
   "name": "Franz Schubert",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "franz schubert",
    "schubert"
@@ -5002,7 +5002,7 @@
   "id": "friedrich-schiller",
   "name": "Friedrich Schiller",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "friedrich schiller",
    "schiller"
@@ -5024,7 +5024,7 @@
   "id": "genghis-khan",
   "name": "Genghis Khan",
   "kind": "portrait",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "genghis khan",
    "chinggis khaan",
@@ -5138,7 +5138,7 @@
   "id": "henrik-ibsen",
   "name": "Henrik Ibsen",
   "kind": "portrait",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "henrik ibsen",
    "ibsen"
@@ -5277,7 +5277,7 @@
   "id": "jefferson-davis",
   "name": "Jefferson Davis",
   "kind": "portrait",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "jefferson davis",
    "davis"
@@ -5376,7 +5376,7 @@
   "id": "joseph-stalin",
   "name": "Joseph Stalin",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "joseph stalin",
    "stalin",
@@ -5466,7 +5466,7 @@
   "id": "mary-wollstonecraft",
   "name": "Mary Wollstonecraft",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "mary wollstonecraft",
    "wollstonecraft"
@@ -5634,7 +5634,7 @@
   "id": "queen-nzinga",
   "name": "Queen Nzinga",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "nzinga",
    "queen nzinga",
@@ -5661,7 +5661,7 @@
   "id": "qutuz",
   "name": "Qutuz",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "qutuz",
    "saif ad-din qutuz",
@@ -5779,7 +5779,7 @@
   "id": "shaka-zulu",
   "name": "Shaka Zulu",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "shaka zulu",
    "shaka",
@@ -5944,7 +5944,7 @@
   "id": "walt-whitman",
   "name": "Walt Whitman",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "walt whitman",
    "whitman"
@@ -6036,7 +6036,7 @@
   "id": "ashoka-great",
   "name": "Ashoka the Great",
   "kind": "portrait",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "ashoka",
    "ashoka the great",
@@ -6113,7 +6113,7 @@
   "id": "chien-shiung-wu",
   "name": "Chien-Shiung Wu",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "chien-shiung wu",
    "chien shiung wu",
@@ -6162,7 +6162,7 @@
   "id": "clara-barton",
   "name": "Clara Barton",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "clara barton"
   ],
@@ -6184,7 +6184,7 @@
   "id": "cleopatra",
   "name": "Cleopatra",
   "kind": "portrait",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "cleopatra",
    "cleopatra vii",
@@ -6351,7 +6351,7 @@
   "id": "julius-caesar",
   "name": "Julius Caesar",
   "kind": "portrait",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "julius caesar",
    "gaius julius caesar",
@@ -6375,7 +6375,7 @@
   "id": "kosem-sultan",
   "name": "Kösem Sultan",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "kosem sultan",
    "kosem",
@@ -6398,7 +6398,7 @@
   "id": "lise-meitner",
   "name": "Lise Meitner",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "lise meitner",
    "meitner"
@@ -6563,7 +6563,7 @@
   "id": "vera-rubin",
   "name": "Vera Rubin",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "vera rubin"
   ],
@@ -6587,7 +6587,7 @@
   "id": "al-biruni",
   "name": "Al-Biruni",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "al-biruni",
    "al biruni",
@@ -6750,7 +6750,7 @@
   "id": "vlad-impaler",
   "name": "Vlad the Impaler",
   "kind": "portrait",
-  "difficulty": "easy",
+  "difficulty": "medium",
   "variants": [
    "vlad the impaler",
    "vlad tepes",
@@ -7156,7 +7156,7 @@
   "id": "john-lennon",
   "name": "John Lennon",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "john lennon",
    "john winston lennon",
@@ -7231,7 +7231,7 @@
   "id": "eisenhower",
   "name": "Dwight D. Eisenhower",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "dwight eisenhower",
    "dwight d eisenhower",
@@ -7281,7 +7281,7 @@
   "id": "walt-disney",
   "name": "Walt Disney",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "walt disney",
    "walter disney",
@@ -7496,7 +7496,7 @@
   "id": "frank-sinatra",
   "name": "Frank Sinatra",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "frank sinatra",
    "francis albert sinatra",
@@ -7645,7 +7645,7 @@
   "id": "prince-philip",
   "name": "Prince Philip, Duke of Edinburgh",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "prince philip, duke of edinburgh",
    "prince philip",
@@ -7694,7 +7694,7 @@
   "id": "aristotle",
   "name": "Aristotle",
   "kind": "portrait",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "aristotle"
   ],
@@ -7885,7 +7885,7 @@
   "id": "george-harrison",
   "name": "George Harrison",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "george harrison",
    "the quiet beatle"
@@ -7930,7 +7930,7 @@
   "id": "gaddafi",
   "name": "Muammar Gaddafi",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "muammar gaddafi",
    "muammar al-gaddafi",
@@ -7958,7 +7958,7 @@
   "id": "tupac",
   "name": "Tupac Shakur",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "tupac shakur",
    "tupac",
@@ -8078,7 +8078,7 @@
   "id": "edward-viii",
   "name": "Edward VIII",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "edward viii",
    "king edward viii",
@@ -8169,7 +8169,7 @@
   "id": "george-orwell",
   "name": "George Orwell",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "george orwell",
    "eric blair",
@@ -8333,7 +8333,7 @@
   "id": "khrushchev",
   "name": "Nikita Khrushchev",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "nikita khrushchev",
    "khrushchev",
@@ -8356,7 +8356,7 @@
   "id": "saint-paul",
   "name": "Paul the Apostle",
   "kind": "portrait",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "paul the apostle",
    "saint paul",
@@ -8381,7 +8381,7 @@
   "id": "kissinger",
   "name": "Henry Kissinger",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "henry kissinger",
    "henry a kissinger",
@@ -8404,7 +8404,7 @@
   "id": "george-iii",
   "name": "George III",
   "kind": "portrait",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "george iii",
    "king george iii",
@@ -8476,7 +8476,7 @@
   "id": "abraham",
   "name": "Abraham",
   "kind": "portrait",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "abraham",
    "abram",
@@ -8499,7 +8499,7 @@
   "id": "herbert-hoover",
   "name": "Herbert Hoover",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "herbert hoover",
    "herbert clark hoover"
@@ -8571,7 +8571,7 @@
   "id": "saint-peter",
   "name": "Saint Peter",
   "kind": "portrait",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "saint peter",
    "st peter",
@@ -8597,7 +8597,7 @@
   "id": "grover-cleveland",
   "name": "Grover Cleveland",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "grover cleveland",
    "stephen grover cleveland"
@@ -8642,7 +8642,7 @@
   "id": "chiang-kai-shek",
   "name": "Chiang Kai-shek",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "chiang kai-shek",
    "chiang kai shek",
@@ -8691,7 +8691,7 @@
   "id": "calvin-coolidge",
   "name": "Calvin Coolidge",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "calvin coolidge",
    "john calvin coolidge",
@@ -8738,7 +8738,7 @@
   "id": "henry-ford",
   "name": "Henry Ford",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "henry ford"
   ],
@@ -8826,7 +8826,7 @@
   "id": "william-howard-taft",
   "name": "William Howard Taft",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "william howard taft",
    "william taft"
@@ -8917,7 +8917,7 @@
   "id": "isaac-asimov",
   "name": "Isaac Asimov",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "isaac asimov",
    "isaak yudovich ozimov",
@@ -8984,7 +8984,7 @@
   "id": "boris-yeltsin",
   "name": "Boris Yeltsin",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "boris yeltsin",
    "boris nikolayevich yeltsin"
@@ -9077,7 +9077,7 @@
   "id": "albert-camus",
   "name": "Albert Camus",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "albert camus"
   ],
@@ -9122,7 +9122,7 @@
   "id": "frank-lloyd-wright",
   "name": "Frank Lloyd Wright",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "frank lloyd wright",
    "f l wright",
@@ -9146,7 +9146,7 @@
   "id": "kipling",
   "name": "Rudyard Kipling",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "rudyard kipling",
    "kipling",
@@ -9194,7 +9194,7 @@
   "id": "mohammad-reza-pahlavi",
   "name": "Mohammad Reza Pahlavi",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "mohammad reza pahlavi",
    "mohammed reza pahlavi",
@@ -9336,7 +9336,7 @@
   "id": "idi-amin",
   "name": "Idi Amin",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "idi amin",
    "idi amin dada",
@@ -9359,7 +9359,7 @@
   "id": "timur",
   "name": "Timur",
   "kind": "portrait",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "timur",
    "tamerlane",
@@ -9384,7 +9384,7 @@
   "id": "john-the-baptist",
   "name": "John the Baptist",
   "kind": "portrait",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "john the baptist",
    "st john the baptist",
@@ -9408,7 +9408,7 @@
   "id": "senna",
   "name": "Ayrton Senna",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "ayrton senna",
    "senna",
@@ -9459,7 +9459,7 @@
   "id": "shinzo-abe",
   "name": "Shinzō Abe",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "shinzo abe",
    "shinzō abe",
@@ -9551,7 +9551,7 @@
   "id": "rfk",
   "name": "Robert F. Kennedy",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "robert f kennedy",
    "robert francis kennedy",
@@ -9624,7 +9624,7 @@
   "id": "deng-xiaoping",
   "name": "Deng Xiaoping",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "deng xiaoping",
    "deng hsiao-ping"
@@ -9646,7 +9646,7 @@
   "id": "rumi",
   "name": "Rumi",
   "kind": "portrait",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "rumi",
    "jalal ad-din rumi",
@@ -9671,7 +9671,7 @@
   "id": "cyrus-great",
   "name": "Cyrus the Great",
   "kind": "portrait",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "cyrus the great",
    "cyrus ii of persia",
@@ -9694,7 +9694,7 @@
   "id": "ts-eliot",
   "name": "T. S. Eliot",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "t s eliot",
    "ts eliot",
@@ -9764,7 +9764,7 @@
   "id": "joseph-smith",
   "name": "Joseph Smith",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "joseph smith",
    "joseph smith jr",
@@ -9787,7 +9787,7 @@
   "id": "pinochet",
   "name": "Augusto Pinochet",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "augusto pinochet",
    "augusto pinochet ugarte",
@@ -9833,7 +9833,7 @@
   "id": "henry-v",
   "name": "Henry V of England",
   "kind": "portrait",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "henry v",
    "henry v of england",
@@ -9857,7 +9857,7 @@
   "id": "hannibal",
   "name": "Hannibal",
   "kind": "portrait",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "hannibal",
    "hannibal barca"
@@ -9901,7 +9901,7 @@
   "id": "steinbeck",
   "name": "John Steinbeck",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "john steinbeck",
    "john ernst steinbeck"
@@ -9923,7 +9923,7 @@
   "id": "rockefeller",
   "name": "John D. Rockefeller",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "john d rockefeller",
    "john davison rockefeller",
@@ -9992,7 +9992,7 @@
   "id": "arthur-miller",
   "name": "Arthur Miller",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "arthur miller",
    "arthur asher miller"

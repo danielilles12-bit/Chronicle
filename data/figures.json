@@ -1278,7 +1278,7 @@
    "lat": 40.42,
    "lon": -3.7
   },
-  "difficulty": "easy",
+  "difficulty": "medium",
   "fact": "A gunshot at the Battle of Lepanto crippled his left hand for life; he called it his proudest wound"
  },
  {
@@ -1920,7 +1920,7 @@
    "lat": 37.68,
    "lon": 23.96
   },
-  "difficulty": "easy",
+  "difficulty": "medium",
   "fact": "Between hit plays, Athens made him a war treasurer, then a general"
  },
  {
@@ -2374,7 +2374,7 @@
    "lat": 44.17,
    "lon": 28.66
   },
-  "difficulty": "easy",
+  "difficulty": "medium",
   "fact": "He was banished to the Black Sea for 'a poem and a mistake' — and never once said what the mistake was"
  },
  {
@@ -3964,7 +3964,7 @@
    "lat": 25.79,
    "lon": -80.21
   },
-  "difficulty": "medium",
+  "difficulty": "easy",
   "fact": "He refused to amputate a cancerous toe on religious grounds, and the cancer eventually killed him"
  },
  {
@@ -4493,7 +4493,7 @@
    "lat": 21.02,
    "lon": 105.84
   },
-  "difficulty": "medium",
+  "difficulty": "easy",
   "fact": "Worked as a kitchen hand at the Paris Ritz while petitioning Wilson for Vietnamese independence"
  },
  {
@@ -4973,7 +4973,7 @@
    "lat": 41.72,
    "lon": -73.48
   },
-  "difficulty": "medium",
+  "difficulty": "easy",
   "fact": "Tried to hand back his Nobel Peace Prize after Saigon fell; the committee refused to take it"
  },
  {
@@ -5157,7 +5157,7 @@
    "lat": 42.89,
    "lon": -78.88
   },
-  "difficulty": "medium",
+  "difficulty": "easy",
   "fact": "Shot at point-blank range, told the men restraining his attacker to go easy on him"
  },
  {
@@ -5991,7 +5991,7 @@
  {
   "id": "henry-ii-england",
   "name": "Henry II of England",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "henry ii of england",
    "henry ii",
@@ -6625,7 +6625,7 @@
  {
   "id": "philip-ii-spain",
   "name": "Philip II of Spain",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "philip ii of spain",
    "philip ii",
@@ -7152,7 +7152,7 @@
  {
   "id": "trajan",
   "name": "Trajan",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "trajan",
    "emperor trajan",
@@ -7462,7 +7462,7 @@
  {
   "id": "atahualpa",
   "name": "Atahualpa",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "atahualpa"
   ],
@@ -7897,7 +7897,7 @@
  {
   "id": "william-iii",
   "name": "William III of England",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "william iii",
    "william iii of england",
@@ -8135,7 +8135,7 @@
  {
   "id": "boudica",
   "name": "Boudica",
-  "difficulty": "easy",
+  "difficulty": "medium",
   "variants": [
    "boudica",
    "boudicca",
@@ -8379,7 +8379,7 @@
  {
   "id": "toyotomi-hideyoshi",
   "name": "Toyotomi Hideyoshi",
-  "difficulty": "easy",
+  "difficulty": "medium",
   "variants": [
    "toyotomi hideyoshi",
    "hideyoshi"
@@ -8426,7 +8426,7 @@
  {
   "id": "shaka-zulu",
   "name": "Shaka Zulu",
-  "difficulty": "easy",
+  "difficulty": "medium",
   "variants": [
    "shaka zulu",
    "shaka",
@@ -8521,7 +8521,7 @@
  {
   "id": "henry-the-navigator",
   "name": "Henry the Navigator",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "henry the navigator",
    "prince henry"
@@ -8640,7 +8640,7 @@
  {
   "id": "vasco-nunez-de-balboa",
   "name": "Vasco Núñez de Balboa",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "vasco nunez de balboa",
    "balboa",
@@ -8689,7 +8689,7 @@
  {
   "id": "themistocles",
   "name": "Themistocles",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "themistocles"
   ],
@@ -8853,7 +8853,7 @@
  {
   "id": "afonso-de-albuquerque",
   "name": "Afonso de Albuquerque",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "afonso de albuquerque",
    "alfonso de albuquerque"
@@ -9089,7 +9089,7 @@
  {
   "id": "andreas-vesalius",
   "name": "Andreas Vesalius",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "andreas vesalius",
    "vesalius"
@@ -9329,7 +9329,7 @@
  {
   "id": "francisco-vazquez-de-coronado",
   "name": "Francisco Vázquez de Coronado",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "francisco vazquez de coronado",
    "coronado",
@@ -9425,7 +9425,7 @@
  {
   "id": "simon-de-montfort",
   "name": "Simon de Montfort",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "simon de montfort",
    "simon de montfort 6th earl of leicester"
@@ -9522,7 +9522,7 @@
  {
   "id": "jose-marti",
   "name": "José Martí",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "jose marti",
    "josé martí",
@@ -9600,7 +9600,7 @@
  {
   "id": "wernher-von-braun",
   "name": "Wernher von Braun",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "wernher von braun",
    "von braun",
@@ -10038,7 +10038,7 @@
  {
   "id": "yitzhak-rabin",
   "name": "Yitzhak Rabin",
-  "difficulty": "easy",
+  "difficulty": "medium",
   "variants": [
    "yitzhak rabin",
    "rabin"
@@ -10223,7 +10223,7 @@
  {
   "id": "haile-selassie",
   "name": "Haile Selassie",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "haile selassie",
    "haile selassie i"
@@ -10646,7 +10646,7 @@
  {
   "id": "benjamin-disraeli",
   "name": "Benjamin Disraeli",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "benjamin disraeli",
    "disraeli",
@@ -11639,7 +11639,7 @@
  {
   "id": "napoleon-iii",
   "name": "Napoleon III",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "napoleon iii",
    "napoleon 3",
@@ -11664,7 +11664,7 @@
  {
   "id": "james-i-england",
   "name": "James I of England",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "james i of england",
    "james i",
@@ -11814,7 +11814,7 @@
  {
   "id": "alexander-ii-of-russia",
   "name": "Alexander II of Russia",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "alexander ii of russia",
    "alexander ii",
@@ -11864,7 +11864,7 @@
  {
   "id": "gustavus-adolphus",
   "name": "Gustavus Adolphus",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "gustavus adolphus",
    "gustavus adolphus of sweden",
@@ -11889,7 +11889,7 @@
  {
   "id": "john-iii-sobieski",
   "name": "John III Sobieski",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "john iii sobieski",
    "jan sobieski",
@@ -11939,7 +11939,7 @@
  {
   "id": "constantine-xi",
   "name": "Constantine XI Palaiologos",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "constantine xi",
    "constantine xi palaiologos",
@@ -11964,7 +11964,7 @@
  {
   "id": "tiberius",
   "name": "Tiberius",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "tiberius",
    "emperor tiberius",
@@ -12035,7 +12035,7 @@
  {
   "id": "septimius-severus",
   "name": "Septimius Severus",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "septimius severus",
    "severus",
@@ -12084,7 +12084,7 @@
  {
   "id": "leonidas-i",
   "name": "Leonidas I",
-  "difficulty": "easy",
+  "difficulty": "medium",
   "variants": [
    "leonidas i",
    "leonidas",
@@ -12134,7 +12134,7 @@
  {
   "id": "vercingetorix",
   "name": "Vercingetorix",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "vercingetorix",
    "vercingetorix of gaul"
@@ -12331,7 +12331,7 @@
  {
   "id": "nader-shah",
   "name": "Nader Shah",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "nader shah",
    "nadir shah",
@@ -12554,7 +12554,7 @@
  {
   "id": "georges-clemenceau",
   "name": "Georges Clemenceau",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "georges clemenceau",
    "clemenceau",
@@ -12602,7 +12602,7 @@
  {
   "id": "josip-broz-tito",
   "name": "Josip Broz Tito",
-  "difficulty": "medium",
+  "difficulty": "easy",
   "variants": [
    "josip broz tito",
    "tito",
@@ -12753,7 +12753,7 @@
  {
   "id": "mikhail-kutuzov",
   "name": "Mikhail Kutuzov",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "mikhail kutuzov",
    "kutuzov",
@@ -12778,7 +12778,7 @@
  {
   "id": "michel-ney",
   "name": "Michel Ney",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "michel ney",
    "ney",
