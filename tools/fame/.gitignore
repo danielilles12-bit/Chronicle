@@ -16,3 +16,5 @@ tags.json
 pool_proposal.json
 test_gap.json
 test_scores.json
+salience.json
+suitability.json

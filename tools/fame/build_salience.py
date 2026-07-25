@@ -236,56 +236,100 @@ def norm_name(s):
 # ---------------------------------------------------------------------------
 
 CORE_PROJECTS = {
-    "History", "Classical Greece and Rome", "Middle Ages", "Ancient Egypt",
-    "Ancient Near East", "Military history", "Archaeology", "European history",
-    "Historic sites", "World Digital Library", "Ancient Germanic studies",
-    "Byzantine world", "Mesoamerica", "Assyria", "Prehistory",
+    # General and period history. A Top/High here is the strongest evidence
+    # available that a history enthusiast would place the subject.
+    "History", "History of Science", "European history", "Middle Ages",
+    "Classical Greece and Rome", "Ancient Egypt", "Ancient Near East",
+    "Archaeology", "Byzantine world", "Crusades", "Rome",
+    "Roman and Byzantine emperors", "Mesoamerica", "Assyria", "Prehistory",
+    "Ancient Germanic studies", "Jewish history", "Cold War",
+    "Former countries", "British Empire", "Royalty and Nobility",
+    "British Royalty", "English Royalty", "Ottoman Empire", "Soviet Union",
+    "American Revolutionary War", "American Civil War", "United States History",
+    "Military history", "Pritzker Military Library", "Historic sites",
+    "World Heritage Sites", "Indigenous peoples of the Americas",
+    "Indigenous peoples of North America", "Civil Rights Movement",
+    "Numismatics", "Heraldry and vexillology", "Mongols",
+    "Norse history and culture", "Anglo-Saxon Kingdoms", "Phoenicia",
+    "Arctic", "Antarctica",
+    # WikiProject Military history deliberately abolished importance
+    # ratings, so it contributes nothing numeric -- kept here only so the
+    # bucket audit reads honestly. Its military biographies are picked up
+    # instead through Biography's military biography work group, below.
+    # Arctic/Antarctica look like geography projects but are in practice
+    # the only home that rates polar explorers (Amundsen, Shackleton,
+    # Scott, Franklin) -- omitting them buried the entire heroic age.
 }
 
 PERIOD_PROJECTS = {
-    # National / regional history projects
-    "British Empire", "Royalty and Nobility", "Politics", "Egypt", "Greece",
-    "Italy", "France", "Germany", "Spain", "Portugal", "Russia", "China",
-    "Japan", "India", "Iran", "Turkey", "Ottoman Empire", "Israel",
-    "Judaism", "Africa", "Mexico", "Peru", "Brazil", "United States",
-    "United States History", "American Revolutionary War", "American Civil War",
-    "Australia", "Canada", "Ireland", "Scotland", "Wales", "England",
-    "Netherlands", "Sweden", "Norway", "Denmark", "Poland", "Hungary",
-    "Austria", "Switzerland", "Korea", "Vietnam", "Indonesia", "Thailand",
-    "Mongols", "Central Asia", "Caribbean", "Latin America", "Nordic countries",
-    "Former countries", "Heraldry and vexillology", "Numismatics",
-    "Women's History", "Anthropology", "Ethnic groups", "Maritime warfare",
-    "Ships", "Castles", "Cities", "National Register of Historic Places",
-    "World Heritage Sites", "Extinct and endangered languages",
+    # National, regional and thematic projects. Real evidence, but these
+    # rate their own nationals generously, so they carry ~0.62 weight.
+    "Politics", "International relations", "Women's History", "Anthropology",
+    "Egypt", "Greece", "Italy", "France", "Germany", "Spain", "Portugal",
+    "Russia", "Ukraine", "China", "Japan", "Korea", "India", "Pakistan",
+    "Bangladesh", "Iran", "Iraq", "Syria", "Turkey", "Israel", "Judaism",
+    "Arab world", "Afghanistan", "Central Asia", "Southeast Asia", "Asia",
+    "East Asia", "Africa", "African diaspora", "South Africa", "Ethiopia",
+    "Nigeria", "Mexico", "Peru", "Brazil", "Argentina", "Cuba", "Haiti",
+    "Latin America", "South America", "Caribbean", "United States",
+    "United States Constitution", "U.S. Congress", "Australia", "Canada",
+    "New Zealand", "Ireland", "Scotland", "Wales", "England",
+    "Politics of the United Kingdom", "United Kingdom", "Netherlands",
+    "Belgium", "Sweden", "Norway", "Denmark", "Finland", "Nordic countries",
+    "Poland", "Hungary", "Czech Republic", "Austria", "Switzerland",
+    "Romania", "Greece", "Serbia", "Croatia", "Vietnam", "Indonesia",
+    "Thailand", "Philippines", "Tambayan Philippines", "Ethnic groups",
+    "Extinct and endangered languages", "Writing systems", "Latin",
+    "Ships", "Maritime warfare", "Castles", "Cities",
+    "National Register of Historic Places", "Museums", "Libraries",
+    "Sicily", "Lithuania", "Bulgaria", "Palestine", "Albania", "Slovakia",
+    "Greenland", "Iceland", "Armenia", "Georgia (country)", "Azerbaijan",
+    "European Microstates",
+    # Outlaws, plotters and notorious criminals are popular-history
+    # staples (Guy Fawkes, Billy the Kid, Ned Kelly); this is their only
+    # rating home and it belongs above the "weak" tier.
+    "Crime and Criminal Biography",
 }
 
 WEAK_PROJECTS = {
+    # Adjacent fields: genuinely historical for some subjects, but they also
+    # rate a great deal of modern material, so ~0.30 weight.
     "Biography", "Philosophy", "Religion", "Christianity", "Catholicism",
-    "Islam", "Hinduism", "Buddhism", "Saints", "Bible", "Literature",
-    "Books", "Visual arts", "Architecture", "Classical music", "Opera",
+    "Islam", "Hinduism", "Buddhism", "Saints", "Bible", "Theology",
+    "Lutheranism", "Zoroastrianism", "Literature", "Books", "Poetry",
+    "Novels", "Theatre", "Visual arts", "Architecture", "Sculpture",
+    "Painting", "Photography", "Classical music", "Opera", "Composers",
     "Science", "Physics", "Chemistry", "Astronomy", "Mathematics",
     "Medicine", "Biology", "Technology", "Engineering", "Civil engineering",
-    "Trains", "Aviation", "Spaceflight", "Law", "Economics", "Sociology",
-    "Linguistics", "Museums", "Libraries", "Sculpture", "Painting",
-    "Rocks and minerals", "Geology", "Palaeontology", "Human rights",
-    "Amateur Radio", "Alternative Views", "Death", "Disaster management",
+    "Electrical engineering", "Trains", "Aviation", "Spaceflight",
+    "Computing", "Law", "Economics", "Sociology", "Linguistics",
+    "Geology", "Palaeontology", "Rocks and minerals", "Human rights",
+    "Feminism", "Socialism", "Conservatism", "Anarchism", "Freemasonry",
+    "Energy", "Journalism", "Education", "Business", "Death",
+    "Science Fiction", "Children's literature", "Women writers",
+    "Women in Religion", "Women scientists", "Psychology", "Physiology",
+    "Geography", "Protected areas", "Gemology and Jewelry", "Cemeteries",
+    "Smithsonian Institution", "British Library", "Atheism",
 }
 
-# Slash-paths that are strong history evidence even though the parent
-# project is generic. Biography's top level carries no importance value at
-# all (it delegates to work groups), so these matter a great deal.
-CORE_SUBPROJECTS = {
-    "Biography/military work group",
-    "Biography/politics and government work group",
-    "Biography/royalty work group",
-    "Biography/peerage and baronetage work group",
-    "Biography/core biographies work group",
-    "Military history/Military biography task force",
-    "Military history/Classical warfare task force",
-    "Military history/Medieval warfare task force",
-    "Military history/Early Modern warfare task force",
-    "Military history/Roman and Byzantine military history task force",
-}
+# WikiProject Biography's top level carries NO importance value at all --
+# it delegates entirely to work groups -- so these matter a great deal.
+# They are the main route by which military and political figures whose
+# only other home is (deliberately unrated) WikiProject Military history
+# get scored. Matched by keyword because the naming is inconsistent
+# upstream ("military biography work group" vs "WikiProject Royalty and
+# Nobility" vs "politics and government work group"); the exact strings
+# were read off the live API, not guessed.
+BIO_CORE_KEYWORDS = ("military", "politics and government", "royalty",
+                     "peerage", "core biographies")
+# Real work groups that are not history-flavoured. An arts/entertainment
+# or science Top rating is weak evidence of *history-enthusiast*
+# recognition -- the general-fame anchor already rewards those people.
+BIO_WEAK_KEYWORDS = ("arts and entertainment", "science and academia",
+                     "musician", "actors", "filmmaker", "writers and poets")
+# Anything else under Biography (notably "sports and games work group")
+# scores zero: a Top rating from WikiProject Baseball is no evidence at
+# all about history-audience recognition.
 
 IMPORTANCE_VALUE = {
     "Top": 100.0,
@@ -306,9 +350,14 @@ CLASS_VALUE = {
 
 
 def project_bucket(project):
-    if project in CORE_SUBPROJECTS:
-        return "core"
-    head = project.split("/", 1)[0]
+    head, _, tail = project.partition("/")
+    if head == "Biography" and tail:
+        low = tail.lower()
+        if any(k in low for k in BIO_CORE_KEYWORDS):
+            return "core"
+        if any(k in low for k in BIO_WEAK_KEYWORDS):
+            return "weak"
+        return None          # sports and games, and anything unrecognised
     if head in CORE_PROJECTS:
         return "core"
     if head in PERIOD_PROJECTS:
@@ -318,25 +367,27 @@ def project_bucket(project):
     return None
 
 
-BUCKET_WEIGHT = {"core": 1.0, "period": 0.62, "weak": 0.30}
+# "weak" was originally 0.30. Raised to 0.40 after seeing Isambard Kingdom
+# Brunel -- Top-importance in Civil engineering, runner-up in 100 Greatest
+# Britons, an In Our Time subject and a Great Lives subject -- score only
+# 33/100 on history importance. The history of science, engineering and
+# ideas is squarely inside this audience's interests, and 0.30 was
+# punishing every figure whose only rating home is a discipline project.
+BUCKET_WEIGHT = {"core": 1.0, "period": 0.62, "weak": 0.40}
 
 
 def score_assessments(assessments):
     """assessments: {project: {"class":..., "importance":...}} -> dict of
     history_importance components. Returns (raw_score 0-100, detail)."""
-    scored = []          # (weight, value, project)
+    scored = []          # (bucket_weight, value, project, importance)
     best_class = 0.0
-    n_core_top_high = 0
-    seen_projects = 0
+    breadth_weight = 0.0
     for project, rec in (assessments or {}).items():
-        if project in ("Project-independent assessment",):
-            cls = (rec or {}).get("class") or ""
-            best_class = max(best_class, CLASS_VALUE.get(cls, 0.0))
-            continue
-        seen_projects += 1
-        bucket = project_bucket(project)
         cls = (rec or {}).get("class") or ""
         best_class = max(best_class, CLASS_VALUE.get(cls, 0.0))
+        if project == "Project-independent assessment":
+            continue
+        bucket = project_bucket(project)
         if bucket is None:
             continue
         imp = (rec or {}).get("importance") or ""
@@ -344,36 +395,46 @@ def score_assessments(assessments):
         if val is None:
             continue
         scored.append((BUCKET_WEIGHT[bucket], val, project, imp))
-        if bucket == "core" and imp in ("Top", "High"):
-            n_core_top_high += 1
+        # BREADTH: how many history projects claim this subject at all, at
+        # Mid or better. This is a genuinely separate fact from the peak
+        # rating. Simon de Montfort is only "Mid" anywhere, but he is Mid
+        # in nine history projects at once -- England, Middle Ages, France,
+        # English Royalty, Crusades, military biography, politics, royalty,
+        # peerage -- which is precisely what "woven through the historical
+        # record" looks like. Kim Kardashian is in none.
+        if imp in ("Top", "High", "Mid"):
+            breadth_weight += BUCKET_WEIGHT[bucket]
 
     if not scored:
         return None, {
-            "n_history_projects": 0,
-            "best": None,
-            "best_project": None,
-            "breadth": 0,
-            "class_value": round(best_class, 1),
+            "n_history_projects": 0, "best": None, "best_project": None,
+            "breadth_weight": 0.0, "class_value": round(best_class, 1),
         }
 
-    # Weighted best-of, then a breadth bonus. Rationale: one Top-importance
-    # rating from WikiProject History is worth more than five Low ratings
-    # from national projects, but a subject that several history projects
-    # independently call High is more woven into the field than one that a
-    # single project calls Top.
+    # Peak: weighted best-of-two, but the second opinion only counts if it
+    # is itself a Mid-or-better rating. Otherwise a figure who happens to
+    # carry one incidental Low banner from an unrelated project is punished
+    # for it -- Ivan the Terrible is Top-importance to WikiProject Russia
+    # and simply has not been assessed by anyone else, and averaging in a
+    # stray Low was costing him ~9 points of history importance for a fact
+    # about Wikipedia's banner coverage rather than about Ivan.
     scored.sort(key=lambda t: -(t[0] * t[1]))
     top = scored[0]
-    base = top[0] * top[1]
-    if len(scored) > 1:
-        second = scored[1]
-        base = 0.72 * base + 0.28 * (second[0] * second[1])
-    breadth_bonus = min(18.0, 6.0 * n_core_top_high)
-    raw = min(100.0, base + breadth_bonus)
+    peak = top[0] * top[1]
+    seconds = [s for s in scored[1:] if s[3] in ("Top", "High", "Mid")]
+    if seconds:
+        peak = 0.74 * peak + 0.26 * (seconds[0][0] * seconds[0][1])
+
+    # Breadth saturates: the 2nd and 3rd history home say a lot, the 9th
+    # says little. 1 core home ~= 28, 3 ~= 63, 6 ~= 85.
+    breadth = 100.0 * (1.0 - math.exp(-breadth_weight / 3.0))
+
+    raw = min(100.0, 0.70 * peak + 0.38 * breadth)
     return raw, {
         "n_history_projects": len(scored),
         "best": top[3],
         "best_project": top[2],
-        "breadth": n_core_top_high,
+        "breadth_weight": round(breadth_weight, 2),
         "class_value": round(best_class, 1),
     }
 
@@ -483,6 +544,126 @@ def harvest_in_our_time(offline=False, verbose=True):
     return targets, plains
 
 
+GREAT_LIVES_TITLE = "Great Lives"
+
+
+def harvest_great_lives(offline=False, verbose=True):
+    """BBC Radio 4 *Great Lives*: ~1,300 episodes, each nominating ONE
+    person. Table columns: 1 guest, 2 nominee, 3 presenter. Only column 2
+    is the subject -- column 1 is the celebrity guest and column 3 the
+    presenter, and counting either would be actively wrong.
+
+    This is the person-dense complement to *In Our Time*, which is
+    overwhelmingly about events, concepts and works rather than people.
+    """
+    data = api({"action": "query", "prop": "revisions", "rvprop": "content",
+                "rvslots": "main", "titles": GREAT_LIVES_TITLE,
+                "redirects": "1"}, offline=offline)
+    pages = data.get("query", {}).get("pages", [])
+    if not pages or "missing" in pages[0]:
+        if verbose:
+            print("  Great Lives: article not found", file=sys.stderr)
+        return set()
+    wt = pages[0]["revisions"][0]["slots"]["main"]["content"]
+
+    out = set()
+    in_table = False
+    cell_idx = 0
+    for line in wt.splitlines():
+        s = line.strip()
+        if s.startswith("{|"):
+            in_table, cell_idx = True, 0
+            continue
+        if s.startswith("|}"):
+            in_table = False
+            continue
+        if not in_table:
+            continue
+        if s.startswith("|-"):
+            cell_idx = 0
+            continue
+        if s.startswith("!"):
+            continue
+        if not s.startswith("|"):
+            continue
+        cell = s[1:].strip()
+        # rowspan'd presenter cells carry an attribute prefix; strip it so
+        # the column index stays aligned with the visible table.
+        if re.match(r'^\s*rowspan\s*=', cell, re.I):
+            cell = cell.split("|", 1)[1] if "|" in cell else ""
+        cell_idx += 1
+        if cell_idx != 2:
+            continue
+        for m in WIKILINK_RE.finditer(cell):
+            tgt = m.group(1).strip()
+            if tgt and not tgt.startswith(("File:", "Image:", "Category:")):
+                out.add(tgt)
+    if verbose:
+        print("  Great Lives: %d nominated subjects" % len(out), file=sys.stderr)
+    return out
+
+
+GREATEST_HUB = "Greatest Britons spin-offs"
+
+
+def harvest_greatest_polls(offline=False, verbose=True):
+    """National "greatest countryman" television polls -- the BBC's 100
+    Greatest Britons and its ~40 international spin-offs (Unsere Besten,
+    De Grootste Nederlander, Le Plus Grand Francais, El Gen Argentino...).
+
+    These are mass-audience votes on historical standing, which is a
+    different and useful thing from either pageviews or editor judgement,
+    and unlike the two BBC radio corpora they are not Anglocentric.
+
+    Returned links are raw wikilinks from the poll articles, so callers
+    must restrict credit to person-class titles: poll articles also link
+    to broadcasters, countries and occupations.
+    """
+    data = api({"action": "query", "prop": "revisions", "rvprop": "content",
+                "rvslots": "main", "titles": GREATEST_HUB, "redirects": "1"},
+               offline=offline)
+    pages = data.get("query", {}).get("pages", [])
+    if not pages or "missing" in pages[0]:
+        if verbose:
+            print("  greatest polls: hub not found", file=sys.stderr)
+        return set(), []
+    hub = pages[0]["revisions"][0]["slots"]["main"]["content"]
+
+    poll_titles = set()
+    for m in WIKILINK_RE.finditer(hub):
+        tgt = m.group(1).strip()
+        if re.search(r"(greatest|grootste|besten|gen argentino|grandes|"
+                     r"velk|nej|suur|store|storste|mari rom|plus grand)",
+                     tgt, re.I):
+            poll_titles.add(tgt)
+    poll_titles.add("100 Greatest Britons")
+
+    names = set()
+    used = []
+    for pt in sorted(poll_titles):
+        try:
+            d = api({"action": "query", "prop": "revisions",
+                     "rvprop": "content", "rvslots": "main", "titles": pt,
+                     "redirects": "1"}, offline=offline)
+            p = d.get("query", {}).get("pages", [])
+            if not p or "missing" in p[0] or not p[0].get("revisions"):
+                continue
+            body = p[0]["revisions"][0]["slots"]["main"]["content"]
+        except Exception:                                # noqa: BLE001
+            continue
+        before = len(names)
+        for m in WIKILINK_RE.finditer(body):
+            tgt = m.group(1).strip()
+            if tgt and not tgt.startswith(("File:", "Image:", "Category:",
+                                           "Template:", "wikt:")):
+                names.add(tgt)
+        used.append((pt, len(names) - before))
+    if verbose:
+        print("  greatest polls: %d poll articles, %d candidate links"
+              % (len(used), len(names)), file=sys.stderr)
+    return names, used
+
+
 def canonicalize(titles, offline=False, verbose=True):
     """raw title -> canonical enwiki title (redirects followed)."""
     out = {}
@@ -527,7 +708,7 @@ def harvest_page_facts(titles, offline=False, verbose=True):
             for data in api_continue({
                 "action": "query", "titles": "|".join(batch),
                 "prop": "info|pageassessments", "palimit": "max",
-                "redirects": "1",
+                "pasubprojects": "1", "redirects": "1",
             }, offline=offline):
                 q = data.get("query", {})
                 if first:
@@ -711,13 +892,22 @@ def main():
     print("[4/6] vital articles", file=sys.stderr)
     vital = harvest_vital(offline=args.offline)
 
-    print("[5/6] In Our Time", file=sys.stderr)
+    print("[5/6] audience corpora", file=sys.stderr)
     iot_targets, iot_plains = harvest_in_our_time(offline=args.offline)
-    iot_canon = canonicalize(sorted(iot_targets), offline=args.offline)
-    iot_titles = set(iot_canon.values()) | set(iot_targets)
-    iot_norm = {norm_name(t) for t in iot_titles} | \
-               {norm_name(t) for t in iot_plains}
+    gl_targets = harvest_great_lives(offline=args.offline)
+    poll_targets, polls_used = harvest_greatest_polls(offline=args.offline)
+
+    canon = canonicalize(sorted(iot_targets | gl_targets | poll_targets),
+                         offline=args.offline)
+    iot_titles = set(iot_targets) | {canon[t] for t in iot_targets if t in canon}
+    gl_titles = set(gl_targets) | {canon[t] for t in gl_targets if t in canon}
+    poll_titles_set = set(poll_targets) | \
+        {canon[t] for t in poll_targets if t in canon}
+    iot_norm = ({norm_name(t) for t in iot_titles}
+                | {norm_name(t) for t in iot_plains})
     iot_norm.discard("")
+    gl_norm = {norm_name(t) for t in gl_titles}
+    gl_norm.discard("")
 
     print("[6/6] scoring", file=sys.stderr)
 
@@ -734,8 +924,16 @@ def main():
         hist_raw, hist_detail = score_assessments(assessments)
         vlevel = vital.get(title) or vital.get(fct.get("resolved") or "")
         n = norm_name(title)
-        iot_hit = (title in iot_titles) or (fct.get("resolved") in iot_titles) \
+        resolved = fct.get("resolved")
+        iot_hit = (title in iot_titles) or (resolved in iot_titles) \
             or (n in iot_norm)
+        gl_hit = (title in gl_titles) or (resolved in gl_titles) \
+            or (n in gl_norm)
+        # Poll articles link to broadcasters, countries and occupations as
+        # well as to the ranked people, so this credit is restricted to
+        # person-class titles.
+        poll_hit = cls == "person" and (
+            title in poll_titles_set or resolved in poll_titles_set)
         rows.append({
             "wiki_title": title,
             "class": cls,
@@ -748,6 +946,10 @@ def main():
             "hist_detail": hist_detail,
             "vital_level": vlevel,
             "iot": bool(iot_hit),
+            "great_lives": bool(gl_hit),
+            "greatest_poll": bool(poll_hit),
+            "corpus_hits": int(bool(iot_hit)) + int(bool(gl_hit))
+                           + int(bool(poll_hit)),
             "missing_article": bool(fct.get("missing")),
         })
 
@@ -801,9 +1003,12 @@ def main():
     # Weights are argued in SALIENCE.md. The short version:
     #  * history_importance is the only signal that is a direct expert
     #    judgement of historical significance -> largest weight.
-    #  * In Our Time is the only signal drawn from this exact audience, but
-    #    it is binary and covers ~1,100 subjects -> a bounded bonus, not a
-    #    driver, so absence never condemns.
+    #  * The audience corpora (In Our Time, Great Lives, national
+    #    "greatest countryman" polls) are the only signals drawn from this
+    #    exact audience, but they are binary and cover a few thousand
+    #    subjects -> a bounded bonus, not a driver, so absence never
+    #    condemns. Presence in two or three is markedly better evidence
+    #    than presence in one, so the bonus is stepped rather than flat.
     #  * vital level is general encyclopaedic canon: real corroboration,
     #    but it drifts toward "important" rather than "beloved".
     #  * density/depth are traffic-independent footprint measures. They are
@@ -813,7 +1018,7 @@ def main():
     #    subject with NO public footprint at all is academic syllabus
     #    knowledge, which is the exact failure the launch review named.
     W_HIST, W_VITAL, W_DENSITY, W_DEPTH, W_FAME = 0.42, 0.14, 0.13, 0.09, 0.22
-    IOT_BONUS = 9.0
+    CORPUS_BONUS = {0: 0.0, 1: 7.0, 2: 12.0, 3: 15.0}
 
     for cls, group in by_class.items():
         for g in group:
@@ -827,8 +1032,7 @@ def main():
                     + W_DENSITY * g["density_pct"]
                     + W_DEPTH * g["depth_pct"]
                     + W_FAME * fame_used)
-            if g["iot"]:
-                core += IOT_BONUS
+            core += CORPUS_BONUS.get(g["corpus_hits"], 15.0)
             g["salience_raw"] = max(0.0, min(100.0, core))
         rank_into(group, "salience_raw", "salience", 0.0)
 
@@ -851,10 +1055,13 @@ def main():
                 "history_best_rating": d.get("best"),
                 "history_best_project": d.get("best_project"),
                 "history_projects_rating_it": d.get("n_history_projects", 0),
-                "core_top_high_breadth": d.get("breadth", 0),
+                "history_breadth_weight": d.get("breadth_weight", 0.0),
                 "article_class_value": d.get("class_value"),
                 "vital_level": r["vital_level"],
                 "in_our_time": r["iot"],
+                "great_lives": r["great_lives"],
+                "greatest_poll": r["greatest_poll"],
+                "corpus_hits": r["corpus_hits"],
                 "record_density_pct": round(r["density_pct"], 2),
                 "article_depth_pct": round(r["depth_pct"], 2),
             },
@@ -881,6 +1088,8 @@ def main():
                            if r and isinstance(r["fame"], (int, float))
                            else None),
             "in_our_time": (r or {}).get("iot"),
+            "great_lives": (r or {}).get("great_lives"),
+            "greatest_poll": (r or {}).get("greatest_poll"),
             "history_importance": (round(r["hist_raw"], 1)
                                    if r and r["hist_raw"] is not None else None),
             "history_best_rating": ((r or {}).get("hist_detail") or {}).get("best"),
@@ -908,7 +1117,11 @@ def main():
     diag["titles_with_history_importance"] = sum(
         1 for r in rows if r["hist_raw"] is not None)
     diag["titles_in_our_time"] = sum(1 for r in rows if r["iot"])
+    diag["titles_great_lives"] = sum(1 for r in rows if r["great_lives"])
+    diag["titles_greatest_poll"] = sum(1 for r in rows if r["greatest_poll"])
+    diag["titles_any_corpus"] = sum(1 for r in rows if r["corpus_hits"])
     diag["titles_vital"] = sum(1 for r in rows if r["vital_level"])
+    diag["greatest_poll_articles_used"] = len(polls_used)
 
     output = {
         "generatedOn": GENERATED_ON,
@@ -921,7 +1134,8 @@ def main():
         "weights": {
             "history_importance": W_HIST, "vital": W_VITAL,
             "record_density": W_DENSITY, "article_depth": W_DEPTH,
-            "general_fame_anchor": W_FAME, "in_our_time_bonus": IOT_BONUS,
+            "general_fame_anchor": W_FAME,
+            "audience_corpus_bonus_by_hits": CORPUS_BONUS,
         },
         "diagnostics": diag,
         "counts": {
