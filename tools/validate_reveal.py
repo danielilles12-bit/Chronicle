@@ -131,6 +131,99 @@ def match_normalize(s):
     return " ".join(out)
 
 
+# ---------- clueOccupation() parity (js/revealgame.js) ----------
+# Mirrors clueOccupation() exactly: WHO blurbs are "Occupation (years) ·
+# credit" — the occupation/"Claim to fame" clue is everything before the
+# first "(", then (belt and suspenders) before any bare "·" too, with
+# trailing middots/commas/whitespace stripped. Face Value only — Relic
+# (reveal-what) items use a different pair of clues (initials + era, see
+# js/revealgame.js clueDefs()) and never call this function; Lifeline
+# (figures.json) has no derivation at all — its "Claim to fame" clue is
+# the raw `occupation` field, shown verbatim.
+def clue_occupation(item):
+    occ = (item.get("blurb") or "").split("(")[0]
+    occ = occ.split("·")[0]  # '·' MIDDLE DOT
+    occ = occ.strip()
+    occ = re.sub(r"[·,\s]+$", "", occ)
+    return occ.strip()
+
+
+# ---------- containsPhrase() guard-rail parity (js/match.js) ----------
+# js/match.js was hardened 25 Jul 2026 so a variant composed ENTIRELY of
+# structural stopwords and/or bare royal/honorific titles (CORE_STOPWORDS /
+# TITLES below, containsPhrase()'s `variantToks.every(...)` guard, js/
+# match.js:296-298) can never carry a match on its own: Elizabeth II's "the
+# queen" variant must still match "the queen" exactly, but the bare word
+# "queen" must never drag "Queen Victoria" or "queen of England" into a
+# false match. A player typing just "queen" therefore cannot win the round
+# — so a clue containing that word alone leaks nothing. Ported here (not
+# duplicated as a hand-written word list) so the leak check can never drift
+# from the production matcher; if js/match.js's CORE_STOPWORDS/TITLES ever
+# change, update these two sets to match.
+CORE_STOPWORDS = {
+    "the", "of", "a", "an", "and", "in", "la", "le", "el", "de", "di",
+    "von", "van", "der", "den", "da", "du", "al", "ii", "iii",
+    "with", "off", "on", "at", "for", "to", "from", "as",
+    "girl", "boy", "man", "woman",
+}
+TITLES = {
+    "queen", "king", "emperor", "empress", "tsar", "tsarina", "kaiser",
+    "sultan", "pharaoh", "pope", "saint", "st", "sir", "lord", "lady",
+    "president", "general", "chancellor",
+}
+
+
+def _matcher_would_refuse(normalized):
+    """True when `normalized` is a string containsPhrase() would refuse to
+    match on by itself — every one of its tokens is a stopword or a bare
+    title. A clue containing such a string leaks nothing a real guess could
+    win on."""
+    toks = normalized.split(" ")
+    return bool(toks) and all(t in CORE_STOPWORDS or t in TITLES for t in toks)
+
+
+# ---------- paid clue must not leak the answer ----------
+# 22 Jul 2026 paid-clue sweep: 33 "Claim to fame" clues literally contained
+# (or were exactly) a string the matcher accepts for that same item —
+# van-gogh-self's clue was "Vincent van Gogh"; ella-fitzgerald's named "the
+# First Lady of Song" (an accepted variant); samuel-morse's contained
+# "Morse"; george-eliot's named "Mary Ann Evans". A player could paste the
+# clue they just paid for straight into the answer box. Guard against a
+# recurrence: ERROR if the normalized clue contains, as a whole-word
+# (space-bounded) substring, the item's own name or any variant — but only
+# a variant the production matcher would actually accept as a standalone
+# guess (see _matcher_would_refuse above); matches under MIN_LEAK_LEN chars
+# are also skipped (too short/generic to be a meaningful leak on their own).
+MIN_LEAK_LEN = 4
+
+
+def _contains_whole(haystack, needle):
+    if not needle:
+        return False
+    return f" {needle} " in f" {haystack} "
+
+
+def check_clue_leak(item, iid, label, clue_text, err):
+    """error if `clue_text` (already the derived clue, not the raw blurb)
+    contains the item's own name/variants as a whole-word substring."""
+    nclue = match_normalize(clue_text)
+    if not nclue:
+        return
+    candidates = [item.get("name", "")]
+    candidates.extend(item.get("variants") or [])
+    seen = set()
+    for c in candidates:
+        nc = match_normalize(c)
+        if not nc or nc in seen:
+            continue
+        seen.add(nc)
+        if len(nc) < MIN_LEAK_LEN or _matcher_would_refuse(nc):
+            continue
+        if _contains_whole(nclue, nc):
+            err(f"{label} {iid}: clue {clue_text!r} leaks the answer — "
+                f"contains {c!r} (normalized {nc!r})")
+
+
 def check_reject_hygiene(item, iid, label, err):
     """error if a reject entry normalizes to the item's own name/variant."""
     rejects = item.get("reject") or []
@@ -174,6 +267,9 @@ def check_reveal(path):
                     warn(f"{path} {iid}: Lived clue (clueYears) yields no value — clue B would be blank")
             elif ROLE_WORD_RE.search(val):
                 err(f"{path} {iid}: Lived clue {val!r} reads like an office/role date, not a lifespan")
+            occ = clue_occupation(it)
+            if occ:
+                check_clue_leak(it, iid, path, occ, err)
         check_reject_hygiene(it, iid, path, err)
         if it.get("difficulty") not in DIFFICULTIES:
             err(f"{path} {iid}: bad difficulty {it.get('difficulty')!r}")
@@ -203,6 +299,67 @@ def check_reveal(path):
     return len(items)
 
 
+# A birth/death city segment named by more figures' occupations than this
+# (Rome, London, Paris, Vienna, Florence, Athens ... — imperial/dynastic
+# capitals a big chunk of the pool is tied to) is common enough that naming
+# it doesn't meaningfully narrow down which dot on the map is being
+# described, so it's downgraded to WARN alongside the country-level case
+# rather than blocking the build. Empirically (figures.json, 24 Jul 2026):
+# of 727 distinct birth/death city segments, 697 (96%) are used by <=3
+# figures — those are the real, specific pinpoints this check exists to
+# catch (Shackleton/"South Georgia", Pizarro/"Lima", Richard II/
+# "Pontefract" ...); the handful above the threshold are shared capitals.
+COMMON_PLACE_THRESHOLD = 3
+
+
+def build_place_frequency(figs):
+    """normalized birth/death place FIRST segment (the city) -> how many
+    figures in the pool use it, for check_map_place_leak's common-place
+    downgrade."""
+    freq = Counter()
+    for f in figs:
+        for end in ("birth", "death"):
+            place = (f.get(end) or {}).get("place") or ""
+            parts = [p.strip() for p in place.split(",") if p.strip()]
+            if parts:
+                freq[match_normalize(parts[0])] += 1
+    return freq
+
+
+def check_map_place_leak(fig, fid, err, warn, place_freq):
+    """Lifeline's puzzle is inferring the figure from birth/death geography
+    shown only as map coordinates during the round (js/mapgame.js) — an
+    `occupation` clue that names the birth/death place in text hands part
+    of that over for free. ERROR when a specific, rare city/region segment
+    leaks (a real giveaway); WARN when only the LAST comma-separated
+    segment of `place` (the country) matches, or when the matched segment
+    is a common shared capital (see COMMON_PLACE_THRESHOLD) — both are
+    real but much weaker giveaways than a named, rare city, so they're
+    downgraded rather than blocking the build. A single-segment place (no
+    comma at all) can't be told apart from a bare country by the
+    country-check, so it falls through to the frequency check instead."""
+    occ = match_normalize(fig.get("occupation") or "")
+    if not occ:
+        return
+    for end in ("birth", "death"):
+        place = (fig.get(end) or {}).get("place") or ""
+        parts = [p.strip() for p in place.split(",") if p.strip()]
+        for i, part in enumerate(parts):
+            npart = match_normalize(part)
+            if len(npart) < MIN_LEAK_LEN or all(t in CORE_STOPWORDS for t in npart.split(" ")):
+                continue
+            if not _contains_whole(occ, npart):
+                continue
+            msg = (f"figures {fid}: occupation {fig.get('occupation')!r} leaks the "
+                   f"{end} place — contains {part!r} (normalized {npart!r})")
+            if len(parts) > 1 and i == len(parts) - 1:
+                warn(msg + " [country-level only]")
+            elif place_freq.get(npart, 0) > COMMON_PLACE_THRESHOLD:
+                warn(msg + f" [shared by {place_freq[npart]} figures' birth/death place — weak signal]")
+            else:
+                err(msg)
+
+
 def check_figures():
     figs = json.loads((ROOT / "data/figures.json").read_text())
     for dup, n in Counter(f.get("id") for f in figs).items():
@@ -211,6 +368,7 @@ def check_figures():
     for dup, n in Counter(f.get("name", "").lower() for f in figs).items():
         if n > 1:
             err(f"figures: duplicate name {dup!r}")
+    place_freq = build_place_frequency(figs)
     variant_owner = {}
     for f in figs:
         fid = f.get("id", "?")
@@ -218,6 +376,9 @@ def check_figures():
             err(f"figures {fid}: bad difficulty")
         if not str(f.get("occupation") or "").strip():
             err(f"figures {fid}: missing occupation")
+        else:
+            check_clue_leak(f, fid, "figures", f.get("occupation"), err)
+            check_map_place_leak(f, fid, err, warn, place_freq)
         for run in bad_punct_runs(f.get("fact")):
             err(f"figures {fid}: doubled punctuation {run!r} in fact")
         check_reject_hygiene(f, fid, "figures", err)

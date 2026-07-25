@@ -18,6 +18,7 @@ VALIDATORS = [
     ("board data", [os.path.join(ROOT, "tools", "validate_boards.py")]),
     ("image rights", [os.path.join(ROOT, "tools", "audit_rights.py")]),  # offline mode
     ("manifest verify", [os.path.join(ROOT, "tools", "compile_editions.py"), "verify"]),
+    ("schedule repetition", [os.path.join(ROOT, "tools", "validate_schedule.py")]),
 ]
 
 BROWSER = [

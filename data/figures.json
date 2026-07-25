@@ -58,7 +58,7 @@
    "caesar",
    "gaius julius caesar"
   ],
-  "occupation": "Roman general and dictator",
+  "occupation": "Roman general who crossed the Rubicon",
   "birth": {
    "year": -100,
    "place": "Rome, Italy",
@@ -106,7 +106,7 @@
    "albert einstein",
    "einstein"
   ],
-  "occupation": "Theoretical physicist, author of the theory of relativity",
+  "occupation": "Theoretical physicist who redefined space, time and gravity",
   "birth": {
    "year": 1879,
    "place": "Ulm, Germany",
@@ -251,7 +251,7 @@
    "wolfgang amadeus mozart",
    "mozart"
   ],
-  "occupation": "Classical composer, child prodigy of the Salzburg court",
+  "occupation": "Prodigy composer who toured Europe's courts as a child",
   "birth": {
    "year": 1756,
    "place": "Salzburg, Austria",
@@ -348,7 +348,7 @@
    "vincent van gogh",
    "van gogh"
   ],
-  "occupation": "Post-Impressionist painter",
+  "occupation": "Dutch painter of sunflowers and wheatfields",
   "birth": {
    "year": 1853,
    "place": "Zundert, Netherlands",
@@ -371,7 +371,7 @@
    "karl marx",
    "marx"
   ],
-  "occupation": "Philosopher and economist, co-author of The Communist Manifesto",
+  "occupation": "Philosopher and economist who theorised the fall of capitalism",
   "birth": {
    "year": 1818,
    "place": "Trier, Germany",
@@ -661,10 +661,9 @@
   "variants": [
    "catherine the great",
    "catherine ii",
-   "catherine",
    "catherine ii of russia"
   ],
-  "occupation": "Empress of Russia",
+  "occupation": "German princess who ruled Russia longer than any other woman",
   "birth": {
    "year": 1729,
    "place": "Stettin, Prussia (Szczecin, Poland)",
@@ -736,7 +735,7 @@
    "king of pop",
    "the king of pop"
   ],
-  "occupation": "Singer and dancer",
+  "occupation": "Child star who grew into the best-selling album of all time",
   "birth": {
    "year": 1958,
    "place": "Gary, United States",
@@ -781,7 +780,7 @@
   "variants": [
    "aristotle"
   ],
-  "occupation": "Philosopher",
+  "occupation": "Greek philosopher who tutored a future world conqueror",
   "birth": {
    "year": -384,
    "place": "Stageira, Greece",
@@ -873,7 +872,7 @@
   "variants": [
    "muhammad"
   ],
-  "occupation": "Prophet",
+  "occupation": "Prophet who received the Quran and founded a faith",
   "birth": {
    "year": 571,
    "place": "Mecca, Saudi Arabia",
@@ -920,7 +919,7 @@
    "joseph stalin",
    "stalin"
   ],
-  "occupation": "Dictator and leader of the Soviet Union",
+  "occupation": "Georgian who ran the Soviet Union on purges and five-year plans",
   "birth": {
    "year": 1878,
    "place": "Gori, Georgia",
@@ -943,7 +942,7 @@
    "beethoven",
    "ludwig van beethoven"
   ],
-  "occupation": "Composer",
+  "occupation": "Composer who conducted a symphony he could no longer hear",
   "birth": {
    "year": 1770,
    "place": "Bonn, Germany",
@@ -966,7 +965,7 @@
    "alighieri",
    "dante alighieri"
   ],
-  "occupation": "Poet and author",
+  "occupation": "Poet who put his enemies in Hell, by name",
   "birth": {
    "year": 1265,
    "place": "Florence, Italy",
@@ -1058,7 +1057,7 @@
    "chaplin",
    "charlie chaplin"
   ],
-  "occupation": "Actor and author",
+  "occupation": "Silent-film comic in bowler hat and outsized boots",
   "birth": {
    "year": 1889,
    "place": "London, United Kingdom",
@@ -1174,7 +1173,7 @@
    "mark twain",
    "twain"
   ],
-  "occupation": "Novelist and humorist",
+  "occupation": "Riverboat pilot turned American humorist",
   "birth": {
    "year": 1835,
    "place": "Florida, Missouri, United States",
@@ -1197,7 +1196,7 @@
    "edison",
    "thomas edison"
   ],
-  "occupation": "Inventor and engineer",
+  "occupation": "Inventor who industrialised invention itself at Menlo Park",
   "birth": {
    "year": 1847,
    "place": "Milan, United States",
@@ -1266,7 +1265,7 @@
    "cervantes",
    "miguel de cervantes"
   ],
-  "occupation": "Poet and author",
+  "occupation": "Spanish soldier-novelist who lost the use of a hand at Lepanto",
   "birth": {
    "year": 1547,
    "place": "Alcalá de Henares, Spain",
@@ -1288,7 +1287,7 @@
   "variants": [
    "augustus"
   ],
-  "occupation": "Ruler and politician",
+  "occupation": "First Roman emperor",
   "birth": {
    "year": -63,
    "place": "Rome, Italy",
@@ -1311,7 +1310,7 @@
    "charles dickens",
    "dickens"
   ],
-  "occupation": "Editor and author",
+  "occupation": "Victorian novelist who published in monthly instalments",
   "birth": {
    "year": 1812,
    "place": "Portsmouth, United Kingdom",
@@ -1355,7 +1354,7 @@
   "variants": [
    "virgil"
   ],
-  "occupation": "Poet and author",
+  "occupation": "Roman poet commissioned to give Rome a founding epic",
   "birth": {
    "year": -70,
    "place": "Andes, Ancient Rome",
@@ -1424,7 +1423,7 @@
    "andersen",
    "hans christian andersen"
   ],
-  "occupation": "Poet and author",
+  "occupation": "Danish teller of cruel little fairy tales",
   "birth": {
    "year": 1805,
    "place": "Odense, Denmark",
@@ -1447,7 +1446,7 @@
    "marilyn monroe",
    "monroe"
   ],
-  "occupation": "Actor and model",
+  "occupation": "Blonde film star found dead at thirty-six",
   "birth": {
    "year": 1926,
    "place": "Los Angeles, United States",
@@ -1470,7 +1469,7 @@
    "anton chekhov",
    "chekhov"
   ],
-  "occupation": "Author and satirist",
+  "occupation": "Doctor who wrote short stories and quiet plays",
   "birth": {
    "year": 1860,
    "place": "Taganrog, Russia",
@@ -1516,7 +1515,7 @@
    "francis",
    "pope francis"
   ],
-  "occupation": "Pope and head of the Catholic Church",
+  "occupation": "First pope from the Americas, and the first Jesuit",
   "birth": {
    "year": 1936,
    "place": "Flores, Argentina",
@@ -1564,7 +1563,7 @@
    "jean jacques rousseau",
    "rousseau"
   ],
-  "occupation": "Author and essayist",
+  "occupation": "Philosopher who declared man born free and everywhere in chains",
   "birth": {
    "year": 1712,
    "place": "Geneva, Switzerland",
@@ -1587,7 +1586,7 @@
    "jobs",
    "steve jobs"
   ],
-  "occupation": "Founder and inventor",
+  "occupation": "Co-founder who came back to save Apple",
   "birth": {
    "year": 1955,
    "place": "San Francisco, United States",
@@ -1610,7 +1609,7 @@
    "edgar allan poe",
    "poe"
   ],
-  "occupation": "Poet and author",
+  "occupation": "American inventor of the detective story and the literary shiver",
   "birth": {
    "year": 1809,
    "place": "Boston, United States",
@@ -1656,7 +1655,7 @@
    "machiavelli",
    "niccolo machiavelli"
   ],
-  "occupation": "Poet and author",
+  "occupation": "Florentine diplomat whose advice to princes still scandalises",
   "birth": {
    "year": 1469,
    "place": "Florence, Italy",
@@ -1794,7 +1793,7 @@
    "byron",
    "lord byron"
   ],
-  "occupation": "Poet and author",
+  "occupation": "Scandalous Romantic poet, 'mad, bad and dangerous to know'",
   "birth": {
    "year": 1788,
    "place": "London, United Kingdom",
@@ -1840,7 +1839,7 @@
    "benjamin franklin",
    "franklin"
   ],
-  "occupation": "Author and diplomat",
+  "occupation": "Printer, diplomat and kite-flying experimenter",
   "birth": {
    "year": 1706,
    "place": "Boston, United States",
@@ -1863,7 +1862,7 @@
    "elvis presley",
    "presley"
   ],
-  "occupation": "Singer",
+  "occupation": "Truck driver turned singer who made his hips a public-decency issue",
   "birth": {
    "year": 1935,
    "place": "Tupelo, United States",
@@ -1931,7 +1930,7 @@
    "disney",
    "walt disney"
   ],
-  "occupation": "Animator and founder of The Walt Disney Company",
+  "occupation": "Animator who built a theme-park empire out of cartoons",
   "birth": {
    "year": 1901,
    "place": "Chicago, United States",
@@ -1954,7 +1953,7 @@
    "george orwell",
    "orwell"
   ],
-  "occupation": "Author",
+  "occupation": "Old Etonian socialist who distrusted every party, including his own",
   "birth": {
    "year": 1903,
    "place": "Motihari, India",
@@ -2136,7 +2135,7 @@
   "variants": [
    "rembrandt"
   ],
-  "occupation": "Etcher and artist",
+  "occupation": "Dutch master who painted himself getting old",
   "birth": {
    "year": 1606,
    "place": "Leiden, Netherlands",
@@ -2159,7 +2158,7 @@
    "james joyce",
    "joyce"
   ],
-  "occupation": "Poet and author",
+  "occupation": "Irish exile who rebuilt the novel around a single day",
   "birth": {
    "year": 1882,
    "place": "Dublin, Ireland",
@@ -2181,7 +2180,7 @@
   "variants": [
    "john paul ii"
   ],
-  "occupation": "Pope and head of the Catholic Church",
+  "occupation": "Polish pope who outlasted the Eastern Bloc",
   "birth": {
    "year": 1920,
    "place": "Wadowice, Poland",
@@ -2203,7 +2202,7 @@
   "variants": [
    "cicero"
   ],
-  "occupation": "Poet and orator",
+  "occupation": "Roman orator and consul who talked to save the Republic",
   "birth": {
    "year": -106,
    "place": "Arpino, Italy",
@@ -2249,7 +2248,7 @@
    "j r r tolkien",
    "tolkien"
   ],
-  "occupation": "Poet and author",
+  "occupation": "Oxford philologist who fought on the Somme and wrote about small heroes",
   "birth": {
    "year": 1892,
    "place": "Bloemfontein, South Africa",
@@ -2271,7 +2270,7 @@
   "variants": [
    "benedict xvi"
   ],
-  "occupation": "Pope and head of the Catholic Church",
+  "occupation": "German theologian pope who resigned the office",
   "birth": {
    "year": 1927,
    "place": "Marktl, Germany",
@@ -2362,7 +2361,7 @@
   "variants": [
    "ovid"
   ],
-  "occupation": "Poet",
+  "occupation": "Roman poet of love and shape-shifting, exiled by Augustus",
   "birth": {
    "year": -43,
    "place": "Sulmona, Italy",
@@ -2408,7 +2407,7 @@
    "dietrich",
    "marlene dietrich"
   ],
-  "occupation": "Actor and singer",
+  "occupation": "German star who sang for Allied troops against her own country",
   "birth": {
    "year": 1901,
    "place": "Berlin, Germany",
@@ -2474,10 +2473,9 @@
   "id": "henry-ford",
   "name": "Henry Ford",
   "variants": [
-   "ford",
    "henry ford"
   ],
-  "occupation": "Founder of Ford Motor Company",
+  "occupation": "Industrialist whose assembly line made cars cheap",
   "birth": {
    "year": 1863,
    "place": "Dearborn, Michigan, United States",
@@ -2639,7 +2637,7 @@
    "agatha christie",
    "christie"
   ],
-  "occupation": "Author and novelist",
+  "occupation": "Crime writer whose plots have outsold everything but the Bible",
   "birth": {
    "year": 1890,
    "place": "Torquay, United Kingdom",
@@ -2662,7 +2660,7 @@
    "apostle",
    "paul the apostle"
   ],
-  "occupation": "Christian apostle and missionary",
+  "occupation": "Persecutor turned missionary whose letters shaped the Church",
   "birth": {
    "year": 5,
    "place": "Tarsus, Turkey",
@@ -2685,7 +2683,7 @@
    "pyotr ilyich tchaikovsky",
    "tchaikovsky"
   ],
-  "occupation": "Composer, wrote Swan Lake and the 1812 Overture",
+  "occupation": "Russian composer of ballets and cannon-fire finales",
   "birth": {
    "year": 1840,
    "place": "Votkinsk, Russia",
@@ -2752,7 +2750,7 @@
    "alfred nobel",
    "nobel"
   ],
-  "occupation": "Inventor of dynamite, founder of the Nobel Prizes",
+  "occupation": "Inventor of dynamite who left his fortune to a set of prizes",
   "birth": {
    "year": 1833,
    "place": "Stockholm, Sweden",
@@ -2798,7 +2796,7 @@
    "borges",
    "jorge luis borges"
   ],
-  "occupation": "Poet and author",
+  "occupation": "Blind Argentine librarian of labyrinths and infinite libraries",
   "birth": {
    "year": 1899,
    "place": "Buenos Aires, Argentina",
@@ -2913,7 +2911,7 @@
    "kipling",
    "rudyard kipling"
   ],
-  "occupation": "Poet and author",
+  "occupation": "Bard of the British Raj, later its uneasy conscience",
   "birth": {
    "year": 1865,
    "place": "Mumbai, India",
@@ -3028,7 +3026,7 @@
    "george bernard shaw",
    "shaw"
   ],
-  "occupation": "Playwright",
+  "occupation": "Irish playwright, critic and inexhaustible letter-writer",
   "birth": {
    "year": 1856,
    "place": "Dublin, Ireland",
@@ -3077,7 +3075,7 @@
    "queen elizabeth i",
    "gloriana"
   ],
-  "occupation": "Queen",
+  "occupation": "Queen who never married and made a virtue of it",
   "birth": {
    "year": 1533,
    "place": "Greenwich, London, United Kingdom",
@@ -3123,7 +3121,7 @@
    "alfred hitchcock",
    "hitchcock"
   ],
-  "occupation": "Film director, the 'Master of Suspense'",
+  "occupation": "Film director who put ordinary people on very high ledges",
   "birth": {
    "year": 1899,
    "place": "London, United Kingdom",
@@ -3146,7 +3144,7 @@
    "john maynard keynes",
    "keynes"
   ],
-  "occupation": "Economist, founder of Keynesian economics",
+  "occupation": "Economist who argued governments should spend in a slump",
   "birth": {
    "year": 1883,
    "place": "Cambridge, United Kingdom",
@@ -3170,7 +3168,7 @@
    "louis xiv",
    "the sun king"
   ],
-  "occupation": "King of France, the 'Sun King'",
+  "occupation": "King of France who outlived his son and his grandson",
   "birth": {
    "year": 1638,
    "place": "Saint-Germain-en-Laye, France",
@@ -3216,7 +3214,7 @@
    "gorky",
    "maxim gorky"
   ],
-  "occupation": "Poet and author",
+  "occupation": "Tramp turned writer, the Soviet Union's model author",
   "birth": {
    "year": 1868,
    "place": "Nizhny Novgorod, Russia",
@@ -3262,7 +3260,7 @@
    "ali",
    "muhammad ali"
   ],
-  "occupation": "Boxer",
+  "occupation": "Heavyweight champion who changed his name and his religion",
   "birth": {
    "year": 1942,
    "place": "Louisville, United States",
@@ -3353,7 +3351,7 @@
    "andy warhol",
    "warhol"
   ],
-  "occupation": "Artist and author",
+  "occupation": "Pop artist who made a factory of his studio",
   "birth": {
    "year": 1928,
    "place": "Pittsburgh, United States",
@@ -3377,7 +3375,7 @@
    "mercury",
    "farrokh bulsara"
   ],
-  "occupation": "Rock singer, frontman of Queen",
+  "occupation": "Rock singer with a four-octave range and a stadium in his palm",
   "birth": {
    "year": 1946,
    "place": "Zanzibar City, Tanzania",
@@ -3400,7 +3398,7 @@
    "frank lloyd wright",
    "wright"
   ],
-  "occupation": "Architect, pioneer of organic architecture",
+  "occupation": "American architect of the Prairie School and its long horizontals",
   "birth": {
    "year": 1867,
    "place": "Richland Center, United States",
@@ -3515,7 +3513,7 @@
    "johnson",
    "lyndon b johnson"
   ],
-  "occupation": "Rancher and teacher",
+  "occupation": "President who signed the Civil Rights Act and sank into Vietnam",
   "birth": {
    "year": 1908,
    "place": "Stonewall, United States",
@@ -3581,8 +3579,10 @@
   "id": "gerald-ford",
   "name": "Gerald Ford",
   "variants": [
-   "ford",
-   "gerald ford"
+   "gerald ford",
+   "gerald rudolph ford",
+   "president ford",
+   "jerry ford"
   ],
   "occupation": "38th President of the United States",
   "birth": {
@@ -3650,8 +3650,8 @@
   "id": "indira-gandhi",
   "name": "Indira Gandhi",
   "variants": [
-   "gandhi",
-   "indira gandhi"
+   "indira gandhi",
+   "indira priyadarshini gandhi"
   ],
   "occupation": "Prime Minister of India",
   "birth": {
@@ -3767,7 +3767,7 @@
   "variants": [
    "aesop"
   ],
-  "occupation": "Author and fabulist",
+  "occupation": "Legendary slave whose animal fables carry morals",
   "birth": {
    "year": -620,
    "place": "Samos, Greece",
@@ -3790,7 +3790,7 @@
    "neruda",
    "pablo neruda"
   ],
-  "occupation": "Poet and consul",
+  "occupation": "Chilean poet and diplomat who wrote love poems by the hundred",
   "birth": {
    "year": 1904,
    "place": "Parral, Chile",
@@ -3812,7 +3812,7 @@
   "variants": [
    "horace"
   ],
-  "occupation": "Poet and author",
+  "occupation": "Roman poet who told us to seize the day",
   "birth": {
    "year": -65,
    "place": "Venosa, Italy",
@@ -3836,7 +3836,7 @@
    "akbar the great",
    "jalaluddin muhammad akbar"
   ],
-  "occupation": "Mughal Emperor of India",
+  "occupation": "Mughal emperor who invited every religion to argue in his court",
   "birth": {
    "year": 1542,
    "place": "Umarkot, Pakistan",
@@ -3882,7 +3882,7 @@
    "antonio vivaldi",
    "vivaldi"
   ],
-  "occupation": "Composer",
+  "occupation": "Red-haired priest who wrote concertos for an orphanage of girls",
   "birth": {
    "year": 1678,
    "place": "Venice, Italy",
@@ -3905,7 +3905,7 @@
    "diego velazquez",
    "velazquez"
   ],
-  "occupation": "Artist and painter",
+  "occupation": "Court painter to the Spanish king, and to his dwarfs",
   "birth": {
    "year": 1599,
    "place": "Seville, Spain",
@@ -3951,7 +3951,7 @@
    "bob marley",
    "marley"
   ],
-  "occupation": "Singer and composer",
+  "occupation": "Reggae singer-songwriter",
   "birth": {
    "year": 1945,
    "place": "Nine Mile, Jamaica",
@@ -4020,7 +4020,7 @@
    "mann",
    "thomas mann"
   ],
-  "occupation": "Poet and author",
+  "occupation": "German novelist of sanatoriums and doomed bourgeois families",
   "birth": {
    "year": 1875,
    "place": "Lübeck, Germany",
@@ -4043,7 +4043,7 @@
    "asimov",
    "isaac asimov"
   ],
-  "occupation": "Author and novelist",
+  "occupation": "Biochemist who wrote science fiction by the shelf-yard",
   "birth": {
    "year": 1920,
    "place": "Petrovichi, Russia",
@@ -4160,7 +4160,7 @@
    "t s eliot",
    "ts eliot"
   ],
-  "occupation": "Poet and author",
+  "occupation": "American-born poet who became more English than the English",
   "birth": {
    "year": 1888,
    "place": "St. Louis, United States",
@@ -4228,7 +4228,7 @@
    "brando",
    "marlon brando"
   ],
-  "occupation": "Actor and author",
+  "occupation": "Actor who sent a stand-in to refuse his Oscar",
   "birth": {
    "year": 1924,
    "place": "Omaha, United States",
@@ -4342,7 +4342,7 @@
    "john milton",
    "milton"
   ],
-  "occupation": "Poet",
+  "occupation": "Blind English poet who wrote an epic about the Fall",
   "birth": {
    "year": 1608,
    "place": "London, United Kingdom",
@@ -4434,7 +4434,7 @@
    "peter",
    "saint peter"
   ],
-  "occupation": "Fisher and apostle",
+  "occupation": "Apostle regarded by the Catholic Church as its first pope",
   "birth": {
    "year": 0,
    "place": "Bethsaida, Israel",
@@ -4480,7 +4480,7 @@
    "minh",
    "uncle ho"
   ],
-  "occupation": "Politician",
+  "occupation": "Revolutionary who led Vietnam's fight against France and America",
   "birth": {
    "year": 1890,
    "place": "Kim Liên, Vietnam",
@@ -4526,7 +4526,7 @@
    "garland",
    "judy garland"
   ],
-  "occupation": "Actor and singer",
+  "occupation": "Studio child star wrung out by pills and shooting schedules",
   "birth": {
    "year": 1922,
    "place": "Grand Rapids, United States",
@@ -4549,7 +4549,7 @@
    "diana princess of wales",
    "wales"
   ],
-  "occupation": "Princess of Wales and humanitarian",
+  "occupation": "Royal bride turned landmine campaigner, hounded to the end",
   "birth": {
    "year": 1961,
    "place": "Sandringham, United Kingdom",
@@ -4640,7 +4640,7 @@
    "john steinbeck",
    "steinbeck"
   ],
-  "occupation": "Author and novelist",
+  "occupation": "Novelist of Dust Bowl migrants and migrant labour",
   "birth": {
    "year": 1902,
    "place": "Salinas, United States",
@@ -4663,7 +4663,7 @@
    "nabokov",
    "vladimir nabokov"
   ],
-  "occupation": "Novelist and author",
+  "occupation": "Russian émigré novelist and butterfly collector",
   "birth": {
    "year": 1899,
    "place": "Saint Petersburg, Russia",
@@ -4708,7 +4708,7 @@
   "variants": [
    "sappho"
   ],
-  "occupation": "Poet and author",
+  "occupation": "Archaic Greek poet surviving mostly in fragments",
   "birth": {
    "year": -630,
    "place": "Lesbos, Greece",
@@ -4731,7 +4731,7 @@
    "edith piaf",
    "piaf"
   ],
-  "occupation": "Singer and actor",
+  "occupation": "French chanteuse who regretted nothing",
   "birth": {
    "year": 1915,
    "place": "Paris, France",
@@ -4754,7 +4754,7 @@
    "audrey hepburn",
    "hepburn"
   ],
-  "occupation": "Actor and model",
+  "occupation": "Gamine film star who spent her last years with UNICEF",
   "birth": {
    "year": 1929,
    "place": "Brussels, Belgium",
@@ -4869,7 +4869,7 @@
    "angelou",
    "maya angelou"
   ],
-  "occupation": "Poet and memoirist",
+  "occupation": "American poet who read at a presidential inauguration",
   "birth": {
    "year": 1928,
    "place": "St. Louis, United States",
@@ -5098,7 +5098,7 @@
    "elizabeth taylor",
    "taylor"
   ],
-  "occupation": "Actor and author",
+  "occupation": "Violet-eyed film star married eight times",
   "birth": {
    "year": 1932,
    "place": "London, United Kingdom",
@@ -5121,7 +5121,7 @@
    "arthur rimbaud",
    "rimbaud"
   ],
-  "occupation": "Poet and author",
+  "occupation": "Teenage French poet who quit verse for gun-running",
   "birth": {
    "year": 1854,
    "place": "Charleville, France",
@@ -5167,7 +5167,7 @@
    "john keats",
    "keats"
   ],
-  "occupation": "Poet and author",
+  "occupation": "Romantic poet dead of consumption at twenty-five",
   "birth": {
    "year": 1795,
    "place": "London, United Kingdom",
@@ -5213,7 +5213,7 @@
    "assisi",
    "francis of assisi"
   ],
-  "occupation": "Friar who founded the Franciscan order",
+  "occupation": "Friar who preached poverty, and to the birds",
   "birth": {
    "year": 1182,
    "place": "Assisi, Italy",
@@ -5419,7 +5419,7 @@
    "f scott fitzgerald",
    "fitzgerald"
   ],
-  "occupation": "Author and novelist",
+  "occupation": "Chronicler of the Jazz Age who drank his own myth",
   "birth": {
    "year": 1896,
    "place": "Saint Paul, United States",
@@ -5465,7 +5465,7 @@
    "grace kelly",
    "kelly"
   ],
-  "occupation": "Actor who became Princess of Monaco",
+  "occupation": "Oscar-winning actor who quit films to marry a prince",
   "birth": {
    "year": 1929,
    "place": "Philadelphia, United States",
@@ -5512,7 +5512,7 @@
    "king tut",
    "tut"
   ],
-  "occupation": "Ruler",
+  "occupation": "Boy pharaoh of Egypt's 18th dynasty",
   "birth": {
    "year": -1342,
    "place": "Amarna, Egypt",
@@ -5535,7 +5535,7 @@
    "garbo",
    "greta garbo"
   ],
-  "occupation": "Actor and dancer",
+  "occupation": "Silent-era star who retired at thirty-five and vanished",
   "birth": {
    "year": 1905,
    "place": "Stockholm, Sweden",
@@ -5649,7 +5649,7 @@
   "name": "Harper Lee",
   "variants": [
    "harper lee",
-   "lee"
+   "nelle harper lee"
   ],
   "occupation": "Author of To Kill a Mockingbird",
   "birth": {
@@ -5696,7 +5696,7 @@
   "variants": [
    "nefertiti"
   ],
-  "occupation": "Queen consort",
+  "occupation": "Egyptian queen known from one painted limestone bust",
   "birth": {
    "year": -1370,
    "place": "Thebes, Egypt",
@@ -5811,7 +5811,7 @@
    "cecil john rhodes",
    "rhodes"
   ],
-  "occupation": "Colonial businessman and founder of Rhodesia",
+  "occupation": "Colonial businessman who named a whole country after himself",
   "birth": {
    "year": 1853,
    "place": "Bishop's Stortford, United Kingdom",
@@ -5997,7 +5997,7 @@
    "henry ii",
    "henry plantagenet"
   ],
-  "occupation": "King of England, first Plantagenet",
+  "occupation": "King of England whose knights killed an archbishop",
   "birth": {
    "year": 1133,
    "place": "Le Mans, France",
@@ -6072,7 +6072,7 @@
    "king canute",
    "knut"
   ],
-  "occupation": "King of England, Denmark and Norway",
+  "occupation": "Viking king who ruled three North Sea kingdoms at once",
   "birth": {
    "year": 995,
    "place": "Denmark",
@@ -6097,7 +6097,7 @@
    "thomas à becket",
    "saint thomas becket"
   ],
-  "occupation": "Archbishop of Canterbury murdered in his cathedral",
+  "occupation": "Archbishop cut down at his own altar by the king's knights",
   "birth": {
    "year": 1119,
    "place": "London, England",
@@ -6170,7 +6170,7 @@
    "otto i",
    "otto i hre"
   ],
-  "occupation": "First Holy Roman Emperor of the Ottonian line",
+  "occupation": "Saxon king crowned the first Holy Roman Emperor",
   "birth": {
    "year": 912,
    "place": "Wallhausen, Germany",
@@ -6196,7 +6196,7 @@
    "edward longshanks",
    "hammer of the scots"
   ],
-  "occupation": "King of England known as Longshanks",
+  "occupation": "English king who conquered Wales and warred on Scotland",
   "birth": {
    "year": 1239,
    "place": "Westminster, London, England",
@@ -6267,7 +6267,7 @@
    "henry v of england",
    "victor of agincourt"
   ],
-  "occupation": "King of England, victor at Agincourt",
+  "occupation": "English king who claimed the French throne and nearly got it",
   "birth": {
    "year": 1386,
    "place": "Monmouth, Wales",
@@ -6314,7 +6314,7 @@
    "henry vii of england",
    "henry tudor"
   ],
-  "occupation": "First Tudor king of England",
+  "occupation": "King who won the crown at Bosworth and married the enemy",
   "birth": {
    "year": 1457,
    "place": "Pembroke, Wales",
@@ -6366,7 +6366,7 @@
    "queen mary",
    "queen mary i"
   ],
-  "occupation": "Catholic Queen of England known as Bloody Mary",
+  "occupation": "Catholic queen who burned Protestants at the stake",
   "birth": {
    "year": 1516,
    "place": "Greenwich, London, England",
@@ -6391,7 +6391,7 @@
    "mary i of scotland",
    "queen mary"
   ],
-  "occupation": "Queen of Scots, executed in England",
+  "occupation": "Catholic queen who spent nineteen years as her cousin's prisoner",
   "birth": {
    "year": 1542,
    "place": "Linlithgow, Scotland",
@@ -6463,7 +6463,7 @@
    "cromwell",
    "lord protector"
   ],
-  "occupation": "Lord Protector of England",
+  "occupation": "Puritan general who ruled England without a crown",
   "birth": {
    "year": 1599,
    "place": "Huntingdon, England",
@@ -6534,7 +6534,7 @@
    "jane grey",
    "the nine days queen"
   ],
-  "occupation": "The 'Nine Days' Queen of England, executed",
+  "occupation": "Teenage claimant crowned briefly and beheaded at sixteen",
   "birth": {
    "year": 1537,
    "place": "Bradgate, England",
@@ -6801,7 +6801,7 @@
    "lord nelson",
    "admiral nelson"
   ],
-  "occupation": "British admiral killed at Trafalgar",
+  "occupation": "Admiral who lost an arm and an eye and kept on winning",
   "birth": {
    "year": 1758,
    "place": "Burnham Thorpe, England",
@@ -6850,7 +6850,7 @@
    "charles xii",
    "karl xii"
   ],
-  "occupation": "Warrior King of Sweden",
+  "occupation": "Swedish king who invaded Russia and never recovered",
   "birth": {
    "year": 1682,
    "place": "Stockholm, Sweden",
@@ -7063,7 +7063,7 @@
    "sulla",
    "lucius cornelius sulla"
   ],
-  "occupation": "Roman general and dictator",
+  "occupation": "Roman general who marched on Rome, then retired to write memoirs",
   "birth": {
    "year": -138,
    "place": "Rome, Italy",
@@ -7182,7 +7182,7 @@
    "emperor hadrian",
    "publius aelius hadrianus"
   ],
-  "occupation": "Roman emperor who built Hadrian's Wall",
+  "occupation": "Roman emperor who walled off the north of Britain",
   "birth": {
    "year": 76,
    "place": "Italica, Spain",
@@ -7396,7 +7396,7 @@
    "francisco pizarro",
    "pizarro"
   ],
-  "occupation": "Conqueror of the Inca Empire, assassinated in Lima",
+  "occupation": "Conquistador who destroyed the Inca Empire and was murdered by his own men",
   "birth": {
    "year": 1478,
    "place": "Trujillo, Spain",
@@ -7490,7 +7490,7 @@
    "ernest shackleton",
    "shackleton"
   ],
-  "occupation": "Antarctic explorer who died in South Georgia",
+  "occupation": "Antarctic explorer who lost his ship and brought every man home",
   "birth": {
    "year": 1874,
    "place": "Kilkea, Ireland",
@@ -7608,7 +7608,7 @@
    "william bonney",
    "henry mccarty"
   ],
-  "occupation": "Outlaw of the American Old West",
+  "occupation": "Teenage gunman of the Lincoln County War",
   "birth": {
    "year": 1859,
    "place": "New York City, New York",
@@ -8216,7 +8216,7 @@
    "vlad tepes",
    "dracula"
   ],
-  "occupation": "Voivode of Wallachia, inspiration for Dracula",
+  "occupation": "Voivode of Wallachia with a taste for very public executions",
   "birth": {
    "year": 1431,
    "place": "Sighișoara, Romania",
@@ -8337,7 +8337,7 @@
    "empress wu",
    "wu zhao"
   ],
-  "occupation": "Empress of China",
+  "occupation": "The only woman to rule China as emperor in her own name",
   "birth": {
    "year": 624,
    "place": "Wenshui, China",
@@ -8408,7 +8408,7 @@
    "ieyasu",
    "tokugawa"
   ],
-  "occupation": "Japanese shogun",
+  "occupation": "Shogun who outwaited his rivals and won at Sekigahara",
   "birth": {
    "year": 1543,
    "place": "Okazaki, Japan",
@@ -8478,7 +8478,7 @@
    "aurangzeb",
    "alamgir"
   ],
-  "occupation": "Mughal emperor",
+  "occupation": "Mughal emperor who jailed his father and killed his brothers",
   "birth": {
    "year": 1618,
    "place": "Dahod, India",
@@ -8502,7 +8502,7 @@
    "bartholomew diaz",
    "bartolomeu diaz"
   ],
-  "occupation": "Portuguese navigator",
+  "occupation": "Portuguese navigator who opened the sea road to the Indies",
   "birth": {
    "year": 1450,
    "place": "Lisbon, Portugal",
@@ -8646,7 +8646,7 @@
    "balboa",
    "vasco de balboa"
   ],
-  "occupation": "Spanish conquistador",
+  "occupation": "Conquistador who first saw the Pacific from the Americas",
   "birth": {
    "year": 1475,
    "place": "Jerez de los Caballeros, Spain",
@@ -8763,7 +8763,7 @@
    "selim the grim",
    "yavuz sultan selim"
   ],
-  "occupation": "Ottoman sultan",
+  "occupation": "Sultan who doubled the empire and took the caliphate",
   "birth": {
    "year": 1470,
    "place": "Amasya, Turkey",
@@ -8882,7 +8882,7 @@
    "nicolaus copernicus",
    "copernicus"
   ],
-  "occupation": "Astronomer",
+  "occupation": "Canon who put the Sun at the centre",
   "birth": {
    "year": 1473,
    "place": "Torun, Poland",
@@ -9094,7 +9094,7 @@
    "andreas vesalius",
    "vesalius"
   ],
-  "occupation": "Anatomist",
+  "occupation": "Anatomist who cut up bodies to correct Galen",
   "birth": {
    "year": 1514,
    "place": "Brussels, Belgium",
@@ -9166,7 +9166,7 @@
    "barbarossa",
    "khair ad-din"
   ],
-  "occupation": "Ottoman admiral",
+  "occupation": "Corsair who became the Ottoman navy",
   "birth": {
    "year": 1478,
    "place": "Lesbos, Greece",
@@ -9190,7 +9190,7 @@
    "yi sun sin",
    "admiral yi"
   ],
-  "occupation": "Korean admiral",
+  "occupation": "Korean admiral who never lost a battle at sea",
   "birth": {
    "year": 1545,
    "place": "Seoul, South Korea",
@@ -9238,7 +9238,7 @@
    "yongle emperor",
    "zhu di"
   ],
-  "occupation": "Emperor of the Ming dynasty",
+  "occupation": "Ming emperor who moved the capital and built the Forbidden City",
   "birth": {
    "year": 1360,
    "place": "Nanjing, China",
@@ -9262,7 +9262,7 @@
    "bayezid the thunderbolt",
    "yildirim bayezid"
   ],
-  "occupation": "Ottoman sultan",
+  "occupation": "Sultan whose empire nearly died with him in captivity",
   "birth": {
    "year": 1360,
    "place": "Edirne, Turkey",
@@ -9335,7 +9335,7 @@
    "coronado",
    "francisco de coronado"
   ],
-  "occupation": "Spanish conquistador",
+  "occupation": "Conquistador who crossed the southwest chasing golden cities",
   "birth": {
    "year": 1510,
    "place": "Salamanca, Spain",
@@ -9606,7 +9606,7 @@
    "von braun",
    "braun"
   ],
-  "occupation": "Rocket engineer",
+  "occupation": "Rocket engineer who worked for both Hitler and NASA",
   "birth": {
    "year": 1912,
    "place": "Wyrzysk, Poland",
@@ -9652,7 +9652,7 @@
    "diego rivera",
    "rivera"
   ],
-  "occupation": "Muralist painter",
+  "occupation": "Mexican muralist who painted revolution on public walls",
   "birth": {
    "year": 1886,
    "place": "Guanajuato, Mexico",
@@ -9675,7 +9675,7 @@
    "paul gauguin",
    "gauguin"
   ],
-  "occupation": "Post-Impressionist painter",
+  "occupation": "Stockbroker who gave up finance for paint, and Europe for the tropics",
   "birth": {
    "year": 1848,
    "place": "Paris, France",
@@ -9698,7 +9698,7 @@
    "igor stravinsky",
    "stravinsky"
   ],
-  "occupation": "Composer",
+  "occupation": "Composer whose ballet premiere started a riot in Paris",
   "birth": {
    "year": 1882,
    "place": "Oranienbaum, Russia",
@@ -9722,7 +9722,7 @@
    "rachmaninoff",
    "rachmaninov"
   ],
-  "occupation": "Composer and pianist",
+  "occupation": "Composer and pianist with hands that could span twelve keys",
   "birth": {
    "year": 1873,
    "place": "Semyonovo, Russia",
@@ -9744,7 +9744,7 @@
   "variants": [
    "joseph conrad"
   ],
-  "occupation": "Novelist",
+  "occupation": "Polish sea captain who became an English novelist",
   "birth": {
    "year": 1857,
    "place": "Berdychiv, Ukraine",
@@ -9778,7 +9778,7 @@
    "ernest lawrence",
    "jennifer lawrence"
   ],
-  "occupation": "British officer known as Lawrence of Arabia",
+  "occupation": "British officer who fought alongside the Arab Revolt",
   "birth": {
    "year": 1888,
    "place": "Tremadog, Wales",
@@ -9824,7 +9824,7 @@
    "anwar sadat",
    "anwar el-sadat"
   ],
-  "occupation": "President of Egypt",
+  "occupation": "Egyptian president assassinated at his own military parade",
   "birth": {
    "year": 1918,
    "place": "Mit Abu al-Kum, Egypt",
@@ -9846,7 +9846,7 @@
   "variants": [
    "malcolm x"
   ],
-  "occupation": "Human rights activist",
+  "occupation": "Nation of Islam minister who broke with it and was shot for it",
   "birth": {
    "year": 1925,
    "place": "Omaha, Nebraska, United States",
@@ -9869,7 +9869,7 @@
    "amelia earhart",
    "earhart"
   ],
-  "occupation": "Aviation pioneer",
+  "occupation": "American aviator, first woman to fly the Atlantic solo",
   "birth": {
    "year": 1897,
    "place": "Atchison, Kansas, United States",
@@ -9892,7 +9892,7 @@
    "percy fawcett",
    "percy harrison fawcett"
   ],
-  "occupation": "Explorer",
+  "occupation": "Explorer who vanished hunting a lost city in the Amazon",
   "birth": {
    "year": 1867,
    "place": "Torquay, England",
@@ -9996,7 +9996,7 @@
   "variants": [
    "james baldwin"
   ],
-  "occupation": "Novelist and essayist",
+  "occupation": "American writer who argued with his country from Paris",
   "birth": {
    "year": 1924,
    "place": "New York City, United States",
@@ -10043,7 +10043,7 @@
    "yitzhak rabin",
    "rabin"
   ],
-  "occupation": "Prime Minister of Israel",
+  "occupation": "Israeli PM assassinated after signing peace accords",
   "birth": {
    "year": 1922,
    "place": "Jerusalem, Israel",
@@ -10065,7 +10065,7 @@
   "variants": [
    "robert koch"
   ],
-  "occupation": "Microbiologist",
+  "occupation": "Doctor who identified the bacteria behind TB and cholera",
   "birth": {
    "year": 1843,
    "place": "Clausthal, Germany",
@@ -10088,7 +10088,7 @@
    "ludwig wittgenstein",
    "wittgenstein"
   ],
-  "occupation": "Philosopher",
+  "occupation": "Philosopher who twice decided he'd finished philosophy",
   "birth": {
    "year": 1889,
    "place": "Vienna, Austria",
@@ -10111,7 +10111,7 @@
    "marc chagall",
    "chagall"
   ],
-  "occupation": "Modernist painter",
+  "occupation": "Painter of floating lovers and Russian village dreams",
   "birth": {
    "year": 1887,
    "place": "Vitebsk, Belarus",
@@ -10182,7 +10182,7 @@
    "rudolf nureyev",
    "nureyev"
   ],
-  "occupation": "Ballet dancer",
+  "occupation": "Ballet star who defected to the West at the height of the Cold War",
   "birth": {
    "year": 1938,
    "place": "Irkutsk, Russia",
@@ -10228,7 +10228,7 @@
    "haile selassie",
    "haile selassie i"
   ],
-  "occupation": "Emperor of Ethiopia",
+  "occupation": "Ethiopian emperor revered as a messiah in Jamaica",
   "birth": {
    "year": 1892,
    "place": "Ejersa Goro, Ethiopia",
@@ -10281,7 +10281,7 @@
    "jimi hendrix",
    "hendrix"
   ],
-  "occupation": "Guitarist and singer",
+  "occupation": "Guitarist who turned feedback into a national anthem",
   "birth": {
    "year": 1942,
    "place": "Seattle, Washington, United States",
@@ -10350,7 +10350,7 @@
    "golda meir",
    "meir"
   ],
-  "occupation": "Prime Minister of Israel",
+  "occupation": "Israel's first and only woman prime minister",
   "birth": {
    "year": 1898,
    "place": "Kyiv, Ukraine",
@@ -10374,7 +10374,7 @@
    "aleksandr solzhenitsyn",
    "solzhenitsyn"
   ],
-  "occupation": "Novelist and dissident",
+  "occupation": "Novelist who survived the camps and then described them",
   "birth": {
    "year": 1918,
    "place": "Kislovodsk, Russia",
@@ -10397,7 +10397,7 @@
    "george mallory",
    "mallory"
   ],
-  "occupation": "Mountaineer",
+  "occupation": "Climber who explained himself with 'because it is there'",
   "birth": {
    "year": 1886,
    "place": "Mobberley, England",
@@ -10420,7 +10420,7 @@
    "isadora duncan",
    "duncan"
   ],
-  "occupation": "Dancer",
+  "occupation": "Barefoot dancer strangled by her own scarf",
   "birth": {
    "year": 1877,
    "place": "San Francisco, California, United States",
@@ -10443,7 +10443,7 @@
    "ayrton senna",
    "senna"
   ],
-  "occupation": "Formula One racing driver",
+  "occupation": "Brazilian driver of three world titles and one great rivalry",
   "birth": {
    "year": 1960,
    "place": "São Paulo, Brazil",
@@ -10466,7 +10466,7 @@
    "idi amin",
    "amin"
   ],
-  "occupation": "President of Uganda",
+  "occupation": "Ugandan dictator who awarded himself every medal going",
   "birth": {
    "year": 1925,
    "place": "Koboko, Uganda",
@@ -10488,7 +10488,7 @@
   "variants": [
    "bruce lee"
   ],
-  "occupation": "Martial artist and actor",
+  "occupation": "Martial artist and actor who brought kung fu to global screens",
   "birth": {
    "year": 1940,
    "place": "San Francisco, California, United States",
@@ -10511,7 +10511,7 @@
    "george gershwin",
    "gershwin"
   ],
-  "occupation": "Composer",
+  "occupation": "Composer who married the concert hall to jazz",
   "birth": {
    "year": 1898,
    "place": "Brooklyn, New York, United States",
@@ -10605,7 +10605,7 @@
    "anna pavlova",
    "pavlova"
   ],
-  "occupation": "Ballerina",
+  "occupation": "Ballerina with a dying-swan solo and a dessert named after her",
   "birth": {
    "year": 1881,
    "place": "St. Petersburg, Russia",
@@ -10628,7 +10628,7 @@
    "erich maria remarque",
    "remarque"
   ],
-  "occupation": "Novelist",
+  "occupation": "German veteran whose war novel the Nazis burned",
   "birth": {
    "year": 1898,
    "place": "Osnabrück, Germany",
@@ -10652,7 +10652,7 @@
    "disraeli",
    "dizzy"
   ],
-  "occupation": "prime minister and novelist",
+  "occupation": "Prime minister and novelist",
   "birth": {
    "year": 1804,
    "place": "London, United Kingdom",
@@ -10676,7 +10676,7 @@
    "beaverbrook",
    "max aitken"
   ],
-  "occupation": "press baron and wartime minister",
+  "occupation": "Press baron and wartime minister",
   "birth": {
    "year": 1879,
    "place": "Maple, Canada",
@@ -10725,7 +10725,7 @@
    "lord cochrane",
    "cochrane"
   ],
-  "occupation": "naval commander and liberator",
+  "occupation": "Naval commander and liberator",
   "birth": {
    "year": 1775,
    "place": "Annsfield, United Kingdom",
@@ -10749,7 +10749,7 @@
    "lafayette",
    "gilbert du motier"
   ],
-  "occupation": "revolutionary aristocrat",
+  "occupation": "Revolutionary aristocrat",
   "birth": {
    "year": 1757,
    "place": "Chavaniac-Lafayette, France",
@@ -10773,7 +10773,7 @@
    "samuel baker",
    "sir samuel baker"
   ],
-  "occupation": "nile explorer",
+  "occupation": "Victorian explorer who named Lake Albert",
   "birth": {
    "year": 1821,
    "place": "London, United Kingdom",
@@ -10797,7 +10797,7 @@
    "mary kingsley",
    "mary henrietta kingsley"
   ],
-  "occupation": "west africa explorer",
+  "occupation": "Victorian woman who explored West Africa in full skirts",
   "birth": {
    "year": 1862,
    "place": "London, United Kingdom",
@@ -10821,7 +10821,7 @@
    "roger casement",
    "sir roger casement"
   ],
-  "occupation": "human-rights investigator and rebel",
+  "occupation": "Human-rights investigator and rebel",
   "birth": {
    "year": 1864,
    "place": "Dublin, Ireland",
@@ -10844,7 +10844,7 @@
   "variants": [
    "roger williams"
   ],
-  "occupation": "religious dissenter and founder",
+  "occupation": "Religious dissenter and founder",
   "birth": {
    "year": 1603,
    "place": "London, United Kingdom",
@@ -10868,7 +10868,7 @@
   "variants": [
    "john winthrop"
   ],
-  "occupation": "puritan governor",
+  "occupation": "Puritan governor who promised a city upon a hill",
   "birth": {
    "year": 1588,
    "place": "Edwardstone, United Kingdom",
@@ -10891,7 +10891,7 @@
   "variants": [
    "william penn"
   ],
-  "occupation": "quaker founder",
+  "occupation": "Quaker who founded a colony on religious tolerance",
   "birth": {
    "year": 1644,
    "place": "London, United Kingdom",
@@ -10937,7 +10937,7 @@
    "john hanning speke",
    "speke"
   ],
-  "occupation": "nile explorer",
+  "occupation": "Explorer who claimed the Nile's source and died before the argument ended",
   "birth": {
    "year": 1827,
    "place": "Bideford, United Kingdom",
@@ -10963,7 +10963,7 @@
    "sir richard burton",
    "burton"
   ],
-  "occupation": "explorer and translator",
+  "occupation": "Explorer and linguist who translated forbidden books",
   "birth": {
    "year": 1821,
    "place": "Torquay, United Kingdom",
@@ -10986,7 +10986,7 @@
    "freya stark",
    "dame freya stark"
   ],
-  "occupation": "arabia travel writer",
+  "occupation": "Travel writer who mapped remote corners of Arabia and Persia",
   "birth": {
    "year": 1893,
    "place": "Paris, France",
@@ -11010,7 +11010,7 @@
    "wilfred thesiger",
    "mubarak bin london"
   ],
-  "occupation": "desert explorer",
+  "occupation": "Explorer who twice crossed the Empty Quarter",
   "birth": {
    "year": 1910,
    "place": "Addis Ababa, Ethiopia",
@@ -11033,7 +11033,7 @@
   "variants": [
    "gertrude bell"
   ],
-  "occupation": "archaeologist and mapmaker of iraq",
+  "occupation": "Archaeologist and mapmaker of Iraq",
   "birth": {
    "year": 1868,
    "place": "Washington, United Kingdom",
@@ -11057,7 +11057,7 @@
    "arthur evans",
    "sir arthur evans"
   ],
-  "occupation": "archaeologist of knossos",
+  "occupation": "Archaeologist of Knossos",
   "birth": {
    "year": 1851,
    "place": "Nash Mills, United Kingdom",
@@ -11081,7 +11081,7 @@
    "mary leakey",
    "mary nicol"
   ],
-  "occupation": "paleoarchaeologist",
+  "occupation": "Archaeologist who found the Laetoli footprints",
   "birth": {
    "year": 1913,
    "place": "London, United Kingdom",
@@ -11104,7 +11104,7 @@
   "variants": [
    "louis leakey"
   ],
-  "occupation": "paleoanthropologist",
+  "occupation": "Anthropologist who pushed human origins back into Africa",
   "birth": {
    "year": 1903,
    "place": "Kabete, Kenya",
@@ -11129,7 +11129,7 @@
    "abd al-qadir",
    "emir abdelkader"
   ],
-  "occupation": "algerian resistance leader",
+  "occupation": "Algerian resistance leader",
   "birth": {
    "year": 1808,
    "place": "Mascara, Algeria",
@@ -11154,7 +11154,7 @@
    "theodore ii",
    "emperor tewodros"
   ],
-  "occupation": "ethiopian emperor",
+  "occupation": "Ethiopian emperor who shot himself rather than be captured",
   "birth": {
    "year": 1818,
    "place": "Qwara, Ethiopia",
@@ -11179,7 +11179,7 @@
    "menelik ii",
    "emperor menelik"
   ],
-  "occupation": "ethiopian emperor",
+  "occupation": "Ethiopian emperor who crushed an Italian army at Adwa",
   "birth": {
    "year": 1844,
    "place": "Ankober, Ethiopia",
@@ -11203,7 +11203,7 @@
    "fridtjof nansen",
    "nansen"
   ],
-  "occupation": "polar explorer and humanitarian",
+  "occupation": "Polar scientist who later ran relief for refugees",
   "birth": {
    "year": 1861,
    "place": "Oslo, Norway",
@@ -11226,7 +11226,7 @@
    "john franklin",
    "sir john franklin"
   ],
-  "occupation": "arctic explorer",
+  "occupation": "Naval officer whose Arctic expedition vanished with all hands",
   "birth": {
    "year": 1786,
    "place": "Spilsby, United Kingdom",
@@ -11250,7 +11250,7 @@
    "robert peary",
    "peary"
   ],
-  "occupation": "polar explorer",
+  "occupation": "American who claimed the North Pole in 1909",
   "birth": {
    "year": 1856,
    "place": "Cresson, United States",
@@ -11273,7 +11273,7 @@
   "variants": [
    "matthew henson"
   ],
-  "occupation": "polar explorer",
+  "occupation": "African American explorer at the front of that Pole dash",
   "birth": {
    "year": 1866,
    "place": "Nanjemoy, United States",
@@ -11298,7 +11298,7 @@
    "jack reed",
    "reed"
   ],
-  "occupation": "revolutionary journalist",
+  "occupation": "American journalist who reported a revolution from inside it",
   "birth": {
    "year": 1887,
    "place": "Portland, United States",
@@ -11322,7 +11322,7 @@
    "koizumi yakumo",
    "hearn"
   ],
-  "occupation": "writer and folklorist",
+  "occupation": "Writer and folklorist",
   "birth": {
    "year": 1850,
    "place": "Lefkada, Greece",
@@ -11347,7 +11347,7 @@
    "miura anjin",
    "anjin"
   ],
-  "occupation": "navigator and samurai retainer",
+  "occupation": "Navigator and samurai retainer",
   "birth": {
    "year": 1564,
    "place": "Gillingham, United Kingdom",
@@ -11469,7 +11469,7 @@
    "zenobia",
    "queen zenobia"
   ],
-  "occupation": "Rebel queen of Palmyra who carved an empire from Rome's east",
+  "occupation": "Rebel queen who tore the Roman east away and ruled it herself",
   "birth": {
    "year": 240,
    "place": "Palmyra, Syria",
@@ -11621,7 +11621,7 @@
    "citizen king",
    "louis-philippe"
   ],
-  "occupation": "France's last king, the bourgeois 'Citizen King'",
+  "occupation": "France's last king, who dressed like a banker",
   "birth": {
    "year": 1773,
    "place": "Paris, France",
@@ -11672,7 +11672,7 @@
    "james i england",
    "james vi and i"
   ],
-  "occupation": "first king of both England and Scotland",
+  "occupation": "First king of both England and Scotland",
   "birth": {
    "year": 1566,
    "place": "Edinburgh, Scotland",
@@ -11746,7 +11746,7 @@
    "king george iii",
    "mad king george"
   ],
-  "occupation": "the king who lost America and, at the last, his mind",
+  "occupation": "The king who lost America and, at the last, his mind",
   "birth": {
    "year": 1738,
    "place": "London, England",
@@ -11771,7 +11771,7 @@
    "king harold",
    "harold godwineson"
   ],
-  "occupation": "last Anglo-Saxon king, felled at Hastings",
+  "occupation": "Last Anglo-Saxon king, killed defending his crown in 1066",
   "birth": {
    "year": 1022,
    "place": "Wessex, England",
@@ -11796,7 +11796,7 @@
    "richard ii england",
    "richard 2"
   ],
-  "occupation": "boy king deposed and starved at Pontefract",
+  "occupation": "Boy king deposed by his cousin and quietly starved to death",
   "birth": {
    "year": 1367,
    "place": "Bordeaux, France",
@@ -11822,7 +11822,7 @@
    "tsar alexander ii",
    "the liberator"
   ],
-  "occupation": "tsar who freed the serfs, killed by a bomb",
+  "occupation": "Tsar who freed the serfs, killed by a bomb",
   "birth": {
    "year": 1818,
    "place": "Moscow, Russia",
@@ -11846,7 +11846,7 @@
    "queen christina",
    "kristina of sweden"
   ],
-  "occupation": "queen who abdicated to live free in Rome",
+  "occupation": "Queen who abdicated to live free in Rome",
   "birth": {
    "year": 1626,
    "place": "Stockholm, Sweden",
@@ -11871,7 +11871,7 @@
    "gustav ii adolf",
    "lion of the north"
   ],
-  "occupation": "warrior king they called the Lion of the North",
+  "occupation": "Swedish king who made Sweden a great power and died in battle",
   "birth": {
    "year": 1594,
    "place": "Stockholm, Sweden",
@@ -11946,7 +11946,7 @@
    "constantine xi palaeologus",
    "last byzantine emperor"
   ],
-  "occupation": "last emperor of Byzantium, lost on the walls",
+  "occupation": "Last emperor of Byzantium, lost on the walls",
   "birth": {
    "year": 1405,
    "place": "Mystras, Greece",
@@ -11994,7 +11994,7 @@
    "emperor claudius",
    "claudius caesar"
   ],
-  "occupation": "the stammering emperor everyone underestimated",
+  "occupation": "The stammering emperor everyone underestimated",
   "birth": {
    "year": -10,
    "place": "Lugdunum (Lyon), France",
@@ -12017,7 +12017,7 @@
    "commodus",
    "emperor commodus"
   ],
-  "occupation": "emperor who fancied himself a gladiator",
+  "occupation": "Emperor who fancied himself a gladiator",
   "birth": {
    "year": 161,
    "place": "Lanuvium, Italy",
@@ -12066,7 +12066,7 @@
    "emperor julian",
    "julian ii"
   ],
-  "occupation": "last pagan emperor of Rome",
+  "occupation": "Last pagan emperor of Rome",
   "birth": {
    "year": 331,
    "place": "Constantinople (Istanbul), Turkey",
@@ -12116,7 +12116,7 @@
    "cato minor",
    "marcus porcius cato"
   ],
-  "occupation": "stubborn republican who out-stubborned Caesar",
+  "occupation": "Stubborn republican who out-stubborned Caesar",
   "birth": {
    "year": -95,
    "place": "Rome, Italy",
@@ -12165,7 +12165,7 @@
    "mithridates the great",
    "mithridates vi of pontus"
   ],
-  "occupation": "poison-proof king who was Rome's nightmare",
+  "occupation": "Poison-proof king who was Rome's nightmare",
   "birth": {
    "year": -135,
    "place": "Sinope, Turkey",
@@ -12191,7 +12191,7 @@
    "king pyrrhus",
    "pyrrhus of epeiros"
   ],
-  "occupation": "king whose costly wins gave us the Pyrrhic victory",
+  "occupation": "King whose costly wins gave us the Pyrrhic victory",
   "birth": {
    "year": -319,
    "place": "Epirus, Greece",
@@ -12216,7 +12216,7 @@
    "seleucus i nicator",
    "seleucus nicator"
   ],
-  "occupation": "cavalry officer who inherited Alexander's east",
+  "occupation": "Cavalry officer who inherited Alexander's east",
   "birth": {
    "year": -358,
    "place": "Europos, Macedon",
@@ -12240,7 +12240,7 @@
    "marius",
    "general marius"
   ],
-  "occupation": "seven-time consul who remade Rome's legions",
+  "occupation": "Seven-time consul who remade Rome's legions",
   "birth": {
    "year": -157,
    "place": "Arpinum, Italy",
@@ -12264,7 +12264,7 @@
    "marcus crassus",
    "marcus licinius crassus"
   ],
-  "occupation": "richest man in Rome, undone at Carrhae",
+  "occupation": "Richest man in Rome, undone at Carrhae",
   "birth": {
    "year": -115,
    "place": "Rome, Italy",
@@ -12289,7 +12289,7 @@
    "basil ii the bulgar-slayer",
    "basil bulgaroktonos"
   ],
-  "occupation": "Byzantine emperor they called the Bulgar-Slayer",
+  "occupation": "Byzantine emperor who broke Bulgaria for good",
   "birth": {
    "year": 958,
    "place": "Constantinople (Istanbul), Turkey",
@@ -12390,7 +12390,7 @@
    "prince metternich",
    "clemens von metternich"
   ],
-  "occupation": "arch-conservative who redrew Europe at Vienna",
+  "occupation": "Arch-conservative who redrew Europe at Vienna",
   "birth": {
    "year": 1773,
    "place": "Koblenz, Germany",
@@ -12414,7 +12414,7 @@
    "charles maurice de talleyrand",
    "de talleyrand"
   ],
-  "occupation": "the limping bishop who served every French regime",
+  "occupation": "The limping bishop who served every French regime",
   "birth": {
    "year": 1754,
    "place": "Paris, France",
@@ -12438,7 +12438,7 @@
    "cardinal richelieu",
    "armand jean du plessis"
   ],
-  "occupation": "red-robed cardinal who really ran France",
+  "occupation": "Red-robed cardinal who really ran France",
   "birth": {
    "year": 1585,
    "place": "Paris, France",
@@ -12463,7 +12463,7 @@
    "w e gladstone",
    "grand old man"
   ],
-  "occupation": "Victorian PM four times over, the Grand Old Man",
+  "occupation": "Victorian PM four times over, ever more radical with age",
   "birth": {
    "year": 1809,
    "place": "Liverpool, England",
@@ -12535,7 +12535,7 @@
    "count cavour",
    "camillo benso"
   ],
-  "occupation": "cunning architect of a united Italy",
+  "occupation": "Cunning architect of a united Italy",
   "birth": {
    "year": 1810,
    "place": "Turin, Italy",
@@ -12560,7 +12560,7 @@
    "clemenceau",
    "the tiger"
   ],
-  "occupation": "France's 'Tiger' who saw the Great War through",
+  "occupation": "French wartime premier who saw the Great War through",
   "birth": {
    "year": 1841,
    "place": "Mouilleron-en-Pareds, France",
@@ -12609,7 +12609,7 @@
    "josip broz",
    "marshal tito"
   ],
-  "occupation": "partisan who ruled Yugoslavia entirely his own way",
+  "occupation": "Partisan who ruled Yugoslavia entirely his own way",
   "birth": {
    "year": 1892,
    "place": "Kumrovec, Croatia",
@@ -12631,7 +12631,6 @@
   "variants": [
    "robert e lee",
    "robert e. lee",
-   "lee",
    "general lee",
    "robert lee"
   ],
@@ -12686,7 +12685,7 @@
    "john churchill",
    "1st duke of marlborough"
   ],
-  "occupation": "unbeaten general who won the day at Blenheim",
+  "occupation": "Unbeaten general who won the day at Blenheim",
   "birth": {
    "year": 1650,
    "place": "Ashe, Devon, England",
@@ -12760,7 +12759,7 @@
    "kutuzov",
    "field marshal kutuzov"
   ],
-  "occupation": "one-eyed general who bled Napoleon white in 1812",
+  "occupation": "One-eyed general who bled Napoleon white in 1812",
   "birth": {
    "year": 1745,
    "place": "Saint Petersburg, Russia",

@@ -39,7 +39,7 @@
    "sir charles chaplin",
    "chaplin"
   ],
-  "blurb": "Silent-film star as the Tramp (1889–1977) · his coffin was stolen for ransom in 1978; he was reburied under concrete",
+  "blurb": "Silent-film comic in bowler hat and outsized boots (1889–1977) · his coffin was stolen for ransom in 1978; he was reburied under concrete",
   "img": "assets/img/charlie-chaplin.jpg",
   "fx": 0.5,
   "fy": 0.4,
@@ -91,7 +91,7 @@
    "elvis aaron presley",
    "elvis aron presley"
   ],
-  "blurb": "The King of Rock and Roll (1935–1977) · never toured abroad — his 'Colonel' manager was secretly a Dutchman with no passport",
+  "blurb": "Truck driver turned singer who made his hips a public-decency issue (1935–1977) · never toured abroad — his 'Colonel' manager was secretly a Dutchman with no passport",
   "img": "assets/img/elvis-presley.jpg",
   "fx": 0.5,
   "fy": 0.42,
@@ -165,7 +165,7 @@
    "ernesto guevara",
    "ernesto che guevara"
   ],
-  "blurb": "Revolutionary (1928–1967) · photographer Korda claimed no royalties as the shot conquered the world's T-shirts",
+  "blurb": "Argentine doctor turned guerrilla, executed in Bolivia (1928–1967) · photographer Korda claimed no royalties as the shot conquered the world's T-shirts",
   "img": "assets/img/che-guevara.jpg",
   "fx": 0.51,
   "fy": 0.46,
@@ -211,7 +211,7 @@
    "abe lincoln",
    "honest abe"
   ],
-  "blurb": "16th US President (1809–1865) · the only president to hold a patent — a device to lift boats over shoals",
+  "blurb": "President who held the Union together through a civil war (1809–1865) · the only president to hold a patent — a device to lift boats over shoals",
   "img": "assets/img/lincoln.jpg",
   "fx": 0.5,
   "fy": 0.42,
@@ -304,7 +304,7 @@
    "anne frank",
    "annelies marie frank"
   ],
-  "blurb": "Diarist (1929–1945) · her diary survived the war; her father, the family's sole survivor, published it in 1947",
+  "blurb": "Teenager whose hiding place became a museum (1929–1945) · her diary survived the war; her father, the family's sole survivor, published it in 1947",
   "img": "assets/img/anne-frank.jpg",
   "fx": 0.6,
   "fy": 0.435,
@@ -327,7 +327,7 @@
    "aretha franklin",
    "the queen of soul"
   ],
-  "blurb": "Singer known as the Queen of Soul (1942–2018) · demanded cash before every show and kept the stacks in her purse while she sang",
+  "blurb": "Soul singer raised in her father's Detroit pulpit (1942–2018) · demanded cash before every show and kept the stacks in her purse while she sang",
   "img": "assets/img/aretha-franklin.jpg",
   "fx": 0.5,
   "fy": 0.7,
@@ -395,7 +395,7 @@
    "frida kahlo",
    "kahlo"
   ],
-  "blurb": "Painter (1907–1954) · took up painting bedridden after a bus crash, using a mirror rigged above her bed",
+  "blurb": "Painter of unflinching self-portraits after a bus crash (1907–1954) · took up painting bedridden after a bus crash, using a mirror rigged above her bed",
   "img": "assets/img/frida-kahlo.jpg",
   "fx": 0.51,
   "fy": 0.4,
@@ -418,7 +418,7 @@
    "gandhi",
    "mohandas gandhi"
   ],
-  "blurb": "Independence leader (1869–1948) · nominated for the Nobel Peace Prize five times — and never once won it",
+  "blurb": "Barrister who broke an empire with salt and a spinning wheel (1869–1948) · nominated for the Nobel Peace Prize five times — and never once won it",
   "img": "assets/img/gandhi.jpg",
   "fx": 0.4875,
   "fy": 0.36,
@@ -467,7 +467,7 @@
    "washington",
    "president washington"
   ],
-  "blurb": "1st US President (1732–1799) · his 'wooden' teeth were ivory and gold — some pulled from people he enslaved",
+  "blurb": "General who refused a crown and went home twice (1732–1799) · his 'wooden' teeth were ivory and gold — some pulled from people he enslaved",
   "img": "assets/img/george-washington.jpg",
   "fx": 0.51,
   "fy": 0.44,
@@ -490,7 +490,7 @@
    "king henry viii",
    "henry the eighth"
   ],
-  "blurb": "King of England (1491–1547) · his surviving armour tracks his waist from a trim 34 inches to nearly 60",
+  "blurb": "King who broke with Rome to get a divorce (1491–1547) · his surviving armour tracks his waist from a trim 34 inches to nearly 60",
   "img": "assets/img/henry-viii.jpg",
   "fx": 0.55,
   "fy": 0.22,
@@ -534,7 +534,7 @@
   "variants": [
    "jane austen"
   ],
-  "blurb": "English novelist whose only surviving portrait — this modest sketch by her sister — was later redrawn into the image on the British £10 note (1775-1817) · watercolour sketch by her sister Cassandra Austen, c.1810",
+  "blurb": "English novelist of marriage plots and quiet cruelty (1775-1817) · watercolour sketch by her sister Cassandra Austen, c.1810 — the only surviving likeness, later prettified for the British £10 note",
   "img": "assets/img/jane-austen.jpg",
   "fx": 0.46,
   "fy": 0.46,
@@ -559,7 +559,7 @@
    "john fitzgerald kennedy",
    "jack kennedy"
   ],
-  "blurb": "US President (1917–1963) · his brain vanished from the National Archives in 1966 and has never been found",
+  "blurb": "Youngest man elected US president, and the first Catholic (1917–1963) · his brain vanished from the National Archives in 1966 and has never been found",
   "img": "assets/img/john-f-kennedy.jpg",
   "fx": 0.45,
   "fy": 0.439,
@@ -582,7 +582,7 @@
    "malcolm little",
    "el-hajj malik el-shabazz"
   ],
-  "blurb": "American civil rights leader (1925–1965) · taught himself to write in prison by copying out the entire dictionary",
+  "blurb": "Nation of Islam minister who broke with it and was shot for it (1925–1965) · taught himself to write in prison by copying out the entire dictionary",
   "img": "assets/img/malcolm-x.jpg",
   "fx": 0.4875,
   "fy": 0.351,
@@ -631,7 +631,7 @@
    "samuel clemens",
    "samuel langhorne clemens"
   ],
-  "blurb": "American author (1835–1910) · predicted he came in with Halley's Comet and would go out with it — he did",
+  "blurb": "Riverboat pilot turned American humorist (1835–1910) · predicted he came in with Halley's Comet and would go out with it — he did",
   "img": "assets/img/mark-twain.jpg",
   "fx": 0.4875,
   "fy": 0.509,
@@ -654,7 +654,7 @@
    "cassius clay",
    "ali"
   ],
-  "blurb": "American boxer (1942–2016) · stripped of his title and banned three years for refusing the Vietnam draft",
+  "blurb": "Heavyweight champion who changed his name and his religion (1942–2016) · stripped of his title and banned three years for refusing the Vietnam draft",
   "img": "assets/img/muhammad-ali.jpg",
   "fx": 0.4875,
   "fy": 0.589,
@@ -679,7 +679,7 @@
    "napoleon i",
    "boney"
   ],
-  "blurb": "Emperor of the French (1769–1821) · average height for his era; 'short' was British caricature plus a unit mix-up",
+  "blurb": "Corsican gunner who crowned himself Emperor of the French (1769–1821) · average height for his era; 'short' was British caricature plus a unit mix-up",
   "img": "assets/img/napoleon.jpg",
   "fx": 0.51,
   "fy": 0.3,
@@ -703,7 +703,7 @@
    "the queen",
    "queen elizabeth"
   ],
-  "blurb": "Queen of the United Kingdom (1926–2022) · trained as a WWII truck mechanic; the press dubbed her Princess Auto Mechanic",
+  "blurb": "Queen who reigned seventy years and outlasted fifteen prime ministers (1926–2022) · trained as a WWII truck mechanic; the press dubbed her Princess Auto Mechanic",
   "img": "assets/img/queen-elizabeth-ii.jpg",
   "fx": 0.3625,
   "fy": 0.238,
@@ -800,7 +800,7 @@
    "self portrait with straw hat",
    "van gough"
   ],
-  "blurb": "Vincent van Gogh (1853–1890) · painted himself again and again — a mirror was cheaper than hiring a model",
+  "blurb": "Dutch painter of thick, restless brushwork in yellow and blue (1853–1890) · painted himself again and again — a mirror was cheaper than hiring a model",
   "img": "assets/img/van-gogh-self.jpg",
   "fx": 0.53,
   "fy": 0.55,
@@ -824,7 +824,7 @@
    "churchill",
    "sir winston churchill"
   ],
-  "blurb": "British Prime Minister (1874–1965) · cigar in hand, giving his famous 'V for Victory' sign, Bradford, 1942",
+  "blurb": "Wartime PM who offered blood, toil, tears and sweat (1874–1965) · cigar in hand, giving his famous 'V for Victory' sign, Bradford, 1942",
   "img": "assets/img/winston-churchill.jpg",
   "fx": 0.7,
   "fy": 0.309,
@@ -897,7 +897,7 @@
    "bell",
    "graham bell"
   ],
-  "blurb": "Inventor whose first words down a telephone line were 'Mr. Watson, come here, I want to see you' (1847-1922) · photo, 1895",
+  "blurb": "Scottish-born teacher of the deaf who won the race to the telephone patent (1847-1922) · photo, 1895 — his first words down the line were 'Mr. Watson, come here, I want to see you'",
   "img": "assets/img/alexander-graham-bell.jpg",
   "fx": 0.6,
   "fy": 0.63,
@@ -944,7 +944,7 @@
    "sir arthur conan doyle",
    "doyle"
   ],
-  "blurb": "Creator of Sherlock Holmes (1859–1930) · killed Holmes in 1893; ten years of reader fury brought the detective back",
+  "blurb": "Physician who invented a detective he came to resent (1859–1930) · killed Holmes in 1893; ten years of reader fury brought the detective back",
   "img": "assets/img/arthur-conan-doyle.jpg",
   "fx": 0.55,
   "fy": 0.52,
@@ -966,7 +966,7 @@
    "beethoven",
    "ludwig van beethoven"
   ],
-  "blurb": "Composer (1770–1827) · stone deaf at the Ninth's premiere, he had to be turned round to see the ovation",
+  "blurb": "Composer who went deaf and kept writing anyway (1770–1827) · stone deaf at the Ninth's premiere, he had to be turned round to see the ovation",
   "img": "assets/img/beethoven.jpg",
   "fx": 0.49,
   "fy": 0.38,
@@ -989,7 +989,7 @@
    "lady day",
    "holiday"
   ],
-  "blurb": "Jazz singer known for Strange Fruit (1915-1959) · photo by William P. Gottlieb, Downbeat, 1947",
+  "blurb": "Jazz singer whose voice carried a lynching into the nightclubs (1915-1959) · photo by William P. Gottlieb, Downbeat, 1947",
   "img": "assets/img/billie-holiday.jpg",
   "fx": 0.45,
   "fy": 0.62,
@@ -1084,7 +1084,7 @@
    "leonardo da vinci self portrait",
    "leonardo"
   ],
-  "blurb": "Polymath and artist (1452–1519) · left-handed, he wrote most notebooks in mirror-script, legible only in a mirror",
+  "blurb": "Polymath who left more notebooks than finished paintings (1452–1519) · left-handed, he wrote most notebooks in mirror-script, legible only in a mirror",
   "img": "assets/img/da-vinci-self.jpg",
   "fx": 0.51,
   "fy": 0.41,
@@ -1108,7 +1108,7 @@
    "dante aligheri",
    "alighieri"
   ],
-  "blurb": "Poet of the Divine Comedy (1265–1321) · exiled from Florence under threat of death, he never once set foot there again",
+  "blurb": "Poet who put his enemies in Hell, by name (1265–1321) · exiled from Florence under threat of death, he never once set foot there again",
   "img": "assets/img/dante-alighieri.jpg",
   "fx": 0.42,
   "fy": 0.13,
@@ -1160,7 +1160,7 @@
    "the virgin queen",
    "good queen bess"
   ],
-  "blurb": "Queen of England (1533–1603) — banned any portrait that showed her aging, insisting on an eternally youthful 'Mask of Youth'",
+  "blurb": "Queen who never married and made a virtue of it (1533–1603) — banned any portrait that showed her aging, insisting on an eternally youthful 'Mask of Youth'",
   "img": "assets/img/elizabeth-i.jpg",
   "fx": 0.44,
   "fy": 0.3,
@@ -1183,7 +1183,7 @@
    "the first lady of song",
    "fitzgerald"
   ],
-  "blurb": "Jazz vocalist known as the First Lady of Song (1917–1996) · meant to dance at the Apollo's amateur night, lost her nerve, sang instead, and won",
+  "blurb": "Jazz singer who could scat a whole solo without words (1917–1996) · meant to dance at the Apollo's amateur night, lost her nerve, sang instead, and won",
   "img": "assets/img/ella-fitzgerald.jpg",
   "fx": 0.53,
   "fy": 0.68,
@@ -1300,7 +1300,7 @@
    "chopin",
    "frédéric chopin"
   ],
-  "blurb": "Poet of the piano (1810–1849) · his heart was smuggled into Poland under his sister's skirt and sealed inside a church pillar",
+  "blurb": "Polish exile who wrote almost nothing that was not for piano (1810–1849) · his heart was smuggled into Poland under his sister's skirt and sealed inside a church pillar",
   "img": "assets/img/frederic-chopin.jpg",
   "fx": 0.55,
   "fy": 0.2,
@@ -1461,7 +1461,7 @@
    "haile selassie i",
    "ras tafari"
   ],
-  "blurb": "Emperor of Ethiopia (1892–1975) · was worshipped by Rastafarians as the living messiah, a role he politely insisted was a mistake",
+  "blurb": "Ethiopian emperor revered as a messiah in Jamaica (1892–1975) · was worshipped by Rastafarians as the living messiah, a role he politely insisted was a mistake",
   "img": "assets/img/haile-selassie.jpg",
   "fx": 0.4875,
   "fy": 0.287,
@@ -1530,7 +1530,7 @@
    "lord nelson",
    "viscount nelson"
   ],
-  "blurb": "British Admiral (1758–1805) · died at Trafalgar and rode home preserved in a cask of brandy lashed to the deck",
+  "blurb": "Admiral who lost an arm and an eye and kept on winning (1758–1805) · died at Trafalgar and rode home preserved in a cask of brandy lashed to the deck",
   "img": "assets/img/horatio-nelson.jpg",
   "fx": 0.5125,
   "fy": 0.439,
@@ -1672,7 +1672,7 @@
    "lenin",
    "ulyanov"
   ],
-  "blurb": "Russian revolutionary leader (1870–1924) · his embalmed body still lies in Red Square, kept fresh by a dedicated maintenance lab",
+  "blurb": "Bolshevik who took power in October and never gave it back (1870–1924) · his embalmed body still lies in Red Square, kept fresh by a dedicated maintenance lab",
   "img": "assets/img/lenin.jpg",
   "fx": 0.55,
   "fy": 0.268,
@@ -1695,7 +1695,7 @@
    "tolstoy",
    "lev tolstoy"
   ],
-  "blurb": "Russian novelist (1828–1910) · excommunicated, he fled home at 82 and died days later at a rural train station",
+  "blurb": "Count who wrote vast novels, then renounced novels altogether (1828–1910) · excommunicated, he fled home at 82 and died days later at a rural train station",
   "img": "assets/img/leo-tolstoy.jpg",
   "fx": 0.4875,
   "fy": 0.372,
@@ -1720,7 +1720,7 @@
    "charles lutwidge dodgson",
    "carroll"
   ],
-  "blurb": "English author of Alice's Adventures in Wonderland (1832–1898) · was the pen name of Charles Dodgson, an Oxford math don who shot some 3,000 photographs",
+  "blurb": "Victorian don who wrote logical nonsense for children (1832–1898) · was the pen name of Charles Dodgson, an Oxford math don who shot some 3,000 photographs",
   "img": "assets/img/lewis-carroll.jpg",
   "fx": 0.52,
   "fy": 0.32,
@@ -1768,7 +1768,7 @@
    "louis xiv of france",
    "the sun king"
   ],
-  "blurb": "King of France (1638–1715) · reigned 72 years, longer than any other confirmed monarch in European history",
+  "blurb": "King of France who outlived his son and his grandson (1638–1715) · reigned 72 years, longer than any other confirmed monarch in European history",
   "img": "assets/img/louis-xiv.jpg",
   "fx": 0.49,
   "fy": 0.32,
@@ -1840,7 +1840,7 @@
    "marie-antoinette",
    "queen of france marie antoinette"
   ],
-  "blurb": "Queen of France (1755–1793) · never said 'let them eat cake' — the line was already old news decades before she was born",
+  "blurb": "Austrian-born queen guillotined by the French Revolution (1755–1793) · never said 'let them eat cake' — the line was already old news decades before she was born",
   "img": "assets/img/marie-antoinette.jpg",
   "fx": 0.44,
   "fy": 0.4,
@@ -1885,7 +1885,7 @@
    "martin luther",
    "luther"
   ],
-  "blurb": "Protestant reformer (1483–1546) whose 95 Theses, nailed to a Wittenberg church door in 1517, split Western Christianity · portrait by Lucas Cranach the Elder, 1528",
+  "blurb": "German monk, excommunicated and unrepentant (1483–1546) whose 95 Theses, nailed to a Wittenberg church door in 1517, split Western Christianity · portrait by Lucas Cranach the Elder, 1528",
   "img": "assets/img/martin-luther.jpg",
   "fx": 0.4875,
   "fy": 0.363,
@@ -1930,7 +1930,7 @@
    "wolfgang amadeus mozart",
    "wolfgang mozart"
   ],
-  "blurb": "Composer (1756–1791) · composed his first symphony at age eight, while his father lay sick in bed nearby",
+  "blurb": "Prodigy composer who toured Europe's courts as a child (1756–1791) · composed his first symphony at age eight, while his father lay sick in bed nearby",
   "img": "assets/img/mozart.jpg",
   "fx": 0.46,
   "fy": 0.42,
@@ -2049,7 +2049,7 @@
    "tsar peter",
    "peter i of russia"
   ],
-  "blurb": "Tsar of Russia (1672–1725) · toured Europe in disguise as a common laborer to learn shipbuilding with his own hands",
+  "blurb": "Tsar who shaved his nobles and built a capital on a swamp (1672–1725) · toured Europe in disguise as a common laborer to learn shipbuilding with his own hands",
   "img": "assets/img/peter-great.jpg",
   "fx": 0.4875,
   "fy": 0.35,
@@ -2095,7 +2095,7 @@
    "victoria",
    "queen victoria of england"
   ],
-  "blurb": "Queen of the United Kingdom (1819–1901) · grandmother of Europe",
+  "blurb": "Queen who spent forty years of her reign in mourning black (1819–1901) · grandmother of Europe",
   "img": "assets/img/queen-victoria.jpg",
   "fx": 0.5,
   "fy": 0.42,
@@ -2187,7 +2187,7 @@
    "rosa louise parks",
    "parks"
   ],
-  "blurb": "American civil rights activist (1913–2005) whose refusal to give up her bus seat in Montgomery sparked a 381-day boycott that helped break segregated transit · photograph, Rosa Parks papers, Library of Congress",
+  "blurb": "Alabama seamstress and NAACP branch secretary (1913–2005) whose refusal to give up her bus seat in Montgomery sparked a 381-day boycott that helped break segregated transit · photograph, Rosa Parks papers, Library of Congress",
   "img": "assets/img/rosa-parks.jpg",
   "fx": 0.55,
   "fy": 0.52,
@@ -2282,7 +2282,7 @@
    "roosevelt",
    "tr"
   ],
-  "blurb": "26th US President (1858–1919) · shot before a speech, he gave the full 90 minutes anyway — bullet still in his chest",
+  "blurb": "Rough Rider president who took on the trusts (1858–1919) · shot before a speech, he gave the full 90 minutes anyway — bullet still in his chest",
   "img": "assets/img/theodore-roosevelt.jpg",
   "fx": 0.5,
   "fy": 0.374,
@@ -2306,7 +2306,7 @@
    "chloe wofford",
    "morrison"
   ],
-  "blurb": "Nobel Prize-winning novelist, author of Beloved (1931-2019) · photo by Bernard Gotfryd",
+  "blurb": "First Black woman to win the Nobel Prize in Literature (1931-2019) · photo by Bernard Gotfryd",
   "img": "assets/img/toni-morrison.jpg",
   "fx": 0.55,
   "fy": 0.68,
@@ -2376,7 +2376,7 @@
    "victor hugo",
    "hugo"
   ],
-  "blurb": "Author of Les Misérables and The Hunchback of Notre-Dame (1802–1885) · two million people packed Paris for his funeral — more than the city's population",
+  "blurb": "French novelist and poet, nineteen years exiled on Guernsey (1802–1885) · two million people packed Paris for his funeral — more than the city's population",
   "img": "assets/img/victor-hugo.jpg",
   "fx": 0.49,
   "fy": 0.4,
@@ -2493,7 +2493,7 @@
    "akbar the great",
    "jalaluddin muhammad akbar"
   ],
-  "blurb": "Mughal Emperor of India (1542–1605) · he never learned to read, yet built a 24,000-volume library and had it all read to him",
+  "blurb": "Mughal emperor who invited every religion to argue in his court (1542–1605) · he never learned to read, yet built a 24,000-volume library and had it all read to him",
   "img": "assets/img/akbar-great.jpg",
   "fx": 0.65,
   "fy": 0.347,
@@ -2662,7 +2662,7 @@
    "alexandre dumas pere",
    "dumas"
   ],
-  "blurb": "Grandson of an enslaved woman and son of Napoleon's mixed-race general, he wrote The Three Musketeers and The Count of Monte Cristo (1802–1870) · photo by Nadar",
+  "blurb": "Novelist of duels, disguises and very long revenge (1802–1870) · photo by Nadar — grandson of an enslaved woman and son of Napoleon's mixed-race general",
   "img": "assets/img/alexandre-dumas.jpg",
   "fx": 0.48,
   "fy": 0.4,
@@ -2706,7 +2706,7 @@
   "variants": [
    "artemisia gentileschi"
   ],
-  "blurb": "Baroque painter (1593 – c. 1656) · testified under torture during the rape trial of her teacher, Agostino Tassi",
+  "blurb": "Baroque painter whose heroines take bloody revenge (1593 – c. 1656) · testified under torture during the rape trial of her teacher, Agostino Tassi",
   "img": "assets/img/artemisia-gentileschi.jpg",
   "fx": 0.63,
   "fy": 0.3,
@@ -2830,7 +2830,7 @@
    "joseph the younger",
    "young joseph"
   ],
-  "blurb": "Nez Perce leader who led his people on a 1,170-mile flight toward Canada in 1877, ending in his famous surrender speech, 'I will fight no more forever' (c.1840-1904) · photo by Edward S. Curtis, 1903",
+  "blurb": "Nez Perce leader who ran for the Canadian border and fell short (c.1840-1904) · photo by Edward S. Curtis, 1903 — his 1,170-mile flight ended forty miles from Canada with 'I will fight no more forever'",
   "img": "assets/img/chief-joseph.jpg",
   "fx": 0.5,
   "fy": 0.68,
@@ -2900,7 +2900,7 @@
    "charles darwin",
    "darwin"
   ],
-  "blurb": "Naturalist (1809–1882) · sat on his theory for 20 years until a rival's letter forced him into print",
+  "blurb": "Naturalist who sat on his theory for twenty years (1809–1882) · sat on his theory for 20 years until a rival's letter forced him into print",
   "img": "assets/img/darwin.jpg",
   "fx": 0.42,
   "fy": 0.24,
@@ -3020,7 +3020,7 @@
    "theodora",
    "empress theodora"
   ],
-  "blurb": "Byzantine Empress (c. 500–548) · reportedly told her fleeing husband that royal purple makes the noblest shroud",
+  "blurb": "Circus performer who became a Byzantine empress (c. 500–548) · reportedly told her fleeing husband that royal purple makes the noblest shroud",
   "img": "assets/img/empress-theodora.jpg",
   "fx": 0.4875,
   "fy": 0.271,
@@ -3043,7 +3043,7 @@
    "enid blyton",
    "blyton"
   ],
-  "blurb": "English children's author, creator of Noddy and the Famous Five (1897–1968) · wrote up to 50 books a year — and sued when a librarian said she used ghostwriters",
+  "blurb": "Children’s author the BBC turned down for years as too twee (1897–1968) · wrote up to 50 books a year — and sued when a librarian said she used ghostwriters",
   "img": "assets/img/enid-blyton.jpg",
   "fx": 0.5,
   "fy": 0.42,
@@ -3115,7 +3115,7 @@
    "fdr",
    "roosevelt"
   ],
-  "blurb": "32nd US President (1882–1945) · the press agreed never to photograph his wheelchair; the Secret Service made sure",
+  "blurb": "President elected four times, who governed from a wheelchair (1882–1945) · the press agreed never to photograph his wheelchair; the Secret Service made sure",
   "img": "assets/img/fdr.jpg",
   "fx": 0.475,
   "fy": 0.393,
@@ -3374,7 +3374,7 @@
    "herbert george wells",
    "hg wells"
   ],
-  "blurb": "Author of The War of the Worlds and The Time Machine (1866–1946) · his 1914 novel coined 'atomic bombs' — and helped inspire the real thing",
+  "blurb": "English writer who invented most of science fiction's furniture (1866–1946) · his 1914 novel coined 'atomic bombs' — and helped inspire the real thing",
   "img": "assets/img/hg-wells.jpg",
   "fx": 0.51,
   "fy": 0.32,
@@ -3422,7 +3422,7 @@
    "ida wells-barnett",
    "ida bell wells"
   ],
-  "blurb": "American journalist who exposed the true scale of lynching in the Jim Crow South and co-founded the NAACP (1862–1931) · photograph",
+  "blurb": "American journalist who counted the lynchings nobody would name (1862–1931) · photograph — her reporting drove her out of the South, and she went on to co-found the NAACP",
   "img": "assets/img/ida-b-wells.jpg",
   "fx": 0.4875,
   "fy": 0.398,
@@ -3445,7 +3445,7 @@
    "immanuel kant",
    "kant"
   ],
-  "blurb": "Philosopher of pure reason (1724–1804) · his 3.30 walk was so punctual that Königsberg neighbours set their clocks by it",
+  "blurb": "Philosopher who never left his home town and rewrote metaphysics (1724–1804) · his 3.30 walk was so punctual that Königsberg neighbours set their clocks by it",
   "img": "assets/img/immanuel-kant.jpg",
   "fx": 0.5,
   "fy": 0.28,
@@ -3488,8 +3488,7 @@
   "difficulty": "hard",
   "variants": [
    "jacques-louis david",
-   "jacques louis david",
-   "david"
+   "jacques louis david"
   ],
   "blurb": "Painter of the French Revolution and Napoleon (1748–1825) · voted to execute the king in the Convention, then became Napoleon's court painter",
   "img": "assets/img/jacques-louis-david.jpg",
@@ -3537,7 +3536,7 @@
    "jawaharlal nehru",
    "nehru"
   ],
-  "blurb": "First Prime Minister of India, who marked independence at midnight with his 'Tryst with Destiny' speech (1889–1964) · photograph",
+  "blurb": "First Prime Minister of India (1889–1964) · photograph — he marked independence at midnight with his 'Tryst with Destiny' speech",
   "img": "assets/img/jawaharlal-nehru.jpg",
   "fx": 0.4875,
   "fy": 0.41,
@@ -3584,7 +3583,7 @@
    "the maid of orleans",
    "jeanne darc"
   ],
-  "blurb": "Military leader (c. 1412–1431) · an illiterate peasant girl, she led armies at 17 and was burned at the stake at 19",
+  "blurb": "Teenage visionary who led an army and burned for it (c. 1412–1431) · an illiterate peasant girl, she led armies at 17 and was burned at the stake at 19",
   "img": "assets/img/joan-of-arc.jpg",
   "fx": 0.22,
   "fy": 0.3,
@@ -3607,7 +3606,7 @@
    "jules verne",
    "verne"
   ],
-  "blurb": "French author of Twenty Thousand Leagues Under the Sea (1828–1905) · his 1865 novel put a Moon launch in Florida and a splashdown at sea, like Apollo",
+  "blurb": "French novelist who sent readers under the sea and round the world (1828–1905) · his 1865 novel put a Moon launch in Florida and a splashdown at sea, like Apollo",
   "img": "assets/img/jules-verne.jpg",
   "fx": 0.48,
   "fy": 0.44,
@@ -3630,7 +3629,7 @@
    "justinian i",
    "justinian the great"
   ],
-  "blurb": "Byzantine Emperor (482–565) · married Theodora, a former actress, after having the law barring it rewritten",
+  "blurb": "Byzantine emperor who codified Roman law (482–565) · married Theodora, a former actress, after having the law barring it rewritten",
   "img": "assets/img/justinian-i.jpg",
   "fx": 0.4875,
   "fy": 0.307,
@@ -3907,7 +3906,7 @@
    "rabindranath tagore",
    "tagore"
   ],
-  "blurb": "Bengali polymath who became the first non-European Nobel laureate in Literature, and wrote the national anthems of both India and Bangladesh (1861–1941) · photograph",
+  "blurb": "Bengali polymath, the first non-European Nobel laureate in Literature (1861–1941) · photograph — he wrote the national anthems of both India and Bangladesh",
   "img": "assets/img/rabindranath-tagore.jpg",
   "fx": 0.4875,
   "fy": 0.396,
@@ -3932,7 +3931,7 @@
    "ramses the great",
    "ozymandias"
   ],
-  "blurb": "Pharaoh of Egypt (c. 1303–1213 BC) — the 'Ozymandias' of Shelley's poem; Ozymandias was simply his name in Greek",
+  "blurb": "Pharaoh who built more, and bigger, than any other (c. 1303–1213 BC) — the 'Ozymandias' of Shelley's poem; Ozymandias was simply his name in Greek",
   "img": "assets/img/ramesses-ii.jpg",
   "fx": 0.3032544378698224,
   "fy": 0.7399357949016231,
@@ -3958,7 +3957,7 @@
    "lakshmibai",
    "laxmibai"
   ],
-  "blurb": "Queen of Jhansi and leading figure of the Indian Rebellion of 1857 (1828–1858) · legend holds she died fighting on horseback, dressed as a man, sword in hand",
+  "blurb": "Queen who died in armour fighting the East India Company (1828–1858) · legend holds she died fighting on horseback, dressed as a man, sword in hand",
   "img": "assets/img/rani-lakshmibai.jpg",
   "fx": 0.4875,
   "fy": 0.236,
@@ -4026,10 +4025,9 @@
   "variants": [
    "robert e lee",
    "robert e. lee",
-   "lee",
    "robert edward lee"
   ],
-  "blurb": "Confederate general (1807–1870) · opposed secession, turned down command of the Union army, then fought for Virginia",
+  "blurb": "Confederate commander who surrendered at Appomattox (1807–1870) · opposed secession, turned down command of the Union army, then fought for Virginia",
   "img": "assets/img/robert-e-lee.jpg",
   "fx": 0.55,
   "fy": 0.259,
@@ -4174,7 +4172,7 @@
    "the bard",
    "bard of avon"
   ],
-  "blurb": "Playwright and poet (1564–1616) · no birth record survives — his April 23 birthday is a guess matched to his death date",
+  "blurb": "Playwright who left his wife the second-best bed (1564–1616) · no birth record survives — his April 23 birthday is a guess matched to his death date",
   "img": "assets/img/shakespeare.jpg",
   "fx": 0.49,
   "fy": 0.382,
@@ -4245,7 +4243,7 @@
    "thomas jonathan jackson",
    "stonewall"
   ],
-  "blurb": "Confederate general (1824–1863) · shot by his own men in the dark, he died of pneumonia after his arm was amputated",
+  "blurb": "Pious Confederate general known for lightning flank marches (1824–1863) · shot by his own men in the dark, he died of pneumonia after his arm was amputated",
   "img": "assets/img/stonewall-jackson.jpg",
   "fx": 0.5,
   "fy": 0.42,
@@ -4290,7 +4288,7 @@
    "jefferson",
    "president jefferson"
   ],
-  "blurb": "3rd US President (1743–1826) · died July 4, 1826 — the Declaration's 50th anniversary — hours before John Adams",
+  "blurb": "Virginian polymath president who doubled the country's size (1743–1826) · died July 4, 1826 — the Declaration's 50th anniversary — hours before John Adams",
   "img": "assets/img/thomas-jefferson.jpg",
   "fx": 0.45,
   "fy": 0.418,
@@ -4336,7 +4334,7 @@
    "ieyasu",
    "tokugawa ieyasu"
   ],
-  "blurb": "Japanese shogun, founder of the Tokugawa shogunate (1543–1616) · the peace he founded held for over 250 years, among history's longest such stretches",
+  "blurb": "Shogun who outwaited his rivals and won at Sekigahara (1543–1616) · the peace he founded held for over 250 years, among history's longest such stretches",
   "img": "assets/img/tokugawa-ieyasu.jpg",
   "fx": 0.4875,
   "fy": 0.628,
@@ -4405,7 +4403,7 @@
    "virginia woolf",
    "woolf"
   ],
-  "blurb": "English modernist novelist (1882–1941) · drowned herself in the River Ouse, her coat pockets filled with stones",
+  "blurb": "Modernist novelist at the centre of Bloomsbury (1882–1941) · drowned herself in the River Ouse, her coat pockets filled with stones",
   "img": "assets/img/virginia-woolf.jpg",
   "fx": 0.42,
   "fy": 0.57,
@@ -4452,7 +4450,7 @@
    "wilson",
    "thomas woodrow wilson"
   ],
-  "blurb": "28th US President (1856–1924) · after his stroke, his wife and doctor hid his condition while she ran the White House",
+  "blurb": "President who took America into the Great War and lost the peace (1856–1924) · after his stroke, his wife and doctor hid his condition while she ran the White House",
   "img": "assets/img/woodrow-wilson.jpg",
   "fx": 0.4875,
   "fy": 0.321,
@@ -4593,7 +4591,7 @@
    "attila",
    "attila the scourge of god"
   ],
-  "blurb": "Scourge of God, ruler of the Huns (d. 453) · no true likeness survives — a later artist’s imagining",
+  "blurb": "Ruler of the Huns who terrified two Roman empires (d. 453) · no true likeness survives — a later artist’s imagining",
   "img": "assets/img/attila.jpg",
   "fx": 0.4875,
   "fy": 0.43,
@@ -4643,7 +4641,7 @@
    "bismarck",
    "the iron chancellor"
   ],
-  "blurb": "Prussian statesman (1815–1898) · unified Germany with three short wars, then spent 20 years keeping the peace",
+  "blurb": "Chancellor who unified Germany by blood and iron (1815–1898) · unified Germany with three short wars, then spent 20 years keeping the peace",
   "img": "assets/img/bismarck.jpg",
   "fx": 0.4875,
   "fy": 0.311,
@@ -4715,7 +4713,7 @@
    "catherine ii of russia",
    "empress catherine"
   ],
-  "blurb": "Empress of Russia (1729–1796) · took the throne in a coup; her deposed husband died conveniently six days later",
+  "blurb": "German princess who ruled Russia longer than any other woman (1729–1796) · took the throne in a coup; her deposed husband died conveniently six days later",
   "img": "assets/img/catherine-great.jpg",
   "fx": 0.5,
   "fy": 0.359,
@@ -4785,7 +4783,7 @@
    "cristoforo colombo",
    "cristobal colon"
   ],
-  "blurb": "Explorer (1451–1506) · never set foot in North America, and died insisting he had found Asia",
+  "blurb": "Genoese navigator who sailed west on a very bad estimate (1451–1506) · never set foot in North America, and died insisting he had found Asia",
   "img": "assets/img/christopher-columbus.jpg",
   "fx": 0.4875,
   "fy": 0.265,
@@ -4918,7 +4916,7 @@
    "elizabeth stanton",
    "cady stanton"
   ],
-  "blurb": "Women’s rights leader (1815–1902) · drafted the Seneca Falls Declaration",
+  "blurb": "Suffragist who spent fifty years arguing that women should vote (1815–1902) · drafted the Seneca Falls Declaration",
   "img": "assets/img/elizabeth-cady-stanton.jpg",
   "fx": 0.53,
   "fy": 0.46,
@@ -4965,7 +4963,7 @@
    "franz schubert",
    "schubert"
   ],
-  "blurb": "Composer (1797–1828) · wrote more than 600 songs and nine symphonies, dead at 31",
+  "blurb": "Viennese composer of songs, mostly unpublished in his lifetime (1797–1828) · wrote more than 600 songs and nine symphonies, dead at 31",
   "img": "assets/img/franz-schubert.jpg",
   "fx": 0.35,
   "fy": 0.18,
@@ -5168,7 +5166,7 @@
    "honore balzac",
    "balzac"
   ],
-  "blurb": "French novelist, author of La Comedie Humaine (1799–1850) · wrote from 2 a.m. on rivers of coffee — some 85 novels in 20 years, dead at 51",
+  "blurb": "French novelist who tried to catalogue a whole society in one series (1799–1850) · wrote from 2 a.m. on rivers of coffee — some 85 novels in 20 years, dead at 51",
   "img": "assets/img/honore-de-balzac.jpg",
   "fx": 0.47,
   "fy": 0.32,
@@ -5384,7 +5382,7 @@
    "stalin",
    "iosif stalin"
   ],
-  "blurb": "Leader of the Soviet Union (1878–1953) · spent five years training for the priesthood before the seminary expelled him",
+  "blurb": "Georgian who ran the Soviet Union on purges and five-year plans (1878–1953) · spent five years training for the priesthood before the seminary expelled him",
   "img": "assets/img/joseph-stalin.jpg",
   "fx": 0.4875,
   "fy": 0.361,
@@ -5406,7 +5404,7 @@
    "louis pasteur",
    "pasteur"
   ],
-  "blurb": "Chemist and microbiologist, pioneer of pasteurisation and vaccination (1822–1895) · half-paralysed by a stroke at 46, he developed the rabies vaccine anyway",
+  "blurb": "Chemist who proved that germs, not bad air, cause disease (1822–1895) · half-paralysed by a stroke at 46, he developed the rabies vaccine anyway",
   "img": "assets/img/louis-pasteur.jpg",
   "fx": 0.5,
   "fy": 0.46,
@@ -5451,7 +5449,7 @@
    "mary i of scotland",
    "mary stuart"
   ],
-  "blurb": "Queen of Scotland (1542–1587) · went to the scaffold with her little dog smuggled beneath her skirts",
+  "blurb": "Catholic queen who spent nineteen years as her cousin’s prisoner (1542–1587) · went to the scaffold with her little dog smuggled beneath her skirts",
   "img": "assets/img/mary-queen-of-scots.jpg",
   "fx": 0.55,
   "fy": 0.411,
@@ -5473,7 +5471,7 @@
    "mary wollstonecraft",
    "wollstonecraft"
   ],
-  "blurb": "English writer and philosopher (1759–1797) · her widower's frank memoir scandalised readers and sank her name for a century",
+  "blurb": "Georgian radical who demanded women be schooled as men's equals (1759–1797) · her widower's frank memoir scandalised readers and sank her name for a century",
   "img": "assets/img/mary-wollstonecraft.jpg",
   "fx": 0.55,
   "fy": 0.364,
@@ -5592,7 +5590,7 @@
    "vincenzo pecci",
    "pecci"
   ],
-  "blurb": "Pope whose 1891 encyclical Rerum Novarum launched modern Catholic social teaching — and who became the first pope ever filmed, blessing Edison's camera in 1896 (1810-1903) · photograph, 1887",
+  "blurb": "Pope who put the Church on the side of the industrial worker (1810-1903) · photograph, 1887 — his 1891 encyclical Rerum Novarum founded modern Catholic social teaching, and he became the first pope ever filmed, blessing Edison's camera in 1896",
   "img": "assets/img/pope-leo-xiii.jpg",
   "fx": 0.6,
   "fy": 0.85,
@@ -5693,7 +5691,7 @@
    "rachel carson",
    "carson"
   ],
-  "blurb": "Marine biologist and author of Silent Spring (1907–1964) · the pesticide lobby spent a fortune smearing her as she quietly fought cancer",
+  "blurb": "Marine biologist whose book got DDT banned (1907–1964) · the pesticide lobby spent a fortune smearing her as she quietly fought cancer",
   "img": "assets/img/rachel-carson.jpg",
   "fx": 0.5,
   "fy": 0.4,
@@ -5764,7 +5762,7 @@
    "samuel fb morse",
    "morse"
   ],
-  "blurb": "Inventor of the telegraph and Morse code, who also helped introduce daguerreotype photography to America and personally taught this photo's photographer, Mathew Brady (1791-1872) · photo by Mathew Brady",
+  "blurb": "Painter turned inventor who taught America to talk in dots and dashes (1791-1872) · photo by Mathew Brady — he also brought the daguerreotype to America, and personally taught the photographer who took this",
   "img": "assets/img/samuel-morse.jpg",
   "fx": 0.55,
   "fy": 0.6,
@@ -5787,7 +5785,7 @@
    "shaka",
    "shaka kasenzangakhona"
   ],
-  "blurb": "Zulu king (c. 1787–1828) · his short stabbing spear, the iklwa, was reportedly named for the sound of its withdrawal",
+  "blurb": "Zulu king who forged an empire out of a small clan (c. 1787–1828) · his short stabbing spear, the iklwa, was reportedly named for the sound of its withdrawal",
   "img": "assets/img/shaka-zulu.jpg",
   "fx": 0.41,
   "fy": 0.15,
@@ -5812,7 +5810,7 @@
    "bolivar",
    "the liberator"
   ],
-  "blurb": "Independence leader (1783–1830) · freed six nations, then concluded he had merely 'plowed the sea'",
+  "blurb": "Creole general who broke Spanish rule across a continent (1783–1830) · freed six nations, then concluded he had merely 'plowed the sea'",
   "img": "assets/img/simon-bolivar.jpg",
   "fx": 0.4875,
   "fy": 0.291,
@@ -5835,7 +5833,7 @@
    "de beauvoir",
    "beauvoir"
   ],
-  "blurb": "Philosopher and author of The Second Sex (1908–1986) · her lifelong pact with Sartre ranked their love 'essential', all others 'contingent'",
+  "blurb": "Philosopher who wrote that one is not born, but becomes, a woman (1908–1986) · her lifelong pact with Sartre ranked their love 'essential', all others 'contingent'",
   "img": "assets/img/simone-de-beauvoir.jpg",
   "fx": 0.65,
   "fy": 0.5,
@@ -5860,7 +5858,7 @@
   "reject": [
    "plato"
   ],
-  "blurb": "American poet, author of The Bell Jar (1932–1963) · before her death she sealed the kitchen to spare her sleeping children",
+  "blurb": "American poet who turned her own breakdown into a novel (1932–1963) · before her death she sealed the kitchen to spare her sleeping children",
   "img": "assets/img/sylvia-plath.jpg",
   "fx": 0.48,
   "fy": 0.55,
@@ -5929,7 +5927,7 @@
   "variants": [
    "vercingetorix"
   ],
-  "blurb": "Gallic chieftain who united the tribes against Rome, then surrendered by throwing down his arms at Caesar's feet before being executed after Caesar's triumph (c. 82–46 BC) · later imagined depiction, painting \"Vercingetorix Throws Down His Arms at the Feet of Julius Caesar\" by Lionel Royer, 1899",
+  "blurb": "Gallic chieftain who united the tribes against Rome (c. 82–46 BC) · later imagined depiction, painting \"Vercingetorix Throws Down His Arms at the Feet of Julius Caesar\" by Lionel Royer, 1899 — he was paraded in that triumph, then executed",
   "img": "assets/img/vercingetorix.jpg",
   "fx": 0.2945,
   "fy": 0.442,
@@ -5951,7 +5949,7 @@
    "walt whitman",
    "whitman"
   ],
-  "blurb": "American bard of Leaves of Grass (1819–1892) · self-published 12 poems in 1855, then spent 37 years growing the book past 400",
+  "blurb": "Civil War volunteer nurse who wrote America's rowdiest verse (1819–1892) · self-published 12 poems in 1855, then spent 37 years growing the book past 400",
   "img": "assets/img/walt-whitman.jpg",
   "fx": 0.45,
   "fy": 0.2,
@@ -6096,7 +6094,7 @@
    "al-zahir baybars",
    "baibars"
   ],
-  "blurb": "Mamluk sultan (c. 1223–1277) · led the vanguard at Ain Jalut, seized the throne, then broke the Crusader states",
+  "blurb": "Mamluk sultan who beat both Mongols and Crusaders (c. 1223–1277) · led the vanguard at Ain Jalut, seized the throne, then broke the Crusader states",
   "img": "assets/img/baybars.jpg",
   "fx": 0.54,
   "fy": 0.35,
@@ -6217,7 +6215,7 @@
    "emmy noether",
    "noether"
   ],
-  "blurb": "Mathematician known for Noether's theorem (1882–1935) · Einstein's obituary named her the most significant creative mathematical genius among women yet",
+  "blurb": "Mathematician who tied every conservation law to a symmetry (1882–1935) · Einstein's obituary named her the most significant creative mathematical genius among women yet",
   "img": "assets/img/emmy-noether.jpg",
   "fx": 0.48,
   "fy": 0.32,
@@ -6239,7 +6237,7 @@
    "fukuzawa yukichi",
    "yukichi fukuzawa"
   ],
-  "blurb": "Meiji-era educator who founded Keio University — and whose face appeared on Japan's ¥10,000 note for 40 years (1835-1901) · studio photo",
+  "blurb": "Meiji-era educator who founded a university and a newspaper (1835-1901) · studio photo — his face was on Japan's ¥10,000 note for forty years",
   "img": "assets/img/fukuzawa-yukichi.jpg",
   "fx": 0.53,
   "fy": 0.42,
@@ -6264,7 +6262,7 @@
    "marian evans",
    "mary anne evans"
   ],
-  "blurb": "English novelist, pen name of Mary Ann Evans (1819–1880) · chose a man's name after skewering 'Silly Novels by Lady Novelists' in print",
+  "blurb": "Victorian novelist of provincial life, and a scandalous private one (1819–1880) · chose a man's name after skewering 'Silly Novels by Lady Novelists' in print",
   "img": "assets/img/george-eliot.jpg",
   "fx": 0.55,
   "fy": 0.47,
@@ -6310,7 +6308,7 @@
    "jane addams",
    "addams"
   ],
-  "blurb": "Social reformer who co-founded Hull House and became the first American woman to win the Nobel Peace Prize, in 1931 (1860-1935) · studio portrait photo",
+  "blurb": "Social reformer, first American woman to win the Nobel Peace Prize (1860-1935) · studio portrait photo — the settlement house she co-founded took in Chicago’s immigrant poor",
   "img": "assets/img/jane-addams.jpg",
   "fx": 0.53,
   "fy": 0.62,
@@ -6359,7 +6357,7 @@
    "gaius julius caesar",
    "caesar"
   ],
-  "blurb": "Roman general and dictator (100–44 BC) · the Tusculum portrait, the only surviving bust carved during his lifetime, Museum of Antiquities, Turin",
+  "blurb": "Roman general who made himself dictator for life (100–44 BC) · the Tusculum portrait, the only surviving bust carved during his lifetime, Museum of Antiquities, Turin",
   "img": "assets/img/julius-caesar.jpg",
   "fx": 0.504,
   "fy": 0.229,
@@ -6452,7 +6450,7 @@
    "king naresuan",
    "naresuan the great"
   ],
-  "blurb": "King of Ayutthaya who killed the Burmese crown prince in single combat atop war elephants, restoring Siamese independence (1555-1605) · memorial bronze statue, Phitsanulok",
+  "blurb": "King of Ayutthaya who won Siam's freedom from the back of an elephant (1555-1605) · memorial bronze statue, Phitsanulok — he killed the Burmese crown prince in single combat, elephant to elephant",
   "img": "assets/img/naresuan.jpg",
   "fx": 0.53,
   "fy": 0.34,
@@ -6476,7 +6474,7 @@
    "nikola tesla",
    "tesla"
   ],
-  "blurb": "Inventor and electrical engineer (1856–1943) · the man who electrified the world died broke in a hotel room, feeding pigeons",
+  "blurb": "Serbian-American inventor who won the war of the currents (1856–1943) · the man who electrified the world died broke in a hotel room, feeding pigeons",
   "img": "assets/img/nikola-tesla.jpg",
   "fx": 0.55,
   "fy": 0.519,
@@ -6500,7 +6498,7 @@
    "maresuke nogi",
    "general nogi"
   ],
-  "blurb": "General whose costly Siege of Port Arthur made his name — then he killed himself in ritual suicide on the day of Emperor Meiji's funeral (1849-1912) · formal photo in dress uniform",
+  "blurb": "General whose costly siege of Port Arthur made his name (1849-1912) · formal photo in dress uniform — he killed himself in ritual suicide on the day of Emperor Meiji's funeral",
   "img": "assets/img/nogi-maresuke.jpg",
   "fx": 0.51,
   "fy": 0.3,
@@ -6524,7 +6522,7 @@
    "sima qian",
    "ssu-ma chien"
   ],
-  "blurb": "China's first great historian, who chose castration over suicide so he could stay alive and finish the Records of the Grand Historian (c.145-86 BC) · Qing-dynasty album leaf, National Palace Museum",
+  "blurb": "Court historian who chose mutilation over death so he could finish his book (c.145-86 BC) · Qing-dynasty album leaf, National Palace Museum — the Records of the Grand Historian took him fourteen years",
   "img": "assets/img/sima-qian.jpg",
   "fx": 0.24,
   "fy": 0.68,
@@ -6548,7 +6546,7 @@
    "edison",
    "thomas alva edison"
   ],
-  "blurb": "American inventor (1847–1931) · fought AC power with staged animal electrocutions — and still lost the current war",
+  "blurb": "Inventor who industrialised invention itself at Menlo Park (1847–1931) · fought AC power with staged animal electrocutions — and still lost the current war",
   "img": "assets/img/thomas-edison.jpg",
   "fx": 0.5,
   "fy": 0.292,
@@ -6764,7 +6762,7 @@
    "vlad iii dracula",
    "vlad"
   ],
-  "blurb": "Wallachian prince and the inspiration for Dracula (1431–1477) · lurid German pamphlets made him an early printing-press bestseller, centuries before Stoker",
+  "blurb": "Wallachian prince with a taste for very public executions (1431–1477) · lurid German pamphlets made him an early printing-press bestseller, centuries before Stoker",
   "img": "assets/img/vlad-impaler.jpg",
   "fx": 0.46,
   "fy": 0.33,
@@ -6867,7 +6865,7 @@
    "henry mccarty",
    "william h. bonney"
   ],
-  "blurb": "Wild West outlaw and gunfighter (1859–1881) · the only authenticated photo of him, sold at auction for $2.3m",
+  "blurb": "Teenage gunman of the Lincoln County War (1859–1881) · the only authenticated photo of him, sold at auction for $2.3m",
   "img": "assets/img/billy-the-kid.jpg",
   "fx": 0.43,
   "fy": 0.17,
@@ -6993,7 +6991,7 @@
    "sir alfred hitchcock",
    "the master of suspense"
   ],
-  "blurb": "Master of cinematic suspense (1899–1980) · claimed a lifelong fear of eggs — 'blood is jolly, red; egg yolk is yellow, revolting'",
+  "blurb": "Film director who put ordinary people on very high ledges (1899–1980) · claimed a lifelong fear of eggs — 'blood is jolly, red; egg yolk is yellow, revolting'",
   "img": "assets/img/alfred-hitchcock.jpg",
   "fx": 0.45,
   "fy": 0.38,
@@ -7068,7 +7066,7 @@
    "king of pop",
    "the king of pop"
   ],
-  "blurb": "American singer and dancer, the self-styled 'King of Pop' (1958–2009) · debuted the moonwalk live on TV during a 1983 Motown anniversary special",
+  "blurb": "Child star who grew into the best-selling album of all time (1958–2009) · debuted the moonwalk live on TV during a 1983 Motown anniversary special",
   "img": "assets/img/michael-jackson.jpg",
   "fx": 0.48,
   "fy": 0.2,
@@ -7141,7 +7139,7 @@
    "tricky dick",
    "nixon"
   ],
-  "blurb": "37th US president (1913–1994) · sparred with Khrushchev in an impromptu 'Kitchen Debate' beside a model American kitchen in 1959",
+  "blurb": "Only US president to resign the office (1913–1994) · sparred with Khrushchev in an impromptu 'Kitchen Debate' beside a model American kitchen in 1959",
   "img": "assets/img/nixon.jpg",
   "fx": 0.52,
   "fy": 0.35,
@@ -7191,7 +7189,7 @@
    "bush 41",
    "poppy bush"
   ],
-  "blurb": "41st US president (1924–2018) · became the US Navy's youngest pilot at 18 and was shot down over the Pacific in 1944",
+  "blurb": "President who won a Gulf war and lost re-election (1924–2018) · became the US Navy's youngest pilot at 18 and was shot down over the Pacific in 1944",
   "img": "assets/img/george-hw-bush.jpg",
   "fx": 0.48,
   "fy": 0.32,
@@ -7290,7 +7288,7 @@
    "walter elias disney",
    "disney"
   ],
-  "blurb": "American animator and founder of the Walt Disney Company (1901–1966) · his first studio, Laugh-O-Gram, went bankrupt years before Mickey Mouse ever appeared",
+  "blurb": "Animator who built a theme-park empire out of cartoons (1901–1966) · his first studio, Laugh-O-Gram, went bankrupt years before Mickey Mouse ever appeared",
   "img": "assets/img/walt-disney.jpg",
   "fx": 0.5,
   "fy": 0.42,
@@ -7313,7 +7311,7 @@
    "van gogh",
    "vincent willem van gogh"
   ],
-  "blurb": "Dutch Post-Impressionist painter (1853–1890) · sold only a single painting during his lifetime, months before his death",
+  "blurb": "Dutch painter of sunflowers and wheatfields (1853–1890) · sold only a single painting during his lifetime, months before his death",
   "img": "assets/img/van-gogh.jpg",
   "fx": 0.45,
   "fy": 0.38,
@@ -7340,7 +7338,7 @@
    "sam houston",
    "houston texas"
   ],
-  "blurb": "American singer and actress (1963–2012) · her 1991 Super Bowl anthem became the best-selling version of the US national anthem ever recorded",
+  "blurb": "Gospel-trained singer with her era's most imitated voice (1963–2012) · her 1991 Super Bowl anthem became the best-selling version of the US national anthem ever recorded",
   "img": "assets/img/whitney-houston.jpg",
   "fx": 0.45,
   "fy": 0.28,
@@ -7386,7 +7384,7 @@
    "robin mcclaurin williams",
    "williams"
   ],
-  "blurb": "American actor and comedian (1951–2014) · improvised so much dialogue as Aladdin's Genie that Disney had nine hours of usable footage",
+  "blurb": "Manic comic who kept being handed the serious roles (1951–2014) · improvised so much dialogue as Aladdin's Genie that Disney had nine hours of usable footage",
   "img": "assets/img/robin-williams.jpg",
   "fx": 0.45,
   "fy": 0.4,
@@ -7411,7 +7409,7 @@
    "lyndon johnson",
    "lbj"
   ],
-  "blurb": "36th US president (1908–1973) · was sworn in aboard Air Force One barely two hours after Kennedy's assassination",
+  "blurb": "President who signed the Civil Rights Act and sank into Vietnam (1908–1973) · was sworn in aboard Air Force One barely two hours after Kennedy's assassination",
   "img": "assets/img/lbj.jpg",
   "fx": 0.5,
   "fy": 0.2,
@@ -7435,7 +7433,7 @@
    "albert frederick arthur george",
    "bertie"
   ],
-  "blurb": "King of the United Kingdom (1895–1952) · spent years working with speech therapist Lionel Logue to overcome a severe stammer",
+  "blurb": "Reluctant king who took the throne after his brother walked away (1895–1952) · spent years working with speech therapist Lionel Logue to overcome a severe stammer",
   "img": "assets/img/george-vi.jpg",
   "fx": 0.45,
   "fy": 0.25,
@@ -7458,7 +7456,7 @@
    "frances ethel gumm",
    "garland"
   ],
-  "blurb": "American actress and singer, best known as Dorothy in The Wizard of Oz (1922–1969) · the studio nearly cut 'Over the Rainbow' from the film for slowing the pace",
+  "blurb": "Studio child star wrung out by pills and shooting schedules (1922–1969) · the studio nearly cut 'Over the Rainbow' from the film for slowing the pace",
   "img": "assets/img/judy-garland.jpg",
   "fx": 0.45,
   "fy": 0.32,
@@ -7481,7 +7479,7 @@
    "stephen william hawking",
    "hawking"
   ],
-  "blurb": "English theoretical physicist and author of A Brief History of Time (1942–2018) · given two years to live after his 1963 ALS diagnosis, he lived over 50 more",
+  "blurb": "Cosmologist who spent decades speaking through a computer (1942–2018) · given two years to live after his 1963 ALS diagnosis, he lived over 50 more",
   "img": "assets/img/stephen-hawking.jpg",
   "fx": 0.62,
   "fy": 0.3,
@@ -7554,7 +7552,7 @@
    "john ronald reuel tolkien",
    "tolkien"
   ],
-  "blurb": "English author and Oxford philologist, creator of Middle-earth (1892–1973) · invented full working languages for his elves before writing a word of The Lord of the Rings",
+  "blurb": "Oxford philologist who fought on the Somme and wrote about small heroes (1892–1973) · invented full working languages for his elves before writing a word of The Lord of the Rings",
   "img": "assets/img/tolkien.jpg",
   "fx": 0.38,
   "fy": 0.3,
@@ -7580,7 +7578,7 @@
    "lady diana spencer",
    "princess of wales"
   ],
-  "blurb": "Princess of Wales and landmine-clearance campaigner (1961–1997) · her armoured walk through a live Angolan minefield in 1997 helped push the international landmine-ban treaty through months later",
+  "blurb": "Royal bride turned landmine campaigner, hounded to the end (1961–1997) · her armoured walk through a live Angolan minefield in 1997 helped push the international landmine-ban treaty through months later",
   "img": "assets/img/princess-diana.jpg",
   "fx": 0.48,
   "fy": 0.32,
@@ -7605,7 +7603,7 @@
    "president truman",
    "truman"
   ],
-  "blurb": "33rd U.S. President (1945–1953) · the middle initial 'S' in his name stood for nothing — a compromise between two grandfathers, Anderson Shipp and Solomon",
+  "blurb": "Vice-president who inherited a world war and the atomic bomb (1945–1953) · the middle initial 'S' in his name stood for nothing — a compromise between two grandfathers, Anderson Shipp and Solomon",
   "years": "1884–1972",
   "img": "assets/img/truman.jpg",
   "fx": 0.5,
@@ -7628,10 +7626,9 @@
    "gerald ford",
    "gerald rudolph ford",
    "president ford",
-   "jerry ford",
-   "ford"
+   "jerry ford"
   ],
-  "blurb": "38th U.S. President (1913–2006) · the only president never elected to the office, or to the vice-presidency he held right before it",
+  "blurb": "US president who pardoned his predecessor a month in (1913–2006) · the only president never elected to the office, or to the vice-presidency he held right before it",
   "img": "assets/img/gerald-ford.jpg",
   "fx": 0.47,
   "fy": 0.25,
@@ -7655,7 +7652,7 @@
    "duke of edinburgh",
    "philip mountbatten"
   ],
-  "blurb": "Duke of Edinburgh, consort to Queen Elizabeth II (1921–2021) · as a young naval officer he was mentioned in dispatches for lighting up enemy ships during WWII's Battle of Cape Matapan",
+  "blurb": "Greek-born prince who spent seventy years walking two steps behind (1921–2021) · as a young naval officer he was mentioned in dispatches for lighting up enemy ships during WWII's Battle of Cape Matapan",
   "img": "assets/img/prince-philip.jpg",
   "fx": 0.48,
   "fy": 0.3,
@@ -7680,7 +7677,7 @@
    "ernest miller hemingway",
    "papa hemingway"
   ],
-  "blurb": "Novelist and Nobel laureate (1899–1961) · survived two plane crashes on consecutive days in 1954 and got to read his own obituaries in the world's press",
+  "blurb": "Novelist of short sentences, bullfights and big-game guns (1899–1961) · survived two plane crashes on consecutive days in 1954 and got to read his own obituaries in the world's press",
   "img": "assets/img/hemingway.jpg",
   "fx": 0.45,
   "fy": 0.25,
@@ -7701,7 +7698,7 @@
   "variants": [
    "aristotle"
   ],
-  "blurb": "Philosopher and tutor to Alexander the Great (384–322 BC) · taught that the heart, not the brain, was the seat of thought — the brain's job, he believed, was simply cooling the blood",
+  "blurb": "Greek philosopher who tutored a future world conqueror (384–322 BC) · taught that the heart, not the brain, was the seat of thought — the brain's job, he believed, was simply cooling the blood",
   "img": "assets/img/aristotle.jpg",
   "fx": 0.5,
   "fy": 0.38,
@@ -7848,7 +7845,7 @@
    "marlon brando",
    "brando"
   ],
-  "blurb": "Method actor (1924–2004) · sent Sacheen Littlefeather to decline his Best Actor Oscar for The Godfather on stage, protesting Hollywood's treatment of Native Americans",
+  "blurb": "Actor who mumbled his way through the Method and won (1924–2004) · sent Sacheen Littlefeather to decline his Best Actor Oscar for The Godfather on stage, protesting Hollywood's treatment of Native Americans",
   "img": "assets/img/brando.jpg",
   "fx": 0.5,
   "fy": 0.35,
@@ -7871,7 +7868,7 @@
    "king george v",
    "george the fifth"
   ],
-  "blurb": "King of the United Kingdom (1865–1936) · renamed his dynasty from Saxe-Coburg-Gotha to Windsor in 1917, purging anything German-sounding mid-war",
+  "blurb": "King and stamp collector who reigned through the Great War (1865–1936) · renamed his dynasty from Saxe-Coburg-Gotha to Windsor in 1917, purging anything German-sounding mid-war",
   "img": "assets/img/george-v.jpg",
   "fx": 0.48,
   "fy": 0.22,
@@ -7969,7 +7966,7 @@
    "tupac amaru shakur",
    "shakur"
   ],
-  "blurb": "Rapper and actor (1971–1996) · named after Túpac Amaru II, the 18th-century Peruvian revolutionary who led an uprising against Spanish colonial rule",
+  "blurb": "West Coast rapper shot dead in a Las Vegas drive-by (1971–1996) · named after Túpac Amaru II, the 18th-century Peruvian revolutionary who led an uprising against Spanish colonial rule",
   "img": "assets/img/tupac.jpg",
   "fx": 0.5,
   "fy": 0.32,
@@ -8017,7 +8014,7 @@
    "john adams",
    "president john adams"
   ],
-  "blurb": "2nd U.S. President (1735–1826) · died on 4 July 1826, the Declaration's 50th anniversary, hours after Thomas Jefferson — unaware his old rival had gone first",
+  "blurb": "Founding father who defended the Boston Massacre soldiers in court (1735–1826) · died on 4 July 1826, the Declaration's 50th anniversary, hours after Thomas Jefferson — unaware his old rival had gone first",
   "img": "assets/img/john-adams.jpg",
   "fx": 0.53,
   "fy": 0.3,
@@ -8040,7 +8037,7 @@
    "hendrix",
    "james marshall hendrix"
   ],
-  "blurb": "Rock guitarist (1942–1970) · left-handed, he played a standard right-handed Fender Stratocaster simply flipped upside down and restrung",
+  "blurb": "Guitarist who turned feedback into a national anthem (1942–1970) · left-handed, he played a standard right-handed Fender Stratocaster simply flipped upside down and restrung",
   "img": "assets/img/hendrix.jpg",
   "fx": 0.65,
   "fy": 0.16,
@@ -8179,7 +8176,7 @@
    "eric arthur blair",
    "orwell"
   ],
-  "blurb": "English writer and journalist behind 1984 and Animal Farm (1903–1950) · born Eric Arthur Blair, he was shot through the throat by a sniper while fighting in the Spanish Civil War and survived",
+  "blurb": "Old Etonian socialist who distrusted every party, including his own (1903–1950) · born Eric Arthur Blair, he was shot through the throat by a sniper while fighting in the Spanish Civil War and survived",
   "img": "assets/img/george-orwell.jpg",
   "fx": 0.5,
   "fy": 0.28,
@@ -8225,7 +8222,7 @@
    "dame agatha christie",
    "christie"
   ],
-  "blurb": "British crime novelist behind Poirot and Miss Marple (1890–1976) · vanished for 11 days in 1926, sparking a nationwide manhunt, and never once explained what happened",
+  "blurb": "Crime writer whose plots have outsold everything but the Bible (1890–1976) · vanished for 11 days in 1926, sparking a nationwide manhunt, and never once explained what happened",
   "img": "assets/img/agatha-christie.jpg",
   "fx": 0.5,
   "fy": 0.32,
@@ -8319,7 +8316,7 @@
    "franz kafka",
    "kafka"
   ],
-  "blurb": "Bohemian writer of The Trial and The Metamorphosis (1883–1924) · asked his friend Max Brod to burn all his unpublished manuscripts after his death; Brod ignored him and published them instead",
+  "blurb": "Prague insurance clerk who wrote at night about faceless offices (1883–1924) · asked his friend Max Brod to burn all his unpublished manuscripts after his death; Brod ignored him and published them instead",
   "img": "assets/img/franz-kafka.jpg",
   "fx": 0.5,
   "fy": 0.22,
@@ -8530,7 +8527,7 @@
    "paul leonard newman",
    "newman"
   ],
-  "blurb": "American actor known for Cool Hand Luke and The Sting (1925–2008) · founded the Newman's Own food brand as a joke among friends; it has since donated every cent of profit, over $500 million, to charity",
+  "blurb": "Blue-eyed film star who gave away a salad-dressing fortune (1925–2008) · founded the Newman's Own food brand as a joke among friends; it has since donated every cent of profit, over $500 million, to charity",
   "img": "assets/img/paul-newman.jpg",
   "fx": 0.5,
   "fy": 0.38,
@@ -8677,7 +8674,7 @@
    "selena quintanilla-perez",
    "selena quintanilla perez"
   ],
-  "blurb": "Tejano singer known as the Queen of Tejano Music (1971–1995) · became the first Tejano artist to win a Grammy, for her 1993 live album Selena Live!",
+  "blurb": "Tejano star shot dead by her own fan-club president (1971–1995) · became the first Tejano artist to win a Grammy, for her 1993 live album Selena Live!",
   "img": "assets/img/selena.jpg",
   "fx": 0.5,
   "fy": 0.35,
@@ -8700,7 +8697,7 @@
    "john calvin coolidge",
    "silent cal"
   ],
-  "blurb": "30th U.S. president nicknamed 'Silent Cal' for his taciturn manner (1872–1933) · when a dinner guest bet she could get more than two words out of him, he replied, 'You lose'",
+  "blurb": "Tight-lipped US president of the Roaring Twenties (1872–1933) · when a dinner guest bet she could get more than two words out of him, he replied, 'You lose'",
   "img": "assets/img/calvin-coolidge.jpg",
   "fx": 0.5,
   "fy": 0.32,
@@ -8723,7 +8720,7 @@
    "kurt donald cobain",
    "cobain"
   ],
-  "blurb": "Nirvana frontman and reluctant voice of grunge (1967–1994) · wrote 'Smells Like Teen Spirit' after a friend graffitied the words on his wall, quoting a deodorant brand he'd never heard of",
+  "blurb": "Grunge frontman who hated being anyone's spokesman (1967–1994) · wrote 'Smells Like Teen Spirit' after a friend graffitied the words on his wall, quoting a deodorant brand he'd never heard of",
   "img": "assets/img/kurt-cobain.jpg",
   "fx": 0.6,
   "fy": 0.18,
@@ -8767,7 +8764,7 @@
    "william mckinley",
    "william mckinley jr"
   ],
-  "blurb": "25th U.S. president (1843–1901) · his assassination at the 1901 Pan-American Exposition pushed the Secret Service into its now-permanent job of guarding presidents",
+  "blurb": "President shot dead at a Buffalo exposition (1843–1901) · his assassination at the 1901 Pan-American Exposition pushed the Secret Service into its now-permanent job of guarding presidents",
   "img": "assets/img/william-mckinley.jpg",
   "fx": 0.48,
   "fy": 0.3,
@@ -8790,7 +8787,7 @@
    "warren g harding",
    "warren gamaliel harding"
   ],
-  "blurb": "29th U.S. president (1865–1923) · died suddenly in office amid the brewing Teapot Dome scandal, a mystery that fed decades of poisoning rumors",
+  "blurb": "President whose administration drowned in an oil-lease scandal (1865–1923) · died suddenly in office amid the brewing Teapot Dome scandal, a mystery that fed decades of poisoning rumors",
   "img": "assets/img/warren-harding.jpg",
   "fx": 0.5,
   "fy": 0.32,
@@ -8812,7 +8809,7 @@
    "stan lee",
    "stanley martin lieber"
   ],
-  "blurb": "Marvel Comics writer and co-creator of Spider-Man, the X-Men and the Avengers (1922–2018) · made cameo appearances in nearly 40 Marvel films, always playing an anonymous bystander",
+  "blurb": "Comics writer who gave superheroes rent trouble and self-doubt (1922–2018) · made cameo appearances in nearly 40 Marvel films, always playing an anonymous bystander",
   "img": "assets/img/stan-lee.jpg",
   "fx": 0.5,
   "fy": 0.35,
@@ -8903,7 +8900,7 @@
    "jq adams",
    "old man eloquent"
   ],
-  "blurb": "6th U.S. president and son of founding father John Adams (1767–1848) · the only former president to return to Congress afterward, collapsing on the House floor in 1848 and dying two days later",
+  "blurb": "President who went back to Congress and fought slavery there for seventeen years (1767–1848) · the only former president to return to Congress afterward, collapsing on the House floor in 1848 and dying two days later",
   "img": "assets/img/john-quincy-adams.jpg",
   "fx": 0.48,
   "fy": 0.27,
@@ -8926,7 +8923,7 @@
    "isaak yudovich ozimov",
    "asimov"
   ],
-  "blurb": "Biochemist and science-fiction writer who devised the Three Laws of Robotics (1920–1992) · published roughly 500 books, spanning nearly every category of the Dewey Decimal system",
+  "blurb": "Biochemist who wrote science fiction by the shelf-yard (1920–1992) · published roughly 500 books, spanning nearly every category of the Dewey Decimal system",
   "img": "assets/img/isaac-asimov.jpg",
   "fx": 0.5,
   "fy": 0.3,
@@ -9016,7 +9013,7 @@
    "david keith lynch",
    "lynch"
   ],
-  "blurb": "Surrealist filmmaker behind Eraserhead and Twin Peaks (1946–2025) · actor Jack Nance kept his character's upswept hairdo touched up for the five stop-start years it took to shoot Eraserhead",
+  "blurb": "Filmmaker of small towns with something rotting underneath (1946–2025) · actor Jack Nance kept his character's upswept hairdo touched up for the five stop-start years it took to shoot Eraserhead",
   "img": "assets/img/david-lynch.jpg",
   "fx": 0.45,
   "fy": 0.25,
@@ -9108,7 +9105,7 @@
    "w h harrison",
    "old tippecanoe"
   ],
-  "blurb": "9th US President (1773–1841) · gave the longest inaugural address in history — nearly two hours, no coat — then died 31 days later, the shortest presidency ever",
+  "blurb": "President who died a month into his term (1773–1841) · gave the longest inaugural address in history — nearly two hours, no coat — then died 31 days later, the shortest presidency ever",
   "img": "assets/img/william-henry-harrison.jpg",
   "fx": 0.47,
   "fy": 0.3,
@@ -9132,7 +9129,7 @@
    "frank wright",
    "wright"
   ],
-  "blurb": "Architect (1867–1959) · his Fallingwater cantilevers so far over a waterfall that the contractor secretly doubled Wright's rebar, likely saving it from collapse",
+  "blurb": "American architect of the Prairie School and its long horizontals (1867–1959) · his Fallingwater cantilevers so far over a waterfall that the contractor secretly doubled Wright's rebar, likely saving it from collapse",
   "img": "assets/img/frank-lloyd-wright.jpg",
   "fx": 0.5,
   "fy": 0.3,
@@ -9155,7 +9152,7 @@
    "kipling",
    "joseph rudyard kipling"
   ],
-  "blurb": "Writer (1865–1936) · at 41 became the first English-language Nobel literature laureate — still the youngest ever",
+  "blurb": "Bard of the British Raj, later its uneasy conscience (1865–1936) · at 41 became the first English-language Nobel literature laureate — still the youngest ever",
   "img": "assets/img/kipling.jpg",
   "fx": 0.48,
   "fy": 0.4,
@@ -9205,7 +9202,7 @@
    "the shah",
    "shah of iran"
   ],
-  "blurb": "Shah of Iran (1919–1980) · after the 1979 revolution he moved through six countries in eighteen months, dying of cancer with no permanent asylum",
+  "blurb": "Last monarch of Iran, exiled by revolution (1919–1980) · after the 1979 revolution he moved through six countries in eighteen months, dying of cancer with no permanent asylum",
   "img": "assets/img/mohammad-reza-pahlavi.jpg",
   "fx": 0.5,
   "fy": 0.22,
@@ -9299,7 +9296,7 @@
    "howard lovecraft",
    "lovecraft"
   ],
-  "blurb": "Horror writer (1890–1937) · died in poverty and nearly unknown — his Cthulhu Mythos only became famous decades after his death",
+  "blurb": "Recluse who filled New England with unpronounceable gods (1890–1937) · died in poverty and nearly unknown — his Cthulhu Mythos only became famous decades after his death",
   "img": "assets/img/lovecraft.jpg",
   "fx": 0.5,
   "fy": 0.32,
@@ -9322,7 +9319,7 @@
    "james abram garfield",
    "james garfield"
   ],
-  "blurb": "20th US President (1831–1881) · Alexander Graham Bell built a metal detector to find the assassin's bullet, but the search failed — nobody thought to move him off his metal bed frame",
+  "blurb": "President shot four months in, and finished off by his doctors (1831–1881) · Alexander Graham Bell built a metal detector to find the assassin's bullet, but the search failed — nobody thought to move him off his metal bed frame",
   "img": "assets/img/james-garfield.jpg",
   "fx": 0.43,
   "fy": 0.32,
@@ -9370,7 +9367,7 @@
    "timur the lame",
    "amir timur"
   ],
-  "blurb": "Turco-Mongol conqueror also called Tamerlane (1336–1405) · legend holds his tomb was cursed — Soviet archaeologists opened it in June 1941, two days before Germany invaded the USSR",
+  "blurb": "Limping conqueror who raised skull-towers from Delhi to Damascus (1336–1405) · legend holds his tomb was cursed — Soviet archaeologists opened it in June 1941, two days before Germany invaded the USSR",
   "img": "assets/img/timur.jpg",
   "fx": 0.47,
   "fy": 0.28,
@@ -9417,7 +9414,7 @@
    "senna",
    "ayrton senna da silva"
   ],
-  "blurb": "Formula One driver (1960–1994) · died leading at Imola with an Austrian flag in his cockpit, meant to honour a friend killed in practice the day before",
+  "blurb": "Brazilian driver of three world titles and one great rivalry (1960–1994) · died leading at Imola with an Austrian flag in his cockpit, meant to honour a friend killed in practice the day before",
   "img": "assets/img/senna.jpg",
   "fx": 0.42,
   "fy": 0.32,
@@ -9491,7 +9488,7 @@
    "james buchanan",
    "james buchanan jr"
   ],
-  "blurb": "15th US President (1791–1868) · the only president who never married, and historians' perennial pick for the worst president in US history",
+  "blurb": "The only bachelor president, who watched the Union come apart (1791–1868) · the only president who never married, and historians' perennial pick for the worst president in US history",
   "img": "assets/img/james-buchanan.jpg",
   "fx": 0.45,
   "fy": 0.32,
@@ -9514,7 +9511,7 @@
    "general macarthur",
    "macarthur"
   ],
-  "blurb": "US Army general (1880–1964) · waded ashore in the Philippines for the cameras in 1944, then restaged the same shot at a later landing because reporters loved it",
+  "blurb": "American general who ruled occupied Japan like a viceroy (1880–1964) · waded ashore in the Philippines for the cameras in 1944, then restaged the same shot at a later landing because reporters loved it",
   "img": "assets/img/macarthur.jpg",
   "fx": 0.55,
   "fy": 0.24,
@@ -9610,7 +9607,7 @@
    "benjamin harrison",
    "ben harrison"
   ],
-  "blurb": "23rd US president (1833–1901) · installed the White House's first electric lighting but was so wary of it he left the switches to staff, sometimes letting the lights burn all night rather than touch one",
+  "blurb": "President who won the electoral college and lost the popular vote (1833–1901) · installed the White House's first electric lighting but was so wary of it he left the switches to staff, sometimes letting the lights burn all night rather than touch one",
   "img": "assets/img/benjamin-harrison.jpg",
   "fx": 0.48,
   "fy": 0.28,
@@ -9725,7 +9722,7 @@
    "martin van buren",
    "old kinderhook"
   ],
-  "blurb": "8th US president (1782–1862) · the first president born a US citizen rather than a British subject, and possibly the source of 'OK' via his nickname 'Old Kinderhook'",
+  "blurb": "First president born a US citizen, and a Dutch speaker at home (1782–1862) · the first president born a US citizen rather than a British subject, and possibly the source of 'OK' via his nickname 'Old Kinderhook'",
   "img": "assets/img/martin-van-buren.jpg",
   "fx": 0.5,
   "fy": 0.24,
@@ -9749,7 +9746,7 @@
    "dick feynman",
    "feynman"
   ],
-  "blurb": "American theoretical physicist (1918–1988) · cracked colleagues' safes for fun at Los Alamos during the Manhattan Project, sometimes leaving notes inside to spook them",
+  "blurb": "Physicist who cracked the Challenger disaster with a glass of ice water (1918–1988) · cracked colleagues' safes for fun at Los Alamos during the Manhattan Project, sometimes leaving notes inside to spook them",
   "img": "assets/img/richard-feynman.jpg",
   "fx": 0.4,
   "fy": 0.22,
@@ -9843,7 +9840,7 @@
    "henry the fifth",
    "king henry v"
   ],
-  "blurb": "King of England (1386–1422) · his heavily outnumbered army's win over the French at Agincourt in 1415 was later immortalised in Shakespeare's play bearing his name",
+  "blurb": "English king who claimed the French throne and nearly got it (1386–1422) · his heavily outnumbered army's win over the French at Agincourt in 1415 was later immortalised in Shakespeare's play bearing his name",
   "img": "assets/img/henry-v.jpg",
   "fx": 0.4,
   "fy": 0.28,
@@ -9865,7 +9862,7 @@
    "hannibal",
    "hannibal barca"
   ],
-  "blurb": "Carthaginian general (247–183 BC) · marched dozens of war elephants across the Alps into Italy, though most did not survive the crossing",
+  "blurb": "General who brought elephants over the Alps (247–183 BC) · marched dozens of war elephants across the Alps into Italy, though most did not survive the crossing",
   "img": "assets/img/hannibal.jpg",
   "fx": 0.4,
   "fy": 0.28,
@@ -9887,7 +9884,7 @@
    "zachary taylor",
    "old rough and ready"
   ],
-  "blurb": "12th US president (1784–1850) · a career army officer who had never once voted in a presidential election before winning one himself",
+  "blurb": "General turned president, dead after sixteen months (1784–1850) · a career army officer who had never once voted in a presidential election before winning one himself",
   "img": "assets/img/zachary-taylor.jpg",
   "fx": 0.48,
   "fy": 0.28,
@@ -9909,7 +9906,7 @@
    "john steinbeck",
    "john ernst steinbeck"
   ],
-  "blurb": "American novelist (1902–1968) · won the 1962 Nobel Prize in Literature despite a scathing New York Times editorial questioning whether he deserved it",
+  "blurb": "Novelist of Dust Bowl migrants and migrant labour (1902–1968) · won the 1962 Nobel Prize in Literature despite a scathing New York Times editorial questioning whether he deserved it",
   "img": "assets/img/steinbeck.jpg",
   "fx": 0.55,
   "fy": 0.35,
@@ -9978,7 +9975,7 @@
    "james knox polk",
    "james polk"
   ],
-  "blurb": "11th US president (1795–1849) · pledged to serve only one term, achieved every major goal he set for it, then died just months after leaving office",
+  "blurb": "President who took half of Mexico in a single term (1795–1849) · pledged to serve only one term, achieved every major goal he set for it, then died just months after leaving office",
   "img": "assets/img/james-polk.jpg",
   "fx": 0.48,
   "fy": 0.25,
@@ -10000,7 +9997,7 @@
    "arthur miller",
    "arthur asher miller"
   ],
-  "blurb": "American playwright (1915–2005) · was briefly married to Marilyn Monroe and wrote The Misfits as a screen vehicle for her",
+  "blurb": "Playwright hauled before the House Un-American Activities Committee (1915–2005) · was briefly married to Marilyn Monroe and wrote The Misfits as a screen vehicle for her",
   "img": "assets/img/arthur-miller.jpg",
   "fx": 0.5,
   "fy": 0.3,
@@ -10025,7 +10022,7 @@
    "vivien mary hartley",
    "leigh"
   ],
-  "blurb": "English actress (1913–1967) · beat out well over a thousand other actresses screen-tested for the role of Scarlett O'Hara in Gone with the Wind",
+  "blurb": "English actress who won two Oscars playing Southern belles (1913–1967) · beat out well over a thousand other actresses screen-tested for the role of Scarlett O'Hara in Gone with the Wind",
   "img": "assets/img/vivien-leigh.jpg",
   "fx": 0.48,
   "fy": 0.36,

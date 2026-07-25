@@ -1176,47 +1176,47 @@
  },
  {
   "id": "conn-100",
-  "title": "Old Enemies",
+  "title": "Trust Me",
   "difficulty": "hard",
   "groups": [
    {
     "colour": "yellow",
-    "label": "Named for how long they lasted",
+    "label": "Trademarks that became everyday words",
     "items": [
-     "Thirty Years' War",
-     "Seven Years' War",
-     "Eighty Years' War",
-     "Hundred Years' War"
+     "Hoover",
+     "Thermos",
+     "Escalator",
+     "Aspirin"
     ]
    },
    {
     "colour": "green",
-    "label": "Named for both sides that fought",
+    "label": "Speculative manias that ended in ruin",
     "items": [
-     "Russo-Japanese War",
-     "Franco-Prussian War",
-     "Anglo-Zulu War",
-     "Greco-Persian Wars"
+     "Tulip Mania",
+     "South Sea Bubble",
+     "Mississippi Scheme",
+     "Railway Mania"
     ]
    },
    {
     "colour": "blue",
-    "label": "Named for where they were fought",
+    "label": "Trades the twentieth century wiped out",
     "items": [
-     "Peninsular War",
-     "Crimean War",
-     "Falklands War",
-     "Vietnam War"
+     "Knocker-up",
+     "Lamplighter",
+     "Switchboard operator",
+     "Ice cutter"
     ]
    },
    {
     "colour": "purple",
-    "label": "Named for a disputed throne",
+    "label": "Built a cosmetics fortune from nothing",
     "items": [
-     "War of the Spanish Succession",
-     "War of the Austrian Succession",
-     "War of the Polish Succession",
-     "War of the Bavarian Succession"
+     "Madam C. J. Walker",
+     "Helena Rubinstein",
+     "Elizabeth Arden",
+     "Estée Lauder"
     ]
    }
   ]
@@ -1552,46 +1552,46 @@
  },
  {
   "id": "conn-007",
-  "title": "Wartime Inventions",
+  "title": "Face the Music",
   "groups": [
    {
     "colour": "yellow",
-    "label": "Born in World War II",
+    "label": "Instruments named after a real person",
     "items": [
-     "Radar",
-     "Jet engine",
-     "Penicillin (mass-produced)",
-     "Atomic bomb"
+     "Saxophone",
+     "Sousaphone",
+     "Theremin",
+     "Moog"
     ]
    },
    {
     "colour": "green",
-    "label": "Cold War inventions",
+    "label": "Dances that scandalised polite society",
     "items": [
-     "GPS",
-     "The internet (ARPANET)",
-     "Satellites",
-     "Hydrogen bomb"
+     "Waltz",
+     "Tango",
+     "Charleston",
+     "Lindy Hop"
     ]
    },
    {
     "colour": "blue",
-    "label": "World War I introductions",
+    "label": "Songs that became anthems of revolt",
     "items": [
-     "Tanks",
-     "Poison gas",
-     "Steel helmets",
-     "Blood banks"
+     "La Marseillaise",
+     "The Internationale",
+     "Nkosi Sikelel' iAfrika",
+     "We Shall Overcome"
     ]
    },
    {
     "colour": "purple",
-    "label": "Everyday items invented for war",
+    "label": "Opening nights that ended in a riot",
     "items": [
-     "Duct tape",
-     "Super Glue",
-     "Aviator sunglasses",
-     "Canned food"
+     "Hernani",
+     "Tannhäuser in Paris",
+     "Ubu Roi",
+     "The Playboy of the Western World"
     ]
    }
   ],
@@ -1928,47 +1928,47 @@
  },
  {
   "id": "conn-151",
-  "title": "The Clash of Antiquity",
+  "title": "Keep Your Distance",
   "difficulty": "hard",
   "groups": [
    {
     "colour": "yellow",
-    "label": "Battles of Alexander the Great",
+    "label": "Diseases that emptied cities",
     "items": [
-     "Granicus",
-     "Issus",
-     "Gaugamela",
-     "Hydaspes"
+     "Black Death",
+     "Cholera",
+     "Spanish Flu",
+     "Typhus"
     ]
    },
    {
     "colour": "green",
-    "label": "Battles of the Punic Wars",
+    "label": "Plague cures that did nothing at all",
     "items": [
-     "Cannae",
-     "Zama",
-     "Trebia",
-     "Lake Trasimene"
+     "Bloodletting",
+     "Vinegar",
+     "Theriac",
+     "Posies"
     ]
    },
    {
     "colour": "blue",
-    "label": "Battles of Rome's civil wars and conquests",
+    "label": "How a city dealt with the infected",
     "items": [
-     "Pharsalus",
-     "Philippi",
-     "Actium",
-     "Alesia"
+     "Lazaretto",
+     "Pest house",
+     "Cordon sanitaire",
+     "Plague pit"
     ]
    },
    {
     "colour": "purple",
-    "label": "Commanders of antiquity",
+    "label": "Everyday words left behind by discarded medical theory",
     "items": [
-     "Leonidas",
-     "Hannibal",
-     "Scipio",
-     "Vercingetorix"
+     "Melancholy",
+     "Hysteria",
+     "Lunatic",
+     "Phlegmatic"
     ]
    }
   ]
@@ -2116,46 +2116,46 @@
  },
  {
   "id": "conn-014",
-  "title": "Gone Too Soon",
+  "title": "Brute Force",
   "groups": [
    {
     "colour": "yellow",
-    "label": "Died in their early 30s",
+    "label": "Driven to extinction by people",
     "items": [
-     "Alexander the Great",
-     "Jesus (traditional)",
-     "Eva Peron",
-     "Bruce Lee"
+     "Dodo",
+     "Great Auk",
+     "Passenger pigeon",
+     "Thylacine"
     ]
    },
    {
     "colour": "green",
-    "label": "Members of the '27 Club'",
+    "label": "Creatures medieval scholars believed were real",
     "items": [
-     "Jimi Hendrix",
-     "Janis Joplin",
-     "Jim Morrison",
-     "Amy Winehouse"
+     "Unicorn",
+     "Basilisk",
+     "Kraken",
+     "Vegetable Lamb"
     ]
    },
    {
     "colour": "blue",
-    "label": "Assassinated heads of state",
+    "label": "Animals an economy was built on",
     "items": [
-     "Caligula",
-     "JFK",
-     "Lincoln",
-     "Caesar"
+     "Beaver",
+     "Merino sheep",
+     "Silkworm",
+     "Sperm whale"
     ]
    },
    {
     "colour": "purple",
-    "label": "Died at 40",
+    "label": "Put on trial in a medieval court",
     "items": [
-     "Edgar Allan Poe",
-     "Glenn Miller",
-     "John Lennon",
-     "Franz Kafka"
+     "Rats",
+     "Weevils",
+     "Locusts",
+     "A cockerel"
     ]
    }
   ],
@@ -2163,47 +2163,47 @@
  },
  {
   "id": "conn-035",
-  "title": "Give and Take",
+  "title": "Small Mercies",
   "difficulty": "medium",
   "groups": [
    {
     "colour": "yellow",
-    "label": "English words from Nahuatl",
+    "label": "Children's books of the Victorian age",
     "items": [
-     "Chocolate",
-     "Tomato",
-     "Avocado",
-     "Coyote"
+     "Treasure Island",
+     "The Water Babies",
+     "Struwwelpeter",
+     "Black Beauty"
     ]
    },
    {
     "colour": "green",
-    "label": "English words from Hindi",
+    "label": "Punishments in a Victorian classroom",
     "items": [
-     "Shampoo",
-     "Pajamas",
-     "Bungalow",
-     "Loot"
+     "The cane",
+     "Dunce's cap",
+     "Writing lines",
+     "Standing in the corner"
     ]
    },
    {
     "colour": "blue",
-    "label": "Historic trade routes",
+    "label": "Nursery rhymes said to hide real history",
     "items": [
-     "Silk Road",
-     "Amber Road",
-     "Incense Route",
-     "Grand Trunk Road"
+     "Ring a Ring o' Roses",
+     "London Bridge",
+     "Humpty Dumpty",
+     "Mary Mary Quite Contrary"
     ]
    },
    {
     "colour": "purple",
-    "label": "English words from Chinese",
+    "label": "Jobs done by children before the Factory Acts",
     "items": [
-     "Ketchup",
-     "Kowtow",
-     "Gung-ho",
-     "Tea"
+     "Chimney sweep",
+     "Mudlark",
+     "Match girl",
+     "Pit brow lass"
     ]
    }
   ]
@@ -2459,12 +2459,12 @@
    },
    {
     "colour": "green",
-    "label": "Women who won a science Nobel",
+    "label": "Namesakes of electrical units",
     "items": [
-     "Dorothy Hodgkin",
-     "Barbara McClintock",
-     "Rosalyn Yalow",
-     "Maria Goeppert Mayer"
+     "Volta",
+     "Ampere",
+     "Ohm",
+     "Watt"
     ]
    },
    {
@@ -2479,12 +2479,12 @@
    },
    {
     "colour": "purple",
-    "label": "Namesakes of electrical units",
+    "label": "Women who won a science Nobel",
     "items": [
-     "Volta",
-     "Ampere",
-     "Ohm",
-     "Watt"
+     "Dorothy Hodgkin",
+     "Barbara McClintock",
+     "Rosalyn Yalow",
+     "Maria Goeppert Mayer"
     ]
    }
   ],
@@ -2915,46 +2915,46 @@
  },
  {
   "id": "conn-001",
-  "title": "Crowned Heads",
+  "title": "Common Knowledge",
   "groups": [
    {
     "colour": "yellow",
-    "label": "Kings of England named Henry",
+    "label": "Discovered or invented by accident",
     "items": [
-     "Henry V",
-     "Henry VIII",
-     "Henry II",
-     "Henry VII"
+     "Penicillin",
+     "Microwave oven",
+     "Post-it note",
+     "Saccharin"
     ]
    },
    {
     "colour": "green",
-    "label": "Russian rulers",
+    "label": "Garments named after a real person",
     "items": [
-     "Ivan the Terrible",
-     "Peter the Great",
-     "Catherine the Great",
-     "Nicholas II"
+     "Cardigan",
+     "Leotard",
+     "Bloomers",
+     "Mackintosh"
     ]
    },
    {
     "colour": "blue",
-    "label": "French kings named Louis",
+    "label": "Things governments have taxed",
     "items": [
-     "The Sun King",
-     "Louis XVI",
-     "Saint Louis",
-     "The Spider King"
+     "Windows",
+     "Beards",
+     "Hats",
+     "Playing cards"
     ]
    },
    {
     "colour": "purple",
-    "label": "Titles meaning 'emperor'",
+    "label": "Gadgets the ancient world already had",
     "items": [
-     "Kaiser",
-     "Tsar",
-     "Caesar",
-     "Augustus"
+     "Vending machine",
+     "Automatic doors",
+     "Odometer",
+     "Alarm clock"
     ]
    }
   ],
@@ -4654,7 +4654,7 @@
  },
  {
   "id": "conn-077",
-  "title": "Queens and Castles",
+  "title": "Taken by Storm",
   "difficulty": "easy",
   "groups": [
    {
@@ -4689,12 +4689,12 @@
    },
    {
     "colour": "purple",
-    "label": "Also palaces built for a French king",
+    "label": "Also pieces on a chessboard",
     "items": [
-     "Versailles",
-     "Fontainebleau",
-     "Chambord",
-     "Vincennes"
+     "Castle",
+     "Queen",
+     "Bishop",
+     "Knight"
     ]
    }
   ]
@@ -4936,7 +4936,7 @@
  },
  {
   "id": "conn-070",
-  "title": "Giants of a Global War",
+  "title": "Weight of the World",
   "difficulty": "easy",
   "groups": [
    {
@@ -5265,7 +5265,7 @@
  },
  {
   "id": "conn-075",
-  "title": "Columns and Conquests",
+  "title": "The Long Shadow",
   "difficulty": "easy",
   "groups": [
    {
@@ -5500,16 +5500,16 @@
  },
  {
   "id": "conn-078",
-  "title": "Crown and Crusade",
+  "title": "Unfinished Business",
   "difficulty": "easy",
   "groups": [
    {
     "colour": "yellow",
     "label": "Kings of England named Edward",
     "items": [
-     "Edward the Confessor",
      "Edward I",
      "Edward III",
+     "Edward IV",
      "Edward VIII"
     ]
    },
@@ -5517,7 +5517,7 @@
     "colour": "green",
     "label": "Explorers who searched for a Northwest Passage",
     "items": [
-     "John Franklin",
+     "Jacques Cartier",
      "Henry Hudson",
      "Martin Frobisher",
      "John Cabot"
@@ -6017,47 +6017,47 @@
  },
  {
   "id": "conn-074",
-  "title": "Legends of Rome",
+  "title": "Last Orders",
   "difficulty": "easy",
   "groups": [
    {
     "colour": "yellow",
-    "label": "Figures in the legend of Rome's founding",
+    "label": "Pub names found in every English town",
     "items": [
-     "Romulus",
-     "Remus",
-     "Aeneas",
-     "She-wolf"
+     "The Red Lion",
+     "The Royal Oak",
+     "The White Hart",
+     "The Crown"
     ]
    },
    {
     "colour": "green",
-    "label": "Kings of Rome after Romulus",
+    "label": "Drinks that owe their name or recipe to monks",
     "items": [
-     "Numa Pompilius",
-     "Tullus Hostilius",
-     "Ancus Marcius",
-     "Tarquin the Proud"
+     "Chartreuse",
+     "Trappist beer",
+     "Buckfast",
+     "Bénédictine"
     ]
    },
    {
     "colour": "blue",
-    "label": "Ancient Roman roads",
+    "label": "The legacy of American Prohibition",
     "items": [
-     "Appian Way",
-     "Via Flaminia",
-     "Via Aurelia",
-     "Via Egnatia"
+     "Speakeasy",
+     "Bootlegger",
+     "Moonshine",
+     "NASCAR"
     ]
    },
    {
     "colour": "purple",
-    "label": "Also hills that ancient Rome was built on",
+    "label": "Two-hundred-year-old ways to say drunk",
     "items": [
-     "Palatine",
-     "Capitoline",
-     "Aventine",
-     "Quirinal"
+     "Foxed",
+     "Fuddled",
+     "In one's cups",
+     "Half seas over"
     ]
    }
   ]
