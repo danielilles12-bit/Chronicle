@@ -151,6 +151,29 @@ def load_config():
         "western_bias_weight": 0.5,       # pv_pct (0-100) x this = ranking nudge; 0 disables the bias entirely
         "western_bias_hard_exempt": True,    # 'hard' tier slots never get the bias — reserved for deeper/international cuts
         "western_bias_sunday_exempt": True,  # Sunday's slots never get the bias — the week's deepest-cut day
+        # --- Tone / composition caps (25 Jul 2026) --------------------------
+        # Sanctioned by the launch review, which asked to "cap all-power-
+        # figure human slates" and "prevent any one dark theme from
+        # swallowing an edition", having found that "executions,
+        # assassinations, dictatorship, body parts and mass death recur
+        # frequently enough that darkness stops feeling like contrast".
+        #
+        # TONE IS NOT DIFFICULTY. `difficulty` describes how hard a round is
+        # to guess; tone describes how heavy the issue feels. They are
+        # different concerns and get different controls, so nothing here
+        # touches a difficulty label. Right now the Face Value easy pool
+        # alone holds Hitler, Stalin, Mao, Mussolini, Lenin, Pinochet, Idi
+        # Amin, Gaddafi, Khomeini, bin Laden, Escobar, Che Guevara and the
+        # Shah — about one item in ten — and nothing stopped several of them
+        # landing on the same day.
+        "max_dark_tone_per_issue": 1,     # HARD cap, never relaxed: at most this many tagged subjects across the WHOLE issue (who+map+what+thread together)
+        "max_power_share_per_issue": 0.4,  # SOFT cap (relaxes like the variety caps if a tier can't otherwise fill): share of the issue's HUMAN answers (who+map = 10 slots) that may be rulers/statesmen/commanders. 0.4 -> 4 of 10. Measured over settled editions 24-64 the median day already sits at 0.29 and only 7 of 41 days exceed 0.4, so this trims the lopsided days without starving normal ones.
+        "power_occupation_families": ["ruler", "statesman", "military"],  # matched against tools/fame/tags.json occupation_family; an item with no tag match is a wildcard, never blocked
+        # The curated tag list itself lives in tools/editions.config.json —
+        # that is the owner-editable place to disagree with a call. Empty
+        # here so a missing config file degrades to "no opinion" rather than
+        # crashing, exactly like the fame/tags signals above.
+        "dark_tone_ids": {},
     }
     if CONFIG_PATH.exists():
         defaults.update(json.loads(CONFIG_PATH.read_text(encoding="utf-8")))
@@ -456,6 +479,45 @@ def item_signal(game, item, fame_idx, tag_idx):
     return sig
 
 
+# ---------------------------------------------------------------------------
+# Tone classification (25 Jul 2026).
+#
+# TWO mechanisms, deliberately, because the two questions have different
+# shapes:
+#
+#  1. "Is this a dark-tone subject?" cannot be inferred from any field we
+#     hold. Occupation says `statesman` for Hitler, Lincoln and Gandhi
+#     alike; fame and salience say nothing about tone at all. Guessing from
+#     names or blurb text would be a fragile detector producing confident
+#     nonsense. So it is a CURATED ID LIST in tools/editions.config.json —
+#     the cheapest reliable mechanism, auditable at a glance, and editable
+#     by the owner without touching code. ~84 tagged ids across four pools
+#     of ~1,500 items.
+#
+#  2. "Is this a ruler or a commander?" IS already a field —
+#     tags.json occupation_family — so that cap needs no curation at all
+#     and keeps working for items added after this list was written.
+#
+# Together they cover both failure modes: the list catches the specific
+# subjects that make an issue grim, and the occupation share catches the
+# broader "history as nothing but kings and generals" drift even among
+# entirely benign figures.
+# ---------------------------------------------------------------------------
+def is_dark_tone(cfg, game, item_id):
+    """True if this exact pool item carries the curated dark-tone tag.
+    Unknown ids are untagged — never a rejection, same convention as every
+    other signal here."""
+    tags = cfg.get("dark_tone_ids") or {}
+    return item_id in set(tags.get(game) or ())
+
+
+def is_power_figure(sig, cfg):
+    """True if the item's occupation_family is a ruler/statesman/commander
+    family. None (no tag match) is 'no opinion' and never counts."""
+    fam = sig.get("occupation_family")
+    return bool(fam) and fam in set(cfg.get("power_occupation_families") or ())
+
+
 def western_bias_score(sig, cfg):
     """Lower sorts earlier (preferred) in `ranked`. Zero (neutral) when
     there's no fame signal at all, or when the item is famous enough to be
@@ -531,6 +593,21 @@ def cmd_propose(args):
         g = gap_days(game, item["id"], on_date)
         if g is not None and g < floor:
             return False, f"aired {g}d ago (floor {floor})"
+        # Tone cap, HARD and never relaxed (unlike the variety caps): the
+        # dark-tone pool is a small tagged minority of every game's pool, so
+        # there is always an untagged alternative and bending this could
+        # only ever be a convenience, never a necessity. Checked here rather
+        # than in caps_ok() so it also governs Thread board selection and
+        # the guaranteed-banker repair, both of which bypass caps_ok.
+        if is_dark_tone(cfg, game, item["id"]) \
+                and day_tone["dark"] >= cfg["max_dark_tone_per_issue"]:
+            reason = (f"tone cap: this issue already has "
+                      f"{day_tone['dark']} dark-tone subject"
+                      f"{'s' if day_tone['dark'] != 1 else ''} "
+                      f"(max {cfg['max_dark_tone_per_issue']})")
+            tone_rejects.setdefault((game, item["id"]),
+                                    (item.get("name") or item["id"], reason))
+            return False, reason
         if game in ("who", "what"):
             if not (ROOT / item["img"]).exists():
                 return False, "image missing on disk"
@@ -587,6 +664,25 @@ def cmd_propose(args):
                                # subject" net (see eligible()'s day_subjects)
         picked_today = {g: [] for g in GAMES}
         warns = []
+
+        # --- tone state, ISSUE-level (25 Jul 2026) ------------------------
+        # Counted across the whole issue rather than per game, because the
+        # failure the launch review named is an EDITION that reads as one
+        # dark theme — Hitler in Face Value plus Stalin in Lifeline plus a
+        # board about assassinations is exactly the day being guarded
+        # against, and no per-game counter would ever see it.
+        day_tone = {"dark": 0, "power": 0}
+        # Rejections are recorded, not silent: one entry per (game, id) per
+        # day, surfaced as warnings on the review sheet and as an aggregate
+        # on stdout.
+        tone_rejects = {}
+
+        # The power-share denominator is known before any pick is made: the
+        # issue's human answers are the who quota plus the map quota, which
+        # the recipe fixes at 5 + 5. Deriving it from the recipe rather than
+        # hard-coding 10 keeps this correct if the recipe ever changes.
+        human_slots = sum(NEW_RECIPE[wd]) * 2
+        power_cap = int(cfg["max_power_share_per_issue"] * human_slots)
 
         def note(kind, game, item_id, text):
             warns.append({"kind": kind, "game": game, "id": item_id, "text": text})
@@ -645,18 +741,38 @@ def cmd_propose(args):
                 same_tier = [it for it in chosen if it["difficulty"] == cand["difficulty"]] or chosen
                 weakest = min(same_tier, key=lambda it: (fame_of(it) if fame_of(it) is not None else -1))
                 w_variants = {normalise(v) for v in weakest.get("variants") or []}
+                # The tone counters have to come off with the item being
+                # swapped out, or the cap would be evaluated against a state
+                # that includes a pick we are in the middle of withdrawing —
+                # a banker repair that removes Hitler must be allowed to
+                # bring in another dark-tone subject if it needs to.
+                w_dark = is_dark_tone(cfg, game, weakest["id"])
+                w_power = is_power_figure(
+                    item_signal(game, weakest, fame_idx, tag_idx), cfg)
                 chosen_ids.discard(weakest["id"])
                 day_answers.discard(normalise(weakest["name"]))
                 day_subjects.difference_update(w_variants)
+                if w_dark:
+                    day_tone["dark"] -= 1
+                if w_power:
+                    day_tone["power"] -= 1
                 ok, _ = eligible(game, cand, on_date, day_answers, chosen_ids, day_subjects)
                 if not ok:
                     chosen_ids.add(weakest["id"])
                     day_answers.add(normalise(weakest["name"]))
                     day_subjects.update(w_variants)
+                    if w_dark:
+                        day_tone["dark"] += 1
+                    if w_power:
+                        day_tone["power"] += 1
                     continue
                 chosen_ids.add(cand["id"])
                 day_answers.add(normalise(cand["name"]))
                 day_subjects.update(normalise(v) for v in cand.get("variants") or [])
+                if is_dark_tone(cfg, game, cand["id"]):
+                    day_tone["dark"] += 1
+                if is_power_figure(item_signal(game, cand, fame_idx, tag_idx), cfg):
+                    day_tone["power"] += 1
                 note("banker-repair", game, cand["id"],
                      f"swapped in as the day's guaranteed banker (fame {f:.1f}), "
                      f"replacing {weakest['id']}")
@@ -680,6 +796,13 @@ def cmd_propose(args):
             picked_today["thread"] = [board["id"]]
             day_answers |= thread_answer_keys(board)
             day_subjects |= thread_answer_keys(board)
+            # Thread is picked FIRST, so a dark-themed board (assassinations,
+            # the Terror, the witch hunts, plague) spends the issue's single
+            # dark-tone allowance before any portrait is chosen. That
+            # ordering is deliberate: Thread has the least flexible pool, so
+            # it should be the one that gets to claim the allowance.
+            if is_dark_tone(cfg, "thread", board["id"]):
+                day_tone["dark"] += 1
             soft_checks("thread", board)
 
             # --- Rounds games: who, map, what -----------------------------
@@ -713,13 +836,39 @@ def cmd_propose(args):
                         return score
                     return bias
 
-                def caps_ok(item):
+                def caps_ok(item, relax=0):
+                    """relax is a LADDER, not a switch:
+                       0 — every cap applies;
+                       1 — the region/occupation variety caps bend;
+                       2 — the rulers-and-commanders share bends too.
+                    Tone is the last thing to give, because a day that is
+                    merely repetitive in region is a smaller failure than a
+                    day that is all kings and generals. (The dark-tone cap
+                    lives in eligible() and bends at no level at all.)"""
                     sig = item_signal(game, item, fame_idx, tag_idx)
-                    region = sig.get("region")
-                    if region and round_region[region] >= cfg["max_region_per_round"]:
-                        return False
-                    occ = sig.get("occupation_family") if game in ("who", "map") else None
-                    if occ and round_occ[occ] >= cfg["max_occupation_per_round"]:
+                    if relax < 1:
+                        region = sig.get("region")
+                        if region and round_region[region] >= cfg["max_region_per_round"]:
+                            return False
+                        occ = sig.get("occupation_family") if game in ("who", "map") else None
+                        if occ and round_occ[occ] >= cfg["max_occupation_per_round"]:
+                            return False
+                    if relax >= 2:
+                        return True
+                    # Rulers-and-commanders share of the issue's human
+                    # answers. SOFT, and lives here rather than in
+                    # eligible() precisely so it participates in the
+                    # existing relax_caps escape hatch: a thin tier that
+                    # genuinely cannot fill any other way bends this and
+                    # says so, rather than raising Shortage.
+                    if game in ("who", "map") and is_power_figure(sig, cfg) \
+                            and day_tone["power"] >= power_cap:
+                        reason = (f"tone cap: {day_tone['power']} of this "
+                                  f"issue's {human_slots} human answers are "
+                                  f"already rulers/commanders (max {power_cap})")
+                        tone_rejects.setdefault(
+                            (game, item["id"]),
+                            (item.get("name") or item["id"], reason))
                         return False
                     return True
 
@@ -734,8 +883,12 @@ def cmd_propose(args):
                         round_occ[sig["occupation_family"]] += 1
                     if sig.get("era"):
                         round_era.add(sig["era"])
+                    if is_dark_tone(cfg, game, item["id"]):
+                        day_tone["dark"] += 1
+                    if game in ("who", "map") and is_power_figure(sig, cfg):
+                        day_tone["power"] += 1
 
-                def fill(pool_tier, need, slot_tier, relax_caps, backfill_note_tier=None):
+                def fill(pool_tier, need, slot_tier, relax=0, backfill_note_tier=None):
                     """Pick up to `need` items from by_tier[game][pool_tier],
                     one at a time (so caps/era-novelty react after each
                     pick). slot_tier is the day's REQUESTED tier — the
@@ -753,7 +906,7 @@ def cmd_propose(args):
                                              chosen_ids, day_subjects)
                             if not ok:
                                 continue
-                            if not relax_caps and not caps_ok(cand):
+                            if not caps_ok(cand, relax):
                                 continue
                             pick = cand
                             break
@@ -767,19 +920,40 @@ def cmd_propose(args):
                         got.append(pick)
                     return got
 
+                def relax_ladder(pool_tier, short, slot_tier, where,
+                                 backfill_note_tier=None):
+                    """Bend one rung at a time and report which rung it was.
+                    Before 25 Jul 2026 this was a single boolean that dropped
+                    every cap at once — which silently took the tone cap with
+                    it, so an edition could end up all rulers with only a
+                    'relaxed the region/occupation caps' note to show for it."""
+                    got = []
+                    for rung, kind, what in (
+                            (1, "variety-cap-relaxed",
+                             "the region/occupation caps"),
+                            (2, "tone-cap-relaxed",
+                             "the rulers-and-commanders share cap (the "
+                             "dark-tone cap still held)")):
+                        if short <= 0:
+                            break
+                        extra = fill(pool_tier, short, slot_tier, relax=rung,
+                                     backfill_note_tier=backfill_note_tier)
+                        if extra:
+                            note(kind, game, None,
+                                 f"{where}: relaxed {what} to fill "
+                                 f"{len(extra)} more slot(s)")
+                        got += extra
+                        short -= len(extra)
+                    return got
+
                 for ti, tier in enumerate(TIERS):
                     need = counts[ti]
                     if need <= 0:
                         continue
-                    got_by_tier[tier] = fill(tier, need, tier, relax_caps=False)
+                    got_by_tier[tier] = fill(tier, need, tier, relax=0)
                     short = need - len(got_by_tier[tier])
                     if short > 0:
-                        extra = fill(tier, short, tier, relax_caps=True)
-                        if extra:
-                            note("variety-cap-relaxed", game, None,
-                                 f"{tier}: relaxed the region/occupation caps to "
-                                 f"fill {len(extra)} more slot(s)")
-                        got_by_tier[tier] += extra
+                        got_by_tier[tier] += relax_ladder(tier, short, tier, tier)
                 # Backfill pass: the repeat floor is sacred; the difficulty
                 # mix bends next (flagged); variety caps bend last of all,
                 # and only inside this already-relaxed backfill (flagged
@@ -790,14 +964,11 @@ def cmd_propose(args):
                         continue
                     lender = "medium" if tier in ("hard", "easy") else "easy"
                     short = need - len(got_by_tier[tier])
-                    extra = fill(lender, short, tier, relax_caps=False, backfill_note_tier=tier)
+                    extra = fill(lender, short, tier, relax=0, backfill_note_tier=tier)
                     if len(extra) < short:
-                        more = fill(lender, short - len(extra), tier, relax_caps=True,
-                                   backfill_note_tier=tier)
-                        if more:
-                            note("variety-cap-relaxed", game, None,
-                                 f"{tier} backfill: relaxed the region/occupation caps too")
-                        extra += more
+                        extra += relax_ladder(lender, short - len(extra), tier,
+                                              f"{tier} backfill",
+                                              backfill_note_tier=tier)
                     got_by_tier[tier] += extra
                     if len(got_by_tier[tier]) < need:
                         raise Shortage(n, game, tier, need, len(got_by_tier[tier]))
@@ -821,6 +992,20 @@ def cmd_propose(args):
                     if cnt > cap:
                         note(f"{label}-cluster", "map", None,
                              f"{cnt} Lifeline figures share {label} “{val}”")
+
+            # --- tone: what the cap did, and what the day ended up like ---
+            # Rejections are reported, never silent — the whole point of a
+            # taste rule is that a human can see it firing and disagree.
+            for (rej_game, rej_id), (rej_name, rej_reason) in sorted(
+                    tone_rejects.items()):
+                note("tone-cap", rej_game, rej_id,
+                     f"“{rej_name}” skipped — {rej_reason}")
+            note("tone-summary", None, None,
+                 f"issue tone: {day_tone['dark']} dark-tone subject"
+                 f"{'s' if day_tone['dark'] != 1 else ''} "
+                 f"(max {cfg['max_dark_tone_per_issue']}), "
+                 f"{day_tone['power']}/{human_slots} human answers are "
+                 f"rulers/commanders (max {power_cap})")
 
         except Shortage as sh:
             stopped_short = sh
@@ -848,18 +1033,41 @@ def cmd_propose(args):
         "editions": editions,
         "warnings": warnings,
     }
-    PROPOSED.write_text(json.dumps(proposed, indent=1, ensure_ascii=False) + "\n",
+    # --out lets a batch be generated and inspected without touching the
+    # live proposals file — the dry run used to demonstrate a rule change.
+    out_path = Path(args.out).resolve() if getattr(args, "out", None) else PROPOSED
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(json.dumps(proposed, indent=1, ensure_ascii=False) + "\n",
                         encoding="utf-8")
 
-    sheet = write_review_sheet(proposed, pools, id_index, manifest)
+    sheet = write_review_sheet(proposed, pools, id_index, manifest,
+                               name_hint=(out_path.stem
+                                          if out_path != PROPOSED else None))
 
     n_warn = sum(len(v) for v in warnings.values())
+    try:
+        shown = out_path.relative_to(ROOT)
+    except ValueError:
+        shown = out_path
     print(f"propose: {len(editions)} editions written to "
-          f"{PROPOSED.relative_to(ROOT)} (editions {start}–{start + len(editions) - 1})")
+          f"{shown} (editions {start}–{start + len(editions) - 1})")
     print(f"propose: review sheet -> {sheet.relative_to(ROOT)}")
     print(f"propose: {n_warn} soft warnings across {len(warnings)} editions")
     for kind, cnt in Counter(w["kind"] for v in warnings.values() for w in v).most_common():
         print(f"  {kind}: {cnt}")
+
+    # --- tone report: never let a taste rule fire silently ----------------
+    tone_hits = [(k, w) for k, v in warnings.items() for w in v
+                 if w["kind"] == "tone-cap"]
+    print(f"\npropose: tone cap rejected {len(tone_hits)} candidate(s) across "
+          f"{len(set(k for k, _ in tone_hits))} edition(s) "
+          f"(max_dark_tone_per_issue={cfg['max_dark_tone_per_issue']}, "
+          f"max_power_share_per_issue={cfg['max_power_share_per_issue']} "
+          f"→ {int(cfg['max_power_share_per_issue'] * 10)} of 10 human answers)")
+    for k, w in tone_hits:
+        print(f"  № {k} ({editions[k]['date']}) {w['game']}/{w['id']}: {w['text']}")
+    if not tone_hits:
+        print("  (no candidate was blocked on tone in this batch)")
     if stopped_short is not None:
         print(f"propose: STOPPED EARLY — {stopped_short}", file=sys.stderr)
         print("  Remedies: wait for floor re-eligibility, add a content batch, "
@@ -1009,7 +1217,7 @@ def gap_label(gap):
     return "never aired" if gap is None else f"aired {gap}d ago"
 
 
-def write_review_sheet(proposed, pools, id_index, manifest):
+def write_review_sheet(proposed, pools, id_index, manifest, name_hint=None):
     cfg = proposed["config"]
     history = airing_history(manifest)  # pre-proposal history only
 
@@ -1141,7 +1349,10 @@ opens torn, black is the money shot.</p>
             + json.dumps(proposed["generatedOn"])
             + ";" + RV_JS + "</script>\n")
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    out = OUT_DIR / f"review-{proposed['generatedOn']}.html"
+    stem = f"review-{proposed['generatedOn']}"
+    if name_hint:
+        stem += f"-{name_hint}"
+    out = OUT_DIR / f"{stem}.html"
     out.write_text(doc, encoding="utf-8")
     return out
 
@@ -1298,6 +1509,10 @@ def main():
                                   "client algorithm")
     p = sub.add_parser("propose", help="draft the next N unaired editions")
     p.add_argument("--days", type=int, default=14)
+    p.add_argument("--out", default=None, metavar="PATH",
+                   help="write the batch here instead of "
+                        "data/editions.proposed.json (dry run: leaves the "
+                        "live proposals and the manifest untouched)")
     sub.add_parser("review", help="re-render the review sheet from existing "
                                   "proposals (no content re-roll)")
     a = sub.add_parser("approve", help="promote proposed editions into the manifest")

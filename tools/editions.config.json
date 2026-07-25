@@ -14,5 +14,47 @@
  "icon_fame_threshold": 90,
  "western_bias_weight": 0.5,
  "western_bias_hard_exempt": true,
- "western_bias_sunday_exempt": true
+ "western_bias_sunday_exempt": true,
+
+ "_tone": "TONE / COMPOSITION CAPS (25 Jul 2026). Sanctioned by the launch review (tools/out/launch-review-2026-08-03/weekly-and-window-assessment.md): 'cap all-power-figure human slates' and 'prevent any one dark theme from swallowing an edition'. These are about TONE, not difficulty: how hard a round is and how heavy it feels are separate concerns and get separate controls. Applied by `propose` to NEWLY GENERATED editions only — freeze, approve and verify never evaluate them, so the settled manifest is untouched.",
+
+ "max_dark_tone_per_issue": 1,
+ "max_power_share_per_issue": 0.4,
+ "power_occupation_families": ["ruler", "statesman", "military"],
+
+ "_dark_tone_ids": "Curated tags, by game. The test is SUBJECT MATTER, not moral judgement of the person and not demographics: tag a subject when the reason we are interested in them is authoritarian rule, mass atrocity, political terror or organised crime — or, for objects and boards, execution, mass death and destruction. Deliberately NARROW: dying violently does not qualify (JFK, MLK, Franz Ferdinand are not tagged), and neither does simply having fought a war. Holocaust-adjacent figures are tagged on both sides of it, because an issue carrying Hitler, Eichmann and Elie Wiesel is three-quarters one dark theme however the moral ledger reads. Edit this list freely — it is the intended place to disagree.",
+
+ "dark_tone_ids": {
+  "who": [
+   "hitler", "joseph-stalin", "mao-zedong", "mussolini", "lenin",
+   "pinochet", "idi-amin", "gaddafi", "khomeini", "bin-laden",
+   "pablo-escobar", "che-guevara", "mohammad-reza-pahlavi",
+   "fidel-castro", "al-capone",
+   "genghis-khan", "timur", "saddam-hussein", "vlad-impaler",
+   "ho-chi-minh", "trotsky",
+   "pol-pot", "attila", "ivan-the-terrible", "ferdinand-marcos"
+  ],
+  "map": [
+   "adolf-hitler", "adolf-eichmann", "joseph-stalin", "mao-zedong",
+   "benito-mussolini", "vladimir-lenin", "augusto-pinochet", "idi-amin",
+   "muammar-gaddafi", "osama-bin-laden", "che-guevara", "fidel-castro",
+   "saddam-hussein", "kim-il-sung", "kim-jong-il", "robert-mugabe",
+   "anastasio-somoza-debayle", "josip-broz-tito", "hugo-chavez",
+   "genghis-khan", "tamerlane", "attila", "vlad-the-impaler",
+   "ivan-the-terrible", "qin-shi-huang",
+   "nero", "caligula", "commodus", "herod-the-great",
+   "maximilien-robespierre", "leon-trotsky", "ho-chi-minh",
+   "lee-harvey-oswald", "elie-wiesel", "simon-wiesenthal"
+  ],
+  "what": [
+   "little-boy", "enola-gay", "daigo-fukuryu-maru", "bamiyan-buddhas",
+   "world-trade-center", "titanic", "hindenburg", "masada",
+   "guernica-painting", "berlin-wall", "tower-of-london"
+  ],
+  "thread": [
+   "conn-019", "conn-098", "conn-010", "conn-135", "conn-166",
+   "conn-008", "conn-049", "conn-022", "conn-151", "conn-051",
+   "conn-085", "conn-060", "conn-037"
+  ]
+ }
 }
