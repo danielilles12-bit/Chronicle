@@ -23,6 +23,14 @@ Usage
         (discovery mode: enumerate the WikiProject names that actually
          appear across a sample of the universe, so the curated
          HISTORY_PROJECTS list below can be checked against reality.)
+    python3 build_salience.py --skip-universe \
+        --candidates audience_candidates.json \
+        --candidates object_candidates_v2.json \
+        --out ../out/salience-candidates.json
+        (appraisal mode: score a harvest alongside the shipped pools, in one
+         population, so gate_candidates.py can hold a candidate against the
+         bar the pool itself sets. Adds an article-health and Wikidata-type
+         check on the candidate titles, and leaves title_health.json alone.)
 
 Signals
 -------
@@ -1100,6 +1108,83 @@ def harvest_instance_of(qids, offline=False, verbose=True):
     return out
 
 
+# Wikidata properties that answer "when is this thing FROM?".
+# P571 inception, P580 start time, P729 service entry, P1619 official
+# opening, P619 spacecraft launch (the only date most probes and satellites
+# carry -- without it Sputnik 1 and Voyager 1 are both simply undated).
+DATE_PROPERTIES = ("P571", "P580", "P729", "P1619", "P619")
+
+
+def harvest_years(qids, offline=False, verbose=True):
+    """{QID: earliest year across DATE_PROPERTIES} from Wikidata.
+
+    Same request shape and batch size as harvest_instance_of, deliberately:
+    the two read different properties out of the identical `props=claims`
+    response, so on any run where both are called the second is free from the
+    HTTP cache.
+
+    Returns negative years for BC. Wikidata's precision field is ignored --
+    a decade or century estimate is plenty for "is this thing older than the
+    living memory of the person playing".
+    """
+    out = {}
+    qids = [q for q in dict.fromkeys(qids) if q]
+    for i in range(0, len(qids), 50):
+        batch = qids[i:i + 50]
+        try:
+            data = wd_api({"action": "wbgetentities", "ids": "|".join(batch),
+                           "props": "claims"}, offline=offline)
+        except Exception as exc:                          # noqa: BLE001
+            if verbose:
+                print("  years: batch failed (%s)" % exc, file=sys.stderr)
+            continue
+        for qid, ent in (data.get("entities") or {}).items():
+            years = []
+            for prop in DATE_PROPERTIES:
+                for claim in ((ent.get("claims") or {}).get(prop) or []):
+                    dv = ((claim.get("mainsnak") or {}).get("datavalue")
+                          or {}).get("value")
+                    t = (dv or {}).get("time") if isinstance(dv, dict) else None
+                    m = re.match(r"([+-])(\d+)-", t or "")
+                    if m:
+                        years.append(int(m.group(2))
+                                     * (-1 if m.group(1) == "-" else 1))
+            if years:
+                out[qid] = min(years)
+    if verbose:
+        print("  years: %d/%d entities dated" % (len(out), len(qids)),
+              file=sys.stderr)
+    return out
+
+
+def harvest_labels(qids, offline=False, verbose=True):
+    """{QID: English label} from Wikidata, 50 entities per request.
+
+    Used to make the P31 class QIDs on a candidate readable ("Q7397" ->
+    "software"). A downstream gate can then reason about what Wikidata says a
+    thing IS without carrying a hand-maintained QID blocklist that goes stale.
+    """
+    out = {}
+    qids = [q for q in dict.fromkeys(qids) if q]
+    for i in range(0, len(qids), 50):
+        batch = qids[i:i + 50]
+        try:
+            data = wd_api({"action": "wbgetentities", "ids": "|".join(batch),
+                           "props": "labels", "languages": "en"},
+                          offline=offline)
+        except Exception as exc:                          # noqa: BLE001
+            if verbose:
+                print("  labels: batch failed (%s)" % exc, file=sys.stderr)
+            continue
+        for qid, ent in (data.get("entities") or {}).items():
+            lab = ((ent.get("labels") or {}).get("en") or {}).get("value")
+            if lab:
+                out[qid] = lab
+    if verbose:
+        print("  labels: %d/%d entities" % (len(out), len(qids)), file=sys.stderr)
+    return out
+
+
 def check_subjects(items, health, offline=False, verbose=True):
     """Annotate every item with subject_status / instance_of / wikidata_id.
 
@@ -1268,6 +1353,63 @@ def build_item_universe(offline=False, verbose=True):
     return items, sorted(extra - pool_titles)
 
 
+# ---------------------------------------------------------------------------
+# Candidate lists (harvest files)
+#
+# A harvest -- audience_candidates.json, object_candidates_v2.json -- is a
+# funnel mouth, not an intake list, and gate_candidates.py decides which of it
+# is worth shipping by measuring candidates against the shipped pool's own
+# distribution. That comparison is only honest if BOTH SIDES ARE RANKED IN THE
+# SAME POPULATION: `salience` is a percentile within class, so a candidate
+# scored in a run of its own is not on the same scale as a pool item scored in
+# a different run. Hence --candidates, which drops the harvest titles into the
+# same scoring population as the pools rather than scoring them separately.
+#
+# Candidate runs also carry three facts the pool items get from
+# build_item_universe() and a bare title otherwise lacks: whether the article
+# is real (a disambiguation page or a 400-byte stub scores near zero and does
+# so confidently), what Wikidata says the thing IS, and that class in words.
+# The gate needs all three to tell a specific historical object from a generic
+# category of object.
+# ---------------------------------------------------------------------------
+
+def candidate_class(rec):
+    """"person" or "artefact" -- which fame/salience class a candidate is in.
+
+    Read off the record's own shape rather than the filename: the people
+    harvest carries birth/death and occupations, the object harvest does not.
+    """
+    if any(rec.get(k) for k in ("birth_year", "death_year", "occupations",
+                                "gender", "primary_family")):
+        return "person"
+    return "artefact"
+
+
+def load_candidate_lists(paths, verbose=True):
+    """[{name, wiki_title, class, source}] over every --candidates file."""
+    out, seen = [], set()
+    for path in paths or []:
+        p = Path(path)
+        if not p.is_absolute():
+            p = (SCRIPT_DIR / p) if (SCRIPT_DIR / p).exists() else p
+        blob = json.loads(p.read_text(encoding="utf-8"))
+        recs = blob["candidates"] if isinstance(blob, dict) and "candidates" in blob \
+            else blob
+        n = 0
+        for rec in recs:
+            title = rec.get("wiki_title") or rec.get("name")
+            if not title or title in seen:
+                continue
+            seen.add(title)
+            out.append({"name": rec.get("name") or title, "wiki_title": title,
+                        "class": candidate_class(rec), "source": p.name})
+            n += 1
+        if verbose:
+            print("  candidates: %d titles from %s" % (n, p.name),
+                  file=sys.stderr)
+    return out
+
+
 def load_fame():
     p = SCRIPT_DIR / "fame_scores.json"
     if not p.exists():
@@ -1308,6 +1450,11 @@ def main():
     ap.add_argument("--probe-projects", type=int, default=0)
     ap.add_argument("--skip-universe", action="store_true",
                     help="score only shipped-pool items (faster)")
+    ap.add_argument("--candidates", action="append", default=[], metavar="PATH",
+                    help="also score the candidates in this harvest file, in "
+                         "the same population as the pools so the two are "
+                         "comparable. Repeatable. A candidate run does NOT "
+                         "rewrite title_health.json.")
     args = ap.parse_args()
 
     if args.probe_projects:
@@ -1317,16 +1464,40 @@ def main():
     print("[1/6] building item universe", file=sys.stderr)
     items, extra_titles = build_item_universe(offline=args.offline)
     pool_titles = sorted({r["wiki_title"] for r in items if r["wiki_title"]})
+    cands = load_candidate_lists(args.candidates)
+    pool_set = set(pool_titles)
+    cands = [c for c in cands if c["wiki_title"] not in pool_set]
+    cand_by_title = {c["wiki_title"]: c for c in cands}
     all_titles = pool_titles if args.skip_universe else \
         sorted(set(pool_titles) | set(extra_titles))
-    print("  %d pool items, %d pool titles, %d titles to score"
-          % (len(items), len(pool_titles), len(all_titles)), file=sys.stderr)
+    all_titles = all_titles + sorted(cand_by_title)
+    print("  %d pool items, %d pool titles, %d candidate titles, "
+          "%d titles to score"
+          % (len(items), len(pool_titles), len(cand_by_title), len(all_titles)),
+          file=sys.stderr)
 
     print("[2/6] fame_scores.json", file=sys.stderr)
     fame = load_fame()
 
     print("[3/6] pageassessments + article length", file=sys.stderr)
     facts = harvest_page_facts(all_titles, offline=args.offline)
+
+    # Candidates get the same article-health and type checks the pool items
+    # get inside build_item_universe(). Without them a harvest row that points
+    # at a disambiguation page ("USS Enterprise"), a dead title ("Q753452") or
+    # a piece of software arrives downstream looking exactly like a real
+    # object with a real score.
+    cand_health, cand_p31, cand_years, class_labels = {}, {}, {}, {}
+    if cand_by_title:
+        print("  candidate article health + type", file=sys.stderr)
+        cand_health = check_titles(sorted(cand_by_title), offline=args.offline,
+                                   verbose=True)
+        cand_qids = [h.get("qid") for h in cand_health.values() if h.get("qid")]
+        cand_p31 = harvest_instance_of(cand_qids, offline=args.offline)
+        cand_years = harvest_years(cand_qids, offline=args.offline)
+        class_labels = harvest_labels(
+            {q for vals in cand_p31.values() for q in vals},
+            offline=args.offline)
 
     print("[4/6] vital articles", file=sys.stderr)
     vital = harvest_vital(offline=args.offline)
@@ -1361,13 +1532,30 @@ def main():
         if it["wiki_title"]:
             class_hint.setdefault(it["wiki_title"],
                                   "artefact" if it["game"] == "what" else "person")
+    for c in cands:
+        class_hint.setdefault(c["wiki_title"], c["class"])
+
+    # On a CANDIDATE run the class is collapsed to person/artefact before
+    # ranking, because `salience` is a percentile *within class* and the two
+    # sides otherwise land in different buckets: build_scores.py files the
+    # shipped Relic pool under structure/artefact/artwork and files almost
+    # every harvested object under its catch-all "other". Ranked apart, a
+    # candidate's salience and a pool item's salience are not on one scale and
+    # cannot be compared -- which is the whole point of the exercise. The
+    # coarse split (are we looking at a person, or a thing?) is also the split
+    # the games actually make. The canonical pool-only run keeps the fine
+    # classes, so salience.json is unaffected.
+    def ranking_class(cls):
+        if not cands:
+            return cls
+        return "person" if cls == "person" else "artefact"
 
     # ---- per-title raw signal assembly ----
     rows = []
     for title in all_titles:
         f = fame.get(title) or {}
         fct = facts.get(title) or {}
-        cls = f.get("class") or class_hint.get(title) or "other"
+        cls = ranking_class(f.get("class") or class_hint.get(title) or "other")
         pv = f.get("pv_stat")
         inl = f.get("inlinks")
         length = fct.get("length")
@@ -1402,6 +1590,11 @@ def main():
             "corpus_hits": int(bool(iot_hit)) + int(bool(gl_hit))
                            + int(bool(poll_hit)),
             "missing_article": bool(fct.get("missing")),
+            # Which WikiProjects claim the article at all, rating or no
+            # rating. score_assessments() only keeps the history-flavoured
+            # ones; the full list is what tells a downstream gate that
+            # "Flying Dutchman" is filed under Folklore and Paranormal.
+            "projects": sorted(assessments),
         })
 
     # ---- S1 record_density + S2 depth: residuals, computed within class ----
@@ -1492,6 +1685,9 @@ def main():
     out_titles = []
     for r in rows:
         d = r.get("hist_detail") or {}
+        cand = cand_by_title.get(r["wiki_title"])
+        ch = cand_health.get(r["wiki_title"]) or {}
+        p31 = cand_p31.get(ch.get("qid") or "") or []
         out_titles.append({
             "wiki_title": r["wiki_title"],
             "class": r["class"],
@@ -1529,6 +1725,19 @@ def main():
                 "languages": r["languages"],
                 "article_length": r["length"],
             },
+            # Present only on --candidates runs, and only for the harvested
+            # titles: the harvest's display name, whether the article is real,
+            # and what Wikidata says the thing is (QIDs plus their English
+            # labels, so a gate can read them without a QID blocklist).
+            "candidate": bool(cand),
+            "candidate_name": (cand or {}).get("name"),
+            "candidate_source": (cand or {}).get("source"),
+            "title_status": ch.get("status"),
+            "wikidata_id": ch.get("qid"),
+            "instance_of": p31 or None,
+            "instance_of_labels": [class_labels.get(q, q) for q in p31] or None,
+            "dated_year": cand_years.get(ch.get("qid") or ""),
+            "wikiprojects": (r.get("projects") or None) if cand else None,
         })
     out_titles.sort(key=lambda x: (x["class"], -x["salience"]))
 
@@ -1603,6 +1812,10 @@ def main():
             "pool_items": len(out_items),
             "pool_items_with_title": sum(1 for i in out_items if i["wiki_title"]),
             "titles_scored": len(out_titles),
+            "candidate_titles": len(cand_by_title),
+            "candidate_sources": args.candidates or [],
+            "ranking_class": "coarse (person/artefact)" if cands
+                             else "build_scores.py classes",
         },
         "items": out_items,
         "titles": out_titles,
@@ -1611,6 +1824,20 @@ def main():
                               encoding="utf-8")
 
     # ---- title_health.json: the committed, offline-checkable guard ----
+    #
+    # NOT rewritten on a --candidates run. That run exists to appraise
+    # material that is not in the pools, its scoring population is different,
+    # and title_health.json is the small committed artefact
+    # tools/validate_reveal.py fails the build on. Regenerating it as a
+    # side-effect of an exploratory run is how a green test suite turns red
+    # for reasons nobody can trace back.
+    if cands:
+        print("Wrote %s (%d titles, %d of them candidates). "
+              "title_health.json left untouched (candidate run). "
+              "HTTP: %d requests, %d cache hits."
+              % (args.out, len(out_titles), len(cand_by_title),
+                 STATS["requests"], STATS["cache_hits"]), file=sys.stderr)
+        return
     #
     # salience.json is large and gitignored, so it cannot be what the test
     # suite checks. This file is small, committed, and is the artefact
