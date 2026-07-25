@@ -9,8 +9,11 @@ Usage:
 To regenerate the live index exactly, run from this directory:
     python3 build_scores.py fame_scores.json \
         metrics_wave1.jsonl metrics_wave2.jsonl metrics_wave3.jsonl \
-        metrics_fixups.jsonl
-metrics_fixups.jsonl is small but NOT optional: it carries the two titles
+        metrics_wave4.jsonl metrics_fixups.jsonl
+metrics_wave4.jsonl (25 Jul 2026) is the 2,999-row harvest for the people
+admitted by the widened 12,000-person universe_people.json; it must be listed
+BEFORE metrics_fixups.jsonl so the fixups keep winning the last-file-wins
+dedupe. metrics_fixups.jsonl is small but NOT optional: it carries the two titles
 (Emir Abdelkader, Stadium at Olympia) that only became reachable once their
 wrong-subject mappings were corrected, and the wave files are gitignored
 harvest output. Omit it and those two score as missing.
@@ -399,13 +402,46 @@ def compute_family_consensus(record):
 # ---------------------------------------------------------------------------
 
 def load_universe_people(path):
+    """Returns (by_title, by_alias).
+
+    by_title is keyed on `wiki_title` -- the canonical, redirect-resolved
+    en.wikipedia title build_universe.py fetched for each person. That is the
+    right primary key and the only one the classifier should ever prefer.
+
+    by_alias is keyed on `name` -- the raw MIT Pantheon name, which for 1,052
+    of the 12,000 admitted people is NOT the canonical title (it is either a
+    redirect to it, e.g. "Gautama Buddha" -> "The Buddha", or the bare form of
+    a disambiguated title, e.g. "Julian" -> "Julian (emperor)"). The alias
+    index exists because metrics_input_wave4.json was generated with
+    wiki_title = name, so 191 of the 2,999 wave-4 metrics rows are keyed on
+    the pre-redirect name and would otherwise miss the lookup entirely and be
+    classified "other".
+
+    Two safety properties, both checked against the current data:
+      * canonical titles are inserted first and aliases only via setdefault,
+        so where a person's bare name is another person's canonical title
+        (13 cases: Francis Bacon, Tiberius, Salome, Albert Speer, ...) the
+        canonical owner keeps the key and only `universe_rank` attribution
+        could ever have been at stake -- never the class.
+      * `name` is a person's name, so an alias hit is still a person. No
+        alias collides with any title in universe_objects.json, the objects
+        codex, or any "what" inventory item (verified: 0 of 1,052); main()
+        additionally only consults the alias index when no object evidence
+        exists, so an alias can never steal an object's classification.
+    """
     data = json.loads(path.read_text(encoding="utf-8"))
+    people = data.get("people", [])
     by_title = {}
-    for p in data.get("people", []):
+    for p in people:
         t = p.get("wiki_title")
         if t and t not in by_title:
             by_title[t] = p
-    return by_title
+    by_alias = {}
+    for p in people:
+        n = p.get("name")
+        if n and n not in by_title:
+            by_alias.setdefault(n, p)  # people are rank-ordered: best rank wins
+    return by_title, by_alias
 
 
 def load_universe_objects(path):
@@ -488,7 +524,8 @@ def main():
 
     good_records, error_records = load_metrics(metrics_paths)
 
-    people_by_title = load_universe_people(SCRIPT_DIR / "universe_people.json")
+    people_by_title, people_by_alias = load_universe_people(
+        SCRIPT_DIR / "universe_people.json")
     objects_by_title = load_universe_objects(SCRIPT_DIR / "universe_objects.json")
     inventory_games_by_title = load_inventory_games(SCRIPT_DIR / "current_inventory.json")
     codex_figures_by_title = load_codex_csv(SCRIPT_DIR / "codex" / "01_dead_famous_figures.csv")
@@ -503,6 +540,14 @@ def main():
         in_objects = title in objects_by_title
         in_codex_obj = title in codex_objects_by_title
         inv_games = sorted(inventory_games_by_title.get(title, set()))
+
+        # Fall back to the universe's pre-redirect names (see
+        # load_universe_people). Guarded on there being no object evidence at
+        # all, so this can only ever rescue a title nothing else claims.
+        via_alias = False
+        if not (in_people or in_objects or in_codex_obj or inv_games):
+            via_alias = title in people_by_alias
+            in_people = in_people or via_alias
 
         if in_people or in_codex_fig or "who" in inv_games or "map" in inv_games:
             cls = "person"
@@ -525,7 +570,8 @@ def main():
 
         universe_rank = None
         if in_people:
-            pr = people_by_title[title].get("proxy_rank")
+            person = (people_by_alias if via_alias else people_by_title)[title]
+            pr = person.get("proxy_rank")
             universe_rank = pr if isinstance(pr, int) else None
 
         prepared.append({
@@ -543,6 +589,7 @@ def main():
             "inlinks": rec.get("inlinks"),
             "sources": {
                 "in_universe_people": in_people,
+                "matched_by_universe_alias": via_alias,
                 "universe_rank": universe_rank,
                 "in_universe_objects": in_objects,
                 "object_kind": object_kind,
