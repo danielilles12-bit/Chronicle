@@ -900,3 +900,238 @@ python3 tests/run_all.py --fast          reveal data PASS
 167 lines changed across the three files, all of them a `difficulty` value. Byte
 formatting preserved: 1-space indent, `ensure_ascii=False`, and `reveal-who.json`
 still ends without a trailing newline while the other two keep theirs.
+
+---
+
+# Addendum — re-run over the corrected fame index (25 Jul 2026, later the same day)
+
+The pass above rested on numbers that were wrong for 34 of the 1,331 pool items:
+8 sat on the wrong Wikipedia subject and 26 sat on 23 renamed articles whose
+pageview series had split in two. Both root causes were fixed in
+`tools/fame/build_salience.py` (`TITLE_OVERRIDES`) and `tools/fame/build_scores.py`
+(`RENAMED_FROM` + month-by-month series merging), but `fame_scores.json` itself had
+not been rebuilt. This addendum rebuilds it and re-runs the identical rule.
+**One label changed.**
+
+## 1. The regeneration
+
+```
+cd tools/fame && python3 build_scores.py <out.json> \
+    metrics_wave1.jsonl metrics_wave2.jsonl metrics_wave3.jsonl \
+    ../out/wrongmap/metrics_fix.jsonl
+```
+
+8,096 scored records, 0 errors. The result is **byte-identical** to the corrected
+index the previous agent left at `tools/out/wrongmap/fame_scores_fixed.json` — no
+discrepancy of any kind.
+
+- **The 26 renamed items all carry merged series.** All 23 renamed titles that back
+  a pool item found their former title in the cache (`pv_merged_from` non-empty on
+  every one; zero cache misses). Nicholas II 57.9 → **94.9**, Wilhelm II 67.3 →
+  **94.3**, Kim Il-sung 50.2 → **93.7**, Kim Jong-il 47.2 → **91.8**, the mortuary
+  temple of Hatshepsut 49.0 → **82.1**, the Nazca lines 54.7 → **86.6**,
+  al-Khwarizmi 46.2 → **79.2**.
+- **The 8 wrong-subject items now score their real subject.** Sunflowers → *Sunflowers
+  (Van Gogh series)* 86.2 (not Helianthus's 93.1); Michelangelo's David → *David
+  (Michelangelo)* 95.0 (not the biblical king's); the self-portrait → *Vincent van
+  Gogh* 98.3 (not 28.5); the Golden Pavilion → *Kinkaku-ji* 80.0; the Great Buddha →
+  *Kōtoku-in* 70.2; Olympia → *Stadium at Olympia* 74.9; Abd el-Kader → *Emir
+  Abdelkader* 51.9. The last two needed metrics that did not exist in any wave file
+  and came from `tools/out/wrongmap/metrics_fix.jsonl`.
+- **Unaffected titles are unchanged.** Against the same index rebuilt with the rename
+  merge switched off, no title outside `RENAMED_FROM` moves more than **0.23** points
+  and the median move is **0.04** — pure percentile-rank churn from two titles
+  entering the index. 0 titles move by more than half a point.
+
+⚠️ `metrics_fix.jsonl` currently lives under `tools/out/`, which is gitignored. Until
+it moves into `tools/fame/` (as `metrics_wave4.jsonl`, alongside the other wave
+files), the index is **not reproducible from a fresh clone** — `abd-el-kader` and
+`olympia-stadium` would silently fall back to "no fame entry". That is a one-line
+housekeeping job for whoever next touches the fame tooling.
+
+## 2. Method — the rule was re-implemented, not re-read
+
+The rule in §"The rule" above was re-implemented from scratch and **validated against
+this report before being trusted**: run against the author's labels and a rebuild of
+the pre-fix index, it produces **466 candidate moves** (the same 466), reproduces
+**167 of 167** applied moves with the identical target tier, and reproduces **119 of
+120** of the deliberately-left-alone list. The single divergence is `van-gogh-self`,
+and it is the expected one: the wrong-subject fix has already changed which article
+that item points at.
+
+Two clarifications the re-implementation had to settle, both fixed by matching this
+report's own arithmetic:
+
+- The promotion gate (worst-offender crop, dull journey) **caps a promotion at
+  `medium`; it does not abolish it.** Only this reading yields exactly 466 candidates.
+- The ±5 dead band protects the **standing** label — the author's, or the one this
+  pass set. Without that, `walt-whitman` (promoted to easy at 90.1) would flip
+  straight back to medium on a rank wobble to 89.98. A label may not oscillate on
+  hundredths of a point.
+
+## 3. What the corrected numbers actually changed
+
+Nine verdicts changed. Only one survived every guard.
+
+| item | old → new fame | rule's verdict | outcome |
+|---|---|---|---|
+| `who/baybars` | 45.6 → **56.9** | medium → **hard** | **APPLIED** |
+| `who/nicholas-ii` | 57.9 → **94.9** | medium → easy | blocked by the manifest (edition 7) |
+| `who/kaiser-wilhelm-ii` | 67.3 → **94.3** | medium → easy | blocked by the manifest (edition 19) |
+| `map/mehmed-ii` | 88.2 → **91.7** | medium → easy | blocked by the manifest (edition 27) |
+| `who/al-khwarizmi` | 46.2 → **79.2** | medium → hard | blocked by the manifest (edition 11) |
+| `who/van-gogh-self` | 28.5 → **98.3** | easy → medium | blocked by the manifest (edition 7) |
+| `map/scipio-africanus` | 75.01 → 74.95 | candidate withdrawn | no action |
+| `map/william-wilberforce` | 70.04 → 69.98 | medium → hard | **declined — measurement noise** |
+| `what/pergamon` | 90.02 → 89.99 | hard → medium | **declined — measurement noise** |
+
+### The one change applied
+
+**`who/baybars`: medium → hard.** The 25 Jul pass wanted to demote him and was
+stopped by its own guard — salience 77.2 stood 31.6 points above a fame of 45.6, and
+that gap is the signature of a broken measurement, not of an obscure subject. The
+measurement is now sound (the *Baibars* → *Baybars* series is reassembled) and it
+still says hard: fame 56.9, comfortably below the 75 threshold and nowhere near the
+dead band, with a stylised likeness on top (no contemporary portrait of him exists).
+The guard did its job — it deferred the call until the number could be trusted. He
+appears in no compiled edition, so the manifest constraint is satisfied trivially.
+
+### Declined: two band crossings that are pure noise
+
+`william-wilberforce` (70.04 → 69.98) and `pergamon` (90.02 → 89.99) cross a
+threshold by hundredths of a point. **Neither item's own data changed today** — not
+one pageview, language or inbound link. Their fame moved only because two titles
+entered the index and shifted every percentile rank by a rounding error. Acting on
+that would contradict the reason the dead band exists, and it would be indefensible
+to a reader who asked what had changed about Pergamon. Both are listed here so the
+decision is on the record; if Daniel wants Pergamon at medium (salience 96.0 is the
+highest in Relic's hard tier), it is a free move — it is in no scheduled edition.
+
+## 4. The nine "warranted" promotions, checked one at a time
+
+The handover listed 13 moves as warranted. Verified against the rule, **eight of them
+fail a guard that exists for a good reason** and one is applied above:
+
+| proposed | verdict | why |
+|---|---|---|
+| `map/kim-jong-il` hard → easy | **declined** | two tiers in one step (§5). Nothing moves; it joins the human-call list. |
+| `map/wilhelm-ii` hard → easy | **declined** | same — two tiers. |
+| `map/kim-il-sung` medium → easy | **declined** | born in Pyongyang, died in Pyongyang: an **8.7 km** Lifeline journey. `lifeline_journey.dull` blocks promotion to easy (§4) — a one-pin round gives the player less than his fame promises. |
+| `map/otto-the-great` → hard | **declined** | fame 71.6 sits **inside the ±5 dead band** at 75 (§2). The author's medium stands. |
+| `what/olympia-stadium` → hard | **declined** | fame 74.86 — 0.14 of a point inside the dead band. Independently, its new title has no WikiProject coverage, so salience is `low_confidence` (§6). Two reasons not to touch it. |
+| `who/empress-theodora` → hard | **declined** | correct on the evidence, but it was already a candidate *before* today's corrections and is blocked by edition 15, exactly as the 299 others are. Nothing about it changed. |
+| `what/blue-mosque` medium → easy | **declined** | likewise — already a candidate at fame 90.4, blocked by edition 11. |
+| `map/frederick-barbarossa` hard → medium | **declined** | already a candidate at fame 75.6, blocked by edition 12. |
+| `what/ellora-kailasa` hard → medium | **declined** | already a candidate at fame 84.0, blocked by editions 1 and 62. |
+| `who/baybars` → hard | **applied** | see above. |
+
+The last four are worth being precise about: they are *not* consequences of today's
+data fix. Their corrected fame is higher, but their band was the same before and
+after; they sat in the 299 "correct but blocked by the manifest" bucket yesterday and
+they sit there today.
+
+**A whole-pool sweep confirms it.** Re-derived over the corrected index the rule now
+proposes 306 moves against the current labels (299 → 306). Tested one at a time
+against every compiled edition, **exactly two are admissible**: `who/baybars` and
+`what/pergamon`. Every other candidate sits in at least one edition that currently
+matches its recipe **exactly**, so any relabel takes that slot from distance 0 to
+distance 2. The 25 Jul constraint-repair search left nothing on the table.
+
+**No edition was touched.** Five of the blocked moves are blocked only by aired
+legacy editions (1, 7, 11, 12, 15, 19 — all past the trailing-7-day archive and
+unreachable by any player), and one by edition 27, which airs tomorrow and was
+re-proposed only hours ago. Rewriting an aired issue to unlock a label is a worse
+trade than leaving the label; re-opening tomorrow's issue for a Lifeline promotion
+into a tier that already has 158 eligible items buys nothing.
+
+## 5. The dictator question — my answer
+
+Four of the biggest corrections are 20th-century dictators, and on measured fame
+Kim Il-sung (93.7), Kim Jong-il (91.8), Wilhelm II (94.3) and Nicholas II (94.9) now
+argue for easy — that is, for Monday.
+
+**On the measurement I think fame is right and the worry is misplaced; on the
+composition I think the worry is real and the difficulty label is the wrong lever.**
+
+The tier answers one question: *will a player recognise this?* Nicholas II at
+`medium` was never a judgement about tone — it was an artifact of a page move in
+February 2024 splitting his pageviews in two. The last Tsar is not a Tuesday face;
+2.2 million readers say so. Refusing the correction would mean deliberately keeping a
+number I can prove is wrong because I do not like where it points, which is how the
+easy tier got starved in the first place.
+
+But an easy Monday assembled from Kim Il-sung, Gaddafi and Pinochet is a different
+product from one assembled from Sinatra and Senna, and that is a real risk **already
+present**: the Face Value easy pool of 145 currently contains Hitler, Stalin, Mao,
+Mussolini, Lenin, Pinochet, Idi Amin, Gaddafi, Khomeini, bin Laden, Escobar, Che and
+the Shah — about **one item in ten**. Four easy faces drawn from a 92-item eligible
+easy pool will produce a two-dictator Monday reasonably often, by luck alone.
+
+The lever for that is the proposer, not the labels. `tools/editions.config.json`
+already caps `max_occupation_per_round` at 1 and `max_same_era` at 3; what it lacks
+is a tone cap. **My recommendation to Daniel: add a cap of at most one authoritarian
+ruler / atrocity subject per issue (and never two in one game's round), Mon–Wed
+especially.** That fixes the launch review's complaint — over-representation of
+rulers, dark payoffs stacking — without lying about who is famous, and it is exactly
+the mechanism that already fixed editions 27 and 28 by swapping in Sinatra, Harrison,
+Senna and Camus. Note the CLAUDE.md rule concerns *living* politicians; none of these
+figures is living, so nothing here breaches it.
+
+As it happens the rule reached the same place on its own today: the two-tier cap stops
+both Kims and Wilhelm II from reaching easy, the dull-journey gate stops Kim Il-sung,
+and the manifest stops Nicholas II and Kaiser Wilhelm. **No dictator moved into a
+Monday slot.** But that is luck, and it will not hold at the next recompile — which is
+why the composition cap is worth having before, not after.
+
+## 6. Counts, headroom, verification
+
+| pool | easy | medium | hard | | eligible easy | medium | hard |
+|---|---|---|---|---|---|---|---|
+| Face Value before | 145 | 159 | 122 | | 92 | 108 | 91 |
+| Face Value **after** | 145 | **158** | **123** | | **92** | **107** | **92** |
+| Relic (unchanged) | 116 | 157 | 91 | | 63 | 106 | 60 |
+| Lifeline (unchanged) | 211 | 194 | 136 | | 158 | 143 | 105 |
+
+`eligible` = not scheduled in editions 38–64, the same window as the table above.
+**The easy-tier headroom established by the 25 Jul pass is intact**: Face Value easy
+92 eligible against a floor of 56, Relic easy 63 against 56. The only movement is one
+Face Value item from medium to hard, and Face Value hard (123, floor 32) has ample
+room.
+
+```
+python3 tools/validate_reveal.py          0 errors  (188 warnings)
+python3 tools/validate_schedule.py        0 gating errors  (124 historical-only, unchanged)
+python3 tools/compile_editions.py verify  0 errors  (7 warnings, unchanged)
+python3 tests/run_all.py --fast           reveal data PASS / board data PASS /
+                                          image rights PASS / manifest verify PASS /
+                                          schedule repetition PASS
+```
+
+Every compiled edition still satisfies its difficulty recipe to exactly the same
+degree as before: total distance across all 195 edition-slots is **20 before and 20
+after**, and no individual slot got worse.
+
+The 188th `validate_reveal` warning (up from 187) is not from this change: it is the
+new title-health guard reporting that `olmec-colossal-head` has no Wikidata item
+behind its article, so the subject check cannot run on it. That is an absence of
+evidence, not a defect, and it was treated as such — the item keeps the label the
+25 Jul pass gave it.
+
+One file changed: `data/reveal-who.json`, one `difficulty` value. Byte formatting
+preserved (1-space indent, `ensure_ascii=False`, still no trailing newline).
+
+## 7. Needs Daniel's call
+
+1. **Move `metrics_fix.jsonl` into `tools/fame/`** so the fame index rebuilds from a
+   fresh clone. Small, but it is a reproducibility hole today.
+2. **A tone cap in the proposer** (§5). This is the one I would actually act on.
+3. **Five correct labels are hostage to aired history** — Nicholas II and Kaiser
+   Wilhelm II to easy, al-Khwarizmi to hard, the Van Gogh self-portrait to medium,
+   Mehmed II to easy. All are blocked by editions nobody can reach any more. The
+   report's option 5 above (treating editions 0–19 as unconstrained) would free them
+   and roughly 130 others. Not needed while every floor clears — worth taking the day
+   Relic easy gets tight.
+4. **Van Gogh's self-portrait is now formally a `medium` face** under the stylised-
+   likeness corrector, alongside Louis XIV and Dante. It is arguably the most
+   recognisable painted face alive, and the corrector may simply be wrong about it.
+   Blocked by the manifest either way, so nothing turns on it today.

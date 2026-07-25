@@ -6,6 +6,15 @@ content pipeline (v2, replaces score_fame.py's flat 60/20/20 blend).
 Usage:
     python3 build_scores.py <out.json> <metrics1.jsonl> [<metrics2.jsonl> ...]
 
+To regenerate the live index exactly, run from this directory:
+    python3 build_scores.py fame_scores.json \
+        metrics_wave1.jsonl metrics_wave2.jsonl metrics_wave3.jsonl \
+        metrics_fixups.jsonl
+metrics_fixups.jsonl is small but NOT optional: it carries the two titles
+(Emir Abdelkader, Stadium at Olympia) that only became reachable once their
+wrong-subject mappings were corrected, and the wave files are gitignored
+harvest output. Omit it and those two score as missing.
+
 Input: one or more metrics .jsonl files, each a fetch_metrics.py output --
 one JSON object per line with at least "name", "wiki_title",
 "pageviews_5y", "languages", "inlinks", "error" (and optionally
