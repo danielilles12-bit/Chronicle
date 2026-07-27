@@ -1049,7 +1049,8 @@
   "image_author": "Jason Halsall",
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "reserve": true
  },
  {
   "id": "charles-dickens",
@@ -2224,7 +2225,8 @@
   "image_author": "Sailko",
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "reserve": true
  },
  {
   "id": "suleiman-magnificent",
@@ -2435,7 +2437,8 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:%E5%89%87%E5%A4%A9%E5%A4%A7%E8%81%96%E7%9A%87%E5%B8%9D%E5%83%8F%E5%9C%96.jpg",
   "image_author": "一代女皇不叫武则天 也不叫武曌更不叫武媚娘",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "reserve": true
  },
  {
   "id": "zheng-he",
@@ -2459,7 +2462,8 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Zheng_He%2C_published_about_1600.jpg",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "image_author": "Hattendorf, John J. (ed.) (2007). The Oxford Encyclopedia of Maritime History. Oxford University Press. Print ISBN-13: 9780195130751. eISBN: 9780195307405. DOI: 10.1093/acref/9780195130751.001.0001. Accessed from the online version at http://www.oxfordreference.com/view/10.1093/acref/9780195130751.001.0001/acref-9780195130751-e-0927?rskey=jzLD9G&result=927"
+  "image_author": "Hattendorf, John J. (ed.) (2007). The Oxford Encyclopedia of Maritime History. Oxford University Press. Print ISBN-13: 9780195130751. eISBN: 9780195307405. DOI: 10.1093/acref/9780195130751.001.0001. Accessed from the online version at http://www.oxfordreference.com/view/10.1093/acref/9780195130751.001.0001/acref-9780195130751-e-0927?rskey=jzLD9G&result=927",
+  "reserve": true
  },
  {
   "id": "adam-smith",
@@ -2963,7 +2967,8 @@
   "image_author": "ElCaminodeSantiago09 2006",
   "image_license": "CC BY-SA 2.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "reserve": true
  },
  {
   "id": "emmeline-pankhurst",
@@ -3408,7 +3413,8 @@
   "image_license": "CC BY 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
   "image_retrieved": "2026-07-21",
-  "image_author": "https://wellcomeimages.org/indexplus/obf_images/6f/a2/ea820b07c4061b2083742b4f1a8c.jpg\n\nGallery: https://wellcomeimages.org/indexplus/image/M0009341.html\nWellcome Collection gallery (2018-04-01): https://wellcomecollection.org/works/m3ftmxk4 CC-BY-4.0"
+  "image_author": "https://wellcomeimages.org/indexplus/obf_images/6f/a2/ea820b07c4061b2083742b4f1a8c.jpg\n\nGallery: https://wellcomeimages.org/indexplus/image/M0009341.html\nWellcome Collection gallery (2018-04-01): https://wellcomecollection.org/works/m3ftmxk4 CC-BY-4.0",
+  "reserve": true
  },
  {
   "id": "ida-b-wells",
@@ -3755,7 +3761,8 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Moctezuma_Xocoyotzin.png",
   "image_author": "attributed to Antonio Rodriguez (1636-1691)",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "reserve": true
  },
  {
   "id": "mussolini",
@@ -4560,7 +4567,8 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Sultan_Alp_Arslan_miniature.%28Re%C4%A2%C3%AEd%C3%BC%E2%80%9Fd-d%C3%AEn%2C_Cami%E2%80%9F%C3%BC%E2%80%9Ft-Tev%C3%A2rih%2C_TSMK%2C_Hazine%2C_nr._1654%2C_vr._202%29_Detail.jpg",
   "image_author": "1654 artist",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "reserve": true
  },
  {
   "id": "arthur-schopenhauer",
@@ -4607,7 +4615,8 @@
   "image_license": "CC BY 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
   "image_retrieved": "2026-07-21",
-  "image_author": "https://wellcomeimages.org/indexplus/obf_images/63/65/5732c4ff9a383722b4c5c035e109.jpg\n\nGallery: https://wellcomeimages.org/indexplus/image/V0009107.html\nWellcome Collection gallery (2018-03-23): https://wellcomecollection.org/works/jtjy99eb CC-BY-4.0"
+  "image_author": "https://wellcomeimages.org/indexplus/obf_images/63/65/5732c4ff9a383722b4c5c035e109.jpg\n\nGallery: https://wellcomeimages.org/indexplus/image/V0009107.html\nWellcome Collection gallery (2018-03-23): https://wellcomecollection.org/works/jtjy99eb CC-BY-4.0",
+  "reserve": true
  },
  {
   "id": "benito-juarez",
@@ -5113,7 +5122,8 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Abb%C4%81sid_Caliph_H%C4%81r%C5%ABn_al-Rash%C4%ABd_from_the_genealogy_%28silsilan%C4%81ma%29%2C_Cream_of_Histories_%28Z%C3%BCbdet-%C3%BCt_Tevarih%2C_1598%29.jpg",
   "image_author": "1598 author",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "reserve": true
  },
  {
   "id": "helen-keller",
@@ -5227,7 +5237,8 @@
   "image_license": "CC BY 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
   "image_retrieved": "2026-07-21",
-  "image_author": "https://wellcomeimages.org/indexplus/obf_images/51/0a/ab3cf29b6c65148af4ecc7bcd4a8.jpg\n\nGallery: https://wellcomeimages.org/indexplus/image/M0004111.html\nWellcome Collection gallery (2018-04-01): https://wellcomecollection.org/works/b3vqvxw4 CC-BY-4.0"
+  "image_author": "https://wellcomeimages.org/indexplus/obf_images/51/0a/ab3cf29b6c65148af4ecc7bcd4a8.jpg\n\nGallery: https://wellcomeimages.org/indexplus/image/M0004111.html\nWellcome Collection gallery (2018-04-01): https://wellcomecollection.org/works/b3vqvxw4 CC-BY-4.0",
+  "reserve": true
  },
  {
   "id": "ito-hirobumi",
@@ -5941,7 +5952,8 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Lionel_Royer_-_Vercingetorix_Throwing_down_His_Weapons_at_the_feet_of_Julius_Caesar.jpg",
   "image_author": "Lionel Royer",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "reserve": true
  },
  {
   "id": "walt-whitman",
@@ -6060,7 +6072,8 @@
   "image_author": "K.Venkataramana",
   "image_license": "CC0",
   "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "reserve": true
  },
  {
   "id": "ban-zhao",
@@ -6300,7 +6313,8 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Alhazen_%28122459248%29.jpg",
   "image_author": "Jan Heweliusz",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "reserve": true
  },
  {
   "id": "jane-addams",
@@ -6537,7 +6551,8 @@
   "image_license": "CC BY 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
   "image_retrieved": "2026-07-21",
-  "image_author": "歷代聖賢半身像　冊　司馬遷. 故宮典藏資料檢索. National Palace Museum."
+  "image_author": "歷代聖賢半身像　冊　司馬遷. 故宮典藏資料檢索. National Palace Museum.",
+  "reserve": true
  },
  {
   "id": "thomas-edison",
@@ -6608,7 +6623,8 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Biruni-russian.jpg",
   "image_author": "The original uploader was Romanm at Slovenian Wikipedia.",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "reserve": true
  },
  {
   "id": "ibn-arabi",
@@ -6632,7 +6648,8 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Ibn_%CA%BFArabi%2C_Sayr_mulhimah_min_al-Sharq_wa-al-Gharb.png",
   "image_author": "Scanned Photo from a book entitled Sayr mulhimah : min al-Sharq wa-al-Gharb, first translated into Arabic and published in Egypt in 1381 AH = 1961 CE. Check OCLC",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "reserve": true
  },
  {
   "id": "kido-takayoshi",
@@ -7715,7 +7732,8 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Aristotle_Altemps_Inv8575.jpg",
   "image_author": "After Lysippos",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "reserve": true
  },
  {
   "id": "johnny-cash",
@@ -7840,7 +7858,8 @@
   "image_author": "Marie-Lan Nguyen",
   "image_license": "CC BY 2.5",
   "image_license_url": "https://creativecommons.org/licenses/by/2.5",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "reserve": true
  },
  {
   "id": "brando",
@@ -9387,7 +9406,8 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Timur_seated_(earliest_known_portrait),_Timurid_genealogy,_1405-1409,_Samarkand_(TSMK,_H2152).jpg",
   "image_author": "1405-1409 artist",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "reserve": true
  },
  {
   "id": "john-the-baptist",
@@ -9674,7 +9694,8 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:%D9%85%D9%88%D9%84%D8%A7%D9%86%D8%A7_%D8%A7%D8%AB%D8%B1_%D8%AD%D8%B3%DB%8C%D9%86_%D8%A8%D9%87%D8%B2%D8%A7%D8%AF_%28cropped%29.jpg",
   "image_author": "Hossein Behzad",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "reserve": true
  },
  {
   "id": "cyrus-great",
@@ -9697,7 +9718,8 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Great_Men_and_Famous_Women_Volume_1_-_Cyrus_the_Great.png",
   "image_author": "Charles Francis Horne; Clarence Cook",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "reserve": true
  },
  {
   "id": "ts-eliot",
@@ -9882,7 +9904,8 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Mommsen_p265.jpg",
   "image_author": "Fratelli Alinari",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "reserve": true
  },
  {
   "id": "zachary-taylor",
@@ -10065,7 +10088,8 @@
   "image_author": "Metropolitan Museum of Art",
   "image_license": "CC0",
   "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "reserve": true
  },
  {
   "id": "bin-laden",

@@ -293,6 +293,9 @@ export function encoreItems(game, todayN, count = 5) {
   for (let n = 0; n <= todayN; n++) {
     for (const item of getEdition(game, n)) {
       if (exclude.has(item.id)) continue;
+      // Reserved items are out of rotation (obscurity cull, retired faces):
+      // frozen dailies and the archive still show them, Encore must not.
+      if (item.reserve) continue;
       aired.set(item.id, item);
       if (n >= todayN - 7) recent.add(item.id);
     }
