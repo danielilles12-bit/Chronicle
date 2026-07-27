@@ -192,6 +192,37 @@ def main():
             check("'Duomo di Milano' matches milan-cathedral",
                   is_match(pg, "Duomo di Milano", milan, "what"))
 
+            # Owner decision 2026-07-27: bare "national gallery" is the London
+            # museum's name, so it must not count for Washington's National
+            # Gallery of Art (all London wordings already rejected).
+            ngart = next(x for x in what if x["id"] == "national-gallery-art")
+            for g in ("national gallery", "the national gallery"):
+                check("%r does NOT match national-gallery-art" % g,
+                      not is_match(pg, g, ngart, "what"))
+            check("'national gallery of art' still matches national-gallery-art",
+                  is_match(pg, "national gallery of art", ngart, "what"))
+            check("'nga' still matches national-gallery-art",
+                  is_match(pg, "nga", ngart, "what"))
+
+            # Owner decision 2026-07-27: three famous Jacksons share the
+            # surname (Andrew, Stonewall, Michael), so a lone "jackson" names
+            # nobody — in either pool. Distinguishing forms must keep working.
+            for pool_key, pool_items in (("map", figures), ("who", who)):
+                for jid in ("andrew-jackson", "stonewall-jackson",
+                            "michael-jackson"):
+                    jitem = next(x for x in pool_items if x["id"] == jid)
+                    check("'jackson' does NOT match %s (%s)" % (jid, pool_key),
+                          not is_match(pg, "jackson", jitem, pool_key))
+            sw = next(x for x in figures if x["id"] == "stonewall-jackson")
+            check("'stonewall' still matches stonewall-jackson",
+                  is_match(pg, "stonewall", sw, "map"))
+            aj = next(x for x in figures if x["id"] == "andrew-jackson")
+            check("'old hickory' still matches andrew-jackson",
+                  is_match(pg, "old hickory", aj, "map"))
+            mjk = next(x for x in figures if x["id"] == "michael-jackson")
+            check("'mj' still matches michael-jackson",
+                  is_match(pg, "mj", mjk, "map"))
+
             # ---------------- EXTRAS: sensible additional matches -----------------
             taj = next(x for x in what if x["id"] == "taj-mahal")
             check("'the taj mahal india' matches taj-mahal",

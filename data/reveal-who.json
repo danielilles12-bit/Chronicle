@@ -4243,6 +4243,9 @@
    "thomas jonathan jackson",
    "stonewall"
   ],
+  "reject": [
+   "jackson"
+  ],
   "blurb": "Pious Confederate general known for lightning flank marches (1824–1863) · shot by his own men in the dark, he died of pneumonia after his arm was amputated",
   "img": "assets/img/stonewall-jackson.jpg",
   "fx": 0.5,
@@ -7066,6 +7069,9 @@
    "king of pop",
    "the king of pop"
   ],
+  "reject": [
+   "jackson"
+  ],
   "blurb": "Child star who grew into the best-selling album of all time (1958–2009) · debuted the moonwalk live on TV during a 1983 Motown anniversary special",
   "img": "assets/img/michael-jackson.jpg",
   "fx": 0.48,
@@ -8198,6 +8204,9 @@
   "variants": [
    "andrew jackson",
    "old hickory"
+  ],
+  "reject": [
+   "jackson"
   ],
   "blurb": "Seventh president of the United States (1767–1845) · his pet parrot, Poll, had to be carried out of Jackson's own funeral for swearing at the mourners",
   "img": "assets/img/andrew-jackson.jpg",

@@ -735,6 +735,9 @@
    "king of pop",
    "the king of pop"
   ],
+  "reject": [
+   "jackson"
+  ],
   "occupation": "Child star who grew into the best-selling album of all time",
   "birth": {
    "year": 1958,
@@ -3973,6 +3976,9 @@
   "variants": [
    "andrew jackson",
    "old hickory"
+  ],
+  "reject": [
+   "jackson"
   ],
   "occupation": "7th President of the United States",
   "birth": {
@@ -12659,6 +12665,9 @@
    "thomas jackson",
    "thomas jonathan jackson",
    "thomas stonewall jackson"
+  ],
+  "reject": [
+   "jackson"
   ],
   "occupation": "Confederate general who stood like a stone wall",
   "birth": {
