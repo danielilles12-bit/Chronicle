@@ -1,0 +1,268 @@
+{
+ "date": "2026-07-27",
+ "source_shortlist": "tools/out/shortlist-2026-07-25.json",
+ "status": "APPROVED by Daniel; intake build (images/rights/blurbs/coords/variants/tiers) pending",
+ "rules": {
+  "known_face": "Face Value requires a likeness the history-curious have actually seen: a photograph, a famous painting, or a genuinely famous bust (Caracalla yes, Pliny no). Ancients with invented portraits go Lifeline-only. Saints can carry Face Value through canonical iconography (St George + dragon) even without a true likeness.",
+  "specific_not_generic": "Only a SPECIFIC thing is ever in: a named individual object (Sputnik 1, the Lusitania), never a type/class/make however famous (no OBE, no Victoria Cross, no VW Beetle). Owner ruling 27 Jul 2026.",
+  "type_exceptions": [
+   "Concorde",
+   "Enigma"
+  ],
+  "type_exceptions_why": "Concorde: tiny production run, unmistakable, aviation history in one silhouette. Enigma: unmistakable look, one pivotal story, pool has no codebreaking. Exception list is CLOSED at these two unless Daniel reopens it.",
+  "tradition_maps": "Lifeline points may rest on ancient-historian tradition (Sun Tzu via Sima Qian) but not pure legend (St George, Thomas the Apostle stay off the map)."
+ },
+ "approved": [
+  {
+   "name": "Miles Davis",
+   "games": [
+    "who",
+    "map"
+   ]
+  },
+  {
+   "name": "Duke Ellington",
+   "games": [
+    "who",
+    "map"
+   ]
+  },
+  {
+   "name": "Buddy Holly",
+   "games": [
+    "who",
+    "map"
+   ],
+   "note": "Lubbock -> Clear Lake crash site; strong map round"
+  },
+  {
+   "name": "Sheikh Mujibur Rahman",
+   "games": [
+    "who",
+    "map"
+   ]
+  },
+  {
+   "name": "Caracalla",
+   "games": [
+    "who",
+    "map"
+   ],
+   "note": "famous bust passes known-face; Lugdunum -> Carrhae journey"
+  },
+  {
+   "name": "Joseph McCarthy",
+   "games": [
+    "who",
+    "map"
+   ]
+  },
+  {
+   "name": "Nelson Aldrich Rockefeller",
+   "games": [
+    "who",
+    "map"
+   ],
+   "note": "weakest on list, admitted anyway"
+  },
+  {
+   "name": "Andrew Carnegie",
+   "games": [
+    "who",
+    "map"
+   ],
+   "note": "Dunfermline -> Lenox MA"
+  },
+  {
+   "name": "Emma Goldman",
+   "games": [
+    "who",
+    "map"
+   ],
+   "note": "Kovno -> Toronto"
+  },
+  {
+   "name": "Sun Tzu",
+   "games": [
+    "map"
+   ],
+   "note": "RULING: no authentic likeness -> Lifeline only; Qi -> Wu points rest on Sima Qian"
+  },
+  {
+   "name": "Pliny the Elder",
+   "games": [
+    "map"
+   ],
+   "note": "RULING: Lifeline only; Como -> Stabiae (Vesuvius) is the round"
+  },
+  {
+   "name": "Euripides",
+   "games": [
+    "map"
+   ],
+   "note": "RULING: Lifeline only; Salamis -> Macedonia"
+  },
+  {
+   "name": "William James",
+   "games": [
+    "who",
+    "map"
+   ]
+  },
+  {
+   "name": "Jonathan Swift",
+   "games": [
+    "who"
+   ],
+   "note": "zero-km Dublin life; Face Value only"
+  },
+  {
+   "name": "Saint George",
+   "games": [
+    "who"
+   ],
+   "note": "legend map; Face Value via iconography only"
+  },
+  {
+   "name": "Thomas the Apostle",
+   "games": [
+    "who"
+   ],
+   "note": "legend map; Face Value via iconography only"
+  },
+  {
+   "name": "Jackie Robinson",
+   "games": [
+    "who",
+    "map"
+   ]
+  },
+  {
+   "name": "Gertrude Stein",
+   "games": [
+    "who",
+    "map"
+   ],
+   "note": "borderline admitted; Allegheny PA -> Neuilly"
+  },
+  {
+   "name": "John Wesley",
+   "games": [
+    "who",
+    "map"
+   ],
+   "note": "borderline admitted; Epworth -> London"
+  },
+  {
+   "name": "Sputnik 1",
+   "games": [
+    "what"
+   ]
+  },
+  {
+   "name": "Concorde",
+   "games": [
+    "what"
+   ],
+   "note": "type exception #1"
+  },
+  {
+   "name": "RMS Lusitania",
+   "games": [
+    "what"
+   ]
+  },
+  {
+   "name": "USS Enterprise",
+   "games": [
+    "what"
+   ],
+   "note": "CVN-65; intake must handle bare 'enterprise' (Star Trek, CV-6) - likely reject bare form"
+  },
+  {
+   "name": "Enigma",
+   "games": [
+    "what"
+   ],
+   "note": "borderline admitted; type exception #2"
+  }
+ ],
+ "rejected": [
+  {
+   "name": "Ravi Shankar",
+   "reason": "owner cut"
+  },
+  {
+   "name": "John Dewey",
+   "reason": "owner cut"
+  },
+  {
+   "name": "Order of the British Empire",
+   "reason": "generic type (order/medal class)"
+  },
+  {
+   "name": "Medal of Honor",
+   "reason": "generic type (order/medal class)"
+  },
+  {
+   "name": "Legion of Honour",
+   "reason": "generic type (order/medal class)"
+  },
+  {
+   "name": "Victoria Cross",
+   "reason": "generic type (order/medal class)"
+  },
+  {
+   "name": "Padma Shri",
+   "reason": "generic type (order/medal class)"
+  },
+  {
+   "name": "Volkswagen Beetle",
+   "reason": "generic type (car make)"
+  },
+  {
+   "name": "North American X-15",
+   "reason": "below bar, owner confirmed"
+  },
+  {
+   "name": "Japanese battleship Yamato",
+   "reason": "below bar, owner confirmed"
+  },
+  {
+   "name": "Chinua Achebe",
+   "reason": "below bar, owner declined to admit"
+  },
+  {
+   "name": "Subrahmanyan Chandrasekhar",
+   "reason": "below bar, owner declined to admit"
+  },
+  {
+   "name": "Aristophanes",
+   "reason": "below bar, owner declined to admit"
+  },
+  {
+   "name": "ENIAC",
+   "reason": "below bar, owner declined to admit"
+  },
+  {
+   "name": "Mini",
+   "reason": "generic type (car make) + below bar"
+  },
+  {
+   "name": "Tupolev Tu-144",
+   "reason": "below bar, owner declined to admit"
+  },
+  {
+   "name": "Margaret Mead",
+   "reason": "below bar, owner declined to admit"
+  },
+  {
+   "name": "The Third of May 1808",
+   "reason": "below bar, owner declined to admit"
+  },
+  {
+   "name": "Miriam Makeba",
+   "reason": "below bar, owner declined to admit"
+  }
+ ]
+}
