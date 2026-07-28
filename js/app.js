@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v140';
+const BUILD = 'v141';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -377,19 +377,19 @@ const INTRO_CONTENT = {
     glyph: 'assets/brand/game-icon-lifeline.png',
     title: 'Two dots, one life.',
     copy: 'Each round shows where a figure was born and where they died, with the years. Type their name — spelling needn’t be perfect.',
-    copy2: '100 points for an unaided answer (a correct one always pays at least 10). Clue slips cost 15–25, wrong guesses 15, revealing scores zero. Each correct answer from the second in a row earns +10. Your day’s score is your round average.',
+    copy2: '100 points for an unaided answer (a correct one always pays at least 10). Clue slips cost 15–25, wrong guesses 15, revealing scores zero. Stuck? Three choices pays up to 20. Each correct answer from the second in a row earns +10. Your day’s score is your round average.',
   },
   who: {
     glyph: 'assets/brand/game-icon-face-value.png',
     title: 'Tear towards it.',
     copy: 'A famous face hides under nine scraps — one is already open. You can only tear scraps touching what’s open, so plot your route.',
-    copy2: 'Each round is worth 100. Tears cost 10, wrong guesses 15, and clue slips 15–25. Two right in a row earns +10. Your day’s score is your round average.',
+    copy2: 'Each round is worth 100. Tears cost 10, wrong guesses 15, and clue slips 15–25. Stuck? Three choices pays up to 20. Two right in a row earns +10. Your day’s score is your round average.',
   },
   what: {
     glyph: 'assets/brand/game-icon-relic.png',
     title: 'Tear towards it.',
     copy: 'A famous artefact hides under nine scraps — one is already open. You can only tear scraps touching what’s open, so plot your route.',
-    copy2: 'Each round is worth 100. Tears cost 10, wrong guesses 15, and clue slips 15–25. Two right in a row earns +10. Your day’s score is your round average.',
+    copy2: 'Each round is worth 100. Tears cost 10, wrong guesses 15, and clue slips 15–25. Stuck? Three choices pays up to 20. Two right in a row earns +10. Your day’s score is your round average.',
   },
 };
 

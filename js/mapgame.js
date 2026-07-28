@@ -24,6 +24,7 @@ const HINT_OCC_COST = 15; // "Claim to fame" — the lighter slip (matches the r
 const HINT_INI_COST = 25; // "Initials" — near-decisive with the dates already on the map
 const WRONG_COST = 15;    // per wrong guess (aligned with Face Value/Relic)
 const WORTH_FLOOR = 10;   // a correct answer never pays less than this; giving up pays 0
+const MCQ_MAX = 20;       // the three-choices rescue: pays min(worth, this); see revealgame.js
 
 // ---------- seeded rng (deterministic sessions for tests via ?mapseed=N) ----------
 function mulberry32(a) {
@@ -333,10 +334,12 @@ function persistSession() {
       ? {
           hints: S.cur.hints, wrongs: S.cur.wrongs, occUsed: !!S.cur.occUsed, iniUsed: !!S.cur.iniUsed,
           wrongGuesses: (S.cur.wrongGuesses || []).slice(),
+          hintCost: S.cur.hintCost || 0,
+          mcqOpts: S.cur.mcqOpts ? S.cur.mcqOpts.slice() : null,
         }
       : null,
     results: S.results.map((r) => ({
-      id: r.fig.id, pts: r.pts, correct: r.correct, hints: r.hints, wrongs: r.wrongs,
+      id: r.fig.id, pts: r.pts, correct: r.correct, hints: r.hints, wrongs: r.wrongs, mcq: !!r.mcq,
     })),
   });
 }
@@ -532,8 +535,9 @@ function startRound() {
         hints: carried.hints, wrongs: carried.wrongs, occUsed: carried.occUsed, iniUsed: carried.iniUsed,
         hintCost: carried.hintCost != null ? carried.hintCost : 25 * (carried.hints || 0),
         wrongGuesses: carried.wrongGuesses || [], open: true,
+        mcqOpts: carried.mcqOpts ? carried.mcqOpts.slice() : null,
       }
-    : { hints: 0, hintCost: 0, wrongs: 0, occUsed: false, iniUsed: false, wrongGuesses: [], open: true };
+    : { hints: 0, hintCost: 0, wrongs: 0, occUsed: false, iniUsed: false, wrongGuesses: [], open: true, mcqOpts: null };
   $('#map-progress').textContent = `Round ${S.i + 1} of ${S.rounds.length}`;
   announce(`Round ${S.i + 1} of ${S.rounds.length}.`);
   $('#map-score').textContent = `${S.score} pts`;
@@ -550,6 +554,9 @@ function startRound() {
   $('#hint-occ').disabled = false;
   $('#hint-ini').disabled = false;
   $('#map-reveal').disabled = false;
+  $('#map-mcq').disabled = false;
+  $('#map-mcq-chips').hidden = true;
+  $('#map-mcq-chips').innerHTML = '';
   // a resumed mid-round keeps its hints/wrong guesses (and their cost):
   // rebuild the chips and the worth readout from the carried-over state.
   if (S.cur.occUsed) {
@@ -561,6 +568,7 @@ function startRound() {
     addHintChip(`Initials: ${initials(fig.name)}`);
   }
   S.cur.wrongGuesses.forEach((g) => addGuessChip(g));
+  if (S.cur.mcqOpts) renderMcq();   // resumed mid-choice: same three, same order
   updateWorth();
   $('#map-next').hidden = true;
   $('#map-streak').hidden = S.streak < 2;
@@ -599,22 +607,76 @@ function figureBio(fig) {
     + `died ${fig.death.place}, ${yearLabel(fig.death)}`;
 }
 
-function resolveRound(correct) {
+// ---------- the ultimate clue: three choices (mirrors revealgame.js) ----------
+function mcqOptionsFor(fig) {
+  let names = (fig.mcq || []).slice(0, 2);
+  if (names.length < 2) {
+    const others = (DATA.figures || []).filter((x) => x.id !== fig.id
+      && x.name !== fig.name && x.difficulty === fig.difficulty);
+    while (names.length < 2 && others.length) {
+      const pick = others.splice(Math.floor(Math.random() * others.length), 1)[0];
+      if (!names.includes(pick.name)) names.push(pick.name);
+    }
+  }
+  const opts = [fig.name, ...names];
+  for (let i = opts.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [opts[i], opts[j]] = [opts[j], opts[i]];
+  }
+  return opts;
+}
+
+function openMcq() {
+  if (!S || !S.cur || !S.cur.open || S.cur.mcqOpts) return;
+  S.cur.mcqOpts = mcqOptionsFor(round());
+  persistSession();
+  if (S.mode === 'daily') track('mcq-open-map');
+  renderMcq();
+}
+
+function renderMcq() {
   const fig = round();
+  const wrap = $('#map-mcq-chips');
+  wrap.innerHTML = '';
+  S.cur.mcqOpts.forEach((name) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'pill mcq-opt';
+    b.textContent = name;
+    b.addEventListener('click', () => {
+      if (!S || !S.cur || !S.cur.open) return;
+      resolveRound(name === fig.name, { mcq: true });
+    });
+    wrap.appendChild(b);
+  });
+  wrap.hidden = false;
+  $('#map-form').hidden = true;
+  $('#map-mcq').disabled = true;
+  const worthEl = $('#map-worth');
+  if (worthEl) worthEl.innerHTML = `ONE OF THESE THREE — <b>MAX ${Math.min(worthNow(), MCQ_MAX)} PTS</b>`;
+  announce(`Three choices: ${S.cur.mcqOpts.join(', ')}. Pick one for up to ${Math.min(worthNow(), MCQ_MAX)} points.`);
+}
+
+function resolveRound(correct, opts) {
+  const fig = round();
+  const fromMcq = !!(opts && opts.mcq);
   S.cur.open = false;
   let pts = 0;
   let bonus = 0;
   if (correct) {
-    pts = worthNow();
-    S.streak++;
-    S.bestStreak = Math.max(S.bestStreak, S.streak);
-    if (S.streak >= 2) bonus = 10;
+    pts = fromMcq ? Math.min(worthNow(), MCQ_MAX) : worthNow();
+    if (!fromMcq) {
+      S.streak++;
+      S.bestStreak = Math.max(S.bestStreak, S.streak);
+      if (S.streak >= 2) bonus = 10;
+    }
     sfx.play('correct');
   } else {
     S.streak = 0;
   }
   const total = pts + bonus;
-  S.results.push({ fig, pts: total, correct, hints: S.cur.hints, wrongs: S.cur.wrongs });
+  S.results.push({ fig, pts: total, correct, hints: S.cur.hints, wrongs: S.cur.wrongs, mcq: fromMcq });
+  if (S.mode === 'daily' && fromMcq) track(`mcq-map-${correct ? 'win' : 'loss'}`);
   S.score = daily.sessionScore(S.results);   // the 0–100 dial: capped round average
   if (S.mode === 'daily') track(`round-map-${roundOutcome(correct, S.cur.hints, S.cur.wrongs)}`);
   persistSession();
@@ -625,6 +687,7 @@ function resolveRound(correct) {
     ? `<b class="fig">${fig.name}</b> — ${figureBio(fig)}. `
       + `<span class="pts">+${total} pts</span>`
       + (bonus ? ` <small>(includes ${bonus} streak bonus)</small>` : '')
+      + (fromMcq ? ' <small>(picked from three)</small>' : '')
     : `It was <b class="fig">${fig.name}</b> — ${figureBio(fig)}. <span class="pts">0 pts</span>`)
     // Lifeline reveal line: a fun-fact reward, styled like Face Value's
     // blurb-as-reward text. figures.json doesn't carry `fact` on every entry
@@ -641,6 +704,8 @@ function resolveRound(correct) {
   $('#hint-occ').disabled = true;
   $('#hint-ini').disabled = true;
   $('#map-reveal').disabled = true;
+  $('#map-mcq').disabled = true;
+  $('#map-mcq-chips').hidden = true;
   $('#map-form').hidden = true;     // resolved: clear the dead controls so
   $('#map-hints').hidden = true;    // the Next button is always in view
   const worthEl = $('#map-worth');
@@ -661,11 +726,13 @@ function renderLockedSummary() {
   $('#sum-total').textContent = S.score;
   setReceiptStamp('view-mapsum', S.score);
   $('#sum-report').href = daily.reportProblemHref(null, S.editionIndex);
+  // Bands recalibrated 28 Jul 2026 for the 3-round daily — see the twin
+  // comment in revealgame.js renderLockedSummary.
   const remarks = [
-    [90, 'Immortalised.'],
-    [75, 'A household name.'],
-    [55, 'Fifteen minutes of fame.'],
-    [30, 'Getting warm.'],
+    [88, 'Immortalised.'],
+    [60, 'A household name.'],
+    [35, 'Fifteen minutes of fame.'],
+    [15, 'Getting warm.'],
     [0, 'A footnote.'],
   ];
   const weekendNote = S.editionIndex != null ? daily.weekendReceiptMeta(S.editionIndex) : null;
@@ -806,6 +873,8 @@ export function initMapGame() {
     updateWorth();
     announce(`Initials: ${initials(round().name)}. Worth ${worthNow()} points.`);
   });
+
+  $('#map-mcq').addEventListener('click', openMcq);
 
   $('#map-reveal').addEventListener('click', () => {
     if (!S || !S.cur.open) return;

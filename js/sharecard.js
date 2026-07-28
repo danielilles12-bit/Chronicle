@@ -38,12 +38,13 @@ export function threadEmojiRows(guesses) {
   return (guesses || []).map((g) => g.map((c) => THREAD_EMOJI[c] || '⬜').join(''));
 }
 export function mapEmojiRow(rounds) {
-  return rounds.map((r) => (!r.correct ? '⚰️' : r.hints ? '🧭' : '✅')).join('');
+  // mcq = rescued via the three-choices clue: assisted, same glyph as hints.
+  return rounds.map((r) => (!r.correct ? '⚰️' : (r.hints || r.mcq) ? '🧭' : '✅')).join('');
 }
 export function revealEmojiRow(rounds) {
   return rounds.map((r) => {
     if (!r.correct) return '🟥';
-    return ((r.torn || 0) >= 4 || (r.wrongs || 0) > 0) ? '🟨' : '🟩';
+    return ((r.torn || 0) >= 4 || (r.wrongs || 0) > 0 || r.mcq) ? '🟨' : '🟩';
   }).join('');
 }
 

@@ -22,6 +22,11 @@ const WORTH_START = 100;
 const WORTH_FLOOR = 10;         // a correct answer never pays less than this
 const CLUE_A_COST = 25;         // "Claim to fame" (who) / "First letters" (what)
 const CLUE_B_COST = 15;         // "Lived" (who) / "Era" (what)
+// The ultimate clue (Daniel, 28 Jul 2026): three choices instead of a dead-end
+// give-up. A correct pick pays what the round is still worth, capped here —
+// always beneath a typed answer, always above surrender. It keeps a streak
+// alive but never extends it (no ++, no bonus): a rescue, not a win.
+const MCQ_MAX = 20;
 
 // Card #10 (house-voice verdicts): the moment badge rotates through these
 // deterministically by round index (S.i), never at random, so a reloaded/
@@ -315,6 +320,7 @@ function setRoundOffline(off) {
   $('#rv-reveal').disabled = off;
   $('#rv-clue-a').disabled = off || !!(cur && cur.clueA);
   $('#rv-clue-b').disabled = off || !!(cur && cur.clueB);
+  $('#rv-mcq').disabled = off || !!(cur && cur.mcqOpts);
   $('#rv-scraps').style.visibility = off ? 'hidden' : '';
 }
 
@@ -540,9 +546,12 @@ function persist() {
           torn: S.cur.torn.slice(), wrongs: S.cur.wrongs,
           clueA: !!S.cur.clueA, clueB: !!S.cur.clueB, clueCost: S.cur.clueCost || 0,
           wrongGuesses: (S.cur.wrongGuesses || []).slice(),
+          // Chip ORDER must survive a resume — reshuffling on reload would
+          // let a player relaunch until the layout whispers the answer.
+          mcqOpts: S.cur.mcqOpts ? S.cur.mcqOpts.slice() : null,
         }
       : null,
-    results: S.results.map((r) => ({ id: r.item.id, pts: r.pts, correct: r.correct })),
+    results: S.results.map((r) => ({ id: r.item.id, pts: r.pts, correct: r.correct, mcq: !!r.mcq })),
   });
 }
 
@@ -702,8 +711,9 @@ function startRound() {
         open: true, torn: (carried.torn || []).slice(), wrongs: carried.wrongs || 0,
         clueCost: carried.clueCost || 0, clueA: !!carried.clueA, clueB: !!carried.clueB,
         wrongGuesses: (carried.wrongGuesses || []).slice(),
+        mcqOpts: carried.mcqOpts ? carried.mcqOpts.slice() : null,
       }
-    : { open: true, torn: [], wrongs: 0, clueCost: 0, clueA: false, clueB: false, wrongGuesses: [] };
+    : { open: true, torn: [], wrongs: 0, clueCost: 0, clueA: false, clueB: false, wrongGuesses: [], mcqOpts: null };
   $('#rv-progress').textContent = `Round ${S.i + 1} of ${S.rounds.length}`;
   announce(`Round ${S.i + 1} of ${S.rounds.length}.`);
   $('#rv-score').textContent = `${S.score} pts`;
@@ -715,6 +725,9 @@ function startRound() {
   $('#rv-wrong-note').hidden = true;
   $('#rv-form').hidden = false;
   $('#rv-controls').hidden = false;
+  $('#rv-mcq-chips').hidden = true;
+  $('#rv-mcq-chips').innerHTML = '';
+  $('#rv-mcq').disabled = false;
   $('#rv-guesses').innerHTML = '';
   $('#rv-input').value = '';
   $('#rv-input').disabled = false;
@@ -738,6 +751,7 @@ function startRound() {
     $('#rv-clue-b').disabled = true;
     addHintChip(`${defs.b.label}: ${defs.b.value()}`);
   }
+  if (S.cur.mcqOpts) renderMcq();   // resumed mid-choice: same three, same order
   (S.cur.wrongGuesses || []).forEach((g) => addGuessChip(g));
   // Back to the square scrap window (clears any inline aspect/width the last
   // reveal morphed the frame to).
@@ -797,24 +811,85 @@ function withTerminalPunct(text) {
   return TERMINAL_PUNCT_RE.test(t) ? t : `${t}.`;
 }
 
-function resolveRound(correct) {
+// ---------- the ultimate clue: three choices ----------
+// The answer plus the item's two curated distractors (tools/build_mcq.py),
+// shuffled once per round and frozen into the session so a reload can't
+// re-deal. Items without an mcq field (shouldn't happen — build_mcq covers
+// every pool) fall back to two same-kind names so the button never breaks.
+function mcqOptionsFor(item) {
+  let names = (item.mcq || []).slice(0, 2);
+  if (names.length < 2) {
+    const others = pool().filter((x) => x.id !== item.id && x.name !== item.name
+      && x.kind === item.kind && x.difficulty === item.difficulty);
+    while (names.length < 2 && others.length) {
+      const pick = others.splice(Math.floor(Math.random() * others.length), 1)[0];
+      if (!names.includes(pick.name)) names.push(pick.name);
+    }
+  }
+  const opts = [item.name, ...names];
+  for (let i = opts.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [opts[i], opts[j]] = [opts[j], opts[i]];
+  }
+  return opts;
+}
+
+function openMcq() {
+  if (!S || !S.cur || !S.cur.open || S.cur.mcqOpts) return;
+  S.cur.mcqOpts = mcqOptionsFor(round());
+  persist();
+  if (S.mode === 'daily') track(`mcq-open-${MODE}`);
+  renderMcq();
+}
+
+function renderMcq() {
+  const item = round();
+  const wrap = $('#rv-mcq-chips');
+  wrap.innerHTML = '';
+  S.cur.mcqOpts.forEach((name) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'pill mcq-opt';
+    b.textContent = name;
+    b.addEventListener('click', () => {
+      if (!S || !S.cur || !S.cur.open) return;
+      resolveRound(name === item.name, { mcq: true });
+    });
+    wrap.appendChild(b);
+  });
+  wrap.hidden = false;
+  // Typing is over: the gamble replaces the keyboard, not the other clues.
+  $('#rv-form').hidden = true;
+  $('#rv-mcq').disabled = true;
+  const worthEl = $('#rv-worth');
+  if (worthEl) worthEl.innerHTML = `ONE OF THESE THREE — <b>MAX ${Math.min(worthNow(), MCQ_MAX)} PTS</b>`;
+  announce(`Three choices: ${S.cur.mcqOpts.join(', ')}. Pick one for up to ${Math.min(worthNow(), MCQ_MAX)} points.`);
+}
+
+function resolveRound(correct, opts) {
   const item = round();
   if (!S.cur.open) return;
+  const fromMcq = !!(opts && opts.mcq);
   S.cur.open = false;
   const wrongs = S.cur.wrongs || 0;
   let pts = 0;
   let bonus = 0;
   if (correct) {
-    pts = worthNow();
-    S.streak++;
-    S.bestStreak = Math.max(S.bestStreak, S.streak);
-    if (S.streak >= 2) bonus = 10;
+    // A multiple-choice pick pays what the round is still worth, capped —
+    // and leaves the streak untouched (alive, but no ++ and no bonus).
+    pts = fromMcq ? Math.min(worthNow(), MCQ_MAX) : worthNow();
+    if (!fromMcq) {
+      S.streak++;
+      S.bestStreak = Math.max(S.bestStreak, S.streak);
+      if (S.streak >= 2) bonus = 10;
+    }
     sfx.play('correct');
   } else {
     S.streak = 0;
   }
   const total = pts + bonus;
-  S.results.push({ item, pts: total, correct, torn: S.cur.torn.length, wrongs });
+  S.results.push({ item, pts: total, correct, torn: S.cur.torn.length, wrongs, mcq: fromMcq });
+  if (S.mode === 'daily' && fromMcq) track(`mcq-${MODE}-${correct ? 'win' : 'loss'}`);
   S.score = daily.sessionScore(S.results);   // the 0–100 dial: capped round average
   if (S.mode === 'daily') {
     const hints = (S.cur.clueA ? 1 : 0) + (S.cur.clueB ? 1 : 0);
@@ -849,6 +924,7 @@ function resolveRound(correct) {
   fb.innerHTML = correct
     ? `<b class="fig">${item.name}</b> — ${withTerminalPunct(item.blurb)} <span class="pts">+${total} pts</span>`
       + (bonus ? ` <small>(includes ${bonus} streak bonus)</small>` : '')
+      + (fromMcq ? ' <small>(picked from three)</small>' : '')
     : `It was <b class="fig">${item.name}</b> — ${withTerminalPunct(item.blurb)} <span class="pts">0 pts</span>`;
   fb.hidden = false;
   showCredit(item);
@@ -859,6 +935,7 @@ function resolveRound(correct) {
   $('#rv-clue-b').disabled = true;
   $('#rv-form').hidden = true;
   $('#rv-controls').hidden = true;
+  $('#rv-mcq-chips').hidden = true;
   $('#rv-score').textContent = `${S.score} pts`;
   $('#rv-streak').hidden = S.streak < 2;
   if (S.streak >= 2) $('#rv-streak').textContent = `${S.streak} in a row`;
@@ -875,11 +952,16 @@ function renderLockedSummary() {
   $('#rv-sum-total').textContent = S.score;
   setReceiptStamp('view-revealsum', S.score);
   $('#rv-sum-report').href = daily.reportProblemHref(null, S.editionIndex);
+  // Bands recalibrated 28 Jul 2026 for the 3-round daily: each round is now
+  // a third of the day, so one miss lands near 70 (was ~86 under 5 rounds)
+  // and the old 90/75/55/30 ladder read two bands harsher than the same
+  // performance did before. Anchors: clean low-tear day ≥ 88; two-of-three
+  // with decent play ≥ 60; heavy but real progress ≥ 35; one rescue ≥ 15.
   const remarks = [
-    [90, 'A connoisseur of the ages.'],
-    [75, 'A sharp eye for history.'],
-    [55, 'A good eye — keep looking.'],
-    [30, 'The details are coming into focus.'],
+    [88, 'A connoisseur of the ages.'],
+    [60, 'A sharp eye for history.'],
+    [35, 'A good eye — keep looking.'],
+    [15, 'The details are coming into focus.'],
     [0, 'Every expert starts by squinting.'],
   ];
   const weekendNote = S.editionIndex != null ? daily.weekendReceiptMeta(S.editionIndex) : null;
@@ -1010,6 +1092,7 @@ export function initRevealGame() {
 
   $('#rv-clue-a').addEventListener('click', () => buyClue('a'));
   $('#rv-clue-b').addEventListener('click', () => buyClue('b'));
+  $('#rv-mcq').addEventListener('click', openMcq);
 
   $('#rv-offline-retry').addEventListener('click', () => {
     if (!S || !S.cur || !S.cur.open) return;

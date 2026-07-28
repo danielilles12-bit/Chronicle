@@ -61,6 +61,11 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 /* P1.5: the one-shot explicit wrong-guess line (first wrong guess anywhere)
    and the polite screen-reader live region (visually hidden, never seen). */
 .df-wrong-note { margin: 6px 0 0; font-size: 13px; font-weight: 700; color: var(--df-red); font-family: var(--ch-font-ui); }
+
+/* The three-choices ultimate clue (28 Jul 2026): full-width stacked options
+   so the three names read as a ballot, not a row of squeezed pills. */
+.mcq-chips { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+.mcq-chips .mcq-opt { width: 100%; max-width: 420px; text-align: center; font-weight: 700; }
 .sr-only {
   position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;

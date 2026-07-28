@@ -25,7 +25,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:CairoEgMuseumTaaMaskMostlyPhotographed.jpg",
   "image_author": "Roland Unger",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Akhenaten",
+   "Ramesses II"
+  ]
  },
  {
   "id": "charlie-chaplin",
@@ -51,7 +55,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Charlie_Chaplin.jpg",
   "image_author": "P.D Jankens",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "John Wayne",
+   "Bruce Lee"
+  ]
  },
  {
   "id": "marilyn-monroe",
@@ -77,7 +85,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Monroe_1953_publicity.jpg",
   "image_author": "Frank Powolny",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Judy Garland",
+   "Vivien Leigh"
+  ]
  },
  {
   "id": "elvis-presley",
@@ -103,7 +115,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:YoungElvisPresley.jpg",
   "image_author": "Metro-Goldwyn-Mayer, Inc. Reproduction Number: LC-USZ6-2067 Location: NYWTS -- BIOG",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Kurt Cobain",
+   "Tupac Shakur"
+  ]
  },
  {
   "id": "socrates",
@@ -126,7 +142,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Socrates_Louvre.jpg",
   "image_author": "Copy of Lysippos (?)",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Aristotle",
+   "Gautama Buddha"
+  ]
  },
  {
   "id": "al-capone",
@@ -152,7 +172,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:AlCaponemugshotCPD.jpg",
   "image_author": "United States Bureau of Prisons",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Billy the Kid",
+   "Pablo Escobar"
+  ]
  },
  {
   "id": "che-guevara",
@@ -176,7 +200,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Che_Guevara%2C_Guerrillero_Heroico.jpg",
   "image_author": "Alberto Korda",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Martin Luther King Jr.",
+   "Malcolm X"
+  ]
  },
  {
   "id": "einstein",
@@ -198,7 +226,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Albert_Einstein_sticks_his_tongue.jpg",
   "image_author": "International News Service",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Niels Bohr",
+   "Stephen Hawking"
+  ]
  },
  {
   "id": "lincoln",
@@ -222,7 +254,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Abraham_Lincoln_O-77_matte_collodion_print.jpg",
   "image_author": "Alexander Gardner",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "James Buchanan",
+   "Martin Van Buren"
+  ]
  },
  {
   "id": "martin-luther-king-jr",
@@ -246,7 +282,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Martin_Luther_King_Jr_NYWTS.jpg",
   "image_author": "Dick DeMarsico",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Malcolm X",
+   "Che Guevara"
+  ]
  },
  {
   "id": "nelson-mandela",
@@ -271,7 +311,11 @@
   "image_author": "South Africa The Good News",
   "image_license": "CC BY 2.0",
   "image_license_url": "https://creativecommons.org/licenses/by/2.0",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Martin Luther King Jr.",
+   "Che Guevara"
+  ]
  },
  {
   "id": "amelia-earhart",
@@ -293,7 +337,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Amelia_Earhart_1935.jpg",
   "image_author": "NBC Photo-NBC Radio",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Jacqueline Kennedy Onassis",
+   "Eleanor Roosevelt"
+  ]
  },
  {
   "id": "anne-frank",
@@ -316,7 +364,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Anne_Frank_lacht_naar_de_schoolfotograaf.jpg",
   "image_author": "http://www.annefrank.org/nl/Anne-Frank/De-nazis-bezetten-Nederland/Naar-het-Joods-Lyceum/",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Virginia Woolf",
+   "Agatha Christie"
+  ]
  },
  {
   "id": "aretha-franklin",
@@ -338,7 +390,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Aretha_Franklin_1968.jpg",
   "image_author": "Atlantic Records\n\n(Life time: Published before 1978 without a copyright notice)",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Whitney Houston",
+   "Selena"
+  ]
  },
  {
   "id": "benjamin-franklin",
@@ -361,7 +417,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Joseph_Siffrein_Duplessis_-_Benjamin_Franklin_-_Google_Art_Project.jpg",
   "image_author": "Joseph-Siffred Duplessis",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "George Washington",
+   "Thomas Jefferson"
+  ]
  },
  {
   "id": "carl-sagan",
@@ -384,7 +444,11 @@
   "image_author": "Kenneth C. Zirkel",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Richard Feynman",
+   "J. Robert Oppenheimer"
+  ]
  },
  {
   "id": "frida-kahlo",
@@ -406,7 +470,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Frida_Kahlo%2C_by_Guillermo_Kahlo.jpg",
   "image_author": "Guillermo Kahlo",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Coco Chanel",
+   "Eva Perón"
+  ]
  },
  {
   "id": "gandhi",
@@ -429,7 +497,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Gandhi_smiling_1942.jpg",
   "image_author": "Kanu Gandhi",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Malcolm X",
+   "Martin Luther King Jr."
+  ]
  },
  {
   "id": "gautama-buddha",
@@ -455,7 +527,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Standing_Buddha_Guimet_MA6284.jpg",
   "image_author": "Marie-Lan Nguyen",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Confucius",
+   "Aristotle"
+  ]
  },
  {
   "id": "george-washington",
@@ -478,7 +554,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Gilbert_Stuart_Williamstown_Portrait_of_George_Washington.jpg",
   "image_author": "Gilbert Stuart",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Benjamin Franklin",
+   "Thomas Jefferson"
+  ]
  },
  {
   "id": "henry-viii",
@@ -501,7 +581,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:After_Hans_Holbein_the_Younger_-_Portrait_of_Henry_VIII_-_Google_Art_Project.jpg",
   "image_author": "Workshop of Hans Holbein the Younger",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "El Cid",
+   "Tutankhamun"
+  ]
  },
  {
   "id": "isaac-newton",
@@ -524,7 +608,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Sir_Isaac_Newton%2C_1689.jpg",
   "image_author": "Godfrey Kneller",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Gottfried Leibniz",
+   "Carl Linnaeus"
+  ]
  },
  {
   "id": "jane-austen",
@@ -545,7 +633,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:CassandraAusten-JaneAusten%28c.1810%29_hires.jpg",
   "image_author": "Cassandra Austen",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Mary Wollstonecraft",
+   "Catherine the Great"
+  ]
  },
  {
   "id": "john-f-kennedy",
@@ -570,7 +662,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:John_F._Kennedy%2C_White_House_color_photo_portrait.jpg",
   "image_author": "Cecil W. Stoughton",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Herbert Hoover",
+   "Robert F. Kennedy"
+  ]
  },
  {
   "id": "malcolm-x",
@@ -593,7 +689,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Malcolm_X_NYWTS_4.jpg",
   "image_author": "Herman Hiller, World Telegram staff photographer",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Martin Luther King Jr.",
+   "Che Guevara"
+  ]
  },
  {
   "id": "marcus-aurelius",
@@ -618,7 +718,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Marcus_Aurelius_Capitoline_Hill_September_2015-1.jpg",
   "image_author": "Alvesgaspar",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Augustus",
+   "Julius Caesar"
+  ]
  },
  {
   "id": "mark-twain",
@@ -642,7 +746,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Mark_Twain_by_AF_Bradley.jpg",
   "image_author": "A.F. Bradley, New York",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Walt Whitman",
+   "H. P. Lovecraft"
+  ]
  },
  {
   "id": "muhammad-ali",
@@ -665,7 +773,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Muhammad_Ali_NYWTS.jpg",
   "image_author": "Ira Rosenberg",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Ayrton Senna",
+   "George H. W. Bush"
+  ]
  },
  {
   "id": "napoleon",
@@ -690,7 +802,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project.jpg",
   "image_author": "Jacques-Louis David",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "George III",
+   "Louis XVI"
+  ]
  },
  {
   "id": "queen-elizabeth-ii",
@@ -714,7 +830,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Queen_Elizabeth_II_official_portrait_for_1959_tour_%28retouched%29.jpg",
   "image_author": "Donald McKague",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Diana, Princess of Wales",
+   "Mother Teresa"
+  ]
  },
  {
   "id": "rasputin",
@@ -737,7 +857,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Grigori_Rasputin_1916.jpg",
   "image_author": "[1] [2] [3]",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Al Capone",
+   "Billy the Kid"
+  ]
  },
  {
   "id": "robert-oppenheimer",
@@ -762,7 +886,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:J._Robert_Oppenheimer_at_the_Guest_Lodge%2C_Oak_Ridge%2C_in_1946_4.jpg",
   "image_author": "Ed Westcott (U.S. Government photographer)",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Richard Feynman",
+   "Niels Bohr"
+  ]
  },
  {
   "id": "ronald-reagan",
@@ -786,7 +914,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Ronald_Reagan_1981_presidential_portrait.jpg",
   "image_author": "Michael Evans",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Gerald Ford",
+   "Richard Nixon"
+  ]
  },
  {
   "id": "van-gogh-self",
@@ -812,7 +944,11 @@
   "image_author": "Vincent van Gogh",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Gustave Courbet",
+   "Paul Cézanne"
+  ]
  },
  {
   "id": "winston-churchill",
@@ -836,7 +972,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Winston_Churchill%2C_cigar_in_mouth%2C_gives_his_famous_%27V%27_for_victory_sign_during_a_visit_to_Bradford%2C_4_December_1942._H25966.jpg",
   "image_author": "War Office official photographer, Horton (Capt)",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Edward VIII",
+   "George VI"
+  ]
  },
  {
   "id": "ada-lovelace",
@@ -861,7 +1001,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Ada_Lovelace_portrait.jpg",
   "image_author": "Alfred Edward Chalon",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Emmy Noether",
+   "Florence Nightingale"
+  ]
  },
  {
   "id": "alexander-fleming",
@@ -884,7 +1028,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Alexander_Fleming_1945.jpg",
   "image_author": "Nobel Foundation",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Charles Darwin",
+   "Niels Bohr"
+  ]
  },
  {
   "id": "alexander-graham-bell",
@@ -909,7 +1057,11 @@
   "image_author": "Smithsonian NPG",
   "image_license": "CC0",
   "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Nikola Tesla",
+   "Thomas Edison"
+  ]
  },
  {
   "id": "alfred-nobel",
@@ -931,7 +1083,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:AlfredNobel_adjusted.jpg",
   "image_author": "Gösta Florman (1831–1900) / The Royal Library",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Louis Pasteur",
+   "James Clerk Maxwell"
+  ]
  },
  {
   "id": "arthur-conan-doyle",
@@ -955,7 +1111,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:1913_Arthur_Conan_Doyle_%28cropped%29.jpg",
   "image_author": "Bain News Service, publisher",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Franz Kafka",
+   "H G Wells"
+  ]
  },
  {
   "id": "beethoven",
@@ -977,7 +1137,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Beethoven.jpg",
   "image_author": "Joseph Karl Stieler",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Franz Schubert",
+   "Frédéric Chopin"
+  ]
  },
  {
   "id": "billie-holiday",
@@ -1001,7 +1165,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Billie_Holiday%2C_Downbeat%2C_New_York%2C_N.Y.%2C_ca._Feb._1947_%28William_P._Gottlieb_04251%29.jpg",
   "image_author": "William P. Gottlieb",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Ella Fitzgerald",
+   "Enid Blyton"
+  ]
  },
  {
   "id": "blaise-pascal",
@@ -1024,7 +1192,11 @@
   "image_author": "Unknown author",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Gottfried Leibniz",
+   "Galileo Galilei"
+  ]
  },
  {
   "id": "boudica",
@@ -1050,7 +1222,11 @@
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Cleopatra",
+   "Kösem Sultan"
+  ]
  },
  {
   "id": "charles-dickens",
@@ -1072,7 +1248,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Dickens_Gurney_head.jpg",
   "image_author": "Jeremiah Gurney",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Alexandre Dumas",
+   "Hans Christian Andersen"
+  ]
  },
  {
   "id": "da-vinci-self",
@@ -1096,7 +1276,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Leonardo_self.jpg",
   "image_author": "Leonardo da Vinci",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Ferdinand Magellan",
+   "Raphael"
+  ]
  },
  {
   "id": "dante-alighieri",
@@ -1120,7 +1304,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Sandro_Botticelli_-_Portrait_of_Dante_-_WGA02802.jpg",
   "image_author": "Sandro Botticelli",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Rumi",
+   "William Shakespeare"
+  ]
  },
  {
   "id": "edgar-allan-poe",
@@ -1144,7 +1332,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Edgar_Allan_Poe_2.jpg",
   "image_author": "W.S. Hartshorn",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Johann Wolfgang von Goethe",
+   "Lord Byron"
+  ]
  },
  {
   "id": "elizabeth-i",
@@ -1172,7 +1364,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Elizabeth1England.jpg",
   "image_author": "Attributed to William Segar / Attributed to George Gower / Formerly attributed to Nicholas Hilliard",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Mary, Queen of Scots",
+   "Kösem Sultan"
+  ]
  },
  {
   "id": "ella-fitzgerald",
@@ -1196,7 +1392,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Ella_Fitzgerald_%28Gottlieb_02871%29.jpg",
   "image_author": "William P. Gottlieb",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Billie Holiday",
+   "Enid Blyton"
+  ]
  },
  {
   "id": "emily-dickinson",
@@ -1219,7 +1419,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Emily_Dickinson_daguerreotype_%28Restored%29.jpg",
   "image_author": "Yale University Manuscripts & Archives Digital Images Database [1]",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Sylvia Plath",
+   "Mary Shelley"
+  ]
  },
  {
   "id": "ferdinand-magellan",
@@ -1243,7 +1447,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Retrato_de_Hernando_de_Magallanes.jpg",
   "image_author": "Alamy",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Vasco da Gama",
+   "Christopher Columbus"
+  ]
  },
  {
   "id": "florence-nightingale",
@@ -1266,7 +1474,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Florence_Nightingale_by_Henry_Hering%2C_1858.jpg",
   "image_author": "Hering",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Marie Curie",
+   "Rosalind Franklin"
+  ]
  },
  {
   "id": "francisco-goya",
@@ -1289,7 +1501,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Francisco_de_Goya_-_Autorretrato_-_Google_Art_Project.jpg",
   "image_author": "Francisco Goya",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Jacques-Louis David",
+   "Rembrandt"
+  ]
  },
  {
   "id": "frederic-chopin",
@@ -1312,7 +1528,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Fr%C3%A9d%C3%A9ric_Chopin_-_Eug%C3%A8ne_Delacroix_-_Mus%C3%A9e_du_Louvre_Peintures_RF_1717.jpg",
   "image_author": "Eugène Delacroix",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Ludwig van Beethoven",
+   "Franz Schubert"
+  ]
  },
  {
   "id": "frederick-douglass",
@@ -1335,7 +1555,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Frederick_Douglass_%28circa_1879%29.jpg",
   "image_author": "George Kendall Warren",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Jefferson Davis",
+   "Benito Juárez"
+  ]
  },
  {
   "id": "friedrich-engels",
@@ -1357,7 +1581,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Friedrich_Engels_portrait_%28cropped%29.jpg",
   "image_author": "William Hall (1826–ca. 1898) (cropped and sepia tone removed)",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Friedrich Nietzsche",
+   "Arthur Schopenhauer"
+  ]
  },
  {
   "id": "friedrich-nietzsche",
@@ -1379,7 +1607,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Nietzsche1882.jpg",
   "image_author": "Gustav-Adolf Schultze (d. 1897)",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Friedrich Engels",
+   "Arthur Schopenhauer"
+  ]
  },
  {
   "id": "fyodor-dostoevsky",
@@ -1403,7 +1635,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Vasily_Perov_-_%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%A4.%D0%9C.%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_-_Google_Art_Project.jpg",
   "image_author": "Vasily Perov",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Anton Chekhov",
+   "Leo Tolstoy"
+  ]
  },
  {
   "id": "geronimo",
@@ -1428,7 +1664,11 @@
   "image_author": "Adolph F. Muhr",
   "image_license": "CC BY 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Grover Cleveland",
+   "Benjamin Harrison"
+  ]
  },
  {
   "id": "giuseppe-garibaldi",
@@ -1450,7 +1690,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Giuseppe_Garibaldi_1870_Nadar.jpg",
   "image_author": "Nadar",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Otto von Bismarck",
+   "Ito Hirobumi"
+  ]
  },
  {
   "id": "haile-selassie",
@@ -1473,7 +1717,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Haile_Selassie_-_1953.jpg",
   "image_author": "Associated Press",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Idi Amin",
+   "Mohammad Reza Pahlavi"
+  ]
  },
  {
   "id": "harriet-tubman",
@@ -1495,7 +1743,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Harriet_Tubman_c1868-69.jpg",
   "image_author": "Benjamin F. Powelson",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Susan B. Anthony",
+   "Emmeline Pankhurst"
+  ]
  },
  {
   "id": "ho-chi-minh",
@@ -1518,7 +1770,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Ho_Chi_Minh_1946.jpg",
   "image_author": "This image has been extracted from another file",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Ferdinand Marcos",
+   "Pol Pot"
+  ]
  },
  {
   "id": "horatio-nelson",
@@ -1542,7 +1798,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Horatio_Nelson_by_George_Baxter%2C_after_Lemuel_Francis_Abbott_%282%29.jpg",
   "image_author": "George Baxter / After Lemuel Francis Abbott",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Abraham",
+   "Ada Lovelace"
+  ]
  },
  {
   "id": "isambard-brunel",
@@ -1566,7 +1826,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Robert_Howlett_%28Isambard_Kingdom_Brunel_Standing_Before_the_Launching_Chains_of_the_Great_Eastern%29%2C_The_Metropolitan_Museum_of_Art_-_restoration1.jpg",
   "image_author": "Robert Howlett",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Fukuzawa Yukichi",
+   "Stonewall Jackson"
+  ]
  },
  {
   "id": "jacques-cousteau",
@@ -1590,7 +1854,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Jacques-Yves_Cousteau_1975.jpg",
   "image_author": "Weaver Tripp",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Neil Armstrong",
+   "George Harrison"
+  ]
  },
  {
   "id": "johann-sebastian-bach",
@@ -1614,7 +1882,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Johann_Sebastian_Bach_1746.jpg",
   "image_author": "Elias Gottlob Haussmann",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "George Frideric Handel",
+   "Wolfgang Amadeus Mozart"
+  ]
  },
  {
   "id": "karl-marx",
@@ -1637,7 +1909,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Karl_Marx_001.jpg",
   "image_author": "John Jabez Edwin Mayall",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Charles Darwin",
+   "James Clerk Maxwell"
+  ]
  },
  {
   "id": "kublai-khan",
@@ -1661,7 +1937,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:YuanEmperorAlbumKhubilaiPortrait.jpg",
   "image_author": "Araniko",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Saladin",
+   "Henry V of England"
+  ]
  },
  {
   "id": "lenin",
@@ -1684,7 +1964,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Lenin_1920.jpg",
   "image_author": "Pavel Semyonovich Zhukov (1870-1942)",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Tsar Nicholas II",
+   "Joseph Stalin"
+  ]
  },
  {
   "id": "leo-tolstoy",
@@ -1708,7 +1992,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Leo_Tolstoy_1897%2C_black_and_white%2C_37767u.jpg",
   "image_author": "F. W. Taylor",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Anton Chekhov",
+   "Fyodor Dostoevsky"
+  ]
  },
  {
   "id": "lewis-carroll",
@@ -1733,7 +2021,11 @@
   "image_author": "Oscar Gustave Rejlander",
   "image_license": "CC0",
   "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Oscar Wilde",
+   "Jules Verne"
+  ]
  },
  {
   "id": "lord-byron",
@@ -1756,7 +2048,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Lord_Byron_in_Albanian_Dress_by_Phillips%2C_1813.jpg",
   "image_author": "Thomas Phillips",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Johann Wolfgang von Goethe",
+   "Walter Scott"
+  ]
  },
  {
   "id": "louis-xiv",
@@ -1781,7 +2077,11 @@
   "image_author": "Hyacinthe Rigaud",
   "image_license": "CC0",
   "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Oliver Cromwell",
+   "Peter the Great"
+  ]
  },
  {
   "id": "louis-xvi",
@@ -1805,7 +2105,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Portrait_de_Louis_XVI_-_Duplessis_-_Mus%C3%A9e_Cond%C3%A9.jpg",
   "image_author": "Joseph-Siffred Duplessis",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Frederick the Great",
+   "George III"
+  ]
  },
  {
   "id": "mao-zedong",
@@ -1829,7 +2133,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Mao_Zedong_1950_Portrait_%283x4_cropped%29.jpg",
   "image_author": "Chen Zhengqing (1917–1966)",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Hirohito",
+   "Deng Xiaoping"
+  ]
  },
  {
   "id": "marie-antoinette",
@@ -1852,7 +2160,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:%C3%89lisabeth_Vig%C3%A9e-Lebrun_-_Marie_Antoinette_with_a_Rose.jpg",
   "image_author": "Élisabeth Louise Vigée Le Brun",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Catherine the Great",
+   "Hatshepsut"
+  ]
  },
  {
   "id": "marie-curie",
@@ -1875,7 +2187,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Marie_Curie_1903.jpg",
   "image_author": "Nobel foundation",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Lise Meitner",
+   "Florence Nightingale"
+  ]
  },
  {
   "id": "martin-luther",
@@ -1897,7 +2213,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Lucas_Cranach_d.%C3%84._-_Martin_Luther%2C_1528_%28Veste_Coburg%29.jpg",
   "image_author": "Lucas Cranach the Elder",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Paul the Apostle",
+   "Abraham"
+  ]
  },
  {
   "id": "michelangelo",
@@ -1919,7 +2239,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Jacopo_del_Conte_-_Portrait_of_Michelangelo_-_WGA5207.jpg",
   "image_author": "Attributed to Jacopino del Conte",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Albrecht Dürer",
+   "Raphael"
+  ]
  },
  {
   "id": "mozart",
@@ -1942,7 +2266,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Wolfgang-amadeus-mozart_1.jpg",
   "image_author": "Barbara Krafft",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Joseph Haydn",
+   "Ludwig van Beethoven"
+  ]
  },
  {
   "id": "niccolo-machiavelli",
@@ -1965,7 +2293,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Niccol%C3%B2_Machiavelli_by_Santi_di_Tito.jpg",
   "image_author": "Santi di Tito",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "René Descartes",
+   "Thomas Hobbes"
+  ]
  },
  {
   "id": "nicholas-ii",
@@ -1993,7 +2325,11 @@
   "image_author": "A. A. Pasetti",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Vladimir Lenin",
+   "Joseph Stalin"
+  ]
  },
  {
   "id": "oliver-cromwell",
@@ -2015,7 +2351,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Oliver_Cromwell_by_Samuel_Cooper.jpg",
   "image_author": "After Samuel Cooper",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Charles I of England",
+   "Louis XIV"
+  ]
  },
  {
   "id": "oscar-wilde",
@@ -2037,7 +2377,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Oscar_Wilde_portrait.jpg",
   "image_author": "Napoleon Sarony",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Lewis Carroll",
+   "Jules Verne"
+  ]
  },
  {
   "id": "peter-great",
@@ -2061,7 +2405,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Peter_I_by_Kneller_%28cropped%29.jpg",
   "image_author": "Godfrey Kneller",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Louis XIV",
+   "Frederick the Great"
+  ]
  },
  {
   "id": "pocahontas",
@@ -2084,7 +2432,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Pocahontas_by_Simon_van_de_Passe_1616.jpg",
   "image_author": "Simon van de Passe",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Elizabeth I",
+   "Mary, Queen of Scots"
+  ]
  },
  {
   "id": "queen-victoria",
@@ -2107,7 +2459,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Queen_Victoria_-_Winterhalter_1859.jpg",
   "image_author": "Franz Xaver Winterhalter",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Golda Meir",
+   "Eva Perón"
+  ]
  },
  {
   "id": "rembrandt-self",
@@ -2130,7 +2486,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Rembrandt_van_Rijn_-_Self-Portrait_-_Google_Art_Project.jpg",
   "image_author": "Rembrandt",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Diego Velázquez",
+   "Peter Paul Rubens"
+  ]
  },
  {
   "id": "rene-descartes",
@@ -2153,7 +2513,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg",
   "image_author": "After Frans Hals",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Thomas Hobbes",
+   "John Locke"
+  ]
  },
  {
   "id": "robert-burns",
@@ -2176,7 +2540,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Robert_Burns%2C_by_Henry_Raeburn%2C_after_Alexander_Nasmyth%2C_1803.jpg",
   "image_author": "Henry Raeburn",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Friedrich Schiller",
+   "Denis Diderot"
+  ]
  },
  {
   "id": "rosa-parks",
@@ -2199,7 +2567,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Rosa_Parks%2C_November_1956_%28cropped%29.jpg",
   "image_author": "Retrieved from the Rosa Parks papers at the Library of Congress via https://www.loc.gov/resource/ppmsca.38464/. Previously published as early as May 24, 1957 in The Call (Kansas City, Missouri). Also published June 19, 1957 in The Morning Call (Paterson, New Jersey).",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Helen Keller",
+   "Eleanor Roosevelt"
+  ]
  },
  {
   "id": "saladin",
@@ -2226,7 +2598,11 @@
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Kublai Khan",
+   "Alp Arslan"
+  ]
  },
  {
   "id": "suleiman-magnificent",
@@ -2251,7 +2627,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Suleiman_the_Magnificent_by_Dell%27Altissimo.jpg",
   "image_author": "Cristofano dell'Altissimo",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Charles V",
+   "Ivan the Terrible"
+  ]
  },
  {
   "id": "susan-b-anthony",
@@ -2271,7 +2651,11 @@
   "frac": 0.22,
   "license": "Public domain",
   "attribution": "G. E. Perine & Co.",
-  "source": "Engraving by G. E. Perine & Co., New York"
+  "source": "Engraving by G. E. Perine & Co., New York",
+  "mcq": [
+   "Harriet Tubman",
+   "Sojourner Truth"
+  ]
  },
  {
   "id": "theodore-roosevelt",
@@ -2295,7 +2679,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:President_Theodore_Roosevelt%2C_1904.jpg",
   "image_author": "Pach Brothers",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Woodrow Wilson",
+   "Warren G. Harding"
+  ]
  },
  {
   "id": "toni-morrison",
@@ -2319,7 +2707,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Toni_Morrison_%28author%2C_at_her_upstate_New_York_home%29.jpg",
   "image_author": "Gotfryd, Bernard, photographer",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Sylvia Plath",
+   "Simone de Beauvoir"
+  ]
  },
  {
   "id": "trotsky",
@@ -2343,7 +2735,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Leon_Trotsky.jpg",
   "image_author": "https://www.marxists.org/archive/trotsky/photo/lt-1920-02.htm",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Kaiser Wilhelm II",
+   "Mustafa Kemal Atatürk"
+  ]
  },
  {
   "id": "ulysses-grant",
@@ -2367,7 +2763,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Ulysses_Grant_1870-1880.jpg",
   "image_author": "Brady-Handy Photograph Collection, Library of Congress",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "James A. Garfield",
+   "Andrew Johnson"
+  ]
  },
  {
   "id": "victor-hugo",
@@ -2390,7 +2790,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Victor_Hugo_by_%C3%89tienne_Carjat_1876_-_full.jpg",
   "image_author": "Étienne Carjat",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Hans Christian Andersen",
+   "Lewis Carroll"
+  ]
  },
  {
   "id": "voltaire",
@@ -2414,7 +2818,11 @@
   "image_author": "Nicolas de Largillière",
   "image_license": "CC0",
   "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Lord Byron",
+   "Johann Wolfgang von Goethe"
+  ]
  },
  {
   "id": "wu-zetian",
@@ -2438,7 +2846,11 @@
   "image_author": "一代女皇不叫武则天 也不叫武曌更不叫武媚娘",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Boudica",
+   "Kösem Sultan"
+  ]
  },
  {
   "id": "zheng-he",
@@ -2463,7 +2875,11 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "image_author": "Hattendorf, John J. (ed.) (2007). The Oxford Encyclopedia of Maritime History. Oxford University Press. Print ISBN-13: 9780195130751. eISBN: 9780195307405. DOI: 10.1093/acref/9780195130751.001.0001. Accessed from the online version at http://www.oxfordreference.com/view/10.1093/acref/9780195130751.001.0001/acref-9780195130751-e-0927?rskey=jzLD9G&result=927",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Christopher Columbus",
+   "Ferdinand Magellan"
+  ]
  },
  {
   "id": "adam-smith",
@@ -2484,7 +2900,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:AdamSmith.jpg",
   "image_author": "Etching created by Cadell and Davies (1811), John Horsburgh (1828) or R.C. Bell (1872).",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Carl Linnaeus",
+   "Isaac Newton"
+  ]
  },
  {
   "id": "akbar-great",
@@ -2508,7 +2928,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Emperor_Akbar%2C_Los_Angeles_County_Museum_of_Art.jpg",
   "image_author": "1",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Philip II of Spain",
+   "Ivan the Terrible"
+  ]
  },
  {
   "id": "akhenaten",
@@ -2535,7 +2959,11 @@
   "image_author": "Einsamer Schütze",
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Tutankhamun",
+   "Ramesses II"
+  ]
  },
  {
   "id": "al-khwarizmi",
@@ -2562,7 +2990,11 @@
   "image_license": "CC0",
   "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Al-Biruni",
+   "Blaise Pascal"
+  ]
  },
  {
   "id": "albrecht-durer",
@@ -2586,7 +3018,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Albrecht_D%C3%BCrer_-_1500_self-portrait_%28High_resolution_and_detail%29.jpg",
   "image_author": "Albrecht Dürer",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Raphael",
+   "Michelangelo"
+  ]
  },
  {
   "id": "alexander-hamilton",
@@ -2608,7 +3044,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:John_Trumbull_-_Alexander_Hamilton_%281757-1804%29_-_1832.11_-_Yale_University_Art_Gallery.jpg",
   "image_author": "John Trumbull",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Adam Smith",
+   "Wang Yangming"
+  ]
  },
  {
   "id": "alexander-pushkin",
@@ -2631,7 +3071,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Kiprensky_Pushkin.jpg",
   "image_author": "Orest Kiprensky",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Walter Scott",
+   "Johann Wolfgang von Goethe"
+  ]
  },
  {
   "id": "alexander-von-humboldt",
@@ -2654,7 +3098,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Stieler%2C_Joseph_Karl_-_Alexander_von_Humboldt_-_1843.jpg",
   "image_author": "Joseph Karl Stieler",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Michael Faraday",
+   "James Clerk Maxwell"
+  ]
  },
  {
   "id": "alexandre-dumas",
@@ -2677,7 +3125,11 @@
   "start": 6,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Alexandre_Dumas_Nadar.jpg",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Charles Dickens",
+   "Hans Christian Andersen"
+  ]
  },
  {
   "id": "anton-chekhov",
@@ -2700,7 +3152,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Anton_Chekhov_1889.jpg",
   "image_author": "V. Chekhovskii, Moscow",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Leo Tolstoy",
+   "Fyodor Dostoevsky"
+  ]
  },
  {
   "id": "artemisia-gentileschi",
@@ -2721,7 +3177,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Self-portrait_as_the_Allegory_of_Painting_%28La_Pittura%29_-_Artemisia_GentileschiFXD.jpg",
   "image_author": "Artemisia Gentileschi",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Kösem Sultan",
+   "Elizabeth I"
+  ]
  },
  {
   "id": "ataturk",
@@ -2746,7 +3206,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Atat%C3%BCrk_Kemal.jpg",
   "image_author": "https://i.pinimg.com/originals/ef/53/f2/ef53f289f5fe4a8036e2330e55d9a929.jpg",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Leon Trotsky",
+   "George V"
+  ]
  },
  {
   "id": "augustus-caesar",
@@ -2772,7 +3236,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Statue-Augustus.jpg",
   "image_author": "Till Niermann",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Julius Caesar",
+   "Marcus Aurelius"
+  ]
  },
  {
   "id": "charles-i-england",
@@ -2796,7 +3264,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Anthony_van_Dyck_-_King_Charles_I_of_England%2C_three-quarter_portrait.jpg",
   "image_author": "Anthony van Dyck",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Oliver Cromwell",
+   "Philip II of Spain"
+  ]
  },
  {
   "id": "charles-v-hre",
@@ -2821,7 +3293,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Titian_-_Portrait_of_Charles_V_Seated_-_WGA22964.jpg",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "image_author": "Web Gallery of Art:   Image  Info about artworkwga QS:P11807,\"t/tiziano/10/22/05charle\""
+  "image_author": "Web Gallery of Art:   Image  Info about artworkwga QS:P11807,\"t/tiziano/10/22/05charle\"",
+  "mcq": [
+   "Philip II of Spain",
+   "Suleiman the Magnificent"
+  ]
  },
  {
   "id": "chief-joseph",
@@ -2847,7 +3323,11 @@
   "image_author": "Edward S. Curtis / Adam Cuerden",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Zhu Xi",
+   "Al-Mansur"
+  ]
  },
  {
   "id": "claude-monet",
@@ -2869,7 +3349,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Autoportret_Claude_Monet.jpg",
   "image_author": "Claude Monet",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Edgar Degas",
+   "Paul Cézanne"
+  ]
  },
  {
   "id": "confucius",
@@ -2893,7 +3377,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Ma_Yuan-Confucius.png",
   "image_author": "Ma Yuan",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Gautama Buddha",
+   "Socrates"
+  ]
  },
  {
   "id": "darwin",
@@ -2916,7 +3404,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Charles_Darwin_aged_51.jpg",
   "image_author": "Messrs. Maull and Fox",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Karl Marx",
+   "Alexander Fleming"
+  ]
  },
  {
   "id": "diego-velazquez",
@@ -2940,7 +3432,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Self-portrait_by_Diego_Vel%C3%A1zquez.jpg",
   "image_author": "Diego Velázquez",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Rembrandt",
+   "Peter Paul Rubens"
+  ]
  },
  {
   "id": "el-cid",
@@ -2968,7 +3464,11 @@
   "image_license": "CC BY-SA 2.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Henry VIII",
+   "Akhenaten"
+  ]
  },
  {
   "id": "emmeline-pankhurst",
@@ -2990,7 +3490,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Emmeline_Pankhurst%2C_seated_%281913%29.jpg",
   "image_author": "Adam Cuerden",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Jane Addams",
+   "Susan B. Anthony"
+  ]
  },
  {
   "id": "empress-dowager-cixi",
@@ -3014,7 +3518,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Empress_Dowager_Cixi_%28c._1890%29.jpg",
   "image_author": "Yu Xunling (court photographer).",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Queen Victoria",
+   "Eva Perón"
+  ]
  },
  {
   "id": "empress-theodora",
@@ -3037,7 +3545,11 @@
   "image_author": "José Luiz",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Catherine de' Medici",
+   "Anne Boleyn"
+  ]
  },
  {
   "id": "enid-blyton",
@@ -3059,7 +3571,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Enid_Blyton_c._1923.jpg",
   "image_author": "https://www.spiegel.de/geschichte/fuenf-freunde-hanni-und-nanni-enid-blytons-heile-welt-mit-abgruenden-a-1240483.html",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "George Eliot",
+   "Elizabeth Cady Stanton"
+  ]
  },
  {
   "id": "ernest-rutherford",
@@ -3082,7 +3598,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Prof._Ernest_Rutherford%2C_portrait_LCCN2014683386.jpg",
   "image_author": "Bain News Service, publisher",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Niels Bohr",
+   "Albert Einstein"
+  ]
  },
  {
   "id": "eva-peron",
@@ -3107,7 +3627,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Evita_color.jpg",
   "image_author": "Archivo gráfico de la Nación",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Golda Meir",
+   "Empress Dowager Cixi"
+  ]
  },
  {
   "id": "fdr",
@@ -3132,7 +3656,11 @@
   "image_author": "Leon Perskie",
   "image_license": "CC BY 2.0",
   "image_license_url": "https://creativecommons.org/licenses/by/2.0",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Calvin Coolidge",
+   "William Howard Taft"
+  ]
  },
  {
   "id": "frederick-the-great",
@@ -3157,7 +3685,11 @@
   "image_author": "Yair Haklai",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Louis XVI",
+   "George III"
+  ]
  },
  {
   "id": "galileo",
@@ -3179,7 +3711,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Justus_Sustermans_-_Portrait_of_Galileo_Galilei%2C_1636.jpg",
   "image_author": "Justus Sustermans",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Nicolaus Copernicus",
+   "Blaise Pascal"
+  ]
  },
  {
   "id": "george-frideric-handel",
@@ -3203,7 +3739,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:George_Frideric_Handel_by_Thomas_Hudson.jpg",
   "image_author": "Thomas Hudson (died 1779)",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Johann Sebastian Bach",
+   "Wolfgang Amadeus Mozart"
+  ]
  },
  {
   "id": "gian-lorenzo-bernini",
@@ -3226,7 +3766,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Bernini%2C_Gianlorenzo_-_Self-portrait_1623_-_Galleria_Borghese.jpg",
   "image_author": "Gian Lorenzo Bernini",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Diego Velázquez",
+   "Rembrandt"
+  ]
  },
  {
   "id": "goethe",
@@ -3249,7 +3793,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Goethe_%28Stieler_1828%29.jpg",
   "image_author": "Joseph Karl Stieler",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Walter Scott",
+   "Lord Byron"
+  ]
  },
  {
   "id": "gottfried-leibniz",
@@ -3272,7 +3820,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_%28ca._1695%29.jpg",
   "image_author": "Christoph Bernhard Francke",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Blaise Pascal",
+   "Isaac Newton"
+  ]
  },
  {
   "id": "hans-christian-andersen",
@@ -3295,7 +3847,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Hans_Christian_Andersen_by_Thora_Hallager_1869.jpg",
   "image_author": "Thora Hallager",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Alexandre Dumas",
+   "Charles Dickens"
+  ]
  },
  {
   "id": "hatshepsut",
@@ -3320,7 +3876,11 @@
   "image_license": "CC0",
   "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
   "image_retrieved": "2026-07-21",
-  "image_author": "This file was donated to Wikimedia Commons as part of a project by the Metropolitan Museum of Art. See the Image and Data Resources Open Access Policy"
+  "image_author": "This file was donated to Wikimedia Commons as part of a project by the Metropolitan Museum of Art. See the Image and Data Resources Open Access Policy",
+  "mcq": [
+   "Marie Antoinette",
+   "Catherine the Great"
+  ]
  },
  {
   "id": "herman-melville",
@@ -3342,7 +3902,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Herman_Melville_by_Joseph_O_Eaton.jpg",
   "image_author": "Joseph Oriel Eaton",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Walt Whitman",
+   "Ralph Waldo Emerson"
+  ]
  },
  {
   "id": "hernan-cortes",
@@ -3366,7 +3930,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Hern%C3%A1n_Cort%C3%A9s_Monroy_y_Pizarro.jpg",
   "image_author": "José Salomé Pina",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Vasco da Gama",
+   "Ferdinand Magellan"
+  ]
  },
  {
   "id": "hg-wells",
@@ -3390,7 +3958,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_H._G._Wells.jpg",
   "image_author": "The story of the House of Cassell: https://archive.org/stream/storyofhouseofca00cassrich#page/218/mode/2up",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Arthur Conan Doyle",
+   "Franz Kafka"
+  ]
  },
  {
   "id": "ibn-sina",
@@ -3414,7 +3986,11 @@
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
   "image_retrieved": "2026-07-21",
   "image_author": "https://wellcomeimages.org/indexplus/obf_images/6f/a2/ea820b07c4061b2083742b4f1a8c.jpg\n\nGallery: https://wellcomeimages.org/indexplus/image/M0009341.html\nWellcome Collection gallery (2018-04-01): https://wellcomecollection.org/works/m3ftmxk4 CC-BY-4.0",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Ibn Rushd",
+   "Immanuel Kant"
+  ]
  },
  {
   "id": "ida-b-wells",
@@ -3440,7 +4016,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Mary_Garrity_-_Ida_B._Wells-Barnett_-_Google_Art_Project_-_restoration_crop.jpg",
   "image_author": "Adam Cuerden",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Wangari Maathai",
+   "Kösem Sultan"
+  ]
  },
  {
   "id": "immanuel-kant",
@@ -3462,7 +4042,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Kant_gemaelde_1.jpg",
   "image_author": "Gottlieb Doebler",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Jean-Jacques Rousseau",
+   "David Hume"
+  ]
  },
  {
   "id": "ivan-the-terrible",
@@ -3485,7 +4069,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Vasnetsov_Ioann_4.jpg",
   "image_author": "Viktor Vasnetsov",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Philip II of Spain",
+   "Suleiman the Magnificent"
+  ]
  },
  {
   "id": "jacques-louis-david",
@@ -3507,7 +4095,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Jacques-Louis_David_-_Self-portrait%2C_1794.jpg",
   "image_author": "Jacques-Louis David",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Francisco Goya",
+   "Diego Velázquez"
+  ]
  },
  {
   "id": "jan-van-eyck",
@@ -3531,7 +4123,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_Man_in_a_Turban_%28Jan_van_Eyck%29.jpg",
   "image_author": "Jan van Eyck",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Raphael",
+   "Albrecht Dürer"
+  ]
  },
  {
   "id": "jawaharlal-nehru",
@@ -3553,7 +4149,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Jawaharlal_Nehru%2C_circa_1925.jpg",
   "image_author": "Keystone View Company/FPG",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "B. R. Ambedkar",
+   "Muhammad Ali Jinnah"
+  ]
  },
  {
   "id": "jean-jacques-rousseau",
@@ -3576,7 +4176,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Maurice_Quentin_de_La_Tour_-_Portrait_of_Jean-Jacques_Rousseau_-_WGA12360.jpg",
   "image_author": "Maurice Quentin de La Tour",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "David Hume",
+   "Montesquieu"
+  ]
  },
  {
   "id": "joan-of-arc",
@@ -3601,7 +4205,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Ingres_-_Jeanne_d%27Arc_au_sacre_de_Charles_VII_%28autoportrait%29.jpg",
   "image_author": "Jean-Auguste-Dominique Ingres",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Anne Boleyn",
+   "Mary, Queen of Scots"
+  ]
  },
  {
   "id": "jules-verne",
@@ -3623,7 +4231,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:F%C3%A9lix_Nadar_1820-1910_portraits_Jules_Verne_%28restoration%29.jpg",
   "image_author": "Nadar",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Henrik Ibsen",
+   "Lewis Carroll"
+  ]
  },
  {
   "id": "justinian-i",
@@ -3647,7 +4259,11 @@
   "image_author": "Ввласенко",
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Attila the Hun",
+   "Charlemagne"
+  ]
  },
  {
   "id": "kaiser-wilhelm-ii",
@@ -3671,7 +4287,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Kaiser_Wilhelm_II_of_Germany_-_1902.jpg",
   "image_author": "Studio of Thomas Heinrich Voigt",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Leon Trotsky",
+   "Mustafa Kemal Atatürk"
+  ]
  },
  {
   "id": "katherine-johnson",
@@ -3692,7 +4312,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Katherine_Johnson_at_NASA%2C_in_1966.jpg",
   "image_author": "Adam Cuerden",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Dian Fossey",
+   "Vera Rubin"
+  ]
  },
  {
   "id": "mary-shelley",
@@ -3714,7 +4338,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Mary_Wollstonecraft_Shelley_Rothwell.tif",
   "image_author": "Richard Rothwell",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Emily Dickinson",
+   "Virginia Woolf"
+  ]
  },
  {
   "id": "michael-faraday",
@@ -3736,7 +4364,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:M_Faraday_Th_Phillips_oil_1842.jpg",
   "image_author": "Thomas Phillips",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "James Clerk Maxwell",
+   "Niels Bohr"
+  ]
  },
  {
   "id": "montezuma-ii",
@@ -3762,7 +4394,11 @@
   "image_author": "attributed to Antonio Rodriguez (1636-1691)",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Charles V",
+   "Suleiman the Magnificent"
+  ]
  },
  {
   "id": "mussolini",
@@ -3785,7 +4421,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Benito_Mussolini_1930_%283x4_cropped%29.jpg",
   "image_author": "Keystone-France/Gamma-Keystone",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Adolf Hitler",
+   "George VI"
+  ]
  },
  {
   "id": "nicolaus-copernicus",
@@ -3809,7 +4449,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Nikolaus_Kopernikus.jpg",
   "image_author": "http://www.frombork.art.pl/Ang10.htm\nhttps://www.welt.de/img/kultur/mobile152954235/1212503297-ci102l-w1024/Kopernikus-Gemaelde-in-Krakau.jpg",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Galileo Galilei",
+   "Blaise Pascal"
+  ]
  },
  {
   "id": "nikolai-gogol",
@@ -3832,7 +4476,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:N.Gogol_by_F.Moller_%281840%2C_Tretyakov_gallery%29.jpg",
   "image_author": "Otto Friedrich Theodor von Möller",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Honore de Balzac",
+   "Alexandre Dumas"
+  ]
  },
  {
   "id": "oda-nobunaga",
@@ -3854,7 +4502,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Oda_Nobunaga_%28Hideyoshi_Kiyomasa_Memorial_Hall%29_Cropped.jpg",
   "image_author": "https://artsandculture.google.com/asset/portrait-of-oda-nobunaga-unknown-japanese-painter/lwFtuIbYlylnTA",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Tokugawa Ieyasu",
+   "Timur"
+  ]
  },
  {
   "id": "peter-paul-rubens",
@@ -3877,7 +4529,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Peter_Paul_Rubens_-_Self-portrait_%281623%2C_NGA%29.jpg",
   "image_author": "Peter Paul Rubens",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Diego Velázquez",
+   "Rembrandt"
+  ]
  },
  {
   "id": "philip-ii-spain",
@@ -3902,7 +4558,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Titian_-_Portrait_of_Philip_II_in_Armour_-_WGA22970.jpg",
   "image_author": "Current version: https://gallerix.org/storeroom/720112932/N/1324837374/\nWeb Gallery of Art:   Image  Info about artworkwga QS:P11807,\"t/tiziano/10/22/09philip\"",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Charles V",
+   "Charles I of England"
+  ]
  },
  {
   "id": "rabindranath-tagore",
@@ -3924,7 +4584,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Rabindranath_Tagore.jpg",
   "image_author": "southasiajournal.net",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Rudyard Kipling",
+   "George Orwell"
+  ]
  },
  {
   "id": "ramesses-ii",
@@ -3951,7 +4615,11 @@
   "image_author": "Diego Delso",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Tutankhamun",
+   "Akhenaten"
+  ]
  },
  {
   "id": "rani-lakshmibai",
@@ -3975,7 +4643,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Rani_Lakshmibai_from_a_painting.jpg",
   "image_author": "The Indian War Of Independence 1857 (1947 Ed.)\nby Vinayak Damodar Sawarkar\n\nhttps://archive.org/details/in.ernet.dli.2015.280954/",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Empress Dowager Cixi",
+   "Queen Victoria"
+  ]
  },
  {
   "id": "raphael",
@@ -4000,7 +4672,11 @@
   "image_author": "Francesco Bini",
   "image_license": "CC BY 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Albrecht Dürer",
+   "Michelangelo"
+  ]
  },
  {
   "id": "richard-wagner",
@@ -4022,7 +4698,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Richard_Wagner._Franz_Hanfstaengl%2C_M%C3%BCnchen%2C_1871.jpg",
   "image_author": "Franz Hanfstaengl",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Giuseppe Verdi",
+   "Pyotr Tchaikovsky"
+  ]
  },
  {
   "id": "robert-e-lee",
@@ -4045,7 +4725,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Robert_Edward_Lee.jpg",
   "image_author": "Julian Vannerson",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Douglas MacArthur",
+   "Stonewall Jackson"
+  ]
  },
  {
   "id": "rosalind-franklin",
@@ -4068,7 +4752,11 @@
   "image_author": "CSHL",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Rachel Carson",
+   "Marie Curie"
+  ]
  },
  {
   "id": "sacagawea",
@@ -4093,7 +4781,11 @@
   "image_author": "金帝",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Jane Austen",
+   "Mary Wollstonecraft"
+  ]
  },
  {
   "id": "saint-augustine",
@@ -4118,7 +4810,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Sandro_Botticelli_050.jpg",
   "image_author": "Sandro Botticelli",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Immanuel Kant",
+   "Confucius"
+  ]
  },
  {
   "id": "sally-ride",
@@ -4140,7 +4836,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Sally_Ride%2C_First_U.S._Woman_in_Space_-_GPN-2004-00019.jpg",
   "image_author": "NASA",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Hatshepsut",
+   "George Eliot"
+  ]
  },
  {
   "id": "samori-ture",
@@ -4166,7 +4866,11 @@
   "image_author": "Almamy_Samory_Touré.jpg: user:Joker-x\nderivative work: Zenman (talk)",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Wang Yangming",
+   "Nogi Maresuke"
+  ]
  },
  {
   "id": "shakespeare",
@@ -4190,7 +4894,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:William_Shakespeare_by_John_Taylor%2C_edited.jpg",
   "image_author": "Attributed to John Taylor",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Voltaire",
+   "Lord Byron"
+  ]
  },
  {
   "id": "sitting-bull",
@@ -4213,7 +4921,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Sitting_Bull_by_D_F_Barry_ca_1883_Dakota_Territory.jpg",
   "image_author": "David F. Barry, Photographer, Bismarck, Dakota Territory",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Ulysses S. Grant",
+   "James A. Garfield"
+  ]
  },
  {
   "id": "sojourner-truth",
@@ -4236,7 +4948,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Sojourner_Truth%2C_1870_%28cropped%2C_restored%29.jpg",
   "image_author": "Randall Studio",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Susan B. Anthony",
+   "Harriet Tubman"
+  ]
  },
  {
   "id": "stonewall-jackson",
@@ -4261,7 +4977,11 @@
   "license": "Public domain",
   "attribution": "Unknown photographer",
   "source": "Wikimedia Commons",
-  "start": 6
+  "start": 6,
+  "mcq": [
+   "Robert E. Lee",
+   "Douglas MacArthur"
+  ]
  },
  {
   "id": "tchaikovsky",
@@ -4286,7 +5006,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Tchaikovsky_by_Reutlinger.jpg",
   "image_author": "Émile Reutlinger",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Richard Wagner",
+   "Giuseppe Verdi"
+  ]
  },
  {
   "id": "thomas-jefferson",
@@ -4309,7 +5033,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Thomas_Jefferson_by_Rembrandt_Peale%2C_1800.jpg",
   "image_author": "Rembrandt Peale",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "John Adams",
+   "James Madison"
+  ]
  },
  {
   "id": "titian",
@@ -4332,7 +5060,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Titian_-_Self-Portrait_-_P000407_-_Museo_del_Prado.jpg",
   "image_author": "Titian",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Michelangelo",
+   "Albrecht Dürer"
+  ]
  },
  {
   "id": "tokugawa-ieyasu",
@@ -4355,7 +5087,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Tokugawa_Ieyasu.jpg",
   "image_author": "Traditionally attributed to Kano Tan'yu. Owned by the 7th Owari Tokugawa Muneharu.",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Oda Nobunaga",
+   "Timur"
+  ]
  },
  {
   "id": "toussaint-louverture",
@@ -4379,7 +5115,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Toussaint_Louverture_-_Girardin.jpg",
   "image_author": "Alexandre-François-Louis, comte de Girardin",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Simón Bolívar",
+   "Friedrich Schiller"
+  ]
  },
  {
   "id": "vasco-da-gama",
@@ -4402,7 +5142,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Greg%C3%B3rio_Lopes_-_Vasco_da_Gama_%28ca_1524%29.jpg",
   "image_author": "Gregório Lopes",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Ferdinand Magellan",
+   "Hernán Cortés"
+  ]
  },
  {
   "id": "virginia-woolf",
@@ -4424,7 +5168,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:George_Charles_Beresford_-_Virginia_Woolf_in_1902_-_Restoration.jpg",
   "image_author": "George Charles Beresford / Adam Cuerden",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Anne Frank",
+   "Agatha Christie"
+  ]
  },
  {
   "id": "wellington",
@@ -4448,7 +5196,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Francisco_Goya_-_Portrait_of_the_Duke_of_Wellington.jpg",
   "image_author": "Francisco Goya",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Attila the Hun",
+   "Vasco da Gama"
+  ]
  },
  {
   "id": "woodrow-wilson",
@@ -4471,7 +5223,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Thomas_Woodrow_Wilson%2C_Harris_%26_Ewing_bw_photo_portrait%2C_1919.jpg",
   "image_author": "Harris & Ewing",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Warren G. Harding",
+   "Theodore Roosevelt"
+  ]
  },
  {
   "id": "al-mamun",
@@ -4495,7 +5251,11 @@
   "image_author": "1598 author",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Harun al-Rashid",
+   "Charlemagne"
+  ]
  },
  {
   "id": "al-mansur",
@@ -4519,7 +5279,11 @@
   "image_author": "1598 author",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Moses",
+   "John the Baptist"
+  ]
  },
  {
   "id": "alexander-great",
@@ -4545,7 +5309,11 @@
   "image_author": "Shonagon",
   "image_license": "CC0",
   "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Genghis Khan",
+   "Timur"
+  ]
  },
  {
   "id": "alp-arslan",
@@ -4568,7 +5336,11 @@
   "image_author": "1654 artist",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Saladin",
+   "Al-Mamun"
+  ]
  },
  {
   "id": "arthur-schopenhauer",
@@ -4590,7 +5362,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Arthur_Schopenhauer_by_J_Sch%C3%A4fer%2C_1859b.jpg",
   "image_author": "Johann Schäfer",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Friedrich Engels",
+   "Friedrich Nietzsche"
+  ]
  },
  {
   "id": "attila",
@@ -4616,7 +5392,11 @@
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
   "image_retrieved": "2026-07-21",
   "image_author": "https://wellcomeimages.org/indexplus/obf_images/63/65/5732c4ff9a383722b4c5c035e109.jpg\n\nGallery: https://wellcomeimages.org/indexplus/image/V0009107.html\nWellcome Collection gallery (2018-03-23): https://wellcomecollection.org/works/jtjy99eb CC-BY-4.0",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Justinian I",
+   "Ivan the Terrible"
+  ]
  },
  {
   "id": "benito-juarez",
@@ -4641,7 +5421,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Benito_Ju%C3%A1rez_standing_photo.jpg",
   "image_author": "https://inehrm.gob.mx/es/inehrm/juarez",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Mongkut",
+   "Jefferson Davis"
+  ]
  },
  {
   "id": "bismarck",
@@ -4665,7 +5449,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Franz_von_Lenbach_-_Otto_von_Bismarck_%281890%29.jpg",
   "image_author": "Franz von Lenbach",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "George V",
+   "Mustafa Kemal Atatürk"
+  ]
  },
  {
   "id": "carl-linnaeus",
@@ -4689,7 +5477,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Carl_von_Linn%C3%A9.jpg",
   "image_author": "Alexander Roslin",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Adam Smith",
+   "Isaac Newton"
+  ]
  },
  {
   "id": "catherine-de-medici",
@@ -4712,7 +5504,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Fran%C3%A7ois_Clouet_-_Portrait_of_Catherine_de%27_Medici_-_Walters_37415.jpg",
   "image_author": "François Clouet",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Anne Boleyn",
+   "Mihrimah Sultan"
+  ]
  },
  {
   "id": "catherine-great",
@@ -4736,7 +5532,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Catherine_II_by_A.Roslin_%281776-7%2C_Hermitage%29.jpg",
   "image_author": "Alexander Roslin",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Marie Antoinette",
+   "Hatshepsut"
+  ]
  },
  {
   "id": "cecil-rhodes",
@@ -4758,7 +5558,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Cecil_Rhodes_ww.jpg",
   "image_author": "unattributed",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "John D. Rockefeller",
+   "Giuseppe Verdi"
+  ]
  },
  {
   "id": "charlemagne",
@@ -4782,7 +5586,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Charlemagne-by-Durer.jpg",
   "image_author": "Albrecht Dürer",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Harun al-Rashid",
+   "Al-Mamun"
+  ]
  },
  {
   "id": "christopher-columbus",
@@ -4806,7 +5614,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_Man%2C_Said_to_be_Christopher_Columbus.jpg",
   "image_author": "Sebastiano del Piombo",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Ferdinand Magellan",
+   "Vasco da Gama"
+  ]
  },
  {
   "id": "corazon-aquino",
@@ -4829,7 +5641,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Corazon_Aquino_1986.jpg",
   "image_author": "Airman Gerald B. Johnson",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Jane Addams",
+   "Emmeline Pankhurst"
+  ]
  },
  {
   "id": "david-hume",
@@ -4851,7 +5667,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Allan_Ramsay_-_David_Hume%2C_1711_-_1776._Historian_and_philosopher_-_Google_Art_Project.jpg",
   "image_author": "Allan Ramsay",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Jean-Jacques Rousseau",
+   "Montesquieu"
+  ]
  },
  {
   "id": "denis-diderot",
@@ -4873,7 +5693,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Louis-Michel_van_Loo_-_Portrait_of_Denis_Diderot_-_WGA13440.jpg",
   "image_author": "Web Gallery of Art:   Image  Info about artworkwga QS:P11807,\"l/loo/louis/diderot\"",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Friedrich Schiller",
+   "Voltaire"
+  ]
  },
  {
   "id": "dian-fossey",
@@ -4894,7 +5718,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Dian_Fossey_October_1968.jpg",
   "image_author": "Tribune Publishing, no photographer credited",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Katherine Johnson",
+   "Chien-Shiung Wu"
+  ]
  },
  {
   "id": "edgar-degas",
@@ -4916,7 +5744,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Edgar_Degas_-_Self-Portrait_-_Google_Art_Project.jpg",
   "image_author": "Edgar Degas",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Paul Cézanne",
+   "Claude Monet"
+  ]
  },
  {
   "id": "elizabeth-cady-stanton",
@@ -4941,7 +5773,11 @@
   "image_author": "Charles Delevan Mosher",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "George Eliot",
+   "Enid Blyton"
+  ]
  },
  {
   "id": "eugene-delacroix",
@@ -4964,7 +5800,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Eug%C3%A8ne_Delacroix_-_Self-Portrait_-_WGA6192.jpg",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "image_author": "Web Gallery of Art:   Image  Info about artworkwga QS:P11807,\"d/delacroi/3/311delac\""
+  "image_author": "Web Gallery of Art:   Image  Info about artworkwga QS:P11807,\"d/delacroi/3/311delac\"",
+  "mcq": [
+   "Gustave Courbet",
+   "Vincent van Gogh"
+  ]
  },
  {
   "id": "franz-schubert",
@@ -4986,7 +5826,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Franz_Schubert_by_Wilhelm_August_Rieder_1875.jpg",
   "image_author": "Wilhelm August Rieder",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Ludwig van Beethoven",
+   "Joseph Haydn"
+  ]
  },
  {
   "id": "freud",
@@ -5008,7 +5852,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Sigmund_Freud%2C_by_Max_Halberstadt_%28cropped%29.jpg",
   "image_author": "Max Halberstadt",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Alan Turing",
+   "Albert Einstein"
+  ]
  },
  {
   "id": "friedrich-schiller",
@@ -5030,7 +5878,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Anton_Graff_-_Friedrich_Schiller.jpg",
   "image_author": "Anton Graff",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Denis Diderot",
+   "Walter Scott"
+  ]
  },
  {
   "id": "genghis-khan",
@@ -5053,7 +5905,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:YuanEmperorAlbumGenghisPortrait.jpg",
   "image_author": "Digitized by National Palace Museum; file is directly from Shuge",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Timur",
+   "Alexander the Great"
+  ]
  },
  {
   "id": "giuseppe-verdi",
@@ -5075,7 +5931,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Boldini_-_Ritratto_di_Giuseppe_Verdi_%281886%29_Google_Art_Project.jpg",
   "image_author": "Giovanni Boldini",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Richard Wagner",
+   "Pyotr Tchaikovsky"
+  ]
  },
  {
   "id": "gustave-courbet",
@@ -5097,7 +5957,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Gustave_Courbet_-_Le_D%C3%A9sesp%C3%A9r%C3%A9_%281843%29.jpg",
   "image_author": "Gustave Courbet",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Eugène Delacroix",
+   "Vincent van Gogh"
+  ]
  },
  {
   "id": "harun-al-rashid",
@@ -5123,7 +5987,11 @@
   "image_author": "1598 author",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Charlemagne",
+   "Al-Mamun"
+  ]
  },
  {
   "id": "helen-keller",
@@ -5145,7 +6013,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Helen_KellerA.jpg",
   "image_author": "This image  is available from the United States Library of Congress's Prints and Photographs division under the digital ID cph.3c12513.This tag does not indicate the copyright status of the attached work. A normal copyright tag is still required. See Commons:Licensing.",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Eleanor Roosevelt",
+   "Rosa Parks"
+  ]
  },
  {
   "id": "henrik-ibsen",
@@ -5167,7 +6039,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Henrik_Ibsen_by_Gustav_Borgen_NFB-19775.jpg",
   "image_author": "Gustav Borgen",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Jules Verne",
+   "Lewis Carroll"
+  ]
  },
  {
   "id": "honore-de-balzac",
@@ -5190,7 +6066,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Balzac_%28par_Boulanger%29.jpg",
   "image_author": "Louis Boulanger",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Nikolai Gogol",
+   "Alexandre Dumas"
+  ]
  },
  {
   "id": "hurrem-sultan",
@@ -5214,7 +6094,11 @@
   "image_author": "immediate image source: [1]",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Mary, Queen of Scots",
+   "Elizabeth I"
+  ]
  },
  {
   "id": "ibn-rushd",
@@ -5238,7 +6122,11 @@
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
   "image_retrieved": "2026-07-21",
   "image_author": "https://wellcomeimages.org/indexplus/obf_images/51/0a/ab3cf29b6c65148af4ecc7bcd4a8.jpg\n\nGallery: https://wellcomeimages.org/indexplus/image/M0004111.html\nWellcome Collection gallery (2018-04-01): https://wellcomecollection.org/works/b3vqvxw4 CC-BY-4.0",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Ibn Arabi",
+   "Zhu Xi"
+  ]
  },
  {
   "id": "ito-hirobumi",
@@ -5261,7 +6149,11 @@
   "image_author": "Rekidai Shusho tou Shashin (歴代首相等写真)\n\nConstitutional Government Documents Collection, #1142",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Sun Yat-sen",
+   "Chulalongkorn"
+  ]
  },
  {
   "id": "james-clerk-maxwell",
@@ -5285,7 +6177,11 @@
   "image_author": "Gravure of engraving by Stodart based on photograph by Fergus.",
   "image_license": "CC0",
   "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Michael Faraday",
+   "Niels Bohr"
+  ]
  },
  {
   "id": "jefferson-davis",
@@ -5307,7 +6203,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:President-Jefferson-Davis.jpg",
   "image_author": "Mathew Benjamin Brady",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Benito Juárez",
+   "Mongkut"
+  ]
  },
  {
   "id": "john-locke",
@@ -5329,7 +6229,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Godfrey_Kneller_-_Portrait_of_John_Locke_%28Hermitage%29.jpg",
   "image_author": "Godfrey Kneller",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Thomas Hobbes",
+   "René Descartes"
+  ]
  },
  {
   "id": "jose-marti",
@@ -5361,7 +6265,11 @@
   "image_author": "Cuba. Secretaría de Instrucción Pública y Bellas Artes.",
   "image_license": "CC0",
   "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Herman Melville",
+   "Walt Whitman"
+  ]
  },
  {
   "id": "joseph-haydn",
@@ -5384,7 +6292,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Joseph_Haydn_by_Thomas_Hardy.jpg",
   "image_author": "Thomas Hardy",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Franz Schubert",
+   "Ludwig van Beethoven"
+  ]
  },
  {
   "id": "joseph-stalin",
@@ -5407,7 +6319,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Joseph_Stalin_official_portrait.jpg",
   "image_author": "Ivan Shagin",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Nikita Khrushchev",
+   "Vladimir Lenin"
+  ]
  },
  {
   "id": "louis-pasteur",
@@ -5429,7 +6345,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Louis_Pasteur%2C_foto_av_Paul_Nadar%2C_Crisco_edit.jpg",
   "image_author": "Paul Nadar",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Alfred Nobel",
+   "James Clerk Maxwell"
+  ]
  },
  {
   "id": "mary-anning",
@@ -5451,7 +6371,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Mary_Anning_by_B._J._Donne.jpg",
   "image_author": "B. J. Donne",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Ban Zhao",
+   "Sacagawea"
+  ]
  },
  {
   "id": "mary-queen-of-scots",
@@ -5474,7 +6398,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Follower_of_Fran%C3%A7ois_Clouet_-_Portrait_of_Mary%2C_Queen_of_Scots.jpg",
   "image_author": "Follower of François Clouet",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Elizabeth I",
+   "Hürrem Sultan"
+  ]
  },
  {
   "id": "mary-wollstonecraft",
@@ -5497,7 +6425,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Mary_Wollstonecraft_by_John_Opie_from_the_National_Portrait_Gallery.jpg",
   "image_author": "John Opie",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Jane Austen",
+   "Catherine the Great"
+  ]
  },
  {
   "id": "mongkut",
@@ -5522,7 +6454,11 @@
   "image_author": "Luang Wisut Yothamat (probably)",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Benito Juárez",
+   "Jefferson Davis"
+  ]
  },
  {
   "id": "montesquieu",
@@ -5545,7 +6481,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Charles_Montesquieu.jpg",
   "image_author": "After Jacques-Antoine Dassier",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "David Hume",
+   "Jean-Jacques Rousseau"
+  ]
  },
  {
   "id": "niels-bohr",
@@ -5567,7 +6507,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Niels_Bohr.jpg",
   "image_author": "The American Institute of Physics credits the photo [1] to AB Lagrelius & Westphal, which is the Swedish company used by the Nobel Foundation for most photos of its book series Les Prix Nobel.",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Albert Einstein",
+   "J. Robert Oppenheimer"
+  ]
  },
  {
   "id": "paul-cezanne",
@@ -5590,7 +6534,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Paul_C%C3%A9zanne_-_Self-Portrait_-_Google_Art_Project.jpg",
   "image_author": "Paul Cézanne",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Edgar Degas",
+   "Claude Monet"
+  ]
  },
  {
   "id": "pope-leo-xiii",
@@ -5615,7 +6563,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Leo_XIII%2C_1887.jpg",
   "image_author": "Attributed to Enrico Canè",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Pope Pius XII",
+   "Pope John Paul II"
+  ]
  },
  {
   "id": "pope-pius-xii",
@@ -5642,7 +6594,11 @@
   "image_author": "Navy Medicine",
   "image_license": "No restrictions",
   "image_license_url": "https://www.flickr.com/commons/usage/",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Pope John Paul II",
+   "Pope Leo XIII"
+  ]
  },
  {
   "id": "queen-nzinga",
@@ -5669,7 +6625,11 @@
   "image_author": "Achille Devéria",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Vera Rubin",
+   "Hürrem Sultan"
+  ]
  },
  {
   "id": "qutuz",
@@ -5694,7 +6654,11 @@
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Naresuan",
+   "Shaka Zulu"
+  ]
  },
  {
   "id": "rachel-carson",
@@ -5716,7 +6680,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Rachel-Carson.jpg",
   "image_author": "U.S. Fish and Wildlife Service",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Rosalind Franklin",
+   "Lise Meitner"
+  ]
  },
  {
   "id": "ralph-waldo-emerson",
@@ -5740,7 +6708,11 @@
   "image_author": "Mathew Benjamin Brady",
   "image_license": "CC0",
   "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Walt Whitman",
+   "Herman Melville"
+  ]
  },
  {
   "id": "saigo-takamori",
@@ -5763,7 +6735,11 @@
   "image_author": "Ishikawa Shizumasa (1848-1925)",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Stonewall Jackson",
+   "Robert E. Lee"
+  ]
  },
  {
   "id": "samuel-morse",
@@ -5787,7 +6763,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Samuel_Morse_portrait.jpg",
   "image_author": "Mathew Benjamin Brady",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Thomas Edison",
+   "Henry Ford"
+  ]
  },
  {
   "id": "shaka-zulu",
@@ -5810,7 +6790,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:KingShaka.jpg",
   "image_author": "James King",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Naresuan",
+   "Qutuz"
+  ]
  },
  {
   "id": "simon-bolivar",
@@ -5835,7 +6819,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Sim%C3%B3n_Bol%C3%ADvar%2C_1825.jpg",
   "image_author": "José Gil de Castro",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "James Madison",
+   "John Adams"
+  ]
  },
  {
   "id": "simone-de-beauvoir",
@@ -5858,7 +6846,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Simone_de_Beauvoir.jpg",
   "image_author": "unknow. uploader Claudio Elias",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Agatha Christie",
+   "Anne Frank"
+  ]
  },
  {
   "id": "sylvia-plath",
@@ -5884,7 +6876,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Sylvia_Plath_-_The_Boston_Globe_%281953%29_%28cropped%29.png",
   "image_author": "Distributed by Associated Press",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Toni Morrison",
+   "Agatha Christie"
+  ]
  },
  {
   "id": "thomas-hobbes",
@@ -5907,7 +6903,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Thomas_Hobbes_by_John_Michael_Wright.jpg",
   "image_author": "John Michael Wright",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "John Locke",
+   "René Descartes"
+  ]
  },
  {
   "id": "togo-heihachiro",
@@ -5931,7 +6931,11 @@
   "image_author": "born1945",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Yamagata Aritomo",
+   "Saigo Takamori"
+  ]
  },
  {
   "id": "vercingetorix",
@@ -5953,7 +6957,11 @@
   "image_author": "Lionel Royer",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Alexander the Great",
+   "Tokugawa Ieyasu"
+  ]
  },
  {
   "id": "walt-whitman",
@@ -5975,7 +6983,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Walt_Whitman_-_George_Collins_Cox.jpg",
   "image_author": "George Collins Cox / Adam Cuerden",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Herman Melville",
+   "Ralph Waldo Emerson"
+  ]
  },
  {
   "id": "walter-scott",
@@ -5998,7 +7010,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Sir_Henry_Raeburn_-_Portrait_of_Sir_Walter_Scott.jpg",
   "image_author": "Henry Raeburn",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Johann Wolfgang von Goethe",
+   "Lord Byron"
+  ]
  },
  {
   "id": "wangari-maathai",
@@ -6021,7 +7037,11 @@
   "image_license": "CC BY 3.0 br",
   "image_license_url": "https://creativecommons.org/licenses/by/3.0/br/deed.en",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Golda Meir",
+   "Eva Perón"
+  ]
  },
  {
   "id": "anne-boleyn",
@@ -6045,7 +7065,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Anne_Boleyn.jpg",
   "image_author": "Scanned from the book The National Portrait Gallery History of the Kings and Queens of England by David Williamson, ISBN 1855142287.",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Catherine de' Medici",
+   "Mihrimah Sultan"
+  ]
  },
  {
   "id": "ashoka-great",
@@ -6073,7 +7097,11 @@
   "image_license": "CC0",
   "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Hannibal",
+   "Julius Caesar"
+  ]
  },
  {
   "id": "ban-zhao",
@@ -6098,7 +7126,11 @@
   "image_author": "Jin Guliang (金古良)",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Mary Anning",
+   "Mary Magdalene"
+  ]
  },
  {
   "id": "baybars",
@@ -6123,7 +7155,11 @@
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Kublai Khan",
+   "Saladin"
+  ]
  },
  {
   "id": "chien-shiung-wu",
@@ -6148,7 +7184,11 @@
   "image_license": "No restrictions",
   "image_license_url": "https://www.flickr.com/commons/usage/",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Vera Rubin",
+   "Dian Fossey"
+  ]
  },
  {
   "id": "chulalongkorn",
@@ -6172,7 +7212,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Rama_V_c1870.jpg",
   "image_author": "unattributed",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Ito Hirobumi",
+   "Geronimo"
+  ]
  },
  {
   "id": "clara-barton",
@@ -6194,7 +7238,11 @@
   "image_author": "James E. Purdy",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Elizabeth Cady Stanton",
+   "Empress Theodora"
+  ]
  },
  {
   "id": "cleopatra",
@@ -6220,7 +7268,11 @@
   "image_author": "MumblerJamie",
   "image_license": "CC BY-SA 2.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Boudica",
+   "Elizabeth I"
+  ]
  },
  {
   "id": "emmy-noether",
@@ -6242,7 +7294,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Noether.jpg",
   "image_author": "Unknown authorUnknown author\n\nPublisher: Mathematical Association of America [3], Brooklyn Museum [4], Agnes Scott College [5], [6]",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Ada Lovelace",
+   "Marie Curie"
+  ]
  },
  {
   "id": "fukuzawa-yukichi",
@@ -6265,7 +7321,11 @@
   "image_author": "This image is available from the website of the National Diet Library",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Isambard Kingdom Brunel",
+   "Friedrich Engels"
+  ]
  },
  {
   "id": "george-eliot",
@@ -6289,7 +7349,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Fran%C3%A7ois_d%27_Albert-Durade_%281804-1886%29_-_Mary_Ann_Evans%2C_%27George_Eliot%27_%281819%E2%80%931880%29_-_VA.1980.0019_-_Herbert_Art_Gallery_and_Museum.jpg",
   "image_author": "François d'Albert-Durade",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Enid Blyton",
+   "Elizabeth Cady Stanton"
+  ]
  },
  {
   "id": "ibn-al-haytham",
@@ -6314,7 +7378,11 @@
   "image_author": "Jan Heweliusz",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Al-Biruni",
+   "Isaac Newton"
+  ]
  },
  {
   "id": "jane-addams",
@@ -6337,7 +7405,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Jane_Addams_-_DPLA_-_931a363b0b56d5f4e8b7829b483b128d.jpg",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "image_author": "File URL IIIF manifest Catalog record"
+  "image_author": "File URL IIIF manifest Catalog record",
+  "mcq": [
+   "Emmeline Pankhurst",
+   "Susan B. Anthony"
+  ]
  },
  {
   "id": "joseph-lister",
@@ -6362,7 +7434,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Joseph_Lister_1902.jpg",
   "image_author": "Weltrundschau zu Reclams Universum 1902",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Alfred Nobel",
+   "Louis Pasteur"
+  ]
  },
  {
   "id": "julius-caesar",
@@ -6386,7 +7462,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Retrato_de_Julio_C%C3%A9sar_%2826724093101%29.jpg",
   "image_author": "Ángel M. Felicísimo from Mérida, España",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Augustus",
+   "Hannibal"
+  ]
  },
  {
   "id": "kosem-sultan",
@@ -6409,7 +7489,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:A_portrait_of_K%C3%B6sem_Sultan.jpg",
   "image_author": "Hans Ludwig Graf von Kuefstein?",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Elizabeth I",
+   "Mary, Queen of Scots"
+  ]
  },
  {
   "id": "lise-meitner",
@@ -6431,7 +7515,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Lise_Meitner_%281878-1968%29%2C_lecturing_at_Catholic_University%2C_Washington%2C_D.C.%2C_1946.jpg",
   "image_author": "Smithsonian Institution",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Marie Curie",
+   "Rosalind Franklin"
+  ]
  },
  {
   "id": "mihrimah-sultan",
@@ -6455,7 +7543,11 @@
   "image_author": "Fabrizio Garrisi",
   "image_license": "CC0",
   "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Catherine de' Medici",
+   "Anne Boleyn"
+  ]
  },
  {
   "id": "naresuan",
@@ -6480,7 +7572,11 @@
   "image_author": "Ananda",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Shaka Zulu",
+   "Qutuz"
+  ]
  },
  {
   "id": "nikola-tesla",
@@ -6503,7 +7599,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:N.Tesla.JPG",
   "image_author": "Downloaded from: https://historyrat.wordpress.com/2013/01/13/lighting-the-1893-worlds-fair-the-race-to-light-the-world/",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Alexander Graham Bell",
+   "Henry Ford"
+  ]
  },
  {
   "id": "nogi-maresuke",
@@ -6528,7 +7628,11 @@
   "image_author": "Unknown authorUnknown author - restored by User:Adam Cuerden",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Yamagata Aritomo",
+   "Togo Heihachiro"
+  ]
  },
  {
   "id": "sima-qian",
@@ -6552,7 +7656,11 @@
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
   "image_retrieved": "2026-07-21",
   "image_author": "歷代聖賢半身像　冊　司馬遷. 故宮典藏資料檢索. National Palace Museum.",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Herodotus",
+   "Denis Diderot"
+  ]
  },
  {
   "id": "thomas-edison",
@@ -6575,7 +7683,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Thomas_Edison2.jpg",
   "image_author": "Louis Bachrach, Bachrach Studios, restored by Michel Vuijlsteke",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Henry Ford",
+   "Nikola Tesla"
+  ]
  },
  {
   "id": "vera-rubin",
@@ -6599,7 +7711,11 @@
   "image_license": "CC BY 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Chien-Shiung Wu",
+   "Katherine Johnson"
+  ]
  },
  {
   "id": "al-biruni",
@@ -6624,7 +7740,11 @@
   "image_author": "The original uploader was Romanm at Slovenian Wikipedia.",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Al-Khwarizmi",
+   "Ibn al-Haytham"
+  ]
  },
  {
   "id": "ibn-arabi",
@@ -6649,7 +7769,11 @@
   "image_author": "Scanned Photo from a book entitled Sayr mulhimah : min al-Sharq wa-al-Gharb, first translated into Arabic and published in Egypt in 1381 AH = 1961 CE. Check OCLC",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Ibn Rushd",
+   "Zhu Xi"
+  ]
  },
  {
   "id": "kido-takayoshi",
@@ -6672,7 +7796,11 @@
   "image_author": "Uchi naru kaikoku",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Ban Zhao",
+   "Nogi Maresuke"
+  ]
  },
  {
   "id": "okubo-toshimichi",
@@ -6695,7 +7823,11 @@
   "image_author": "This image is available from the website of the National Diet Library",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Alexander Pushkin",
+   "Plato"
+  ]
  },
  {
   "id": "wang-yangming",
@@ -6718,7 +7850,11 @@
   "image_author": "Cai Shixin",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Alexander Hamilton",
+   "Niccolò Machiavelli"
+  ]
  },
  {
   "id": "yamagata-aritomo",
@@ -6741,7 +7877,11 @@
   "image_author": "Okada Saburosuke",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Togo Heihachiro",
+   "Saigo Takamori"
+  ]
  },
  {
   "id": "zhu-xi",
@@ -6764,7 +7904,11 @@
   "image_author": "Unknown Chinese artist",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Ibn Rushd",
+   "Ibn Arabi"
+  ]
  },
  {
   "id": "vlad-impaler",
@@ -6794,7 +7938,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Vlad_%C5%A2epe%C5%9F%2C_the_Impaler%2C_Prince_of_Wallachia_%281456-1462%29_%28died_1477%29.jpg",
   "image_author": "Unknown author",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Christopher Columbus",
+   "Raphael"
+  ]
  },
  {
   "id": "emiliano-zapata",
@@ -6819,7 +7967,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Emiliano_Zapata4.jpg",
   "image_author": "Agustín Casasola",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Che Guevara",
+   "Mahatma Gandhi"
+  ]
  },
  {
   "id": "sun-yat-sen",
@@ -6845,7 +7997,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Sun_Yat_Sen_portrait.jpg",
   "image_author": "上海同生照相馆 (K.T. Thompson)",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Warren G. Harding",
+   "Woodrow Wilson"
+  ]
  },
  {
   "id": "fidel-castro",
@@ -6871,7 +8027,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Fidel_Castro%2C_Prime_Minister_of_Cuba._Castro_at_the_United_Nations%2C_New_York._%28cropped%29.jpg",
   "image_author": "Bernard Gotfryd",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Augusto Pinochet",
+   "George H. W. Bush"
+  ]
  },
  {
   "id": "billy-the-kid",
@@ -6897,7 +8057,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Billy_the_Kid_tintype%2C_Fort_Sumner%2C_1879-80-Edit2.jpg",
   "image_author": "Ben Wittick",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Al Capone",
+   "Pablo Escobar"
+  ]
  },
  {
   "id": "coco-chanel",
@@ -6923,7 +8087,11 @@
   "image_author": "Los Angeles Times",
   "image_license": "CC BY 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Frida Kahlo",
+   "Golda Meir"
+  ]
  },
  {
   "id": "babe-ruth",
@@ -6949,7 +8117,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Babe_Ruth2.jpg",
   "image_author": "Irwin, La Broad, & Pudlin.",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Muhammad Ali Jinnah",
+   "Al Capone"
+  ]
  },
  {
   "id": "golda-meir",
@@ -6973,7 +8145,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Golda_Meir_03265u.jpg",
   "image_author": "Marion S. Trikosko",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Eva Perón",
+   "Queen Victoria"
+  ]
  },
  {
   "id": "louis-armstrong",
@@ -6998,7 +8174,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Louis_Armstrong_restored.jpg",
   "image_author": "World-Telegram staff photographer",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Jimi Hendrix",
+   "Michael Jackson"
+  ]
  },
  {
   "id": "alfred-hitchcock",
@@ -7023,7 +8203,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Alfred_Hitchcock_NYWTS.jpg",
   "image_author": "Fred Palumbo",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Stanley Kubrick",
+   "Akira Kurosawa"
+  ]
  },
  {
   "id": "harry-houdini",
@@ -7049,7 +8233,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Harry_Handcuff_Houdini_Crop.jpg",
   "image_author": "Campbell-Gray, Ltd.",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21"
+  "image_retrieved": "2026-07-21",
+  "mcq": [
+   "Charlie Chaplin",
+   "John Lennon"
+  ]
  },
  {
   "id": "hitler",
@@ -7073,7 +8261,11 @@
   "image_author": "Unknown authorUnknown author",
   "image_license": "CC BY-SA 3.0 de",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Benito Mussolini",
+   "George VI"
+  ]
  },
  {
   "id": "michael-jackson",
@@ -7100,7 +8292,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Michael_Jackson_1983_%283x4_cropped%29_%28contrast%29.jpg",
   "image_author": "Matthew Rolston; Distributed by Epic Records",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Jimi Hendrix",
+   "Louis Armstrong"
+  ]
  },
  {
   "id": "jesus",
@@ -7124,7 +8320,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Spas_vsederzhitel_sinay_%28cropped1%29.jpg",
   "image_author": "Unknown artistUnknown artist",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "John the Baptist",
+   "Paul the Apostle"
+  ]
  },
  {
   "id": "jimmy-carter",
@@ -7149,7 +8349,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:JimmyCarterPortrait2.jpg",
   "image_author": "Department of Defense. Department of the Navy. Naval Photographic Center",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "George H. W. Bush",
+   "Gerald Ford"
+  ]
  },
  {
   "id": "nixon",
@@ -7173,7 +8377,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Richard_Nixon_presidential_portrait.jpg",
   "image_author": "Department of Defense. Department of the Army. Office of the Deputy Chief of Staff for Operations. U.S. Army Audiovisual Center. (ca. 1974 - 05/15/1984)",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Ronald Reagan",
+   "Gerald Ford"
+  ]
  },
  {
   "id": "john-lennon",
@@ -7197,7 +8405,11 @@
   "image_author": "Jack Mitchell",
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "George Harrison",
+   "Bob Marley"
+  ]
  },
  {
   "id": "george-hw-bush",
@@ -7223,7 +8435,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:George_H._W._Bush_presidential_portrait_%28cropped%29.jpg",
   "image_author": "David Valdez",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Jimmy Carter",
+   "Gerald Ford"
+  ]
  },
  {
   "id": "pope-francis",
@@ -7248,7 +8464,11 @@
   "image_author": "Korea.net / Korean Culture and Information Service (Jeon Han)",
   "image_license": "CC BY-SA 2.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Pope Benedict XVI",
+   "Pope John Paul II"
+  ]
  },
  {
   "id": "eisenhower",
@@ -7273,7 +8493,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Dwight_D._Eisenhower%2C_official_photo_portrait%2C_May_29%2C_1959.jpg",
   "image_author": "White House",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Harry S. Truman",
+   "Lyndon B. Johnson"
+  ]
  },
  {
   "id": "steve-jobs",
@@ -7298,7 +8522,11 @@
   "image_author": "MetalGearLiquid, based on File:Steve_Jobs_Headshot_2010-CROP.jpg made by Matt Yohe",
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Stan Lee",
+   "Stanley Kubrick"
+  ]
  },
  {
   "id": "walt-disney",
@@ -7322,7 +8550,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Walt_Disney_1946.JPG",
   "image_author": "Boy Scouts of America",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Frank Lloyd Wright",
+   "Andy Warhol"
+  ]
  },
  {
   "id": "van-gogh",
@@ -7346,7 +8578,11 @@
   "image_author": "Vincent van Gogh",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Claude Monet",
+   "Pablo Picasso"
+  ]
  },
  {
   "id": "whitney-houston",
@@ -7372,7 +8608,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Whitney_Houston_%28cropped3%29.JPEG",
   "image_author": "PH2 Mark Kettenhofen",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Aretha Franklin",
+   "Selena"
+  ]
  },
  {
   "id": "picasso",
@@ -7395,7 +8635,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Pablo_picasso_1.jpg",
   "image_author": "Argentina. Revista Vea y Lea",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Claude Monet",
+   "Vincent van Gogh"
+  ]
  },
  {
   "id": "robin-williams",
@@ -7419,7 +8663,11 @@
   "image_author": "Eva Rinaldi",
   "image_license": "CC BY-SA 2.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Michael Jackson",
+   "Paul Newman"
+  ]
  },
  {
   "id": "lbj",
@@ -7443,7 +8691,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Lyndon_B._Johnson%2C_photo_portrait%2C_leaning_on_chair%2C_color_cropped.jpg",
   "image_author": "Arnold Newman",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Harry S. Truman",
+   "Dwight D. Eisenhower"
+  ]
  },
  {
   "id": "george-vi",
@@ -7467,7 +8719,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:King_George_VI_LOC_matpc.14736_A_%28cropped%29.jpg",
   "image_author": "Matson Photo Service",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Benito Mussolini",
+   "Adolf Hitler"
+  ]
  },
  {
   "id": "judy-garland",
@@ -7490,7 +8746,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Judy_Garland_The_Harvey_Girls_MGM_Publicity_still.jpeg",
   "image_author": "Eric Carpenter (1909-1976) for Metro-Goldwyn-Mayer.",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Marilyn Monroe",
+   "Vivien Leigh"
+  ]
  },
  {
   "id": "stephen-hawking",
@@ -7513,7 +8773,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Stephen_Hawking.StarChild.jpg",
   "image_author": "NASA",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Albert Einstein",
+   "Niels Bohr"
+  ]
  },
  {
   "id": "frank-sinatra",
@@ -7538,7 +8802,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Frank_Sinatra_%2757.jpg",
   "image_author": "Columbia Pictures Corporation",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Tupac Shakur",
+   "Johnny Cash"
+  ]
  },
  {
   "id": "saddam-hussein",
@@ -7562,7 +8830,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Saddam_Hussein_in_1998.png",
   "image_author": "Iraqi News Agency",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Muammar Gaddafi",
+   "Mohammad Reza Pahlavi"
+  ]
  },
  {
   "id": "tolkien",
@@ -7586,7 +8858,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:J._R._R._Tolkien%2C_ca._1925.jpg",
   "image_author": "Unknown photo studio commissioned by Tolkien's students 1925/6 (private communication from Catherine McIlwaine, Tolkien Archivist, Bodleian Library)",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "John Steinbeck",
+   "Ernest Hemingway"
+  ]
  },
  {
   "id": "princess-diana",
@@ -7613,7 +8889,11 @@
   "image_author": "John Mathew Smith & www.celebrity-photos.com from Laurel Maryland, USA (Archived link)",
   "image_license": "CC BY-SA 2.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Queen Elizabeth II",
+   "Mother Teresa"
+  ]
  },
  {
   "id": "truman",
@@ -7638,7 +8918,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:TRUMAN_58-766-06_%28cropped%29.jpg",
   "image_author": "National Archives and Records Administration. Office of Presidential Libraries. Harry S. Truman Library.",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Lyndon B. Johnson",
+   "Dwight D. Eisenhower"
+  ]
  },
  {
   "id": "gerald-ford",
@@ -7662,7 +8946,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Gerald_Ford_presidential_portrait_%28cropped%29.jpg",
   "image_author": "David Hume Kennerly",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Ronald Reagan",
+   "George H. W. Bush"
+  ]
  },
  {
   "id": "prince-philip",
@@ -7687,7 +8975,11 @@
   "image_author": "Allan Warren",
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Edward VII",
+   "Pope Benedict XVI"
+  ]
  },
  {
   "id": "hemingway",
@@ -7711,7 +9003,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:ErnestHemingway.jpg",
   "image_author": "Lloyd Arnold",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "T. S. Eliot",
+   "John Steinbeck"
+  ]
  },
  {
   "id": "aristotle",
@@ -7733,7 +9029,11 @@
   "image_author": "After Lysippos",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Gautama Buddha",
+   "Confucius"
+  ]
  },
  {
   "id": "johnny-cash",
@@ -7758,7 +9058,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Johnny_Cash_%22The_Johnny_Cash_Spring_Special%22_%281979_CBS_press_photo%29.jpg",
   "image_author": "CBS Television",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Frank Sinatra",
+   "Tupac Shakur"
+  ]
  },
  {
   "id": "ambedkar",
@@ -7784,7 +9088,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Dr._Bhimrao_Ambedkar.jpg",
   "image_author": "Unknown author",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Jawaharlal Nehru",
+   "Muhammad Ali Jinnah"
+  ]
  },
  {
   "id": "gorbachev",
@@ -7808,7 +9116,11 @@
   "image_author": "Leo Medvedev/Лев Леонидович Медведев",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Boris Yeltsin",
+   "Henry Kissinger"
+  ]
  },
  {
   "id": "bob-marley",
@@ -7831,7 +9143,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Bob_Marley_1976_press_photo.jpg",
   "image_author": "Dennis Morris; Distributed by Island Records",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "John Lennon",
+   "Jimi Hendrix"
+  ]
  },
  {
   "id": "plato",
@@ -7859,7 +9175,11 @@
   "image_license": "CC BY 2.5",
   "image_license_url": "https://creativecommons.org/licenses/by/2.5",
   "image_retrieved": "2026-07-24",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Aristotle",
+   "Socrates"
+  ]
  },
  {
   "id": "brando",
@@ -7881,7 +9201,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Marlon_Brando_publicity_for_One-Eyed_Jacks.png",
   "image_author": "None visible/Paramount Pictures",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Paul Newman",
+   "John Wayne"
+  ]
  },
  {
   "id": "george-v",
@@ -7904,7 +9228,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:King_George_1923_LCCN2014715558_%28cropped%29.jpg",
   "image_author": "Bassano Ltd",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Mustafa Kemal Atatürk",
+   "Leon Trotsky"
+  ]
  },
  {
   "id": "george-harrison",
@@ -7926,7 +9254,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:George_Harrison_1974_%28cropped%29.jpg",
   "image_author": "David Hume Kennerly",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "John Lennon",
+   "Michael Jackson"
+  ]
  },
  {
   "id": "warhol",
@@ -7949,7 +9281,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Andy_Warhol_at_the_Jewish_Museum_%28by_Bernard_Gotfryd%29_%E2%80%93_LOC.jpg",
   "image_author": "Bernard Gotfryd",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Stanley Kubrick",
+   "Walt Disney"
+  ]
  },
  {
   "id": "gaddafi",
@@ -7977,7 +9313,11 @@
   "image_author": "Stevan Kragujević",
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Saddam Hussein",
+   "Mohammad Reza Pahlavi"
+  ]
  },
  {
   "id": "tupac",
@@ -8002,7 +9342,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:2pac_edit_cropped_further.jpg",
   "image_author": "Unknown author",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Frank Sinatra",
+   "Kurt Cobain"
+  ]
  },
  {
   "id": "mother-teresa",
@@ -8028,7 +9372,11 @@
   "image_author": "Túrelio",
   "image_license": "CC BY-SA 2.0 de",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Rosa Parks",
+   "Helen Keller"
+  ]
  },
  {
   "id": "john-adams",
@@ -8050,7 +9398,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:John_Adams_A18236.jpg",
   "image_author": "Gilbert Stuart",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Thomas Jefferson",
+   "James Madison"
+  ]
  },
  {
   "id": "hendrix",
@@ -8074,7 +9426,11 @@
   "image_author": "A. Vente (VPRO)",
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Louis Armstrong",
+   "Michael Jackson"
+  ]
  },
  {
   "id": "turing",
@@ -8097,7 +9453,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Alan_Turing_%281951%29_%28crop%29.jpg",
   "image_author": "Elliott & Fry",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Albert Einstein",
+   "Sigmund Freud"
+  ]
  },
  {
   "id": "edward-viii",
@@ -8120,7 +9480,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Duke_and_Duchess_of_Windsor_-_Google_Art_Project_(Duke_cropped).jpg",
   "image_author": "Attributed to Angelo Laviosa / Formerly attributed to Vincenzo Laviosa",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Winston Churchill",
+   "George VI"
+  ]
  },
  {
   "id": "stanley-kubrick",
@@ -8142,7 +9506,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Stanley_Kubrick_(1949_portrait_by_Phillip_Harrington_-_cropped).jpg",
   "image_author": "Phillip A. Harrington, an American photographer and staffer for Look magazine between 1949–1971",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "David Lynch",
+   "Akira Kurosawa"
+  ]
  },
  {
   "id": "edward-vii",
@@ -8165,7 +9533,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:King-Edward-VII_(cropped).jpg",
   "image_author": "W. & D. Downey",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Prince Philip, Duke of Edinburgh",
+   "Oscar Wilde"
+  ]
  },
  {
   "id": "bruce-lee",
@@ -8188,7 +9560,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Bruce_Lee_1973_(cropped).jpg",
   "image_author": "National General Pictures",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "John Wayne",
+   "Marlon Brando"
+  ]
  },
  {
   "id": "george-orwell",
@@ -8213,7 +9589,11 @@
   "image_author": "Cassowary Colorizations",
   "image_license": "CC BY 2.0",
   "image_license_url": "https://creativecommons.org/licenses/by/2.0",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Rabindranath Tagore",
+   "Rudyard Kipling"
+  ]
  },
  {
   "id": "andrew-jackson",
@@ -8238,7 +9618,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Andrew_jackson_head.jpg",
   "image_author": "Ralph Eleaser Whiteside Earl",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "John Quincy Adams",
+   "William Henry Harrison"
+  ]
  },
  {
   "id": "agatha-christie",
@@ -8262,7 +9646,11 @@
   "image_author": "Joop van Bilsen for Anefo",
   "image_license": "CC0",
   "image_license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Simone de Beauvoir",
+   "Anne Frank"
+  ]
  },
  {
   "id": "moses",
@@ -8284,7 +9672,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Philippe_de_Champaigne_-_Moses_Presenting_the_Tablets_of_the_Law_-_c._1648.jpg",
   "image_author": "Philippe de Champaigne",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Al-Mansur",
+   "John the Baptist"
+  ]
  },
  {
   "id": "pope-john-paul-ii",
@@ -8309,7 +9701,11 @@
   "image_author": "Unknown author",
   "image_license": "CC BY 3.0 pl",
   "image_license_url": "https://creativecommons.org/licenses/by/3.0/pl/",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Pope Benedict XVI",
+   "Pope Pius XII"
+  ]
  },
  {
   "id": "john-wayne",
@@ -8333,7 +9729,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:John_Wayne_-_still_portrait.jpg",
   "image_author": "Unknown photographer",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Bruce Lee",
+   "Marlon Brando"
+  ]
  },
  {
   "id": "franz-kafka",
@@ -8355,7 +9755,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Kafka1906_cropped.jpg",
   "image_author": "Atelier Jacobi: Sigismund Jacobi (1860–1935)",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Arthur Conan Doyle",
+   "Jules Verne"
+  ]
  },
  {
   "id": "khrushchev",
@@ -8378,7 +9782,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Nikita_Khrushchev_official_portrait.jpg",
   "image_author": "TASS / distributed by Associated Press",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Joseph Stalin",
+   "Boris Yeltsin"
+  ]
  },
  {
   "id": "saint-paul",
@@ -8403,7 +9811,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Giovanni_Francesco_Barbieri_-_Saint_Paul.jpg",
   "image_author": "Guercino",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Jesus",
+   "John the Baptist"
+  ]
  },
  {
   "id": "kissinger",
@@ -8426,7 +9838,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Henry_A._Kissinger,_U.S._Secretary_of_State,_1973-1977.jpg",
   "image_author": "U.S. Department of State from United States",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Edward VIII",
+   "Mikhail Gorbachev"
+  ]
  },
  {
   "id": "george-iii",
@@ -8449,7 +9865,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Allan_Ramsay_(1713-84)_-_George_III_(1738-1820)_-_RCIN_405307_-_Royal_Collection.jpg",
   "image_author": "Allan Ramsay",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Napoleon",
+   "Louis XVI"
+  ]
  },
  {
   "id": "pope-benedict-xvi",
@@ -8474,7 +9894,11 @@
   "image_author": "WDKrause",
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Pope John Paul II",
+   "Pope Francis"
+  ]
  },
  {
   "id": "hirohito",
@@ -8498,7 +9922,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Hirohito_in_dress_uniform.jpg",
   "image_author": "Unknown author",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Deng Xiaoping",
+   "Mao Zedong"
+  ]
  },
  {
   "id": "abraham",
@@ -8521,7 +9949,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Guercino_Abramo_ripudia_Agar_(cropped).jpg",
   "image_author": "Guercino",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Paul the Apostle",
+   "John the Baptist"
+  ]
  },
  {
   "id": "herbert-hoover",
@@ -8543,7 +9975,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:President_Hoover_portrait.jpg",
   "image_author": "Underwood & Underwood",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Robert F. Kennedy",
+   "Dwight D. Eisenhower"
+  ]
  },
  {
   "id": "paul-newman",
@@ -8566,7 +10002,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Paul_Newman_-_1958.jpg",
   "image_author": "Unknown author, dedicated to Bettmann Archive",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Marlon Brando",
+   "John Wayne"
+  ]
  },
  {
   "id": "virgin-mary",
@@ -8593,7 +10033,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Duccio_The-Madonna-and-Child-128.jpg",
   "image_author": "Duccio di Buoninsegna",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Mary Magdalene",
+   "Cleopatra"
+  ]
  },
  {
   "id": "saint-peter",
@@ -8619,7 +10063,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Pope-peter_pprubens.jpg",
   "image_author": "Peter Paul Rubens",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Paul the Apostle",
+   "Jesus"
+  ]
  },
  {
   "id": "grover-cleveland",
@@ -8641,7 +10089,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Grover_Cleveland_-_NARA_-_518139_(cropped).jpg",
   "image_author": "Unknown",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "William McKinley",
+   "Benjamin Harrison"
+  ]
  },
  {
   "id": "neil-armstrong",
@@ -8664,7 +10116,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Neil_Armstrong_pose.jpg",
   "image_author": "NASA",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Jacques Cousteau",
+   "Steve Jobs"
+  ]
  },
  {
   "id": "chiang-kai-shek",
@@ -8689,7 +10145,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Chiang_Kai-shek%EF%BC%88%E8%94%A3%E4%B8%AD%E6%AD%A3%EF%BC%89.jpg",
   "image_author": "Unknown",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Douglas MacArthur",
+   "Robert E. Lee"
+  ]
  },
  {
   "id": "selena",
@@ -8713,7 +10173,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Selena_in_1988.jpg",
   "image_author": "Unknown",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Whitney Houston",
+   "Aretha Franklin"
+  ]
  },
  {
   "id": "calvin-coolidge",
@@ -8736,7 +10200,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:President_Calvin_Coolidge,_1924_portrait_photograph_(3x4_cropped).jpeg",
   "image_author": "Harris & Ewing",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "William Howard Taft",
+   "Warren G. Harding"
+  ]
  },
  {
   "id": "kurt-cobain",
@@ -8760,7 +10228,11 @@
   "image_author": "P.B. Rage",
   "image_license": "CC BY-SA 2.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Tupac Shakur",
+   "Frank Sinatra"
+  ]
  },
  {
   "id": "henry-ford",
@@ -8781,7 +10253,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Henry_ford_1919.jpg",
   "image_author": "Fred Hartsook",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Thomas Edison",
+   "Nikola Tesla"
+  ]
  },
  {
   "id": "william-mckinley",
@@ -8803,7 +10279,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:William_mckinley.jpg",
   "image_author": "Unknown",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Benjamin Harrison",
+   "Grover Cleveland"
+  ]
  },
  {
   "id": "warren-harding",
@@ -8826,7 +10306,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Warren_G_Harding_portrait_as_senator_June_1920.jpg",
   "image_author": "Moffett Studio, Chicago",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Woodrow Wilson",
+   "William Howard Taft"
+  ]
  },
  {
   "id": "stan-lee",
@@ -8848,7 +10332,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Stan_Lee_December_2016.jpg",
   "image_author": "US Embassy Tokyo",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "David Lynch",
+   "Steve Jobs"
+  ]
  },
  {
   "id": "william-howard-taft",
@@ -8870,7 +10358,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Cabinet_card_of_William_Howard_Taft_by_Pach_Brothers_-_Cropped_to_image.jpg",
   "image_author": "Pach Brothers",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Calvin Coolidge",
+   "Warren G. Harding"
+  ]
  },
  {
   "id": "james-madison",
@@ -8892,7 +10384,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:James_Madison.jpg",
   "image_author": "John Vanderlyn",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "William Henry Harrison",
+   "Andrew Jackson"
+  ]
  },
  {
   "id": "david",
@@ -8916,7 +10412,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:King_David,_the_King_of_Israel.jpg",
   "image_author": "Gerard van Honthorst",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Saladin",
+   "Louis XVI"
+  ]
  },
  {
   "id": "john-quincy-adams",
@@ -8939,7 +10439,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:John_Q._Adams-edit.jpg",
   "image_author": "jklamo, cleaned and enhanced by Julielangford",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "James K. Polk",
+   "Andrew Jackson"
+  ]
  },
  {
   "id": "isaac-asimov",
@@ -8962,7 +10466,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Isaac.Asimov01.jpg",
   "image_author": "Phillip Leonian",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Arthur Miller",
+   "J. R. R. Tolkien"
+  ]
  },
  {
   "id": "swami-vivekananda",
@@ -8985,7 +10493,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Swami_Vivekananda_1893_Scanned_Image.jpg",
   "image_author": "Thomas Harrison",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Friedrich Nietzsche",
+   "Friedrich Engels"
+  ]
  },
  {
   "id": "andrew-johnson",
@@ -9006,7 +10518,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:President_Andrew_Johnson.jpg",
   "image_author": "Mathew Brady",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "James A. Garfield",
+   "James Buchanan"
+  ]
  },
  {
   "id": "boris-yeltsin",
@@ -9029,7 +10545,11 @@
   "image_author": "Presidential Press and Information Office",
   "image_license": "CC BY 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Mikhail Gorbachev",
+   "Nikita Khrushchev"
+  ]
  },
  {
   "id": "david-lynch",
@@ -9053,7 +10573,11 @@
   "image_author": "Alan Light",
   "image_license": "CC BY 2.0",
   "image_license_url": "https://creativecommons.org/licenses/by/2.0",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Stanley Kubrick",
+   "Akira Kurosawa"
+  ]
  },
  {
   "id": "pol-pot",
@@ -9075,7 +10599,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Pol_Pot_(cropped).jpg",
   "image_author": "Unknown",
   "image_license": "Attribution",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Ferdinand Marcos",
+   "Ho Chi Minh"
+  ]
  },
  {
   "id": "solomon",
@@ -9099,7 +10627,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:087.King_Solomon_in_Old_Age.jpg",
   "image_author": "Gustave Doré",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "John the Baptist",
+   "Saint Peter"
+  ]
  },
  {
   "id": "albert-camus",
@@ -9120,7 +10652,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Albert_Camus,_gagnant_de_prix_Nobel,_portrait_en_buste,_pos%C3%A9_au_bureau,_faisant_face_%C3%A0_gauche,_cigarette_de_tabagisme.jpg",
   "image_author": "United Press International",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Ernest Hemingway",
+   "T. S. Eliot"
+  ]
  },
  {
   "id": "william-henry-harrison",
@@ -9144,7 +10680,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:William_Henry_Harrison_by_James_Reid_Lambdin,_1835.jpg",
   "image_author": "James Lambdin",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "James Madison",
+   "Andrew Jackson"
+  ]
  },
  {
   "id": "frank-lloyd-wright",
@@ -9168,7 +10708,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Frank_Lloyd_Wright_LC-USZ62-36384.jpg",
   "image_author": "Unknown author",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Walt Disney",
+   "Andy Warhol"
+  ]
  },
  {
   "id": "kipling",
@@ -9191,7 +10735,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Kipling_nd.jpg",
   "image_author": "Bain News Service, publisher",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Rabindranath Tagore",
+   "George Orwell"
+  ]
  },
  {
   "id": "mary-magdalene",
@@ -9216,7 +10764,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Philippe_de_Champaigne_-_The_Repentant_Magdalen_-_Google_Art_Project.jpg",
   "image_author": "Philippe de Champaigne",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Virgin Mary",
+   "Cleopatra"
+  ]
  },
  {
   "id": "mohammad-reza-pahlavi",
@@ -9241,7 +10793,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Shah_Mohammad_Reza_Pahlavi,_1973.jpg",
   "image_author": "Ghazarians",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Saddam Hussein",
+   "Muammar Gaddafi"
+  ]
  },
  {
   "id": "ferdinand-marcos",
@@ -9264,7 +10820,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Lieutenant_Ferdinand_E._Marcos.jpg",
   "image_author": "Unknown author",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Pol Pot",
+   "Ho Chi Minh"
+  ]
  },
  {
   "id": "eleanor-roosevelt",
@@ -9287,7 +10847,11 @@
   "image_author": "FDR Presidential Library & Museum",
   "image_license": "CC BY 2.0",
   "image_license_url": "https://creativecommons.org/licenses/by/2.0",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Helen Keller",
+   "Rosa Parks"
+  ]
  },
  {
   "id": "khomeini",
@@ -9311,7 +10875,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Ruhollah_Khomeini_portrait_2_(cropped).jpg",
   "image_author": "Unknown author",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Pope John Paul II",
+   "Pope Benedict XVI"
+  ]
  },
  {
   "id": "lovecraft",
@@ -9335,7 +10903,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Howard_Phillips_Lovecraft.jpg",
   "image_author": "Unknown author",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Ernest Hemingway",
+   "Mark Twain"
+  ]
  },
  {
   "id": "james-garfield",
@@ -9358,7 +10930,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:James_Abram_Garfield,_photo_portrait_seated.jpg",
   "image_author": "Unknown; part of Brady-Handy Photograph Collection.",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Andrew Johnson",
+   "Ulysses S. Grant"
+  ]
  },
  {
   "id": "idi-amin",
@@ -9381,7 +10957,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Idi_Amin_at_UN_(United_Nations,_New_York)_gtfy.00132_(cropped).jpg",
   "image_author": "Bernard Gotfryd",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Haile Selassie",
+   "Augusto Pinochet"
+  ]
  },
  {
   "id": "timur",
@@ -9407,7 +10987,11 @@
   "image_author": "1405-1409 artist",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Genghis Khan",
+   "Oda Nobunaga"
+  ]
  },
  {
   "id": "john-the-baptist",
@@ -9431,7 +11015,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Accademia_-_St_John_the_Baptist_by_Titian_Cat314.jpg",
   "image_author": "Titian",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Jesus",
+   "Paul the Apostle"
+  ]
  },
  {
   "id": "senna",
@@ -9455,7 +11043,11 @@
   "image_author": "Instituto Ayrton Senna",
   "image_license": "CC BY 2.0",
   "image_license_url": "https://creativecommons.org/licenses/by/2.0",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Muhammad Ali",
+   "Pablo Escobar"
+  ]
  },
  {
   "id": "jackie-kennedy",
@@ -9482,7 +11074,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Jackie_Kennedy_Color_Portrait_(3x4_cropped).jpg",
   "image_author": "Mark Shaw",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Amelia Earhart",
+   "Selena"
+  ]
  },
  {
   "id": "shinzo-abe",
@@ -9506,7 +11102,11 @@
   "image_author": "内閣官房内閣広報室",
   "image_license": "CC BY 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Deng Xiaoping",
+   "Hirohito"
+  ]
  },
  {
   "id": "james-buchanan",
@@ -9528,7 +11128,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:James_Buchanan_(cropped).jpg",
   "image_author": "Mathew Brady",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Martin Van Buren",
+   "Andrew Johnson"
+  ]
  },
  {
   "id": "macarthur",
@@ -9551,7 +11155,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:MacArthur_Manila_(cropped2).jpg",
   "image_author": "Photographer not credited.",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Chiang Kai-shek",
+   "Robert E. Lee"
+  ]
  },
  {
   "id": "kurosawa",
@@ -9574,7 +11182,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Akirakurosawa-onthesetof7samurai-1953-page88.jpg",
   "image_author": "映画の友 (Eiga no tomo)",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Stanley Kubrick",
+   "Alfred Hitchcock"
+  ]
  },
  {
   "id": "rfk",
@@ -9598,7 +11210,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Robert_F._Kennedy.jpg",
   "image_author": "Harry Warnecke",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Dwight D. Eisenhower",
+   "Herbert Hoover"
+  ]
  },
  {
   "id": "jinnah",
@@ -9625,7 +11241,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Jinnah1945c.jpg",
   "image_author": "Unknown author",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "B. R. Ambedkar",
+   "Jawaharlal Nehru"
+  ]
  },
  {
   "id": "benjamin-harrison",
@@ -9647,7 +11267,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Benjamin_Harrison%2C_head_and_shoulders_bw_photo%2C_1896.jpg",
   "image_author": "Pach Brothers",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "William McKinley",
+   "Grover Cleveland"
+  ]
  },
  {
   "id": "deng-xiaoping",
@@ -9669,7 +11293,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Deng_Xiaoping_and_Jimmy_Carter_at_the_arrival_ceremony_for_the_Vice_Premier_of_China._-_NARA_-_183157-restored%28cropped%29.jpg",
   "image_author": "Unknown author",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Hirohito",
+   "Shinzō Abe"
+  ]
  },
  {
   "id": "rumi",
@@ -9695,7 +11323,11 @@
   "image_author": "Hossein Behzad",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Dante Alighieri",
+   "Johann Wolfgang von Goethe"
+  ]
  },
  {
   "id": "cyrus-great",
@@ -9719,7 +11351,11 @@
   "image_author": "Charles Francis Horne; Clarence Cook",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Hannibal",
+   "Suleiman the Magnificent"
+  ]
  },
  {
   "id": "ts-eliot",
@@ -9742,7 +11378,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Thomas_Stearns_Eliot_by_Lady_Ottoline_Morrell_%281934%29.jpg",
   "image_author": "Lady Ottoline Morrell; derivative work: Octave.H",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "John Steinbeck",
+   "Ernest Hemingway"
+  ]
  },
  {
   "id": "martin-van-buren",
@@ -9764,7 +11404,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Martin_Van_Buren.jpg",
   "image_author": "Mathew Benjamin Brady / Levin Corbin Handy",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "James Buchanan",
+   "Abraham Lincoln"
+  ]
  },
  {
   "id": "richard-feynman",
@@ -9789,7 +11433,11 @@
   "image_author": "Copyright Tamiko Thiel 1984",
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "J. Robert Oppenheimer",
+   "Niels Bohr"
+  ]
  },
  {
   "id": "joseph-smith",
@@ -9812,7 +11460,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Joseph_Smith%2C_Jr._%281843_photograph%29.jpg",
   "image_author": "Lucian Rose Foster",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "John the Baptist",
+   "Solomon"
+  ]
  },
  {
   "id": "pinochet",
@@ -9836,7 +11488,11 @@
   "image_author": "Ministerio de Relaciones Exteriores de Chile",
   "image_license": "CC BY 2.0 cl",
   "image_license_url": "https://creativecommons.org/licenses/by/2.0/cl/deed.en",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Fidel Castro",
+   "Boris Yeltsin"
+  ]
  },
  {
   "id": "ayn-rand",
@@ -9858,7 +11514,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Ayn_Rand_%281943_Talbot_portrait%29.jpg",
   "image_author": "Talbot",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Simone de Beauvoir",
+   "Agatha Christie"
+  ]
  },
  {
   "id": "henry-v",
@@ -9882,7 +11542,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Henry_V_Miniature.jpg",
   "image_author": "Unknown author",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Kublai Khan",
+   "Charles V"
+  ]
  },
  {
   "id": "hannibal",
@@ -9905,7 +11569,11 @@
   "image_author": "Fratelli Alinari",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Ashoka the Great",
+   "Julius Caesar"
+  ]
  },
  {
   "id": "zachary-taylor",
@@ -9927,7 +11595,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Zachary_Taylor_restored_and_cropped.jpg",
   "image_author": "unknown, possibly Maguire of New Orleans; derivative work: Beao",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Martin Van Buren",
+   "James Buchanan"
+  ]
  },
  {
   "id": "steinbeck",
@@ -9949,7 +11621,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:John_Steinbeck_1939_%28cropped%29.jpg",
   "image_author": "McFadden Publications, Inc.",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "T. S. Eliot",
+   "Ernest Hemingway"
+  ]
  },
  {
   "id": "rockefeller",
@@ -9972,7 +11648,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:John-D-Rockefeller-sen.jpg",
   "image_author": "Unknown photographer",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Cecil Rhodes",
+   "H. P. Lovecraft"
+  ]
  },
  {
   "id": "pablo-escobar",
@@ -9995,7 +11675,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Pablo_Escobar_Mug.jpg",
   "image_author": "Colombian National Police",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Al Capone",
+   "Billy the Kid"
+  ]
  },
  {
   "id": "james-polk",
@@ -10018,7 +11702,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:JamesKnoxPolk.jpg",
   "image_author": "George Peter Alexander Healy",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "John Quincy Adams",
+   "Andrew Jackson"
+  ]
  },
  {
   "id": "arthur-miller",
@@ -10041,7 +11729,11 @@
   "image_author": "Wolfgang Fischer",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "John Steinbeck",
+   "T. S. Eliot"
+  ]
  },
  {
   "id": "vivien-leigh",
@@ -10065,7 +11757,11 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Vivien_Leigh_Scarlet.jpg",
   "image_author": "Fawcett Publications",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Judy Garland",
+   "Marilyn Monroe"
+  ]
  },
  {
   "id": "herodotus",
@@ -10089,7 +11785,11 @@
   "image_license": "CC0",
   "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
   "image_retrieved": "2026-07-24",
-  "reserve": true
+  "reserve": true,
+  "mcq": [
+   "Sima Qian",
+   "Johann Wolfgang von Goethe"
+  ]
  },
  {
   "id": "bin-laden",
@@ -10114,6 +11814,10 @@
   "image_author": "Hamid Mir",
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "image_retrieved": "2026-07-24"
+  "image_retrieved": "2026-07-24",
+  "mcq": [
+   "Pablo Escobar",
+   "Al Capone"
+  ]
  }
 ]
