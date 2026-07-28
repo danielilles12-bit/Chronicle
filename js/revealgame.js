@@ -882,9 +882,7 @@ function renderLockedSummary() {
     [30, 'The details are coming into focus.'],
     [0, 'Every expert starts by squinting.'],
   ];
-  const weekendNote = S.editionIndex != null ? daily.weekendReceiptMeta(S.editionIndex) : null;
-  $('#rv-sum-remark').innerHTML = remarks.find((x) => S.score >= x[0])[1]
-    + (weekendNote ? `<br>${weekendNote}` : '');
+  $('#rv-sum-remark').innerHTML = remarks.find((x) => S.score >= x[0])[1];
   const ol = $('#rv-sum-rounds');
   ol.innerHTML = '';
   for (const r2 of S.results) {

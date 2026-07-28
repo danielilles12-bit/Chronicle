@@ -668,9 +668,7 @@ function renderLockedSummary() {
     [30, 'Getting warm.'],
     [0, 'A footnote.'],
   ];
-  const weekendNote = S.editionIndex != null ? daily.weekendReceiptMeta(S.editionIndex) : null;
-  $('#sum-remark').innerHTML = remarks.find((r) => S.score >= r[0])[1]
-    + (weekendNote ? `<br>${weekendNote}` : '');
+  $('#sum-remark').innerHTML = remarks.find((r) => S.score >= r[0])[1];
   const ol = $('#sum-rounds');
   ol.innerHTML = '';
   for (const r of S.results) {

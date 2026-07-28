@@ -455,8 +455,7 @@ function renderThreadReceipt({ editionIndex, mode, title, score, solved, perfect
   const msg = perfect ? 'Not a thread out of place.'
     : solved ? (mistakes >= 3 ? 'By a thread.' : 'Frayed, but intact.')
     : 'The thread snapped.';
-  const weekendNote = editionIndex != null ? daily.weekendReceiptMeta(editionIndex) : null;
-  $('#conn-sum-msg').innerHTML = msg + (weekendNote ? `<br>${weekendNote}` : '');
+  $('#conn-sum-msg').innerHTML = msg;
 }
 
 function shuffleTiles() {

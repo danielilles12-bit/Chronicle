@@ -94,16 +94,6 @@ export function editionLabel(n) {
   return `№ ${n} · ${weekdayName(n)}`;
 }
 
-// Weekend-only receipt nod: null Mon-Fri. Sat/Sun editions get one extra
-// meta-line on their receipts — a post-game wink at the weekend climb, never
-// shown before play.
-export function weekendReceiptMeta(n) {
-  const wd = weekday(n);
-  if (wd === 5) return 'Saturday — hard going.';
-  if (wd === 6) return 'Sunday — a stinker.';
-  return null;
-}
-
 // ---------- cursor arithmetic ----------
 const WEEKLY_TOTAL = TIERS.map((_, i) => RECIPE.reduce((s, r) => s + r[i], 0)); // [28, 24, 18]
 const THREAD_WEEKLY = { easy: 0, medium: 0, hard: 0 };
