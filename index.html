@@ -140,7 +140,7 @@
       </svg>
       <h3 class="start-title">Two dots, one life.</h3>
       <p class="start-copy">Each round shows where a historical figure was <b class="b-birth">born</b> and where they <b class="b-death">died</b>, with the years. Type their name — spelling needn’t be perfect.</p>
-      <p class="start-copy small">100 points for an unaided answer (a correct answer always pays at least 10). Clue slips cost 15–25, wrong guesses 15, revealing scores zero. Each consecutive correct answer from the second onward earns +10. Your day’s score is your round average.</p>
+      <p class="start-copy small">100 points for an unaided answer (a correct answer always pays at least 10). Clue slips cost 15–25 pts, wrong guesses 15. Stuck? Three choices costs 80 and pays what’s left. Each consecutive correct answer from the second onward earns +10. Your day’s score is your round average.</p>
       <p class="card-stat" id="map-best"></p>
       <button class="pill primary big" id="map-start">Start a run</button>
       <button class="pill big" id="map-resume" hidden>Resume run</button>
@@ -167,10 +167,9 @@
         <button type="submit" class="pill primary" id="map-guess-btn">Guess</button>
       </form>
       <div id="map-hints">
-        <button class="pill small" id="hint-occ">Claim to fame <span class="cost">−15</span></button>
-        <button class="pill small" id="hint-ini">Initials <span class="cost">−25</span></button>
-        <button class="pill small" id="map-mcq">3 choices <span class="cost">max 20</span></button>
-        <button class="pill small ghost" id="map-reveal">Reveal <span class="cost">0 pts</span></button>
+        <button class="pill small" id="hint-occ">Claim to fame <span class="cost">−15 pts</span></button>
+        <button class="pill small" id="hint-ini">Initials <span class="cost">−25 pts</span></button>
+        <button class="pill small" id="map-mcq">3 choices <span class="cost">−80 pts</span></button>
       </div>
       <div id="map-mcq-chips" class="mcq-chips" hidden></div>
       <div id="map-hint-chips"></div>
@@ -267,10 +266,9 @@
         <button type="submit" class="pill primary" id="rv-guess-btn">Guess</button>
       </form>
       <div id="rv-controls">
-        <button class="pill small" id="rv-clue-a">Claim to fame <span class="cost">−25</span></button>
-        <button class="pill small" id="rv-clue-b">Lived <span class="cost">−15</span></button>
-        <button class="pill small" id="rv-mcq">3 choices <span class="cost">max 20</span></button>
-        <button class="pill small ghost" id="rv-reveal">I give up <span class="cost">0 pts</span></button>
+        <button class="pill small" id="rv-clue-a">Claim to fame <span class="cost">−25 pts</span></button>
+        <button class="pill small" id="rv-clue-b">Lived <span class="cost">−15 pts</span></button>
+        <button class="pill small" id="rv-mcq">3 choices <span class="cost">−80 pts</span></button>
       </div>
       <div id="rv-mcq-chips" class="mcq-chips" hidden></div>
       <div id="rv-hint-chips"></div>

@@ -331,7 +331,8 @@ button.cal-cell:active { background: var(--ch-parchment); }
 .pill.small { padding: 7px 13px; font-size: 13px; }
 .pill.big { width: 100%; padding: 15px; font-size: 16px; font-family: var(--ch-font-display); font-weight: 400; letter-spacing: .05em; }
 .pill:disabled { opacity: .35; pointer-events: none; }
-.pill .cost { font-weight: 400; color: inherit; opacity: .65; font-size: .85em; }
+/* Costs read as losses (Daniel, 28 Jul 2026): the minus is red, everywhere. */
+.pill .cost { font-weight: 400; color: var(--df-red); opacity: .85; font-size: .85em; }
 
 .view-game { height: 100dvh; overflow: hidden; }
 

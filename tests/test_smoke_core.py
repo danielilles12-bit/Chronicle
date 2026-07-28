@@ -113,7 +113,8 @@ def daily_all_four(p, base):
 
 # ---------- outcomes ----------
 def outcomes_reveal(p, base):
-    """Face Value: wrong −15, clue −25, tear −10, give-up scores 0."""
+    """Face Value: wrong −15, clue −25, tear −10, three-choices −80 (floor
+    10), wrong pick scores 0 and reveals — the give-up path since v142."""
     with H.app(p) as (page, errors, _ctx):
         H.boot(page, base, DATE)
         H.open_daily(page, "who")
@@ -129,17 +130,25 @@ def outcomes_reveal(p, base):
         assert H.reveal_worth(page) == 60, "clue A should cost 25"
         page.locator("#rv-scraps .df-scrap.tearable").first.click()
         assert H.reveal_worth(page) == 50, "tear should cost 10"
-        page.click("#rv-reveal")               # give up
+        page.click("#rv-mcq")
+        page.wait_for_selector("#rv-mcq-chips button")
+        assert H.reveal_worth(page) == 10, (
+            "three choices costs 80, floored at the 10-pt minimum")
+        answer = page.evaluate("window.__CHRONICLE_TEST__.revealRound.name")
+        chips = page.locator("#rv-mcq-chips button").all_inner_texts()
+        wrong = next(c for c in chips if c.strip().lower() != answer.lower())
+        page.click(f"#rv-mcq-chips button:has-text('{wrong}')")
         page.wait_for_selector("#rv-badge:not([hidden])")
         assert "0 pts" in page.inner_text("#rv-badge").lower()
         assert "it was" in page.inner_text("#rv-feedback").lower()
         assert "4-round-facevalue-lost" in H.gc_events(page), (
-            "give-up should record a lost round outcome")
+            "a wrong pick should record a lost round outcome")
         H.fail_on_errors(errors, "outcomes_reveal")
 
 
 def outcomes_map(p, base):
-    """Lifeline: wrong −15, initials clue −25, reveal scores 0."""
+    """Lifeline: wrong −15, initials clue −25, three-choices −80 (floor 10),
+    correct pick pays the floored worth without extending the streak."""
     with H.app(p) as (page, errors, _ctx):
         H.boot(page, base, DATE)
         H.open_daily(page, "map")
@@ -152,11 +161,20 @@ def outcomes_map(p, base):
         assert H.map_worth(page) == 85, "wrong guess should cost 15"
         page.click("#hint-ini")
         assert H.map_worth(page) == 60, "initials clue should cost 25"
-        page.click("#map-reveal")
+        page.click("#map-mcq")
+        page.wait_for_selector("#map-mcq-chips button")
+        assert H.map_worth(page) == 10, (
+            "three choices costs 80, floored at the 10-pt minimum")
+        answer = page.evaluate("window.__CHRONICLE_TEST__.mapRound.name")
+        page.click(f"#map-mcq-chips button:has-text('{answer}')")
         page.wait_for_selector("#map-feedback:not([hidden])")
-        assert "0 pts" in page.inner_text("#map-feedback").lower()
-        assert "4-round-lifeline-lost" in H.gc_events(page), (
-            "give-up should record a lost round outcome")
+        fb = page.inner_text("#map-feedback").lower()
+        assert "+10 pts" in fb, "correct pick should pay the floored worth"
+        assert "picked from three" in fb
+        events = H.gc_events(page)
+        assert "4-round-lifeline-fought" in events, (
+            "correct pick after a wrong guess reads as a fought round")
+        assert "4-mcq-lifeline-win" in events, "mcq win should be tracked"
         H.fail_on_errors(errors, "outcomes_map")
 
 

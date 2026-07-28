@@ -24,7 +24,7 @@ const HINT_OCC_COST = 15; // "Claim to fame" — the lighter slip (matches the r
 const HINT_INI_COST = 25; // "Initials" — near-decisive with the dates already on the map
 const WRONG_COST = 15;    // per wrong guess (aligned with Face Value/Relic)
 const WORTH_FLOOR = 10;   // a correct answer never pays less than this; giving up pays 0
-const MCQ_MAX = 20;       // the three-choices rescue: pays min(worth, this); see revealgame.js
+const MCQ_COST = 80;      // the three-choices rescue, priced like a clue slip; see revealgame.js
 
 // ---------- seeded rng (deterministic sessions for tests via ?mapseed=N) ----------
 function mulberry32(a) {
@@ -553,7 +553,6 @@ function startRound() {
   $('#map-guess-btn').disabled = false;
   $('#hint-occ').disabled = false;
   $('#hint-ini').disabled = false;
-  $('#map-reveal').disabled = false;
   $('#map-mcq').disabled = false;
   $('#map-mcq-chips').hidden = true;
   $('#map-mcq-chips').innerHTML = '';
@@ -629,6 +628,7 @@ function mcqOptionsFor(fig) {
 function openMcq() {
   if (!S || !S.cur || !S.cur.open || S.cur.mcqOpts) return;
   S.cur.mcqOpts = mcqOptionsFor(round());
+  S.cur.hintCost = (S.cur.hintCost || 0) + MCQ_COST;  // priced like a clue slip
   persistSession();
   if (S.mode === 'daily') track('mcq-open-map');
   renderMcq();
@@ -652,9 +652,8 @@ function renderMcq() {
   wrap.hidden = false;
   $('#map-form').hidden = true;
   $('#map-mcq').disabled = true;
-  const worthEl = $('#map-worth');
-  if (worthEl) worthEl.innerHTML = `ONE OF THESE THREE — <b>MAX ${Math.min(worthNow(), MCQ_MAX)} PTS</b>`;
-  announce(`Three choices: ${S.cur.mcqOpts.join(', ')}. Pick one for up to ${Math.min(worthNow(), MCQ_MAX)} points.`);
+  updateWorth();   // the −80 is already in hintCost: the standard readout tells it straight
+  announce(`Three choices: ${S.cur.mcqOpts.join(', ')}. Pick one for ${worthNow()} points.`);
 }
 
 function resolveRound(correct, opts) {
@@ -664,7 +663,7 @@ function resolveRound(correct, opts) {
   let pts = 0;
   let bonus = 0;
   if (correct) {
-    pts = fromMcq ? Math.min(worthNow(), MCQ_MAX) : worthNow();
+    pts = worthNow();   // MCQ's −80 was charged at open; the floor still pays ≥10
     if (!fromMcq) {
       S.streak++;
       S.bestStreak = Math.max(S.bestStreak, S.streak);
@@ -703,7 +702,6 @@ function resolveRound(correct, opts) {
   $('#map-guess-btn').disabled = true;
   $('#hint-occ').disabled = true;
   $('#hint-ini').disabled = true;
-  $('#map-reveal').disabled = true;
   $('#map-mcq').disabled = true;
   $('#map-mcq-chips').hidden = true;
   $('#map-form').hidden = true;     // resolved: clear the dead controls so
@@ -875,11 +873,6 @@ export function initMapGame() {
   });
 
   $('#map-mcq').addEventListener('click', openMcq);
-
-  $('#map-reveal').addEventListener('click', () => {
-    if (!S || !S.cur.open) return;
-    resolveRound(false);
-  });
 
   $('#map-next').addEventListener('click', () => {
     if (S.i === S.rounds.length - 1) { finishSession(); return; }

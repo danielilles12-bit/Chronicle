@@ -103,6 +103,11 @@ Object.keys(GAME_DISPLAY_NAME).forEach((g) => {
   const outcomes = g === 'thread' ? ['clean', 'fought', 'lost'] : ['clean', 'hinted', 'fought', 'lost'];
   outcomes.forEach((o) => { DISPLAY[`round-${g}-${o}`] = `4-round-${name}-${o}`; });
   ['u2', 'u5', 'o5'].forEach((b) => { DISPLAY[`dur-${g}-${b}`] = `4-dur-${name}-${b}`; });
+  if (g !== 'thread') {   // the three-choices clue lives in the rounds games only
+    DISPLAY[`mcq-open-${g}`] = `4-mcq-open-${name}`;
+    DISPLAY[`mcq-${g}-win`] = `4-mcq-${name}-win`;
+    DISPLAY[`mcq-${g}-loss`] = `4-mcq-${name}-loss`;
+  }
   DISPLAY[`resume-${g}`] = `3-resume-${name}`;
   DISPLAY[`abandon-${g}`] = `4x-abandoned-${name}`;
   DISPLAY[`land-share-${g}`] = `1-land-share-${name}`;

@@ -22,11 +22,14 @@ const WORTH_START = 100;
 const WORTH_FLOOR = 10;         // a correct answer never pays less than this
 const CLUE_A_COST = 25;         // "Claim to fame" (who) / "First letters" (what)
 const CLUE_B_COST = 15;         // "Lived" (who) / "Era" (what)
-// The ultimate clue (Daniel, 28 Jul 2026): three choices instead of a dead-end
-// give-up. A correct pick pays what the round is still worth, capped here —
-// always beneath a typed answer, always above surrender. It keeps a streak
-// alive but never extends it (no ++, no bonus): a rescue, not a win.
-const MCQ_MAX = 20;
+// The ultimate clue (Daniel, 28 Jul 2026; repriced as a COST 28 Jul evening):
+// three choices instead of a dead-end give-up. Opening it docks the round's
+// worth like any other clue slip — "−80 pts", same grammar as the rest —
+// so an untouched round pays 20 on a correct pick and the "a correct answer
+// never pays less than 10" floor still holds. It keeps a streak alive but
+// never extends it (no ++, no bonus): a rescue, not a win. This also
+// replaced the Reveal/I-give-up button: a wrong pick IS the reveal.
+const MCQ_COST = 80;
 
 // Card #10 (house-voice verdicts): the moment badge rotates through these
 // deterministically by round index (S.i), never at random, so a reloaded/
@@ -144,7 +147,7 @@ function setupClues() {
   $('#rv-hint-chips').innerHTML = '';
   const defs = clueDefs();
   const btnA = $('#rv-clue-a');
-  btnA.innerHTML = `${defs.a.label} <span class="cost">−${defs.a.cost}</span>`;
+  btnA.innerHTML = `${defs.a.label} <span class="cost">−${defs.a.cost} pts</span>`;
   btnA.disabled = false;
   btnA.hidden = false;
   const btnB = $('#rv-clue-b');
@@ -153,7 +156,7 @@ function setupClues() {
     btnB.hidden = true;
     btnB.disabled = true;
   } else {
-    btnB.innerHTML = `${defs.b.label} <span class="cost">−${defs.b.cost}</span>`;
+    btnB.innerHTML = `${defs.b.label} <span class="cost">−${defs.b.cost} pts</span>`;
     btnB.disabled = false;
     btnB.hidden = false;
   }
@@ -317,7 +320,6 @@ function setRoundOffline(off) {
   const cur = S && S.cur;
   $('#rv-input').disabled = off;
   $('#rv-guess-btn').disabled = off;
-  $('#rv-reveal').disabled = off;
   $('#rv-clue-a').disabled = off || !!(cur && cur.clueA);
   $('#rv-clue-b').disabled = off || !!(cur && cur.clueB);
   $('#rv-mcq').disabled = off || !!(cur && cur.mcqOpts);
@@ -837,6 +839,7 @@ function mcqOptionsFor(item) {
 function openMcq() {
   if (!S || !S.cur || !S.cur.open || S.cur.mcqOpts) return;
   S.cur.mcqOpts = mcqOptionsFor(round());
+  S.cur.clueCost = (S.cur.clueCost || 0) + MCQ_COST;  // priced like a clue slip
   persist();
   if (S.mode === 'daily') track(`mcq-open-${MODE}`);
   renderMcq();
@@ -861,9 +864,8 @@ function renderMcq() {
   // Typing is over: the gamble replaces the keyboard, not the other clues.
   $('#rv-form').hidden = true;
   $('#rv-mcq').disabled = true;
-  const worthEl = $('#rv-worth');
-  if (worthEl) worthEl.innerHTML = `ONE OF THESE THREE — <b>MAX ${Math.min(worthNow(), MCQ_MAX)} PTS</b>`;
-  announce(`Three choices: ${S.cur.mcqOpts.join(', ')}. Pick one for up to ${Math.min(worthNow(), MCQ_MAX)} points.`);
+  updateWorth();   // the −80 is already in clueCost: the standard readout tells it straight
+  announce(`Three choices: ${S.cur.mcqOpts.join(', ')}. Pick one for ${worthNow()} points.`);
 }
 
 function resolveRound(correct, opts) {
@@ -875,9 +877,10 @@ function resolveRound(correct, opts) {
   let pts = 0;
   let bonus = 0;
   if (correct) {
-    // A multiple-choice pick pays what the round is still worth, capped —
-    // and leaves the streak untouched (alive, but no ++ and no bonus).
-    pts = fromMcq ? Math.min(worthNow(), MCQ_MAX) : worthNow();
+    // A multiple-choice pick pays what the round is still worth — the −80
+    // was charged when the choices opened, so no cap is needed here — and
+    // leaves the streak untouched (alive, but no ++ and no bonus).
+    pts = worthNow();
     if (!fromMcq) {
       S.streak++;
       S.bestStreak = Math.max(S.bestStreak, S.streak);
@@ -1111,11 +1114,6 @@ export function initRevealGame() {
         btn.textContent = 'Still offline — retry';
       }
     });
-  });
-
-  $('#rv-reveal').addEventListener('click', () => {
-    if (!S || !S.cur || !S.cur.open) return;
-    resolveRound(false);
   });
 
   $('#rv-next').addEventListener('click', () => {
