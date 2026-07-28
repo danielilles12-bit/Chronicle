@@ -1448,7 +1448,7 @@
   "43": {
    "date": "2026-08-11",
    "who": [
-    "eisenhower",
+    "winston-churchill",
     "robin-williams",
     "anne-boleyn"
    ],
@@ -1474,9 +1474,9 @@
     "mary-magdalene"
    ],
    "map": [
-    "jimi-hendrix",
+    "leonardo",
     "billy-the-kid",
-    "william-adams"
+    "saladin"
    ],
    "what": [
     "sydney-opera-house",
@@ -1497,7 +1497,7 @@
    "map": [
     "francisco-pizarro",
     "brutus",
-    "john-reed"
+    "hannibal"
    ],
    "what": [
     "lighthouse-alexandria",
@@ -1511,7 +1511,7 @@
   "46": {
    "date": "2026-08-14",
    "who": [
-    "herbert-hoover",
+    "mozart",
     "joseph-lister",
     "kurt-cobain"
    ],
@@ -1532,7 +1532,7 @@
   "47": {
    "date": "2026-08-15",
    "who": [
-    "william-howard-taft",
+    "marilyn-monroe",
     "emmy-noether",
     "friedrich-schiller"
    ],
@@ -1574,14 +1574,14 @@
   "49": {
    "date": "2026-08-17",
    "who": [
-    "nixon",
+    "elvis-presley",
     "nikola-tesla",
     "stephen-hawking"
    ],
    "map": [
     "pele",
     "crassus",
-    "vascodagama"
+    "catherine"
    ],
    "what": [
     "white-house",
@@ -1684,7 +1684,7 @@
     "alexander-fleming"
    ],
    "map": [
-    "ayrton-senna",
+    "mandela",
     "hayreddin-barbarossa",
     "gustavus-adolphus"
    ],
@@ -1805,7 +1805,7 @@
   "60": {
    "date": "2026-08-28",
    "who": [
-    "grover-cleveland",
+    "gandhi",
     "john-the-baptist",
     "emily-dickinson"
    ],
@@ -1875,7 +1875,7 @@
    "map": [
     "leon-trotsky",
     "catherine-of-aragon",
-    "thomas-cochrane"
+    "subhas-chandra-bose"
    ],
    "what": [
     "neuschwanstein-castle",
@@ -1889,7 +1889,7 @@
   "64": {
    "date": "2026-09-01",
    "who": [
-    "warhol",
+    "charlie-chaplin",
     "edward-vii",
     "hirohito"
    ],
@@ -1905,6 +1905,153 @@
    ],
    "thread": [
     "conn-074"
+   ]
+  },
+  "65": {
+   "date": "2026-09-02",
+   "who": [
+    "gaddafi",
+    "abraham",
+    "niccolo-machiavelli"
+   ],
+   "map": [
+    "louis-armstrong",
+    "mark-antony",
+    "averroes"
+   ],
+   "what": [
+    "notre-dame-paris",
+    "ziggurat-ur",
+    "ctesiphon"
+   ],
+   "thread": [
+    "conn-050"
+   ]
+  },
+  "66": {
+   "date": "2026-09-03",
+   "who": [
+    "john-wayne",
+    "james-madison",
+    "rene-descartes"
+   ],
+   "map": [
+    "amelia-earhart",
+    "metternich",
+    "peter-abelard"
+   ],
+   "what": [
+    "tower-bridge",
+    "daigo-fukuryu-maru",
+    "predjama-castle"
+   ],
+   "thread": [
+    "conn-093"
+   ]
+  },
+  "67": {
+   "date": "2026-09-04",
+   "who": [
+    "chiang-kai-shek",
+    "john-locke",
+    "andrew-johnson"
+   ],
+   "map": [
+    "tutankhamun",
+    "anna-pavlova",
+    "joseph-conrad"
+   ],
+   "what": [
+    "the-thinker",
+    "warren-cup",
+    "great-enclosure-zimbabwe"
+   ],
+   "thread": [
+    "conn-058"
+   ]
+  },
+  "68": {
+   "date": "2026-09-05",
+   "who": [
+    "mohammad-reza-pahlavi",
+    "richard-feynman",
+    "albrecht-durer"
+   ],
+   "map": [
+    "haile-selassie",
+    "william-tyndale",
+    "robert-koch"
+   ],
+   "what": [
+    "red-square",
+    "trundholm-sun-chariot",
+    "himeji-castle"
+   ],
+   "thread": [
+    "conn-062"
+   ]
+  },
+  "69": {
+   "date": "2026-09-06",
+   "who": [
+    "jinnah",
+    "marie-curie",
+    "horatio-nelson"
+   ],
+   "map": [
+    "alexander-ii-of-russia",
+    "igor-stravinsky",
+    "ludwig-wittgenstein"
+   ],
+   "what": [
+    "parthenon",
+    "world-trade-center",
+    "magna-carta"
+   ],
+   "thread": [
+    "conn-108"
+   ]
+  },
+  "70": {
+   "date": "2026-09-07",
+   "who": [
+    "kissinger",
+    "judy-garland",
+    "alexander-hamilton"
+   ],
+   "map": [
+    "peter-the-great",
+    "alexander-solzhenitsyn",
+    "frantz-fanon"
+   ],
+   "what": [
+    "petra-treasury",
+    "little-boy",
+    "hammurabi-stele"
+   ],
+   "thread": [
+    "conn-073"
+   ]
+  },
+  "71": {
+   "date": "2026-09-08",
+   "who": [
+    "einstein",
+    "johnny-cash",
+    "diego-velazquez"
+   ],
+   "map": [
+    "napoleon-iii",
+    "rosa-luxemburg",
+    "christina-of-sweden"
+   ],
+   "what": [
+    "abu-simbel",
+    "al-aqsa-mosque",
+    "sacsayhuaman"
+   ],
+   "thread": [
+    "conn-079"
    ]
   }
  },

@@ -413,6 +413,29 @@ def airing_history(manifest):
     return last
 
 
+def airing_history_by_name(manifest, pools):
+    """normalise(display name) -> latest aired date, across every game.
+
+    Companion to airing_history(): the id-keyed view cannot see that
+    who/`hendrix` and map/`jimi-hendrix` are one person, so the repeat floor
+    silently let the same subject air twice inside 28 days. Threads are
+    excluded — a board's "name" is its title, not a subject.
+    """
+    id_index = {g: {x["id"]: x for x in pools[g]} for g in GAMES}
+    last = {}
+    for ed in manifest["editions"].values():
+        d = date.fromisoformat(ed["date"])
+        for game in ("who", "map", "what"):
+            for item_id in ed.get(game, []):
+                item = id_index[game].get(item_id)
+                if not item:
+                    continue
+                k = normalise(item.get("name") or "")
+                if k and (k not in last or d > last[k]):
+                    last[k] = d
+    return last
+
+
 class Shortage(Exception):
     def __init__(self, n, game, tier, need, got):
         self.n, self.game, self.tier, self.need, self.got = n, game, tier, need, got
@@ -574,6 +597,7 @@ def cmd_propose(args):
 
     today = today_index()
     last_aired = airing_history(manifest)
+    last_aired_by_name = airing_history_by_name(manifest, pools)
     start = max([int(k) for k in manifest["editions"]] + [today]) + 1
 
     floor = cfg["repeat_floor_days"]
@@ -622,7 +646,7 @@ def cmd_propose(args):
             for rank, (_, item_id) in enumerate(famed):
                 ramp_pct[(g, t, item_id)] = rank / denom
 
-    def gap_days(game, item_id, on_date):
+    def gap_days(game, item, on_date):
         # The repeat floor is per SUBJECT, not per (game, subject): the same
         # id string in two pools (stephen-hawking in both Face Value and
         # Lifeline) is the same person, and validate_schedule's id-repeat
@@ -630,7 +654,19 @@ def cmd_propose(args):
         # 28 Jul 2026 this looked up (game, id) only, which let the same
         # person air in two different games days apart — 10 of the 14
         # gating errors in the first 3-round regeneration were exactly that.
-        las = [last_aired.get((g, item_id)) for g in GAMES]
+        #
+        # 28 Jul 2026 (second pass): matching on the id STRING still missed
+        # every subject the two pools slug differently — `hendrix` (Face
+        # Value) vs `jimi-hendrix` (Lifeline), `warhol` vs `andy-warhol`,
+        # `eisenhower` vs `dwight-d-eisenhower`, `vascodagama` vs
+        # `vasco-da-gama`, `nixon` vs `richard-nixon`. Six such pairs had
+        # landed inside the 28-day floor in editions 42-71 (Eisenhower at
+        # 15 days, Nixon at 23). The display name is what the player
+        # actually recognises, so normalised name is the honest key; the id
+        # lookup stays because two records CAN share an id without sharing a
+        # name, and the floor should hold for either kind of match.
+        las = [last_aired.get((g, item["id"])) for g in GAMES]
+        las.append(last_aired_by_name.get(normalise(item.get("name") or "")))
         las = [d for d in las if d is not None]
         return None if not las else (on_date - max(las)).days
 
@@ -653,7 +689,7 @@ def cmd_propose(args):
         different Pompeii artefacts), so it's rejected same as a straight
         answer collision. Deliberately coarse per spec — flagged in the
         compiler's report, not hardened into a fragile detector."""
-        g = gap_days(game, item["id"], on_date)
+        g = gap_days(game, item, on_date)
         if g is not None and g < floor:
             return False, f"aired {g}d ago (floor {floor})"
         # Tone cap, HARD and never relaxed (unlike the variety caps): the
@@ -789,7 +825,7 @@ def cmd_propose(args):
             warns.append({"kind": kind, "game": game, "id": item_id, "text": text})
 
         def soft_checks(game, item):
-            g = gap_days(game, item["id"], on_date)
+            g = gap_days(game, item, on_date)
             if g is not None and g < target:
                 note("repeat-target", game, item["id"],
                      f"last aired {g} days ago (target {target})")
