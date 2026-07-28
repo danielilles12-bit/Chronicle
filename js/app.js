@@ -245,15 +245,11 @@ async function launchWhenReady(g) {
   g.launchDaily(daily.todayIndex());
 }
 
-// Card #6 (difficulty whisper): the dateline gains a muted, lowercase,
-// em-dash-separated whisper naming today's edition's spot on the Mon->Sun
-// difficulty ladder (daily.weekdayWhisper). Weekday comes from the edition
-// index (not the raw device date) so it honours the ?dailydate= QA override
-// the same way the issue number already does.
+// Weekday comes from the edition index (not the raw device date) so it
+// honours the ?dailydate= QA override the same way the issue number does.
 function datelineHTML(n) {
   const safe = Math.max(0, n);
-  return `№ ${safe} // ${daily.weekdayName(safe)} `
-    + `<span class="dateline-whisper">— ${daily.weekdayWhisper(safe)}</span>`;
+  return `№ ${safe} // ${daily.weekdayName(safe)}`;
 }
 
 // 'done' | 'in-progress' | 'not-started' for a past (aired) edition, for the
