@@ -94,30 +94,13 @@ export function editionLabel(n) {
   return `№ ${n} · ${weekdayName(n)}`;
 }
 
-// ---------- difficulty whisper (Card #6) ----------
-// Mon (gentlest) -> Sun (hardest), keyed by weekday() (0=Mon..6=Sun). Mirrors
-// the RECIPE's Mon->Sun climb without being tied to any one game's numbers —
-// it's a single site-wide flavour line, not a stat.
-const WHISPER_LADDER = [
-  'a kind one.',     // Mon
-  'warming up.',     // Tue
-  'fair game.',      // Wed
-  'stiffening.',     // Thu
-  'a proper test.',  // Fri
-  'hard going.',     // Sat
-  'a stinker.',      // Sun
-];
-
-export function weekdayWhisper(n) {
-  return WHISPER_LADDER[weekday(n)];
-}
-
-// Weekend-only receipt nod: null Mon-Fri (the whisper stays a whisper — see
-// brief card #6). Sat/Sun editions get one extra meta-line on their receipts.
+// Weekend-only receipt nod: null Mon-Fri. Sat/Sun editions get one extra
+// meta-line on their receipts — a post-game wink at the weekend climb, never
+// shown before play.
 export function weekendReceiptMeta(n) {
   const wd = weekday(n);
-  if (wd === 5) return `Saturday — ${WHISPER_LADDER[5]}`;
-  if (wd === 6) return `Sunday — ${WHISPER_LADDER[6]}`;
+  if (wd === 5) return 'Saturday — hard going.';
+  if (wd === 6) return 'Sunday — a stinker.';
   return null;
 }
 
