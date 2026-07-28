@@ -7881,7 +7881,6 @@
   "difficulty": "medium",
   "variants": [
    "william the silent",
-   "william of orange",
    "william i of orange",
    "willem van oranje"
   ],
@@ -7898,7 +7897,10 @@
    "lat": 52.01,
    "lon": 4.36
   },
-  "fact": "Shot dead by an assassin's pistol, he became one of the first heads of state ever killed by handgun"
+  "fact": "Shot dead by an assassin's pistol, he became one of the first heads of state ever killed by handgun",
+  "reject": [
+   "william of orange"
+  ]
  },
  {
   "id": "william-iii",
@@ -7907,7 +7909,6 @@
   "variants": [
    "william iii",
    "william iii of england",
-   "william of orange",
    "king william iii"
   ],
   "occupation": "Dutch prince who became King of England",
@@ -7923,7 +7924,10 @@
    "lat": 51.5,
    "lon": -0.14
   },
-  "fact": "His horse stumbled on a molehill and threw him — enemies toasted 'the little gentleman in black velvet' after"
+  "fact": "His horse stumbled on a molehill and threw him — enemies toasted 'the little gentleman in black velvet' after",
+  "reject": [
+   "william of orange"
+  ]
  },
  {
   "id": "chiang-kai-shek",

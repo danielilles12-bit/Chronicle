@@ -3,7 +3,8 @@
 // more is the player's choice and the player's cost: every player tear docks
 // the round's worth, and wrong guesses dock more. No clock — curiosity is the
 // only spender.
-// Mirrors the Map of a Life session shape (5 rounds, persisted, resumable).
+// Mirrors the Map of a Life session shape (persisted, resumable; round count
+// comes from the edition — 3/day since edition 30, 5 before, free play 5).
 import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, teachWrongGuess, announce, testHooksEnabled, consumeShareLaunch, w800Url, loadImgFallback } from './app.js';
 import * as store from './storage.js';
 import { track, roundOutcome, durationBucket } from './track.js';

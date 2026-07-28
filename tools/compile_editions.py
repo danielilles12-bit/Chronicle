@@ -7,8 +7,10 @@ Subcommands:
                             and record them in data/editions.json as immutable
                             historical fact. Safe to re-run: existing entries
                             are never rewritten (drift is reported, not fixed).
-  propose --days N          Generate the next N unaired editions under the new
-                            5 who + 5 map + 5 what + 1 thread recipe, into
+  propose --days N          Generate the next N unaired editions under the
+                            current recipe (3 who + 3 map + 3 what + 1 thread
+                            since edition 30 — one easy, one medium, one hard
+                            per game, weekday ramp within each tier), into
                             data/editions.proposed.json (NOT the live manifest)
                             plus a human review sheet tools/out/review-<date>.html.
   review                    Re-render the review sheet from the EXISTING
@@ -64,6 +66,8 @@ OLD_RECIPE = [
 ]
 
 # New recipe (approved 21 Jul 2026): 5 rounds/game/day, Mon->Sun ramp.
+# Superseded by the 3-round recipe below from THREE_ROUND_START; kept because
+# editions 24..THREE_ROUND_START-1 are frozen history generated under it.
 NEW_RECIPE = [
     [4, 1, 0],  # Mon
     [3, 2, 0],  # Tue
@@ -73,6 +77,24 @@ NEW_RECIPE = [
     [1, 2, 2],  # Sat
     [0, 2, 3],  # Sun
 ]
+
+# Recipe change #2 (Daniel, 28 Jul 2026): 3 rounds/game/day — exactly one
+# easy, one medium, one hard, every day of the week. Rationale: the genuinely
+# easy pool is the binding constraint and 5-round days burned it at 2/day
+# (with ZERO easy on Sundays — a guaranteed bad day for casual players);
+# 1/1/1 halves easy burn, guarantees every player a winnable round AND a
+# stretch round daily, and fits a shorter session. "The week gets harder"
+# moves INSIDE each tier: the weekday ramp bias in propose() steers Monday's
+# slots toward the top of their tier's fame range and Sunday's toward the
+# bottom, so a Sunday easy is still easy — just with more bite. Thread is
+# unchanged (1 board/day, THREAD_TIER ladder).
+THREE_ROUND_RECIPE = [1, 1, 1]
+THREE_ROUND_START = 30  # edition 30 = 2026-07-29, the first unaired edition when this shipped
+
+
+def recipe_for(n):
+    """[easy, medium, hard] counts for edition n's rounds games."""
+    return THREE_ROUND_RECIPE if n >= THREE_ROUND_START else NEW_RECIPE[weekday(n)]
 
 # Thread: 1 board/day, tier by weekday — unchanged across recipes.
 THREAD_TIER = ["easy", "easy", "medium", "medium", "hard", "hard", "hard"]
@@ -151,6 +173,14 @@ def load_config():
         "western_bias_weight": 0.5,       # pv_pct (0-100) x this = ranking nudge; 0 disables the bias entirely
         "western_bias_hard_exempt": True,    # 'hard' tier slots never get the bias — reserved for deeper/international cuts
         "western_bias_sunday_exempt": True,  # Sunday's slots never get the bias — the week's deepest-cut day
+        # --- Weekday ramp (28 Jul 2026, 3-round recipe) ---------------------
+        # Within-tier fame-percentile steering: Monday's slots prefer the top
+        # of their tier, Sunday's the bottom. Weight is the ranking-nudge
+        # size for a full-spectrum miss (same units as the biases above, and
+        # deliberately larger than western_bias_weight's max effect so the
+        # ramp, not English-Wikipedia legibility, decides who anchors which
+        # weekday). 0 disables the ramp entirely.
+        "weekday_ramp_weight": 60.0,
         # --- Tone / composition caps (25 Jul 2026) --------------------------
         # Sanctioned by the launch review, which asked to "cap all-power-
         # figure human slates" and "prevent any one dark theme from
@@ -567,9 +597,42 @@ def cmd_propose(args):
                       for t in TIERS}
     id_index = {g: {x["id"]: x for x in pools[g]} for g in GAMES}
 
+    # Weekday ramp (28 Jul 2026, part of the 3-round recipe): each item's
+    # fame PERCENTILE within its own (game, tier) candidate pool, 1.0 = the
+    # tier's most famous. Monday's slots target the top of their tier and
+    # Sunday's the bottom (see bias_for), so the Mon->Sun climb happens
+    # inside each difficulty band now that every day's tier mix is identical.
+    # Soft by design: it ranks BELOW never-aired-first and oldest-aired-first
+    # in `ranked` (locked decision #5 — rotation order rules), so it mostly
+    # decides which of the equally-fresh candidates anchors which day.
+    # Items with no fame signal sit at 0.5: mid-week is the safest berth for
+    # an item whose recognisability we can't measure — it should anchor
+    # neither Monday's gimme nor Sunday's deep cut. (A mild bend of the
+    # "None never penalises" convention, accepted 28 Jul: fame coverage is
+    # ~97-100% on these pools, and the bend only ever costs ordering.)
+    ramp_pct = {}
+    for g in ("who", "map", "what"):
+        for t in TIERS:
+            famed = sorted(
+                (item_signal(g, x, fame_idx, tag_idx).get("fame"), x["id"])
+                for x in by_tier[g][t]
+                if item_signal(g, x, fame_idx, tag_idx).get("fame") is not None
+            )
+            denom = max(len(famed) - 1, 1)
+            for rank, (_, item_id) in enumerate(famed):
+                ramp_pct[(g, t, item_id)] = rank / denom
+
     def gap_days(game, item_id, on_date):
-        la = last_aired.get((game, item_id))
-        return None if la is None else (on_date - la).days
+        # The repeat floor is per SUBJECT, not per (game, subject): the same
+        # id string in two pools (stephen-hawking in both Face Value and
+        # Lifeline) is the same person, and validate_schedule's id-repeat
+        # rule gates the 28-day floor across games accordingly. Before
+        # 28 Jul 2026 this looked up (game, id) only, which let the same
+        # person air in two different games days apart — 10 of the 14
+        # gating errors in the first 3-round regeneration were exactly that.
+        las = [last_aired.get((g, item_id)) for g in GAMES]
+        las = [d for d in las if d is not None]
+        return None if not las else (on_date - max(las)).days
 
     def eligible(game, item, on_date, day_answers, extra_reject, day_subjects=None):
         """Hard constraints only. Returns (ok, reason).
@@ -624,6 +687,13 @@ def cmd_propose(args):
                 return False, "tile/label collides with today's answers"
             if day_subjects and keys & day_subjects:
                 return False, "tile/label shares a subject with today's picks"
+            # Adjacent-day net (28 Jul 2026): validate_schedule ERRORs when
+            # two ids resolving to the same subject land on consecutive days
+            # (its 22 Jul findings included a Thread tile giving away the
+            # next day's Relic answer). Same coarse variant-intersection
+            # heuristic as day_subjects, extended one day back.
+            if keys & prev_answers or keys & prev_subjects:
+                return False, "tile/label collides with yesterday's answers"
         else:
             if normalise(item["name"]) in day_answers:
                 return False, "answer already used today"
@@ -631,6 +701,11 @@ def cmd_propose(args):
                 item_variants = {normalise(v) for v in item.get("variants") or []}
                 if item_variants & day_subjects:
                     return False, "shares a distinctive variant with today's picks (same subject)"
+            nm = normalise(item["name"])
+            item_variants = {normalise(v) for v in item.get("variants") or []}
+            if nm in prev_answers or nm in prev_subjects \
+                    or item_variants & prev_answers or item_variants & prev_subjects:
+                return False, "same subject aired yesterday (adjacent-day net)"
         if extra_reject and item["id"] in extra_reject:
             return False, "already picked today"
         return True, ""
@@ -655,6 +730,31 @@ def cmd_propose(args):
     warnings = {}   # str(n) -> [ {kind, game, id, text} ]
     stopped_short = None
 
+    # Yesterday's answer/subject keys for the adjacent-day net in eligible().
+    # Seeded from the manifest edition just before the proposal window (the
+    # last aired/approved day), then rolled forward inside the loop.
+    def day_keys_of(ed):
+        answers, subjects = set(), set()
+        if not ed:
+            return answers, subjects
+        for g in ("who", "map", "what"):
+            for i in ed.get(g) or []:
+                it = id_index[g].get(i)
+                if not it:
+                    continue
+                answers.add(normalise(it["name"]))
+                subjects.update(normalise(v) for v in it.get("variants") or [])
+        for i in ed.get("thread") or []:
+            it = id_index["thread"].get(i)
+            if it:
+                keys = thread_answer_keys(it)
+                answers |= keys
+                subjects |= keys
+        return answers, subjects
+
+    prev_answers, prev_subjects = day_keys_of(
+        manifest["editions"].get(str(start - 1)))
+
     for n in range(start, start + args.days):
         on_date = edition_date(n)
         wd = weekday(n)
@@ -678,10 +778,11 @@ def cmd_propose(args):
         tone_rejects = {}
 
         # The power-share denominator is known before any pick is made: the
-        # issue's human answers are the who quota plus the map quota, which
-        # the recipe fixes at 5 + 5. Deriving it from the recipe rather than
-        # hard-coding 10 keeps this correct if the recipe ever changes.
-        human_slots = sum(NEW_RECIPE[wd]) * 2
+        # issue's human answers are the who quota plus the map quota, fixed
+        # by the day's recipe. Deriving it from the recipe rather than
+        # hard-coding keeps this correct across recipe changes (10 human
+        # slots under the 5-round recipe, 6 under the 3-round one).
+        human_slots = sum(recipe_for(n)) * 2
         power_cap = int(cfg["max_power_share_per_issue"] * human_slots)
 
         def note(kind, game, item_id, text):
@@ -816,7 +917,7 @@ def cmd_propose(args):
             # pv_pct tiebreak + era-novelty nudge, rules 1 & 5), and — after
             # both passes — a guaranteed-banker repair (rule 3).
             for game in ("who", "map", "what"):
-                counts = NEW_RECIPE[wd]
+                counts = recipe_for(n)
                 chosen_ids = set()
                 round_region = Counter()   # macroregion -> count so far this round
                 round_occ = Counter()      # occupation_family -> count so far (who/map)
@@ -827,12 +928,33 @@ def cmd_propose(args):
                     exempt = (cfg["western_bias_sunday_exempt"] and wd == 6) or \
                              (cfg["western_bias_hard_exempt"] and tier == "hard")
                     want_era = len(round_era) < cfg["min_era_diversity_per_round"]
+                    # Weekday ramp target: Monday wants the famous end of the
+                    # tier (percentile 0.95), Sunday the challenging end
+                    # (0.30), linear in between. Only live under the 3-round
+                    # recipe — the 5-round recipe ramps by MIXING tiers.
+                    # The Sunday end is deliberately clamped at 0.30, NOT
+                    # 0.0: the shipped tier labels span a huge fame range
+                    # (the 22 Jul audit's mislabelling), so targeting a
+                    # tier's true bottom would dredge up its genuinely
+                    # unknown dregs every weekend — a dry run on 28 Jul put
+                    # a fame-14 item in a Saturday medium slot exactly this
+                    # way. Sunday should get each tier's harder half, never
+                    # its least-known items.
+                    ramp_on = n >= THREE_ROUND_START and cfg["weekday_ramp_weight"] > 0
+                    ramp_target = 0.95 - (wd / 6) * 0.65
 
                     def bias(item):
                         sig = item_signal(game, item, fame_idx, tag_idx)
                         score = 0.0 if exempt else western_bias_score(sig, cfg)
                         if want_era and sig.get("era") and sig["era"] not in round_era:
                             score -= cfg["era_novelty_bonus"]
+                        if ramp_on:
+                            # Keyed by the item's OWN tier (that's where its
+                            # percentile was computed), which also does the
+                            # right thing for backfilled items.
+                            pct = ramp_pct.get(
+                                (game, item["difficulty"], item["id"]), 0.5)
+                            score += cfg["weekday_ramp_weight"] * abs(pct - ramp_target)
                         return score
                     return bias
 
@@ -1024,10 +1146,13 @@ def cmd_propose(args):
         for game in GAMES:
             for item_id in picked_today[game]:
                 last_aired[(game, item_id)] = on_date
+        # Roll the adjacent-day net forward.
+        prev_answers, prev_subjects = set(day_answers), set(day_subjects)
 
     proposed = {
         "schema": 1,
         "recipeChangeEdition": start,
+        "threeRoundEdition": THREE_ROUND_START,
         "generatedOn": date.today().isoformat(),
         "config": cfg,
         "editions": editions,
@@ -1059,11 +1184,13 @@ def cmd_propose(args):
     # --- tone report: never let a taste rule fire silently ----------------
     tone_hits = [(k, w) for k, v in warnings.items() for w in v
                  if w["kind"] == "tone-cap"]
+    ramp_slots = sum(THREE_ROUND_RECIPE) * 2
     print(f"\npropose: tone cap rejected {len(tone_hits)} candidate(s) across "
           f"{len(set(k for k, _ in tone_hits))} edition(s) "
           f"(max_dark_tone_per_issue={cfg['max_dark_tone_per_issue']}, "
           f"max_power_share_per_issue={cfg['max_power_share_per_issue']} "
-          f"→ {int(cfg['max_power_share_per_issue'] * 10)} of 10 human answers)")
+          f"→ {int(cfg['max_power_share_per_issue'] * ramp_slots)} of "
+          f"{ramp_slots} human answers under the 3-round recipe)")
     for k, w in tone_hits:
         print(f"  № {k} ({editions[k]['date']}) {w['game']}/{w['id']}: {w['text']}")
     if not tone_hits:
@@ -1409,6 +1536,12 @@ def cmd_approve(args):
 
     if promoted and manifest.get("recipeChangeEdition") is None:
         manifest["recipeChangeEdition"] = min(int(k) for k in promoted)
+    # Stamp the 3-round boundary the first time a 3-round batch is promoted,
+    # so verify knows which count to expect on each side of it.
+    if promoted and manifest.get("threeRoundEdition") is None \
+            and proposed.get("threeRoundEdition") is not None \
+            and any(int(k) >= proposed["threeRoundEdition"] for k in promoted):
+        manifest["threeRoundEdition"] = proposed["threeRoundEdition"]
     save_manifest(manifest)
     print(f"approve: promoted {len(promoted)} editions through {args.through}"
           f"{' (' + ', '.join(promoted) + ')' if promoted else ''}")
@@ -1446,6 +1579,12 @@ def cmd_verify(args):
     if not isinstance(change, int):
         err(f"recipeChangeEdition is {change!r}, expected an int")
         change = 10 ** 9  # treat everything as legacy so checks still run
+    # 3-round boundary: editions at/after it carry 3 ids per rounds game.
+    # Absent field (an older manifest) = no 3-round era, expect 5 throughout.
+    three = manifest.get("threeRoundEdition")
+    if three is not None and not isinstance(three, int):
+        err(f"threeRoundEdition is {three!r}, expected an int or absent")
+        three = None
 
     pools = load_pools()
     by_id = {g: {x["id"]: x for x in pools[g]} for g in GAMES}
@@ -1468,7 +1607,14 @@ def cmd_verify(args):
             ids = ed.get(game) or []
             if len(set(ids)) != len(ids):
                 err(f"{where}: duplicate id inside '{game}': {ids}")
-            want = 1 if game == "thread" else (10 if legacy else 5)
+            if game == "thread":
+                want = 1
+            elif legacy:
+                want = 10
+            elif three is not None and k >= three:
+                want = 3
+            else:
+                want = 5
             if len(ids) != want:
                 (warn if legacy else err)(
                     f"{where}: '{game}' has {len(ids)} ids, expected {want}")
@@ -1495,7 +1641,8 @@ def cmd_verify(args):
     for e2 in errors:
         print(f"ERROR {e2}", file=sys.stderr)
     print(f"verify: {len(keys)} editions ({keys[0]}..{keys[-1]}, recipe change "
-          f"at {manifest.get('recipeChangeEdition')}) — "
+          f"at {manifest.get('recipeChangeEdition')}, 3-round from "
+          f"{manifest.get('threeRoundEdition')}) — "
           f"{len(errors)} errors, {len(warns)} warnings")
     return 1 if errors else 0
 

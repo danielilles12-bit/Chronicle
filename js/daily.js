@@ -13,9 +13,12 @@ export const EPOCH = new Date(2026, 5, 29); // 2026-06-29, a Monday (local, mont
 
 // LEGACY recipe — rounds games (Lifeline, Face Value, Relic) at 10 rounds/day,
 // [easy, medium, hard] counts per weekday (0=Mon...6=Sun), ordered E, M, H.
-// Editions >= recipeChangeEdition are 5 rounds/day and come from the manifest
-// (getEdition below); this arithmetic serves pre-manifest history and the
-// missing-manifest emergency, so its numbers must NEVER change.
+// Editions >= recipeChangeEdition come from the manifest (getEdition below):
+// 5 rounds/day from edition 24, then 3 rounds/day (one easy, one medium, one
+// hard — the 28 Jul 2026 recipe) from edition 30. The client never needs
+// those counts — it renders however many ids the manifest carries — so this
+// arithmetic serves only pre-manifest history and the missing-manifest
+// emergency, and its numbers must NEVER change.
 export const RECIPE = [
   [7, 2, 1], // Mon
   [6, 3, 1], // Tue
