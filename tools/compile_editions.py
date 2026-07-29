@@ -572,6 +572,12 @@ def is_dark_tone(cfg, game, item_id):
     return item_id in set(tags.get(game) or ())
 
 
+def is_painting(game, item, fame_idx, tag_idx):
+    """Owner ruling 29 Jul 2026 (edition 29 carried Wanderer AND Garden of
+    Earthly Delights): a Relic day may hold at most ONE painting."""
+    return game == "what" and         item_signal(game, item, fame_idx, tag_idx).get("kind") == "painting"
+
+
 def is_power_figure(sig, cfg):
     """True if the item's occupation_family is a ruler/statesman/commander
     family. None (no tag match) is 'no opinion' and never counts."""
@@ -716,6 +722,8 @@ def cmd_propose(args):
             tone_rejects.setdefault((game, item["id"]),
                                     (item.get("name") or item["id"], reason))
             return False, reason
+        if is_painting(game, item, fame_idx, tag_idx)                 and day_tone["paintings"] >= 1:
+            return False, "second painting on one Relic day (max 1)"
         if game in ("who", "what"):
             if not (ROOT / item["img"]).exists():
                 return False, "image missing on disk"
@@ -816,7 +824,7 @@ def cmd_propose(args):
         # dark theme — Hitler in Face Value plus Stalin in Lifeline plus a
         # board about assassinations is exactly the day being guarded
         # against, and no per-game counter would ever see it.
-        day_tone = {"dark": 0, "power": 0}
+        day_tone = {"dark": 0, "power": 0, "paintings": 0}
         # Rejections are recorded, not silent: one entry per (game, id) per
         # day, surfaced as warnings on the review sheet and as an aggregate
         # on stdout.
@@ -895,6 +903,7 @@ def cmd_propose(args):
                 w_dark = is_dark_tone(cfg, game, weakest["id"])
                 w_power = is_power_figure(
                     item_signal(game, weakest, fame_idx, tag_idx), cfg)
+                w_paint = is_painting(game, weakest, fame_idx, tag_idx)
                 chosen_ids.discard(weakest["id"])
                 day_answers.discard(normalise(weakest["name"]))
                 day_subjects.difference_update(w_variants)
@@ -902,6 +911,8 @@ def cmd_propose(args):
                     day_tone["dark"] -= 1
                 if w_power:
                     day_tone["power"] -= 1
+                if w_paint:
+                    day_tone["paintings"] -= 1
                 ok, _ = eligible(game, cand, on_date, day_answers, chosen_ids, day_subjects)
                 if not ok:
                     chosen_ids.add(weakest["id"])
@@ -911,6 +922,8 @@ def cmd_propose(args):
                         day_tone["dark"] += 1
                     if w_power:
                         day_tone["power"] += 1
+                    if w_paint:
+                        day_tone["paintings"] += 1
                     continue
                 chosen_ids.add(cand["id"])
                 day_answers.add(normalise(cand["name"]))
@@ -919,6 +932,8 @@ def cmd_propose(args):
                     day_tone["dark"] += 1
                 if is_power_figure(item_signal(game, cand, fame_idx, tag_idx), cfg):
                     day_tone["power"] += 1
+                if is_painting(game, cand, fame_idx, tag_idx):
+                    day_tone["paintings"] += 1
                 note("banker-repair", game, cand["id"],
                      f"swapped in as the day's guaranteed banker (fame {f:.1f}), "
                      f"replacing {weakest['id']}")
@@ -1054,6 +1069,8 @@ def cmd_propose(args):
                         day_tone["dark"] += 1
                     if game in ("who", "map") and is_power_figure(sig, cfg):
                         day_tone["power"] += 1
+                    if is_painting(game, item, fame_idx, tag_idx):
+                        day_tone["paintings"] += 1
 
                 def fill(pool_tier, need, slot_tier, relax=0, backfill_note_tier=None):
                     """Pick up to `need` items from by_tier[game][pool_tier],
@@ -1634,6 +1651,8 @@ def cmd_verify(args):
 
     pools = load_pools()
     by_id = {g: {x["id"]: x for x in pools[g]} for g in GAMES}
+    cfg_launch = load_config().get("launch_edition", 0)
+    fame_idx, tag_idx = load_signal_indices()
 
     keys = sorted(int(k) for k in editions)
     if keys != list(range(keys[0], keys[-1] + 1)):
@@ -1681,6 +1700,33 @@ def cmd_verify(args):
                             f"{where}: answer collision — '{nm}' is both "
                             f"{og}/{oi} and {game}/{i}")
                     names[nm] = (game, i)
+
+        # Owner findings, 29 Jul 2026 (both observed live in edition 29):
+        # (a) two paintings on one Relic day, (b) a round's 3-choice clue
+        # naming another round's answer from the SAME issue. Gating only from
+        # launch_edition — earlier editions are frozen history (warned).
+        pre_launch = k < cfg_launch
+        flag = warn if (legacy or pre_launch) else err
+        day_items = [(g2, i2, by_id[g2][i2]) for g2 in ("who", "map", "what")
+                     for i2 in (ed.get(g2) or []) if i2 in by_id[g2]]
+        paintings = [i2 for g2, i2, it2 in day_items if g2 == "what"
+                     and (item_signal(g2, it2, fame_idx, tag_idx) or {})
+                     .get("kind") == "painting"]
+        if len(paintings) > 1:
+            flag(f"{where}: {len(paintings)} paintings on one Relic day "
+                 f"({', '.join(paintings)}) — max 1")
+        answer_keys = {}
+        for g2, i2, it2 in day_items:
+            for v in [it2.get("name", "")] + list(it2.get("variants") or []):
+                nv = normalise(v)
+                if nv:
+                    answer_keys.setdefault(nv, (g2, i2))
+        for g2, i2, it2 in day_items:
+            for d in it2.get("mcq") or []:
+                hit = answer_keys.get(normalise(d))
+                if hit and hit != (g2, i2):
+                    flag(f"{where}: {g2}/{i2} 3-choice clue '{d}' is the "
+                         f"same day's {hit[0]}/{hit[1]} answer")
 
     for w in warns:
         print(f"WARN  {w}")

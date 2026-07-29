@@ -34,6 +34,12 @@ Deterministic: pure function of the data files + caches. No RNG — every
 player sees the same three options for a given round (Wordle convention),
 and re-runs without data changes are no-ops.
 
+Schedule-aware (29 Jul 2026, owner bug report: edition 29's Wanderer clue
+named the same day's Garden of Earthly Delights answer): an item scheduled
+in data/editions.json never receives a distractor that is a co-scheduled
+answer on any of its airing days, any game. RE-RUN THIS TOOL AFTER
+APPROVING NEW EDITIONS — compile_editions verify gates the collision.
+
 Run from repo root:  python3 tools/build_mcq.py [--check] [--offline]
   --check    validate existing mcq fields instead of writing (CI-friendly)
   --offline  never touch the network (gender falls back to cache + pronouns)
@@ -270,7 +276,37 @@ def era_compatible(tm, cm, window):
     return True   # no signal on either side: not a reason to exclude
 
 
-def pick_distractors(game, items, signals, genders):
+MANIFEST = ROOT / "data/editions.json"
+
+
+def same_day_answer_keys():
+    """(game, id) -> normalised name/variant keys of every item co-scheduled
+    on any day this item airs (all games). Distractors must never come from
+    this set — the 3-choice clue would name a sibling round's answer."""
+    try:
+        editions = load(MANIFEST)["editions"]
+    except Exception:
+        return {}
+    pools = {"who": load(WHO), "what": load(WHAT), "map": load(FIGS)}
+    by_id = {g: {x["id"]: x for x in pool} for g, pool in pools.items()}
+    day_of = {int(k): [(g, i, by_id[g][i]) for g in ("who", "map", "what")
+                       for i in (ed.get(g) or []) if i in by_id[g]]
+              for k, ed in editions.items()}
+    out = {}
+    for n, day in day_of.items():
+        # same day AND adjacent days: a distractor that was yesterday's (or
+        # will be tomorrow's) answer is a freebie elimination, not a spoiler,
+        # but it still cheapens the earned feel of the last-choice trio.
+        near = day + day_of.get(n - 1, []) + day_of.get(n + 1, [])
+        for g, i, it in day:
+            keys = out.setdefault((g, i), set())
+            for g2, i2, it2 in near:
+                if (g2, i2) != (g, i):
+                    keys |= name_keys(it2)
+    return out
+
+
+def pick_distractors(game, items, signals, genders, forbidden=None):
     tag_people, tag_objects, fame_idx, uni_idx = signals
     tag_idx = tag_objects if game == "what" else tag_people
 
@@ -300,6 +336,8 @@ def pick_distractors(game, items, signals, genders):
             cm = meta[c["id"]]
             if tm["keys"] & cm["keys"]:
                 continue          # same person under two ids
+            if forbidden and cm["keys"] & forbidden.get((game, t["id"]), set()):
+                continue          # names a same-day answer (schedule-aware)
             if game == "who" and tm["dy"] is not None and cm["dy"] is not None:
                 if (tm["dy"] >= PHOTO_YEAR) != (cm["dy"] >= PHOTO_YEAR):
                     continue      # photo face vs bust-era name = giveaway
@@ -395,6 +433,7 @@ def main():
         return 1 if bad else 0
 
     signals = load_signals()
+    forbidden = same_day_answer_keys()
     genders = resolve_genders(who, signals[3], offline)
     # Lifeline needs genders too now (same-era-same-gender rule). The cache
     # is keyed by item id; where who/figures share an id they share a person,
@@ -407,7 +446,7 @@ def main():
             ("map", figs, FIGS, figs)):
         picks = pick_distractors(game, items, signals,
                                  {"who": genders, "map": map_genders,
-                                  "what": None}[game])
+                                  "what": None}[game], forbidden)
         n = 0
         for it in all_items:
             if it["id"] in picks and len(picks[it["id"]]) == 2:
