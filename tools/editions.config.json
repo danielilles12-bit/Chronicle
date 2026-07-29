@@ -1,4 +1,6 @@
 {
+ "_launch_edition": "Owner ruling 29 Jul 2026: the app came into existence on launch day. Editions before this number are invisible to every repeat/freshness rule — propose's floor, validate_schedule's nets. Pre-launch airings reached virtually nobody and constrain nothing.",
+ "launch_edition": 42,
  "repeat_floor_days": 28,
  "repeat_target_days": 42,
  "min_lifeline_km": 250,

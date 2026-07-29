@@ -378,7 +378,7 @@ def edition_index(epoch, d):
 # ---------------------------------------------------------------------------
 # Rule 1 — same item id, gap too short
 # ---------------------------------------------------------------------------
-def check_id_repeats(editions, today_idx):
+def check_id_repeats(editions, today_idx, launch=0):
     occ = defaultdict(list)  # id -> [(edition, date, game), ...]
     for n, ed in editions:
         d = date.fromisoformat(ed["date"])
@@ -390,6 +390,8 @@ def check_id_repeats(editions, today_idx):
     for iid, occs in occ.items():
         occs.sort(key=lambda t: t[0])
         for (n1, d1, g1), (n2, d2, g2) in zip(occs, occs[1:]):
+            if n1 < launch <= n2:
+                continue  # launch blindfold — see main()
             gap = (d2 - d1).days
             if gap < 28:
                 sev = "ERROR"
@@ -412,7 +414,7 @@ def check_id_repeats(editions, today_idx):
 # ---------------------------------------------------------------------------
 # Rule 2/3 — linked subjects colliding
 # ---------------------------------------------------------------------------
-def check_linked_subjects(editions, subject_of, resolve_text, label_of, connections_by_id, today_idx):
+def check_linked_subjects(editions, subject_of, resolve_text, label_of, connections_by_id, today_idx, launch=0):
     occ = defaultdict(list)  # root -> [(edition, date, kind, raw_key, display), ...]
     ambiguous = []
 
@@ -455,6 +457,8 @@ def check_linked_subjects(editions, subject_of, resolve_text, label_of, connecti
         for (n1, d1, k1, raw1, disp1), (n2, d2, k2, raw2, disp2) in zip(occs, occs[1:]):
             if k1 == "item" and k2 == "item" and raw1 == raw2:
                 continue  # exact same id repeating — rule 1's job, not ours
+            if n1 < launch <= n2:
+                continue  # launch blindfold — see main()
             gap = (d2 - d1).days
             if gap <= 1:
                 sev = "ERROR"
@@ -531,9 +535,20 @@ def main():
 
     items, groups, subject_of, resolve_text, label_of = build_linker()
 
-    id_findings = check_id_repeats(editions, today_idx)
+    # Launch blindfold (owner ruling 29 Jul 2026): the app came into
+    # existence on launch day. A pre-launch airing colliding with a
+    # post-launch one is not a finding — virtually nobody saw the former.
+    # Pre-launch-only pairs stay reported (historical bookkeeping).
+    try:
+        launch = json.loads((ROOT / "tools/editions.config.json")
+                            .read_text(encoding="utf-8")).get("launch_edition", 0)
+    except Exception:
+        launch = 0
+
+    id_findings = check_id_repeats(editions, today_idx, launch)
     linked_findings, ambiguous = check_linked_subjects(
-        editions, subject_of, resolve_text, label_of, connections_by_id, today_idx)
+        editions, subject_of, resolve_text, label_of, connections_by_id,
+        today_idx, launch)
 
     if args.json:
         out = {

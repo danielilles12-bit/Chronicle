@@ -400,10 +400,15 @@ def start_scrap(item):
     return best
 
 
-def airing_history(manifest):
-    """(game, id) -> latest aired date, from every manifest edition."""
+def airing_history(manifest, launch_edition=0):
+    """(game, id) -> latest aired date. Editions before launch_edition are
+    invisible (owner ruling 29 Jul 2026: the app came into existence on
+    launch day — pre-launch airings reached virtually nobody and must not
+    block or postpone content)."""
     last = {}
     for key, ed in manifest["editions"].items():
+        if int(key) < launch_edition:
+            continue
         d = date.fromisoformat(ed["date"])
         for game in GAMES:
             for item_id in ed.get(game, []):
@@ -413,17 +418,20 @@ def airing_history(manifest):
     return last
 
 
-def airing_history_by_name(manifest, pools):
+def airing_history_by_name(manifest, pools, launch_edition=0):
     """normalise(display name) -> latest aired date, across every game.
 
     Companion to airing_history(): the id-keyed view cannot see that
     who/`hendrix` and map/`jimi-hendrix` are one person, so the repeat floor
     silently let the same subject air twice inside 28 days. Threads are
-    excluded — a board's "name" is its title, not a subject.
+    excluded — a board's "name" is its title, not a subject. Same
+    launch-blindfold as airing_history.
     """
     id_index = {g: {x["id"]: x for x in pools[g]} for g in GAMES}
     last = {}
-    for ed in manifest["editions"].values():
+    for key, ed in manifest["editions"].items():
+        if int(key) < launch_edition:
+            continue
         d = date.fromisoformat(ed["date"])
         for game in ("who", "map", "what"):
             for item_id in ed.get(game, []):
@@ -596,8 +604,9 @@ def cmd_propose(args):
         return 1
 
     today = today_index()
-    last_aired = airing_history(manifest)
-    last_aired_by_name = airing_history_by_name(manifest, pools)
+    launch = cfg.get("launch_edition", 0)
+    last_aired = airing_history(manifest, launch)
+    last_aired_by_name = airing_history_by_name(manifest, pools, launch)
     start = max([int(k) for k in manifest["editions"]] + [today]) + 1
 
     floor = cfg["repeat_floor_days"]
@@ -1382,7 +1391,8 @@ def gap_label(gap):
 
 def write_review_sheet(proposed, pools, id_index, manifest, name_hint=None):
     cfg = proposed["config"]
-    history = airing_history(manifest)  # pre-proposal history only
+    # pre-proposal history only, launch-blindfolded like the floor itself
+    history = airing_history(manifest, cfg.get("launch_edition", 0))
 
     def gap_at(game, item_id, on_date):
         la = history.get((game, item_id))
