@@ -1896,7 +1896,7 @@
    },
    {
     "colour": "green",
-    "label": "Dyes once worth a fortune by the ounce",
+    "label": "Dyes that once cost a fortune",
     "items": [
      "Tyrian purple",
      "Cochineal",
@@ -1906,12 +1906,12 @@
    },
    {
     "colour": "blue",
-    "label": "Pigments with poison in the recipe",
+    "label": "Colours named after places",
     "items": [
-     "Scheele's green",
-     "Lead white",
-     "Vermilion",
-     "Orpiment"
+     "Burgundy",
+     "Magenta",
+     "Sienna",
+     "Prussian blue"
     ]
    },
    {
@@ -1947,7 +1947,7 @@
     "items": [
      "Bloodletting",
      "Vinegar",
-     "Theriac",
+     "Smoking",
      "Posies"
     ]
    },
@@ -1955,7 +1955,7 @@
     "colour": "blue",
     "label": "How a city dealt with the infected",
     "items": [
-     "Lazaretto",
+     "Quarantine",
      "Pest house",
      "Cordon sanitaire",
      "Plague pit"
@@ -1963,12 +1963,12 @@
    },
    {
     "colour": "purple",
-    "label": "Everyday words left behind by discarded medical theory",
+    "label": "Words the four humours left in English",
     "items": [
-     "Melancholy",
-     "Hysteria",
-     "Lunatic",
-     "Phlegmatic"
+     "Sanguine",
+     "Choleric",
+     "Phlegmatic",
+     "Melancholy"
     ]
    }
   ]
@@ -3813,12 +3813,12 @@
   "groups": [
    {
     "colour": "yellow",
-    "label": "Ancient board games",
+    "label": "Board games older than the printing press",
     "items": [
-     "Senet",
+     "Chess",
      "Go",
-     "Patolli",
-     "Mancala"
+     "Backgammon",
+     "Draughts"
     ]
    },
    {

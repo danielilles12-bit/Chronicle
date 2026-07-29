@@ -105,10 +105,10 @@
   ],
   "blurb": "Truck driver turned singer who made his hips a public-decency issue (1935–1977) · never toured abroad — his 'Colonel' manager was secretly a Dutchman with no passport",
   "img": "assets/img/elvis-presley.jpg",
-  "fx": 0.5,
-  "fy": 0.42,
+  "fx": 0.48,
+  "fy": 0.55,
   "frac": 0.35,
-  "start": 6,
+  "start": 2,
   "license": "Public domain",
   "attribution": "Metro-Goldwyn-Mayer, Inc.",
   "source": "Wikimedia Commons: YoungElvisPresley.jpg",
@@ -119,7 +119,8 @@
   "mcq": [
    "Kurt Cobain",
    "Tupac Shakur"
-  ]
+  ],
+  "image_modifications": "cropped"
  },
  {
   "id": "socrates",
@@ -583,8 +584,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "El Cid",
-   "Tutankhamun"
+   "Martin Luther",
+   "Hernán Cortés"
   ]
  },
  {
@@ -721,7 +722,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Augustus",
-   "Julius Caesar"
+   "Saint Peter"
   ]
  },
  {
@@ -806,7 +807,8 @@
   "mcq": [
    "George III",
    "Louis XVI"
-  ]
+  ],
+  "start": 4
  },
  {
   "id": "queen-elizabeth-ii",
@@ -962,13 +964,13 @@
   ],
   "blurb": "Wartime PM who offered blood, toil, tears and sweat (1874–1965) · cigar in hand, giving his famous 'V for Victory' sign, Bradford, 1942",
   "img": "assets/img/winston-churchill.jpg",
-  "fx": 0.7,
-  "fy": 0.309,
+  "fx": 0.45,
+  "fy": 0.28,
   "frac": 0.20447816432272384,
   "license": "Public domain",
   "attribution": "War Office official photographer (Capt. Horton)",
   "source": "Wikimedia Commons: Winston Churchill, cigar in mouth, gives his famous 'V' for victory sign during a visit to Bradford, 4 December 1942. H25966.jpg",
-  "start": 6,
+  "start": 3,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Winston_Churchill%2C_cigar_in_mouth%2C_gives_his_famous_%27V%27_for_victory_sign_during_a_visit_to_Bradford%2C_4_December_1942._H25966.jpg",
   "image_author": "War Office official photographer, Horton (Capt)",
   "image_license": "Public domain",
@@ -976,7 +978,8 @@
   "mcq": [
    "Edward VIII",
    "George VI"
-  ]
+  ],
+  "image_modifications": "cropped"
  },
  {
   "id": "ada-lovelace",
@@ -1225,7 +1228,7 @@
   "reserve": true,
   "mcq": [
    "Cleopatra",
-   "Kösem Sultan"
+   "Mary Magdalene"
   ]
  },
  {
@@ -1307,7 +1310,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Rumi",
-   "William Shakespeare"
+   "Kublai Khan"
   ]
  },
  {
@@ -1800,8 +1803,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Abraham",
-   "Ada Lovelace"
+   "Friedrich Schiller",
+   "Alexander Hamilton"
   ]
  },
  {
@@ -2163,7 +2166,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Catherine the Great",
-   "Hatshepsut"
+   "Mary Wollstonecraft"
   ]
  },
  {
@@ -2215,9 +2218,10 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Paul the Apostle",
-   "Abraham"
-  ]
+   "Henry VIII",
+   "Hernán Cortés"
+  ],
+  "start": 1
  },
  {
   "id": "michelangelo",
@@ -2463,7 +2467,8 @@
   "mcq": [
    "Golda Meir",
    "Eva Perón"
-  ]
+  ],
+  "start": 7
  },
  {
   "id": "rembrandt-self",
@@ -2849,7 +2854,7 @@
   "reserve": true,
   "mcq": [
    "Boudica",
-   "Kösem Sultan"
+   "Cleopatra"
   ]
  },
  {
@@ -2993,7 +2998,7 @@
   "reserve": true,
   "mcq": [
    "Al-Biruni",
-   "Blaise Pascal"
+   "Ibn al-Haytham"
   ]
  },
  {
@@ -3047,7 +3052,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Adam Smith",
-   "Wang Yangming"
+   "Immanuel Kant"
   ]
  },
  {
@@ -3325,8 +3330,8 @@
   "image_retrieved": "2026-07-21",
   "reserve": true,
   "mcq": [
-   "Zhu Xi",
-   "Al-Mansur"
+   "Ito Hirobumi",
+   "Joseph Lister"
   ]
  },
  {
@@ -3466,8 +3471,8 @@
   "image_retrieved": "2026-07-21",
   "reserve": true,
   "mcq": [
-   "Henry VIII",
-   "Akhenaten"
+   "Alp Arslan",
+   "Ibn Rushd"
   ]
  },
  {
@@ -3547,8 +3552,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Catherine de' Medici",
-   "Anne Boleyn"
+   "Wu Zetian",
+   "Boudica"
   ]
  },
  {
@@ -3878,8 +3883,8 @@
   "image_retrieved": "2026-07-21",
   "image_author": "This file was donated to Wikimedia Commons as part of a project by the Metropolitan Museum of Art. See the Image and Data Resources Open Access Policy",
   "mcq": [
-   "Marie Antoinette",
-   "Catherine the Great"
+   "Mary Magdalene",
+   "Virgin Mary"
   ]
  },
  {
@@ -3989,7 +3994,7 @@
   "reserve": true,
   "mcq": [
    "Ibn Rushd",
-   "Immanuel Kant"
+   "Zhu Xi"
   ]
  },
  {
@@ -4018,8 +4023,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Wangari Maathai",
-   "Kösem Sultan"
+   "Emmy Noether",
+   "Jane Addams"
   ]
  },
  {
@@ -4153,7 +4158,8 @@
   "mcq": [
    "B. R. Ambedkar",
    "Muhammad Ali Jinnah"
-  ]
+  ],
+  "start": 1
  },
  {
   "id": "jean-jacques-rousseau",
@@ -4262,7 +4268,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Attila the Hun",
-   "Charlemagne"
+   "Saint Augustine"
   ]
  },
  {
@@ -4812,8 +4818,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Immanuel Kant",
-   "Confucius"
+   "Attila the Hun",
+   "Justinian I"
   ]
  },
  {
@@ -4838,8 +4844,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Hatshepsut",
-   "George Eliot"
+   "Corazon Aquino",
+   "Katherine Johnson"
   ]
  },
  {
@@ -4868,8 +4874,8 @@
   "image_retrieved": "2026-07-21",
   "reserve": true,
   "mcq": [
-   "Wang Yangming",
-   "Nogi Maresuke"
+   "Nogi Maresuke",
+   "Fukuzawa Yukichi"
   ]
  },
  {
@@ -4897,8 +4903,9 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Voltaire",
-   "Lord Byron"
-  ]
+   "Denis Diderot"
+  ],
+  "start": 1
  },
  {
   "id": "sitting-bull",
@@ -5090,7 +5097,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Oda Nobunaga",
-   "Timur"
+   "William Shakespeare"
   ]
  },
  {
@@ -5198,9 +5205,10 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Attila the Hun",
-   "Vasco da Gama"
-  ]
+   "Zachary Taylor",
+   "Nikolai Gogol"
+  ],
+  "start": 7
  },
  {
   "id": "woodrow-wilson",
@@ -5281,8 +5289,8 @@
   "image_retrieved": "2026-07-21",
   "reserve": true,
   "mcq": [
-   "Moses",
-   "John the Baptist"
+   "Harun al-Rashid",
+   "Al-Mamun"
   ]
  },
  {
@@ -5311,8 +5319,8 @@
   "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Genghis Khan",
-   "Timur"
+   "Aristotle",
+   "Ashoka the Great"
   ]
  },
  {
@@ -5339,7 +5347,7 @@
   "reserve": true,
   "mcq": [
    "Saladin",
-   "Al-Mamun"
+   "Ibn al-Haytham"
   ]
  },
  {
@@ -5395,7 +5403,7 @@
   "reserve": true,
   "mcq": [
    "Justinian I",
-   "Ivan the Terrible"
+   "Saint Augustine"
   ]
  },
  {
@@ -5535,7 +5543,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Marie Antoinette",
-   "Hatshepsut"
+   "Mary Wollstonecraft"
   ]
  },
  {
@@ -5882,7 +5890,8 @@
   "mcq": [
    "Denis Diderot",
    "Walter Scott"
-  ]
+  ],
+  "start": 3
  },
  {
   "id": "genghis-khan",
@@ -5908,8 +5917,9 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Timur",
-   "Alexander the Great"
-  ]
+   "Rumi"
+  ],
+  "start": 1
  },
  {
   "id": "giuseppe-verdi",
@@ -6355,7 +6365,7 @@
   "id": "mary-anning",
   "name": "Mary Anning",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "mary anning",
    "anning"
@@ -6373,9 +6383,10 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Ban Zhao",
-   "Sacagawea"
-  ]
+   "Sacagawea",
+   "Jane Austen"
+  ],
+  "start": 1
  },
  {
   "id": "mary-queen-of-scots",
@@ -6491,7 +6502,7 @@
   "id": "niels-bohr",
   "name": "Niels Bohr",
   "kind": "portrait",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "niels bohr",
    "bohr"
@@ -6627,8 +6638,8 @@
   "image_retrieved": "2026-07-21",
   "reserve": true,
   "mcq": [
-   "Vera Rubin",
-   "Hürrem Sultan"
+   "Kösem Sultan",
+   "Artemisia Gentileschi"
   ]
  },
  {
@@ -6656,8 +6667,8 @@
   "image_retrieved": "2026-07-21",
   "reserve": true,
   "mcq": [
-   "Naresuan",
-   "Shaka Zulu"
+   "Baybars",
+   "Kublai Khan"
   ]
  },
  {
@@ -6792,8 +6803,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Naresuan",
-   "Qutuz"
+   "Simón Bolívar",
+   "John Adams"
   ]
  },
  {
@@ -6850,7 +6861,8 @@
   "mcq": [
    "Agatha Christie",
    "Anne Frank"
-  ]
+  ],
+  "start": 4
  },
  {
   "id": "sylvia-plath",
@@ -6959,8 +6971,8 @@
   "image_retrieved": "2026-07-21",
   "reserve": true,
   "mcq": [
-   "Alexander the Great",
-   "Tokugawa Ieyasu"
+   "Julius Caesar",
+   "Sima Qian"
   ]
  },
  {
@@ -7061,7 +7073,7 @@
   "license": "Public domain",
   "attribution": "Unknown artist (late 16th century)",
   "source": "Wikimedia Commons: Anne Boleyn.jpg",
-  "start": 6,
+  "start": 2,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Anne_Boleyn.jpg",
   "image_author": "Scanned from the book The National Portrait Gallery History of the Kings and Queens of England by David Williamson, ISBN 1855142287.",
   "image_license": "Public domain",
@@ -7128,8 +7140,8 @@
   "image_retrieved": "2026-07-21",
   "reserve": true,
   "mcq": [
-   "Mary Anning",
-   "Mary Magdalene"
+   "Mary Magdalene",
+   "Virgin Mary"
   ]
  },
  {
@@ -7241,7 +7253,7 @@
   "reserve": true,
   "mcq": [
    "Elizabeth Cady Stanton",
-   "Empress Theodora"
+   "Empress Dowager Cixi"
   ]
  },
  {
@@ -7263,7 +7275,7 @@
   "attribution": "Metropolitan Museum of Art",
   "source": "Wikimedia Commons: Portrait Bust of a Woman (called Cleopatra).jpg",
   "_image_fix": true,
-  "start": 7,
+  "start": 4,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Portrait_Bust_of_a_Woman_%28called_Cleopatra%29.jpg",
   "image_author": "MumblerJamie",
   "image_license": "CC BY-SA 2.0",
@@ -7271,7 +7283,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Boudica",
-   "Elizabeth I"
+   "Virgin Mary"
   ]
  },
  {
@@ -7381,7 +7393,7 @@
   "reserve": true,
   "mcq": [
    "Al-Biruni",
-   "Isaac Newton"
+   "Al-Khwarizmi"
   ]
  },
  {
@@ -7401,7 +7413,7 @@
   "license": "Public domain",
   "attribution": "Unknown photographer",
   "source": "Wikimedia Commons: Portrait of Jane Addams - DPLA - 931a363b0b56d5f4e8b7829b483b128d.jpg",
-  "start": 6,
+  "start": 4,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Jane_Addams_-_DPLA_-_931a363b0b56d5f4e8b7829b483b128d.jpg",
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
@@ -7519,7 +7531,8 @@
   "mcq": [
    "Marie Curie",
    "Rosalind Franklin"
-  ]
+  ],
+  "start": 7
  },
  {
   "id": "mihrimah-sultan",
@@ -7574,8 +7587,8 @@
   "image_retrieved": "2026-07-21",
   "reserve": true,
   "mcq": [
-   "Shaka Zulu",
-   "Qutuz"
+   "Akbar the Great",
+   "Philip II of Spain"
   ]
  },
  {
@@ -7658,8 +7671,8 @@
   "image_author": "歷代聖賢半身像　冊　司馬遷. 故宮典藏資料檢索. National Palace Museum.",
   "reserve": true,
   "mcq": [
-   "Herodotus",
-   "Denis Diderot"
+   "Vercingetorix",
+   "Julius Caesar"
   ]
  },
  {
@@ -7798,8 +7811,8 @@
   "image_retrieved": "2026-07-21",
   "reserve": true,
   "mcq": [
-   "Ban Zhao",
-   "Nogi Maresuke"
+   "Okubo Toshimichi",
+   "Van Gogh Self-Portrait"
   ]
  },
  {
@@ -7825,8 +7838,8 @@
   "image_retrieved": "2026-07-21",
   "reserve": true,
   "mcq": [
-   "Alexander Pushkin",
-   "Plato"
+   "Giuseppe Garibaldi",
+   "Samori Ture"
   ]
  },
  {
@@ -7852,8 +7865,8 @@
   "image_retrieved": "2026-07-21",
   "reserve": true,
   "mcq": [
-   "Alexander Hamilton",
-   "Niccolò Machiavelli"
+   "Niccolò Machiavelli",
+   "René Descartes"
   ]
  },
  {
@@ -8296,7 +8309,8 @@
   "mcq": [
    "Jimi Hendrix",
    "Louis Armstrong"
-  ]
+  ],
+  "start": 4
  },
  {
   "id": "jesus",
@@ -9007,7 +9021,8 @@
   "mcq": [
    "T. S. Eliot",
    "John Steinbeck"
-  ]
+  ],
+  "start": 3
  },
  {
   "id": "aristotle",
@@ -9346,7 +9361,8 @@
   "mcq": [
    "Frank Sinatra",
    "Kurt Cobain"
-  ]
+  ],
+  "start": 2
  },
  {
   "id": "mother-teresa",
@@ -9389,8 +9405,8 @@
   ],
   "blurb": "Founding father who defended the Boston Massacre soldiers in court (1735–1826) · died on 4 July 1826, the Declaration's 50th anniversary, hours after Thomas Jefferson — unaware his old rival had gone first",
   "img": "assets/img/john-adams.jpg",
-  "fx": 0.53,
-  "fy": 0.3,
+  "fx": 0.46,
+  "fy": 0.35,
   "frac": 0.26,
   "license": "Public domain",
   "attribution": "Gilbert Stuart",
@@ -9402,7 +9418,9 @@
   "mcq": [
    "Thomas Jefferson",
    "James Madison"
-  ]
+  ],
+  "start": 2,
+  "image_modifications": "cropped"
  },
  {
   "id": "hendrix",
@@ -9609,8 +9627,8 @@
   ],
   "blurb": "Seventh president of the United States (1767–1845) · his pet parrot, Poll, had to be carried out of Jackson's own funeral for swearing at the mourners",
   "img": "assets/img/andrew-jackson.jpg",
-  "fx": 0.5,
-  "fy": 0.3,
+  "fx": 0.46,
+  "fy": 0.35,
   "frac": 0.3,
   "license": "Public domain",
   "attribution": "Ralph Eleaser Whiteside Earl",
@@ -9622,7 +9640,9 @@
   "mcq": [
    "John Quincy Adams",
    "William Henry Harrison"
-  ]
+  ],
+  "start": 1,
+  "image_modifications": "cropped"
  },
  {
   "id": "agatha-christie",
@@ -9674,8 +9694,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Al-Mansur",
-   "John the Baptist"
+   "Tutankhamun",
+   "Akhenaten"
   ]
  },
  {
@@ -9705,7 +9725,8 @@
   "mcq": [
    "Pope Benedict XVI",
    "Pope Pius XII"
-  ]
+  ],
+  "start": 3
  },
  {
   "id": "john-wayne",
@@ -9759,7 +9780,8 @@
   "mcq": [
    "Arthur Conan Doyle",
    "Jules Verne"
-  ]
+  ],
+  "start": 0
  },
  {
   "id": "khrushchev",
@@ -9869,7 +9891,8 @@
   "mcq": [
    "Napoleon",
    "Louis XVI"
-  ]
+  ],
+  "start": 7
  },
  {
   "id": "pope-benedict-xvi",
@@ -9951,8 +9974,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Paul the Apostle",
-   "John the Baptist"
+   "Moses",
+   "Tutankhamun"
   ]
  },
  {
@@ -10232,7 +10255,8 @@
   "mcq": [
    "Tupac Shakur",
    "Frank Sinatra"
-  ]
+  ],
+  "start": 5
  },
  {
   "id": "henry-ford",
@@ -10414,8 +10438,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Saladin",
-   "Louis XVI"
+   "Solomon",
+   "Ramesses II"
   ]
  },
  {
@@ -10549,7 +10573,8 @@
   "mcq": [
    "Mikhail Gorbachev",
    "Nikita Khrushchev"
-  ]
+  ],
+  "start": 3
  },
  {
   "id": "david-lynch",
@@ -10629,8 +10654,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "John the Baptist",
-   "Saint Peter"
+   "Moses",
+   "David"
   ]
  },
  {
@@ -10671,8 +10696,8 @@
   ],
   "blurb": "President who died a month into his term (1773–1841) · gave the longest inaugural address in history — nearly two hours, no coat — then died 31 days later, the shortest presidency ever",
   "img": "assets/img/william-henry-harrison.jpg",
-  "fx": 0.47,
-  "fy": 0.3,
+  "fx": 0.41,
+  "fy": 0.35,
   "frac": 0.35,
   "license": "Public domain",
   "attribution": "James Lambdin",
@@ -10684,7 +10709,9 @@
   "mcq": [
    "James Madison",
    "Andrew Jackson"
-  ]
+  ],
+  "start": 1,
+  "image_modifications": "cropped"
  },
  {
   "id": "frank-lloyd-wright",
@@ -10768,7 +10795,8 @@
   "mcq": [
    "Virgin Mary",
    "Cleopatra"
-  ]
+  ],
+  "start": 7
  },
  {
   "id": "mohammad-reza-pahlavi",
@@ -10824,7 +10852,8 @@
   "mcq": [
    "Pol Pot",
    "Ho Chi Minh"
-  ]
+  ],
+  "start": 2
  },
  {
   "id": "eleanor-roosevelt",
@@ -11065,8 +11094,8 @@
   ],
   "blurb": "US First Lady, later a book editor (1929–1994) · spent her last two decades editing books at Viking and Doubleday, insisting on no special treatment",
   "img": "assets/img/jackie-kennedy.jpg",
-  "fx": 0.52,
-  "fy": 0.32,
+  "fx": 0.48,
+  "fy": 0.35,
   "frac": 0.35,
   "license": "Public domain",
   "attribution": "Mark Shaw",
@@ -11078,7 +11107,9 @@
   "mcq": [
    "Amelia Earhart",
    "Selena"
-  ]
+  ],
+  "start": 3,
+  "image_modifications": "cropped"
  },
  {
   "id": "shinzo-abe",
@@ -11214,7 +11245,8 @@
   "mcq": [
    "Dwight D. Eisenhower",
    "Herbert Hoover"
-  ]
+  ],
+  "start": 3
  },
  {
   "id": "jinnah",
@@ -11326,7 +11358,7 @@
   "reserve": true,
   "mcq": [
    "Dante Alighieri",
-   "Johann Wolfgang von Goethe"
+   "Genghis Khan"
   ]
  },
  {
@@ -11353,8 +11385,8 @@
   "image_retrieved": "2026-07-24",
   "reserve": true,
   "mcq": [
-   "Hannibal",
-   "Suleiman the Magnificent"
+   "Confucius",
+   "Herodotus"
   ]
  },
  {
@@ -11396,7 +11428,7 @@
   "blurb": "First president born a US citizen, and a Dutch speaker at home (1782–1862) · the first president born a US citizen rather than a British subject, and possibly the source of 'OK' via his nickname 'Old Kinderhook'",
   "img": "assets/img/martin-van-buren.jpg",
   "fx": 0.5,
-  "fy": 0.24,
+  "fy": 0.35,
   "frac": 0.3,
   "license": "Public domain",
   "attribution": "Mathew Benjamin Brady / Levin Corbin Handy",
@@ -11408,7 +11440,9 @@
   "mcq": [
    "James Buchanan",
    "Abraham Lincoln"
-  ]
+  ],
+  "start": 5,
+  "image_modifications": "cropped"
  },
  {
   "id": "richard-feynman",
@@ -11462,8 +11496,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "John the Baptist",
-   "Solomon"
+   "William Henry Harrison",
+   "Andrew Jackson"
   ]
  },
  {
@@ -11599,7 +11633,8 @@
   "mcq": [
    "Martin Van Buren",
    "James Buchanan"
-  ]
+  ],
+  "start": 4
  },
  {
   "id": "steinbeck",
@@ -11787,8 +11822,8 @@
   "image_retrieved": "2026-07-24",
   "reserve": true,
   "mcq": [
-   "Sima Qian",
-   "Johann Wolfgang von Goethe"
+   "Socrates",
+   "Gautama Buddha"
   ]
  },
  {

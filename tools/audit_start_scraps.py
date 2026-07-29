@@ -53,10 +53,10 @@ def money_scrap(fx, fy):
 def start_scrap(fx, fy, override=None):
     m = money_scrap(fx, fy)
     # Curated override (js/revealgame.js's startScrap): honoured whenever it's
-    # a valid, in-range cell that isn't the money cell itself — the audit must
-    # render exactly what the app actually shows, not the calculated default
-    # an override was written to replace.
-    if isinstance(override, int) and 0 <= override <= 8 and override != m:
+    # a valid, in-range cell — INCLUDING the money cell itself (owner ruling,
+    # 29 Jul 2026: for obscure subjects the give-away opener is the kinder
+    # game). The audit must render exactly what the app actually shows.
+    if isinstance(override, int) and 0 <= override <= 8:
         return override
     mr, mc = divmod(m, 3)
     best, bd = 0, -1

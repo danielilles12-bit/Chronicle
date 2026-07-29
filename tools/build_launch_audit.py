@@ -52,7 +52,8 @@ def money_scrap(item):
 def start_scrap(item):
     m = money_scrap(item)
     override = item.get("start")
-    if isinstance(override, int) and 0 <= override <= 8 and override != m:
+    # money-cell overrides are legal (owner ruling 29 Jul 2026, revealgame.js)
+    if isinstance(override, int) and 0 <= override <= 8:
         return override
     mr, mc = divmod(m, 3)
     best, bd = 0, -1
@@ -107,7 +108,8 @@ def collect(start_ed, days):
                      "difficulty": it.get("difficulty") or "?",
                      "fame": sig.get("fame"), "sal": sal.get((g, iid)),
                      "region": sig.get("region"), "era": sig.get("era"),
-                     "occ": sig.get("occupation_family")}
+                     "occ": sig.get("occupation_family"),
+                     "mcq": it.get("mcq") or []}
                 if g in ("who", "what"):
                     r.update({"img": img_url(it), "fx": it["fx"], "fy": it["fy"],
                               "money": money_scrap(it), "start": start_scrap(it),
@@ -167,6 +169,7 @@ def image_round(r, key):
     <h4>{e(r['name'])}</h4>
     <p class="blurb">{e(r['blurb'])}</p>
     <p class="sig">{sig_line(r)}</p>
+    <p class="mcqline">3-choice clue: <b>{e(r['name'])}</b> vs {e(' vs '.join(r['mcq']) if r['mcq'] else '(none)')}</p>
     <p class="startline">{curated}
        <span class="startnow">opens on scrap <b>{r['start'] + 1}</b></span>
        <button type="button" class="reset" hidden>reset</button></p>
@@ -193,6 +196,7 @@ def map_round(r, key):
     <p class="blurb">{e(r['occupation'])}</p>
     <p class="fact">{e(r['fact'])}</p>
     <p class="sig">{sig_line(r)}</p>
+    <p class="mcqline">3-choice clue: <b>{e(r['name'])}</b> vs {e(' vs '.join(r['mcq']) if r['mcq'] else '(none)')}</p>
     <textarea class="fb" data-key="{key}" rows="2"
       placeholder="Notes on this round…"></textarea>
   </div>
@@ -332,6 +336,8 @@ a{{color:var(--pink)}}
 .window.all .cell.open{{box-shadow:inset 0 0 0 2px var(--pink)}}
 .window.all .cell.money{{box-shadow:inset 0 0 0 2px var(--blue)}}
 .peek{{display:block;font-size:11.5px;color:var(--muted);margin-top:6px;cursor:pointer}}
+.mcqline{{margin:0 0 5px;font-size:12px;color:#2A2A26}}
+.mcqline b{{color:var(--pink)}}
 .startline{{margin:0 0 8px;font-size:12px;display:flex;gap:8px;align-items:center;
   flex-wrap:wrap}}
 .pill{{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
@@ -411,7 +417,7 @@ textarea.fb.filled{{border-color:var(--pink);background:#FFF8FC}}
 <div id="toast"></div>
 
 <script>
-const KEY='df-launch-audit-v1';
+const KEY='df-launch-audit-v2';
 const store=JSON.parse(localStorage.getItem(KEY)||'{{}}');
 
 function save(){{localStorage.setItem(KEY,JSON.stringify(store));count();}}

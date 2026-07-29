@@ -805,7 +805,8 @@
   "mcq": [
    "Tower of London",
    "Domesday Book"
-  ]
+  ],
+  "start": 3
  },
  {
   "id": "leaning-tower-pisa",
@@ -844,8 +845,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Cologne Cathedral",
-   "Tower of London"
+   "Notre-Dame de Paris",
+   "Cologne Cathedral"
   ]
  },
  {
@@ -954,8 +955,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Tower of London",
-   "Leaning Tower of Pisa"
+   "Leaning Tower of Pisa",
+   "Tower of London"
   ]
  },
  {
@@ -1346,7 +1347,7 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Joyofmuseums",
   "source": "Wikimedia Commons: Antikythera Mechanism - National Archaeological Museum, Athens by Joy of Museum.jpg",
-  "start": 2,
+  "start": 3,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Antikythera_Mechanism_-_National_Archaeological_Museum%2C_Athens_by_Joy_of_Museum.jpg",
   "image_author": "Joyofmuseums",
   "image_license": "CC BY-SA 4.0",
@@ -2202,7 +2203,7 @@
   "license": "CC BY-SA 4.0",
   "attribution": "W. Bulach",
   "source": "Wikimedia Commons: 00 0572 Mont Saint Michel abbey.jpg",
-  "start": 6,
+  "start": 7,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:00_0572_Mont_Saint_Michel_abbey.jpg",
   "image_author": "W. Bulach",
   "image_license": "CC BY-SA 4.0",
@@ -2325,8 +2326,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Kaaba",
-   "St Peter's Basilica"
+   "Neuschwanstein Castle",
+   "Kaaba"
   ]
  },
  {
@@ -3441,7 +3442,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Temple of Heaven",
-   "Egyptian Museum"
+   "Egyptian Museum, Cairo"
   ]
  },
  {
@@ -5628,7 +5629,7 @@
   "image_license_url": "https://creativecommons.org/licenses/by/2.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Egyptian Museum",
+   "Egyptian Museum, Cairo",
    "Quba Mosque"
   ]
  },
@@ -6999,7 +7000,8 @@
   "mcq": [
    "Guernica",
    "Sagrada Família"
-  ]
+  ],
+  "start": 1
  },
  {
   "id": "space-shuttle",
@@ -7028,7 +7030,8 @@
   "mcq": [
    "Saturn V",
    "Little Boy"
-  ]
+  ],
+  "start": 3
  },
  {
   "id": "world-trade-center",
@@ -7086,7 +7089,8 @@
   "mcq": [
    "Metropolitan Museum of Art",
    "American Museum of Natural History"
-  ]
+  ],
+  "image_modifications": "cropped"
  },
  {
   "id": "kaaba",
@@ -7150,7 +7154,7 @@
   "id": "shroud-of-turin",
   "name": "Shroud of Turin",
   "kind": "artefact",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "shroud of turin",
    "turin shroud",
@@ -7170,7 +7174,8 @@
   "mcq": [
    "Bayeux Tapestry",
    "Cyrus Cylinder"
-  ]
+  ],
+  "start": 7
  },
  {
   "id": "saturn-v",
@@ -7302,7 +7307,8 @@
   "mcq": [
    "Terracotta Army",
    "Great Sphinx of Giza"
-  ]
+  ],
+  "start": 3
  },
  {
   "id": "sydney-opera-house",
@@ -7329,7 +7335,8 @@
   "mcq": [
    "Chrysler Building",
    "Hoover Dam"
-  ]
+  ],
+  "start": 5
  },
  {
   "id": "voyager-golden-record",
@@ -7413,7 +7420,8 @@
   "mcq": [
    "British Museum",
    "St Paul's Cathedral"
-  ]
+  ],
+  "start": 1
  },
  {
   "id": "uss-constitution",
@@ -7496,7 +7504,8 @@
   "mcq": [
    "Sistine Chapel",
    "Sistine Chapel Ceiling"
-  ]
+  ],
+  "start": 3
  },
  {
   "id": "koh-i-noor",
@@ -7513,20 +7522,22 @@
   "years": "c. 17th century",
   "blurb": "Seized by the British East India Company in 1849 · a legend claims the diamond curses any man who wears it — every royal owner since has been a queen or queen consort",
   "img": "assets/img/koh-i-noor.jpg",
-  "fx": 0.5,
-  "fy": 0.5,
+  "fx": 0.52,
+  "fy": 0.45,
   "frac": 0.4,
-  "license": "Public domain",
-  "attribution": "Ahnode",
-  "source": "Wikimedia Commons: Koh-i-noor (after 1852).png",
-  "image_source_url": "https://commons.wikimedia.org/wiki/File:Koh-i-noor_(after_1852).png",
-  "image_author": "Ahnode",
-  "image_license": "Public domain",
-  "image_retrieved": "2026-07-24",
+  "license": "CC BY 2.0",
+  "attribution": "aiva.",
+  "source": "Wikimedia Commons: Replica of the Koh-i-Noor (cropped).jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Replica_of_the_Koh-i-Noor_(cropped).jpg",
+  "image_author": "aiva.",
+  "image_license": "CC BY 2.0",
+  "image_retrieved": "2026-07-29",
   "mcq": [
    "Bayeux Tapestry",
    "Shroud of Turin"
-  ]
+  ],
+  "start": 3,
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0"
  },
  {
   "id": "temple-artemis",
@@ -7611,7 +7622,8 @@
   "mcq": [
    "Mausoleum at Halicarnassus",
    "Hanging Gardens of Babylon"
-  ]
+  ],
+  "start": 1
  },
  {
   "id": "holy-sepulchre",
@@ -7695,7 +7707,8 @@
   "mcq": [
    "Sistine Chapel Ceiling",
    "Sistine Chapel"
-  ]
+  ],
+  "start": 5
  },
  {
   "id": "chrysler-building",
@@ -7722,7 +7735,8 @@
   "mcq": [
    "Hoover Dam",
    "National Gallery of Art"
-  ]
+  ],
+  "start": 8
  },
  {
   "id": "colossus-rhodes",
@@ -8205,7 +8219,11 @@
    "st edward's crown",
    "saint edward's crown",
    "st edwards crown",
-   "coronation crown"
+   "coronation crown",
+   "the coronation crown",
+   "british coronation crown",
+   "english coronation crown",
+   "royal coronation crown"
   ],
   "blurb": "Solid-gold coronation crown remade in 1661 for Charles II after Parliament melted down the medieval original · used to crown every British monarch since",
   "img": "assets/img/st-edwards-crown.jpg",
@@ -8518,7 +8536,7 @@
   "id": "amber-room",
   "name": "Amber Room",
   "kind": "artefact",
-  "difficulty": "easy",
+  "difficulty": "medium",
   "variants": [
    "amber room",
    "the amber room"
@@ -8754,7 +8772,8 @@
   "mcq": [
    "Elgin Marbles",
    "Venus of Willendorf"
-  ]
+  ],
+  "start": 5
  },
  {
   "id": "uffizi",
@@ -8865,7 +8884,8 @@
   "mcq": [
    "Cahokia",
    "Empire State Building"
-  ]
+  ],
+  "start": 3
  },
  {
   "id": "natural-history-museum-london",
@@ -9041,7 +9061,8 @@
   "mcq": [
    "Karnak",
    "Hattusa"
-  ]
+  ],
+  "start": 5
  },
  {
   "id": "peacock-throne",
@@ -9100,7 +9121,7 @@
   "id": "bhimbetka",
   "name": "Rock Shelters of Bhimbetka",
   "kind": "artefact",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "rock shelters of bhimbetka",
    "bhimbetka rock shelters",
@@ -9130,7 +9151,7 @@
   "id": "khufu-ship",
   "name": "Khufu ship",
   "kind": "artefact",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "khufu ship",
    "khufu's ship",
@@ -9185,13 +9206,14 @@
   "mcq": [
    "Tate Modern",
    "Natural History Museum, London"
-  ]
+  ],
+  "start": 3
  },
  {
   "id": "merv",
   "name": "Ancient Merv",
   "kind": "artefact",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "ancient merv",
    "merv",
@@ -9214,7 +9236,8 @@
   "mcq": [
    "Registan",
    "Rock Shelters of Bhimbetka"
-  ]
+  ],
+  "start": 8
  },
  {
   "id": "shivaji-terminus",
@@ -9244,7 +9267,8 @@
   "mcq": [
    "Rock Shelters of Bhimbetka",
    "Taxila"
-  ]
+  ],
+  "start": 1
  },
  {
   "id": "tate-modern",
@@ -9402,13 +9426,14 @@
   "mcq": [
    "Imperial Regalia of Japan",
    "Daigo Fukuryū Maru"
-  ]
+  ],
+  "start": 3
  },
  {
   "id": "cyrene",
   "name": "Cyrene",
   "kind": "artefact",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "cyrene",
    "cyrene libya",
@@ -9429,7 +9454,8 @@
   "mcq": [
    "Pergamon",
    "Church of the Holy Sepulchre"
-  ]
+  ],
+  "start": 1
  },
  {
   "id": "vatican-museums",
@@ -9597,7 +9623,8 @@
   "mcq": [
    "Palenque",
    "Pyramid of the Sun"
-  ]
+  ],
+  "start": 3
  },
  {
   "id": "badshahi-mosque",
@@ -9708,7 +9735,8 @@
   "mcq": [
    "Seville Cathedral",
    "Hattusa"
-  ]
+  ],
+  "start": 3
  },
  {
   "id": "codex-alexandrinus",
@@ -9789,7 +9817,8 @@
   "mcq": [
    "Liberty Bell",
    "Enola Gay"
-  ]
+  ],
+  "start": 3
  },
  {
   "id": "sunflowers-munich",
@@ -9823,7 +9852,7 @@
   "id": "forth-bridge",
   "name": "Forth Bridge",
   "kind": "artefact",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "forth bridge",
    "the forth bridge",
@@ -9846,7 +9875,8 @@
   "mcq": [
    "Tate Modern",
    "Rijksmuseum"
-  ]
+  ],
+  "start": 3
  },
  {
   "id": "hawa-mahal",
@@ -10072,14 +10102,17 @@
  },
  {
   "id": "egyptian-museum",
-  "name": "Egyptian Museum",
+  "name": "Egyptian Museum, Cairo",
   "kind": "artefact",
   "difficulty": "medium",
   "variants": [
    "egyptian museum",
    "egyptian museum cairo",
    "museum of egyptian antiquities",
-   "cairo museum"
+   "cairo museum",
+   "the egyptian museum",
+   "old egyptian museum",
+   "tahrir museum"
   ],
   "blurb": "Opened on Cairo's Tahrir Square in 1902 · Tutankhamun's treasures sat in the same un-air-conditioned display cases there for over a century before finally moving out in the 2020s",
   "img": "assets/img/egyptian-museum.jpg",
@@ -10421,6 +10454,7 @@
   "mcq": [
    "Stonehenge",
    "The Parthenon"
-  ]
+  ],
+  "start": 1
  }
 ]

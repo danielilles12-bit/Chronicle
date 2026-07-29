@@ -128,12 +128,30 @@ def load_signals():
     return tag_people, tag_objects, fame_idx, uni_idx
 
 
+import re
+
+# Lifespan parentheticals as the reveal blurbs write them: "(624–705)",
+# "(c. 1341–1323 BC)", "(1884-1972)". Same convention js/revealgame.js's
+# clueYears scrapes for the Lived clue.
+_LIFESPAN = re.compile(
+    r"\(\s*(?:c\.\s*)?(\d{1,4})\s*[–—-]\s*(?:c\.\s*)?(\d{1,4})\s*(BC|BCE)?\s*\)")
+
+
 def death_year(item, tag_rec, uni_rec):
     if isinstance(item.get("death"), dict) and item["death"].get("year") is not None:
         return item["death"]["year"]
     for rec in (tag_rec, uni_rec):
         if rec and rec.get("death_year") is not None:
             return rec["death_year"]
+    # Curated years field, then the blurb's lifespan parenthetical (mirrors
+    # clueYears in js/revealgame.js). Without this, ~20% of portraits carried
+    # no era signal at all and the era gate silently waved anything through
+    # (the audit's Wu Zetian → Sally Ride case, 29 Jul 2026).
+    for text in (str(item.get("years") or ""), item.get("blurb") or ""):
+        m = _LIFESPAN.search(text)
+        if m:
+            y = int(m.group(2))
+            return -y if m.group(3) else y
     return None
 
 
@@ -147,7 +165,9 @@ def era_rank(tag_rec):
 # Gender (portraits only)
 # ---------------------------------------------------------------------------
 def blurb_gender(item):
-    text = " %s " % normalise(item.get("blurb", ""))
+    # figures.json carries its prose in `fact`, reveal files in `blurb`
+    text = " %s " % normalise(" ".join(
+        filter(None, [item.get("blurb", ""), item.get("fact", "")])))
     fem = sum(text.count(" %s " % w) for w in ("she", "her", "hers", "herself"))
     masc = sum(text.count(" %s " % w) for w in ("he", "his", "him", "himself"))
     if fem and not masc:
@@ -233,6 +253,23 @@ def occupation_of(game, item, tag_people, tag_objects, uni_idx):
     return (family, fine)
 
 
+# Era gate (Daniel's audit ruling, 29 Jul 2026): the last-choice trio must
+# feel earned — "for Caesar, think Brutus and Augustus, never a medieval
+# monarch". When both death years are known the distractor must die within
+# ERA_WINDOW years of the target; with only coarse era buckets, within one
+# bucket. Items that can't field two such distractors relax the window step
+# by step (reported), rather than shipping a giveaway.
+ERA_WINDOW = 200
+
+
+def era_compatible(tm, cm, window):
+    if tm["dy"] is not None and cm["dy"] is not None:
+        return abs(tm["dy"] - cm["dy"]) <= window
+    if tm["era"] is not None and cm["era"] is not None:
+        return abs(tm["era"] - cm["era"]) <= (1 if window <= ERA_WINDOW * 2 else 2)
+    return True   # no signal on either side: not a reason to exclude
+
+
 def pick_distractors(game, items, signals, genders):
     tag_people, tag_objects, fame_idx, uni_idx = signals
     tag_idx = tag_objects if game == "what" else tag_people
@@ -252,8 +289,9 @@ def pick_distractors(game, items, signals, genders):
             "gender": genders.get(it["id"]) if genders else None,
         }
 
-    out = {}
-    for t in items:
+    relaxed = []
+
+    def candidates_for(t, window):
         tm = meta[t["id"]]
         scored = []
         for c in items:
@@ -265,9 +303,14 @@ def pick_distractors(game, items, signals, genders):
             if game == "who" and tm["dy"] is not None and cm["dy"] is not None:
                 if (tm["dy"] >= PHOTO_YEAR) != (cm["dy"] >= PHOTO_YEAR):
                     continue      # photo face vs bust-era name = giveaway
-            if game == "who" and tm["gender"] and cm["gender"] \
+            # Gender gate now covers Lifeline too (Daniel, 29 Jul 2026):
+            # "3 people from the same era and gender" — a lone female name
+            # among male options (or vice versa) reads as filler either way.
+            if game in ("who", "map") and tm["gender"] and cm["gender"] \
                     and tm["gender"] != cm["gender"]:
-                continue          # the torn portrait shows this
+                continue
+            if game in ("who", "map") and not era_compatible(tm, cm, window):
+                continue          # hard era gate; see ERA_WINDOW note
             score = 0.0
             t_fam, t_fine = tm["occ"]
             c_fam, c_fine = cm["occ"]
@@ -287,9 +330,34 @@ def pick_distractors(game, items, signals, genders):
                 score += 10.0
             if game == "who" and tm["gender"] and not cm["gender"]:
                 score -= 15.0     # unknown gender is a risk on a portrait
-            scored.append((-score, c["id"], c["name"]))
+            # Objects: a same-kind pool of 2+ makes kind a hard gate below,
+            # so the score only orders within it; nothing extra needed here.
+            scored.append((-score, c["id"], c["name"], (c_fam is not None
+                                                        and c_fam == t_fam)))
         scored.sort()
-        out[t["id"]] = [nm for _, _, nm in scored[:2]]
+        if game == "what":
+            same_kind = [s for s in scored if s[3]]
+            if len(same_kind) >= 2:
+                scored = same_kind  # hard kind gate when the pool allows it
+        return scored
+
+    out = {}
+    for t in items:
+        window = ERA_WINDOW
+        scored = candidates_for(t, window)
+        while len(scored) < 2 and window < ERA_WINDOW * 8:
+            window *= 2
+            scored = candidates_for(t, window)
+            if len(scored) >= 2:
+                relaxed.append((t["id"], window))
+        if len(scored) < 2:       # last resort: no era gate at all
+            scored = candidates_for(t, 10 ** 6)
+            relaxed.append((t["id"], "none"))
+        out[t["id"]] = [nm for _, _, nm, _ in scored[:2]]
+    if relaxed:
+        print(f"build_mcq: {game}: era gate relaxed for {len(relaxed)} item(s): "
+              + ", ".join(f"{i}({w})" for i, w in relaxed[:8])
+              + ("…" if len(relaxed) > 8 else ""))
     return out
 
 
@@ -328,13 +396,18 @@ def main():
 
     signals = load_signals()
     genders = resolve_genders(who, signals[3], offline)
+    # Lifeline needs genders too now (same-era-same-gender rule). The cache
+    # is keyed by item id; where who/figures share an id they share a person,
+    # so collisions are harmless.
+    map_genders = resolve_genders(figs, signals[3], offline)
 
     for game, items, path, all_items in (
             ("who", who, WHO, who_all),
             ("what", what, WHAT, what_all),
             ("map", figs, FIGS, figs)):
         picks = pick_distractors(game, items, signals,
-                                 genders if game == "who" else None)
+                                 {"who": genders, "map": map_genders,
+                                  "what": None}[game])
         n = 0
         for it in all_items:
             if it["id"] in picks and len(picks[it["id"]]) == 2:

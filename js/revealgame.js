@@ -342,8 +342,12 @@ function startScrap(item) {
   // Curated override (start-scrap fairness audit, tools/audit_start_scraps.py):
   // the farthest-from-the-money-shot default can land on sky/backdrop; `start`
   // pins the opening scrap to a cell that actually shows part of the subject.
-  if (Number.isInteger(item.start) && item.start >= 0 && item.start <= 8
-      && item.start !== m) {
+  // A curated start MAY be the money cell itself (owner ruling, 29 Jul 2026):
+  // for obscure subjects, opening on the give-away is kinder than a fair-but-
+  // hopeless tear path — "it's more satisfying to guess from the single scrap
+  // already provided". The old `!== m` guard only protected against accident;
+  // curation is not an accident.
+  if (Number.isInteger(item.start) && item.start >= 0 && item.start <= 8) {
     return item.start;
   }
   const mr = Math.floor(m / 3), mc = m % 3;

@@ -53,8 +53,8 @@
   "fact": "She spoke at least nine languages and was the first Ptolemaic ruler in three centuries to bother learning Egyptian.",
   "_note": "Good one",
   "mcq": [
-   "Herod the Great",
-   "Mark Antony"
+   "Boudica",
+   "Zenobia"
   ]
  },
  {
@@ -137,8 +137,8 @@
   },
   "fact": "The doctor who did his autopsy stole his brain, sliced it into 240 pieces, and kept it in mayonnaise jars",
   "mcq": [
-   "Marie Curie",
-   "Stephen Hawking"
+   "Stephen Hawking",
+   "Enrico Fermi"
   ]
  },
  {
@@ -166,7 +166,7 @@
   "fact": "He dissected more than 30 corpses by candlelight, paying grave robbers to keep him supplied",
   "mcq": [
    "Johannes Gutenberg",
-   "Nikola Tesla"
+   "Ferdinand Magellan"
   ]
  },
  {
@@ -222,8 +222,8 @@
   },
   "fact": "She survived eight assassination attempts in 63 years — only the cane-wielding one in 1850 drew blood",
   "mcq": [
-   "Otto von Bismarck",
-   "Benjamin Disraeli"
+   "Golda Meir",
+   "Margaret Thatcher"
   ]
  },
  {
@@ -250,8 +250,8 @@
   },
   "fact": "On Robben Island he set out to learn Afrikaans, the warders' language, trading English lessons for it",
   "mcq": [
-   "Mother Teresa",
-   "Martin Luther King Jr."
+   "Martin Luther King Jr.",
+   "Che Guevara"
   ]
  },
  {
@@ -336,8 +336,8 @@
   },
   "fact": "Twenty-five years after she burned, a papal retrial threw out the verdict and declared her innocent",
   "mcq": [
-   "Tamerlane",
-   "William Wallace"
+   "Isabella I of Castile",
+   "Anne Boleyn"
   ]
  },
  {
@@ -365,8 +365,8 @@
   },
   "fact": "Still the only person ever awarded Nobel Prizes in two different sciences, physics and chemistry",
   "mcq": [
-   "Albert Einstein",
-   "Enrico Fermi"
+   "Florence Nightingale",
+   "Anne Frank"
   ]
  },
  {
@@ -473,8 +473,8 @@
   },
   "fact": "The helper who found her diary on the floor kept it unread in a drawer for years, hoping to return it to her",
   "mcq": [
-   "James Joyce",
-   "George Bernard Shaw"
+   "Agatha Christie",
+   "Maya Angelou"
   ]
  },
  {
@@ -501,7 +501,7 @@
   "fact": "Climbing the scaffold, she stepped on her executioner's foot and apologized — her last words",
   "mcq": [
    "Catherine the Great",
-   "Diana, Princess of Wales"
+   "Maria Theresa"
   ]
  },
  {
@@ -530,6 +530,14 @@
   "mcq": [
    "Ptolemy I Soter",
    "Seleucus I Nicator"
+  ],
+  "reject": [
+   "alexander of russia",
+   "alexander russia",
+   "alexander i of russia",
+   "alexander i",
+   "alexander ii",
+   "alexander iii"
   ]
  },
  {
@@ -555,8 +563,8 @@
   },
   "fact": "The Crimean fever that nearly killed her left her bedridden for the next thirty years",
   "mcq": [
-   "Robert Koch",
-   "Alfred Nobel"
+   "Marie Curie",
+   "Rosa Luxemburg"
   ]
  },
  {
@@ -642,7 +650,7 @@
   "fact": "He had his own son and heir, Mustafa, executed on suspicion of plotting against him",
   "mcq": [
    "Selim I",
-   "Mary I of England"
+   "Ivan the Terrible"
   ]
  },
  {
@@ -670,8 +678,8 @@
   },
   "fact": "An English captain lured her aboard his ship with a copper kettle, then held her hostage for over a year",
   "mcq": [
-   "Henry IV of France",
-   "James I of England"
+   "Elizabeth I of England",
+   "Mary, Queen of Scots"
   ]
  },
  {
@@ -758,14 +766,14 @@
   },
   "fact": "His tomb warns of a curse — Soviets opened it in June 1941; Hitler invaded two days later",
   "mcq": [
-   "Joan of Arc",
-   "William Wallace"
+   "William Wallace",
+   "Genghis Khan"
   ]
  },
  {
   "id": "catherine",
   "name": "Catherine the Great",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "catherine the great",
    "catherine ii",
@@ -787,7 +795,7 @@
   "fact": "She built the Hermitage by buying up entire private collections from Europe's bankrupt aristocrats",
   "mcq": [
    "Marie Antoinette",
-   "Diana, Princess of Wales"
+   "Maria Theresa"
   ]
  },
  {
@@ -1036,8 +1044,8 @@
   "fact": "Tradition holds he could not read or write; the Quran was gathered into one text only after he died",
   "reserve": true,
   "mcq": [
-   "Paul the Apostle",
-   "Pope Francis"
+   "Justinian I",
+   "Xuanzang"
   ]
  },
  {
@@ -1252,8 +1260,8 @@
   "difficulty": "easy",
   "fact": "In 1952 the US revoked his re-entry permit over suspected communism — the FBI's own files show no evidence",
   "mcq": [
-   "Audrey Hepburn",
-   "Marlene Dietrich"
+   "Bruce Lee",
+   "Marlon Brando"
   ]
  },
  {
@@ -1362,7 +1370,7 @@
   "fact": "In 1945 she trained as an army mechanic and truck driver — the only royal woman ever on active military duty",
   "mcq": [
    "Diana, Princess of Wales",
-   "Catherine the Great"
+   "Margaret Thatcher"
   ]
  },
  {
@@ -1469,8 +1477,8 @@
   "difficulty": "easy",
   "fact": "Dying of jaw cancer after 30-plus operations, his doctor ended it with a fatal morphine dose, at his request",
   "mcq": [
-   "Marie Curie",
-   "John Maynard Keynes"
+   "John Maynard Keynes",
+   "Alan Turing"
   ]
  },
  {
@@ -1497,7 +1505,7 @@
   "fact": "A gunshot at the Battle of Lepanto crippled his left hand for life; he called it his proudest wound",
   "mcq": [
    "John Milton",
-   "John Keats"
+   "Christopher Marlowe"
   ]
  },
  {
@@ -1627,8 +1635,8 @@
   "difficulty": "easy",
   "fact": "A Roman soldier killed him mid-equation in the sack of Syracuse, defying the general's order to spare him",
   "mcq": [
-   "Nicolaus Copernicus",
-   "John Maynard Keynes"
+   "Qin Shi Huang",
+   "Epicurus"
   ]
  },
  {
@@ -1656,7 +1664,7 @@
   "fact": "He hid his paralysis so completely that only a handful of photos ever show him in his wheelchair",
   "mcq": [
    "Adolf Hitler",
-   "Anne Frank"
+   "Benito Mussolini"
   ]
  },
  {
@@ -1710,7 +1718,7 @@
   "fact": "Her trademark breathy voice began as speech therapy for a childhood stutter",
   "mcq": [
    "Judy Garland",
-   "Bruce Lee"
+   "Grace Kelly"
   ]
  },
  {
@@ -1790,8 +1798,8 @@
   "difficulty": "easy",
   "fact": "The first Jesuit pope, he skipped the papal apartments entirely and lived in a Vatican guesthouse instead",
   "mcq": [
-   "Muhammad",
-   "Paul the Apostle"
+   "Pelé",
+   "Diego Maradona"
   ]
  },
  {
@@ -2089,8 +2097,8 @@
   "difficulty": "easy",
   "fact": "He edited a routine telegram into an insult, engineering the war with France that let him unify Germany",
   "mcq": [
-   "Queen Victoria",
-   "Benjamin Disraeli"
+   "Benjamin Disraeli",
+   "Napoleon III"
   ]
  },
  {
@@ -2198,7 +2206,7 @@
   "fact": "Drafted at his peak fame, he refused special treatment, serving as an ordinary tank crewman in Germany",
   "mcq": [
    "Jim Morrison",
-   "Nina Simone"
+   "Bruce Lee"
   ]
  },
  {
@@ -2251,7 +2259,7 @@
   "fact": "Between hit plays, Athens made him a war treasurer, then a general",
   "mcq": [
    "Aesop",
-   "Sappho"
+   "Herodotus"
   ]
  },
  {
@@ -2385,7 +2393,7 @@
   "fact": "Classmates mocked the huge, silent student as 'the Dumb Ox' — his teacher predicted a bellow to fill the world",
   "mcq": [
    "Averroes",
-   "Niccolò Machiavelli"
+   "Peter Abelard"
   ]
  },
  {
@@ -2411,8 +2419,8 @@
   "difficulty": "easy",
   "fact": "Before politics she was a food chemist, part of the team credited with helping perfect soft-serve ice cream",
   "mcq": [
-   "Henry Kissinger",
-   "Silvio Berlusconi"
+   "Golda Meir",
+   "Queen Victoria"
   ]
  },
  {
@@ -2545,8 +2553,8 @@
   "difficulty": "easy",
   "fact": "He set Ulysses on June 16, 1904 — the day he and Nora Barnacle first stepped out, now Bloomsday",
   "mcq": [
-   "Anne Frank",
-   "George Bernard Shaw"
+   "George Bernard Shaw",
+   "Thomas Mann"
   ]
  },
  {
@@ -2651,8 +2659,8 @@
   "difficulty": "easy",
   "fact": "He fought the Somme; by 1918 all but one close friend was dead, and Middle-earth grew from that grief",
   "mcq": [
-   "Agatha Christie",
-   "John Steinbeck"
+   "John Steinbeck",
+   "Pablo Neruda"
   ]
  },
  {
@@ -2677,8 +2685,8 @@
   "difficulty": "easy",
   "fact": "As a German teenager he was enrolled in the Hitler Youth by compulsory law, not by choice",
   "mcq": [
-   "Elizabeth II",
-   "Madeleine Albright"
+   "Mikhail Gorbachev",
+   "Pelé"
   ]
  },
  {
@@ -2812,7 +2820,7 @@
   "fact": "His famous synthesized voice, modeled on an American engineer's, never once sounded British",
   "mcq": [
    "Albert Einstein",
-   "Marie Curie"
+   "Enrico Fermi"
   ]
  },
  {
@@ -2892,8 +2900,8 @@
   "difficulty": "easy",
   "fact": "Her private letters reveal decades of doubting God's presence, hidden behind the public smile",
   "mcq": [
-   "Nelson Mandela",
-   "Che Guevara"
+   "Rosa Luxemburg",
+   "Harriet Tubman"
   ]
  },
  {
@@ -2946,7 +2954,7 @@
   "fact": "Cicero crowned him the father of history — critics just as often call him the father of lies",
   "mcq": [
    "Sophocles",
-   "Ibn Khaldun"
+   "Aesop"
   ]
  },
  {
@@ -3108,8 +3116,8 @@
   "difficulty": "easy",
   "fact": "She vanished for 11 days in 1926 and turned up registered under her husband's mistress's name",
   "mcq": [
-   "George Bernard Shaw",
-   "Thomas Mann"
+   "Anne Frank",
+   "Maya Angelou"
   ]
  },
  {
@@ -3136,7 +3144,7 @@
   "fact": "He set out to arrest Christians and was struck blind on the road, not seeing again for three days",
   "mcq": [
    "Saint Peter",
-   "Muhammad"
+   "Nero"
   ]
  },
  {
@@ -3189,7 +3197,7 @@
   "fact": "He had memorized the entire Quran by age 10 and was teaching physicians medicine as a teenager",
   "mcq": [
    "Averroes",
-   "Thomas Aquinas"
+   "Peter Abelard"
   ]
  },
  {
@@ -3241,8 +3249,8 @@
   "difficulty": "easy",
   "fact": "He held 355 patents, dynamite among them, and died having never once married",
   "mcq": [
-   "Florence Nightingale",
-   "Robert Koch"
+   "Robert Koch",
+   "Charles Darwin"
   ]
  },
  {
@@ -3323,7 +3331,7 @@
   "fact": "He wore a fresh red rose every single day, a quiet tribute to his late wife, Kamala",
   "mcq": [
    "Subhas Chandra Bose",
-   "Indira Gandhi"
+   "Herbert Hoover"
   ]
  },
  {
@@ -3565,8 +3573,8 @@
   "difficulty": "easy",
   "fact": "He was the first person to win both a Nobel Prize and an Oscar; only Bob Dylan has managed it since",
   "mcq": [
-   "Anne Frank",
-   "James Joyce"
+   "James Joyce",
+   "Thomas Mann"
   ]
  },
  {
@@ -3594,7 +3602,7 @@
   "fact": "Reconstructed from his own bones, he stood about 6 feet tall — a giant for his century",
   "mcq": [
    "Alfred the Great",
-   "Cnut the Great"
+   "Otto the Great"
   ]
  },
  {
@@ -3622,8 +3630,8 @@
   "difficulty": "easy",
   "fact": "She turned down suitors from Spain to Sweden, calling herself married to England instead",
   "mcq": [
-   "Philip II of Spain",
-   "Henry IV of France"
+   "Mary, Queen of Scots",
+   "Mary I of England"
   ]
  },
  {
@@ -3782,7 +3790,7 @@
    "lat": 55.71,
    "lon": 37.02
   },
-  "difficulty": "easy",
+  "difficulty": "medium",
   "fact": "Stalin's secret police chief later confessed at trial to poisoning him, a claim never fully proven",
   "mcq": [
    "Anton Chekhov",
@@ -3920,7 +3928,7 @@
   "fact": "His own backer sued him, seized his press, and left him bankrupt just as the Bible was finished",
   "mcq": [
    "Leonardo da Vinci",
-   "Alexander Graham Bell"
+   "Vlad the Impaler"
   ]
  },
  {
@@ -4164,7 +4172,7 @@
   "fact": "Nearly 3,000 people died in the attacks he orchestrated — at the World Trade Center, the Pentagon, and a field in Pennsylvania",
   "mcq": [
    "Lee Harvey Oswald",
-   "Amelia Earhart"
+   "Grigori Rasputin"
   ]
  },
  {
@@ -4300,8 +4308,8 @@
   "difficulty": "medium",
   "fact": "She was gunned down by two of her own bodyguards, months after ordering troops into Sikhism's holiest shrine",
   "mcq": [
-   "Jawaharlal Nehru",
-   "Subhas Chandra Bose"
+   "Golda Meir",
+   "Margaret Thatcher"
   ]
  },
  {
@@ -4409,7 +4417,7 @@
   "fact": "He built the first nuclear reactor inside a squash court under a football stadium's bleachers",
   "mcq": [
    "Albert Einstein",
-   "Marie Curie"
+   "Stephen Hawking"
   ]
  },
  {
@@ -4434,8 +4442,8 @@
   "difficulty": "medium",
   "fact": "No solid evidence he ever existed at all — the fables outlived any trace of the man",
   "mcq": [
-   "Sappho",
-   "Sophocles"
+   "Sophocles",
+   "Herodotus"
   ]
  },
  {
@@ -4515,8 +4523,8 @@
   "difficulty": "medium",
   "fact": "The emperor built a 24,000-book imperial library and never learned to read a single page of it",
   "mcq": [
-   "Elizabeth I of England",
-   "Philip II of Spain"
+   "Philip II of Spain",
+   "Henry IV of France"
   ]
  },
  {
@@ -4735,7 +4743,7 @@
   "fact": "The Nazis stripped him of his citizenship, so he broadcast anti-Hitler speeches back into Germany by radio",
   "mcq": [
    "George Bernard Shaw",
-   "Anne Frank"
+   "James Joyce"
   ]
  },
  {
@@ -4978,8 +4986,8 @@
   "difficulty": "medium",
   "fact": "Sent an activist to reject his Godfather Oscar onstage, protesting Hollywood's treatment of Native Americans",
   "mcq": [
-   "Grace Kelly",
-   "Bruce Lee"
+   "Bruce Lee",
+   "Charlie Chaplin"
   ]
  },
  {
@@ -5221,7 +5229,7 @@
   "fact": "The church's bedrock story of his upside-down crucifixion traces to a single apocryphal text, not the Bible",
   "mcq": [
    "Paul the Apostle",
-   "Pope Francis"
+   "Nero"
   ]
  },
  {
@@ -5328,8 +5336,8 @@
   "difficulty": "medium",
   "fact": "MGM kept her working on 'pep pills' by day and sleeping pills by night, starting as a teenager",
   "mcq": [
-   "Bruce Lee",
-   "Marilyn Monroe"
+   "Marilyn Monroe",
+   "Grace Kelly"
   ]
  },
  {
@@ -5356,7 +5364,7 @@
   "fact": "Her armored-vest walk through an Angolan minefield helped push through a global landmine ban treaty",
   "mcq": [
    "Elizabeth II",
-   "Catherine the Great"
+   "Mother Teresa"
   ]
  },
  {
@@ -5382,8 +5390,8 @@
   "difficulty": "medium",
   "fact": "Gave birth to a daughter while serving as prime minister — the first elected head of government ever to do so",
   "mcq": [
-   "John Tyler",
-   "Anastasio Somoza Debayle"
+   "Madeleine Albright",
+   "Harriet Tubman"
   ]
  },
  {
@@ -5409,7 +5417,7 @@
   "fact": "Ran a school admitting slaves and women, radical for Athens, while he personally lived on bread and water",
   "mcq": [
    "Aristotle",
-   "Pythagoras"
+   "Pyrrhus of Epirus"
   ]
  },
  {
@@ -5436,7 +5444,7 @@
   "fact": "His grave in a Paris cemetery draws more visitors than any other there, headstones and vandals included",
   "mcq": [
    "Elvis Presley",
-   "Nina Simone"
+   "Louis Armstrong"
   ]
  },
  {
@@ -5542,8 +5550,8 @@
   "difficulty": "medium",
   "fact": "One of her surviving poems turned up inside the papier-mâché wrapping of an Egyptian mummy",
   "mcq": [
-   "Aesop",
-   "Sophocles"
+   "Boudica",
+   "Nefertiti"
   ]
  },
  {
@@ -5569,8 +5577,8 @@
   "difficulty": "medium",
   "fact": "Spent years blind as a small child, cared for by sex workers at her grandmother's brothel until it lifted",
   "mcq": [
-   "Jim Morrison",
-   "Elvis Presley"
+   "Nina Simone",
+   "Greta Garbo"
   ]
  },
  {
@@ -5732,7 +5740,7 @@
   "fact": "Talked her way into becoming San Francisco's first Black streetcar conductor at fifteen",
   "mcq": [
    "Harper Lee",
-   "Elie Wiesel"
+   "Agatha Christie"
   ]
  },
  {
@@ -5785,7 +5793,7 @@
   "fact": "Spent five years in communist prisons for his plays; foreign theatres named him playwright-in-residence anyway",
   "mcq": [
    "Erich Maria Remarque",
-   "Agatha Christie"
+   "Alexander Solzhenitsyn"
   ]
  },
  {
@@ -5839,7 +5847,7 @@
   "fact": "Tried to hand back his Nobel Peace Prize after Saigon fell; the committee refused to take it",
   "mcq": [
    "Silvio Berlusconi",
-   "Margaret Thatcher"
+   "Josip Broz Tito"
   ]
  },
  {
@@ -5973,8 +5981,8 @@
   "difficulty": "medium",
   "fact": "Had children so late in life that his own grandsons were still alive nearly two centuries after his birth",
   "mcq": [
-   "Benazir Bhutto",
-   "Robert Peel"
+   "Robert Peel",
+   "Aurangzeb"
   ]
  },
  {
@@ -6136,7 +6144,7 @@
   "fact": "Walked unarmed into the Sultan's camp hoping to convert him, and came back with a horn and safe passage",
   "mcq": [
    "Maimonides",
-   "Catherine of Aragon"
+   "Thomas Becket"
   ]
  },
  {
@@ -6189,8 +6197,8 @@
   "difficulty": "hard",
   "fact": "Had a heretic burned at the stake in Geneva, then asked — unsuccessfully — for a quicker death by the sword",
   "mcq": [
-   "Catherine of Aragon",
-   "Guru Nanak"
+   "Guru Nanak",
+   "Huldrych Zwingli"
   ]
  },
  {
@@ -6298,7 +6306,7 @@
   "fact": "Prank-called one of his poisoners, who confessed on tape the nerve agent was smeared into his underwear's seam",
   "mcq": [
    "Frantz Fanon",
-   "Harriet Tubman"
+   "John Tyler"
   ]
  },
  {
@@ -6351,7 +6359,7 @@
   "fact": "At 29 ran Israel's Defense Ministry, and decades later was still in office as the world's oldest head of state",
   "mcq": [
    "Silvio Berlusconi",
-   "Margaret Thatcher"
+   "Henry Kissinger"
   ]
  },
  {
@@ -6428,11 +6436,11 @@
    "lat": 43.73,
    "lon": 7.43
   },
-  "difficulty": "hard",
+  "difficulty": "easy",
   "fact": "MGM stitched her wedding gown — six weeks, thirty seamstresses — as a gift for trading Hollywood for a crown",
   "mcq": [
-   "Bruce Lee",
-   "Judy Garland"
+   "Judy Garland",
+   "Marilyn Monroe"
   ]
  },
  {
@@ -6459,7 +6467,7 @@
   "fact": "His enforcers rode with a severed dog's head lashed to the saddle, vowing to sniff out the tsar's enemies",
   "mcq": [
    "Babur",
-   "Mary, Queen of Scots"
+   "Philip II of Spain"
   ]
  },
  {
@@ -6542,7 +6550,7 @@
   "fact": "Was too fat for his coffin — gravediggers forced the corpse in until it burst, and mourners fled the stench",
   "mcq": [
    "El Cid",
-   "Empress Matilda"
+   "Alexander Nevsky"
   ]
  },
  {
@@ -6595,8 +6603,8 @@
   "difficulty": "hard",
   "fact": "Learned at 59, as Secretary of State, that her parents hid a Jewish past — grandparents died in the camps",
   "mcq": [
-   "Alexei Navalny",
-   "Benazir Bhutto"
+   "Benazir Bhutto",
+   "Harriet Tubman"
   ]
  },
  {
@@ -6649,8 +6657,8 @@
   "difficulty": "hard",
   "fact": "Helped Truman Capote report In Cold Blood, then went 55 years without publishing another novel",
   "mcq": [
-   "Elie Wiesel",
-   "Maya Angelou"
+   "Maya Angelou",
+   "Agatha Christie"
   ]
  },
  {
@@ -6676,8 +6684,8 @@
   "difficulty": "hard",
   "fact": "Cut Night down from an 862-page Yiddish manuscript to the spare 116 pages most readers know",
   "mcq": [
-   "Harper Lee",
-   "Maya Angelou"
+   "James Baldwin",
+   "Marcus Garvey"
   ]
  },
  {
@@ -6702,8 +6710,8 @@
   "difficulty": "hard",
   "fact": "Her Berlin bust is missing its left eye — no iris was ever found, despite a reward once offered for it",
   "mcq": [
-   "Catherine de' Medici",
-   "Anne of Cleves"
+   "Hatshepsut",
+   "Sappho"
   ]
  },
  {
@@ -6729,8 +6737,8 @@
   "difficulty": "hard",
   "fact": "Led an armed Union raid that freed 750 enslaved people in one night, and was never paid for it",
   "mcq": [
-   "Alexei Navalny",
-   "Frantz Fanon"
+   "Benazir Bhutto",
+   "Madeleine Albright"
   ]
  },
  {
@@ -6764,7 +6772,6 @@
   "id": "frederick-barbarossa",
   "name": "Frederick Barbarossa",
   "variants": [
-   "barbarossa",
    "frederick barbarossa"
   ],
   "occupation": "Holy Roman Emperor who drowned on crusade",
@@ -6864,7 +6871,7 @@
   "fact": "Captured by Rome, he told his captor he'd become emperor — proven right within two years, earning his freedom",
   "mcq": [
    "Tacitus",
-   "Ibn Khaldun"
+   "Ovid"
   ]
  },
  {
@@ -6968,8 +6975,8 @@
   "difficulty": "hard",
   "fact": "Rome's own guard beheaded him in the Forum after seven months on the throne, then handed the head to his heir",
   "mcq": [
-   "Boudica",
-   "Nero"
+   "Nero",
+   "Vespasian"
   ]
  },
  {
@@ -7027,7 +7034,7 @@
   "fact": "Was queen of France, then England, then spent 16 years locked up by her husband for backing their sons' revolt",
   "mcq": [
    "Empress Matilda",
-   "El Cid"
+   "Richard I"
   ]
  },
  {
@@ -7170,8 +7177,8 @@
   },
   "fact": "His blood, watered down to nearly nothing, was bottled and sold to pilgrims — a trade behind Canterbury Tales",
   "mcq": [
-   "Guru Gobind Singh",
-   "William Tyndale"
+   "Maimonides",
+   "Francis of Assisi"
   ]
  },
  {
@@ -7198,8 +7205,8 @@
   },
   "fact": "Was castrated and disemboweled while alive at his execution, then his limbs were nailed up in four cities",
   "mcq": [
-   "Joan of Arc",
-   "Genghis Khan"
+   "Genghis Khan",
+   "Tamerlane"
   ]
  },
  {
@@ -7396,7 +7403,7 @@
   "fact": "His skeleton, dug up under a car park, showed real scoliosis — not the hunchback Tudor propaganda gave him",
   "mcq": [
    "Lorenzo de' Medici",
-   "Isabella I of Castile"
+   "Henry VII of England"
   ]
  },
  {
@@ -7423,8 +7430,8 @@
   },
   "fact": "Won his crown in battle, then spent his reign funding spies and building the biggest treasury in generations",
   "mcq": [
-   "Isabella I of Castile",
-   "Ferdinand II of Aragon"
+   "Ferdinand II of Aragon",
+   "Richard III of England"
   ]
  },
  {
@@ -7452,8 +7459,8 @@
   },
   "fact": "A friar had prophesied dogs would lick his blood — one was found at his leaking coffin",
   "mcq": [
-   "Lady Jane Grey",
-   "Afonso de Albuquerque"
+   "Afonso de Albuquerque",
+   "Hernán Cortés"
   ]
  },
  {
@@ -7483,8 +7490,8 @@
   },
   "fact": "Twice she showed every sign of pregnancy and twice, after months of waiting, there was no child",
   "mcq": [
-   "Francis I of France",
-   "Philip II of Spain"
+   "Isabella I of Castile",
+   "Elizabeth I of England"
   ]
  },
  {
@@ -7512,8 +7519,8 @@
   },
   "fact": "The executioner lifted her severed head by the hair — the wig came away and the head hit the floor",
   "mcq": [
-   "Philip II of Spain",
-   "Elizabeth I of England"
+   "Elizabeth I of England",
+   "Isabella I of Castile"
   ]
  },
  {
@@ -7679,8 +7686,8 @@
   },
   "fact": "Blindfolded at the block, she panicked, crying 'where is it' until hands guided her to it",
   "mcq": [
-   "Henry VIII of England",
-   "Afonso de Albuquerque"
+   "Mary I of England",
+   "Catherine of Aragon"
   ]
  },
  {
@@ -7792,8 +7799,8 @@
   },
   "fact": "Ministers called him the paper king for governing his empire from a desk buried in memos",
   "mcq": [
-   "Elizabeth I of England",
-   "Mary, Queen of Scots"
+   "Henry IV of France",
+   "James I of England"
   ]
  },
  {
@@ -7822,7 +7829,7 @@
   "fact": "The same year he backed Columbus's voyage, he signed the decree expelling Spain's Jews",
   "mcq": [
    "Henry VII of England",
-   "Isabella I of Castile"
+   "Lorenzo de' Medici"
   ]
  },
  {
@@ -7850,8 +7857,8 @@
   },
   "fact": "She's remembered for offering to pawn her jewels for Columbus — the treasury never needed them",
   "mcq": [
-   "Henry VII of England",
-   "Ferdinand II of Aragon"
+   "Mary I of England",
+   "Mary, Queen of Scots"
   ]
  },
  {
@@ -7878,8 +7885,8 @@
   },
   "fact": "Legend has him cradling the dying Leonardo da Vinci — he was two days' ride away that day",
   "mcq": [
-   "Mary I of England",
-   "Ferdinand II of Aragon"
+   "Ferdinand II of Aragon",
+   "Henry VII of England"
   ]
  },
  {
@@ -8269,8 +8276,8 @@
   },
   "fact": "His body was never identified among the thousands of dead on his final battlefield",
   "mcq": [
-   "Pyrrhus of Epirus",
-   "Ptolemy I Soter"
+   "Vercingetorix",
+   "Sulla"
   ]
  },
  {
@@ -8631,7 +8638,7 @@
   "fact": "Chroniclers called him 'the Hammer' for how he crushed his enemies, not for any one battle alone",
   "mcq": [
    "Belisarius",
-   "Seleucus I Nicator"
+   "Charlemagne"
   ]
  },
  {
@@ -8659,7 +8666,7 @@
   "fact": "Legend has him vowing they'd burned a goose but a swan would follow — Luther later claimed the title",
   "mcq": [
    "Guy Fawkes",
-   "Rosa Luxemburg"
+   "Richard II of England"
   ]
  },
  {
@@ -8795,8 +8802,8 @@
   },
   "fact": "His widow had him buried on South Georgia itself, his grave facing south toward the ice he loved",
   "mcq": [
-   "Mary Kingsley",
-   "George Mallory"
+   "George Mallory",
+   "Roald Amundsen"
   ]
  },
  {
@@ -8933,8 +8940,8 @@
   },
   "fact": "Legend claims 21 kills, one for every year of his life — historians can confirm about four",
   "mcq": [
-   "Amelia Earhart",
-   "Lee Harvey Oswald"
+   "Lee Harvey Oswald",
+   "Grigori Rasputin"
   ]
  },
  {
@@ -8962,8 +8969,8 @@
   },
   "fact": "He asked to be buried beside his greyhounds at Sanssouci — Germany finally granted it in 1991",
   "mcq": [
-   "Maria Theresa",
-   "Maximilien Robespierre"
+   "Maximilien Robespierre",
+   "Louis XVI"
   ]
  },
  {
@@ -8989,8 +8996,8 @@
   },
   "fact": "She had sixteen children and married her daughters into thrones across Europe, Marie Antoinette among them",
   "mcq": [
-   "Frederick the Great",
-   "Louis XV of France"
+   "Queen Victoria",
+   "Elizabeth I of England"
   ]
  },
  {
@@ -9047,8 +9054,8 @@
   },
   "fact": "A wrong turn by his driver stalled the car right in front of the gunman who had already missed once",
   "mcq": [
-   "Harriet Tubman",
-   "Menelik II"
+   "Menelik II",
+   "Emperor Meiji"
   ]
  },
  {
@@ -9104,8 +9111,8 @@
   },
   "fact": "Legend says he survived poison and bullets before drowning — forensics now blame one shot to the head",
   "mcq": [
-   "Amelia Earhart",
-   "Billy the Kid"
+   "Billy the Kid",
+   "Lee Harvey Oswald"
   ]
  },
  {
@@ -9219,8 +9226,8 @@
   },
   "fact": "As regent while Henry was in France, she rode north in armor, pregnant, against a Scottish invasion",
   "mcq": [
-   "John Calvin",
-   "Guru Nanak"
+   "Anne Boleyn",
+   "Lady Jane Grey"
   ]
  },
  {
@@ -9250,8 +9257,8 @@
    "william of orange"
   ],
   "mcq": [
-   "Mary, Queen of Scots",
-   "Philip II of Spain"
+   "Philip II of Spain",
+   "Henry IV of France"
   ]
  },
  {
@@ -9394,8 +9401,8 @@
   },
   "fact": "Her statues show her in a pharaoh's false beard, a symbol of divine kingship worn by rule, not gender",
   "mcq": [
-   "Akhenaten",
-   "Tutankhamun"
+   "Nefertiti",
+   "Cleopatra"
   ]
  },
  {
@@ -9423,7 +9430,7 @@
   "fact": "He tried to scrap Egypt's many gods for one sun disc — his own son reversed it and erased his name",
   "mcq": [
    "Tutankhamun",
-   "Hatshepsut"
+   "Ramesses II"
   ]
  },
  {
@@ -9475,8 +9482,8 @@
   },
   "fact": "His 282 laws were carved on a stone slab that raiders later looted as war trophy — now it sits in the Louvre",
   "mcq": [
-   "Constantine XI Palaiologos",
-   "Nader Shah"
+   "King David",
+   "Akhenaten"
   ]
  },
  {
@@ -9502,8 +9509,8 @@
   },
   "fact": "Fleeing a rival king, the Bible says he faked madness, drooling on his beard and scratching at the gate",
   "mcq": [
-   "William Howard Taft",
-   "Caligula"
+   "Ramesses II",
+   "Tutankhamun"
   ]
  },
  {
@@ -9530,8 +9537,8 @@
   },
   "fact": "He had his own sons executed so often that Augustus joked it was safer to be Herod's pig than his son",
   "mcq": [
-   "Cleopatra",
-   "Augustus"
+   "Augustus",
+   "Mark Antony"
   ]
  },
  {
@@ -9558,8 +9565,8 @@
   },
   "fact": "Tacitus says she took poison rather than let Rome capture her — another historian says she just fell ill",
   "mcq": [
-   "Galba",
-   "Claudius"
+   "Cleopatra",
+   "Zenobia"
   ]
  },
  {
@@ -9588,7 +9595,7 @@
   "fact": "He tucked lit, smoldering fuses under his hat before battle so smoke curled from his face like a demon",
   "mcq": [
    "Hayreddin Barbarossa",
-   "Catherine de' Medici"
+   "Billy the Kid"
   ]
  },
  {
@@ -9615,8 +9622,8 @@
   },
   "fact": "He was stabbed through the eye over a bar bill — by a man tied to the same spy network he worked for",
   "mcq": [
-   "James Baldwin",
-   "Elie Wiesel"
+   "Miguel de Cervantes",
+   "John Milton"
   ]
  },
  {
@@ -9645,8 +9652,8 @@
   },
   "fact": "Ottoman envoys who refused to remove their turbans before him had them nailed to their skulls instead",
   "mcq": [
-   "Anne Boleyn",
-   "Catherine de' Medici"
+   "Hayreddin Barbarossa",
+   "Richard III of England"
   ]
  },
  {
@@ -9675,8 +9682,8 @@
   },
   "fact": "In retirement he grew obsessed with clockwork, joking that ruling nations was easier than syncing two clocks",
   "mcq": [
-   "Mary I of England",
-   "Roxelana"
+   "Francisco Vázquez de Coronado",
+   "Piri Reis"
   ]
  },
  {
@@ -9758,8 +9765,8 @@
   },
   "fact": "He left China for India in defiance of an imperial travel ban, dodging patrols and crossing deserts by night",
   "mcq": [
-   "Zheng He",
-   "Erik the Red"
+   "Muhammad",
+   "Charles Martel"
   ]
  },
  {
@@ -9786,8 +9793,8 @@
   },
   "fact": "She invented a handful of new Chinese characters, including one made just for her own name",
   "mcq": [
-   "Charlemagne",
-   "Justinian I"
+   "Boudica",
+   "Isabella I of Castile"
   ]
  },
  {
@@ -9870,7 +9877,7 @@
   "fact": "A folk verse says that if the cuckoo won't sing, he'd simply wait — patience that outlasted two rival warlords",
   "mcq": [
    "Yi Sun-sin",
-   "Joan of Arc"
+   "Prince Eugene of Savoy"
   ]
  },
  {
@@ -10038,7 +10045,7 @@
   "fact": "The legendary Christian hero spent years as a mercenary defending Muslim Zaragoza from Christian armies",
   "mcq": [
    "William the Conqueror",
-   "Empress Matilda"
+   "Alexander Nevsky"
   ]
  },
  {
@@ -10064,8 +10071,8 @@
   },
   "fact": "Besieged in Damascus, he had himself lowered over the city walls in a basket to negotiate with Tamerlane",
   "mcq": [
-   "Josephus",
-   "Herodotus"
+   "Dante Alighieri",
+   "Rumi"
   ]
  },
  {
@@ -10176,8 +10183,8 @@
   },
   "fact": "He refused an alliance with the pope, submitted to Mongol overlords instead — and got sainted for it",
   "mcq": [
-   "Eleanor of Aquitaine",
-   "Empress Matilda"
+   "El Cid",
+   "William the Conqueror"
   ]
  },
  {
@@ -10396,8 +10403,8 @@
   "fact": "He tried to blockade the Red Sea and starve Mecca's pilgrim trade — the first Christian fleet ever to try it",
   "reserve": true,
   "mcq": [
-   "Lady Jane Grey",
-   "Henry VIII of England"
+   "Henry VIII of England",
+   "Vasco Núñez de Balboa"
   ]
  },
  {
@@ -10505,8 +10512,8 @@
   },
   "fact": "Legend has him resting with feet toward Mecca's Kaaba — scolded, he said God has no single direction",
   "mcq": [
-   "Catherine of Aragon",
-   "John Calvin"
+   "John Calvin",
+   "Huldrych Zwingli"
   ]
  },
  {
@@ -10563,7 +10570,7 @@
   "fact": "He spent his final decades as court physician to Saladin's family, philosophy squeezed in around house calls",
   "mcq": [
    "Francis of Assisi",
-   "Girolamo Savonarola"
+   "Thomas Becket"
   ]
  },
  {
@@ -10590,7 +10597,7 @@
   "fact": "He coined the word 'scapegoat' for his English Bible — then was strangled and burned for translating it",
   "mcq": [
    "Guru Gobind Singh",
-   "Thomas Becket"
+   "Huldrych Zwingli"
   ]
  },
  {
@@ -10617,7 +10624,7 @@
   "fact": "He torched Florence's art and finery in the Piazza della Signoria — then was hanged and burned there himself",
   "mcq": [
    "Huldrych Zwingli",
-   "Catherine of Aragon"
+   "John Calvin"
   ]
  },
  {
@@ -10644,8 +10651,8 @@
   },
   "fact": "He died fighting at Kappel; his enemies quartered his body and burned it mixed with pig offal",
   "mcq": [
-   "Catherine of Aragon",
-   "Girolamo Savonarola"
+   "Girolamo Savonarola",
+   "John Calvin"
   ]
  },
  {
@@ -10734,10 +10741,9 @@
  {
   "id": "hayreddin-barbarossa",
   "name": "Hayreddin Barbarossa",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "hayreddin barbarossa",
-   "barbarossa",
    "khair ad-din"
   ],
   "occupation": "Corsair who became the Ottoman navy",
@@ -10756,7 +10762,7 @@
   "fact": "For centuries, no Ottoman fleet left Istanbul without firing a cannon salute at his tomb first",
   "mcq": [
    "Blackbeard",
-   "Anne of Cleves"
+   "Vlad the Impaler"
   ]
  },
  {
@@ -10812,8 +10818,8 @@
   "fact": "Widowed with children to feed, she became Europe's first person to earn a living purely by writing",
   "reserve": true,
   "mcq": [
-   "Dante Alighieri",
-   "Nasir al-Din al-Tusi"
+   "Joan of Arc",
+   "Isabella I of Castile"
   ]
  },
  {
@@ -10896,7 +10902,7 @@
   "reserve": true,
   "mcq": [
    "Mary I of England",
-   "Francis I of France"
+   "Mary, Queen of Scots"
   ]
  },
  {
@@ -11007,8 +11013,8 @@
   },
   "fact": "He founded the Khalsa warrior order, then died from a stab wound eight years later — the stitches reopened",
   "mcq": [
-   "Thomas Becket",
-   "William Tyndale"
+   "William Tyndale",
+   "John Calvin"
   ]
  },
  {
@@ -11064,8 +11070,8 @@
   "fact": "The father of England's Parliament was killed at Evesham, then castrated and beheaded as a trophy",
   "reserve": true,
   "mcq": [
-   "Frantz Fanon",
-   "Alexei Navalny"
+   "Jan Hus",
+   "Nasir al-Din al-Tusi"
   ]
  },
  {
@@ -11094,8 +11100,8 @@
   },
   "fact": "He built an army of former slaves that beat Spanish, British, and Napoleon's own troops in turn",
   "mcq": [
-   "Rosa Luxemburg",
-   "Che Guevara"
+   "Che Guevara",
+   "Mahatma Gandhi"
   ]
  },
  {
@@ -11240,7 +11246,7 @@
   "fact": "Shot and dumped in a Berlin canal by right-wing paramilitaries, her body wasn't found for five months",
   "mcq": [
    "Mother Teresa",
-   "Mahatma Gandhi"
+   "Harriet Tubman"
   ]
  },
  {
@@ -11574,8 +11580,8 @@
   },
   "fact": "She set the women's world speed record in 1930, then flew solo across the Atlantic just two years later",
   "mcq": [
-   "Lee Harvey Oswald",
-   "Billy the Kid"
+   "Marilyn Monroe",
+   "Judy Garland"
   ]
  },
  {
@@ -11665,7 +11671,7 @@
   "fact": "She spied for the French Resistance, smuggling troop movements in invisible ink on her sheet music",
   "mcq": [
    "Isadora Duncan",
-   "Rudolf Nureyev"
+   "Grace Kelly"
   ]
  },
  {
@@ -11721,8 +11727,8 @@
   },
   "fact": "He moved to Paris at 24, saying he could finally see America clearly only from outside it",
   "mcq": [
-   "Harper Lee",
-   "Elie Wiesel"
+   "Elie Wiesel",
+   "Marcus Garvey"
   ]
  },
  {
@@ -11750,7 +11756,7 @@
   "fact": "He sought help from Hitler and Japan, then died in a plane crash so disputed many doubt it happened",
   "mcq": [
    "Jawaharlal Nehru",
-   "Indira Gandhi"
+   "Benito Mussolini"
   ]
  },
  {
@@ -11802,8 +11808,8 @@
   },
   "fact": "The man who identified tuberculosis left his wife for an art student thirty years his junior",
   "mcq": [
-   "Florence Nightingale",
-   "Alfred Nobel"
+   "Alfred Nobel",
+   "Charles Darwin"
   ]
  },
  {
@@ -11939,8 +11945,8 @@
   },
   "fact": "At a Paris airport in 1961, he broke from his Soviet handlers and threw himself at French police",
   "mcq": [
-   "Anna Pavlova",
-   "Josephine Baker"
+   "Freddie Mercury",
+   "Marlon Brando"
   ]
  },
  {
@@ -12027,8 +12033,8 @@
   },
   "fact": "Curtis Institute rejected the classical pianist she wanted to be; she blamed race and never let it go",
   "mcq": [
-   "Elvis Presley",
-   "Jim Morrison"
+   "Édith Piaf",
+   "Grace Kelly"
   ]
  },
  {
@@ -12081,8 +12087,8 @@
   },
   "fact": "He tipped off Israeli agents to Eichmann's hideout in Argentina, kicking off the hunt that caught him",
   "mcq": [
-   "Mother Teresa",
-   "Nelson Mandela"
+   "Nelson Mandela",
+   "W. E. B. Du Bois"
   ]
  },
  {
@@ -12135,8 +12141,8 @@
   },
   "fact": "After Munich's 1972 massacre, she personally authorized Mossad's secret hit squads to hunt down the plotters",
   "mcq": [
-   "Josip Broz Tito",
-   "Konrad Adenauer"
+   "Margaret Thatcher",
+   "Indira Gandhi"
   ]
  },
  {
@@ -12191,7 +12197,7 @@
   "fact": "He vanished near Everest's summit in 1924; his body wasn't found until 1999, the mystery still unsolved",
   "mcq": [
    "Ernest Shackleton",
-   "Mary Kingsley"
+   "Edmund Hillary"
   ]
  },
  {
@@ -12297,8 +12303,8 @@
   },
   "fact": "He died at 32 from brain swelling; the exact trigger is still debated fifty years later",
   "mcq": [
-   "Judy Garland",
-   "Grace Kelly"
+   "Marlon Brando",
+   "Charlie Chaplin"
   ]
  },
  {
@@ -12352,7 +12358,7 @@
   "fact": "Two days after killing Kennedy, he was shot dead himself on live television, in a police station basement",
   "mcq": [
    "Osama bin Laden",
-   "Amelia Earhart"
+   "Billy the Kid"
   ]
  },
  {
@@ -12380,8 +12386,8 @@
   "fact": "Exiled in Paraguay, he was killed by a bazooka round fired at his limousine from a nearby rooftop porch",
   "reserve": true,
   "mcq": [
-   "Benazir Bhutto",
-   "Tewodros II"
+   "Tewodros II",
+   "Bernardo O'Higgins"
   ]
  },
  {
@@ -12407,8 +12413,8 @@
   },
   "fact": "The anti-colonial thinker died of leukemia in a Maryland hospital, flown to America for treatment",
   "mcq": [
-   "Harriet Tubman",
-   "Alexei Navalny"
+   "Alexei Navalny",
+   "John Tyler"
   ]
  },
  {
@@ -12435,13 +12441,13 @@
   "fact": "She refused surgery near the end — 'if I can't dance, I'd rather be dead,' she said",
   "mcq": [
    "Isadora Duncan",
-   "Rudolf Nureyev"
+   "Josephine Baker"
   ]
  },
  {
   "id": "erich-maria-remarque",
   "name": "Erich Maria Remarque",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "erich maria remarque",
    "remarque"
@@ -12462,7 +12468,7 @@
   "fact": "The Nazis burned his anti-war novel, then executed his sister and billed the family for the guillotine",
   "mcq": [
    "Thomas Mann",
-   "Agatha Christie"
+   "George Bernard Shaw"
   ]
  },
  {
@@ -12659,8 +12665,8 @@
   "fact": "Her thick Victorian skirt saved her life, cushioning a fall onto a spiked animal trap",
   "reserve": true,
   "mcq": [
-   "Ernest Shackleton",
-   "George Mallory"
+   "Samuel Baker",
+   "Gertrude Bell"
   ]
  },
  {
@@ -12852,8 +12858,8 @@
   },
   "fact": "He snuck into Mecca in disguise, knowing discovery as a Christian meant instant death",
   "mcq": [
-   "Anna Pavlova",
-   "Édith Piaf"
+   "Charlie Chaplin",
+   "John Lennon"
   ]
  },
  {
@@ -12880,8 +12886,8 @@
   "fact": "A factory machine tore off part of her scalp at thirteen; she wore flamboyant hats to hide the scars",
   "reserve": true,
   "mcq": [
-   "Wilfred Thesiger",
-   "Mary Leakey"
+   "Mary Leakey",
+   "Greta Garbo"
   ]
  },
  {
@@ -12908,8 +12914,8 @@
   "fact": "He despised the motor car, blaming engines for shrinking a world he loved wild",
   "reserve": true,
   "mcq": [
-   "Freya Stark",
-   "Mary Leakey"
+   "Simon Wiesenthal",
+   "Louis Leakey"
   ]
  },
  {
@@ -12935,8 +12941,8 @@
   "fact": "She scaled peaks across the Alps first; one summit in the Bernese Oberland still bears her name",
   "reserve": true,
   "mcq": [
-   "Robert Peary",
-   "T. E. Lawrence"
+   "Anna Pavlova",
+   "Isadora Duncan"
   ]
  },
  {
@@ -12964,7 +12970,7 @@
   "reserve": true,
   "mcq": [
    "Louis Leakey",
-   "Mary Leakey"
+   "Alexander Hamilton"
   ]
  },
  {
@@ -12991,8 +12997,8 @@
   "fact": "She uncovered 3.6-million-year-old footprints at Laetoli, proof our ancestors walked upright",
   "reserve": true,
   "mcq": [
-   "Louis Leakey",
-   "Arthur Evans"
+   "Greta Garbo",
+   "Nina Simone"
   ]
  },
  {
@@ -13019,7 +13025,7 @@
   "reserve": true,
   "mcq": [
    "Arthur Evans",
-   "Mary Leakey"
+   "Alexander Hamilton"
   ]
  },
  {
@@ -13188,8 +13194,8 @@
   "fact": "His own diary later cast doubt on whether he ever actually reached the pole he was credited with",
   "reserve": true,
   "mcq": [
-   "Gertrude Bell",
-   "T. E. Lawrence"
+   "T. E. Lawrence",
+   "Charles de Gaulle"
   ]
  },
  {
@@ -13388,7 +13394,7 @@
   "fact": "He earned the nickname Leif the Lucky not for finding Vinland but for rescuing shipwrecked sailors",
   "mcq": [
    "Erik the Red",
-   "David Livingstone"
+   "Cnut the Great"
   ]
  },
  {
@@ -13416,7 +13422,7 @@
   "fact": "Exiled for manslaughter, he named a mostly-ice island Greenland purely to lure settlers there",
   "mcq": [
    "Leif Erikson",
-   "Robert Falcon Scott"
+   "Otto the Great"
   ]
  },
  {
@@ -13443,8 +13449,8 @@
   "fact": "Paraded through Rome in golden chains, she ended her days as a Roman society philosopher",
   "reserve": true,
   "mcq": [
-   "Septimius Severus",
-   "Diocletian"
+   "Boudica",
+   "Cleopatra"
   ]
  },
  {
@@ -13473,7 +13479,7 @@
   "fact": "She escaped a besieged castle by dressing in white and slipping across the frozen Thames",
   "mcq": [
    "Eleanor of Aquitaine",
-   "El Cid"
+   "Richard I"
   ]
  },
  {
@@ -13561,7 +13567,7 @@
   "fact": "The king who wished every family a Sunday chicken was stabbed to death in his own stalled carriage",
   "mcq": [
    "Philip II of Spain",
-   "Elizabeth I of England"
+   "James I of England"
   ]
  },
  {
@@ -13589,8 +13595,8 @@
   },
   "fact": "The deluge he predicted arrived for him first — he died of smallpox, his body blackened by it",
   "mcq": [
-   "Maria Theresa",
-   "Frederick the Great"
+   "Frederick the Great",
+   "Maximilien Robespierre"
   ]
  },
  {
@@ -13879,14 +13885,14 @@
   },
   "fact": "She wore men's clothes and abdicated for Rome; she's one of only three women buried in St Peter's",
   "mcq": [
-   "Charles II of England",
-   "Roger Williams"
+   "Pocahontas",
+   "Elizabeth I of England"
   ]
  },
  {
   "id": "gustavus-adolphus",
   "name": "Gustavus Adolphus",
-  "difficulty": "hard",
+  "difficulty": "medium",
   "variants": [
    "gustavus adolphus",
    "gustavus adolphus of sweden",
@@ -13973,7 +13979,7 @@
  {
   "id": "constantine-xi",
   "name": "Constantine XI Palaiologos",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "constantine xi",
    "constantine xi palaiologos",
@@ -14051,8 +14057,8 @@
   },
   "fact": "He marched into Britain behind war elephants in 43 AD, awing the tribes into surrender",
   "mcq": [
-   "Boudica",
-   "Caligula"
+   "Caligula",
+   "Tiberius"
   ]
  },
  {
@@ -14135,8 +14141,8 @@
   },
   "fact": "He tried to rebuild the Jewish Temple in Jerusalem purely to needle the triumphant Christians",
   "mcq": [
-   "Shaka Zulu",
-   "Robert Peel"
+   "Theodosius I",
+   "Constantine the Great"
   ]
  },
  {
@@ -14221,7 +14227,7 @@
   "fact": "Caesar kept him alive in a cell for six years just to march him through Rome before killing him",
   "mcq": [
    "Spartacus",
-   "Pyrrhus of Epirus"
+   "Cato the Younger"
   ]
  },
  {
@@ -14251,14 +14257,14 @@
   "fact": "He'd spent a lifetime dosing himself against poison and, at the end, found he couldn't die by it",
   "reserve": true,
   "mcq": [
-   "Kamehameha I",
-   "Bernardo O'Higgins"
+   "Cato the Younger",
+   "Crassus"
   ]
  },
  {
   "id": "pyrrhus-of-epirus",
   "name": "Pyrrhus of Epirus",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "variants": [
    "pyrrhus of epirus",
    "pyrrhus",
@@ -14423,7 +14429,7 @@
   "fact": "Outnumbered ten to one, he took North Africa from the Vandals with a single cavalry charge",
   "mcq": [
    "Charles Martel",
-   "Charles de Gaulle"
+   "Justinian I"
   ]
  },
  {
@@ -14737,8 +14743,8 @@
   },
   "fact": "The Gestapo jailed him after the plot on Hitler's life; four years later, aged 73, he became chancellor",
   "mcq": [
-   "Golda Meir",
-   "Winston Churchill"
+   "Winston Churchill",
+   "Josip Broz Tito"
   ]
  },
  {
@@ -14766,8 +14772,8 @@
   },
   "fact": "His private train carried him to an island retreat where he hosted Elizabeth Taylor and the Queen",
   "mcq": [
-   "Golda Meir",
-   "Konrad Adenauer"
+   "Konrad Adenauer",
+   "Winston Churchill"
   ]
  },
  {

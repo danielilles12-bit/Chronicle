@@ -1427,39 +1427,39 @@
   "42": {
    "date": "2026-08-10",
    "who": [
-    "michael-jackson",
-    "cleopatra",
-    "franz-kafka"
+    "napoleon",
+    "julius-caesar",
+    "wellington"
    ],
    "map": [
-    "andy-warhol",
-    "wu-zetian",
-    "jose-marti"
+    "marieantoinette",
+    "akbar",
+    "suleiman"
    ],
    "what": [
-    "space-shuttle",
-    "masada",
-    "shroud-of-turin"
+    "great-wall-china",
+    "shroud-of-turin",
+    "dead-sea-scrolls"
    ],
    "thread": [
-    "conn-020"
+    "conn-067"
    ]
   },
   "43": {
    "date": "2026-08-11",
    "who": [
     "winston-churchill",
-    "robin-williams",
+    "elizabeth-i",
     "anne-boleyn"
    ],
    "map": [
     "freddie-mercury",
-    "constantine-xi",
-    "george-mallory"
+    "alexander",
+    "frederick-barbarossa"
    ],
    "what": [
     "empire-state-building",
-    "rijksmuseum",
+    "bayeux-tapestry",
     "koh-i-noor"
    ],
    "thread": [
@@ -1471,7 +1471,7 @@
    "who": [
     "princess-diana",
     "andrew-jackson",
-    "mary-magdalene"
+    "charles-v-hre"
    ],
    "map": [
     "leonardo",
@@ -1479,8 +1479,8 @@
     "saladin"
    ],
    "what": [
-    "sydney-opera-house",
-    "lanse-aux-meadows",
+    "statue-of-liberty",
+    "mona-lisa",
     "catalhoyuk"
    ],
    "thread": [
@@ -1490,8 +1490,8 @@
   "45": {
    "date": "2026-08-13",
    "who": [
-    "tupac",
-    "rachel-carson",
+    "queen-victoria",
+    "martin-luther",
     "ferdinand-marcos"
    ],
    "map": [
@@ -1512,17 +1512,17 @@
    "date": "2026-08-14",
    "who": [
     "mozart",
-    "joseph-lister",
-    "kurt-cobain"
+    "louis-xiv",
+    "robert-e-lee"
    ],
    "map": [
-    "robert-falcon-scott",
-    "guru-gobind-singh",
+    "mustafa-kemal-ataturk",
+    "hadrian",
     "empress-matilda"
    ],
    "what": [
     "chrysler-building",
-    "cyrene",
+    "book-of-kells",
     "st-catherines-monastery"
    ],
    "thread": [
@@ -1533,29 +1533,29 @@
    "date": "2026-08-15",
    "who": [
     "marilyn-monroe",
-    "emmy-noether",
-    "friedrich-schiller"
+    "augustus-caesar",
+    "justinian-i"
    ],
    "map": [
-    "maxim-gorky",
+    "ludwig-van-beethoven",
     "charles-xii-sweden",
-    "richard-francis-burton"
+    "alexander-i-of-russia"
    ],
    "what": [
-    "hindenburg",
-    "forth-bridge",
-    "fram-ship"
+    "forbidden-city",
+    "last-supper",
+    "forth-bridge"
    ],
    "thread": [
-    "conn-007"
+    "conn-102"
    ]
   },
   "48": {
    "date": "2026-08-16",
    "who": [
     "rfk",
-    "niels-bohr",
-    "moses"
+    "genghis-khan",
+    "niels-bohr"
    ],
    "map": [
     "william-iii",
@@ -1563,8 +1563,8 @@
     "alexei-navalny"
    ],
    "what": [
+    "vitruvian-man",
     "amber-room",
-    "art-institute-chicago",
     "lahore-fort"
    ],
    "thread": [
@@ -1580,12 +1580,12 @@
    ],
    "map": [
     "pele",
-    "crassus",
-    "catherine"
+    "catherine",
+    "tamerlane"
    ],
    "what": [
     "white-house",
-    "vatican-museums",
+    "rosetta-stone",
     "villa-of-mysteries"
    ],
    "thread": [
@@ -1600,13 +1600,13 @@
     "agatha-christie"
    ],
    "map": [
-    "bruce-lee",
+    "abraham-lincoln",
     "harald-hardrada",
     "cook"
    ],
    "what": [
     "british-museum",
-    "khufu-ship",
+    "pieta-michelangelo",
     "ajanta-caves"
    ],
    "thread": [
@@ -1618,16 +1618,16 @@
    "who": [
     "hemingway",
     "george-iii",
-    "lise-meitner"
+    "ivan-the-terrible"
    ],
    "map": [
     "mary-queen-of-scots",
-    "erich-maria-remarque",
-    "grace-kelly"
+    "constantine-the-great",
+    "chandragupta-maurya"
    ],
    "what": [
     "us-capitol",
-    "bhimbetka",
+    "angkor-wat",
     "cullinan-diamond"
    ],
    "thread": [
@@ -1638,7 +1638,7 @@
    "date": "2026-08-20",
    "who": [
     "mother-teresa",
-    "selena",
+    "shakespeare",
     "william-henry-harrison"
    ],
    "map": [
@@ -1648,32 +1648,32 @@
    ],
    "what": [
     "enola-gay",
-    "merv",
+    "mont-saint-michel",
     "mary-rose"
    ],
    "thread": [
-    "conn-016"
+    "conn-011"
    ]
   },
   "53": {
    "date": "2026-08-21",
    "who": [
     "pope-john-paul-ii",
-    "mary-anning",
+    "jawaharlal-nehru",
     "zachary-taylor"
    ],
    "map": [
     "toussaint-louverture",
-    "pyrrhus-of-epirus",
+    "ulysses-s-grant",
     "f-scott-fitzgerald"
    ],
    "what": [
     "st-pauls-cathedral",
     "shivaji-terminus",
-    "codex-alexandrinus"
+    "antikythera-mechanism"
    ],
    "thread": [
-    "conn-126"
+    "conn-087"
    ]
   },
   "54": {
@@ -1685,13 +1685,13 @@
    ],
    "map": [
     "mandela",
-    "hayreddin-barbarossa",
-    "gustavus-adolphus"
+    "gustavus-adolphus",
+    "hayreddin-barbarossa"
    ],
    "what": [
     "voynich-manuscript",
     "spirit-of-st-louis",
-    "mikasa"
+    "laocoon"
    ],
    "thread": [
     "conn-137"
@@ -1705,13 +1705,13 @@
     "martin-van-buren"
    ],
    "map": [
-    "sun-yat-sen",
+    "columbus",
     "paul-gauguin",
     "greta-garbo"
    ],
    "what": [
     "st-edwards-crown",
-    "egyptian-museum",
+    "sistine-chapel",
     "port-royal"
    ],
    "thread": [
