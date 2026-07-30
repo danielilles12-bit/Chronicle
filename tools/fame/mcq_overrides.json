@@ -1,0 +1,393 @@
+{
+ "_comment": "Curated 3-choice distractors (Daniel's launch-window audit, 30 Jul 2026). build_mcq.py applies these AFTER generation — overrides always win, are validated against same/adjacent-day answers, and participate in the same-day duplicate-option rule. Entries marked by the audit as 'options are great' are pinned verbatim so regeneration can never drift them.",
+ "who": {
+  "winston-churchill": [
+   "Neville Chamberlain",
+   "Clement Attlee"
+  ],
+  "elizabeth-i": [
+   "Mary, Queen of Scots",
+   "Mary I of England"
+  ],
+  "anne-boleyn": [
+   "Catherine de' Medici",
+   "Catherine Howard"
+  ],
+  "princess-diana": [
+   "Grace Kelly",
+   "Audrey Hepburn"
+  ],
+  "queen-victoria": [
+   "Empress Elisabeth of Austria",
+   "Isabella II of Spain"
+  ],
+  "elvis-presley": [
+   "Kurt Cobain",
+   "James Dean"
+  ],
+  "agatha-christie": [
+   "Dorothy L. Sayers",
+   "Daphne du Maurier"
+  ],
+  "jackie-kennedy": [
+   "Amelia Earhart",
+   "Lady Bird Johnson"
+  ],
+  "simone-de-beauvoir": [
+   "Agatha Christie",
+   "Hannah Arendt"
+  ],
+  "george-orwell": [
+   "Aldous Huxley",
+   "Graham Greene"
+  ],
+  "charlie-chaplin": [
+   "John Wayne",
+   "Harry Houdini"
+  ],
+  "john-wayne": [
+   "Gary Cooper",
+   "Marlon Brando"
+  ],
+  "chiang-kai-shek": [
+   "Sun Yat-sen",
+   "Zhou Enlai"
+  ],
+  "kissinger": [
+   "Mikhail Gorbachev",
+   "Zbigniew Brzezinski"
+  ],
+  "johnny-cash": [
+   "Frank Sinatra",
+   "Waylon Jennings"
+  ],
+  "whitney-houston": [
+   "Aretha Franklin",
+   "Donna Summer"
+  ],
+  "gandhi": [
+   "Jawaharlal Nehru",
+   "Sardar Vallabhbhai Patel"
+  ],
+  "henry-v": [
+   "Henry IV of England",
+   "Charles V"
+  ],
+  "saint-paul": [
+   "Jesus",
+   "John the Baptist"
+  ],
+  "john-the-baptist": [
+   "Jesus",
+   "Paul the Apostle"
+  ],
+  "jinnah": [
+   "B. R. Ambedkar",
+   "Jawaharlal Nehru"
+  ],
+  "gorbachev": [
+   "Boris Yeltsin",
+   "Henry Kissinger"
+  ],
+  "hatshepsut": [
+   "Nefertiti",
+   "Cleopatra"
+  ]
+ },
+ "what": {
+  "dead-sea-scrolls": [
+   "Codex Sinaiticus",
+   "Voynich Manuscript"
+  ],
+  "empire-state-building": [
+   "Chrysler Building",
+   "Woolworth Building"
+  ],
+  "bayeux-tapestry": [
+   "Lindisfarne Gospels",
+   "Très Riches Heures"
+  ],
+  "koh-i-noor": [
+   "Hope Diamond",
+   "Daria-i-Noor"
+  ],
+  "statue-of-liberty": [
+   "Christ the Redeemer",
+   "The Motherland Calls"
+  ],
+  "lighthouse-alexandria": [
+   "Mausoleum at Halicarnassus",
+   "Tower of Hercules"
+  ],
+  "chrysler-building": [
+   "Empire State Building",
+   "40 Wall Street"
+  ],
+  "last-supper": [
+   "The School of Athens",
+   "The Wedding at Cana"
+  ],
+  "forth-bridge": [
+   "Brooklyn Bridge",
+   "Sydney Harbour Bridge"
+  ],
+  "amber-room": [
+   "Hall of Mirrors at Versailles",
+   "Malachite Room of the Winter Palace"
+  ],
+  "white-house": [
+   "United States Capitol",
+   "Mount Vernon"
+  ],
+  "villa-of-mysteries": [
+   "The Last Supper",
+   "Bayeux Tapestry"
+  ],
+  "british-museum": [
+   "National Gallery",
+   "Altes Museum"
+  ],
+  "pieta-michelangelo": [
+   "Rondanini Pietà",
+   "Laocoön and His Sons"
+  ],
+  "ajanta-caves": [
+   "Ellora Caves",
+   "Elephanta Caves"
+  ],
+  "us-capitol": [
+   "White House",
+   "Lincoln Memorial"
+  ],
+  "mont-saint-michel": [
+   "Lindisfarne Priory",
+   "Carcassonne"
+  ],
+  "mary-rose": [
+   "Vasa",
+   "Cutty Sark"
+  ],
+  "st-pauls-cathedral": [
+   "St Peter's Basilica",
+   "Les Invalides"
+  ],
+  "shivaji-terminus": [
+   "Victoria Memorial, Kolkata",
+   "Gateway of India"
+  ],
+  "antikythera-mechanism": [
+   "Nebra Sky Disc",
+   "Phaistos Disc"
+  ],
+  "spirit-of-st-louis": [
+   "Wright Flyer",
+   "Enola Gay"
+  ],
+  "st-edwards-crown": [
+   "Imperial State Crown",
+   "Crown of Saint Wenceslas"
+  ],
+  "port-royal": [
+   "Palenque",
+   "Herculaneum"
+  ],
+  "titanic": [
+   "Lusitania",
+   "Britannic"
+  ],
+  "colossus-rhodes": [
+   "Statue of Zeus at Olympia",
+   "Colossus of Nero"
+  ],
+  "palace-of-westminster": [
+   "British Museum",
+   "Natural History Museum, London"
+  ],
+  "independence-hall": [
+   "United States Capitol",
+   "Faneuil Hall"
+  ],
+  "kremlin-walls": [
+   "Rijksmuseum",
+   "Kazan Kremlin"
+  ],
+  "park-guell": [
+   "Casa Batlló",
+   "Palau de la Música Catalana"
+  ],
+  "wawel-castle": [
+   "Prague Castle",
+   "Buda Castle"
+  ],
+  "machu-picchu": [
+   "Chichén Itzá",
+   "Teotihuacan"
+  ],
+  "hms-victory": [
+   "Mary Rose",
+   "Cutty Sark"
+  ],
+  "gobekli-tepe": [
+   "Persepolis",
+   "Çatalhöyük"
+  ],
+  "tower-bridge": [
+   "London Bridge",
+   "Southwark Bridge"
+  ],
+  "predjama-castle": [
+   "Stari Most",
+   "Bran Castle"
+  ],
+  "the-thinker": [
+   "Discobolus",
+   "The Age of Bronze"
+  ],
+  "palmyra": [
+   "Acropolis of Athens",
+   "Baalbek"
+  ],
+  "red-square": [
+   "Golden Temple",
+   "Tiananmen Square"
+  ],
+  "trundholm-sun-chariot": [
+   "Nebra Sky Disc",
+   "Gundestrup Cauldron"
+  ],
+  "himeji-castle": [
+   "Matsumoto Castle",
+   "Osaka Castle"
+  ],
+  "world-trade-center": [
+   "MetLife Building",
+   "Seagram Building"
+  ],
+  "petra-treasury": [
+   "Terracotta Army",
+   "Hegra (Mada'in Salih)"
+  ],
+  "abu-simbel": [
+   "Great Sphinx of Giza",
+   "Karnak Temple"
+  ],
+  "sacsayhuaman": [
+   "Ollantaytambo",
+   "Tiwanaku"
+  ],
+  "caserta-palace": [
+   "Vatican Museums",
+   "Schoenbrunn Palace"
+  ],
+  "leaning-tower-pisa": [
+   "Notre-Dame de Paris",
+   "Cologne Cathedral"
+  ],
+  "angkor-wat": [
+   "Borobudur",
+   "The Forbidden City"
+  ],
+  "elephanta-caves": [
+   "Sigiriya",
+   "Kailasa Temple"
+  ],
+  "hattusa": [
+   "Karnak",
+   "Saint Catherine's Monastery"
+  ],
+  "taxila": [
+   "Rock Shelters of Bhimbetka",
+   "Chhatrapati Shivaji Terminus"
+  ],
+  "mount-nemrut": [
+   "Baalbek",
+   "Abu Simbel"
+  ],
+  "shroud-of-turin": [
+   "Veil of Veronica",
+   "Sudarium of Oviedo"
+  ]
+ },
+ "map": {
+  "akbar": [
+   "Shah Jahan",
+   "Suleiman the Magnificent"
+  ],
+  "billy-the-kid": [
+   "Lee Harvey Oswald",
+   "Jesse James"
+  ],
+  "saladin": [
+   "Baibars",
+   "Nur ad-Din"
+  ],
+  "charles-xii-sweden": [
+   "George I of Great Britain",
+   "Frederick IV of Denmark"
+  ],
+  "alexander-i-of-russia": [
+   "Alexander II of Russia",
+   "Nicholas I of Russia"
+  ],
+  "jan-hus": [
+   "Jan Žižka",
+   "Jerome of Prague"
+  ],
+  "alexei-navalny": [
+   "Boris Nemtsov",
+   "Yevgeny Prigozhin"
+  ],
+  "stonewall-jackson": [
+   "Robert E. Lee",
+   "J.E.B. Stuart"
+  ],
+  "john-calvin": [
+   "Huldrych Zwingli",
+   "Philip Melanchthon"
+  ],
+  "mandela": [
+   "Desmond Tutu",
+   "Walter Sisulu"
+  ],
+  "gustavus-adolphus": [
+   "Cardinal Richelieu",
+   "Christian IV of Denmark"
+  ],
+  "leon-trotsky": [
+   "Diego Rivera",
+   "David Alfaro Siqueiros"
+  ],
+  "subhas-chandra-bose": [
+   "Benito Mussolini",
+   "Sukarno"
+  ],
+  "harriet-tubman": [
+   "Sojourner Truth",
+   "Harriet Beecher Stowe"
+  ],
+  "cecil-john-rhodes": [
+   "David Livingstone",
+   "Alfred Nobel"
+  ],
+  "chandragupta-maurya": [
+   "Ashoka",
+   "Porus"
+  ],
+  "hannibal": [
+   "Hamilcar Barca",
+   "Scipio Africanus"
+  ],
+  "bayezid-i": [
+   "Constantine XI Palaiologos",
+   "Hongwu Emperor"
+  ],
+  "nefertiti": [
+   "Hatshepsut",
+   "Sappho"
+  ],
+  "mustafa-kemal-ataturk": [
+   "Leon Trotsky",
+   "Benito Mussolini"
+  ]
+ }
+}

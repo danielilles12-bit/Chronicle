@@ -66,3 +66,106 @@ conn-005's "Sculptors of a David" (Michelangelo / Donatello / Bernini / Verrocch
 ---
 
 *Ages and battle outcomes above are textbook-level facts (birth/death years, Thermopylae, Borodino). Flagged with high confidence; happy to cite sources for any specific one.*
+
+---
+
+# Thread board audit — 30 Jul 2026 (launch-window pass)
+
+Trigger: Daniel's 30-day launch audit — "some boards aren't logical enough, some
+categories are disputable; study NYT Connections and audit all the boards."
+
+## What actually makes a NYT Connections board fun (from studying the archive)
+
+Sampled real NYT boards (July 2026 back through 2025 via the public answer
+archives). Five patterns carry the whole game:
+
+1. **The phantom category.** The best grids plant 5–6 tiles that *suggest* a
+   group that doesn't exist (EMPIRE the apple + OTTOMAN the palindrome tease a
+   nonexistent "empires" group). The solve is realising the obvious grouping
+   is the wrong one.
+2. **Polysemy is the engine.** Tiles earn their place by having two readings
+   (HORSE: gymnastics apparatus *and* zodiac animal). A tile with one meaning
+   is filler.
+3. **Mixed category archetypes.** A board is rarely four taxonomies. The
+   canonical mix: one synonym/definition set, one family-membership set, one
+   attribute or fill-in-the-blank set ("On the ___"), one structural-wordplay
+   set (hidden words, anagrams, palindromic starts).
+4. **Uniform tile surface.** Every tile looks the same *kind* of thing, so
+   grammar can't sort the grid — only knowledge can. Tiles never repeat a
+   word from their own label.
+5. **Difficulty is ambiguity, not obscurity.** Purple is hard because the
+   *connection* is hidden, not because the tiles are unheard of. An obscure
+   tile is allowed only when the other three members make it solvable by
+   elimination.
+
+**Translations that work for a history game:** names that are also words/ships/
+places (Bismarck, Victoria, Churchill); "Battle of ___ / ___ the Great /
+Operation ___" fill-ins; hidden structures (Roman forts in -chester names,
+gods in weekday names, Roman numerals in words); dates as the hidden axis
+("all happened in 1917"); nickname/epithet traps (The Black Prince is *not* a
+king). Enforced mechanically now: `tools/validate_boards.py` WARNs on
+self-labeling groups (≥3 tiles repeating a label word, or all four tiles
+sharing a token).
+
+## Verdicts on the 30 staged boards (editions 42–71)
+
+**Rebuilt or replaced:**
+- ed42: NEW `conn-181` "The Long Way Home" — Odyssey board for launch day
+  (movie moment). Siren is the trap: reads as a peril, sits in the
+  words-the-epics-left group. `conn-067` back to stock, unburnt.
+- `conn-162` Conquest of the Air (ed44): was sortable by tile type alone
+  (people/craft/parts). Now two people-groups with phantom-first traps
+  (Earhart and Gagarin both read as "firsts", both sit in "never came back"),
+  and a "Flying ___" purple (Scotsman/Dutchman/Finn/Squad). Bonus: the old
+  Spirit of St. Louis tile collided with the ed54 answer — gone.
+- `conn-065` The People's Game (ed49): "Argentina 1978" and "Ping-Pong
+  Diplomacy" tiles self-labelled. Now 16 bare sports; Marathon (reads
+  ancient-Olympic, is place-named), Rugby (reads Victorian, is place-named)
+  and Lacrosse (reads Victorian, is pre-Columbian) are the traps.
+- `conn-011` Spoils of Empire (ed52): the Marco Polo "said to bring back"
+  group wasn't binary (Daniel: he was 'said to bring back' silk too). Replaced
+  with commodity money; Cacao beans traps against Chocolate.
+- `conn-087` Dates in Disguise (ed53): events now *named* as events (Battle of
+  Hastings, Storming of the Bastille), "1917 outside Russia" → "1917" (no tile
+  was Russian), and the battle-words now spread across three groups so you
+  must date them, not pattern-match them.
+- `conn-070` Household Names (ed56): "Patented by a woman" (unknowable) →
+  "Everyday things named after a person" (Sandwich/Cardigan/Wellington/
+  Mackintosh), which mirror-traps the trade-surnames group.
+- `conn-075` Mind How You Go (ed57): "Denounced as a menace to the young"
+  (disputable) → Victorian seaside resorts; Boater added to the hats as the
+  seaside trap.
+- `conn-048` To the Ends of the Earth (ed60): sea-ice jargon (Growler, Bergy
+  Bit) → polar phenomena everyone knows (Aurora, Midnight Sun, Polar Night,
+  Permafrost).
+- ed63: `conn-078` Unfinished Business pulled (self-labeling Edwards +
+  numbered Crusades — "too easy, not satisfying"). Rebuilt in stock as a
+  medium: unfinished works / heirs who never took the throne (Black Prince
+  and Old Pretender trap against the kings' nicknames group) / old coins /
+  royal nicknames. `conn-108` Curtain Up (retiered easy, per Daniel "should
+  be on an easier day") airs here instead — Monday.
+- ed69: needed a hard board → `conn-117` Gods of Many Lands: uniform god
+  tiles, three Norse gods split across three groups, weekday-gods purple.
+  (`conn-037` was considered and rejected: its Abu Simbel tile would air two
+  days before Abu Simbel is an answer.)
+- `conn-014` Brute Force (ed61): "A cockerel" → "Rooster" (uniform surface).
+  Stays genuinely hard; it airs a Saturday, which is where hard belongs.
+
+**Audited, left standing (with reasons):** conn-044 (1889 purple is exactly
+the NYT year-twist; facts check out — Nintendo founded 1889), conn-035,
+conn-040 (born-1809 purple; Lincoln tile 4 days after Lincoln airs is a known
+WARN, threads don't spoil answers), conn-102 (Odysseus/Achilles sit in the
+Trojan group while reading as epic heroes — proper trap structure), conn-004,
+conn-077 (Castle/Bishop/Knight chess purple is a textbook phantom group),
+conn-061, conn-137, conn-151, conn-055, conn-018 (unit-namesake misdirection
+is intentional, June audit agreed), conn-154 (Code of Hammurabi tile vs the
+Hammurabi kings group is a legit same-board trap), conn-074, conn-050,
+conn-093, conn-058 (Taj Mahal traps against the Mughals group), conn-062,
+conn-073, conn-079, conn-108 (nationality-sortable, but Daniel accepted it as
+easy-day material and it now airs a Monday).
+
+**Known debt:** the deep-hard taxonomy boards (conn-058, conn-062, conn-130
+etc.) are quiz-like rather than trap-like — fine on hard days, but the next
+batch of boards should be built phantom-first. The stock-wide sweep beyond
+the staged 30 has only had the mechanical screen (self-labeling validator),
+not a full editorial pass.

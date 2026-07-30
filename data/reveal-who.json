@@ -48,7 +48,7 @@
   "fx": 0.5,
   "fy": 0.4,
   "frac": 0.3,
-  "start": 7,
+  "start": 1,
   "license": "Public domain",
   "attribution": "P. D. Jankens",
   "source": "Wikimedia Commons: Charlie Chaplin.jpg",
@@ -58,7 +58,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "John Wayne",
-   "Bruce Lee"
+   "Harry Houdini"
   ]
  },
  {
@@ -108,7 +108,7 @@
   "fx": 0.48,
   "fy": 0.55,
   "frac": 0.35,
-  "start": 2,
+  "start": 3,
   "license": "Public domain",
   "attribution": "Metro-Goldwyn-Mayer, Inc.",
   "source": "Wikimedia Commons: YoungElvisPresley.jpg",
@@ -118,7 +118,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Kurt Cobain",
-   "Tupac Shakur"
+   "James Dean"
   ],
   "image_modifications": "cropped"
  },
@@ -203,8 +203,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Malcolm X",
-   "Emiliano Zapata"
+   "Martin Luther King Jr.",
+   "Malcolm X"
   ]
  },
  {
@@ -230,7 +230,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Niels Bohr",
-   "J. Robert Oppenheimer"
+   "Stephen Hawking"
   ]
  },
  {
@@ -257,8 +257,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Martin Van Buren",
-   "James A. Garfield"
+   "James Buchanan",
+   "Martin Van Buren"
   ]
  },
  {
@@ -286,7 +286,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Malcolm X",
-   "Emiliano Zapata"
+   "Che Guevara"
   ]
  },
  {
@@ -314,8 +314,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by/2.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Malcolm X",
-   "Emiliano Zapata"
+   "Martin Luther King Jr.",
+   "Che Guevara"
   ]
  },
  {
@@ -368,7 +368,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Virginia Woolf",
-   "Simone de Beauvoir"
+   "Agatha Christie"
   ]
  },
  {
@@ -420,8 +420,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Thomas Jefferson",
-   "John Adams"
+   "George Washington",
+   "Thomas Jefferson"
   ]
  },
  {
@@ -500,9 +500,10 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Malcolm X",
-   "Emiliano Zapata"
-  ]
+   "Jawaharlal Nehru",
+   "Sardar Vallabhbhai Patel"
+  ],
+  "start": 3
  },
  {
   "id": "gautama-buddha",
@@ -530,8 +531,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Socrates",
-   "Plato"
+   "Confucius",
+   "Aristotle"
   ]
  },
  {
@@ -557,8 +558,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "John Adams",
-   "William Henry Harrison"
+   "Benjamin Franklin",
+   "John Adams"
   ]
  },
  {
@@ -637,7 +638,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Mary Wollstonecraft",
-   "Marie Antoinette"
+   "Catherine the Great"
   ]
  },
  {
@@ -806,7 +807,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "George III",
-   "Frederick the Great"
+   "Louis XVI"
   ],
   "start": 4
  },
@@ -912,7 +913,7 @@
   "license": "Public domain",
   "attribution": "Michael Evans",
   "source": "Wikimedia Commons: Ronald Reagan 1981 presidential portrait.jpg",
-  "start": 8,
+  "start": 5,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Ronald_Reagan_1981_presidential_portrait.jpg",
   "image_author": "Michael Evans",
   "image_license": "Public domain",
@@ -976,8 +977,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Edward VIII",
-   "George VI"
+   "Neville Chamberlain",
+   "Clement Attlee"
   ],
   "image_modifications": "cropped"
  },
@@ -1033,8 +1034,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Niels Bohr",
-   "Alan Turing"
+   "Charles Darwin",
+   "Niels Bohr"
   ]
  },
  {
@@ -1063,7 +1064,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Nikola Tesla",
-   "Henry Ford"
+   "Thomas Edison"
   ]
  },
  {
@@ -1170,8 +1171,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Enid Blyton",
-   "George Eliot"
+   "Ella Fitzgerald",
+   "Enid Blyton"
   ]
  },
  {
@@ -1199,7 +1200,8 @@
   "mcq": [
    "Gottfried Leibniz",
    "Galileo Galilei"
-  ]
+  ],
+  "start": 4
  },
  {
   "id": "boudica",
@@ -1254,7 +1256,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Alexandre Dumas",
-   "Victor Hugo"
+   "Hans Christian Andersen"
   ]
  },
  {
@@ -1281,8 +1283,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Raphael",
-   "Niccolò Machiavelli"
+   "Ferdinand Magellan",
+   "Raphael"
   ]
  },
  {
@@ -1310,7 +1312,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Rumi",
-   "Timur"
+   "Kublai Khan"
   ]
  },
  {
@@ -1370,7 +1372,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Mary, Queen of Scots",
-   "Kösem Sultan"
+   "Mary I of England"
   ]
  },
  {
@@ -1397,8 +1399,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Enid Blyton",
-   "George Eliot"
+   "Billie Holiday",
+   "Enid Blyton"
   ]
  },
  {
@@ -1418,7 +1420,7 @@
   "license": "Public domain",
   "attribution": "Unknown (daguerreotype, c. 1847)",
   "source": "Wikimedia Commons: Emily Dickinson daguerreotype (Restored).jpg",
-  "start": 8,
+  "start": 4,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Emily_Dickinson_daguerreotype_%28Restored%29.jpg",
   "image_author": "Yale University Manuscripts & Archives Digital Images Database [1]",
   "image_license": "Public domain",
@@ -1452,8 +1454,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Christopher Columbus",
-   "Hernán Cortés"
+   "Vasco da Gama",
+   "Christopher Columbus"
   ]
  },
  {
@@ -1479,8 +1481,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Rosalind Franklin",
-   "Ada Lovelace"
+   "Marie Curie",
+   "Rosalind Franklin"
   ]
  },
  {
@@ -1508,7 +1510,8 @@
   "mcq": [
    "Jacques-Louis David",
    "Rembrandt"
-  ]
+  ],
+  "start": 1
  },
  {
   "id": "frederic-chopin",
@@ -1533,9 +1536,10 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Franz Schubert",
-   "Joseph Haydn"
-  ]
+   "Ludwig van Beethoven",
+   "Franz Schubert"
+  ],
+  "start": 7
  },
  {
   "id": "frederick-douglass",
@@ -1586,8 +1590,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Arthur Schopenhauer",
-   "Swami Vivekananda"
+   "Friedrich Nietzsche",
+   "Arthur Schopenhauer"
   ]
  },
  {
@@ -1612,8 +1616,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Arthur Schopenhauer",
-   "Swami Vivekananda"
+   "Friedrich Engels",
+   "Arthur Schopenhauer"
   ]
  },
  {
@@ -1805,7 +1809,8 @@
   "mcq": [
    "Friedrich Schiller",
    "Immanuel Kant"
-  ]
+  ],
+  "start": 7
  },
  {
   "id": "isambard-brunel",
@@ -1997,8 +2002,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Fyodor Dostoevsky",
-   "Mark Twain"
+   "Anton Chekhov",
+   "Fyodor Dostoevsky"
   ]
  },
  {
@@ -2194,7 +2199,8 @@
   "mcq": [
    "Lise Meitner",
    "Florence Nightingale"
-  ]
+  ],
+  "start": 7
  },
  {
   "id": "martin-luther",
@@ -2221,7 +2227,7 @@
    "Henry VIII",
    "Hernán Cortés"
   ],
-  "start": 1
+  "start": 2
  },
  {
   "id": "michelangelo",
@@ -2273,7 +2279,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Joseph Haydn",
-   "Johann Sebastian Bach"
+   "George Frideric Handel"
   ]
  },
  {
@@ -2301,7 +2307,8 @@
   "mcq": [
    "Thomas Hobbes",
    "John Locke"
-  ]
+  ],
+  "start": 7
  },
  {
   "id": "nicholas-ii",
@@ -2465,8 +2472,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Golda Meir",
-   "Eva Perón"
+   "Empress Elisabeth of Austria",
+   "Isabella II of Spain"
   ],
   "start": 7
  },
@@ -2493,8 +2500,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Peter Paul Rubens",
-   "Titian"
+   "Diego Velázquez",
+   "Peter Paul Rubens"
   ]
  },
  {
@@ -2522,7 +2529,8 @@
   "mcq": [
    "Thomas Hobbes",
    "Montesquieu"
-  ]
+  ],
+  "start": 4
  },
  {
   "id": "robert-burns",
@@ -2826,8 +2834,9 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Lord Byron",
-   "Walter Scott"
-  ]
+   "Johann Wolfgang von Goethe"
+  ],
+  "start": 4
  },
  {
   "id": "wu-zetian",
@@ -2936,7 +2945,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Philip II of Spain",
-   "Suleiman the Magnificent"
+   "Ivan the Terrible"
   ]
  },
  {
@@ -3026,8 +3035,9 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Raphael",
-   "Titian"
-  ]
+   "Michelangelo"
+  ],
+  "start": 4
  },
  {
   "id": "alexander-hamilton",
@@ -3051,9 +3061,10 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Immanuel Kant",
-   "George Washington"
-  ]
+   "Adam Smith",
+   "Immanuel Kant"
+  ],
+  "start": 7
  },
  {
   "id": "alexander-pushkin",
@@ -3441,7 +3452,8 @@
   "mcq": [
    "Rembrandt",
    "Peter Paul Rubens"
-  ]
+  ],
+  "start": 4
  },
  {
   "id": "el-cid",
@@ -3526,7 +3538,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Queen Victoria",
-   "Rani Lakshmibai"
+   "Eva Perón"
   ]
  },
  {
@@ -3635,7 +3647,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Golda Meir",
-   "Queen Victoria"
+   "Empress Dowager Cixi"
   ]
  },
  {
@@ -3773,8 +3785,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Peter Paul Rubens",
-   "Titian"
+   "Diego Velázquez",
+   "Rembrandt"
   ]
  },
  {
@@ -3883,8 +3895,8 @@
   "image_retrieved": "2026-07-21",
   "image_author": "This file was donated to Wikimedia Commons as part of a project by the Metropolitan Museum of Art. See the Image and Data Resources Open Access Policy",
   "mcq": [
-   "Mary Magdalene",
-   "Virgin Mary"
+   "Nefertiti",
+   "Cleopatra"
   ]
  },
  {
@@ -3993,8 +4005,8 @@
   "image_author": "https://wellcomeimages.org/indexplus/obf_images/6f/a2/ea820b07c4061b2083742b4f1a8c.jpg\n\nGallery: https://wellcomeimages.org/indexplus/image/M0009341.html\nWellcome Collection gallery (2018-04-01): https://wellcomecollection.org/works/m3ftmxk4 CC-BY-4.0",
   "reserve": true,
   "mcq": [
-   "Zhu Xi",
-   "Al-Biruni"
+   "Ibn Rushd",
+   "Zhu Xi"
   ]
  },
  {
@@ -4049,8 +4061,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "David Hume",
-   "Montesquieu"
+   "Jean-Jacques Rousseau",
+   "David Hume"
   ]
  },
  {
@@ -4130,8 +4142,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Albrecht Dürer",
-   "Titian"
+   "Raphael",
+   "Albrecht Dürer"
   ]
  },
  {
@@ -4255,8 +4267,8 @@
   ],
   "blurb": "Byzantine emperor who codified Roman law (482–565) · married Theodora, a former actress, after having the law barring it rewritten",
   "img": "assets/img/justinian-i.jpg",
-  "fx": 0.4875,
-  "fy": 0.307,
+  "fx": 0.45,
+  "fy": 0.13,
   "frac": 0.19,
   "license": "CC BY-SA 3.0",
   "attribution": "Volodymyr Vlasenko",
@@ -4623,8 +4635,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Akhenaten",
-   "Moses"
+   "Tutankhamun",
+   "Akhenaten"
   ]
  },
  {
@@ -4652,7 +4664,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Empress Dowager Cixi",
-   "Eva Perón"
+   "Queen Victoria"
   ]
  },
  {
@@ -4707,7 +4719,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Giuseppe Verdi",
-   "Victor Hugo"
+   "Pyotr Tchaikovsky"
   ]
  },
  {
@@ -4718,7 +4730,8 @@
   "variants": [
    "robert e lee",
    "robert e. lee",
-   "robert edward lee"
+   "robert edward lee",
+   "general lee"
   ],
   "blurb": "Confederate commander who surrendered at Appomattox (1807–1870) · opposed secession, turned down command of the Union army, then fought for Virginia",
   "img": "assets/img/robert-e-lee.jpg",
@@ -4735,7 +4748,8 @@
   "mcq": [
    "Douglas MacArthur",
    "Stonewall Jackson"
-  ]
+  ],
+  "start": 4
  },
  {
   "id": "rosalind-franklin",
@@ -4789,8 +4803,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Mary Wollstonecraft",
-   "Catherine the Great"
+   "Jane Austen",
+   "Mary Wollstonecraft"
   ]
  },
  {
@@ -5234,7 +5248,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Warren G. Harding",
-   "William Howard Taft"
+   "Theodore Roosevelt"
   ]
  },
  {
@@ -5290,7 +5304,7 @@
   "reserve": true,
   "mcq": [
    "Harun al-Rashid",
-   "Charlemagne"
+   "Al-Mamun"
   ]
  },
  {
@@ -5652,7 +5666,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Jane Addams",
-   "Susan B. Anthony"
+   "Emmeline Pankhurst"
   ]
  },
  {
@@ -5810,8 +5824,8 @@
   "image_retrieved": "2026-07-21",
   "image_author": "Web Gallery of Art:   Image  Info about artworkwga QS:P11807,\"d/delacroi/3/311delac\"",
   "mcq": [
-   "Vincent van Gogh",
-   "Paul Cézanne"
+   "Gustave Courbet",
+   "Vincent van Gogh"
   ]
  },
  {
@@ -5969,8 +5983,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Vincent van Gogh",
-   "Paul Cézanne"
+   "Eugène Delacroix",
+   "Vincent van Gogh"
   ]
  },
  {
@@ -6243,7 +6257,8 @@
   "mcq": [
    "Thomas Hobbes",
    "Montesquieu"
-  ]
+  ],
+  "start": 4
  },
  {
   "id": "jose-marti",
@@ -6522,7 +6537,8 @@
   "mcq": [
    "Albert Einstein",
    "J. Robert Oppenheimer"
-  ]
+  ],
+  "start": 5
  },
  {
   "id": "paul-cezanne",
@@ -6803,8 +6819,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "John Adams",
-   "Thomas Jefferson"
+   "George III",
+   "Napoleon"
   ]
  },
  {
@@ -6860,7 +6876,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Agatha Christie",
-   "Anne Frank"
+   "Hannah Arendt"
   ],
   "start": 4
  },
@@ -6884,7 +6900,7 @@
   "license": "Public domain",
   "attribution": "Associated Press (distributor)",
   "source": "Wikimedia Commons: Sylvia Plath - The Boston Globe (1953) (cropped).png",
-  "start": 6,
+  "start": 4,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Sylvia_Plath_-_The_Boston_Globe_%281953%29_%28cropped%29.png",
   "image_author": "Distributed by Associated Press",
   "image_license": "Public domain",
@@ -7052,7 +7068,7 @@
   "reserve": true,
   "mcq": [
    "Golda Meir",
-   "Queen Victoria"
+   "Eva Perón"
   ]
  },
  {
@@ -7080,7 +7096,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Catherine de' Medici",
-   "Mihrimah Sultan"
+   "Catherine Howard"
   ]
  },
  {
@@ -7698,8 +7714,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Henry Ford",
-   "Nikola Tesla"
+   "Nikola Tesla",
+   "Alexander Graham Bell"
   ]
  },
  {
@@ -8103,7 +8119,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Frida Kahlo",
-   "Agatha Christie"
+   "Golda Meir"
   ]
  },
  {
@@ -8248,8 +8264,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "John Lennon",
-   "George Harrison"
+   "Charlie Chaplin",
+   "John Lennon"
   ]
  },
  {
@@ -8338,7 +8354,8 @@
   "mcq": [
    "John the Baptist",
    "Paul the Apostle"
-  ]
+  ],
+  "start": 4
  },
  {
   "id": "jimmy-carter",
@@ -8482,7 +8499,8 @@
   "mcq": [
    "Pope Benedict XVI",
    "Pope John Paul II"
-  ]
+  ],
+  "start": 7
  },
  {
   "id": "eisenhower",
@@ -8540,7 +8558,8 @@
   "mcq": [
    "Stan Lee",
    "Stanley Kubrick"
-  ]
+  ],
+  "start": 3
  },
  {
   "id": "walt-disney",
@@ -8625,8 +8644,9 @@
   "image_retrieved": "2026-07-24",
   "mcq": [
    "Aretha Franklin",
-   "Selena"
-  ]
+   "Donna Summer"
+  ],
+  "start": 1
  },
  {
   "id": "picasso",
@@ -8764,7 +8784,8 @@
   "mcq": [
    "Marilyn Monroe",
    "Vivien Leigh"
-  ]
+  ],
+  "start": 1
  },
  {
   "id": "stephen-hawking",
@@ -8778,20 +8799,21 @@
   ],
   "blurb": "Cosmologist who spent decades speaking through a computer (1942–2018) · given two years to live after his 1963 ALS diagnosis, he lived over 50 more",
   "img": "assets/img/stephen-hawking.jpg",
-  "fx": 0.62,
-  "fy": 0.3,
+  "fx": 0.35,
+  "fy": 0.28,
   "frac": 0.35,
   "license": "Public domain",
-  "attribution": "NASA",
-  "source": "Wikimedia Commons: Stephen Hawking.StarChild.jpg",
-  "image_source_url": "https://commons.wikimedia.org/wiki/File:Stephen_Hawking.StarChild.jpg",
-  "image_author": "NASA",
+  "attribution": "NASA/Paul Alers",
+  "source": "Wikimedia Commons: Stephen Hawking NASA 50th 200804210002HQ.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Stephen_Hawking_NASA_50th_200804210002HQ.jpg",
+  "image_author": "NASA/Paul Alers",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24",
+  "image_retrieved": "2026-07-30",
   "mcq": [
    "Albert Einstein",
    "Richard Feynman"
-  ]
+  ],
+  "start": 8
  },
  {
   "id": "frank-sinatra",
@@ -8905,8 +8927,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Mother Teresa",
-   "Simone de Beauvoir"
+   "Grace Kelly",
+   "Audrey Hepburn"
   ]
  },
  {
@@ -9076,8 +9098,9 @@
   "image_retrieved": "2026-07-24",
   "mcq": [
    "Frank Sinatra",
-   "Tupac Shakur"
-  ]
+   "Waylon Jennings"
+  ],
+  "start": 7
  },
  {
   "id": "ambedkar",
@@ -9135,7 +9158,8 @@
   "mcq": [
    "Boris Yeltsin",
    "Henry Kissinger"
-  ]
+  ],
+  "start": 1
  },
  {
   "id": "bob-marley",
@@ -9162,7 +9186,8 @@
   "mcq": [
    "John Lennon",
    "Jimi Hendrix"
-  ]
+  ],
+  "start": 4
  },
  {
   "id": "plato",
@@ -9419,7 +9444,7 @@
    "Thomas Jefferson",
    "James Madison"
   ],
-  "start": 2,
+  "start": 1,
   "image_modifications": "cropped"
  },
  {
@@ -9555,7 +9580,8 @@
   "mcq": [
    "Prince Philip, Duke of Edinburgh",
    "Oscar Wilde"
-  ]
+  ],
+  "start": 2
  },
  {
   "id": "bruce-lee",
@@ -9609,9 +9635,10 @@
   "image_license_url": "https://creativecommons.org/licenses/by/2.0",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Rabindranath Tagore",
-   "Rudyard Kipling"
-  ]
+   "Aldous Huxley",
+   "Graham Greene"
+  ],
+  "start": 0
  },
  {
   "id": "andrew-jackson",
@@ -9656,21 +9683,22 @@
   ],
   "blurb": "Crime writer whose plots have outsold everything but the Bible (1890–1976) · vanished for 11 days in 1926, sparking a nationwide manhunt, and never once explained what happened",
   "img": "assets/img/agatha-christie.jpg",
-  "fx": 0.5,
-  "fy": 0.32,
+  "fx": 0.52,
+  "fy": 0.4,
   "frac": 0.25,
   "license": "CC0",
-  "attribution": "Joop van Bilsen for Anefo",
-  "source": "Wikimedia Commons: Agatha Christie in Nederland (detectiveschrijfster), bij aankomst op Schiphol me, Bestanddeelnr 916-8898 (cropped).jpg",
-  "image_source_url": "https://commons.wikimedia.org/wiki/File:Agatha_Christie_in_Nederland_(detectiveschrijfster),_bij_aankomst_op_Schiphol_me,_Bestanddeelnr_916-8898_(cropped).jpg",
-  "image_author": "Joop van Bilsen for Anefo",
+  "attribution": "Joop van Bilsen / Anefo",
+  "source": "Wikimedia Commons: Dame Agatha Christie (cropped).jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Dame_Agatha_Christie_(cropped).jpg",
+  "image_author": "Joop van Bilsen / Anefo",
   "image_license": "CC0",
   "image_license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "image_retrieved": "2026-07-24",
+  "image_retrieved": "2026-07-30",
   "mcq": [
-   "Simone de Beauvoir",
-   "Anne Frank"
-  ]
+   "Dorothy L. Sayers",
+   "Daphne du Maurier"
+  ],
+  "start": 6
  },
  {
   "id": "moses",
@@ -9752,9 +9780,10 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Bruce Lee",
+   "Gary Cooper",
    "Marlon Brando"
-  ]
+  ],
+  "start": 1
  },
  {
   "id": "franz-kafka",
@@ -9862,8 +9891,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Edward VIII",
-   "Mikhail Gorbachev"
+   "Mikhail Gorbachev",
+   "Zbigniew Brzezinski"
   ]
  },
  {
@@ -9949,7 +9978,8 @@
   "mcq": [
    "Deng Xiaoping",
    "Mao Zedong"
-  ]
+  ],
+  "start": 5
  },
  {
   "id": "abraham",
@@ -10088,8 +10118,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Jesus",
-   "Augustus"
+   "Paul the Apostle",
+   "Jesus"
   ]
  },
  {
@@ -10170,9 +10200,10 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Douglas MacArthur",
-   "Robert E. Lee"
-  ]
+   "Sun Yat-sen",
+   "Zhou Enlai"
+  ],
+  "start": 7
  },
  {
   "id": "selena",
@@ -10279,9 +10310,10 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Thomas Edison",
-   "Nikola Tesla"
-  ]
+   "Nikola Tesla",
+   "Alexander Graham Bell"
+  ],
+  "start": 4
  },
  {
   "id": "william-mckinley",
@@ -10412,7 +10444,8 @@
   "mcq": [
    "William Henry Harrison",
    "Andrew Jackson"
-  ]
+  ],
+  "start": 1
  },
  {
   "id": "david",
@@ -10546,7 +10579,8 @@
   "mcq": [
    "James A. Garfield",
    "James Buchanan"
-  ]
+  ],
+  "start": 2
  },
  {
   "id": "boris-yeltsin",
@@ -11106,7 +11140,7 @@
   "image_retrieved": "2026-07-24",
   "mcq": [
    "Amelia Earhart",
-   "Selena"
+   "Lady Bird Johnson"
   ],
   "start": 3,
   "image_modifications": "cropped"
@@ -11163,7 +11197,8 @@
   "mcq": [
    "Martin Van Buren",
    "Andrew Johnson"
-  ]
+  ],
+  "start": 2
  },
  {
   "id": "macarthur",
@@ -11277,7 +11312,8 @@
   "mcq": [
    "B. R. Ambedkar",
    "Jawaharlal Nehru"
-  ]
+  ],
+  "start": 1
  },
  {
   "id": "benjamin-harrison",
@@ -11471,7 +11507,8 @@
   "mcq": [
    "J. Robert Oppenheimer",
    "Niels Bohr"
-  ]
+  ],
+  "start": 4
  },
  {
   "id": "joseph-smith",
@@ -11578,9 +11615,10 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Kublai Khan",
+   "Henry IV of England",
    "Charles V"
-  ]
+  ],
+  "start": 4
  },
  {
   "id": "hannibal",

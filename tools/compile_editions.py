@@ -1715,13 +1715,22 @@ def cmd_verify(args):
         if len(paintings) > 1:
             flag(f"{where}: {len(paintings)} paintings on one Relic day "
                  f"({', '.join(paintings)}) — max 1")
+        # The clue check only guards editions players can still reach (today,
+        # future, trailing-7 archive + a day of slack). build_mcq relaxes its
+        # forbidden sets on the same boundary, so flagging older days would
+        # just report noise nobody can ever hit.
+        try:
+            reachable = (date.fromisoformat(ed.get("date", ""))
+                         >= date.today() - timedelta(days=8))
+        except ValueError:
+            reachable = True
         answer_keys = {}
         for g2, i2, it2 in day_items:
             for v in [it2.get("name", "")] + list(it2.get("variants") or []):
                 nv = normalise(v)
                 if nv:
                     answer_keys.setdefault(nv, (g2, i2))
-        for g2, i2, it2 in day_items:
+        for g2, i2, it2 in (day_items if reachable else []):
             for d in it2.get("mcq") or []:
                 hit = answer_keys.get(normalise(d))
                 if hit and hit != (g2, i2):

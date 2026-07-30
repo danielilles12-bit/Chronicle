@@ -1428,12 +1428,12 @@
    "date": "2026-08-10",
    "who": [
     "lincoln",
-    "julius-caesar",
-    "wellington"
+    "augustus-caesar",
+    "mary-wollstonecraft"
    ],
    "map": [
     "marieantoinette",
-    "akbar",
+    "vangogh",
     "suleiman"
    ],
    "what": [
@@ -1442,7 +1442,7 @@
     "dead-sea-scrolls"
    ],
    "thread": [
-    "conn-067"
+    "conn-181"
    ]
   },
   "43": {
@@ -1522,7 +1522,7 @@
    ],
    "what": [
     "chrysler-building",
-    "book-of-kells",
+    "berlin-wall",
     "st-catherines-monastery"
    ],
    "thread": [
@@ -1533,7 +1533,7 @@
    "date": "2026-08-15",
    "who": [
     "marilyn-monroe",
-    "augustus-caesar",
+    "julius-caesar",
     "justinian-i"
    ],
    "map": [
@@ -1628,7 +1628,7 @@
    "what": [
     "us-capitol",
     "angkor-wat",
-    "cullinan-diamond"
+    "gutenberg-bible"
    ],
    "thread": [
     "conn-061"
@@ -1686,7 +1686,7 @@
    "map": [
     "mandela",
     "gustavus-adolphus",
-    "hayreddin-barbarossa"
+    "vascodagama"
    ],
    "what": [
     "voynich-manuscript",
@@ -1723,12 +1723,12 @@
    "who": [
     "steve-jobs",
     "pope-francis",
-    "ambedkar"
+    "hatshepsut"
    ],
    "map": [
     "charlemagne",
-    "hedy-lamarr",
-    "madeleine-albright"
+    "madeleine-albright",
+    "bolivar"
    ],
    "what": [
     "titanic",
@@ -1748,13 +1748,13 @@
    ],
    "map": [
     "alfred-hitchcock",
-    "bayezid-i",
+    "joanofarc",
     "harriet-tubman"
    ],
    "what": [
-    "holy-sepulchre",
-    "mahabodhi-temple",
-    "taxila"
+    "declaration-independence",
+    "voyager-golden-record",
+    "trajan-column"
    ],
    "thread": [
     "conn-075"
@@ -1764,13 +1764,13 @@
    "date": "2026-08-26",
    "who": [
     "bob-marley",
-    "saint-paul",
+    "karl-marx",
     "pol-pot"
    ],
    "map": [
     "charles-i-england",
-    "rudolf-nureyev",
-    "nefertiti"
+    "elizabeth-taylor",
+    "wilhelm-ii"
    ],
    "what": [
     "colossus-rhodes",
@@ -1785,7 +1785,7 @@
    "date": "2026-08-27",
    "who": [
     "george-orwell",
-    "saint-peter",
+    "friedrich-nietzsche",
     "james-buchanan"
    ],
    "map": [
@@ -1796,7 +1796,7 @@
    "what": [
     "palace-of-westminster",
     "independence-hall",
-    "daria-i-noor"
+    "book-of-kells"
    ],
    "thread": [
     "conn-018"
@@ -1806,7 +1806,7 @@
    "date": "2026-08-28",
    "who": [
     "gandhi",
-    "john-the-baptist",
+    "thomas-edison",
     "emily-dickinson"
    ],
    "map": [
@@ -1854,11 +1854,11 @@
    "map": [
     "wernher-von-braun",
     "septimius-severus",
-    "xuanzang"
+    "richard-ii"
    ],
    "what": [
     "machu-picchu",
-    "aachen-cathedral",
+    "uss-constitution",
     "konark-sun-temple"
    ],
    "thread": [
@@ -1883,7 +1883,7 @@
     "gobekli-tepe"
    ],
    "thread": [
-    "conn-078"
+    "conn-108"
    ]
   },
   "64": {
@@ -1901,7 +1901,7 @@
    "what": [
     "st-basils-cathedral",
     "belem-tower",
-    "mount-nemrut"
+    "saturn-v"
    ],
    "thread": [
     "conn-074"
@@ -1911,7 +1911,7 @@
    "date": "2026-09-02",
    "who": [
     "gaddafi",
-    "abraham",
+    "edgar-allan-poe",
     "niccolo-machiavelli"
    ],
    "map": [
@@ -1920,7 +1920,7 @@
     "averroes"
    ],
    "what": [
-    "notre-dame-paris",
+    "petra-treasury",
     "ziggurat-ur",
     "ctesiphon"
    ],
@@ -1938,11 +1938,11 @@
    "map": [
     "amelia-earhart",
     "metternich",
-    "peter-abelard"
+    "julian-the-apostate"
    ],
    "what": [
     "tower-bridge",
-    "daigo-fukuryu-maru",
+    "us-constitution",
     "predjama-castle"
    ],
    "thread": [
@@ -1974,11 +1974,11 @@
    "date": "2026-09-05",
    "who": [
     "mohammad-reza-pahlavi",
-    "richard-feynman",
+    "george-vi",
     "albrecht-durer"
    ],
    "map": [
-    "haile-selassie",
+    "michael-jackson",
     "william-tyndale",
     "robert-koch"
    ],
@@ -2000,16 +2000,16 @@
    ],
    "map": [
     "alexander-ii-of-russia",
-    "igor-stravinsky",
+    "audrey-hepburn",
     "ludwig-wittgenstein"
    ],
    "what": [
     "parthenon",
     "world-trade-center",
-    "magna-carta"
+    "cyrus-cylinder"
    ],
    "thread": [
-    "conn-108"
+    "conn-117"
    ]
   },
   "70": {
@@ -2021,11 +2021,11 @@
    ],
    "map": [
     "peter-the-great",
-    "alexander-solzhenitsyn",
-    "frantz-fanon"
+    "marlon-brando",
+    "james-ii-england"
    ],
    "what": [
-    "petra-treasury",
+    "notre-dame-paris",
     "little-boy",
     "hammurabi-stele"
    ],
@@ -2042,7 +2042,7 @@
    ],
    "map": [
     "napoleon-iii",
-    "rosa-luxemburg",
+    "nikita-khrushchev",
     "christina-of-sweden"
    ],
    "what": [

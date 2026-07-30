@@ -417,7 +417,7 @@ textarea.fb.filled{{border-color:var(--pink);background:#FFF8FC}}
 <div id="toast"></div>
 
 <script>
-const KEY='df-launch-audit-v2';
+const KEY='df-launch-audit-v3';
 const store=JSON.parse(localStorage.getItem(KEY)||'{{}}');
 
 function save(){{localStorage.setItem(KEY,JSON.stringify(store));count();}}

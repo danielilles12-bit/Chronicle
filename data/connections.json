@@ -6,40 +6,40 @@
   "groups": [
    {
     "colour": "yellow",
-    "label": "Events of 1066",
+    "label": "All happened in 1066",
     "items": [
-     "Stamford Bridge",
-     "Hastings",
-     "Fulford",
+     "Battle of Hastings",
+     "Battle of Stamford Bridge",
+     "Battle of Fulford",
      "Harold's Coronation"
     ]
    },
    {
     "colour": "green",
-    "label": "Events of 1492",
+    "label": "All happened in 1492",
     "items": [
-     "Granada Falls",
-     "Columbus Sails",
-     "Nebrija Grammar",
-     "Alhambra Decree"
+     "Fall of Granada",
+     "Columbus sails west",
+     "Alhambra Decree",
+     "Nebrija's Grammar"
     ]
    },
    {
     "colour": "blue",
-    "label": "Events of 1917 outside Russia",
+    "label": "All happened in 1917",
     "items": [
      "Balfour Declaration",
      "Zimmermann Telegram",
-     "Passchendaele",
+     "Battle of Passchendaele",
      "Halifax Explosion"
     ]
    },
    {
     "colour": "purple",
-    "label": "All happened in years ending 89",
+    "label": "All happened in a year ending 89",
     "items": [
-     "French Revolution",
-     "Tiananmen",
+     "Storming of the Bastille",
+     "Tiananmen Square protests",
      "English Bill of Rights",
      "Battle of Kosovo"
     ]
@@ -2000,12 +2000,12 @@
    },
    {
     "colour": "blue",
-    "label": "Sea-ice terms",
+    "label": "Phenomena of the polar world",
     "items": [
-     "Growler",
-     "Bergy Bit",
-     "Pack Ice",
-     "Ice Floe"
+     "Aurora",
+     "Midnight Sun",
+     "Polar Night",
+     "Permafrost"
     ]
    },
    {
@@ -2074,42 +2074,42 @@
   "groups": [
    {
     "colour": "yellow",
-    "label": "Pioneers of flight",
+    "label": "Firsts in the air",
     "items": [
      "Wright Brothers",
-     "Montgolfier Brothers",
      "Louis Blériot",
-     "Amelia Earhart"
+     "Charles Lindbergh",
+     "Alcock and Brown"
     ]
    },
    {
     "colour": "green",
-    "label": "Kinds of aircraft",
+    "label": "Never came back from a flight",
     "items": [
-     "Biplane",
-     "Airship",
-     "Glider",
-     "Seaplane"
+     "Amelia Earhart",
+     "Glenn Miller",
+     "Antoine de Saint-Exupéry",
+     "Yuri Gagarin"
     ]
    },
    {
     "colour": "blue",
-    "label": "Parts of an aeroplane",
+    "label": "Famous flying machines",
     "items": [
-     "Fuselage",
-     "Propeller",
-     "Rudder",
-     "Cockpit"
+     "Hindenburg",
+     "Spitfire",
+     "Concorde",
+     "Memphis Belle"
     ]
    },
    {
     "colour": "purple",
-    "label": "Famous aircraft and flights",
+    "label": "Flying ___ (none of them aircraft)",
     "items": [
-     "Spirit of St. Louis",
-     "Hindenburg",
-     "Spitfire",
-     "Concorde"
+     "Scotsman",
+     "Dutchman",
+     "Finn",
+     "Squad"
     ]
    }
   ]
@@ -2155,7 +2155,7 @@
      "Rats",
      "Weevils",
      "Locusts",
-     "A cockerel"
+     "Rooster"
     ]
    }
   ],
@@ -2775,7 +2775,7 @@
  {
   "id": "conn-108",
   "title": "Curtain Up",
-  "difficulty": "hard",
+  "difficulty": "easy",
   "groups": [
    {
     "colour": "yellow",
@@ -2966,17 +2966,7 @@
   "groups": [
    {
     "colour": "yellow",
-    "label": "Things Marco Polo was said to bring back",
-    "items": [
-     "Pasta",
-     "Paper money",
-     "Gunpowder tales",
-     "Unicorn tales"
-    ]
-   },
-   {
-    "colour": "green",
-    "label": "Crops from the Americas",
+    "label": "New World foods that conquered the Old",
     "items": [
      "Potato",
      "Tomato",
@@ -2985,8 +2975,8 @@
     ]
    },
    {
-    "colour": "blue",
-    "label": "Spices that drove exploration",
+    "colour": "green",
+    "label": "Spices that drove the age of exploration",
     "items": [
      "Nutmeg",
      "Cloves",
@@ -2995,13 +2985,23 @@
     ]
    },
    {
-    "colour": "purple",
-    "label": "Silk Road exports from China",
+    "colour": "blue",
+    "label": "China's exports along the Silk Road",
     "items": [
      "Silk",
      "Porcelain",
      "Tea",
      "Lacquerware"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Once used as actual money",
+    "items": [
+     "Cowrie shells",
+     "Cacao beans",
+     "Rai stones",
+     "Wampum"
     ]
    }
   ],
@@ -4189,6 +4189,16 @@
   "groups": [
    {
     "colour": "yellow",
+    "label": "Events of the ancient Olympic Games",
+    "items": [
+     "Discus",
+     "Javelin",
+     "Pankration",
+     "Chariot racing"
+    ]
+   },
+   {
+    "colour": "green",
     "label": "Sports born in the pre-Columbian Americas",
     "items": [
      "Pok-ta-pok",
@@ -4198,33 +4208,23 @@
     ]
    },
    {
-    "colour": "green",
-    "label": "World Cups remembered for politics as much as football",
-    "items": [
-     "Argentina 1978",
-     "West Germany 1974",
-     "Italy 1934",
-     "South Africa 2010"
-    ]
-   },
-   {
     "colour": "blue",
     "label": "Sports codified in Victorian England",
     "items": [
-     "Rugby",
-     "Association Football",
+     "Football",
      "Squash",
-     "Field Hockey"
+     "Lawn tennis",
+     "Table tennis"
     ]
    },
    {
     "colour": "purple",
-    "label": "Diplomatic thaws credited to a sporting exchange",
+    "label": "Sports named after the place they began",
     "items": [
-     "Ping-Pong Diplomacy",
-     "Cricket Diplomacy",
-     "Basketball Diplomacy",
-     "Rugby Diplomacy"
+     "Badminton",
+     "Rugby",
+     "Marathon",
+     "Eton fives"
     ]
    }
   ]
@@ -4961,12 +4961,12 @@
    },
    {
     "colour": "blue",
-    "label": "Patented by a woman",
+    "label": "Everyday things named after a person",
     "items": [
-     "Windscreen wiper",
-     "Dishwasher",
-     "Kevlar",
-     "Life raft"
+     "Sandwich",
+     "Cardigan",
+     "Wellington",
+     "Mackintosh"
     ]
    },
    {
@@ -5283,9 +5283,9 @@
     "label": "Types of hat",
     "items": [
      "Bowler",
-     "Fedora",
      "Trilby",
-     "Top hat"
+     "Boater",
+     "Deerstalker"
     ]
    },
    {
@@ -5300,12 +5300,12 @@
    },
    {
     "colour": "purple",
-    "label": "Denounced as a menace to the young when they were new",
+    "label": "Victorian seaside resorts",
     "items": [
-     "Novels",
-     "Bicycles",
-     "Comic books",
-     "Pinball"
+     "Blackpool",
+     "Brighton",
+     "Margate",
+     "Skegness"
     ]
    }
   ]
@@ -5501,26 +5501,26 @@
  {
   "id": "conn-078",
   "title": "Unfinished Business",
-  "difficulty": "easy",
+  "difficulty": "medium",
   "groups": [
    {
     "colour": "yellow",
-    "label": "Kings of England named Edward",
+    "label": "Famous works left unfinished",
     "items": [
-     "Edward I",
-     "Edward III",
-     "Edward IV",
-     "Edward VIII"
+     "Sagrada Família",
+     "The Unfinished Symphony",
+     "The Canterbury Tales",
+     "Mount Rushmore"
     ]
    },
    {
     "colour": "green",
-    "label": "Numbered medieval Crusades",
+    "label": "Heirs who never came to the throne",
     "items": [
-     "First Crusade",
-     "Second Crusade",
-     "Third Crusade",
-     "Fourth Crusade"
+     "The Black Prince",
+     "Arthur Tudor",
+     "The Old Pretender",
+     "Franz Ferdinand"
     ]
    },
    {
@@ -5535,7 +5535,7 @@
    },
    {
     "colour": "purple",
-    "label": "Also nicknames for other English kings",
+    "label": "Nicknames of English kings",
     "items": [
      "Lionheart",
      "Lackland",
@@ -8411,5 +8411,52 @@
    }
   ],
   "difficulty": "easy"
+ },
+ {
+  "id": "conn-181",
+  "title": "The Long Way Home",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Perils of Odysseus' voyage",
+    "items": [
+     "Cyclops",
+     "Scylla",
+     "Charybdis",
+     "Lotus-Eaters"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Gods who meddle in the voyage",
+    "items": [
+     "Poseidon",
+     "Athena",
+     "Zeus",
+     "Hermes"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Waiting on Ithaca",
+    "items": [
+     "Penelope",
+     "Telemachus",
+     "Argos",
+     "Eumaeus"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Everyday words the Greek epics left behind",
+    "items": [
+     "Mentor",
+     "Siren",
+     "Odyssey",
+     "Trojan"
+    ]
+   }
+  ]
  }
 ]

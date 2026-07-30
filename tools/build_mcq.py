@@ -44,6 +44,7 @@ Run from repo root:  python3 tools/build_mcq.py [--check] [--offline]
   --check    validate existing mcq fields instead of writing (CI-friendly)
   --offline  never touch the network (gender falls back to cache + pronouns)
 """
+import datetime
 import json
 import sys
 import unicodedata
@@ -54,6 +55,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 FAME = ROOT / "tools/fame"
 GENDER_CACHE = FAME / "mcq_gender.json"
+OVERRIDES = FAME / "mcq_overrides.json"
 
 WHO = ROOT / "data/reveal-who.json"
 WHAT = ROOT / "data/reveal-what.json"
@@ -279,6 +281,19 @@ def era_compatible(tm, cm, window):
 MANIFEST = ROOT / "data/editions.json"
 
 
+def edition_is_operative(ed):
+    """True if players can still reach this edition: today, the future, or
+    the trailing-7-day archive (with a day of slack). Long-aired days can't
+    spoil anything — letting them constrain forever blocked curated picks
+    (Houdini/Chaplin shared ed18 back in July) — but archive-replayable
+    days keep full same-day protection (the edition-29 spoiler class)."""
+    try:
+        d = datetime.date.fromisoformat(ed.get("date", ""))
+    except ValueError:
+        return True
+    return d >= datetime.date.today() - datetime.timedelta(days=8)
+
+
 def same_day_answer_keys():
     """(game, id) -> normalised name/variant keys of every item co-scheduled
     on any day this item airs (all games). Distractors must never come from
@@ -291,7 +306,7 @@ def same_day_answer_keys():
     by_id = {g: {x["id"]: x for x in pool} for g, pool in pools.items()}
     day_of = {int(k): [(g, i, by_id[g][i]) for g in ("who", "map", "what")
                        for i in (ed.get(g) or []) if i in by_id[g]]
-              for k, ed in editions.items()}
+              for k, ed in editions.items() if edition_is_operative(ed)}
     out = {}
     for n, day in day_of.items():
         # same day AND adjacent days: a distractor that was yesterday's (or
@@ -327,7 +342,7 @@ def pick_distractors(game, items, signals, genders, forbidden=None):
 
     relaxed = []
 
-    def candidates_for(t, window):
+    def candidates_for(t, window, extra=frozenset()):
         tm = meta[t["id"]]
         scored = []
         for c in items:
@@ -338,6 +353,8 @@ def pick_distractors(game, items, signals, genders, forbidden=None):
                 continue          # same person under two ids
             if forbidden and cm["keys"] & forbidden.get((game, t["id"]), set()):
                 continue          # names a same-day answer (schedule-aware)
+            if cm["keys"] & extra:
+                continue          # same-day duplicate-option rule (dedupe pass)
             if game == "who" and tm["dy"] is not None and cm["dy"] is not None:
                 if (tm["dy"] >= PHOTO_YEAR) != (cm["dy"] >= PHOTO_YEAR):
                     continue      # photo face vs bust-era name = giveaway
@@ -379,24 +396,129 @@ def pick_distractors(game, items, signals, genders, forbidden=None):
                 scored = same_kind  # hard kind gate when the pool allows it
         return scored
 
-    out = {}
-    for t in items:
+    def pick_one(t, extra=frozenset()):
         window = ERA_WINDOW
-        scored = candidates_for(t, window)
+        scored = candidates_for(t, window, extra)
         while len(scored) < 2 and window < ERA_WINDOW * 8:
             window *= 2
-            scored = candidates_for(t, window)
+            scored = candidates_for(t, window, extra)
             if len(scored) >= 2:
                 relaxed.append((t["id"], window))
         if len(scored) < 2:       # last resort: no era gate at all
-            scored = candidates_for(t, 10 ** 6)
+            scored = candidates_for(t, 10 ** 6, extra)
             relaxed.append((t["id"], "none"))
-        out[t["id"]] = [nm for _, _, nm, _ in scored[:2]]
+        return [nm for _, _, nm, _ in scored[:2]]
+
+    out = {t["id"]: pick_one(t) for t in items}
     if relaxed:
         print(f"build_mcq: {game}: era gate relaxed for {len(relaxed)} item(s): "
               + ", ".join(f"{i}({w})" for i, w in relaxed[:8])
               + ("…" if len(relaxed) > 8 else ""))
-    return out
+    return out, pick_one
+
+
+def load_overrides():
+    """Curated distractors (tools/fame/mcq_overrides.json). Overrides always
+    beat the generator — Daniel's audit picks live here so a re-run can never
+    drift them. Keys starting with '_' are comments."""
+    if not OVERRIDES.exists():
+        return {g: {} for g in ("who", "what", "map")}
+    data = load(OVERRIDES)
+    return {g: {k: v for k, v in data.get(g, {}).items()
+                if not k.startswith("_")} for g in ("who", "what", "map")}
+
+
+def override_error(game, iid, item, opts, forb):
+    """Return a reason string if this override is unusable, else None."""
+    if item is None:
+        return f"{game}/{iid}: override for unknown id"
+    if (not isinstance(opts, list) or len(opts) != 2
+            or any(not isinstance(o, str) or not o.strip() for o in opts)
+            or normalise(opts[0]) == normalise(opts[1])):
+        return f"{game}/{iid}: override must be two distinct names, got {opts!r}"
+    if {normalise(o) for o in opts} & name_keys(item):
+        return f"{game}/{iid}: override names the answer itself: {opts!r}"
+    hit = [o for o in opts if forb and normalise(o) in forb]
+    if hit:
+        return (f"{game}/{iid}: override names a same/adjacent-day answer: "
+                f"{hit!r} — recurate mcq_overrides.json for the new schedule")
+    return None
+
+
+def dedupe_same_day(picks_all, overrides, pickers, items_idx):
+    """No two items airing on the same day may share a distractor name
+    (Daniel, 30 Jul 2026: same options item-to-item on one day reads as
+    poorly designed). Enforced from the 3-round era onward; overrides win —
+    the generated sibling is re-picked with the day's names excluded."""
+    try:
+        man = load(MANIFEST)
+    except Exception:
+        return
+    editions = man["editions"]
+    for _pass in range(3):
+        changed = False
+        for n in sorted(int(k) for k in editions):
+            ed = editions[str(n)]
+            if not edition_is_operative(ed):
+                continue
+            for _round in range(6):
+                seen = {}          # normalised option name -> (game, id)
+                redo = None
+                for g in ("who", "map", "what"):
+                    for iid in ed.get(g) or []:
+                        opts = picks_all[g].get(iid)
+                        if not opts:
+                            continue
+                        for o in opts:
+                            k = normalise(o)
+                            prev = seen.get(k)
+                            if prev and prev != (g, iid):
+                                # override wins; re-pick whichever is generated
+                                if iid not in overrides.get(g, {}):
+                                    redo = (g, iid)
+                                elif prev[1] not in overrides.get(prev[0], {}):
+                                    redo = prev
+                                else:
+                                    raise SystemExit(
+                                        f"ERROR ed{n}: curated overrides share the "
+                                        f"option {o!r}: {prev} vs {(g, iid)} — fix "
+                                        f"mcq_overrides.json")
+                            seen.setdefault(k, (g, iid))
+                        if redo:
+                            break
+                    if redo:
+                        break
+                if not redo:
+                    break
+                rg, rid = redo
+                extra = set(seen)  # every option name already on this day
+                new = pickers[rg](items_idx[rg][rid], extra=frozenset(extra))
+                if len(new) == 2 and new != picks_all[rg][rid]:
+                    picks_all[rg][rid] = new
+                    changed = True
+                else:
+                    print(f"build_mcq: WARN ed{n}: could not de-duplicate "
+                          f"options for {rg}/{rid}")
+                    break
+        if not changed:
+            break
+
+
+def same_day_option_dupes(editions, mcq_of):
+    """[(edition, option, (game,id), (game,id)), ...] for --check."""
+    dupes = []
+    for n in sorted(int(k) for k in editions):
+        ed, seen = editions[str(n)], {}
+        if not edition_is_operative(ed):
+            continue
+        for g in ("who", "map", "what"):
+            for iid in ed.get(g) or []:
+                for o in mcq_of.get((g, iid)) or []:
+                    k = normalise(o)
+                    if k in seen and seen[k] != (g, iid):
+                        dupes.append((n, o, seen[k], (g, iid)))
+                    seen.setdefault(k, (g, iid))
+    return dupes
 
 
 def check_items(game, items):
@@ -423,9 +545,32 @@ def main():
     who = [x for x in who_all if x.get("kind") == "portrait"]
     what = [x for x in what_all if x.get("kind") != "portrait"]
 
+    overrides = load_overrides()
+    game_pools = {"who": who, "what": what, "map": figs}
+    idx = {g: {x["id"]: x for x in pool} for g, pool in game_pools.items()}
+
     if check_only:
         bad = (check_items("who", who) + check_items("what", what)
                + check_items("map", figs))
+        forbidden = same_day_answer_keys()
+        for g, ovs in overrides.items():
+            for iid, opts in ovs.items():
+                it = idx[g].get(iid)
+                err = override_error(g, iid, it, opts, forbidden.get((g, iid)))
+                if err:
+                    bad.append(err)
+                elif it.get("mcq") != opts:
+                    bad.append(f"{g}/{iid}: mcq {it.get('mcq')!r} out of sync with "
+                               f"override {opts!r} — run tools/build_mcq.py")
+        try:
+            man = load(MANIFEST)
+            mcq_of = {(g, x["id"]): x.get("mcq")
+                      for g, pool in game_pools.items() for x in pool}
+            for n, o, a, b in same_day_option_dupes(man["editions"], mcq_of):
+                bad.append(f"ed{n}: same-day duplicate option {o!r} on "
+                           f"{a[0]}/{a[1]} and {b[0]}/{b[1]}")
+        except Exception:
+            pass
         for b in bad:
             print("ERROR " + b, file=sys.stderr)
         print(f"build_mcq --check: {len(who) + len(what) + len(figs)} items, "
@@ -440,13 +585,30 @@ def main():
     # so collisions are harmless.
     map_genders = resolve_genders(figs, signals[3], offline)
 
-    for game, items, path, all_items in (
-            ("who", who, WHO, who_all),
-            ("what", what, WHAT, what_all),
-            ("map", figs, FIGS, figs)):
-        picks = pick_distractors(game, items, signals,
-                                 {"who": genders, "map": map_genders,
-                                  "what": None}[game], forbidden)
+    picks_all, pickers, errs = {}, {}, []
+    for game, items in game_pools.items():
+        picks, pick_one = pick_distractors(
+            game, items, signals,
+            {"who": genders, "map": map_genders, "what": None}[game], forbidden)
+        for iid, opts in overrides[game].items():
+            err = override_error(game, iid, idx[game].get(iid), opts,
+                                 forbidden.get((game, iid)))
+            if err:
+                errs.append(err)
+            else:
+                picks[iid] = list(opts)
+        picks_all[game], pickers[game] = picks, pick_one
+    if errs:
+        for e in errs:
+            print("ERROR " + e, file=sys.stderr)
+        return 1
+
+    dedupe_same_day(picks_all, overrides, pickers, idx)
+
+    for game, path, all_items in (("who", WHO, who_all),
+                                  ("what", WHAT, what_all),
+                                  ("map", FIGS, figs)):
+        picks = picks_all[game]
         n = 0
         for it in all_items:
             if it["id"] in picks and len(picks[it["id"]]) == 2:
@@ -455,7 +617,8 @@ def main():
                     n += 1
         save(path, all_items)
         short = [i for i, p in picks.items() if len(p) < 2]
-        print(f"build_mcq: {game}: {len(items)} items, {n} mcq fields written"
+        print(f"build_mcq: {game}: {len(game_pools[game])} items, "
+              f"{n} mcq fields written"
               + (f", {len(short)} SHORT: {short[:5]}" if short else ""))
     return 0
 

@@ -70,6 +70,28 @@ def check_connections(boards):
                     err(f"connections {bid} [{label}]: empty/non-string item")
                 all_items.append(it.strip().lower())
                 item_boards.setdefault(it.strip().lower(), set()).add(bid)
+            # Self-labeling groups (Daniel, 30 Jul 2026): tiles that repeat a
+            # label word ("First Crusade" under "Numbered medieval Crusades",
+            # "Ping-Pong Diplomacy" under a diplomacy label) sort themselves —
+            # no history needed. NYT boards never do this; flag it.
+            stop = {"the", "of", "a", "an", "in", "on", "and", "that", "with",
+                    "for", "also", "once", "was", "were", "named", "known",
+                    "famous", "kinds", "types", "ways", "things", "from"}
+            label_toks = {t.rstrip("s") for t in re.findall(r"[a-z]+", label.lower())
+                          if len(t) > 3 and t not in stop}
+            selfing = sum(
+                1 for it in items if isinstance(it, str) and label_toks
+                & {t.rstrip("s") for t in re.findall(r"[a-z]+", it.lower())})
+            if selfing >= 3:
+                warn(f"connections {bid} [{label}]: {selfing}/4 tiles repeat a "
+                     f"label word — self-labeling group, sortable without knowledge")
+            shared = Counter(t.rstrip("s") for it in items if isinstance(it, str)
+                             for t in {w for w in re.findall(r"[a-z]+", it.lower())
+                                       if len(w) > 3 and w not in stop})
+            for tok, cnt in shared.items():
+                if cnt == 4:
+                    warn(f"connections {bid} [{label}]: all four tiles share "
+                         f"'{tok}' — self-sorting surface")
         for dup, n in Counter(all_items).items():
             if n > 1:
                 err(f"connections {bid}: item '{dup}' appears in more than one group")
