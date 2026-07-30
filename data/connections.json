@@ -41,7 +41,7 @@
      "Storming of the Bastille",
      "Tiananmen Square protests",
      "English Bill of Rights",
-     "Battle of Kosovo"
+     "First Battle of Kosovo"
     ]
    }
   ]
@@ -1473,7 +1473,7 @@
    },
    {
     "colour": "green",
-    "label": "Phrases coined in famous speeches",
+    "label": "Phrases made famous by great speeches",
     "items": [
      "Iron Curtain",
      "Blood and Iron",
@@ -1655,7 +1655,7 @@
      "Alcatraz",
      "Robben Island",
      "Devil's Island",
-     "Patmos"
+     "St Helena"
     ]
    },
    {
@@ -1953,7 +1953,7 @@
    },
    {
     "colour": "blue",
-    "label": "How a city dealt with the infected",
+    "label": "How a city coped with an outbreak",
     "items": [
      "Quarantine",
      "Pest house",
@@ -2134,7 +2134,7 @@
     "items": [
      "Unicorn",
      "Basilisk",
-     "Kraken",
+     "Manticore",
      "Vegetable Lamb"
     ]
    },
@@ -2198,7 +2198,7 @@
    },
    {
     "colour": "purple",
-    "label": "Jobs done by children before the Factory Acts",
+    "label": "Jobs done by Victorian working children",
     "items": [
      "Chimney sweep",
      "Mudlark",
@@ -2423,7 +2423,7 @@
    },
    {
     "colour": "blue",
-    "label": "Rations invented for soldiers and voyagers",
+    "label": "Rations that fed armies and expeditions",
     "items": [
      "Hardtack",
      "Pemmican",
@@ -2497,7 +2497,7 @@
   "groups": [
    {
     "colour": "yellow",
-    "label": "Pre-colonial African empires",
+    "label": "Pre-colonial African states and kingdoms",
     "items": [
      "Mali Empire",
      "Aksum",
@@ -2527,7 +2527,7 @@
    },
    {
     "colour": "purple",
-    "label": "Seized by a colonial army and taken to Europe",
+    "label": "Carried off to Europe under empire",
     "items": [
      "Benin Bronzes",
      "Asante Gold",
@@ -2574,7 +2574,7 @@
    },
    {
     "colour": "purple",
-    "label": "Legacies of Mesopotamia",
+    "label": "Inventions credited to Mesopotamia",
     "items": [
      "Cuneiform",
      "Wheel",
@@ -2996,7 +2996,7 @@
    },
    {
     "colour": "purple",
-    "label": "Once used as actual money",
+    "label": "Money made of shell, seed or stone",
     "items": [
      "Cowrie shells",
      "Cacao beans",
@@ -4209,22 +4209,22 @@
    },
    {
     "colour": "blue",
-    "label": "Sports codified in Victorian England",
+    "label": "Sports invented in the United States",
     "items": [
-     "Football",
-     "Squash",
-     "Lawn tennis",
-     "Table tennis"
+     "Basketball",
+     "Volleyball",
+     "Softball",
+     "Skateboarding"
     ]
    },
    {
     "colour": "purple",
-    "label": "Sports named after the place they began",
+    "label": "Dropped from the modern Olympics",
     "items": [
-     "Badminton",
-     "Rugby",
-     "Marathon",
-     "Eton fives"
+     "Tug of war",
+     "Croquet",
+     "Cricket",
+     "Polo"
     ]
    }
   ]
@@ -4679,7 +4679,7 @@
    },
    {
     "colour": "blue",
-    "label": "World War II Normandy towns fought over after D-Day",
+    "label": "Normandy towns fought over in the D-Day campaign",
     "items": [
      "Caen",
      "Carentan",
@@ -4941,7 +4941,7 @@
   "groups": [
    {
     "colour": "yellow",
-    "label": "Ways to tell the time before the mechanical clock",
+    "label": "Non-mechanical ways to tell the time",
     "items": [
      "Sundial",
      "Hourglass",
@@ -5270,7 +5270,7 @@
   "groups": [
    {
     "colour": "yellow",
-    "label": "Fixtures of the English seaside holiday",
+    "label": "Fixtures of the Victorian seafront",
     "items": [
      "Pier",
      "Bathing machine",
@@ -5508,9 +5508,9 @@
     "label": "Famous works left unfinished",
     "items": [
      "Sagrada Família",
-     "The Unfinished Symphony",
+     "Schubert's Eighth",
      "The Canterbury Tales",
-     "Mount Rushmore"
+     "The Mystery of Edwin Drood"
     ]
    },
    {
@@ -6022,7 +6022,7 @@
   "groups": [
    {
     "colour": "yellow",
-    "label": "Pub names found in every English town",
+    "label": "England's most common pub names",
     "items": [
      "The Red Lion",
      "The Royal Oak",
@@ -6992,7 +6992,7 @@
    },
    {
     "colour": "purple",
-    "label": "Notable days on the ancient Roman calendar",
+    "label": "Dates and festivals of the Roman calendar",
     "items": [
      "Lupercalia",
      "Saturnalia",
@@ -7150,7 +7150,7 @@
   "groups": [
    {
     "colour": "yellow",
-    "label": "Ancient civilizations of the Americas",
+    "label": "Pre-Columbian civilizations",
     "items": [
      "Aztec",
      "Inca",
@@ -7170,7 +7170,7 @@
    },
    {
     "colour": "blue",
-    "label": "Native American tribal nations",
+    "label": "Indigenous peoples of the present-day United States",
     "items": [
      "Cherokee",
      "Sioux",
@@ -8151,7 +8151,7 @@
     "items": [
      "Hades",
      "Hel",
-     "Anubis",
+     "Osiris",
      "Yama"
     ]
    },
@@ -8167,7 +8167,7 @@
    },
    {
     "colour": "purple",
-    "label": "Hiding in your days of the week",
+    "label": "The gods behind your weekdays",
     "items": [
      "Tyr",
      "Odin",
@@ -8449,9 +8449,9 @@
    },
    {
     "colour": "purple",
-    "label": "Everyday words the Greek epics left behind",
+    "label": "Everyday words born in Greek myth",
     "items": [
-     "Mentor",
+     "Titan",
      "Siren",
      "Odyssey",
      "Trojan"
