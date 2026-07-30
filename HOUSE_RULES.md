@@ -1,0 +1,128 @@
+# HOUSE RULES — Daniel's standing content rulings
+
+Every ruling Daniel has made about content, distilled to be applied to ALL
+future content — not just the batches he audited by hand. Each rule is
+tagged **[ENGINE]** (a tool enforces it mechanically — the tool is named)
+or **[JUDGMENT]** (whoever curates applies it; the review sheet is the
+check). When a new audit produces a new ruling, it gets added HERE in the
+same session — this file is why his feedback compounds instead of
+evaporating.
+
+Last updated: 30 Jul 2026 (launch-window audit + engine-hardening session).
+
+## Scheduling (the day compiler)
+
+- **[ENGINE]** 3 rounds per game per day, exactly one easy/medium/hard;
+  Thread tier by weekday (Mon/Tue easy, Wed/Thu medium, Fri–Sun hard).
+  `compile_editions.py` recipe.
+- **[ENGINE]** The week gets harder INSIDE each tier (Monday = the tier's
+  most famous end, Sunday = its deeper half, never its dregs). Weekday
+  ramp in `compile_editions.py`.
+- **[ENGINE]** Repeats: hard floor 42 days, target 60, per SUBJECT across
+  all games. (30 Jul research: one-viewing picture recognition survives
+  weeks — Shepard 1967, Standing 1973 — and a solved round is retrieval
+  practice on top; 42 keeps repeats out of "oh, this again", 60 lands in
+  pleasantly-half-forgotten. Every tier pool holds 97+ items so this
+  cannot starve a tier.) `repeat_floor_days`/`repeat_target_days`.
+- **[ENGINE]** Launch blindfold: editions before launch_edition (42)
+  constrain nothing.
+- **[ENGINE]** Adjacent-day nets: no candidate whose name/variants/tiles
+  overlap yesterday's or tomorrow's answers.
+- **[ENGINE]** Tone: at most 1 dark-tone subject per issue (curated tag
+  list in editions.config.json is the place to disagree).
+- **[ENGINE]** Rulers/statesmen/commanders may fill up to ~2/3 of an
+  issue's human slots (0.67; owner 30 Jul: "up to six out of ten is fine
+  — those are the people history buffs know"). ANY OTHER occupation
+  family may appear at most ONCE per issue: two rulers read as classic
+  history, two philosophers read as a theme issue nobody asked for.
+  `max_power_share_per_issue` / `max_nonpower_family_per_issue`.
+- **[ENGINE]** Western-first (owner 30 Jul: "an app for Westerners first
+  and foremost — those are the people I'll be marketing to"): the
+  Western-recognisability bias applies to EVERY slot including hard and
+  Sunday. Per-item waiver: fame ≥ icon threshold pays no penalty, so
+  Genghis Khan and Angkor Wat still anchor hard days. Deep non-Western
+  cuts are for curated moments, not weekly slots.
+- **[JUDGMENT]** Variety beats gender-balance: optimise subject-matter
+  spread (era, region, occupation, object kind); never cast to a quota.
+  But the launch pattern holds: a woman's face early in any showcase
+  window reads right — day 1 got Ada Lovelace by name.
+- **[JUDGMENT]** Rolling kind variety: not two of the same relic KIND
+  close together ("too many temples lately", "too many diamonds", two
+  ships back-to-back). No mechanical check yet — the tags are too coarse
+  (TODO below); catch it on the review sheet.
+
+## The 3-choice clue (the "ultimate clue")
+
+- **[ENGINE]** The trio never names a same/adjacent-day answer; no two
+  rounds on one day share an option. `build_mcq.py` + `--check` in CI.
+- **[ENGINE]** Era, gender and photograph-vs-painting must match; fame
+  similar-or-higher than the answer.
+- **[ENGINE]** Holistic gates (owner 30 Jul: "is it incredibly easy to
+  guess which one is right? Then it fails — those 20 points should feel
+  earned"): a face or journey from one part of the world never gets two
+  options from another ("don't give an Asian man Leonardo and a U.S.
+  president"), and an object never gets options from a different physical
+  class ("a pendant never gets the Sphinx"). Region/kind buckets in
+  `build_mcq.py`; relaxations are logged and surface in
+  `tools/out/mcq-trio-report.md` (run with `--report`).
+- **[ENGINE]** Curated picks live ONLY in `tools/fame/mcq_overrides.json`
+  — they beat the generator, survive every re-run, and are validated
+  against the schedule. Never hand-edit `mcq` fields in data files.
+- **[JUDGMENT]** After any schedule change, skim the trio report's
+  flagged rows. Known trap: region tags follow birthplace, so Tolkien
+  reads "African" (Bloemfontein) and Mercury "African" (Zanzibar) —
+  famous misfits get overrides.
+
+## Thread boards
+
+- **[JUDGMENT]** Build to the NYT grammar — full rubric + per-board
+  verdicts in `connections_audit.md`: phantom categories, polysemy,
+  uniform tile surfaces, binary membership, one structural-twist group,
+  difficulty from ambiguity not obscurity. Fake-fives (a tile that fits
+  two labels but resolves uniquely by elimination) are the mechanic, not
+  a bug.
+- **[ENGINE]** Self-labeling groups (tiles repeating a label word — "First
+  Crusade" under a Crusades label) are flagged by `validate_boards.py`.
+- **[JUDGMENT]** Category claims must be undisputable. Weird is fine if
+  binary ("years ending 89"); vibes are not ("denounced as a menace").
+- **[JUDGMENT]** Every new board gets a Fable-tier review before it's
+  schedulable (intake pipeline), and external-critic suggestions must be
+  checked against the SCHEDULE before adoption (a proposed tile can
+  collide with a nearby answer).
+
+## Face Value / Relic rounds
+
+- **[JUDGMENT]** Tier by LIKENESS recognisability, not name fame — Ada
+  Lovelace is a famous name with a hard face. Fame ≠ face recognition.
+  (TODO below: recognisability score.)
+- **[JUDGMENT]** The opening scrap must be fair for the tier: easy rounds
+  open near the money shot, hard rounds may not — but never a scrap of
+  irrelevant background ("random buildings"). New items run
+  `tools/audit_start_scraps.py` before first staging; explicit `start`
+  overrides are the owner's word and survive image swaps only if re-aimed.
+- **[JUDGMENT]** The image IS the puzzle: the subject must dominate the
+  frame (crop to the person if the source shows a crowd), no blur, the
+  iconic view over the clever one. Rights recorded via
+  `tools/fetch_commons.py` + `audit_rights.py`, w800 rebuild after swaps.
+
+## Casting and tone
+
+- **[JUDGMENT]** Audience bar: Rest-is-History listeners. Easy ≠ dumbed
+  down, hard ≠ academic. No living politicians as answers. Entertainment
+  faces are fine as easy anchors (Mercury, Pelé, MJ) but never the
+  majority of a day.
+- **[JUDGMENT]** Blurbs and facts: dark wit welcome, claims must hold to
+  a pedant's reading ("coined" vs "made famous"; Josephus predicted
+  VESPASIAN would be emperor, not himself). When a critic softens a label,
+  keep the voice, fix the claim.
+
+## Standing TODO (rails not yet built)
+
+1. Recognisability score for Face Value tiers, seeded from the ~90 tier
+   verdicts in the 30 Jul audit; proposer uses it instead of raw fame for
+   who-tier placement; outliers surface for the owner instead of staging
+   silently.
+2. Finer object kinds (temple/castle/diamond/ship…) so rolling kind
+   variety can be machine-checked.
+3. Per-item `start_audited` date so the intake gate on opening scraps can
+   be mechanical instead of a checklist item.

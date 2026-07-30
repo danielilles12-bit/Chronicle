@@ -96,6 +96,26 @@
   "ada-lovelace": [
    "Mary Shelley",
    "Charlotte Brontë"
+  ],
+  "tolkien": [
+   "C. S. Lewis",
+   "George Orwell"
+  ],
+  "marilyn-monroe": [
+   "Judy Garland",
+   "Jayne Mansfield"
+  ],
+  "judy-garland": [
+   "Marilyn Monroe",
+   "Vivien Leigh"
+  ],
+  "genghis-khan": [
+   "Kublai Khan",
+   "Ögedei Khan"
+  ],
+  "kurosawa": [
+   "Yasujirō Ozu",
+   "Toshiro Mifune"
   ]
  },
  "what": {
@@ -392,6 +412,22 @@
   "mustafa-kemal-ataturk": [
    "Leon Trotsky",
    "Benito Mussolini"
+  ],
+  "freddie-mercury": [
+   "David Bowie",
+   "George Michael"
+  ],
+  "tamerlane": [
+   "Babur",
+   "Ulugh Beg"
+  ],
+  "septimius-severus": [
+   "Commodus",
+   "Caracalla"
+  ],
+  "rumi": [
+   "Omar Khayyam",
+   "Hafez"
   ]
  }
 }

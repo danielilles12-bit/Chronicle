@@ -145,8 +145,16 @@ def load_pools():
 
 def load_config():
     defaults = {
-        "repeat_floor_days": 28,
-        "repeat_target_days": 42,
+        # Repeat cadence (owner brief + memory research, 30 Jul 2026):
+        # picture-recognition memory is near-ceiling for weeks after one
+        # incidental viewing (Shepard 1967, Standing 1973), and a SOLVED
+        # round is retrieval-practice on top — daily players reliably
+        # remember a solved answer at 28 days. Floor 42 keeps repeats out
+        # of "oh, this again"; target 60 lands in pleasantly-half-
+        # forgotten. Every tier pool holds 97+ items (a 97+ day natural
+        # cycle at 1/day), so 42/60 cannot starve a tier.
+        "repeat_floor_days": 42,
+        "repeat_target_days": 60,
         "min_lifeline_km": 250,
         "max_same_country": 3,
         "max_same_era": 3,
@@ -171,8 +179,14 @@ def load_config():
         # candidates — a soft bias on selection ORDER, never a hard filter.
         "icon_fame_threshold": 90,        # fame score at/above which an item is an "icon" (Great Wall, Taj Mahal, Angkor Wat...) exempt from the pv_pct tiebreak — ~top decile across every class
         "western_bias_weight": 0.5,       # pv_pct (0-100) x this = ranking nudge; 0 disables the bias entirely
-        "western_bias_hard_exempt": True,    # 'hard' tier slots never get the bias — reserved for deeper/international cuts
-        "western_bias_sunday_exempt": True,  # Sunday's slots never get the bias — the week's deepest-cut day
+        # Owner ruling 30 Jul 2026: "this is an app for Westerners first
+        # and foremost" — no blanket exemptions. The bias now applies to
+        # EVERY slot; the escape hatch is per-item: anything at or above
+        # icon_fame_threshold ("highly recognisable") skips the penalty,
+        # so Genghis Khan and Angkor Wat still anchor hard days while the
+        # deep non-Western cuts wait for curated moments.
+        "western_bias_hard_exempt": False,
+        "western_bias_sunday_exempt": False,
         # --- Weekday ramp (28 Jul 2026, 3-round recipe) ---------------------
         # Within-tier fame-percentile steering: Monday's slots prefer the top
         # of their tier, Sunday's the bottom. Weight is the ranking-nudge
@@ -197,8 +211,15 @@ def load_config():
         # Shah — about one item in ten — and nothing stopped several of them
         # landing on the same day.
         "max_dark_tone_per_issue": 1,     # HARD cap, never relaxed: at most this many tagged subjects across the WHOLE issue (who+map+what+thread together)
-        "max_power_share_per_issue": 0.4,  # SOFT cap (relaxes like the variety caps if a tier can't otherwise fill): share of the issue's HUMAN answers (who+map = 10 slots) that may be rulers/statesmen/commanders. 0.4 -> 4 of 10. Measured over settled editions 24-64 the median day already sits at 0.29 and only 7 of 41 days exceed 0.4, so this trims the lopsided days without starving normal ones.
+        "max_power_share_per_issue": 0.67,  # SOFT cap (relaxes like the variety caps if a tier can't otherwise fill): share of the issue's HUMAN answers that may be rulers/statesmen/commanders. Raised 0.4 -> 0.67 on the 30 Jul owner ruling: "up to six out of ten is fine — those are the people most history buffs know". On the 6-human-slot 3-round recipe that allows 4 of 6.
         "power_occupation_families": ["ruler", "statesman", "military"],  # matched against tools/fame/tags.json occupation_family; an item with no tag match is a wildcard, never blocked
+        # Owner ruling 30 Jul 2026: repetition WITHIN an issue is a power
+        # privilege — two rulers on one day reads as classic history, two
+        # philosophers (or artists, or entertainers) reads as a theme
+        # issue nobody asked for. Any NON-power occupation_family may
+        # appear at most this many times across the issue's human slots.
+        # Soft like the power cap: bends with a note when a tier is thin.
+        "max_nonpower_family_per_issue": 1,
         # The curated tag list itself lives in tools/editions.config.json —
         # that is the owner-editable place to disagree with a call. Empty
         # here so a missing config file degrades to "no opinion" rather than
@@ -825,6 +846,7 @@ def cmd_propose(args):
         # board about assassinations is exactly the day being guarded
         # against, and no per-game counter would ever see it.
         day_tone = {"dark": 0, "power": 0, "paintings": 0}
+        issue_family = Counter()   # non-power occupation_family -> count, across who+map
         # Rejections are recorded, not silent: one entry per (game, id) per
         # day, surfaced as warnings on the review sheet and as an aggregate
         # on stdout.
@@ -900,10 +922,12 @@ def cmd_propose(args):
                 # that includes a pick we are in the middle of withdrawing —
                 # a banker repair that removes Hitler must be allowed to
                 # bring in another dark-tone subject if it needs to.
+                w_sig = item_signal(game, weakest, fame_idx, tag_idx)
                 w_dark = is_dark_tone(cfg, game, weakest["id"])
-                w_power = is_power_figure(
-                    item_signal(game, weakest, fame_idx, tag_idx), cfg)
+                w_power = is_power_figure(w_sig, cfg)
                 w_paint = is_painting(game, weakest, fame_idx, tag_idx)
+                w_family = (w_sig.get("occupation_family")
+                            if game in ("who", "map") and not w_power else None)
                 chosen_ids.discard(weakest["id"])
                 day_answers.discard(normalise(weakest["name"]))
                 day_subjects.difference_update(w_variants)
@@ -911,6 +935,8 @@ def cmd_propose(args):
                     day_tone["dark"] -= 1
                 if w_power:
                     day_tone["power"] -= 1
+                if w_family:
+                    issue_family[w_family] -= 1
                 if w_paint:
                     day_tone["paintings"] -= 1
                 ok, _ = eligible(game, cand, on_date, day_answers, chosen_ids, day_subjects)
@@ -922,6 +948,8 @@ def cmd_propose(args):
                         day_tone["dark"] += 1
                     if w_power:
                         day_tone["power"] += 1
+                    if w_family:
+                        issue_family[w_family] += 1
                     if w_paint:
                         day_tone["paintings"] += 1
                     continue
@@ -930,8 +958,11 @@ def cmd_propose(args):
                 day_subjects.update(normalise(v) for v in cand.get("variants") or [])
                 if is_dark_tone(cfg, game, cand["id"]):
                     day_tone["dark"] += 1
-                if is_power_figure(item_signal(game, cand, fame_idx, tag_idx), cfg):
+                c_sig = item_signal(game, cand, fame_idx, tag_idx)
+                if is_power_figure(c_sig, cfg):
                     day_tone["power"] += 1
+                elif game in ("who", "map") and c_sig.get("occupation_family"):
+                    issue_family[c_sig["occupation_family"]] += 1
                 if is_painting(game, cand, fame_idx, tag_idx):
                     day_tone["paintings"] += 1
                 note("banker-repair", game, cand["id"],
@@ -1005,7 +1036,11 @@ def cmd_propose(args):
 
                     def bias(item):
                         sig = item_signal(game, item, fame_idx, tag_idx)
-                        score = 0.0 if exempt else western_bias_score(sig, cfg)
+                        # Per-item waiver (30 Jul): a genuinely famous
+                        # subject pays no Western-legibility penalty
+                        # anywhere — the bias steers the deep cuts only.
+                        icon = (sig.get("fame") or 0) >= cfg["icon_fame_threshold"]
+                        score = 0.0 if (exempt or icon) else western_bias_score(sig, cfg)
                         if want_era and sig.get("era") and sig["era"] not in round_era:
                             score -= cfg["era_novelty_bonus"]
                         if ramp_on:
@@ -1052,6 +1087,20 @@ def cmd_propose(args):
                             (game, item["id"]),
                             (item.get("name") or item["id"], reason))
                         return False
+                    # Repetition is a power privilege (owner, 30 Jul): a
+                    # second philosopher/artist/entertainer in one issue is
+                    # blocked where a second ruler is not. Same relax
+                    # behaviour as the power cap above.
+                    occ2 = sig.get("occupation_family") if game in ("who", "map") else None
+                    if occ2 and not is_power_figure(sig, cfg) \
+                            and issue_family[occ2] >= cfg["max_nonpower_family_per_issue"]:
+                        reason = (f"variety cap: this issue already has "
+                                  f"{issue_family[occ2]} {occ2} answer(s) — "
+                                  f"only rulers/commanders may repeat")
+                        tone_rejects.setdefault(
+                            (game, item["id"]),
+                            (item.get("name") or item["id"], reason))
+                        return False
                     return True
 
                 def commit(item):
@@ -1069,6 +1118,8 @@ def cmd_propose(args):
                         day_tone["dark"] += 1
                     if game in ("who", "map") and is_power_figure(sig, cfg):
                         day_tone["power"] += 1
+                    elif game in ("who", "map") and sig.get("occupation_family"):
+                        issue_family[sig["occupation_family"]] += 1
                     if is_painting(game, item, fame_idx, tag_idx):
                         day_tone["paintings"] += 1
 

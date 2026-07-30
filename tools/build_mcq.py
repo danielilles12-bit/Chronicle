@@ -65,6 +65,31 @@ ERA_ORDER = ["ancient", "classical", "medieval", "early-modern", "nineteenth",
              "twentieth", "contemporary"]
 PHOTO_YEAR = 1850   # death at/after this = plausibly photographed
 
+# Holistic plausibility gates (owner brief, 30 Jul 2026): "looking at the
+# three choices, is it incredibly easy to guess which one the right answer
+# is? If it is, it fails." Two mechanical consequences:
+#  - a face/journey visibly from one part of the world never gets two
+#    options from another ("don't give an Asian man Leonardo da Vinci and
+#    a U.S. president as the alternatives");
+#  - an object never gets options from a different physical class ("if
+#    we're showing a pendant, the Sphinx of Giza is a terrible option").
+# Buckets are deliberately coarse; they relax only as the very last resort
+# (logged), and curated overrides bypass them entirely.
+REGION_BUCKET = {
+    "Europe": "western", "North America": "western",
+    "Central Asia & Russia": "western", "Latin America & Caribbean": "western",
+    "Oceania": "western",
+    "East Asia": "east-asia", "Southeast Asia": "east-asia",
+    "South Asia": "south-asia",
+    "Middle East & North Africa": "mena",
+    "Sub-Saharan Africa": "africa",
+}
+KIND_BUCKET = {
+    "building": "place", "site": "place", "monument": "place",
+    "artefact": "object", "manuscript": "object",
+    "sculpture": "sculpture", "painting": "painting",
+}
+
 # Curated (family, fine) overrides for items tags.json mislabels — grow this
 # list as spot-checks find more. (tutankhamun sits as 'religious' in tags,
 # which paired his gold mask with Moses instead of fellow pharaohs. The tags
@@ -336,13 +361,14 @@ def pick_distractors(game, items, signals, genders, forbidden=None):
             "dy": death_year(it, tag, uni),
             "era": era_rank(tag),
             "region": (tag or {}).get("region"),
+            "kind": (tag or {}).get("kind"),
             "fame": (fame_rec or {}).get("fame"),
             "gender": genders.get(it["id"]) if genders else None,
         }
 
     relaxed = []
 
-    def candidates_for(t, window, extra=frozenset()):
+    def candidates_for(t, window, extra=frozenset(), gates=True):
         tm = meta[t["id"]]
         scored = []
         for c in items:
@@ -355,6 +381,16 @@ def pick_distractors(game, items, signals, genders, forbidden=None):
                 continue          # names a same-day answer (schedule-aware)
             if cm["keys"] & extra:
                 continue          # same-day duplicate-option rule (dedupe pass)
+            if gates and game in ("who", "map"):
+                tb = REGION_BUCKET.get(tm["region"])
+                cb = REGION_BUCKET.get(cm["region"])
+                if tb and cb and tb != cb:
+                    continue      # a visibly non-matching world = a giveaway
+            if gates and game == "what":
+                tk = KIND_BUCKET.get(tm["kind"])
+                ck = KIND_BUCKET.get(cm["kind"])
+                if tk and ck and tk != ck:
+                    continue      # pendant never gets the Sphinx as an option
             if game == "who" and tm["dy"] is not None and cm["dy"] is not None:
                 if (tm["dy"] >= PHOTO_YEAR) != (cm["dy"] >= PHOTO_YEAR):
                     continue      # photo face vs bust-era name = giveaway
@@ -404,17 +440,20 @@ def pick_distractors(game, items, signals, genders, forbidden=None):
             scored = candidates_for(t, window, extra)
             if len(scored) >= 2:
                 relaxed.append((t["id"], window))
-        if len(scored) < 2:       # last resort: no era gate at all
+        if len(scored) < 2:       # next resort: era open, holistic gates held
             scored = candidates_for(t, 10 ** 6, extra)
             relaxed.append((t["id"], "none"))
+        if len(scored) < 2:       # last resort: gates off too — always logged
+            scored = candidates_for(t, 10 ** 6, extra, gates=False)
+            relaxed.append((t["id"], "GATES-OFF"))
         return [nm for _, _, nm, _ in scored[:2]]
 
     out = {t["id"]: pick_one(t) for t in items}
     if relaxed:
-        print(f"build_mcq: {game}: era gate relaxed for {len(relaxed)} item(s): "
+        print(f"build_mcq: {game}: gate relaxed for {len(relaxed)} item(s): "
               + ", ".join(f"{i}({w})" for i, w in relaxed[:8])
               + ("…" if len(relaxed) > 8 else ""))
-    return out, pick_one
+    return out, pick_one, relaxed
 
 
 def load_overrides():
@@ -585,11 +624,12 @@ def main():
     # so collisions are harmless.
     map_genders = resolve_genders(figs, signals[3], offline)
 
-    picks_all, pickers, errs = {}, {}, []
+    picks_all, pickers, relaxed_all, errs = {}, {}, {}, []
     for game, items in game_pools.items():
-        picks, pick_one = pick_distractors(
+        picks, pick_one, relaxed = pick_distractors(
             game, items, signals,
             {"who": genders, "map": map_genders, "what": None}[game], forbidden)
+        relaxed_all[game] = relaxed
         for iid, opts in overrides[game].items():
             err = override_error(game, iid, idx[game].get(iid), opts,
                                  forbidden.get((game, iid)))
@@ -620,7 +660,56 @@ def main():
         print(f"build_mcq: {game}: {len(game_pools[game])} items, "
               f"{n} mcq fields written"
               + (f", {len(short)} SHORT: {short[:5]}" if short else ""))
+
+    if "--report" in sys.argv[1:]:
+        write_trio_report(picks_all, overrides, relaxed_all, idx)
     return 0
+
+
+def write_trio_report(picks_all, overrides, relaxed_all, idx):
+    """tools/out/mcq-trio-report.md — every upcoming staged trio, flagged
+    ones first, for the holistic eyeball the owner asked for (30 Jul):
+    'before you compile the multiple choices, look at them holistically'."""
+    try:
+        man = load(MANIFEST)
+    except Exception:
+        return
+    relaxed_ids = {g: {i for i, _ in relaxed_all.get(g, [])} for g in picks_all}
+    gates_off = {g: {i for i, w in relaxed_all.get(g, []) if w == "GATES-OFF"}
+                 for g in picks_all}
+    rows, flagged = [], []
+    for n in sorted(int(k) for k in man["editions"]):
+        ed = man["editions"][str(n)]
+        try:
+            if datetime.date.fromisoformat(ed.get("date", "")) < datetime.date.today():
+                continue
+        except ValueError:
+            continue
+        for g in ("who", "map", "what"):
+            for iid in ed.get(g) or []:
+                opts = picks_all[g].get(iid)
+                it = idx[g].get(iid)
+                if not opts or not it:
+                    continue
+                flags = []
+                if iid in overrides.get(g, {}):
+                    flags.append("curated")
+                if iid in gates_off.get(g, set()):
+                    flags.append("GATES-OFF")
+                elif iid in relaxed_ids.get(g, set()):
+                    flags.append("relaxed")
+                line = (f"| ed{n} {ed['date']} | {g}/{iid} | {it['name']} | "
+                        f"{opts[0]} · {opts[1]} | {', '.join(flags) or '—'} |")
+                (flagged if flags and "curated" not in flags else rows).append(line)
+    out = ROOT / "tools/out/mcq-trio-report.md"
+    out.write_text(
+        "# 3-choice trios — upcoming staged rounds\n\n"
+        "Flagged rows first (a gate had to relax to fill them — eyeball "
+        "these). Curated rows are owner-pinned overrides.\n\n"
+        "| day | slot | answer | options | flags |\n|---|---|---|---|---|\n"
+        + "\n".join(flagged + rows) + "\n", encoding="utf-8")
+    print(f"build_mcq: trio report -> {out} ({len(flagged)} flagged, "
+          f"{len(rows)} clean)")
 
 
 if __name__ == "__main__":
