@@ -884,3 +884,49 @@ button.cal-cell:active { background: var(--ch-parchment); }
 /* The earned stamp: the page's single red accent. Reuses .df-stamp language. */
 .ledger-stamp { position: absolute; right: 14px; bottom: 12px; text-align: center; line-height: 1.1; font-size: 13px; }
 .ledger-stamp small { display: block; font-size: 8px; font-weight: 700; letter-spacing: .12em; margin-top: 3px; }
+
+/* ---------- Carry: moving the record between origins ----------
+   Deliberately the quietest thing in the app — a torn-off coupon at the foot
+   of the record book. No new colours and no new geometry: ink rules, square
+   corners, mono labels, and the same .pill buttons as everywhere else. */
+/* The Ledger is the one .view with a footer under its scroll area, so it is
+   also the one that must stop AT the fold rather than growing past it: capped
+   here, the record book scrolls inside #ledger-body and the carry row stays
+   put at the bottom of the page instead of hiding below it. */
+#view-ledger { max-height: 100dvh; }
+.carry-foot { flex: none; padding: 0 20px calc(14px + env(safe-area-inset-bottom)); background: var(--ch-paper); }
+.carry-open {
+  display: block; width: 100%; text-align: left; cursor: pointer;
+  background: transparent; color: var(--ch-text-primary);
+  border: 0; border-top: 2px dashed var(--ch-line-soft); border-radius: 0;
+  padding: 12px 2px 2px; font-family: var(--ch-font-ui); font-size: 12px; letter-spacing: .03em;
+}
+.carry-open:active { background: var(--ch-parchment); }
+.carry-open-kicker { display: block; font-size: 9.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ch-text-muted); margin-bottom: 3px; }
+.carry-open b { font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+
+.carry-card { gap: 8px; overflow-y: auto; }
+.carry-lede { margin: 0; font-family: var(--ch-font-text); font-size: 14px; line-height: 1.45; color: var(--ch-text-secondary); }
+
+/* The manifest: what is in the crate. Reads as a packing list, not a table. */
+.carry-manifest { margin: 4px 0 2px; padding: 0; list-style: none; }
+.carry-manifest:empty { display: none; }
+.carry-manifest li { position: relative; padding: 7px 0 7px 16px; border-bottom: 1px solid var(--ch-line-soft); font-family: var(--ch-font-ui); font-size: 12px; font-weight: 700; letter-spacing: .02em; color: var(--ch-text-primary); }
+.carry-manifest li::before { content: ''; position: absolute; left: 0; top: 12px; width: 7px; height: 7px; background: var(--ch-ink); }
+.carry-manifest li:last-child { border-bottom: 0; }
+
+.carry-label { display: block; margin-top: 10px; font-family: var(--ch-font-ui); font-size: 9.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--ch-text-muted); }
+/* The code itself: a stamped strip of machine text — monospace, wrapping and
+   selectable, sized so a long code scrolls instead of swallowing the sheet. */
+.carry-payload {
+  display: block; width: 100%; margin: 5px 0 8px; padding: 8px 9px;
+  font-family: var(--ch-font-ui); font-size: 11px; line-height: 1.35;
+  color: var(--ch-text-primary); background: var(--ch-cream);
+  border: 2px solid var(--ch-ink); border-radius: 0;
+  resize: none; word-break: break-all; -webkit-appearance: none;
+}
+.carry-payload:focus { outline: 2px solid var(--ch-gold); outline-offset: 1px; }
+.carry-help { margin: 6px 0 0; font-family: var(--ch-font-text); font-size: 12.5px; line-height: 1.4; color: var(--ch-text-muted); }
+.carry-status { margin: 8px 0 0; font-family: var(--ch-font-ui); font-size: 11px; font-weight: 700; letter-spacing: .04em; color: var(--ch-text-muted); }
+.carry-status[hidden] { display: none; }
+.carry-status.is-bad { color: var(--ch-burgundy); }

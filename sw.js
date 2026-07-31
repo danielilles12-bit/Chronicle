@@ -62,6 +62,7 @@ const ASSETS = [
   './js/connectionsgame.js',
   './js/daily.js',
   './js/ledger.js',
+  './js/carry.js',
   './js/sfx.js',
   './manifest.webmanifest',
   './icons/icon-192.png',

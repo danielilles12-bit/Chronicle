@@ -21,6 +21,7 @@ import { initConnectionsGame, startThreadDaily, startThreadPractice } from './co
 import * as daily from './daily.js';
 import * as sfx from './sfx.js';
 import { renderLedger } from './ledger.js';
+import * as carry from './carry.js';
 
 export const DATA = { figures: null, world: null, reveal: null, connections: null, editions: null };
 export const $ = (sel) => document.querySelector(sel);
@@ -1204,6 +1205,13 @@ async function ensureGameData(gameKey, statusEl) {
 }
 
 async function boot() {
+  // FIRST, before anything else reads or rewrites the URL: a carry link puts
+  // the player's whole record in the fragment, and both initTracking and
+  // routeSharedPlay call replaceState with location.hash carried along. Grab
+  // it and scrub it here, and neither of them can ever see it (or bake it into
+  // an "Add to Home Screen" start URL). The offer itself waits until the end
+  // of boot, when there is an app to show it over.
+  carry.captureIncoming();
   initTracking();
   // A crash in the wild is otherwise invisible (a broken deploy on one iOS
   // version, say). One anonymous event per session; the event name carries
@@ -1265,6 +1273,7 @@ async function boot() {
   initHome();
   initDaily();
   initDayDone();
+  carry.initCarry();
   refreshHomeStats();
   refreshTodayStrip();
   if (!maybeMourn()) maybeCelebrate();
@@ -1273,9 +1282,23 @@ async function boot() {
   // screen (mourn/celebrate) already navigated away.
   if (trail[trail.length - 1] === 'view-home') refreshIssueClosed();
 
+  // A record that just arrived from another device changes every number on
+  // screen. carry.js announces rather than imports app.js (that would be a
+  // cycle), so the repaint is wired here.
+  document.addEventListener('carrydone', () => {
+    daily.normalizeLedgerScales();
+    refreshHomeStats();
+    refreshTodayStrip();
+    renderLedger();
+  });
+  // The offer goes last: decoding is async, and the sheet should open over a
+  // painted app rather than a blank one.
+  carry.offerIncoming();
+
   // Deterministic hooks for the automated test-suite.
   if (testHooksEnabled()) {
-    window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {}, { data: DATA, store, isMatch, daily });
+    window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {},
+      { data: DATA, store, isMatch, daily, carry: carry.testHooks() });
   }
 
   const buildTag = $('#build-tag');
