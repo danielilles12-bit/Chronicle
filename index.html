@@ -410,6 +410,15 @@
       <span class="topbar-right"></span>
     </header>
     <main id="ledger-body" class="scroll-main"></main>
+    <!-- Carry (js/carry.js): the only door to the move-your-record tool. Sits
+         under the record book because that is where a worried player goes to
+         look at the streak they are afraid of losing. -->
+    <footer class="carry-foot">
+      <button type="button" id="carry-open" class="carry-open">
+        <span class="carry-open-kicker">Moving house?</span>
+        <b>Carry your record over →</b>
+      </button>
+    </footer>
   </section>
 
   <div id="archive-picker" class="sheet" hidden>
@@ -436,6 +445,43 @@
       <p class="start-copy" id="intro-copy"></p>
       <p class="start-copy small" id="intro-copy2"></p>
       <button class="pill primary big" id="intro-play">Play ›</button>
+    </div>
+  </div>
+
+  <!-- ============ CARRY (move the record between origins) ============
+       One sheet, two faces. The EXPORT face is opened from the Ledger row;
+       the IMPORT face is opened by js/carry.js when a carry link lands or a
+       code is pasted. All copy and behaviour live in js/carry.js — this is
+       only the shell. -->
+  <div id="carry-sheet" class="sheet" hidden>
+    <div class="sheet-card carry-card">
+      <h3 id="carry-title">Moving house</h3>
+      <p class="carry-lede" id="carry-lede"></p>
+      <ul class="carry-manifest" id="carry-manifest"></ul>
+
+      <div id="carry-export-panel" hidden>
+        <label class="carry-label" for="carry-payload">Your carry code</label>
+        <textarea id="carry-payload" class="carry-payload" rows="3" readonly spellcheck="false"></textarea>
+        <div class="sheet-row">
+          <button type="button" class="pill primary" id="carry-copy-btn">Copy code</button>
+          <button type="button" class="pill" id="carry-link-btn">Copy link</button>
+        </div>
+        <p class="carry-help" id="carry-help"></p>
+        <label class="carry-label" for="carry-paste">Arrived from another device?</label>
+        <textarea id="carry-paste" class="carry-payload" rows="2" spellcheck="false"
+                  placeholder="Paste the code (or the link) here"></textarea>
+        <button type="button" class="pill" id="carry-paste-btn">Bring it in</button>
+      </div>
+
+      <div id="carry-import-panel" hidden>
+        <div class="sheet-row" id="carry-confirm-row" hidden>
+          <button type="button" class="pill primary" id="carry-yes">Carry it over</button>
+          <button type="button" class="pill ghost" id="carry-no">Not now</button>
+        </div>
+      </div>
+
+      <p class="carry-status" id="carry-status" role="status" hidden></p>
+      <button type="button" class="pill ghost sheet-close" id="carry-close">Close</button>
     </div>
   </div>
 

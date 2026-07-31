@@ -66,11 +66,15 @@ Everything below flows from these. One reply covers it: e.g.
       (keep the pop-zine visual system — this is a rename, not a redesign) [SESSION]
 - [ ] Domain + hosting move in one step: Cloudflare Pages (Session 8 spec),
       new domain live, deadfamous.app 301-redirects to it [SESSION]
-- [ ] **Early-user data handoff:** page on the old origin that packs
-      localStorage into a link fragment; importer on the new origin. Streaks are
-      sacred (locked decision №3) — this is how we honour it across origins.
-      Bonus: the same mechanism doubles as a Safari → installed-app transfer
-      tool (see §2, streak investigation). [SESSION]
+- [x] **Early-user data handoff — BUILT 31 Jul (v157, the "Carry" tool).**
+      Export as link + copy-code from the Your Legacy footer; import merges
+      (never lowers — streaks recomputed from merged entries), idempotent,
+      strict validation, 8 Playwright scenarios across two origins. Report:
+      tools/out/handoff-tool-2026-07-31/REPORT.md. Also solves Safari →
+      installed-app transfer and in-app-browser rescue. RENAME-DAY SEQUENCE:
+      set `DESTINATION` in js/carry.js to the new origin and deploy that build
+      TO THE OLD SITE, so old-site exports point at the new address. Owner
+      call pending: should the Ledger row shout louder during rename week?
 - [ ] Personal note to the handful of early users with their handoff link [DANIEL]
 - [ ] New GoatCounter site code; keep old one recording redirects [SESSION]
 - [ ] Re-verify link unfurls (iMessage, WhatsApp, Discord, X) on new domain [BOTH]

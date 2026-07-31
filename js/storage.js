@@ -269,3 +269,17 @@ export function getDailyEntry(game, editionIndex) {
   const l = getDailyLedger();
   return (l.entries[game] && l.entries[game][editionIndex]) || null;
 }
+
+// ---------- whole-blob access (js/carry.js only) ----------
+// Every other caller uses the typed getters above; the carry tool is the one
+// feature whose job is the blob ITSELF — it reads the lot to export, and
+// writes a merged replacement back in a single save so an interrupted import
+// can never leave half a record behind. Routing it through here keeps
+// localStorage access in this module, backup-and-all.
+export function readAll() {
+  return loadAll();
+}
+
+export function writeAll(blob) {
+  saveAll(blob);
+}

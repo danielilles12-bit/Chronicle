@@ -28,6 +28,7 @@ BROWSER = [
     ("smoke: daily flow", [os.path.join(HERE, "test_daily_flow.py")]),
     ("smoke: resilience", [os.path.join(HERE, "test_resilience.py")]),
     ("streaks + storage", [os.path.join(HERE, "test_streaks.py")]),
+    ("carry: move record", [os.path.join(HERE, "test_carry.py")]),
 ]
 
 

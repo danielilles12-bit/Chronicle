@@ -7,7 +7,7 @@
 //   new worker precaches the shell, skipWaiting+claim take over immediately ->
 //   app.js sees controllerchange and shows the NEW EDITION bar -> the user's
 //   pull-to-refresh (or a tap on the bar) reloads into the new version.
-const VERSION = 'deadfamous-v156';
+const VERSION = 'deadfamous-v157';
 
 // Daily-content cache: survives version bumps so updating the app never
 // re-downloads the whole archive, served stale-while-revalidate below.
@@ -62,6 +62,7 @@ const ASSETS = [
   './js/connectionsgame.js',
   './js/daily.js',
   './js/ledger.js',
+  './js/carry.js',
   './js/sfx.js',
   './manifest.webmanifest',
   './icons/icon-192.png',

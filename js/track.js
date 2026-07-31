@@ -75,6 +75,21 @@ const DISPLAY = {
   'share-what-failed': '6x-share-failed-relic',
   'share-fullhouse-failed': '6x-share-failed-full-house',
   'share-obituary-failed': '6x-share-failed-obituary',
+  // Carry (js/carry.js): moving a record between origins. Same family as
+  // install — both are "this player is changing which jar their streak lives
+  // in". carry-land counts arrivals on a carry link; -offer/-ok/-declined are
+  // the confirm funnel; -repeat is a second import of a payload already here
+  // (the idempotency guard doing its job, not an error); -bad is a code that
+  // failed validation.
+  'carry-export': '7-carry-code-made',
+  'carry-copy-code': '7-carry-code-copied',
+  'carry-copy-link': '7-carry-link-copied',
+  'carry-land': '7-carry-link-opened',
+  'carry-import-offer': '7-carry-offered',
+  'carry-import-ok': '7-carry-arrived',
+  'carry-import-declined': '7-carry-declined',
+  'carry-import-repeat': '7-carry-already-here',
+  'carry-import-bad': '9-carry-code-rejected',
   'install-tip-shown': '7-install-pitch-shown',
   'install-tip-tap': '7-install-pitch-tapped',
   'install-tip-dismiss': '7-install-pitch-dismissed',
