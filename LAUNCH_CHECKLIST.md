@@ -125,11 +125,23 @@ Everything below flows from these. One reply covers it: e.g.
 
 ## 5 · Content close-out (Sessions B + D from the July review)
 
-- [ ] **Session B:** 300 image starts vs the honest contact sheets; ~6
-      unrescuable (incl. Mihrimah, Cleopatra → asp-painting swap); 4 rights-risk
-      swaps under NEW filenames (sw cache is cache-first) [SESSION]
-- [ ] Rights triage of the 115 unresolved images — clear editions 42–48 first,
-      rest post-launch [SESSION]
+**Session B's 300-start audit: SUPERSEDED 31 Jul** — Daniel's sheet-based 30-day
+approval covered it: build_launch_audit.py renders the true opening scrap of
+every round (curated overrides honoured — the tool dishonesty bug was fixed
+before his audit), and his nominated swaps were applied in commit 56acc517.
+What survives is the legal layer taste-approval can't cover:
+
+- [ ] **Rights hygiene (~1–2 h):** swap `little-mermaid-statue` (ed 41 — airs
+      **Sat 9 Aug**, statue under copyright to 2030) and `centre-pompidou`
+      (ed 45 — 13 Aug, launch week) for rights-clean images under NEW filenames,
+      or replace the items; backfill missing CC BY attribution on aired items
+      (`louvre` has license CC BY 2.5, credit = None; check `mount-rushmore`
+      too — aired items resurface via Encore); license spot-check across
+      eds 42–48 [SESSION]
+- [ ] Pool intake debt — NOT launch-blocking (nothing staged in the window):
+      Cleopatra asp-painting swap, Mihrimah + remaining unrescuables, 20 retired
+      figures' Lifeline map entries, and the full rights verification backlog
+      (789 images still UNVERIFIED in tools/out/rights_report.csv) [post-launch]
 - [ ] **Session D:** targeted replay of 3 / 16 / 23 / 30 Aug boards; human-tester
       round (Daniel recruits — status?); fix fallout [BOTH]
 - [ ] Freeze editions 42–48; full suite green; fresh-profile QA sweep;
