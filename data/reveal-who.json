@@ -19,17 +19,18 @@
   "fy": 0.38,
   "frac": 0.45,
   "start": 6,
-  "license": "Public domain",
+  "license": "CC BY-SA 3.0",
   "attribution": "Roland Unger",
   "source": "Wikimedia Commons: CairoEgMuseumTaaMaskMostlyPhotographed.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:CairoEgMuseumTaaMaskMostlyPhotographed.jpg",
   "image_author": "Roland Unger",
-  "image_license": "Public domain",
+  "image_license": "CC BY-SA 3.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Akhenaten",
    "Ramesses II"
-  ]
+  ],
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0"
  },
  {
   "id": "charlie-chaplin",
@@ -137,17 +138,18 @@
   "fy": 0.4,
   "frac": 0.45,
   "start": 6,
-  "license": "Public domain",
-  "attribution": "Eric Gaba (Sting), photographer",
+  "license": "CC BY-SA 2.5",
+  "attribution": "Eric Gaba (User:Sting)",
   "source": "Wikimedia Commons: Socrates Louvre.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Socrates_Louvre.jpg",
-  "image_author": "Copy of Lysippos (?)",
-  "image_license": "Public domain",
+  "image_author": "Eric Gaba (User:Sting)",
+  "image_license": "CC BY-SA 2.5",
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Aristotle",
    "Plato"
-  ]
+  ],
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/2.5"
  },
  {
   "id": "al-capone",
@@ -523,17 +525,18 @@
   "fx": 0.508,
   "fy": 0.242,
   "frac": 0.2,
-  "license": "Public domain",
-  "attribution": "Marie-Lan Nguyen (User:Jastrow)",
+  "license": "CC BY 4.0",
+  "attribution": "Marie-Lan Nguyen",
   "source": "Wikimedia Commons: Standing Buddha Guimet MA6284.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Standing_Buddha_Guimet_MA6284.jpg",
   "image_author": "Marie-Lan Nguyen",
-  "image_license": "Public domain",
+  "image_license": "CC BY 4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Ashoka the Great",
    "Saint Peter"
-  ]
+  ],
+  "image_license_url": "https://creativecommons.org/licenses/by/4.0"
  },
  {
   "id": "george-washington",
@@ -559,7 +562,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Benjamin Franklin",
-   "John Adams"
+   "Thomas Jefferson"
   ]
  },
  {
@@ -713,18 +716,19 @@
   "fx": 0.575,
   "fy": 0.39,
   "frac": 0.26,
-  "license": "Public domain",
-  "attribution": "MM",
+  "license": "CC BY-SA 4.0",
+  "attribution": "Alvesgaspar",
   "source": "Wikimedia Commons: Marcus Aurelius Capitoline Hill September 2015-1.jpg",
   "start": 6,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Marcus_Aurelius_Capitoline_Hill_September_2015-1.jpg",
   "image_author": "Alvesgaspar",
-  "image_license": "Public domain",
+  "image_license": "CC BY-SA 4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Augustus",
    "Saint Peter"
-  ]
+  ],
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0"
  },
  {
   "id": "mark-twain",
@@ -827,17 +831,18 @@
   "fx": 0.3625,
   "fy": 0.238,
   "frac": 0.2,
-  "license": "Public domain",
+  "license": "CC BY 2.0",
   "attribution": "Donald McKague",
   "source": "Wikimedia Commons: Queen Elizabeth II official portrait for 1959 tour (retouched).jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Queen_Elizabeth_II_official_portrait_for_1959_tour_%28retouched%29.jpg",
   "image_author": "Donald McKague",
-  "image_license": "Public domain",
+  "image_license": "CC BY 2.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Diana, Princess of Wales",
    "Mother Teresa"
-  ]
+  ],
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0"
  },
  {
   "id": "rasputin",
@@ -3245,18 +3250,19 @@
   "fx": 0.5,
   "fy": 0.19,
   "frac": 0.48262548262548255,
-  "license": "Public domain",
+  "license": "CC BY-SA 2.5",
   "attribution": "Till Niermann",
   "source": "Wikimedia Commons: Statue-Augustus.jpg",
   "start": 8,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Statue-Augustus.jpg",
   "image_author": "Till Niermann",
-  "image_license": "Public domain",
+  "image_license": "CC BY-SA 2.5",
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Julius Caesar",
    "Marcus Aurelius"
-  ]
+  ],
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/2.5"
  },
  {
   "id": "charles-i-england",
@@ -7483,18 +7489,19 @@
   "fx": 0.504,
   "fy": 0.229,
   "frac": 0.22,
-  "license": "Public domain",
+  "license": "CC BY 2.0",
   "attribution": "Ángel M. Felicísimo",
   "source": "Wikimedia Commons: Retrato de Julio César (26724093101).jpg",
   "start": 7,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Retrato_de_Julio_C%C3%A9sar_%2826724093101%29.jpg",
-  "image_author": "Ángel M. Felicísimo from Mérida, España",
-  "image_license": "Public domain",
+  "image_author": "Ángel M. Felicísimo",
+  "image_license": "CC BY 2.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Augustus",
    "Saint Peter"
-  ]
+  ],
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0"
  },
  {
   "id": "kosem-sultan",

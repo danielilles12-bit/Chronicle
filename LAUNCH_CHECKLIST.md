@@ -131,17 +131,26 @@ every round (curated overrides honoured — the tool dishonesty bug was fixed
 before his audit), and his nominated swaps were applied in commit 56acc517.
 What survives is the legal layer taste-approval can't cover:
 
-- [ ] **Rights hygiene (~1–2 h):** swap `little-mermaid-statue` (ed 41 — airs
-      **Sat 9 Aug**, statue under copyright to 2030) and `centre-pompidou`
-      (ed 45 — 13 Aug, launch week) for rights-clean images under NEW filenames,
-      or replace the items; backfill missing CC BY attribution on aired items
-      (`louvre` has license CC BY 2.5, credit = None; check `mount-rushmore`
-      too — aired items resurface via Encore); license spot-check across
-      eds 42–48 [SESSION]
+- [x] **Rights hygiene — DONE 31 Jul** (Opus deep audit, all 48 launch-window
+      images verified against Commons wikitext + pixel provenance; report in
+      tools/out/rights-check-2026-07-31/). Shipped: 16 credit records fixed
+      (dual-licence Commons trap — photographs mis-stored as "Public domain");
+      4 items retired on subject copyright (`little-mermaid-statue`,
+      `centre-pompidou`, `motherland-calls`, `louvre` — all reserve:true);
+      slots recast per Daniel: ed 38 → Space Shuttle, ed 41 → Vasa,
+      ed 45 → Hoover Dam (Cutty Sark held out: name readable on her bow at
+      zoom = broken medium); schedule-aware MCQ distractors regenerated;
+      new validate_reveal.py gate (CC BY ⇒ licence URL + author);
+      3 new HOUSE_RULES entries.
+- [ ] Rights follow-ups, NOT launch-blocking: retier `cutty-sark` to easy
+      before staging; `daria-i-noor` + `john-the-baptist` need real
+      photographer credits before staging (stored "authors" are the artists);
+      `lenin` is GFDL-only (awkward licence — swap image when convenient);
+      `sacagawea` provenance unverifiable (Commons source gone); full
+      790-image verification backlog [post-launch]
 - [ ] Pool intake debt — NOT launch-blocking (nothing staged in the window):
       Cleopatra asp-painting swap, Mihrimah + remaining unrescuables, 20 retired
-      figures' Lifeline map entries, and the full rights verification backlog
-      (789 images still UNVERIFIED in tools/out/rights_report.csv) [post-launch]
+      figures' Lifeline map entries [post-launch]
 - [ ] **Session D:** targeted replay of 3 / 16 / 23 / 30 Aug boards; human-tester
       round (Daniel recruits — status?); fix fallout [BOTH]
 - [ ] Freeze editions 42–48; full suite green; fresh-profile QA sweep;

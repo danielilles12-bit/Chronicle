@@ -657,8 +657,8 @@
   "image_retrieved": "2026-07-21",
   "reserve": true,
   "mcq": [
-   "Petra",
-   "Abu Simbel"
+   "Great Sphinx of Giza",
+   "Petra"
   ]
  },
  {
@@ -716,8 +716,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Colossus of Rhodes",
-   "Ajanta Caves"
+   "Petra",
+   "Abu Simbel"
   ]
  },
  {
@@ -2321,18 +2321,19 @@
   "fx": 0.43,
   "fy": 0.55,
   "frac": 0.2,
-  "license": "Public domain",
+  "license": "CC BY 2.0",
   "attribution": "Dean Franklin",
   "source": "Wikimedia Commons: Dean Franklin - 06.04.03 Mount Rushmore Monument (by-sa).jpg",
   "start": 6,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Dean_Franklin_-_06.04.03_Mount_Rushmore_Monument_%28by-sa%29.jpg",
   "image_author": "Dean Franklin",
-  "image_license": "Public domain",
+  "image_license": "CC BY 2.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Neuschwanstein Castle",
    "Kaaba"
-  ]
+  ],
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0"
  },
  {
   "id": "peterhof-palace",
@@ -2616,18 +2617,19 @@
   "fx": 0.539,
   "fy": 0.217,
   "frac": 0.2,
-  "license": "Public domain",
+  "license": "CC BY-SA 4.0",
   "attribution": "Daniel Schwen",
   "source": "Wikimedia Commons: Statue of Liberty frontal 2.jpg",
   "start": 7,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Statue_of_Liberty_frontal_2.jpg",
   "image_author": "Daniel Schwen",
-  "image_license": "Public domain",
+  "image_license": "CC BY-SA 4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Christ the Redeemer",
    "The Motherland Calls"
-  ]
+  ],
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0"
  },
  {
   "id": "sunday-grande-jatte",
@@ -3526,10 +3528,10 @@
   "fy": 0.6,
   "frac": 0.2,
   "license": "CC BY-SA 3.0",
-  "attribution": "CEphoto, Uwe Aranas",
+  "attribution": "© CEphoto, Uwe Aranas",
   "source": "Wikimedia Commons: Beijing China Forbidden-City-03.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Beijing_China_Forbidden-City-03.jpg",
-  "image_author": "CEphoto, Uwe Aranas",
+  "image_author": "© CEphoto, Uwe Aranas",
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "image_retrieved": "2026-07-21",
@@ -3812,17 +3814,18 @@
   "fx": 0.6840236686390533,
   "fy": 0.4996860743484348,
   "frac": 0.5594697140792267,
-  "license": "Public domain",
-  "attribution": "Prof saxx",
+  "license": "CC BY-SA 3.0",
+  "attribution": "EU",
   "source": "Wikimedia Commons: Lascaux painting.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Lascaux_painting.jpg",
   "image_author": "EU",
-  "image_license": "Public domain",
+  "image_license": "CC BY-SA 3.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Queen Elizabeth 2",
    "Sydney Harbour Bridge"
-  ]
+  ],
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0"
  },
  {
   "id": "leshan-buddha",
@@ -4899,8 +4902,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Paro Taktsang",
-   "Longmen Grottoes"
+   "Quba Mosque",
+   "Nebra Sky Disc"
   ]
  },
  {
@@ -7001,18 +7004,19 @@
   "fx": 0.47,
   "fy": 0.14,
   "frac": 0.4,
-  "license": "Public domain",
+  "license": "CC BY 2.0",
   "attribution": "Sam Valadi",
   "source": "Wikimedia Commons: Empire State Building (aerial view).jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Empire_State_Building_%28aerial_view%29.jpg",
   "image_author": "Sam Valadi",
-  "image_license": "Public domain",
+  "image_license": "CC BY 2.0",
   "image_retrieved": "2026-07-24",
   "mcq": [
    "Chrysler Building",
    "Woolworth Building"
   ],
-  "start": 1
+  "start": 1,
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0"
  },
  {
   "id": "space-shuttle",
@@ -7061,18 +7065,19 @@
   "fx": 0.42,
   "fy": 0.13,
   "frac": 0.35,
-  "license": "Public domain",
+  "license": "CC BY-SA 3.0",
   "attribution": "Jeffmock",
   "source": "Wikimedia Commons: World Trade Center, New York City - aerial view (March 2001).jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:World_Trade_Center%2C_New_York_City_-_aerial_view_%28March_2001%29.jpg",
   "image_author": "Jeffmock",
-  "image_license": "Public domain",
+  "image_license": "CC BY-SA 3.0",
   "image_retrieved": "2026-07-24",
   "mcq": [
    "MetLife Building",
    "Seagram Building"
   ],
-  "start": 8
+  "start": 8,
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0"
  },
  {
   "id": "white-house",
@@ -7160,7 +7165,8 @@
   "mcq": [
    "Palace of Versailles",
    "Buckingham Palace"
-  ]
+  ],
+  "reserve": true
  },
  {
   "id": "shroud-of-turin",
@@ -7739,18 +7745,19 @@
   "fx": 0.51,
   "fy": 0.235,
   "frac": 0.55,
-  "license": "Public domain",
-  "attribution": "w:User:Overand; derivative work: Overand (talk)",
+  "license": "CC BY-SA 3.0",
+  "attribution": "David Shankbone, retouched by Overand",
   "source": "Wikimedia Commons: Chrysler Building by David Shankbone Retouched.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Chrysler_Building_by_David_Shankbone_Retouched.jpg",
-  "image_author": "w:User:Overand; derivative work: Overand (talk)",
-  "image_license": "Public domain",
+  "image_author": "David Shankbone, retouched by Overand",
+  "image_license": "CC BY-SA 3.0",
   "image_retrieved": "2026-07-24",
   "mcq": [
    "Empire State Building",
    "40 Wall Street"
   ],
-  "start": 8
+  "start": 8,
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0"
  },
  {
   "id": "colossus-rhodes",
@@ -7831,8 +7838,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Chrysler Building",
-   "National Gallery of Art"
+   "National Gallery of Art",
+   "Flatiron Building"
   ]
  },
  {
@@ -8246,17 +8253,18 @@
   "fx": 0.49,
   "fy": 0.12,
   "frac": 0.3,
-  "license": "Public domain",
+  "license": "CC BY-SA 4.0",
   "attribution": "Firebrace",
   "source": "Wikimedia Commons: Saint Edward's Crown.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Saint_Edward%27s_Crown.jpg",
   "image_author": "Firebrace",
-  "image_license": "Public domain",
+  "image_license": "CC BY-SA 4.0",
   "image_retrieved": "2026-07-24",
   "mcq": [
    "Imperial State Crown",
    "Crown of Saint Wenceslas"
-  ]
+  ],
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0"
  },
  {
   "id": "cullinan-diamond",
@@ -9047,7 +9055,8 @@
    "Van Gogh Museum",
    "Musée d'Orsay"
   ],
-  "start": 3
+  "start": 3,
+  "reserve": true
  },
  {
   "id": "st-catherines-monastery",
@@ -9549,7 +9558,7 @@
   "attribution": "Thomas Wolf, www.foto-tw.de",
   "source": "Wikimedia Commons: Hollywood Sign (Zuschnitt).jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Hollywood_Sign_%28Zuschnitt%29.jpg",
-  "image_author": "Thomas Wolf",
+  "image_author": "Thomas Wolf, www.foto-tw.de",
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "image_retrieved": "2026-07-24",
@@ -10185,7 +10194,8 @@
   "mcq": [
    "The Little Mermaid (statue)",
    "Statue of Liberty"
-  ]
+  ],
+  "reserve": true
  },
  {
   "id": "tres-riches-heures",
@@ -10454,7 +10464,8 @@
   "mcq": [
    "The Motherland Calls",
    "Statue of Liberty"
-  ]
+  ],
+  "reserve": true
  },
  {
   "id": "villa-of-mysteries",

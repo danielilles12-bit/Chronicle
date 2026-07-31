@@ -104,6 +104,27 @@ Last updated: 30 Jul 2026 (launch-window audit + engine-hardening session).
   frame (crop to the person if the source shows a crowd), no blur, the
   iconic view over the clever one. Rights recorded via
   `tools/fetch_commons.py` + `audit_rights.py`, w800 rebuild after swaps.
+- **[ENGINE]** The dual-licence Commons trap (31 Jul 2026 audit): Commons
+  files often carry one licence for the THING (public domain statue) and
+  another for the PHOTOGRAPH (CC BY/BY-SA). The API's `LicenseShortName`
+  collapses the pair to the PD half — never trust it; read the file page's
+  own licence templates. `tools/validate_reveal.py` now ERRORs on any
+  CC BY/BY-SA record missing `image_license_url` or an author, because the
+  in-app ⓘ drops the photographer's name without both. This shipped 16
+  broken credits before it was caught.
+- **[JUDGMENT]** Subject copyright is separate from photo licence: an
+  in-copyright statue or building (France/Russia/Denmark-class, no
+  commercial freedom of panorama) cannot be a reveal subject when the work
+  is the chief motif — no Commons licence can clear it, and OUR crop can
+  destroy a de-minimis defence the original framing had (Centre Pompidou,
+  31 Jul). Commons `NoFoP-*` tags catch some; only looking at the picture
+  catches the rest. Retired under this rule: little-mermaid-statue,
+  centre-pompidou, motherland-calls, louvre (all `reserve: true`).
+- **[JUDGMENT]** Name-on-artefact caps the tier at easy: mid-round zoom is
+  4×, so painted/carved lettering that spells the answer (or an accepted
+  variant) is readable once its scrap tears. A label you can find by
+  playing is a fine EASY mechanic and a broken MEDIUM (Cutty Sark's bow,
+  31 Jul — held out of ed 45 for this; retier before staging her).
 
 ## Casting and tone
 

@@ -251,6 +251,20 @@ def check_reveal(path):
         for field in ("name", "kind", "img", "blurb", "license", "source"):
             if not str(it.get(field) or "").strip():
                 err(f"{path} {iid}: missing {field}")
+        # 31 Jul 2026 rights audit: a CC BY/BY-SA record without
+        # image_license_url renders WITHOUT the photographer's name in the
+        # in-app credit panel (creditHTML wants author + licence URL) — an
+        # attribution breach that shipped 16 times because Commons'
+        # extmetadata collapses dual-licensed files to "Public domain".
+        # See tools/out/rights-check-2026-07-31/REPORT.md.
+        lic = str(it.get("image_license") or it.get("license") or "").strip()
+        if lic.upper().startswith("CC BY"):
+            if not str(it.get("image_license_url") or "").strip():
+                err(f"{path} {iid}: {lic} needs image_license_url — the in-app "
+                    f"credit drops the photographer's name without it")
+            if not str(it.get("image_author") or it.get("attribution") or "").strip():
+                err(f"{path} {iid}: {lic} needs image_author/attribution — the "
+                    f"licence requires naming the photographer")
         for run in bad_punct_runs(it.get("blurb")):
             err(f"{path} {iid}: doubled punctuation {run!r} in blurb")
         if ends_bare_period(it.get("blurb")):
