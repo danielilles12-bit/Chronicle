@@ -20,16 +20,20 @@ Sessions A + C of the launch review, 27 Jul rulings, known-face retirements (v13
 Everything below flows from these. One reply covers it: e.g.
 **"G1 = Clues Ago, G2 = refresh only, G3 = defer, G4 = ok"**.
 
-- [ ] **G1 — The name.** Clues Ago (vetted clean, both domains free as of 28 Jul)
-      vs stay Dead Famous vs a new candidate (new candidates must be
-      collision-checked against UK sources before committing).
-      **If renaming: buy the domains the same day — they are unregistered and
-      unprotected.** [DANIEL]
-      *The honest trade:* rename + 10 Aug is tight but doable; rename + 17 Aug
-      (also a Monday) is comfortable and cheap to slip since 10 Aug is
-      marketing-only; no-rename + 10 Aug is comfortable. The one option NOT on
-      the menu is renaming after launch — installed iPhone PWAs cannot migrate
-      domains, so post-launch rename strands every real user we win.
+- [x] **G1a — Rename: YES** (Daniel, 31 Jul). Name itself still TBD — not
+      necessarily Clues Ago. New candidates must be collision-checked against
+      UK sources before committing (sessions can run these checks on request).
+- [ ] **G1b — The name.** Deadline **Sun 2 Aug evening** for the 10 Aug launch;
+      after that the tester week erodes and the cheap fallback is 17 Aug (also
+      a Monday — marketing-only date, epoch untouched). **Buy the domains
+      within the hour of deciding — candidate domains are unregistered and
+      unprotected. Don't tease the name anywhere before they're bought.** [DANIEL]
+      *Fixed constraint:* renaming after launch is impossible — installed
+      iPhone PWAs cannot migrate domains.
+      *Rename scope, verified 31 Jul:* name appears in ~15 live app files +
+      `assets/brand/social-card.png` + GoatCounter code; localStorage keys are
+      `chronicle.*` (name-free — streaks untouched by any rename); app icons
+      are name-free art. Execution ≈ half a day once the name lands.
 - [ ] **G2 — Visual direction.** Recommendation: NO full redesign (the look is
       the app's strongest asset per the July scorecard, and there's no time);
       YES to the targeted refresh list in §3. [DANIEL]
@@ -42,8 +46,18 @@ Everything below flows from these. One reply covers it: e.g.
 
 ---
 
-## 1 · Rename & rebrand *(blocks on G1; skip if staying Dead Famous)*
+## 1 · Rename & rebrand *(execution blocks on G1b — but prep does NOT)*
 
+**Prep now, no name needed:** [SESSION]
+- [ ] Rename manifest: exact file/line list of every name occurrence in the
+      live app (initial sweep done 31 Jul — ~15 files; excl. attic/docs/stale
+      `.claude/worktrees` copy, which should be cleaned up)
+- [ ] Social-card + masthead layout as a template with placeholder wordmark
+- [ ] Redirect + cutover runbook written (old→new 301s, GoatCounter swap steps)
+- [ ] Cloudflare account created so the cutover isn't blocked on it (account
+      creation is Daniel's — sessions cannot create accounts) [DANIEL]
+
+**Execution, the hour the name lands:**
 - [ ] Buy new .app domain (+ .com if free) at Namecheap [DANIEL]
 - [ ] String/asset sweep: `<title>`, meta description, OG/twitter tags, manifest
       name + short_name, share-text last line, About / Sources / How-to-play /
@@ -144,7 +158,7 @@ Everything below flows from these. One reply covers it: e.g.
 
 | When | What |
 |---|---|
-| **Fri 31 Jul – Sun 2 Aug** | §0 decisions land · domains bought · rename sweep + hosting move start · Session B |
+| **Fri 31 Jul – Sun 2 Aug** | Name-independent work runs NOW: §2 QA switch + streak investigation, Session B, §1 rename prep, §4 feedback flow, §3 mocks · Daniel: name call by Sun evening → domains bought same hour → rename execution |
 | **Mon 3 – Wed 5 Aug** | Rename/move DONE early (testers must install on the final domain) · §2 correctness + streak investigation + device passes |
 | **Wed 5 – Fri 7 Aug** | §3 refresh · §4 feedback flow · Session D replays + human testers |
 | **Sat 8 – Sun 9 Aug** | Freeze + full QA + Lighthouse · §6 GTM prep + runbook |
