@@ -15,6 +15,16 @@ let lastGoodSerial = null;
 let recoveryTracked = false;   // one recovered/lost beacon per session
 let saveToastShown = false;    // the "not saving" notice shows once
 
+// Did the LAST loadAll fail to even read the key? Distinct from "nothing is
+// stored": a throwing localStorage (Safari with site data blocked, a locked
+// or corrupt WebKit storage database, a private-mode edge) makes loadAll
+// return {} — which looks identical to a brand-new device. Every setter is
+// read-modify-write, so without this flag the very next save would file that
+// empty {} over a perfectly good blob and the player's whole history would be
+// gone, with the backup never consulted again (the new blob parses fine, so
+// the heal path below never triggers). Set on every load, read by saveAll.
+let readFailed = false;
+
 // null = nothing stored (fresh device); undefined = stored but unreadable.
 function parseBlob(raw) {
   if (raw == null) return null;
@@ -26,7 +36,13 @@ function parseBlob(raw) {
 
 function loadAll() {
   let raw = null;
-  try { raw = localStorage.getItem(KEY); } catch (e) { return {}; }
+  try {
+    raw = localStorage.getItem(KEY);
+    readFailed = false;
+  } catch (e) {
+    readFailed = true;
+    return {};
+  }
   let d = parseBlob(raw);
   if (d === null) return {};           // fresh device: nothing saved yet
   if (d === undefined) {
@@ -54,12 +70,26 @@ function loadAll() {
 }
 
 function saveAll(d) {
+  // Refuse to write on top of state we could not read (see `readFailed`).
+  // Every setter calls loadAll() immediately before this, so the flag always
+  // describes THIS operation: a transient failure costs one unsaved change
+  // and the next interaction re-reads and carries on, instead of costing the
+  // player everything they have ever played.
+  if (readFailed) { showSaveFailureToast(); return; }
   d.schemaVersion = SCHEMA_VERSION;
+  let next;
+  try { next = JSON.stringify(d); } catch (e) { showSaveFailureToast(); return; }
+  // Backup BEFORE overwriting main: if this write corrupts or half-lands,
+  // the previous good state is one key away. Its own try/catch, because the
+  // backup is a nicety and the main write is the point — when storage is at
+  // quota the backup write is the one most likely to be refused (it is the
+  // write that ADDS bytes; overwriting main usually does not), and sharing a
+  // try block let a refused backup skip the main write entirely, turning a
+  // near-full disk into "nothing this player does is ever saved again".
   try {
-    const next = JSON.stringify(d);
-    // Backup BEFORE overwriting main: if this write corrupts or half-lands,
-    // the previous good state is one key away.
     if (lastGoodSerial) localStorage.setItem(BACKUP_KEY, lastGoodSerial);
+  } catch (e) { /* no backup this round; the main write still matters */ }
+  try {
     localStorage.setItem(KEY, next);
     lastGoodSerial = next;
   } catch (e) {
@@ -211,9 +241,22 @@ const emptyLedger = () => ({
   fullHouse: { streak: 0, lastEdition: -Infinity },
 });
 
+// Always hands back a ledger with all three branches present. A blob that
+// half-survived a crashed write (or an older/foreign shape) would otherwise
+// make recordDailyCompletion throw on `ledger.streaks[g] = ...` AFTER it had
+// already built the new entry in memory but BEFORE store.setDailyLedger ran —
+// so the finished daily would vanish and the game's summary screen would die
+// with it. Cheap to normalise, and it can only ever add missing branches.
 export function getDailyLedger() {
   const d = loadAll();
-  return d[LEDGER_KEY] || emptyLedger();
+  const l = d[LEDGER_KEY];
+  if (!l || typeof l !== 'object' || Array.isArray(l)) return emptyLedger();
+  if (!l.entries || typeof l.entries !== 'object') l.entries = {};
+  if (!l.streaks || typeof l.streaks !== 'object') l.streaks = {};
+  if (!l.fullHouse || typeof l.fullHouse !== 'object') {
+    l.fullHouse = { streak: 0, lastEdition: -Infinity };
+  }
+  return l;
 }
 
 export function setDailyLedger(ledger) {

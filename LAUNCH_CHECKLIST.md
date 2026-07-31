@@ -86,16 +86,17 @@ Everything below flows from these. One reply covers it: e.g.
       above on demand — this is how Daniel finally *sees* new-user-only screens
       on his own phone, and how every future session retests them [SESSION]
 - [ ] Fix what the sweep finds broken [SESSION]
-- [ ] **Streak/persistence investigation** — Daniel reports it may not be
-      working. Three most likely culprits, in order:
-      1. iOS keeps *separate* storage for Safari vs an installed home-screen
-         app — play in one, the other knows nothing about it;
-      2. Safari wipes site data after 7 days of not visiting (installed apps
-         are exempt);
-      3. Instagram/WhatsApp/LinkedIn in-app browsers are a third, throwaway
-         storage.
-      Reproduce, then fix messaging/handoff accordingly. Add Playwright
-      day-rollover tests: streak increments, 1-day grace, obituary. [SESSION]
+- [x] **Streak/persistence investigation — DONE 31 Jul** (Opus deep audit;
+      full report in tools/out/streak-investigation-2026-07-31/REPORT.md).
+      Verdict: no code was wiping data — the separate-storage-jars reality
+      (Safari vs installed app vs webviews) plus Home showing ONLY the
+      full-house streak explain Daniel's report. Four real defects fixed +
+      nine new tests (v156): read-failure wipe guard, quota-save fix,
+      DST-proof edition math (Sydney was broken for 182 editions), record-
+      before-clear, ledger normalisation. OPEN DECISIONS FOR DANIEL: F6 show
+      per-game streaks on Home?; F7 align punch card with Ledger derivation;
+      adopt navigator.storage.persist() at boot. Surface-detection +
+      per-surface messaging folds into the install-flow build. [DANIEL]
 - [ ] **Device matrix:** iPhone 13 (physical if borrowable; else iOS Simulator
       Safari from this Mac), Android Chrome (borrow one — install flow differs
       completely from iOS), desktop [BOTH]

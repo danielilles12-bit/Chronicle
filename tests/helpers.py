@@ -111,10 +111,18 @@ def page_on(p, engine="chromium", base=None, device="iPhone 13"):
 
 @contextlib.contextmanager
 def app(p, engine="chromium", device="iPhone 13", init_scripts=(),
-        block_external=True):
-    """A fresh profile: gc stubbed, external hosts blocked, errors captured."""
+        block_external=True, context_args=None):
+    """A fresh profile: gc stubbed, external hosts blocked, errors captured.
+
+    context_args merges extra new_context() options over the device profile —
+    used by the edition-math tests to run the same page under a southern-
+    hemisphere timezone_id, where local midnights are not 24h apart.
+    """
     browser = getattr(p, engine).launch()
-    ctx = browser.new_context(**dict(p.devices[device])) if device else browser.new_context()
+    opts = dict(p.devices[device]) if device else {}
+    if context_args:
+        opts.update(context_args)
+    ctx = browser.new_context(**opts)
     if block_external:
         _block_external(ctx)
     ctx.add_init_script(GC_STUB)
@@ -126,6 +134,13 @@ def app(p, engine="chromium", device="iPhone 13", init_scripts=(),
     try:
         yield page, errors, ctx
     finally:
+        # Drop the external-host route first: a request still in flight when
+        # the browser closes otherwise lands in the handler after teardown and
+        # prints a TargetClosedError traceback that looks like a failure.
+        try:
+            ctx.unroute_all(behavior="ignoreErrors")
+        except Exception:
+            pass
         browser.close()
 
 

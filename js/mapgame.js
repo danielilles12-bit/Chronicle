@@ -781,7 +781,6 @@ function finishSession() {
     return;
   }
   S.done = true;
-  S.store.clear();
   sfx.play('stamp');
 
   if (S.mode === 'free') {
@@ -799,6 +798,9 @@ function finishSession() {
     S.locked = true;
   }
   // practice mode: no ledger, no best-score update — replayable, no trace.
+  // Session dropped LAST, once the result is safely recorded (see the same
+  // note in revealgame.js finishSession).
+  S.store.clear();
   refreshHomeStats();
 
   renderLockedSummary();

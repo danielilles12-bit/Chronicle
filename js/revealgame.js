@@ -1011,7 +1011,6 @@ function renderLockedSummary() {
 function finishSession() {
   if (S.done) { renderLockedSummary(); show('view-revealsum'); return; }
   S.done = true;
-  S.store.clear();
   sfx.play('stamp');
 
   if (S.mode === 'free') {
@@ -1030,6 +1029,11 @@ function finishSession() {
     S.locked = true;
   }
   // practice mode: no ledger, no best-score update — replayable, no trace.
+  // The in-progress session is dropped LAST, once the result is safely on the
+  // record. Clearing first meant that anything throwing on the way to the
+  // ledger took the played session down with it: nothing to resume, nothing
+  // recorded, a finished daily simply gone.
+  S.store.clear();
   refreshHomeStats();
 
   renderLockedSummary();

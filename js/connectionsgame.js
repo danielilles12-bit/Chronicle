@@ -365,7 +365,6 @@ function finishPuzzle() {
   const perfect = S.found.size === S.puzzle.groups.length && S.mistakes === 0;
   const solved = S.found.size === S.puzzle.groups.length;
   const score = calcScore(solved, S.mistakes);
-  S.store.clear();
   sfx.play('stamp');
 
   if (S.mode === 'daily') {
@@ -379,6 +378,9 @@ function finishPuzzle() {
     S.locked = true;
   }
   // practice mode: no ledger, no puzzle-list record, no stats — replayable.
+  // Session dropped LAST, once the result is safely recorded (see the same
+  // note in revealgame.js finishSession).
+  S.store.clear();
   refreshHomeStats();
 
   // summary

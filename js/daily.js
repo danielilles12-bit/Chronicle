@@ -40,8 +40,19 @@ const MS_PER_DAY = 86400000;
 // ---------- clock ----------
 // Injectable "today" for testing/curation: ?dailydate=YYYY-MM-DD overrides
 // the device clock. Always resolved against the device's LOCAL date.
+
+// The LOCAL calendar day, expressed as a DST-free day number. Reading the
+// date's local Y/M/D and re-stamping them as if UTC makes the difference
+// between any two of these an exact multiple of 86400000 — a real local
+// midnight timestamp is not, because a DST shift makes one local day 23 or
+// 25 hours long. Using real timestamps, a player whose UTC offset is LARGER
+// today than it was on EPOCH day (any southern-hemisphere summer, e.g.
+// Sydney from October) lands one hour short of a whole day and Math.floor
+// takes their edition index back a day — they'd be served yesterday's issue
+// for months, and one edition would appear to repeat at the transition,
+// which reads exactly like "my streak stopped counting".
 function localMidnight(d) {
-  return new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime();
+  return Date.UTC(d.getFullYear(), d.getMonth(), d.getDate());
 }
 
 // Dev-only gate for the ?dailydate= override below: true only for local/
