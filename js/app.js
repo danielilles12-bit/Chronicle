@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v157';
+const BUILD = 'v161';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -707,6 +707,50 @@ function maybeShowInstallTip() {
   track('install-tip-shown');
 }
 
+// ---------- QA forcing switch ----------
+// Shows the install pitch regardless of the guards in maybeShowInstallTip
+// (first completion, prior dismissal, already installed) so the screen can be
+// inspected on a device that has long since passed those gates.
+function forceInstallTip() {
+  const tip = $('#install-tip');
+  if (!tip) return;
+  const isIOS = /iP(hone|ad|od)/.test(navigator.userAgent);
+  $('#install-steps').hidden = !isIOS;
+  $('#install-btn').hidden = !(deferredInstall && !isIOS);
+  tip.hidden = false;
+  tip.scrollIntoView({ block: 'center' });
+}
+
+// ?qa=1 once, then it sticks (misc.qaMode) until switched off from the panel.
+// Not host-gated on purpose — see the header of js/qa.js for why that is safe.
+function maybeInitQA() {
+  const asked = /[?&]qa=1(?:&|$)/.test(location.search);
+  if (!asked && !store.getMisc().qaMode) return;
+  if (asked && !store.getMisc().qaMode) store.setMisc({ qaMode: true });
+  import('./qa.js').then(({ initQA }) => {
+    const n = daily.todayIndex();
+    initQA({
+      installTip: forceInstallTip,
+      introWho: () => openIntroHelp('who'),
+      introMap: () => openIntroHelp('map'),
+      introWhat: () => openIntroHelp('what'),
+      introThread: () => openIntroHelp('thread'),
+      // A dead run: last played five editions ago, well past the obituary
+      // threshold (lastEdition + 4).
+      obituary: () => showObituary(12, Math.max(0, n - 5)),
+      celebration: () => showCelebration(n),
+      newEdition: () => showNewEditionBar(),
+      issueClosed: () => {
+        const strip = $('#issue-closed');
+        if (!strip) return;
+        $('#ic-verdict').textContent = `№ ${n}, done. Some got away.`;
+        strip.hidden = false;
+        strip.scrollIntoView({ block: 'center' });
+      },
+    }, store);
+  }).catch((e) => console.warn('QA panel unavailable', e));
+}
+
 // ---------- P5.2: share deep links ----------
 // A ?play=<game> link (thread|map|who|what) routes straight into that
 // game's TODAY daily instead of the generic home page, whose CTA only ever
@@ -1281,6 +1325,8 @@ async function boot() {
   // default), so paint the edition-closed strip here too — unless a moment
   // screen (mourn/celebrate) already navigated away.
   if (trail[trail.length - 1] === 'view-home') refreshIssueClosed();
+
+  maybeInitQA();
 
   // A record that just arrived from another device changes every number on
   // screen. carry.js announces rather than imports app.js (that would be a

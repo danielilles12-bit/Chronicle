@@ -1,4 +1,4 @@
-// Dead Famous service worker: slim shell precache, cache-first serving.
+// Yesternerd service worker: slim shell precache, cache-first serving.
 // Bump VERSION on EVERY deploy (and BUILD in js/app.js — keep them in sync):
 // that byte-change is what makes phones install the new edition.
 //
@@ -7,7 +7,7 @@
 //   new worker precaches the shell, skipWaiting+claim take over immediately ->
 //   app.js sees controllerchange and shows the NEW EDITION bar -> the user's
 //   pull-to-refresh (or a tap on the bar) reloads into the new version.
-const VERSION = 'deadfamous-v157';
+const VERSION = 'yesternerd-v161';
 
 // Daily-content cache: survives version bumps so updating the app never
 // re-downloads the whole archive, served stale-while-revalidate below.
@@ -39,7 +39,7 @@ const ASSETS = [
   './assets/fonts/archivo-bold.woff2',
   './assets/fonts/space-mono-regular.woff2',
   './assets/fonts/space-mono-bold.woff2',
-  './assets/brand/david-sticker.png',
+  './assets/brand/antinous-sticker.png',
   './assets/brand/game-icon-thread.png',
   './assets/brand/game-icon-lifeline.png',
   './assets/brand/game-icon-face-value.png',

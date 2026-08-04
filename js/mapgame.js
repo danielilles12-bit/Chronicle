@@ -719,7 +719,7 @@ function resolveRound(correct, opts) {
 
 function renderLockedSummary() {
   const head = document.querySelector('#view-mapsum [data-receipt-head]');
-  if (head) head.textContent = 'Dead Famous · Lifeline'
+  if (head) head.textContent = 'Yesternerd · Lifeline'
     + (S.editionIndex != null ? ` · № ${S.editionIndex}` : '');
   $('#sum-total').textContent = S.score;
   setReceiptStamp('view-mapsum', S.score);

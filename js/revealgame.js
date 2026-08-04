@@ -954,7 +954,7 @@ function resolveRound(correct, opts) {
 
 function renderLockedSummary() {
   const head = document.querySelector('#view-revealsum [data-receipt-head]');
-  if (head) head.textContent = `Dead Famous · ${MODE === 'who' ? 'Face Value' : 'Relic'}`
+  if (head) head.textContent = `Yesternerd · ${MODE === 'who' ? 'Face Value' : 'Relic'}`
     + (S.editionIndex != null ? ` · № ${S.editionIndex}` : '');
   $('#rv-sum-total').textContent = S.score;
   setReceiptStamp('view-revealsum', S.score);

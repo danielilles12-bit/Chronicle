@@ -432,7 +432,7 @@ function renderThreadReceipt({ editionIndex, mode, title, score, solved, perfect
   wireTurnThePage('conn-sum-turn', editionIndex, isDaily);
   const head = $('#conn-receipt-head');
   if (head) {
-    head.textContent = 'Dead Famous · Thread'
+    head.textContent = 'Yesternerd · Thread'
       + (mode === 'daily' && editionIndex != null ? ` · № ${editionIndex}` : '');
   }
   const rows = $('#conn-sum-rows');
