@@ -64,15 +64,15 @@ UKTV `YESTERDAY` near-mark risk is **knowingly accepted** — no solicitor.
       overhanging). Full suite 12/12 green. **Storage keys untouched
       (`chronicle.*`) — every existing streak survives.**
 - [x] Made the sw-update test rename-proof (it hard-coded the old cache prefix)
-- [x] **App icon set cut (4 Aug):** flat "Glasses v2" at 512/192/180/64,
-      same filenames so manifest/sw needed no edits. Brand system ruling:
-      the icon is the glasses; the photographic Antinous-in-round-nerd-glasses
-      is the mascot/hero layer (social card, splash, About, posts) — never
-      the icon (photographic marble dies at small sizes; proven twice).
-- [ ] **Regenerate `assets/brand/social-card.png`** — statue (round-frames
-      version) + wordmark + "Four Daily History Games"; BLOCKED on Daniel
-      dropping the two full-res statue images into assets/brand/concepts/
-      [DANIEL then SESSION]
+- [x] **App icon FINAL (4 Aug, second ruling):** pop-art nerd-Antinous —
+      the simplified flat-ink statue in glasses, tight-cropped per the v91
+      full-bleed technique, cut at 512/192/180/64. Won the size gauntlet
+      against both photographic crops and the flat glasses. Same saint as
+      the old icon, same ink technique, new glasses = the rename in one
+      image. Flat glasses demoted to secondary glyph (in-app/share uses).
+- [x] **Social card REGENERATED (4 Aug):** wordmark on paper + "FOUR DAILY
+      HISTORY GAMES" + yesternerd.app plate, photographic round-glasses
+      Antinous on yellow right. og:image:alt updated to match.
 - [ ] Splash screens (19 files) still show pink-sunglasses David — regenerate
       from the new statue after the social card; not cutover-blocking
       [SESSION, post-statue-files]
