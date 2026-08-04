@@ -157,7 +157,10 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 .hero-text { flex: 1; min-width: 0; }
 .hero-name { font-family: var(--ch-font-display); font-weight: 400; margin: 0 0 4px; font-size: 26px; text-transform: uppercase; letter-spacing: .01em; color: var(--ch-text-primary); }
 .hero-tagline { margin: 0; color: var(--ch-text-secondary); font-size: 14px; line-height: 1.4; }
-.hero-glyph { width: 66px; height: 66px; flex: none; border: none; display: block; }
+/* Icons are framed mini-prints (Daniel, 4 Aug 2026): the art carries its own
+   cream paper ground, so the ink frame + hard shadow makes that deliberate.
+   104px earned by demoting the Play chip — the whole card is the button. */
+.hero-glyph { width: 104px; height: 104px; flex: none; display: block; border: 2px solid var(--ch-ink); box-shadow: 2.5px 2.5px 0 var(--ch-ink); background: var(--ch-cream); }
 .hero-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .hero-edition {
   font-size: 11px; text-transform: uppercase; letter-spacing: var(--ch-tracking-smallcaps);
@@ -167,13 +170,13 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 /* P1.4: the expected-time whisper on each hero card — quiet lowercase
    voice riding the edition line. */
 .hero-time { text-transform: none; font-weight: 600; letter-spacing: normal; color: var(--ch-text-muted); }
-/* "Play ›" reads as a button, not a status report (conversion audit):
-   an ink chip in the same voice as .pill.primary. Done and in-progress
-   states stay quiet coloured text via the row classes below. */
+/* "Play ›" demoted from ink chip to quiet uppercase text (Daniel, 4 Aug
+   2026): the WHOLE hero card is the button, and the freed space bought the
+   104px icon. Supersedes the conversion-audit chip; watch tap-through in
+   the Session D tester round. */
 .hero-card:not(.row-done):not(.row-progress) .hero-status {
-  background: var(--ch-ink); color: var(--ch-text-inverse);
-  border: 2px solid var(--ch-ink); padding: 6px 14px;
-  box-shadow: 2px 2px 0 rgba(11,11,11,.28);
+  color: var(--ch-ink); font-size: 13px;
+  letter-spacing: .08em; text-transform: uppercase;
 }
 .hero-card.row-done .hero-status { color: var(--ch-forest); }
 .hero-card.row-progress .hero-status { color: var(--ch-gold); }

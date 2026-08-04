@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v164';
+const BUILD = 'v165';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -149,28 +149,28 @@ const GAME_ROWS = [
   // small next to the issue number, same voice as the dateline whisper.
   {
     key: 'who', label: 'Face Value', tagline: 'A famous face, one scrap at a time.',
-    glyph: 'assets/brand/game-icon-face-value.png', time: '~3 min',
+    glyph: 'assets/brand/game-icon-face-value.webp', time: '~3 min',
     tintStrong: 'var(--df-magenta)',
     tintSoft: 'color-mix(in srgb, var(--df-magenta) 12%, var(--ch-cream))',
     launchDaily: (n) => startRevealDaily('who', n), launchPractice: (n) => startRevealPractice('who', n),
   },
   {
     key: 'map', label: 'Lifeline', tagline: 'Born here, died there. Name the figure.',
-    glyph: 'assets/brand/game-icon-lifeline.png', time: '~3 min',
+    glyph: 'assets/brand/game-icon-lifeline.webp', time: '~3 min',
     tintStrong: 'var(--df-yellow)',
     tintSoft: 'color-mix(in srgb, var(--df-yellow) 18%, var(--ch-cream))',
     launchDaily: startMapDaily, launchPractice: startMapPractice,
   },
   {
     key: 'what', label: 'Relic', tagline: 'A famous artefact, one scrap at a time.',
-    glyph: 'assets/brand/game-icon-relic.png', time: '~3 min',
+    glyph: 'assets/brand/game-icon-relic.webp', time: '~3 min',
     tintStrong: 'var(--df-red)',
     tintSoft: 'color-mix(in srgb, var(--df-red) 10%, var(--ch-cream))',
     launchDaily: (n) => startRevealDaily('what', n), launchPractice: (n) => startRevealPractice('what', n),
   },
   {
     key: 'thread', label: 'Thread', tagline: 'Group 16 clues into four hidden categories.',
-    glyph: 'assets/brand/game-icon-thread.png', time: '~2 min',
+    glyph: 'assets/brand/game-icon-thread.webp', time: '~2 min',
     tintStrong: 'var(--df-cyan)',
     tintSoft: 'color-mix(in srgb, var(--df-cyan) 14%, var(--ch-cream))',
     launchDaily: startThreadDaily, launchPractice: startThreadPractice,
