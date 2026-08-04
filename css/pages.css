@@ -27,6 +27,20 @@
 }
 .page-back:active { opacity: .6; }
 
+/* The way home, at the TOP (Daniel, 5 Aug 2026): the bottom .page-nav is
+   unreachable on long pages (Sources is ~900 credit rows) and the installed
+   app has no browser chrome — whoever taps in must be able to tap straight
+   back out. Same chip language as the intro back button. */
+.page-back { margin: 14px 20px 0; }
+.page-back a {
+  display: inline-block; font-family: var(--ch-font-ui); font-weight: 700;
+  font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ch-ink); text-decoration: none;
+  border: 2px solid var(--ch-ink); background: var(--ch-cream);
+  padding: 8px 14px; box-shadow: 2.5px 2.5px 0 var(--ch-ink);
+}
+.page-back a:active { transform: translate(2px,2px); box-shadow: .5px .5px 0 var(--ch-ink); }
+
 /* Quiet cross-links between the static pages themselves + back to the app —
    same voice as .home-foot. */
 .page-nav {
