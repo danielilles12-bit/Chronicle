@@ -7,7 +7,7 @@
 //   new worker precaches the shell, skipWaiting+claim take over immediately ->
 //   app.js sees controllerchange and shows the NEW EDITION bar -> the user's
 //   pull-to-refresh (or a tap on the bar) reloads into the new version.
-const VERSION = 'yesternerd-v158';
+const VERSION = 'yesternerd-v159';
 
 // Daily-content cache: survives version bumps so updating the app never
 // re-downloads the whole archive, served stale-while-revalidate below.
@@ -39,7 +39,7 @@ const ASSETS = [
   './assets/fonts/archivo-bold.woff2',
   './assets/fonts/space-mono-regular.woff2',
   './assets/fonts/space-mono-bold.woff2',
-  './assets/brand/david-sticker.png',
+  './assets/brand/antinous-sticker.png',
   './assets/brand/game-icon-thread.png',
   './assets/brand/game-icon-lifeline.png',
   './assets/brand/game-icon-face-value.png',
