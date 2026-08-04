@@ -97,7 +97,7 @@ let stickerImg = null;
 function sticker() {
   if (!stickerImg) {
     stickerImg = new Image();
-    stickerImg.src = 'assets/brand/david-sticker.png';
+    stickerImg.src = 'assets/brand/antinous-sticker.png';
   }
   return stickerImg;
 }

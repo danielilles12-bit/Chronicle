@@ -58,6 +58,9 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   letter-spacing: -0.02em; margin: 0; white-space: nowrap;
   font-weight: 400; line-height: .92; color: var(--ch-text-primary); text-transform: uppercase;
 }
+/* The drawn wordmark (CMYK misregistration on the NERD block) replaces the
+   type-set h1. Ratio 3.9:1; capped so it never runs under the David sticker. */
+.masthead-wordmark { display: block; width: min(200px, 54vw); height: auto; }
 /* padding-right keeps the dateline clear of the absolutely-positioned
    David sticker occupying the masthead's right ~100px. */
 .dateline { margin: 8px 0 0; padding-right: 88px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--ch-text-primary); font-family: var(--ch-font-ui); }
@@ -937,3 +940,27 @@ button.cal-cell:active { background: var(--ch-parchment); }
 .carry-status { margin: 8px 0 0; font-family: var(--ch-font-ui); font-size: 11px; font-weight: 700; letter-spacing: .04em; color: var(--ch-text-muted); }
 .carry-status[hidden] { display: none; }
 .carry-status.is-bad { color: var(--ch-burgundy); }
+
+/* ---------- QA forcing panel (js/qa.js) ----------
+   Only ever in the DOM when ?qa=1 / misc.qaMode is on. Deliberately looks
+   like a dev tool rather than part of the app, so a screenshot taken with it
+   open can never be mistaken for the real UI. */
+#qa-panel {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999;
+  background: #101014; color: #F2EFE6; font-family: var(--ch-font-ui);
+  border-top: 3px solid var(--df-magenta);
+  padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+  max-height: 52vh; overflow-y: auto;
+}
+#qa-panel .qa-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+#qa-panel .qa-bar strong { font-size: 11px; letter-spacing: .18em; color: var(--df-magenta); }
+#qa-panel .qa-toggle { background: none; border: 1px solid #55555f; color: #F2EFE6; font-size: 11px; padding: 3px 8px; }
+#qa-panel .qa-body { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+#qa-panel .qa-btn {
+  background: #1e1e24; color: #F2EFE6; border: 1px solid #3a3a44;
+  font-size: 12px; line-height: 1.25; padding: 9px 8px; text-align: left;
+  min-height: 40px; font-family: inherit;
+}
+#qa-panel .qa-btn:active { background: #2c2c35; }
+#qa-panel .qa-danger { grid-column: 1 / -1; border-color: var(--df-red); color: #ff9b9b; }
+#qa-panel .qa-off { grid-column: 1 / -1; border-color: #55555f; color: #b9b9c2; }

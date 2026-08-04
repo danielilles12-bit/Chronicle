@@ -79,8 +79,8 @@ UKTV `YESTERDAY` near-mark risk is **knowingly accepted** — no solicitor.
 - [ ] **Create the GoatCounter site with code `yesternerd`** — the code is
       already in js/track.js; until the site exists, analytics silently no-op
       [DANIEL]
-- [ ] Claim @yesternerd on Instagram / TikTok / X / YouTube (fallback
-      @yesternerdgame consistently if any fail) [DANIEL]
+- [x] Instagram secured 4 Aug: **@yesternerdgame** (the consistent-fallback
+      rule). Remaining: same handle on TikTok / X / YouTube [DANIEL]
 
 ### The cutover runbook — the only irreversible step, do in this order
 1. **Old-site farewell build:** on `deadfamous.app`, deploy with
