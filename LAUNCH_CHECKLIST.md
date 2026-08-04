@@ -46,7 +46,48 @@ Everything below flows from these. One reply covers it: e.g.
 
 ---
 
-## 1 · Rename & rebrand *(execution blocks on G1b — but prep does NOT)*
+## 1 · RENAME: **YESTERNERD** — decided & swept 4 Aug 2026
+
+**Name:** Yesternerd (singular, one unbroken word — never "Yester Nerd", never
+clipped to "Nerd"). **Canonical domain: `yesternerd.app`** (Daniel's call: the
+TLD primes people to think "app" before they land, which serves the install
+flow). `.com` and `.co.uk` owned and redirect to `.app`. Title pattern:
+"Yesternerd — Four Daily History Games". Screened CLEAR-WITH-CONDITIONS; the
+UKTV `YESTERDAY` near-mark risk is **knowingly accepted** — no solicitor.
+
+- [x] Domains bought (.app / .com / .co.uk, Namecheap, auto-renew ON, privacy ON)
+- [x] **Sweep DONE on branch `rename/yesternerd` (v158)** — 19 files: titles,
+      meta/OG/twitter, structured data, manifest, sitemap, robots, share text +
+      receipt filename, correction email subjects, sw cache name, GoatCounter
+      code, in-game receipt heads, CLAUDE.md, README. Masthead is now the
+      single word with David resized to fit (min-height floor stops him
+      overhanging). Full suite 12/12 green. **Storage keys untouched
+      (`chronicle.*`) — every existing streak survives.**
+- [x] Made the sw-update test rename-proof (it hard-coded the old cache prefix)
+- [ ] **Regenerate `assets/brand/social-card.png`** — still shows the old
+      wordmark; it's what every pasted link unfurls as [SESSION]
+- [ ] **Create the GoatCounter site with code `yesternerd`** — the code is
+      already in js/track.js; until the site exists, analytics silently no-op
+      [DANIEL]
+- [ ] Claim @yesternerd on Instagram / TikTok / X / YouTube (fallback
+      @yesternerdgame consistently if any fail) [DANIEL]
+
+### The cutover runbook — the only irreversible step, do in this order
+1. **Old-site farewell build:** on `deadfamous.app`, deploy with
+   `DESTINATION = 'https://yesternerd.app'` in js/carry.js + a visible "we're
+   moving — carry your record over" notice. Existing players export.
+2. Configure `yesternerd.app` at the host (Cloudflare Pages per §0) and set DNS
+   at Namecheap; wait for the certificate.
+3. Flip `CNAME` to `yesternerd.app`, merge `rename/yesternerd` → main, set
+   `DESTINATION` back to `''`.
+4. Point `deadfamous.app` + `.com`/`.co.uk` at 301 redirects.
+5. Daniel reinstalls from the new domain; verify unfurls (iMessage, WhatsApp,
+   Discord, X); send Carry links to early users.
+
+**Until step 3, `CNAME` stays `deadfamous.app` and the branch stays unmerged —
+main is untouched and the live site is unaffected.**
+
+## 1b · Rename prep (historical — superseded by the section above)
 
 **Prep now, no name needed:** [SESSION]
 - [ ] Rename manifest: exact file/line list of every name occurrence in the

@@ -1,8 +1,8 @@
 // Privacy-friendly analytics (GoatCounter): no cookies, no consent banner,
 // EU-hosted, free for non-commercial use. Dashboard:
-// https://deadfamous.goatcounter.com (Daniel's account). Set CODE to ''
+// https://yesternerd.goatcounter.com (Daniel's account). Set CODE to ''
 // to disable everything; count.js already skips localhost by itself.
-const CODE = 'deadfamous';
+const CODE = 'yesternerd';
 
 // Call sites use the app's terse internal vocabulary (game keys: map = Lifeline,
 // who = Face Value, what = Relic). DISPLAY translates them into the names the

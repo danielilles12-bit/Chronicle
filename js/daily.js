@@ -58,7 +58,7 @@ function localMidnight(d) {
 // Dev-only gate for the ?dailydate= override below: true only for local/
 // offline serving (localhost, 127.0.0.1, an empty hostname, or a direct
 // file:// open), never for the real deployed host. This is what makes the
-// override safe to leave in shipped code — deadfamous.app's hostname can
+// override safe to leave in shipped code — yesternerd.app's hostname can
 // never match, so no query string on the production site can ever change
 // which edition is shown, regardless of what a real player types in the URL.
 function devHostAllowed() {
@@ -468,8 +468,8 @@ export function dailyStatus(game, editionIndex) {
 export function reportProblemHref(contentId, editionIndex) {
   const issue = editionIndex != null ? editionIndex : '?';
   const subject = contentId
-    ? `Dead Famous correction: ${contentId} (issue ${issue})`
-    : `Dead Famous correction: issue ${issue}`;
+    ? `Yesternerd correction: ${contentId} (issue ${issue})`
+    : `Yesternerd correction: issue ${issue}`;
   return `mailto:daniel.illes12@gmail.com?subject=${encodeURIComponent(subject)}`;
 }
 

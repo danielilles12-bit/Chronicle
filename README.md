@@ -1,6 +1,6 @@
-# Dead Famous — Daily History Games
+# Yesternerd — Four Daily History Games
 
-Hi Daniel! This is your history games app (live at **deadfamous.app**). It's a
+Hi Daniel! This is your history games app (live at **yesternerd.app**). It's a
 **Progressive Web App (PWA)**: a website that installs onto your iPhone's home
 screen and then behaves like a real app — full screen, custom icon, and it
 works with no internet connection after the first load.
@@ -73,7 +73,7 @@ click, with GitHub Pages:
 3. Scroll down and tap **Add to Home Screen**.
 4. Tap **Add** (top right).
 
-You now have a "Dead Famous" icon on your home screen. Open it from there —
+You now have a "Yesternerd" icon on your home screen. Open it from there —
 no Safari bars, just the app. After that first visit it works on the plane,
 in the basement, anywhere: everything is stored on the phone.
 

@@ -18,7 +18,7 @@ import { track } from './track.js';
 // fullhouse/obituary shares have no single game to route to, so they keep
 // the bare link. Plain validated params on purpose — no signing, see the
 // discarded X1 card in the audited plan.
-const BASE_URL = 'https://deadfamous.app/';
+const BASE_URL = 'https://yesternerd.app/';
 export function shareUrl(game) {
   return game ? `${BASE_URL}?play=${game}&ref=share` : `${BASE_URL}?ref=share`;
 }
@@ -83,11 +83,11 @@ export function revealShareText(kind, issue, rounds, score) {
 export function fullHouseShareText(issue, scores, total, streak) {
   const row = `🖼️${scores.who} 🗺️${scores.map} 🏺${scores.what} 🧵${scores.thread} · ${total} PTS`;
   const flame = streak > 1 ? `🔥 ${streak}-day streak` : '';
-  return lines(shareUrl(), `DEAD FAMOUS №${issue} — FULL HOUSE 🏛️`, row, flame);
+  return lines(shareUrl(), `YESTERNERD №${issue} — FULL HOUSE 🏛️`, row, flame);
 }
 
 export function obituaryShareText(streak, fromIssue, toIssue) {
-  return lines(shareUrl(), 'DEAD FAMOUS ⚰️',
+  return lines(shareUrl(), 'YESTERNERD ⚰️',
     `My ${streak}-day streak died.`,
     `RIP №${fromIssue}–№${toIssue}. MEMENTO MORI.`);
 }
@@ -196,7 +196,7 @@ async function performShare(text, card) {
     try {
       const blob = await drawCard(card);
       if (blob) {
-        const file = new File([blob], 'deadfamous-receipt.png', { type: 'image/png' });
+        const file = new File([blob], 'yesternerd-receipt.png', { type: 'image/png' });
         if (navigator.canShare({ files: [file] })) {
           await navigator.share({ files: [file], text });
           return 'shared';

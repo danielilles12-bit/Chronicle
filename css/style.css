@@ -45,10 +45,17 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 
 /* ---------- Home ---------- */
 #view-home { background-color: var(--ch-paper); background-image: radial-gradient(rgba(11,11,11,.09) 1px, transparent 1.2px); background-size: 14px 14px; }
-.masthead { text-align: left; padding: 18px 20px 12px; border-bottom: 3px solid var(--ch-ink); margin: 0 20px; position: relative; }
+/* min-height: the David sticker is absolutely positioned, so the masthead must
+   be guaranteed tall enough to contain him — a one-line wordmark alone is
+   shorter than he is, and he'd hang over the panel below (rename, 4 Aug). */
+.masthead { text-align: left; padding: 18px 20px 12px; border-bottom: 3px solid var(--ch-ink); margin: 0 20px; position: relative; min-height: 114px; }
 .masthead-seal { width: 44px; height: 44px; display: block; margin: 0 auto 6px; border-radius: 11px; }
+/* One unbroken word (rename, 4 Aug 2026): the mark is never split across
+   lines or detached — it scales down on narrow phones instead, staying clear
+   of the absolutely-positioned David sticker on the right. */
 .masthead h1 {
-  font-family: var(--ch-font-display); font-size: 44px; letter-spacing: -0.01em; margin: 0;
+  font-family: var(--ch-font-display); font-size: clamp(28px, 7.4vw, 44px);
+  letter-spacing: -0.02em; margin: 0; white-space: nowrap;
   font-weight: 400; line-height: .92; color: var(--ch-text-primary); text-transform: uppercase;
 }
 /* padding-right keeps the dateline clear of the absolutely-positioned
@@ -67,7 +74,7 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
 }
-.masthead-sticker { position: absolute; right: 12px; top: 8px; width: 92px; transform: rotate(6deg); }
+.masthead-sticker { position: absolute; right: 12px; top: 6px; width: 76px; transform: rotate(6deg); }
 
 /* Masthead punch card: this week as die-punched ticket squares (streak). */
 #punch-card { display: flex; gap: 5px; align-items: center; margin: 8px 0 2px; }

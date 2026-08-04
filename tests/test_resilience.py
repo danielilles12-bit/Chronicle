@@ -6,6 +6,7 @@ issue, service-worker update bar.
 import functools
 import http.server
 import os
+import re
 import sys
 import threading
 
@@ -189,8 +190,11 @@ class BumpHandler(http.server.SimpleHTTPRequestHandler):
             with open(os.path.join(H.ROOT, "sw.js"), "rb") as f:
                 data = f.read()
             if type(self).bump:
-                data = data.replace(b"const VERSION = 'deadfamous-",
-                                    b"const VERSION = 'deadfamous-test-", 1)
+                # Prefix-agnostic so a rebrand can't silently disable this test:
+                # whatever the cache name is, append a marker to change the bytes.
+                data, n = re.subn(rb"(const VERSION = '[^']*)'",
+                                  rb"\1-test'", data, count=1)
+                assert n == 1, "sw.js VERSION line not found — update this rewrite"
             self.send_response(200)
             self.send_header("Content-Type", "text/javascript")
             self.send_header("Cache-Control", "no-store")
