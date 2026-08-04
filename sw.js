@@ -7,7 +7,7 @@
 //   new worker precaches the shell, skipWaiting+claim take over immediately ->
 //   app.js sees controllerchange and shows the NEW EDITION bar -> the user's
 //   pull-to-refresh (or a tap on the bar) reloads into the new version.
-const VERSION = 'yesternerd-v166';
+const VERSION = 'yesternerd-v167';
 
 // Daily-content cache: survives version bumps so updating the app never
 // re-downloads the whole archive, served stale-while-revalidate below.
@@ -79,9 +79,25 @@ const ASSETS = [
   './icons/favicon.png',
 ];
 
+// Cloudflare Pages 308-redirects /index.html -> / (GitHub Pages never did).
+// iOS Safari refuses to boot a PWA from a redirected response ("Response
+// served by service worker has redirections", 4 Aug 2026), so every response
+// we cache is rebuilt as a plain 200 if it arrived via a redirect. Existing
+// installs baked start_url=./index.html forever, so this guard is permanent.
+async function stripRedirect(res) {
+  if (!res.redirected) return res;
+  const body = await res.blob();
+  const headers = new Headers(res.headers);
+  return new Response(body, { status: 200, statusText: 'OK', headers });
+}
+
 self.addEventListener('install', (e) => {
   e.waitUntil(
-    caches.open(VERSION).then((c) => c.addAll(ASSETS)).then(() => self.skipWaiting()),
+    caches.open(VERSION).then((c) => Promise.all(ASSETS.map(async (u) => {
+      const res = await fetch(u, { cache: 'no-cache' });
+      if (!res.ok) throw new Error(`precache ${u}: ${res.status}`);
+      await c.put(u, await stripRedirect(res));
+    }))).then(() => self.skipWaiting()),
   );
 });
 
@@ -171,7 +187,7 @@ self.addEventListener('fetch', (e) => {
       if (hit) return hit;
       return fetch(req).then((res) => {
         const copy = res.clone();
-        caches.open(VERSION).then((c) => c.put(req, copy));
+        caches.open(VERSION).then(async (c) => c.put(req, await stripRedirect(copy)));
         return res;
       }).catch(() => {
         // Offline and this exact page was never cached: for a real page

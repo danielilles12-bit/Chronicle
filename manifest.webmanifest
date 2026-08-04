@@ -2,7 +2,7 @@
   "name": "Yesternerd — Four Daily History Games",
   "short_name": "Yesternerd",
   "description": "History\u2019s greatest hits, a few minutes a day: Face Value, Lifeline, Relic and Thread.",
-  "start_url": "./index.html",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
