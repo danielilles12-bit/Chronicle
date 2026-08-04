@@ -9,3 +9,13 @@
   Cache-Control: no-cache
 /data/editions.json
   Cache-Control: no-cache
+# Static brand/font/intro assets: conservative day-long cache, NOT immutable —
+# brand files have historically been replaced under the same filename.
+/assets/fonts/*
+  Cache-Control: public, max-age=86400
+/assets/brand/*
+  Cache-Control: public, max-age=86400
+/assets/intro/*
+  Cache-Control: public, max-age=86400
+/assets/splash/*
+  Cache-Control: public, max-age=86400
