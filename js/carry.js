@@ -39,7 +39,10 @@ import { track } from './track.js';
 // keeps '' — its own links are for its own players' second devices.
 //
 //   const DESTINATION = 'https://the-new-name.app';
-const DESTINATION = '';
+// Moving day (4 Aug 2026): links minted anywhere now point at the new house.
+// Kept set permanently — pointing yesternerd links at yesternerd is harmless,
+// and the old site keeps minting valid links forever without a re-deploy.
+const DESTINATION = 'https://yesternerd.app';
 
 // The fragment the importer looks for. Emitted as 'carry'; 'df-carry' is
 // accepted too so links minted by any earlier build keep working. Neither
@@ -843,7 +846,9 @@ async function copyText(text, btn, label) {
 
 let exported = null;   // { payload, link, tooLong } for the open sheet
 
-async function openExport() {
+// Exported for the farewell strip on the OLD domain (cutover, 4 Aug 2026):
+// same sheet, same manifest, links minted against DESTINATION.
+export async function openExport() {
   openSheet();
   showPanel('export');
   setStatus('');

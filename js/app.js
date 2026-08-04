@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v162';
+const BUILD = 'v163';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -1248,6 +1248,18 @@ async function ensureGameData(gameKey, statusEl) {
   return ok;
 }
 
+// The farewell strip (cutover, 4 Aug 2026). Hostname-gated so only the OLD
+// house ever shows it: both domains serve the same code from `release`, and
+// installed deadfamous PWAs freeze on this build once the 301s land — the
+// strip and its carry button are the last thing they'll ever show.
+function initMovingNote() {
+  const note = document.getElementById('moving-note');
+  if (!note || !/(^|\.)deadfamous\./.test(location.hostname)) return;
+  note.hidden = false;
+  const btn = document.getElementById('moving-carry-btn');
+  if (btn) btn.addEventListener('click', () => { carry.openExport(); track('moving-note-carry'); });
+}
+
 async function boot() {
   // FIRST, before anything else reads or rewrites the URL: a carry link puts
   // the player's whole record in the fragment, and both initTracking and
@@ -1318,6 +1330,7 @@ async function boot() {
   initDaily();
   initDayDone();
   carry.initCarry();
+  initMovingNote();
   refreshHomeStats();
   refreshTodayStrip();
   if (!maybeMourn()) maybeCelebrate();

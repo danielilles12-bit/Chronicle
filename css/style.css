@@ -47,8 +47,17 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 #view-home { background-color: var(--ch-paper); background-image: radial-gradient(rgba(11,11,11,.09) 1px, transparent 1.2px); background-size: 14px 14px; }
 /* min-height: the David sticker is absolutely positioned, so the masthead must
    be guaranteed tall enough to contain him — a one-line wordmark alone is
-   shorter than he is, and he'd hang over the panel below (rename, 4 Aug). */
-.masthead { text-align: left; padding: 18px 20px 12px; border-bottom: 3px solid var(--ch-ink); margin: 0 20px; position: relative; min-height: 114px; }
+   shorter than he is, and he'd hang over the panel below (rename, 4 Aug).
+   Fluid (4 Aug, masthead scale-up): both the wordmark and sticker now grow
+   with viewport width via --mh-sticker-w, so min-height tracks the sticker's
+   rotated footprint (top offset + size + a little breathing room) instead of
+   a fixed number tuned only for the old 76px sticker. */
+.masthead {
+  text-align: left; padding: 18px 20px 12px; border-bottom: 3px solid var(--ch-ink);
+  margin: 0 20px; position: relative;
+  --mh-sticker-w: clamp(84px, 27vw, 130px);
+  min-height: clamp(114px, calc(6px + var(--mh-sticker-w) * 1.1 + 14px), 166px);
+}
 .masthead-seal { width: 44px; height: 44px; display: block; margin: 0 auto 6px; border-radius: 11px; }
 /* One unbroken word (rename, 4 Aug 2026): the mark is never split across
    lines or detached — it scales down on narrow phones instead, staying clear
@@ -59,11 +68,18 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   font-weight: 400; line-height: .92; color: var(--ch-text-primary); text-transform: uppercase;
 }
 /* The drawn wordmark (CMYK misregistration on the NERD block) replaces the
-   type-set h1. Ratio 3.9:1; capped so it never runs under the David sticker. */
-.masthead-wordmark { display: block; width: min(200px, 54vw); height: auto; }
+   type-set h1. Ratio 3.9:1; capped so it never runs under the David sticker.
+   Fluid (4 Aug, masthead scale-up): grows with viewport width so phones get
+   a proper newspaper-masthead-sized mark, while staying clear of
+   --mh-sticker-w (the sticker's own fluid width) and capping sensibly once
+   the #app shell hits its 600px ceiling. */
+.masthead-wordmark {
+  display: block; height: auto;
+  width: clamp(150px, calc(100vw - var(--mh-sticker-w) - 76px), 258px);
+}
 /* padding-right keeps the dateline clear of the absolutely-positioned
-   David sticker occupying the masthead's right ~100px. */
-.dateline { margin: 8px 0 0; padding-right: 88px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--ch-text-primary); font-family: var(--ch-font-ui); }
+   David sticker, which now scales with --mh-sticker-w. */
+.dateline { margin: 8px 0 0; padding-right: calc(var(--mh-sticker-w) + 8px); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--ch-text-primary); font-family: var(--ch-font-ui); }
 
 /* P1.5: the one-shot explicit wrong-guess line (first wrong guess anywhere)
    and the polite screen-reader live region (visually hidden, never seen). */
@@ -77,7 +93,10 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
 }
-.masthead-sticker { position: absolute; right: 12px; top: 6px; width: 76px; transform: rotate(6deg); }
+/* Fluid (4 Aug, masthead scale-up): width tracks --mh-sticker-w (set on
+   .masthead) so the sticker, the wordmark's available width, and the
+   dateline's clearance all move together off one number. */
+.masthead-sticker { position: absolute; right: 12px; top: 6px; width: var(--mh-sticker-w); transform: rotate(6deg); }
 
 /* Masthead punch card: this week as die-punched ticket squares (streak). */
 #punch-card { display: flex; gap: 5px; align-items: center; margin: 8px 0 2px; }
@@ -270,6 +289,14 @@ button.cal-cell:active { background: var(--ch-parchment); }
 .ic-row b { font-family: var(--ch-font-display); font-weight: 400; font-size: 30px; line-height: 1; color: var(--ch-text-primary); font-variant-numeric: tabular-nums; }
 .ic-countdown { margin: 10px 0 0; font-family: var(--ch-font-ui); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--ch-text-muted); }
 .ic-countdown b { display: block; margin-top: 2px; font-family: var(--ch-font-display); font-weight: 400; font-size: 22px; letter-spacing: .02em; color: var(--ch-text-primary); }
+
+/* Farewell strip (cutover, 4 Aug 2026): shown by app.js only on deadfamous.*.
+   Deliberately LOUD — magenta plate, top of Home — because for a stranded
+   installed app this is the only road sign out. */
+#moving-note { margin: 12px 20px 2px; padding: 14px 16px; background: var(--ch-cream); border: 2.5px solid var(--ch-ink); box-shadow: var(--ch-shadow-card); }
+.moving-kicker { margin: 0; display: inline-block; padding: 2px 8px; background: var(--df-magenta); color: var(--ch-ink); font-family: var(--ch-font-ui); font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; border: 2px solid var(--ch-ink); }
+.moving-body { margin: 10px 0 12px; font-size: 15px; line-height: 1.45; color: var(--ch-text-primary); }
+#moving-note .pill { width: 100%; text-align: center; }
 
 /* First-run intro card (Change B): one shared overlay, per-game content. Full
    dot-grid cream screen so it reads like a game's own start screen (reuses the

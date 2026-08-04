@@ -7,10 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Yesternerd — Four Daily History Games</title>
 <meta name="description" content="Four little history games a day: Face Value, Lifeline, Relic and Thread. New games at midnight — same games as everyone else. Free, no sign-up.">
-  <!-- TEMPORARY: brand ships ahead of the domain move. These URLs stay on
-       deadfamous.app until DNS for yesternerd.app is live (cutover step 3),
-       so shared links and previews keep working. -->
-<link rel="canonical" href="https://deadfamous.app/">
+<link rel="canonical" href="https://yesternerd.app/">
 <meta name="theme-color" content="#F2EFE6">
 <!-- Link previews (iMessage/WhatsApp/X/Discord/Slack read these; crawlers never
      run JS so they must stay static). URLs are absolute on purpose. -->
@@ -18,22 +15,22 @@
 <meta property="og:site_name" content="Yesternerd">
 <meta property="og:title" content="Yesternerd — Four Daily History Games">
 <meta property="og:description" content="Four little history games a day. New games at midnight — same games as everyone else. Free, no sign-up.">
-<meta property="og:url" content="https://deadfamous.app/">
-<meta property="og:image" content="https://deadfamous.app/assets/brand/social-card.png">
+<meta property="og:url" content="https://yesternerd.app/">
+<meta property="og:image" content="https://yesternerd.app/assets/brand/social-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Yesternerd — four daily history games. A marble bust of Antinous wearing chunky black nerd glasses beside the Yesternerd wordmark.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Yesternerd — Four Daily History Games">
 <meta name="twitter:description" content="Four little history games a day. New games at midnight — same games as everyone else. Free, no sign-up.">
-<meta name="twitter:image" content="https://deadfamous.app/assets/brand/social-card.png">
+<meta name="twitter:image" content="https://yesternerd.app/assets/brand/social-card.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Yesternerd",
   "alternateName": "Yesternerd — Four Daily History Games",
-  "url": "https://deadfamous.app/",
+  "url": "https://yesternerd.app/",
   "description": "Four little history games a day: Face Value, Lifeline, Relic and Thread. New games at midnight — same games as everyone else. Free, no sign-up.",
   "applicationCategory": "Game",
   "genre": "Trivia",
@@ -90,6 +87,14 @@
       <p class="dateline" id="dateline"></p>
       <div id="punch-card" hidden role="button" tabindex="0" aria-label="Full-house streak this week — open Your Legacy"></div>
     </header>
+    <!-- Farewell strip (cutover, 4 Aug 2026): unhidden by app.js ONLY when
+         served from deadfamous.* — the new house never shows it. -->
+    <div id="moving-note" hidden>
+      <p class="moving-kicker">We’ve moved</p>
+      <p class="moving-body">Yesternerd now lives at <b>yesternerd.app</b>.
+        Your streak doesn’t have to die here.</p>
+      <button type="button" class="pill primary" id="moving-carry-btn">Carry your record over →</button>
+    </div>
     <!-- Edition-closed strip (Change A): the quiet ending shown at the top of
          Home once all four of today's dailies are played but not all won. An
          all-won day gets the You Made History celebration instead (see
