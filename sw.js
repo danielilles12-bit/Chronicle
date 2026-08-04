@@ -7,7 +7,7 @@
 //   new worker precaches the shell, skipWaiting+claim take over immediately ->
 //   app.js sees controllerchange and shows the NEW EDITION bar -> the user's
 //   pull-to-refresh (or a tap on the bar) reloads into the new version.
-const VERSION = 'yesternerd-v163';
+const VERSION = 'yesternerd-v164';
 
 // Daily-content cache: survives version bumps so updating the app never
 // re-downloads the whole archive, served stale-while-revalidate below.
@@ -47,6 +47,13 @@ const ASSETS = [
   './assets/brand/game-icon-relic.png',
   './assets/brand/stamp-alea-iacta-fest.png',
   './assets/brand/ptr-queen.png',
+  // Intro posters (v164): the first-run intro card is the very first thing a
+  // new player sees, so its art ships with the shell rather than waiting on
+  // a cold fetch behind the tap.
+  './assets/intro/intro-who.webp',
+  './assets/intro/intro-map.webp',
+  './assets/intro/intro-what.webp',
+  './assets/intro/intro-thread.webp',
   './assets/sfx/tear.mp3',
   './assets/sfx/correct.mp3',
   './assets/sfx/stamp.mp3',

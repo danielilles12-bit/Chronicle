@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v163';
+const BUILD = 'v164';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -363,27 +363,43 @@ export function wireTurnThePage(btnId, editionIndex, isDaily) {
 // economy copy, tightened (Thread never had a start screen, so its copy is new).
 // Shown once per game before its first daily (misc.introSeen), re-openable any
 // time via the topbar "?" as a dismissable overlay that leaves game state alone.
+// v164: each entry also carries its poster art, the kicker plate's words and
+// the game's accent (the same colour its home-card edge uses in GAME_ROWS).
+// accentInk is the text colour that sits on that accent: ink everywhere it
+// clears 4.5:1 (magenta on white is only 3.0:1), cream on the print red.
 const INTRO_CONTENT = {
   thread: {
-    glyph: 'assets/brand/game-icon-thread.png',
+    art: 'assets/intro/intro-thread.webp',
+    kicker: 'Thread',            // "Thread · thread" would be a stutter, so one word
+    accent: 'var(--df-cyan)',
+    accentInk: 'var(--ch-ink)',
     title: 'Find the four threads.',
     copy: 'Sixteen clues hide four secret groups of four. Tap the four you think belong together, then submit.',
     copy2: 'A solved board scores 100; each wrong group costs 20, down to a floor of 20. Four wrong guesses and the thread snaps.',
   },
   map: {
-    glyph: 'assets/brand/game-icon-lifeline.png',
+    art: 'assets/intro/intro-map.webp',
+    kicker: 'Lifeline · Map',
+    accent: 'var(--df-yellow)',
+    accentInk: 'var(--ch-ink)',
     title: 'Two dots, one life.',
     copy: 'Each round shows where a figure was born and where they died, with the years. Type their name — spelling needn’t be perfect.',
     copy2: '100 points for an unaided answer (a correct one always pays at least 10). Clue slips cost 15–25 pts, wrong guesses 15. Stuck? Three choices costs 80 and pays what’s left. Each correct answer from the second in a row earns +10. Your day’s score is your round average.',
   },
   who: {
-    glyph: 'assets/brand/game-icon-face-value.png',
+    art: 'assets/intro/intro-who.webp',
+    kicker: 'Face Value · Who',
+    accent: 'var(--df-magenta)',
+    accentInk: 'var(--ch-ink)',
     title: 'Tear towards it.',
     copy: 'A famous face hides under nine scraps — one is already open. You can only tear scraps touching what’s open, so plot your route.',
     copy2: 'Each round is worth 100. Tears cost 10 pts, wrong guesses 15, clue slips 15–25. Stuck? Three choices costs 80 and pays what’s left. Two right in a row earns +10. Your day’s score is your round average.',
   },
   what: {
-    glyph: 'assets/brand/game-icon-relic.png',
+    art: 'assets/intro/intro-what.webp',
+    kicker: 'Relic · What',
+    accent: 'var(--df-red)',
+    accentInk: 'var(--ch-text-inverse)',
     title: 'Tear towards it.',
     copy: 'A famous artefact hides under nine scraps — one is already open. You can only tear scraps touching what’s open, so plot your route.',
     copy2: 'Each round is worth 100. Tears cost 10 pts, wrong guesses 15, clue slips 15–25. Stuck? Three choices costs 80 and pays what’s left. Two right in a row earns +10. Your day’s score is your round average.',
@@ -393,7 +409,15 @@ const INTRO_CONTENT = {
 function fillIntro(gameKey) {
   const c = INTRO_CONTENT[gameKey];
   if (!c) return false;
-  $('#intro-glyph').src = c.glyph;
+  const art = $('#intro-art-img');
+  if (art && !art.src.endsWith(c.art)) art.src = c.art;
+  const kicker = $('#intro-kicker');
+  if (kicker) kicker.textContent = c.kicker;
+  const sheet = $('#intro-sheet');
+  if (sheet) {
+    sheet.style.setProperty('--intro-accent', c.accent);
+    sheet.style.setProperty('--intro-accent-ink', c.accentInk);
+  }
   $('#intro-title').textContent = c.title;
   $('#intro-copy').textContent = c.copy;
   $('#intro-copy2').textContent = c.copy2;

@@ -445,14 +445,22 @@
 
   <!-- First-run intro card (Change B): one shared overlay, per-game content
        filled by app.js (maybeIntro / openIntroHelp). Shown once before a
-       game's first daily, and reopened over a live game by the topbar "?". -->
+       game's first daily, and reopened over a live game by the topbar "?".
+       v164: full-bleed poster — the game's art bleeds across the top with a
+       kicker plate punched over the seam, copy and Play pill on the paper
+       below. Art, kicker and accent colour all come from INTRO_CONTENT. -->
   <div id="intro-card" class="intro-overlay" hidden>
-    <div class="intro-sheet">
-      <img class="intro-glyph" id="intro-glyph" src="" alt="" aria-hidden="true">
-      <h3 class="start-title" id="intro-title"></h3>
-      <p class="start-copy" id="intro-copy"></p>
-      <p class="start-copy small" id="intro-copy2"></p>
-      <button class="pill primary big" id="intro-play">Play ›</button>
+    <div class="intro-sheet" id="intro-sheet">
+      <div class="intro-art">
+        <img id="intro-art-img" src="" alt="" aria-hidden="true">
+        <span class="intro-kicker" id="intro-kicker"></span>
+      </div>
+      <div class="intro-body">
+        <h3 class="start-title" id="intro-title"></h3>
+        <p class="start-copy" id="intro-copy"></p>
+        <p class="start-copy small" id="intro-copy2"></p>
+        <button class="pill primary big" id="intro-play">Play ›</button>
+      </div>
     </div>
   </div>
 
