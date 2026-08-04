@@ -38,3 +38,12 @@ CLAUDE_CODE_BUILD_PLAN.md
 DEAD_FAMOUS_AUDITED_PLAN.md
 DEAD_FAMOUS_PLAN_RESPONSE.md
 plan-review.html
+
+# Raw art masters (4 Aug 2026): generation outputs + working PNGs stay local;
+# only the ship-weight assets/intro/*.webp exports are tracked.
+new intro images/
+assets/intro/*.png
+assets/intro/*.svg
+assets/intro/app/
+assets/brand/concepts/
+output/
