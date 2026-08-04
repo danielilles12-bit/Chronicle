@@ -785,7 +785,9 @@ button.cal-cell:active { background: var(--ch-parchment); }
   transition: opacity .28s ease, transform .28s ease;
 }
 .df-scrap::after {
-  content: 'DEAD FAMOUS'; font-family: var(--ch-font-ui); font-size: 8px; font-weight: 700;
+  /* The most-seen string in the app — it rode the old name until 5 Aug 2026.
+     Same character count as 'DEAD FAMOUS', so the fit is unchanged. */
+  content: 'YESTERNERD'; font-family: var(--ch-font-ui); font-size: 8px; font-weight: 700;
   letter-spacing: .1em; color: rgba(11,11,11,.28); transform: rotate(-14deg);
 }
 .df-scrap:active { filter: brightness(.96); }
