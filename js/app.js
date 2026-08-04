@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v172';
+const BUILD = 'v173';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -75,6 +75,14 @@ export function back() {
 export function goHome() {
   trail.length = 0;
   trail.push('view-home');
+  // Re-stamp the entry we are standing on as depth 1, because the trail we
+  // just emptied is what back() measures history against. Without this, the
+  // entry still claims the depth it had before (say 3); the NEXT view pushes
+  // depth 2 on top of it, so back()'s history.back() lands on a depth-3 entry,
+  // the popstate handler pops nothing, and the ‹ chip does nothing on the
+  // first tap. Found 5 Aug 2026 by tests/test_no_dead_ends.py — the sequence
+  // "finish a daily › ‹ home › Your Legacy › ‹" reproduced it exactly.
+  try { window.history.replaceState({ depth: 1 }, ''); } catch (e) { /* sandboxed */ }
   render();
 }
 
@@ -1389,9 +1397,14 @@ async function boot() {
   carry.offerIncoming();
 
   // Deterministic hooks for the automated test-suite.
+  // nav exists for tests/test_no_dead_ends.py: it walks EVERY view in
+  // index.html — including view-mapstart/view-revealstart, which no UI route
+  // reaches today — and asserts each one's way back. Router only: it switches
+  // views, exactly as a tap would, and can neither load nor reveal content.
   if (testHooksEnabled()) {
     window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {},
-      { data: DATA, store, isMatch, daily, carry: carry.testHooks() });
+      { data: DATA, store, isMatch, daily, carry: carry.testHooks(),
+        nav: { show, back, goHome, trail: () => trail.slice() } });
   }
 
   const buildTag = $('#build-tag');

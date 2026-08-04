@@ -8,7 +8,25 @@ check). When a new audit produces a new ruling, it gets added HERE in the
 same session — this file is why his feedback compounds instead of
 evaporating.
 
-Last updated: 30 Jul 2026 (launch-window audit + engine-hardening session).
+Last updated: 5 Aug 2026 (navigation contract).
+
+## Navigation (the way back)
+
+- **[ENGINE]** **The navigation contract (Daniel, 5 Aug 2026):** every
+  surface except Home carries exactly one always-visible way back, top-left,
+  in the house ‹ chip language, reachable without scrolling. Moment screens
+  comply via their centred Home CTA above the fold. Enforced by
+  `tests/test_no_dead_ends.py`. Why it is a rule and not a habit: the app is
+  deliberately hub-and-spoke (Home is the hub; no menus, no tab bar), so a
+  screen without a chip is a trap, not a minor omission — two shipped that
+  way inside a fortnight (the intro overlay, the reading pages) before this
+  was written down. The test walks every view, the intro overlay in both its
+  modes, the sheets, the moment screens, the reading pages and 404, and fails
+  CI on any dead end.
+- **[JUDGMENT]** Sheets and overlays (archive picker, carry, confirm) are not
+  surfaces and do not get a chip — they get an explicit Close, above the
+  fold, that returns to the surface underneath. Nothing that opens over a
+  view may be dismissable only by tapping outside it.
 
 ## Scheduling (the day compiler)
 
