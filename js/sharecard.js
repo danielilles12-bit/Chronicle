@@ -18,7 +18,8 @@ import { track } from './track.js';
 // fullhouse/obituary shares have no single game to route to, so they keep
 // the bare link. Plain validated params on purpose — no signing, see the
 // discarded X1 card in the audited plan.
-const BASE_URL = 'https://yesternerd.app/';
+// TEMPORARY until the domain move (see index.html note).
+const BASE_URL = 'https://deadfamous.app/';
 export function shareUrl(game) {
   return game ? `${BASE_URL}?play=${game}&ref=share` : `${BASE_URL}?ref=share`;
 }

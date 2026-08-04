@@ -82,6 +82,13 @@ UKTV `YESTERDAY` near-mark risk is **knowingly accepted** — no solicitor.
 - [x] Instagram secured 4 Aug: **@yesternerdgame** (the consistent-fallback
       rule). Remaining: same handle on TikTok / X / YouTube [DANIEL]
 
+**BRAND SHIPPED AHEAD OF THE DOMAIN (4 Aug, v161):** the rename merged to main
+and is LIVE at deadfamous.app so Daniel can see it on his phone. Public URLs
+(canonical, OG/twitter, sitemap, robots, share BASE_URL) are deliberately HELD
+on deadfamous.app so shared links keep working; GoatCounter already reports to
+`yesternerd`. **Cutover step 3 must flip those URLs to yesternerd.app** —
+search for the "TEMPORARY" comments in index.html and js/sharecard.js.
+
 ### The cutover runbook — the only irreversible step, do in this order
 1. **Old-site farewell build:** on `deadfamous.app`, deploy with
    `DESTINATION = 'https://yesternerd.app'` in js/carry.js + a visible "we're
