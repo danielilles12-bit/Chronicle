@@ -1009,7 +1009,13 @@ button.cal-cell:active { background: var(--ch-parchment); }
 .carry-open-kicker { display: block; font-size: 9.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ch-text-muted); margin-bottom: 3px; }
 .carry-open b { font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
 
-.carry-card { gap: 8px; overflow-y: auto; }
+/* The Close must stay on screen at every viewport height (5 Aug 2026 —
+   caught by the no-dead-ends suite on CI's short viewport: whole-card
+   scrolling carried the Close below the fold on small phones). The tall
+   export/import panels scroll internally instead; Close never moves. */
+.carry-card { gap: 8px; overflow: hidden; }
+.carry-card #carry-export-panel, .carry-card #carry-import-panel { overflow-y: auto; min-height: 0; }
+.carry-card .sheet-close { flex: none; }
 .carry-lede { margin: 0; font-family: var(--ch-font-text); font-size: 14px; line-height: 1.45; color: var(--ch-text-secondary); }
 
 /* The manifest: what is in the crate. Reads as a packing list, not a table. */
