@@ -64,8 +64,18 @@ UKTV `YESTERDAY` near-mark risk is **knowingly accepted** — no solicitor.
       overhanging). Full suite 12/12 green. **Storage keys untouched
       (`chronicle.*`) — every existing streak survives.**
 - [x] Made the sw-update test rename-proof (it hard-coded the old cache prefix)
-- [ ] **Regenerate `assets/brand/social-card.png`** — still shows the old
-      wordmark; it's what every pasted link unfurls as [SESSION]
+- [x] **App icon set cut (4 Aug):** flat "Glasses v2" at 512/192/180/64,
+      same filenames so manifest/sw needed no edits. Brand system ruling:
+      the icon is the glasses; the photographic Antinous-in-round-nerd-glasses
+      is the mascot/hero layer (social card, splash, About, posts) — never
+      the icon (photographic marble dies at small sizes; proven twice).
+- [ ] **Regenerate `assets/brand/social-card.png`** — statue (round-frames
+      version) + wordmark + "Four Daily History Games"; BLOCKED on Daniel
+      dropping the two full-res statue images into assets/brand/concepts/
+      [DANIEL then SESSION]
+- [ ] Splash screens (19 files) still show pink-sunglasses David — regenerate
+      from the new statue after the social card; not cutover-blocking
+      [SESSION, post-statue-files]
 - [ ] **Create the GoatCounter site with code `yesternerd`** — the code is
       already in js/track.js; until the site exists, analytics silently no-op
       [DANIEL]
