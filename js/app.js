@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v168';
+const BUILD = 'v169';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -446,7 +446,7 @@ export function maybeIntro(gameKey, n, begin) {
   ov.onclick = null;             // first run: no tap-outside — the ✕ is the door
   // The way out (4 Aug 2026): back to Home WITHOUT marking the intro seen,
   // so the next tap on the game gets the card again.
-  $('#intro-close').onclick = () => closeIntro();
+  $('#intro-back').onclick = () => closeIntro();
   ov.hidden = false;
 }
 
@@ -459,7 +459,7 @@ export function openIntroHelp(gameKey) {
   btn.textContent = 'Got it ›';
   btn.onclick = closeIntro;
   ov.onclick = (e) => { if (e.target === ov) closeIntro(); };  // tap-outside dismiss
-  $('#intro-close').onclick = closeIntro;
+  $('#intro-back').onclick = closeIntro;
   ov.hidden = false;
 }
 

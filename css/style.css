@@ -332,17 +332,19 @@ button.cal-cell:active { background: var(--ch-parchment); }
   object-fit: cover; background: var(--ch-parchment);
   border-bottom: 3px solid var(--ch-ink);
 }
-/* The way out (Daniel, 4 Aug 2026): the full-bleed rebuild removed any
-   visible "outside", so the intro needs an explicit door back to Home.
-   First-run close does NOT mark the intro seen — it shows again next tap. */
-.intro-close {
-  position: absolute; top: max(10px, env(safe-area-inset-top)); right: 12px;
+/* The way out (Daniel, 4 Aug 2026, revised same night): the intro reads as a
+   PAGE, not a popup, so it gets the house ‹ back chip top-LEFT — the same
+   language as every topbar — not an ✕. First-run back does NOT mark the
+   intro seen; it shows again next tap. */
+.intro-back {
+  position: absolute; top: max(10px, env(safe-area-inset-top)); left: 12px;
   width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
   border: 2px solid var(--ch-ink); background: var(--ch-cream); color: var(--ch-ink);
-  font-size: 17px; font-weight: 700; box-shadow: 2.5px 2.5px 0 var(--ch-ink);
+  font-size: 24px; font-weight: 700; line-height: 1; padding-bottom: 3px;
+  box-shadow: 2.5px 2.5px 0 var(--ch-ink);
 }
-.intro-close:active { transform: translate(2px,2px); box-shadow: .5px .5px 0 var(--ch-ink); }
-.intro-close:focus-visible { outline: 2.5px solid var(--ch-ink); outline-offset: 2px; }
+.intro-back:active { transform: translate(2px,2px); box-shadow: .5px .5px 0 var(--ch-ink); }
+.intro-back:focus-visible { outline: 2.5px solid var(--ch-ink); outline-offset: 2px; }
 .intro-kicker {
   position: absolute; left: 16px; bottom: -13px;
   padding: 4px 10px; background: var(--intro-accent); color: var(--intro-accent-ink);
