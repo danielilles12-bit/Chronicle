@@ -343,9 +343,134 @@ def clue_prices_are_true(p, base):
         H.fail_on_errors(errors, "clue_prices_are_true")
 
 
+# ---------- the_rescue_closes_the_shop ----------
+def _pick_chip(page, wrap, name):
+    """Click the chip whose text is `name`. inner_text comes back CSS-
+    uppercased, so match case-insensitively and click by index rather than
+    by a :has-text() selector (names carry apostrophes)."""
+    chips = [c.strip().lower() for c in page.locator(wrap + " button").all_inner_texts()]
+    page.locator(wrap + " button").nth(chips.index(name.strip().lower())).click()
+
+
+def rescue_closes_reveal(p, base):
+    """Face Value: the three-choices rescue drops the round to its floor, so
+    every other clue and every further tear would cost NOTHING. Buying it
+    therefore closes them (Daniel, 5 Aug 2026): the clue slips go out of
+    service and stop quoting prices they cannot charge, the picture freezes
+    where the player paid to leave it, and a resumed session comes back
+    locked — while what an honest player scores is untouched (a clean round
+    plus the rescue still pays 20)."""
+    with H.app(p) as (page, errors, _ctx):
+        H.boot(page, base, DATE)
+        H.open_daily(page, "who")
+        H.dismiss_intro(page, timeout=1200)
+        page.wait_for_selector("#view-reveal:not([hidden])")
+        assert H.reveal_worth(page) == 100
+        assert page.locator("#rv-scraps .df-scrap.tearable").count() > 0
+
+        page.click("#rv-mcq")
+        page.wait_for_selector("#rv-mcq-chips button")
+        assert H.reveal_worth(page) == 20, "an untouched round plus the rescue is worth 20"
+
+        # The clue slips: dead, and quoting nothing.
+        for sel in ("#rv-clue-a", "#rv-clue-b"):
+            assert page.locator(sel).is_disabled(), (
+                "%s is still buyable after the rescue — a free clue" % sel)
+        label = page.inner_text("#rv-clue-a").lower()      # slip A always has content
+        assert label.strip(), "a locked slip must still say what it was"
+        assert "−" not in label and "drops to" not in label, (
+            "a locked slip must not quote a price it can no longer charge: %r" % label)
+
+        # The picture: frozen. Nothing tearable, every untorn scrap a real
+        # disabled control, and a tap on one moves neither grid nor worth.
+        assert page.locator("#rv-scraps .df-scrap.tearable").count() == 0
+        assert page.locator('#rv-scraps .df-scrap[aria-disabled="true"]').count() == 8
+        torn = page.evaluate("__CHRONICLE_TEST__.revealDebug.tornCount()")
+        # force=True: aria-disabled already makes Playwright (and a screen
+        # reader) refuse the control, so the tap has to be forced past the
+        # actionability check to prove the handler itself also refuses.
+        page.locator("#rv-scraps .df-scrap.locked").first.click(force=True)
+        assert page.evaluate("__CHRONICLE_TEST__.revealDebug.tornCount()") == torn, (
+            "a scrap still tore after the rescue — the free-reveal exploit")
+        assert H.reveal_worth(page) == 20
+        worth_line = page.inner_text("#rv-worth").lower()
+        assert "each tear" not in worth_line, (
+            "the worth line still prices a tear nobody can make: %r" % worth_line)
+
+        # Quit mid-rescue, come back cold: same three choices, still locked.
+        page.click("#rv-quit")
+        H.boot(page, base, DATE)
+        H.open_daily(page, "who")
+        page.wait_for_selector("#view-reveal:not([hidden])")
+        page.wait_for_function("__CHRONICLE_TEST__.revealDebug !== undefined")
+        assert page.locator("#rv-mcq-chips button").count() == 3
+        assert H.reveal_worth(page) == 20, "worth changed across quit/reopen"
+        for sel in ("#rv-clue-a", "#rv-clue-b"):
+            assert page.locator(sel).is_disabled(), (
+                "a resumed rescue re-opened %s" % sel)
+        assert page.locator("#rv-scraps .df-scrap.tearable").count() == 0, (
+            "a resumed rescue re-opened the picture")
+
+        # And it pays exactly what it paid before the lock existed.
+        answer = page.evaluate("__CHRONICLE_TEST__.revealRound.name")
+        _pick_chip(page, "#rv-mcq-chips", answer)
+        page.wait_for_selector("#rv-badge:not([hidden])")
+        assert "+20 pts" in page.inner_text("#rv-badge").lower(), page.inner_text("#rv-badge")
+        assert "picked from three" in page.inner_text("#rv-feedback").lower()
+
+        # Answered: the next round opens its shop again.
+        last = "results" in page.inner_text("#rv-next").lower()
+        page.click("#rv-next")
+        if not last:
+            page.wait_for_selector("#rv-scraps .df-scrap.tearable")
+            assert page.locator("#rv-clue-a").is_enabled(), "clues stayed shut into the next round"
+            assert H.reveal_worth(page) == 100
+        H.fail_on_errors(errors, "rescue_closes_reveal")
+
+
+def rescue_closes_map(p, base):
+    """Lifeline: same ruling, and it has no scraps — the two clue slips are
+    the whole of the shop. They close when the rescue opens, stay closed
+    across a quit/resume, and the pick still pays the same 20."""
+    with H.app(p) as (page, errors, _ctx):
+        H.boot(page, base, DATE)
+        H.open_daily(page, "map")
+        H.dismiss_intro(page)
+        page.wait_for_selector("#view-map:not([hidden])")
+        assert H.map_worth(page) == 100
+
+        page.click("#map-mcq")
+        page.wait_for_selector("#map-mcq-chips button")
+        assert H.map_worth(page) == 20, "an untouched round plus the rescue is worth 20"
+        for sel in ("#hint-occ", "#hint-ini"):
+            assert page.locator(sel).is_disabled(), (
+                "%s is still buyable after the rescue — a free clue" % sel)
+            label = page.inner_text(sel).lower()
+            assert label.strip(), "a locked slip must still say what it was"
+            assert "−" not in label and "drops to" not in label, (
+                "a locked slip must not quote a price it can no longer charge: %r" % label)
+
+        page.click("#map-quit")
+        H.boot(page, base, DATE)
+        H.open_daily(page, "map")
+        page.wait_for_selector("#view-map:not([hidden])")
+        assert page.locator("#map-mcq-chips button").count() == 3
+        assert H.map_worth(page) == 20, "worth changed across quit/reopen"
+        for sel in ("#hint-occ", "#hint-ini"):
+            assert page.locator(sel).is_disabled(), "a resumed rescue re-opened %s" % sel
+
+        answer = page.evaluate("__CHRONICLE_TEST__.mapRound.name")
+        _pick_chip(page, "#map-mcq-chips", answer)
+        page.wait_for_selector("#map-feedback:not([hidden])")
+        fb = page.inner_text("#map-feedback").lower()
+        assert "+20 pts" in fb, "correct pick should still pay the floored worth: %r" % fb
+        assert "picked from three" in fb
+        H.fail_on_errors(errors, "rescue_closes_map")
+
+
 TESTS = [first_visit, daily_all_four, outcomes_reveal, outcomes_map,
          outcomes_thread, resume_reveal, resume_map, thread_keyboard,
-         clue_prices_are_true]
+         clue_prices_are_true, rescue_closes_reveal, rescue_closes_map]
 
 
 def main():

@@ -386,6 +386,15 @@ function updateWorth() {
 
 let lastWorthShown = null;   // reset per round; drives the worth flash
 
+// The rescue closes the shop (Daniel, 5 Aug 2026) — same ruling as Face
+// Value/Relic, see the longer note in revealgame.js. Opening "3 choices"
+// drops the round to its floor, so every remaining clue would cost nothing;
+// offering one at a price it cannot charge is a lie, so the slips lock.
+// (Lifeline has no scraps, so the clue slips are the whole of it.)
+function rescueOpen() {
+  return !!(S && S.cur && S.cur.mcqOpts);
+}
+
 // A price is only true while the whole of it can come off; near the floor the
 // control says what it LEAVES instead. Same rule as Face Value/Relic, same
 // source of truth: worthNow().
@@ -398,10 +407,21 @@ function priceSpan(cost) {
 
 function refreshControlLabels() {
   if (!S || !S.cur) return;
+  // A frozen slip quotes nothing and goes visibly out of service (the house
+  // .pill:disabled treatment) — it can no longer charge what it says.
+  const frozen = rescueOpen();
   const occ = $('#hint-occ');
-  if (occ && !S.cur.occUsed) occ.innerHTML = `<span>Claim to fame ${priceSpan(HINT_OCC_COST)}</span>`;
+  if (occ && !S.cur.occUsed) {
+    occ.innerHTML = frozen ? '<span>Claim to fame</span>'
+      : `<span>Claim to fame ${priceSpan(HINT_OCC_COST)}</span>`;
+    if (frozen) occ.disabled = true;
+  }
   const ini = $('#hint-ini');
-  if (ini && !S.cur.iniUsed) ini.innerHTML = `<span>Initials ${priceSpan(HINT_INI_COST)}</span>`;
+  if (ini && !S.cur.iniUsed) {
+    ini.innerHTML = frozen ? '<span>Initials</span>'
+      : `<span>Initials ${priceSpan(HINT_INI_COST)}</span>`;
+    if (frozen) ini.disabled = true;
+  }
   const mcq = $('#map-mcq');
   if (mcq && !S.cur.mcqOpts) {
     mcq.innerHTML = `<span>3 choices <span class="leaves">· drops to ${Math.max(WORTH_FLOOR, worthNow() - MCQ_COST)}</span></span>`;
@@ -688,10 +708,13 @@ function renderMcq() {
     wrap.appendChild(b);
   });
   wrap.hidden = false;
+  // Typing is over, and so is spending: updateWorth → refreshControlLabels
+  // dims the two clue slips and strips the prices they can no longer charge.
   $('#map-form').hidden = true;
   $('#map-mcq').disabled = true;
   updateWorth();   // the −80 is already in hintCost: the standard readout tells it straight
-  announce(`Three choices: ${S.cur.mcqOpts.join(', ')}. Pick one for ${worthNow()} points.`);
+  announce(`Three choices: ${S.cur.mcqOpts.join(', ')}. Pick one for ${worthNow()} points.`
+    + ' Clues are closed.');
 }
 
 function resolveRound(correct, opts) {
@@ -896,6 +919,7 @@ export function initMapGame() {
 
   $('#hint-occ').addEventListener('click', () => {
     if (!S || !S.cur.open) return;
+    if (rescueOpen()) return;   // the rescue closed the shop; the button is dead
     S.cur.hints++;
     S.cur.hintCost = (S.cur.hintCost || 0) + HINT_OCC_COST;
     S.cur.occUsed = true;
@@ -907,6 +931,7 @@ export function initMapGame() {
 
   $('#hint-ini').addEventListener('click', () => {
     if (!S || !S.cur.open) return;
+    if (rescueOpen()) return;   // the rescue closed the shop; the button is dead
     S.cur.hints++;
     S.cur.hintCost = (S.cur.hintCost || 0) + HINT_INI_COST;
     S.cur.iniUsed = true;

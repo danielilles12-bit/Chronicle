@@ -8,7 +8,8 @@ check). When a new audit produces a new ruling, it gets added HERE in the
 same session — this file is why his feedback compounds instead of
 evaporating.
 
-Last updated: 5 Aug 2026 (navigation contract; install flow).
+Last updated: 5 Aug 2026 (navigation contract; install flow; the rescue
+closes the shop).
 
 ## Navigation (the way back)
 
@@ -88,6 +89,23 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
   can incur without any warning at all.
 - **[ENGINE]** **A bought clue replaces its own control, in the same slot.**
   Never a greyed-out button plus a duplicate yellow answer somewhere below it.
+- **[ENGINE]** **The rescue closes the shop** (Daniel, 5 Aug 2026 — the exploit
+  found during the clue-pricing work). Opening "3 choices" drops the round to
+  its 10-point floor, so from that moment every other clue and (in Face
+  Value/Relic) every further tear costs exactly nothing. So buying the rescue
+  LOCKS them: the remaining clue slips go out of service in the house
+  `.pill:disabled` treatment and stop quoting prices they can no longer charge,
+  and the scraps lock in the same dashed-out state an adjacency-blocked scrap
+  already uses. The picture freezes exactly where the player paid to leave it —
+  everything torn stays torn and stays zoomable, so the player can still LOOK
+  while choosing; they just cannot buy more looking. Two reasons, not one:
+  offering a price that cannot be charged is the same lie the rest of this
+  section exists to stop, AND a free full reveal would turn a three-way gamble
+  into a certainty (a name carved on an artefact is readable at the mid-round
+  4× zoom — see the name-on-artefact rule below), which contradicts "those 20
+  points should feel earned". Nothing about scoring changed: an honest player's
+  round pays exactly what it paid before. Checked by
+  `tests/test_smoke_core.py::rescue_closes_reveal` and `::rescue_closes_map`.
 - **[JUDGMENT]** **The introduction teaches the model, not the tariff.** One
   sentence — "Each round starts at 100 points. Tears, clues and wrong guesses
   lower what a correct answer is worth, never below 10." (Lifeline drops

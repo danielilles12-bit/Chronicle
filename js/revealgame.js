@@ -150,6 +150,19 @@ function addGuessChip(text) {
   $('#rv-guesses').appendChild(chip);
 }
 
+// The rescue closes the shop (Daniel, 5 Aug 2026). Opening "3 choices" drops
+// the round to its floor, so from that moment every other clue and every
+// further tear costs exactly nothing — the deductions are swallowed. Leaving
+// them live would (a) offer prices that cannot be charged, and (b) hand out a
+// free full reveal, which turns a three-way gamble into a certainty: the whole
+// picture (letters carved on an artefact included, readable at 4× zoom) for
+// nought. So the rescue freezes the round where the player paid to leave it:
+// clue slips and scraps lock, the torn view and its zoom stay, and the only
+// move left is the choice.
+function rescueOpen() {
+  return !!(S && S.cur && S.cur.mcqOpts);
+}
+
 // A price is only true while the whole of it can actually come off. Once the
 // floor would swallow part of it, "−25 pts" is a lie — so near the floor the
 // control says what it LEAVES instead (clue pricing, 5 Aug 2026). Both halves
@@ -165,10 +178,17 @@ function priceSpan(cost) {
 // updateWorth, so a tear / clue / wrong guess repriced everything at once.
 function refreshControlLabels() {
   if (!S || !S.cur) return;
+  const frozen = rescueOpen();
   for (const [id, key] of [['#rv-clue-a', 'clueA'], ['#rv-clue-b', 'clueB']]) {
     const btn = $(id);
     if (!btn || btn.hidden || S.cur[key]) continue;
-    btn.innerHTML = `<span>${btn.dataset.clueLabel} ${priceSpan(+btn.dataset.clueCost)}</span>`;
+    // A frozen slip quotes nothing and is visibly out of service (the house
+    // .pill:disabled treatment): a price on a control that can no longer
+    // charge it is exactly the lie the pricing rule exists to stop.
+    btn.innerHTML = frozen
+      ? `<span>${btn.dataset.clueLabel}</span>`
+      : `<span>${btn.dataset.clueLabel} ${priceSpan(+btn.dataset.clueCost)}</span>`;
+    if (frozen) btn.disabled = true;
   }
   const mcq = $('#rv-mcq');
   // The rescue never quotes its nominal −80: on an untouched round it leaves
@@ -204,6 +224,7 @@ function setupClues() {
 
 function buyClue(which) {
   if (!S || !S.cur || !S.cur.open) return;
+  if (rescueOpen()) return;   // the rescue closed the shop; the button is dead
   const key = which === 'a' ? 'clueA' : 'clueB';
   if (S.cur[key]) return;
   const def = clueDefs()[which];
@@ -357,10 +378,11 @@ function setRoundOffline(off) {
   if (el) el.hidden = !off;
   if (!off) $('#rv-offline-retry').textContent = 'Retry';
   const cur = S && S.cur;
+  const frozen = rescueOpen();   // coming back online must not re-open the shop
   $('#rv-input').disabled = off;
   $('#rv-guess-btn').disabled = off;
-  $('#rv-clue-a').disabled = off || !!(cur && cur.clueA);
-  $('#rv-clue-b').disabled = off || !!(cur && cur.clueB);
+  $('#rv-clue-a').disabled = off || frozen || !!(cur && cur.clueA);
+  $('#rv-clue-b').disabled = off || frozen || !!(cur && cur.clueB);
   $('#rv-mcq').disabled = off || !!(cur && cur.mcqOpts);
   $('#rv-scraps').style.visibility = off ? 'hidden' : '';
 }
@@ -408,6 +430,9 @@ function neighbors(i) {
 }
 function refreshTearable() {
   if (!S || !S.cur) return;
+  // Once the rescue is open no scrap is tearable at all: they lock in the same
+  // dashed-out state an adjacency-blocked scrap already uses (see rescueOpen).
+  const frozen = rescueOpen();
   const torn = new Set(S.cur.torn);
   const open = new Set();
   if (torn.size) {
@@ -418,8 +443,8 @@ function refreshTearable() {
   document.querySelectorAll('#rv-scraps .df-scrap').forEach((el) => {
     const i = +el.dataset.i;
     const isTorn = torn.has(i);
-    const isLocked = !isTorn && !open.has(i);
-    el.classList.toggle('tearable', !isTorn && open.has(i));
+    const isLocked = !isTorn && (frozen || !open.has(i));
+    el.classList.toggle('tearable', !isTorn && !frozen && open.has(i));
     el.classList.toggle('locked', isLocked);
     // a11y: a locked scrap is a real disabled control, not just a dashed
     // border; an already-torn one (invisible — nothing left to tear) leaves
@@ -451,6 +476,7 @@ function updateWorth() {
   // nominal −10 stops being true, so it becomes the honest outcome instead.
   let suffix;
   if (w <= WORTH_FLOOR) suffix = ' · <span class="worth-note">minimum</span>';
+  else if (rescueOpen()) suffix = '';   // no tears left to price (see rescueOpen)
   else if (w - TEAR_COST < WORTH_FLOOR) {
     suffix = ` · <span class="worth-note">next tear · drops to ${WORTH_FLOOR}</span>`;
   } else suffix = ` · each tear <span class="cost">−${TEAR_COST}</span>`;
@@ -497,6 +523,7 @@ function buildScraps() {
 const DENY_REASON_TEXT = {
   torn: 'Already torn.',
   locked: 'Choose a scrap next to an open space.',
+  frozen: 'Tearing is closed — pick one of the three.',
 };
 function denyTap(i, reason) {
   const el = $(`#rv-scraps [data-i="${i}"]`);
@@ -517,6 +544,9 @@ function tearScrap(i, force) {
   if (!S || !S.cur || !S.cur.open) return;
   const cur = S.cur;
   if (cur.torn.includes(i)) { denyTap(i, 'torn'); return; }
+  // The rescue froze the picture where it stood: a further tear would cost
+  // nothing, so it is not on offer (see rescueOpen).
+  if (!force && rescueOpen()) { denyTap(i, 'frozen'); return; }
   // Adjacency rule: a scrap must touch an open one (force = the game's own
   // opening tear). A blocked tap shakes its head instead of silently doing
   // nothing.
@@ -918,11 +948,16 @@ function renderMcq() {
     wrap.appendChild(b);
   });
   wrap.hidden = false;
-  // Typing is over: the gamble replaces the keyboard, not the other clues.
+  // Typing is over, and so is spending: the gamble replaces the keyboard AND
+  // closes the clue slips and the scraps (see rescueOpen). refreshTearable
+  // locks the picture; updateWorth → refreshControlLabels dims the slips and
+  // strips the prices they can no longer charge.
   $('#rv-form').hidden = true;
   $('#rv-mcq').disabled = true;
+  refreshTearable();
   updateWorth();   // the −80 is already in clueCost: the standard readout tells it straight
-  announce(`Three choices: ${S.cur.mcqOpts.join(', ')}. Pick one for ${worthNow()} points.`);
+  announce(`Three choices: ${S.cur.mcqOpts.join(', ')}. Pick one for ${worthNow()} points.`
+    + ' Tearing and clues are closed.');
 }
 
 function resolveRound(correct, opts) {
