@@ -47,3 +47,5 @@ assets/intro/*.svg
 assets/intro/app/
 assets/brand/concepts/
 output/
+# Design-review mockup PNGs stay local; the written plans beside them are tracked.
+design-reviews/**/*.png
