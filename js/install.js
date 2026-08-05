@@ -202,7 +202,7 @@ function stepsFor(kind) {
          <b>Not the ${GLYPH.dotsBare} at the bottom.</b></p>`)}
       ${step(2, 'Then pick this',
     `${sheetRow(GLYPH.plusBox, 'Add to Home Screen')}
-       <p class="install-note">Tap <b>View More</b> if you don’t see it,
+       <p class="install-note install-note-step">Tap <b>View More</b> if you don’t see it,
          then <b>Add to Home Screen</b>.</p>`)}`;
   }
   if (kind === 'safari') {
@@ -212,7 +212,7 @@ function stepsFor(kind) {
          Can’t see it? It’s behind ${GLYPH.dotsPill}</p>`)}
       ${step(2, 'Then pick this',
     `${sheetRow(GLYPH.plusBox, 'Add to Home Screen')}
-       <p class="install-note">Tap <b>View More</b> if you don’t see it,
+       <p class="install-note install-note-step">Tap <b>View More</b> if you don’t see it,
          then <b>Add to Home Screen</b>.</p>`)}`;
   }
   // generic: name no menu label — Chrome's own documentation disagrees with
@@ -229,8 +229,12 @@ function screenAHTML(kind) {
     <div class="install-head">
       <div class="install-head-top">
         <span class="install-kicker">${kind === 'native' ? 'One tap' : 'One-time setup'}</span>
-        <img class="install-appicon" src="assets/brand/app-icon-antinous-original.webp" alt="" aria-hidden="true">
+        <!-- The icon they are about to get, drawn as iOS draws icons: rounded
+             squircle, soft drop shadow, NO zine ink border — the screen's whole
+             argument is "this becomes an app" (Daniel, 5 Aug 2026). -->
+        <img class="install-appicon" src="icons/icon-512.png" alt="" aria-hidden="true">
       </div>
+      <img class="install-wordmark" src="assets/brand/yesternerd-wordmark-primary-v2.png" alt="Yesternerd">
       <h2 class="install-headline" id="install-headline">${HEADLINE}</h2>
       <p class="install-lede">${LEDE}</p>
     </div>
@@ -271,6 +275,7 @@ function screenBHTML(app) {
       ${step(2, 'Then pick this', pick)}
     </div>
     <div class="install-foot">
+      <p class="install-or"><span>or</span></p>
       <button type="button" class="pill primary big" id="install-copy">Copy the link</button>
       <p class="install-note install-note-mid">then paste it in Safari or Chrome.</p>
       <input type="text" id="install-url" class="install-url" readonly hidden value="${HOME_URL}"

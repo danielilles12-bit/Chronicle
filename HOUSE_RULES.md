@@ -62,6 +62,45 @@ Daniel's rulings, 5 Aug 2026, from the signed-off plan. Built in `js/install.js`
   other app keeps flexible phrasing. A guaranteed **COPY THE LINK** button is
   the fallback, because escaping a webview cannot be scripted in 2026.
 
+## Clue pricing (what a round is worth, and what it costs)
+
+Daniel's rulings, 5 Aug 2026, from the restrained direction in
+`design-reviews/clue-pricing-2026-08-05/`. Built in `js/revealgame.js` and
+`js/mapgame.js`; `tests/test_smoke_core.py::clue_prices_are_true` is the check.
+
+- **[ENGINE]** **No control may quote a price the floor would swallow.** A
+  correct answer never pays under 10, so "−25" stops being true near the
+  bottom. Every price is derived from `worthNow()` at paint time and flips to
+  the honest outcome — `· LEAVES 10` — the moment the whole deduction can no
+  longer come off. The three-choices rescue never quotes its nominal −80 at
+  all: it always says what it LEAVES (20 on an untouched round, 10 after any
+  spending). This is why the old "3 CHOICES −80" had to go — on a 65-point
+  round it was simply a false number.
+- **[ENGINE]** **One price, in one place, once.** The tear price lives on the
+  worth line (it is the only cost paid without pressing a control); every
+  other price lives on the control that charges it. At the floor the worth
+  line reads `WORTH: 10 PTS · MINIMUM`.
+- **[JUDGMENT]** **Prices are RED** (Daniel, 5 Aug 2026, overruling a proposal
+  to make ordinary prices black): the red minus is what says "this is a cost".
+  Outcomes — `LEAVES 10`, `MINIMUM` — are not prices and stay ink.
+- **[JUDGMENT]** **The wrong-guess price rides on the Guess button**: "IF
+  WRONG −15 PTS", Daniel's wording, with the "if". It is the one cost a player
+  can incur without any warning at all.
+- **[ENGINE]** **A bought clue replaces its own control, in the same slot.**
+  Never a greyed-out button plus a duplicate yellow answer somewhere below it.
+- **[JUDGMENT]** **The introduction teaches the model, not the tariff.** One
+  sentence — "Each round starts at 100 points. Tears, clues and wrong guesses
+  lower what a correct answer is worth, never below 10." (Lifeline drops
+  "Tears".) Individual prices, the rescue, streak bonuses and the round-average
+  belong where they become relevant, or on `how-to-play.html`. Do not let the
+  intro drift back into a price list.
+- **[JUDGMENT]** **One label across all three guessing games: WORTH.** Relic's
+  "INK" made the same number look like a different currency.
+- **[JUDGMENT]** Explicitly NOT built, and not to be revived: scoring panels,
+  numbered rules, split answer-value/next-tear cards, permanent right/wrong
+  hypotheticals, ledgers, receipts, price tags, PAID stamps, purchase
+  confirmations, red warning borders on the rescue.
+
 ## Scheduling (the day compiler)
 
 - **[ENGINE]** 3 rounds per game per day, exactly one easy/medium/hard;

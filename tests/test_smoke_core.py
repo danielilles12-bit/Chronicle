@@ -125,10 +125,14 @@ def outcomes_reveal(p, base):
         assert H.reveal_worth(page) == 100
         page.fill("#rv-input", "definitely not a real answer")
         page.click("#rv-guess-btn")
+        H.dismiss_guess_warn(page, timeout=800)
         page.wait_for_selector("#rv-guesses .guess-chip")
         assert H.reveal_worth(page) == 85, "wrong guess should cost 15"
         page.click("#rv-clue-a")
-        page.wait_for_selector("#rv-hint-chips .hint-chip")
+        # Clue pricing (5 Aug 2026): the bought clue takes the button's slot.
+        page.wait_for_selector("#rv-controls .hint-chip")
+        assert page.locator("#rv-clue-a").is_hidden(), (
+            "a bought clue must replace its control, not sit beside it")
         assert H.reveal_worth(page) == 60, "clue A should cost 25"
         page.locator("#rv-scraps .df-scrap.tearable").first.click()
         assert H.reveal_worth(page) == 50, "tear should cost 10"
@@ -159,6 +163,7 @@ def outcomes_map(p, base):
         assert H.map_worth(page) == 100
         page.fill("#map-input", "definitely not a real answer")
         page.click("#map-guess-btn")
+        H.dismiss_guess_warn(page, timeout=800)
         page.wait_for_selector("#map-guesses .guess-chip")
         assert H.map_worth(page) == 85, "wrong guess should cost 15"
         page.click("#hint-ini")
@@ -218,6 +223,7 @@ def resume_reveal(p, base):
         page.locator("#rv-scraps .df-scrap.tearable").first.click()
         page.fill("#rv-input", "definitely not a real answer")
         page.click("#rv-guess-btn")
+        H.dismiss_guess_warn(page, timeout=800)
         page.click("#rv-clue-a")
         worth = H.reveal_worth(page)
         assert worth == 100 - 20 - 15 - 25, "setup arithmetic drifted"
@@ -229,8 +235,8 @@ def resume_reveal(p, base):
         assert H.reveal_worth(page) == worth, "worth changed across quit/reopen"
         assert page.evaluate("__CHRONICLE_TEST__.revealDebug.tornCount()") == 3
         assert page.locator("#rv-guesses .guess-chip").count() == 1
-        assert page.locator("#rv-hint-chips .hint-chip").count() == 1
-        assert page.locator("#rv-clue-a").is_disabled()
+        assert page.locator("#rv-controls .hint-chip").count() == 1
+        assert page.locator("#rv-clue-a").is_hidden()
         assert "3-resume-facevalue" in H.gc_events(page), (
             "resuming a saved daily should fire resume-who")
         H.fail_on_errors(errors, "resume_reveal")
@@ -245,6 +251,7 @@ def resume_map(p, base):
         page.wait_for_selector("#view-map:not([hidden])")
         page.fill("#map-input", "definitely not a real answer")
         page.click("#map-guess-btn")
+        H.dismiss_guess_warn(page, timeout=800)
         page.click("#hint-ini")
         worth = H.map_worth(page)
         assert worth == 100 - 15 - 25, "setup arithmetic drifted"
@@ -254,8 +261,8 @@ def resume_map(p, base):
         page.wait_for_selector("#view-map:not([hidden])")
         assert H.map_worth(page) == worth, "worth changed across quit/reopen"
         assert page.locator("#map-guesses .guess-chip").count() == 1
-        assert page.locator("#map-hint-chips .hint-chip").count() == 1
-        assert page.locator("#hint-ini").is_disabled()
+        assert page.locator("#map-hints .hint-chip").count() == 1
+        assert page.locator("#hint-ini").is_hidden()
         assert "3-resume-lifeline" in H.gc_events(page), (
             "resuming a saved daily should fire resume-map")
         H.fail_on_errors(errors, "resume_map")
@@ -294,8 +301,51 @@ def thread_keyboard(p, base):
         H.fail_on_errors(errors, "thread_keyboard")
 
 
+# ---------- clue_prices_are_true ----------
+def clue_prices_are_true(p, base):
+    """Clue pricing (Daniel, 5 Aug 2026): no control may quote a deduction the
+    10-point floor would swallow. The rescue always shows what it LEAVES; an
+    ordinary clue switches from "−25" to "· leaves 10" once the floor bites;
+    the worth line says MINIMUM at the bottom; and Relic says WORTH, not INK."""
+    with H.app(p) as (page, errors, _ctx):
+        H.boot(page, base, DATE)
+        H.open_daily(page, "who")
+        H.dismiss_intro(page, timeout=1200)
+        page.wait_for_selector("#view-reveal:not([hidden])")
+        # Untouched round: 100 − 80 = 20, and that is what the button says.
+        assert "drops to 20" in page.inner_text("#rv-mcq").lower(), \
+            page.inner_text("#rv-mcq")
+        assert "each tear" in page.inner_text("#rv-worth").lower()
+        # Spend 25: the rescue's real remainder is now the floor, not 100 − 80.
+        page.click("#rv-clue-a")
+        page.wait_for_selector("#rv-controls .hint-chip")
+        assert "drops to 10" in page.inner_text("#rv-mcq").lower(), \
+            page.inner_text("#rv-mcq")
+        # Drive to the floor: every remaining price becomes an outcome.
+        for i in range(6):
+            page.fill("#rv-input", "definitely not the answer %d" % i)
+            page.click("#rv-guess-btn")
+            H.dismiss_guess_warn(page, timeout=800)
+        assert H.reveal_worth(page) == 10
+        worth = page.inner_text("#rv-worth").lower()
+        assert "minimum" in worth and "each tear" not in worth, worth
+        assert "drops to 10" in page.inner_text("#rv-clue-b").lower(), \
+            "a clue the floor would truncate must not quote its nominal price"
+        assert "guess" == page.inner_text("#rv-guess-btn").strip().lower(), \
+            "the Guess button carries no price now — the warning sheet does it"
+        # Relic shares the label (the old "INK" variant is gone).
+        page.click("#rv-quit")
+        H.open_daily(page, "what")
+        H.dismiss_intro(page, timeout=1200)
+        page.wait_for_selector("#view-reveal:not([hidden])")
+        assert page.inner_text("#rv-worth").lower().startswith("worth"), \
+            page.inner_text("#rv-worth")
+        H.fail_on_errors(errors, "clue_prices_are_true")
+
+
 TESTS = [first_visit, daily_all_four, outcomes_reveal, outcomes_map,
-         outcomes_thread, resume_reveal, resume_map, thread_keyboard]
+         outcomes_thread, resume_reveal, resume_map, thread_keyboard,
+         clue_prices_are_true]
 
 
 def main():

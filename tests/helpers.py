@@ -187,6 +187,20 @@ def dismiss_install(page, timeout=2000):
     return True
 
 
+def dismiss_guess_warn(page, timeout=1500):
+    """Confirm the first-guess warning if it opened (js/guesswarn.js asks once
+    per typed-answer game, on that game's first submitted guess). Its own
+    behaviour is asserted in tests/test_smoke_core.py; elsewhere it is
+    furniture to be stepped past — "Guess anyway" re-submits the same guess."""
+    try:
+        page.wait_for_selector("#guess-warn:not([hidden])", timeout=timeout)
+    except Exception:
+        return False
+    page.click("#guess-warn-go")
+    page.wait_for_selector("#guess-warn", state="hidden")
+    return True
+
+
 def open_daily(page, game):
     """Tap a game's hero card on Home (waits for Home to be interactive)."""
     page.wait_for_selector('[data-hero="%s"]' % game)
@@ -201,6 +215,7 @@ def play_reveal_daily(page):
         name = page.evaluate("__CHRONICLE_TEST__.revealRound.name")
         page.fill("#rv-input", name)
         page.click("#rv-guess-btn")
+        dismiss_guess_warn(page)
         page.wait_for_selector("#rv-next:not([hidden])")
         last = "results" in page.inner_text("#rv-next").lower()
         page.click("#rv-next")
@@ -217,6 +232,7 @@ def play_map_daily(page):
         name = page.evaluate("__CHRONICLE_TEST__.mapRound.name")
         page.fill("#map-input", name)
         page.click("#map-guess-btn")
+        dismiss_guess_warn(page)
         page.wait_for_selector("#map-next:not([hidden])")
         last = "results" in page.inner_text("#map-next").lower()
         page.click("#map-next")

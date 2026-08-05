@@ -9,6 +9,7 @@ import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIn
 import * as store from './storage.js';
 import { track, roundOutcome, durationBucket } from './track.js';
 import { isMatch, registerPool } from './match.js';
+import { confirmFirstGuess } from './guesswarn.js';
 import * as daily from './daily.js';
 import { revealShareText, revealEmojiRow, shareResult, flashShareButton, shareUrl } from './sharecard.js';
 import { attachPinchZoom } from './pinchzoom.js';
@@ -120,11 +121,19 @@ function clueDefs() {
   };
 }
 
-function addHintChip(text) {
+// A bought clue REPLACES its own button, in the same slot (clue pricing,
+// 5 Aug 2026): the yellow clue lands exactly where the control was, and the
+// control goes away. No greyed-out button with a duplicate answer below it.
+function revealClueInSlot(btn, text) {
   const chip = document.createElement('div');
-  chip.className = 'hint-chip';
+  chip.className = 'hint-chip clue-slot';
   chip.textContent = text;
-  $('#rv-hint-chips').appendChild(chip);
+  btn.parentNode.insertBefore(chip, btn);
+  btn.hidden = true;
+  btn.disabled = true;
+}
+function clearClueSlots() {
+  document.querySelectorAll('#rv-controls .clue-slot').forEach((el) => el.remove());
 }
 
 // One strikethrough guess chip (same shape as mapgame's) — used live on a
@@ -141,25 +150,56 @@ function addGuessChip(text) {
   $('#rv-guesses').appendChild(chip);
 }
 
+// A price is only true while the whole of it can actually come off. Once the
+// floor would swallow part of it, "−25 pts" is a lie — so near the floor the
+// control says what it LEAVES instead (clue pricing, 5 Aug 2026). Both halves
+// come from worthNow(), never from hard-coded arithmetic.
+function priceSpan(cost) {
+  const w = worthNow();
+  return w - cost < WORTH_FLOOR
+    ? `<span class="leaves">· drops to ${Math.max(WORTH_FLOOR, w - cost)}</span>`
+    : `<span class="cost">−${cost}</span>`;
+}
+
+// Relabel every still-live control for the round's CURRENT worth. Called from
+// updateWorth, so a tear / clue / wrong guess repriced everything at once.
+function refreshControlLabels() {
+  if (!S || !S.cur) return;
+  for (const [id, key] of [['#rv-clue-a', 'clueA'], ['#rv-clue-b', 'clueB']]) {
+    const btn = $(id);
+    if (!btn || btn.hidden || S.cur[key]) continue;
+    btn.innerHTML = `<span>${btn.dataset.clueLabel} ${priceSpan(+btn.dataset.clueCost)}</span>`;
+  }
+  const mcq = $('#rv-mcq');
+  // The rescue never quotes its nominal −80: on an untouched round it leaves
+  // 20, after any spending it leaves 10, and that is the number that matters.
+  if (mcq && !S.cur.mcqOpts) {
+    mcq.innerHTML = `<span>3 choices <span class="leaves">· drops to ${Math.max(WORTH_FLOOR, worthNow() - MCQ_COST)}</span></span>`;
+  }
+}
+
 // Label the two clue buttons for this round's MODE, re-enable them, and hide
 // button B when its clue has no content (an undatable Relic).
 function setupClues() {
-  $('#rv-hint-chips').innerHTML = '';
+  clearClueSlots();
   const defs = clueDefs();
   const btnA = $('#rv-clue-a');
-  btnA.innerHTML = `${defs.a.label} <span class="cost">−${defs.a.cost} pts</span>`;
+  btnA.dataset.clueLabel = defs.a.label;
+  btnA.dataset.clueCost = defs.a.cost;
   btnA.disabled = false;
   btnA.hidden = false;
   const btnB = $('#rv-clue-b');
   const bVal = defs.b.value();
+  btnB.dataset.clueLabel = defs.b.label;
+  btnB.dataset.clueCost = defs.b.cost;
   if (bVal == null || bVal === '') {
     btnB.hidden = true;
     btnB.disabled = true;
   } else {
-    btnB.innerHTML = `${defs.b.label} <span class="cost">−${defs.b.cost} pts</span>`;
     btnB.disabled = false;
     btnB.hidden = false;
   }
+  refreshControlLabels();
 }
 
 function buyClue(which) {
@@ -171,8 +211,7 @@ function buyClue(which) {
   if (value == null || value === '') return;
   S.cur[key] = true;
   S.cur.clueCost = (S.cur.clueCost || 0) + def.cost;
-  $(which === 'a' ? '#rv-clue-a' : '#rv-clue-b').disabled = true;
-  addHintChip(`${def.label}: ${value}`);
+  revealClueInSlot($(which === 'a' ? '#rv-clue-a' : '#rv-clue-b'), `${def.label}: ${value}`);
   updateWorth();
   announce(`${def.label}: ${value}. Worth ${worthNow()} points.`);
   persist();   // P2.1: bought clues survive a quit/reopen
@@ -398,19 +437,37 @@ function worthNow() {
   return Math.max(WORTH_FLOOR, WORTH_START - TEAR_COST * paidTears - WRONG_PENALTY * cur.wrongs - clueCost);
 }
 
+// One label across all three guessing games (clue pricing, 5 Aug 2026):
+// Relic's "INK" was a private joke that made the same number look like a
+// different currency.
 function updateWorth() {
   const el = $('#rv-worth');
   if (!el || !S || !S.cur) return;
-  const label = MODE === 'what' ? 'INK' : 'WORTH';
-  // Price the tears until the player buys their first; then the economy is
-  // learnt: hush. Never say "free" — the freebie is the scrap the game
-  // opened, not the player's first tear (owner correction 2026-07-20).
-  // Teach-by-doing (P1.5): on a player's first-ever Face Value daily the
-  // price stays up through the first PAID tear too, so the 100 → 90 drop
-  // reads as cause and effect rather than a mystery.
-  const hint = S.cur.torn.length <= 1 || (S.teach && S.cur.torn.length <= 2)
-    ? ' · each tear −10' : '';
-  el.innerHTML = `${label}: <b>${worthNow()} PTS</b>${hint}`;
+  const w = worthNow();
+  // The tear price stays up through ordinary play — it is the one cost the
+  // player pays without pressing a control, so it has nowhere else to live.
+  // Never say "free": the freebie is the scrap the GAME opened, not the
+  // player's first tear (owner correction 2026-07-20). Near the floor the
+  // nominal −10 stops being true, so it becomes the honest outcome instead.
+  let suffix;
+  if (w <= WORTH_FLOOR) suffix = ' · <span class="worth-note">minimum</span>';
+  else if (w - TEAR_COST < WORTH_FLOOR) {
+    suffix = ` · <span class="worth-note">next tear · drops to ${WORTH_FLOOR}</span>`;
+  } else suffix = ` · each tear <span class="cost">−${TEAR_COST}</span>`;
+  el.innerHTML = `WORTH: <b>${w} PTS</b>${suffix}`;
+  flashWorth(el, w);
+  refreshControlLabels();
+}
+
+// A half-second pale-gold stamp on the number when it actually moves — the
+// cause-and-effect cue that replaces permanent hypothetical arithmetic.
+// Reduced motion collapses the animation globally (style.css); the live
+// region still speaks the new worth.
+let lastWorthShown = null;
+function flashWorth(el, w) {
+  const b = el.querySelector('b');
+  if (b && lastWorthShown != null && lastWorthShown !== w) b.classList.add('flash');
+  lastWorthShown = w;
 }
 
 function buildScraps() {
@@ -653,8 +710,9 @@ function startEdition(sessMode, editionIndex) {
   // First-run intro before a fresh daily only (not resume/practice/locked).
   // Teach-by-doing (P1.5): Face Value skips the up-front rules card entirely —
   // a first-timer tears immediately, the worth line prices the tears in
-  // context (see updateWorth, held one tear longer on the very first daily),
-  // and the "?" opens the full card on demand. Other games keep their intro.
+  // context (see updateWorth — since 5 Aug 2026 that price stays up through
+  // ordinary play, so `S.teach` no longer gates it), and the "?" opens the
+  // full card on demand. Other games keep their intro. Routing unchanged.
   if (sessMode === 'daily' && mode === 'who') {
     const seenIntro = !!(store.getMisc().introSeen || {}).who;
     if (!seenIntro) {
@@ -720,6 +778,7 @@ function startRound() {
         mcqOpts: carried.mcqOpts ? carried.mcqOpts.slice() : null,
       }
     : { open: true, torn: [], wrongs: 0, clueCost: 0, clueA: false, clueB: false, wrongGuesses: [], mcqOpts: null };
+  lastWorthShown = null;   // a fresh round's first worth is not a "change"
   $('#rv-progress').textContent = `Round ${S.i + 1} of ${S.rounds.length}`;
   announce(`Round ${S.i + 1} of ${S.rounds.length}.`);
   $('#rv-score').textContent = `${S.score} pts`;
@@ -749,14 +808,8 @@ function startRound() {
   // Resumed round: put the bought-clue chips (values re-derive from the item)
   // and the wrong-guess chips back exactly as they were.
   const defs = clueDefs();
-  if (S.cur.clueA) {
-    $('#rv-clue-a').disabled = true;
-    addHintChip(`${defs.a.label}: ${defs.a.value()}`);
-  }
-  if (S.cur.clueB) {
-    $('#rv-clue-b').disabled = true;
-    addHintChip(`${defs.b.label}: ${defs.b.value()}`);
-  }
+  if (S.cur.clueA) revealClueInSlot($('#rv-clue-a'), `${defs.a.label}: ${defs.a.value()}`);
+  if (S.cur.clueB) revealClueInSlot($('#rv-clue-b'), `${defs.b.label}: ${defs.b.value()}`);
   if (S.cur.mcqOpts) renderMcq();   // resumed mid-choice: same three, same order
   (S.cur.wrongGuesses || []).forEach((g) => addGuessChip(g));
   // Back to the square scrap window (clears any inline aspect/width the last
@@ -1081,6 +1134,9 @@ export function initRevealGame() {
     if (!S || !S.cur || !S.cur.open) return;
     const guess = $('#rv-input').value.trim();
     if (!guess) return;
+    // First guess in this game, ever: ask once before spending anything.
+    if (!confirmFirstGuess(MODE, WRONG_PENALTY, () => $('#rv-form')
+        .dispatchEvent(new Event('submit', { cancelable: true })))) return;
     if (S.fromShare) { S.fromShare = false; track(`answer-from-share-${MODE}`); }
     if (isMatch(guess, round(), MODE)) {
       resolveRound(true);

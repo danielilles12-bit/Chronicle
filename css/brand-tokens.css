@@ -14,6 +14,8 @@
   --ch-paper:#F2EFE6;--ch-cream:#FFFFFF;--ch-parchment:#E9E4D3;--ch-ink:#0B0B0B;--ch-espresso:#1A1A1A;
   /* CMYK kit (game accents + moments) */
   --df-cyan:#2FC9E8;--df-magenta:#FF3DDB;--df-yellow:#FFE93B;--df-red:#E02020;
+  /* the same red, lifted for ink grounds (the print red misses 4.5:1 on black) */
+  --df-red-on-ink:#FF5C5C;
   /* accent mapping: "gold" slots now carry the magenta energy accent,
      "pale-gold" carries selection yellow, "burgundy" the print red */
   --ch-gold:#D6008F;--ch-gold-bright:#FF2DB3;--ch-pale-gold:#FFE93B;

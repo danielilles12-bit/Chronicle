@@ -3,6 +3,7 @@ import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIn
 import * as store from './storage.js';
 import { track, roundOutcome, durationBucket } from './track.js';
 import { isMatch, registerPool } from './match.js';
+import { confirmFirstGuess } from './guesswarn.js';
 import * as daily from './daily.js';
 import { mapShareText, mapEmojiRow, shareResult, flashShareButton, shareUrl } from './sharecard.js';
 import * as sfx from './sfx.js';
@@ -371,7 +372,40 @@ function worthNow() {
 function updateWorth() {
   const el = ensureWorthEl();
   if (!S || !S.cur) { el.innerHTML = ''; return; }
-  el.innerHTML = `WORTH: <b>${worthNow()} PTS</b>`;
+  const w = worthNow();
+  // Lifeline has no tears, so the only suffix it ever needs is the floor
+  // (clue pricing, 5 Aug 2026): once the round is worth 10 the listed prices
+  // stop being real deductions, and the line says so.
+  el.innerHTML = `WORTH: <b>${w} PTS</b>`
+    + (w <= WORTH_FLOOR ? ' · <span class="worth-note">minimum</span>' : '');
+  const b = el.querySelector('b');
+  if (b && lastWorthShown != null && lastWorthShown !== w) b.classList.add('flash');
+  lastWorthShown = w;
+  refreshControlLabels();
+}
+
+let lastWorthShown = null;   // reset per round; drives the worth flash
+
+// A price is only true while the whole of it can come off; near the floor the
+// control says what it LEAVES instead. Same rule as Face Value/Relic, same
+// source of truth: worthNow().
+function priceSpan(cost) {
+  const w = worthNow();
+  return w - cost < WORTH_FLOOR
+    ? `<span class="leaves">· drops to ${Math.max(WORTH_FLOOR, w - cost)}</span>`
+    : `<span class="cost">−${cost}</span>`;
+}
+
+function refreshControlLabels() {
+  if (!S || !S.cur) return;
+  const occ = $('#hint-occ');
+  if (occ && !S.cur.occUsed) occ.innerHTML = `<span>Claim to fame ${priceSpan(HINT_OCC_COST)}</span>`;
+  const ini = $('#hint-ini');
+  if (ini && !S.cur.iniUsed) ini.innerHTML = `<span>Initials ${priceSpan(HINT_INI_COST)}</span>`;
+  const mcq = $('#map-mcq');
+  if (mcq && !S.cur.mcqOpts) {
+    mcq.innerHTML = `<span>3 choices <span class="leaves">· drops to ${Math.max(WORTH_FLOOR, worthNow() - MCQ_COST)}</span></span>`;
+  }
 }
 
 function addGuessChip(text) {
@@ -546,26 +580,23 @@ function startRound() {
   $('#map-wrong-note').hidden = true;
   $('#map-form').hidden = false;
   $('#map-hints').hidden = false;
-  $('#map-hint-chips').innerHTML = '';
+  clearClueSlots();
   $('#map-guesses').innerHTML = '';
   $('#map-input').value = '';
   $('#map-input').disabled = false;
   $('#map-guess-btn').disabled = false;
   $('#hint-occ').disabled = false;
+  $('#hint-occ').hidden = false;
   $('#hint-ini').disabled = false;
+  $('#hint-ini').hidden = false;
   $('#map-mcq').disabled = false;
   $('#map-mcq-chips').hidden = true;
   $('#map-mcq-chips').innerHTML = '';
+  lastWorthShown = null;   // a fresh round's first worth is not a "change"
   // a resumed mid-round keeps its hints/wrong guesses (and their cost):
   // rebuild the chips and the worth readout from the carried-over state.
-  if (S.cur.occUsed) {
-    $('#hint-occ').disabled = true;
-    addHintChip(fig.occupation);
-  }
-  if (S.cur.iniUsed) {
-    $('#hint-ini').disabled = true;
-    addHintChip(`Initials: ${initials(fig.name)}`);
-  }
+  if (S.cur.occUsed) revealClueInSlot($('#hint-occ'), fig.occupation);
+  if (S.cur.iniUsed) revealClueInSlot($('#hint-ini'), `Initials: ${initials(fig.name)}`);
   S.cur.wrongGuesses.forEach((g) => addGuessChip(g));
   if (S.cur.mcqOpts) renderMcq();   // resumed mid-choice: same three, same order
   updateWorth();
@@ -587,11 +618,18 @@ function startRound() {
   }
 }
 
-function addHintChip(text) {
+// A bought clue REPLACES its own button, in the same slot (clue pricing,
+// 5 Aug 2026) — no greyed control plus a duplicate answer below it.
+function revealClueInSlot(btn, text) {
   const chip = document.createElement('div');
-  chip.className = 'hint-chip';
+  chip.className = 'hint-chip clue-slot';
   chip.textContent = text;
-  $('#map-hint-chips').appendChild(chip);
+  btn.parentNode.insertBefore(chip, btn);
+  btn.hidden = true;
+  btn.disabled = true;
+}
+function clearClueSlots() {
+  document.querySelectorAll('#map-hints .clue-slot').forEach((el) => el.remove());
 }
 
 const NAME_PARTICLES = new Set(['of', 'the', 'van', 'von', 'da', 'de', 'la', 'le', 'di']);
@@ -831,6 +869,8 @@ export function initMapGame() {
     if (!S || !S.cur.open) return;
     const guess = $('#map-input').value.trim();
     if (!guess) return;
+    if (!confirmFirstGuess('map', WRONG_COST, () => $('#map-form')
+        .dispatchEvent(new Event('submit', { cancelable: true })))) return;
     if (S.fromShare) { S.fromShare = false; track('answer-from-share-map'); }
     if (isMatch(guess, round(), 'map')) {
       resolveRound(true);
@@ -859,8 +899,7 @@ export function initMapGame() {
     S.cur.hints++;
     S.cur.hintCost = (S.cur.hintCost || 0) + HINT_OCC_COST;
     S.cur.occUsed = true;
-    $('#hint-occ').disabled = true;
-    addHintChip(round().occupation);
+    revealClueInSlot($('#hint-occ'), round().occupation);
     persistSession();
     updateWorth();
     announce(`Claim to fame: ${round().occupation}. Worth ${worthNow()} points.`);
@@ -871,8 +910,7 @@ export function initMapGame() {
     S.cur.hints++;
     S.cur.hintCost = (S.cur.hintCost || 0) + HINT_INI_COST;
     S.cur.iniUsed = true;
-    $('#hint-ini').disabled = true;
-    addHintChip(`Initials: ${initials(round().name)}`);
+    revealClueInSlot($('#hint-ini'), `Initials: ${initials(round().name)}`);
     persistSession();
     updateWorth();
     announce(`Initials: ${initials(round().name)}. Worth ${worthNow()} points.`);

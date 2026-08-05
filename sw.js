@@ -7,7 +7,7 @@
 //   new worker precaches the shell, skipWaiting+claim take over immediately ->
 //   app.js sees controllerchange and shows the NEW EDITION bar -> the user's
 //   pull-to-refresh (or a tap on the bar) reloads into the new version.
-const VERSION = 'yesternerd-v175';
+const VERSION = 'yesternerd-v177';
 
 // Daily-content cache: survives version bumps so updating the app never
 // re-downloads the whole archive, served stale-while-revalidate below.
@@ -75,6 +75,7 @@ const ASSETS = [
   './js/ledger.js',
   './js/carry.js',
   './js/install.js',
+  './js/guesswarn.js',
   './js/sfx.js',
   './manifest.webmanifest',
   './icons/icon-192.png',
