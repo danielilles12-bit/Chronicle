@@ -10,6 +10,15 @@
 <link rel="stylesheet" href="css/brand-tokens.css">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/pages.css">
+<script>
+// Same iOS detection as js/app.js: gives these pages back the native rubber
+// band (style.css sets overscroll-behavior:none globally; html.ios restores
+// it) so reading pages bounce like every other screen. (5 Aug 2026)
+if (/iP(hone|ad|od)/.test(navigator.userAgent)
+    || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+  document.documentElement.classList.add('ios');
+}
+</script>
 </head>
 <body>
 <div id="app">

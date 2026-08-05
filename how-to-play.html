@@ -16,6 +16,15 @@
 <link rel="stylesheet" href="css/brand-tokens.css">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/pages.css">
+<script>
+// Same iOS detection as js/app.js: gives these pages back the native rubber
+// band (style.css sets overscroll-behavior:none globally; html.ios restores
+// it) so reading pages bounce like every other screen. (5 Aug 2026)
+if (/iP(hone|ad|od)/.test(navigator.userAgent)
+    || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+  document.documentElement.classList.add('ios');
+}
+</script>
 </head>
 <body>
 <div id="app">
@@ -33,14 +42,17 @@
     starts at 100 points: every tear costs 10, a wrong guess costs 15, and
     the two clue slips cost 15–25 each. Two correct answers in a row earn a
     +10 bonus. A correct guess always pays at least 10, however much you've
-    spent finding it.</p>
+    spent finding it. Stuck? "3 choices" narrows the answer to three names
+    for 80 points — it keeps a streak alive but never extends it, and the
+    button always shows what the round will still be worth if you take it.</p>
 
     <h2>Lifeline</h2>
     <p>Each round shows where a historical figure was born and where they
     died, with the years. Type their name — spelling doesn't need to be
     perfect. An unaided answer scores 100 (a correct one always pays at
-    least 10); clue slips cost 15–25, a wrong guess costs 15, and revealing
-    the answer scores zero. Two correct answers in a row earn a +10 bonus.</p>
+    least 10); clue slips cost 15–25 and a wrong guess costs 15. Stuck?
+    "3 choices" works exactly as it does in Face Value. Two correct answers
+    in a row earn a +10 bonus.</p>
 
     <h2>Relic</h2>
     <p>The same as Face Value, but the picture is a famous artefact, building
