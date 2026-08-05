@@ -62,7 +62,7 @@ if (/iP(hone|ad|od)/.test(navigator.userAgent)
 
 <!-- BUILD:REGISTER:START -->
     <div id="reg-register">
-    <p><small>790 images, generated from the app's data files. Public-domain images need no attribution; the photographer is shown anyway where Commons records one.</small></p>
+    <p><small>Every image, generated from the app's data files. Public-domain images need no attribution; the photographer is shown anyway where Commons records one.</small></p>
     <h3 style="font-family:var(--ch-font-ui);font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--ch-text-muted);margin:20px 0 6px">Face Value — portraits (426)</h3>
     <div class="reg-table-wrap"><table class="reg-table">
       <tr><th>Name</th><th>Author</th><th>Licence</th><th>Source</th></tr>
@@ -890,7 +890,7 @@ photo: Marie-Lan Nguyen (user:Jastrow)</td><td><a href="https://creativecommons.
     </div>
 <!-- BUILD:REGISTER:END -->
     <script>
-      // Sources search (Daniel, 5 Aug 2026): a live filter over the ~790-row
+      // Sources search (Daniel, 5 Aug 2026): a live filter over the
       // image credit register so a visitor can find one photo instead of
       // scanning everything. Pure progressive enhancement — #reg-search
       // ships `hidden` in the raw HTML and the register's rows are never
@@ -943,16 +943,16 @@ photo: Marie-Lan Nguyen (user:Jastrow)</td><td><a href="https://creativecommons.
 
           if (q) {
             status.textContent = visible
-              ? 'Showing ' + visible + ' of ' + total + '.'
+              ? 'Showing ' + visible + (visible === 1 ? ' match.' : ' matches.')
               : 'Nothing matches “' + input.value.trim() + '”.';
             showAllBtn.hidden = true;
           } else if (showAll) {
-            status.textContent = 'Showing all ' + total + '.';
+            status.textContent = 'Showing all records.';
             showAllBtn.hidden = true;
           } else {
-            status.textContent = 'Search above, or show all ' + total + ' below.';
+            status.textContent = 'Search above, or show all records below.';
             showAllBtn.hidden = false;
-            showAllBtn.textContent = 'Show all ' + total;
+            showAllBtn.textContent = 'Show all records';
           }
         }
 

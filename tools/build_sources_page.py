@@ -74,7 +74,7 @@ def main():
     # row-collection to, however the tables/headings inside get reshuffled.
     register = (
         '    <div id="reg-register">\n'
-        f'    <p><small>{total} images, generated from the app\'s data files. '
+        f'    <p><small>Every image, generated from the app\'s data files. '
         f'Public-domain images need no attribution; the photographer is shown '
         f'anyway where Commons records one.</small></p>\n'
         + "\n".join(blocks)
