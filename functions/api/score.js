@@ -58,6 +58,11 @@ function reject() {
 }
 
 export async function onRequestPost({ request, env }) {
+  // Require a JSON content-type. The app always sends one; without this
+  // check a cross-origin POST is a CORS "simple request" that skips the
+  // browser's preflight, letting any web page write into the tally.
+  const ct = request.headers.get('content-type') || '';
+  if (ct.indexOf('application/json') === -1) return reject();
   let body;
   try {
     body = await request.json();
@@ -85,12 +90,16 @@ export async function onRequestPost({ request, env }) {
         'INSERT INTO tally (edition, game, score, count) VALUES (?1, ?2, ?3, 1) '
         + 'ON CONFLICT (edition, game, score) DO UPDATE SET count = count + 1')
         .bind(edition, game, score).run();
-      // Lazy sweep (the plan's no-cron cleanup): any counted write for
-      // edition N clears dedup tokens for editions < N−1. Usually a no-op
-      // costing nothing; the aggregate tally rows are kept — they identify
-      // nobody and they're the product.
+      // Lazy sweep (the plan's no-cron cleanup): any counted write clears
+      // dedup tokens older than yesterday. Usually a no-op costing nothing;
+      // the aggregate tally rows are kept — they identify nobody and they're
+      // the product. The floor is derived from the SERVER clock, never the
+      // request: a client claiming edition serverDay+2 (which validation
+      // allows as clock slack) must not be able to delete TODAY's dedup rows
+      // and reopen double-counting — found in preview testing, 5 Aug 2026.
+      const serverDay = Math.floor((Date.now() - EPOCH_UTC) / 86400000);
       await db.prepare('DELETE FROM seen WHERE edition < ?1')
-        .bind(edition - 1).run();
+        .bind(serverDay - 1).run();
     }
     const row = await db.prepare(
       'SELECT COALESCE(SUM(CASE WHEN score < ?3 THEN count END), 0) AS below, '
