@@ -408,6 +408,12 @@ function finishPuzzle() {
     ? `Board solved. ${score} points.`
     : 'The thread snapped. 0 points.');
   show('view-connsum');
+  // "A game finished" for the install flow — see the same note in
+  // revealgame.js. Thread has no Encore, so only its daily counts.
+  if (S.mode === 'daily') {
+    document.dispatchEvent(new CustomEvent('gamefinished',
+      { detail: { game: 'thread', daily: true } }));
+  }
 }
 
 // The Thread receipt (head/rows/total/remark), shared by the live finish and

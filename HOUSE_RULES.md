@@ -8,7 +8,7 @@ check). When a new audit produces a new ruling, it gets added HERE in the
 same session — this file is why his feedback compounds instead of
 evaporating.
 
-Last updated: 5 Aug 2026 (navigation contract).
+Last updated: 5 Aug 2026 (navigation contract; install flow).
 
 ## Navigation (the way back)
 
@@ -27,6 +27,40 @@ Last updated: 5 Aug 2026 (navigation contract).
   surfaces and do not get a chip — they get an explicit Close, above the
   fold, that returns to the surface underneath. Nothing that opens over a
   view may be dismissable only by tapping outside it.
+
+## Save it as an app (the install flow)
+
+Daniel's rulings, 5 Aug 2026, from the signed-off plan. Built in `js/install.js`;
+`tests/test_install.py` is the check on all of it.
+
+- **[JUDGMENT]** The promise is universal and vague-but-true: "a streak that
+  lives in a browser can die in a browser". **No per-browser deletion claims** —
+  the seven-day rule is Safari-only, and Chrome and Firefox delete nothing, so a
+  named claim is a lie somewhere. The locked body copy is the whole argument.
+- **[ENGINE]** **No pointing arrows at browser chrome.** A page cannot know
+  where the browser put its own buttons (iOS 26's Compact layout hides Share
+  behind •••; Chrome 138 can move its menu to the bottom), and an arrow at empty
+  space is worse than no arrow. Teaching is done with **drawn replicas** of the
+  real buttons instead.
+- **[ENGINE]** **The replica outsizes the words.** Body copy is 15px; every
+  replica glyph is ≥40px tall, so the eye lands on the shape it is hunting.
+  Enforced by `test_install.py::screens_render`.
+- **[JUDGMENT]** Instructions must match the verified flow on the browser in
+  hand, and hardcode nothing undetectable: iOS share-sheet rows are **icon-left,
+  label-right** (`[+] Add to Home Screen`, reached via **View More** and a
+  scroll); Chrome-on-iPhone's door is **Share, top right** — with the explicit
+  warning **"not the ⋯ at the bottom"**; Chrome on Android hardcodes no menu
+  label at all.
+- **[ENGINE]** Timing: the ask comes after **2 completed games** (any mix;
+  a daily AND an Encore both count), never mid-round. Declined → one quiet strip
+  at the top of Home; strip × → **one** final ask the day a streak reaches 7,
+  then silence forever. An installed app is never asked anything.
+- **[ENGINE]** In-app browsers (Instagram/Facebook/TikTok and friends) get the
+  **escape page** after **1 completed game**, at most twice — installing is
+  impossible in there and the record dies with the app. Instagram's menu label
+  is **"Open in external browser"**, verbatim, verified on Daniel's phone; every
+  other app keeps flexible phrasing. A guaranteed **COPY THE LINK** button is
+  the fallback, because escaping a webview cannot be scripted in 2026.
 
 ## Scheduling (the day compiler)
 

@@ -90,11 +90,29 @@ const DISPLAY = {
   'carry-import-declined': '7-carry-declined',
   'carry-import-repeat': '7-carry-already-here',
   'carry-import-bad': '9-carry-code-rejected',
-  'install-tip-shown': '7-install-pitch-shown',
-  'install-tip-tap': '7-install-pitch-tapped',
-  'install-tip-dismiss': '7-install-pitch-dismissed',
-  'install-accepted': '7-installed',
-  'install-declined': '7-install-declined',
+  // "Save it as an app" (js/install.js). The funnel reads: which screen a
+  // player was shown (one row per browser branch, so a branch that converts
+  // nobody is visible rather than averaged away), what they tapped, and — the
+  // only signal that is not self-reported — install-confirmed, fired on the
+  // first launch that reports itself as an installed app.
+  'install-shown-safari': '7-install-shown-ios-safari',
+  'install-shown-chrome-ios': '7-install-shown-ios-chrome',
+  'install-shown-native': '7-install-shown-android-native',
+  'install-shown-generic': '7-install-shown-generic',
+  'install-saved-claim': '7-install-saved-claim',
+  'install-later': '7-install-later',
+  'install-strip-tap': '7-install-strip-tapped',
+  // Android's OS dialog answering for itself (the native branch only).
+  'install-accepted': '7-install-android-accepted',
+  'install-declined': '7-install-android-declined',
+  'install-confirmed': '7-installed',
+  // The escape page: in-app browsers cannot install anything, so the win here
+  // is getting out into a real browser at all.
+  'webview-shown-instagram': '7-webview-shown-instagram',
+  'webview-shown-facebook': '7-webview-shown-facebook',
+  'webview-shown-tiktok': '7-webview-shown-tiktok',
+  'webview-shown-other': '7-webview-shown-other',
+  'webview-copylink': '7-webview-link-copied',
   // Crash beacons arrive pre-named from app.js ('9-app-error-<script>' /
   // '9-app-rejection-<type>') and pass through the map untouched.
 };

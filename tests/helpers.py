@@ -173,6 +173,20 @@ def dismiss_intro(page, timeout=2500):
     return True
 
 
+def dismiss_install(page, timeout=2000):
+    """Close the "save it as an app" screen if it opened (js/install.js shows
+    it over the end of the SECOND finished game, so any flow that plays more
+    than one daily meets it). Its own behaviour is asserted in
+    tests/test_install.py; here it is furniture to be stepped past."""
+    try:
+        page.wait_for_selector("#install-screen:not([hidden])", timeout=timeout)
+    except Exception:
+        return False
+    page.click("#install-back")
+    page.wait_for_selector("#install-screen", state="hidden")
+    return True
+
+
 def open_daily(page, game):
     """Tap a game's hero card on Home (waits for Home to be interactive)."""
     page.wait_for_selector('[data-hero="%s"]' % game)

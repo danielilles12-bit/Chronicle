@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v174';
+const BUILD = 'v175';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -22,6 +22,7 @@ import * as daily from './daily.js';
 import * as sfx from './sfx.js';
 import { renderLedger } from './ledger.js';
 import * as carry from './carry.js';
+import { initInstall, isStandalone, qaActions as installQA, testHooks as installHooks } from './install.js';
 
 export const DATA = { figures: null, world: null, reveal: null, connections: null, editions: null };
 export const $ = (sel) => document.querySelector(sel);
@@ -642,37 +643,6 @@ function initHome() {
     });
   }
 
-  $('#install-tip-close').addEventListener('click', () => {
-    $('#install-tip').hidden = true;
-    store.setMisc({ installTipDismissed: true });
-    track('install-tip-dismiss');
-  });
-  // Chromium fires beforeinstallprompt when the app is installable; stow the
-  // event (preventDefault also mutes Chrome's own mini-infobar) and pitch at
-  // OUR moment — after the first finished daily, like the iOS tip.
-  window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredInstall = e;
-    maybeShowInstallTip();
-  });
-  window.addEventListener('appinstalled', () => {
-    track('install-accepted');
-    const tip = $('#install-tip');
-    if (tip) tip.hidden = true;
-  });
-  $('#install-btn').addEventListener('click', () => {
-    const ev = deferredInstall;
-    if (!ev) return;
-    deferredInstall = null;
-    track('install-tip-tap');
-    const p = ev.prompt();
-    if (p && p.catch) p.catch(() => {});
-    ev.userChoice.then((c) => {
-      if (!c || c.outcome !== 'accepted') track('install-declined');
-      $('#install-tip').hidden = true;
-    }).catch(() => {});
-  });
-
   // The Ledger (stats) has two doors: tapping the masthead punch card, and the
   // text link in the home footer. Both just route to the view; ledger.js paints
   // it fresh on every visit (render() calls renderLedger).
@@ -698,10 +668,6 @@ function initHome() {
       if (!sfx.isMuted()) sfx.play('stamp'); // audible proof it's back on
     });
   }
-  document.addEventListener('viewchange', (e) => {
-    if (e.detail === 'view-home') maybeShowInstallTip();
-  });
-  maybeShowInstallTip();
 }
 
 function hasAnyDailyCompletion() {
@@ -721,48 +687,12 @@ function applyStrangerMode() {
   if (hero) hero.hidden = !stranger;
 }
 
-// The install pitch waits for the first finished daily — the moment a streak
-// exists to protect. "Keeps your streak safe" is literal: Safari wipes a
-// non-installed site's storage after 7 idle days; installed apps are exempt.
-// iOS gets illustrated steps (Apple offers no install API); Chromium gets a
-// real one-tap Install button via the stashed beforeinstallprompt event.
-let deferredInstall = null;
-
-const isStandalone = () => navigator.standalone === true
-  || (window.matchMedia && matchMedia('(display-mode: standalone)').matches);
-
-function maybeShowInstallTip() {
-  const tip = $('#install-tip');
-  if (!tip || !tip.hidden) return;
-  if (!hasAnyDailyCompletion()) return;
-  const misc = store.getMisc();
-  if (isStandalone() || misc.installTipDismissed || misc.iosTipDismissed) return;
-  const isIOS = /iP(hone|ad|od)/.test(navigator.userAgent);
-  if (isIOS) {
-    $('#install-steps').hidden = false;
-  } else if (deferredInstall) {
-    $('#install-btn').hidden = false;
-  } else {
-    return; // no install path on this browser (e.g. desktop Safari/Firefox)
-  }
-  tip.hidden = false;
-  track('install-tip-shown');
-}
+// The whole "save it as an app" flow — detection, timing, the six screens and
+// the strip on Home — lives in js/install.js. app.js only boots it (initInstall
+// in boot()) and lends it the QA panel's buttons below; isStandalone is
+// imported from there so there is exactly one definition of "installed".
 
 // ---------- QA forcing switch ----------
-// Shows the install pitch regardless of the guards in maybeShowInstallTip
-// (first completion, prior dismissal, already installed) so the screen can be
-// inspected on a device that has long since passed those gates.
-function forceInstallTip() {
-  const tip = $('#install-tip');
-  if (!tip) return;
-  const isIOS = /iP(hone|ad|od)/.test(navigator.userAgent);
-  $('#install-steps').hidden = !isIOS;
-  $('#install-btn').hidden = !(deferredInstall && !isIOS);
-  tip.hidden = false;
-  tip.scrollIntoView({ block: 'center' });
-}
-
 // ?qa=1 once, then it sticks (misc.qaMode) until switched off from the panel.
 // Not host-gated on purpose — see the header of js/qa.js for why that is safe.
 function maybeInitQA() {
@@ -771,8 +701,9 @@ function maybeInitQA() {
   if (asked && !store.getMisc().qaMode) store.setMisc({ qaMode: true });
   import('./qa.js').then(({ initQA }) => {
     const n = daily.todayIndex();
-    initQA({
-      installTip: forceInstallTip,
+    // installQA carries the install flow's own forcing actions (the Home strip
+    // plus all six install/escape screens) — see js/install.js.
+    initQA(Object.assign({}, installQA, {
       introWho: () => openIntroHelp('who'),
       introMap: () => openIntroHelp('map'),
       introWhat: () => openIntroHelp('what'),
@@ -789,7 +720,7 @@ function maybeInitQA() {
         strip.hidden = false;
         strip.scrollIntoView({ block: 'center' });
       },
-    }, store);
+    }), store);
   }).catch((e) => console.warn('QA panel unavailable', e));
 }
 
@@ -1372,6 +1303,7 @@ async function boot() {
   initDaily();
   initDayDone();
   carry.initCarry();
+  initInstall();
   initMovingNote();
   refreshHomeStats();
   refreshTodayStrip();
@@ -1404,6 +1336,7 @@ async function boot() {
   if (testHooksEnabled()) {
     window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {},
       { data: DATA, store, isMatch, daily, carry: carry.testHooks(),
+        install: installHooks(),
         nav: { show, back, goHome, trail: () => trail.slice() } });
   }
 

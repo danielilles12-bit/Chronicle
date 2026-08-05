@@ -107,6 +107,16 @@
       </div>
       <p class="ic-countdown" id="ic-countdown"></p>
     </div>
+    <!-- The install strip (v175): what a "Maybe later" leaves behind. One
+         line, one button, an × that kills it for good — it teaches nothing,
+         it only offers, and "Show me how ›" opens the full install screen.
+         Top of Home because that is where it is actually seen. Shown and
+         hidden entirely by js/install.js. -->
+    <div id="install-tip" hidden>
+      <button type="button" id="install-tip-close" aria-label="Dismiss">×</button>
+      <p class="install-tip-line">Save Yesternerd as an app</p>
+      <button type="button" id="install-tip-btn" class="install-tip-cta">Show me how ›</button>
+    </div>
     <div id="stranger-hero" hidden>
       <p class="stranger-headline">Four little history games. New games at midnight — same games as everyone else.</p>
       <button class="pill primary big" id="stranger-play">Play today ›</button>
@@ -117,17 +127,6 @@
          so there is exactly one source of truth for the row markup and no
          risk of the four rows drifting apart. -->
     <main class="home-rows" id="home-rows"></main>
-    <div id="install-tip" hidden>
-      <p><b>Nice one. Now make it an app</b> — it keeps your streak safe, and works offline.</p>
-      <div id="install-steps" class="install-steps" hidden>
-        <span class="install-step"><b>1</b> Tap Share
-          <svg class="share-glyph" viewBox="0 0 14 18" aria-hidden="true"><path d="M7 1 L7 11 M3.5 4.5 L7 1 L10.5 4.5 M2 8 H1 V17 H13 V8 H12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          in the bar below</span>
-        <span class="install-step"><b>2</b> Choose “Add to Home&nbsp;Screen&nbsp;<svg class="share-glyph" viewBox="0 0 18 18" aria-hidden="true"><rect x="1" y="1" width="16" height="16" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 5.5 V12.5 M5.5 9 H12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>”</span>
-      </div>
-      <button class="pill primary" id="install-btn" hidden>Install — one tap</button>
-      <button id="install-tip-close" aria-label="Dismiss">×</button>
-    </div>
     <footer class="home-foot">Works offline · <button type="button" id="ledger-link" class="foot-toggle">Your Legacy</button> · <button type="button" id="sound-toggle" class="foot-toggle">Sound on</button> · <span id="build-tag"></span><br>
       <a href="about.html">About</a> · <a href="sources.html">Sources</a> · <a href="privacy.html">Privacy</a></footer>
   </section>
@@ -462,6 +461,20 @@
         <p class="start-copy small" id="intro-copy2"></p>
         <button class="pill primary big" id="intro-play">Play ›</button>
       </div>
+    </div>
+  </div>
+
+  <!-- Save it as an app (v175): one full-bleed surface, six faces — iOS
+       Safari, Chrome-on-iPhone, Android's one-tap native dialog, a generic
+       fallback, and the two in-app-browser escape pages. Everything inside
+       #install-body is painted by js/install.js per detected browser; only the
+       shell and the ‹ chip live here, because the chip is the navigation
+       contract and must exist whatever the branch. -->
+  <div id="install-screen" class="install-overlay" hidden role="dialog" aria-modal="true"
+       aria-labelledby="install-headline">
+    <div class="install-sheet">
+      <button type="button" class="install-back" id="install-back" aria-label="Back">‹</button>
+      <div id="install-body"></div>
     </div>
   </div>
 

@@ -52,6 +52,8 @@ def daily_all_four(p, base):
         H.open_daily(page, "map")
         H.dismiss_intro(page)
         H.play_map_daily(page)
+        # Game two: the install screen opens over this summary (js/install.js).
+        H.dismiss_install(page)
         page.click("#sum-back")
 
         H.open_daily(page, "what")

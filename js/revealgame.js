@@ -1044,6 +1044,14 @@ function finishSession() {
     });
   }
   show('view-revealsum');
+  // "A game finished" for the install flow (js/install.js listens): a daily or
+  // an Encore, per Daniel's ruling — free play and archive practice do not
+  // count. Announced rather than called so this file keeps no dependency on
+  // the install flow at all.
+  if (S.mode === 'daily' || S.encore) {
+    document.dispatchEvent(new CustomEvent('gamefinished',
+      { detail: { game: MODE, daily: S.mode === 'daily' } }));
+  }
 }
 
 // ---------- init ----------

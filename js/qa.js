@@ -18,7 +18,18 @@
 // never download it and it stays out of the service-worker precache.
 
 const ACTIONS = [
+  // "Install pitch" is the strip on Home; the six screens below it are the
+  // full-page ask, one per detected browser (js/install.js). Every branch has
+  // a button because almost none of them can be reached on the phone you
+  // happen to be holding — which is exactly how the old, wrong iOS
+  // instructions survived for months.
   ['Install pitch', 'installTip'],
+  ['Save it · iOS Safari', 'installSafari'],
+  ['Save it · Chrome iPhone', 'installChromeIOS'],
+  ['Save it · Android button', 'installNative'],
+  ['Save it · other browser', 'installGeneric'],
+  ['Escape · Instagram', 'webviewInstagram'],
+  ['Escape · other app', 'webviewGeneric'],
   ['Intro · Face Value', 'introWho'],
   ['Intro · Lifeline', 'introMap'],
   ['Intro · Relic', 'introWhat'],

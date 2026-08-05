@@ -7,7 +7,7 @@
 //   new worker precaches the shell, skipWaiting+claim take over immediately ->
 //   app.js sees controllerchange and shows the NEW EDITION bar -> the user's
 //   pull-to-refresh (or a tap on the bar) reloads into the new version.
-const VERSION = 'yesternerd-v174';
+const VERSION = 'yesternerd-v175';
 
 // Daily-content cache: survives version bumps so updating the app never
 // re-downloads the whole archive, served stale-while-revalidate below.
@@ -40,6 +40,9 @@ const ASSETS = [
   './assets/fonts/space-mono-regular.woff2',
   './assets/fonts/space-mono-bold.woff2',
   './assets/brand/antinous-sticker.png',
+  // The install screen's own app-icon replica: it ships with the shell because
+  // the screen has to paint instantly at the end of a game, offline included.
+  './assets/brand/app-icon-antinous-original.webp',
   './assets/brand/yesternerd-wordmark-primary-v2.png',
   './assets/brand/game-icon-thread.webp',
   './assets/brand/game-icon-lifeline.webp',
@@ -71,6 +74,7 @@ const ASSETS = [
   './js/daily.js',
   './js/ledger.js',
   './js/carry.js',
+  './js/install.js',
   './js/sfx.js',
   './manifest.webmanifest',
   './icons/icon-192.png',

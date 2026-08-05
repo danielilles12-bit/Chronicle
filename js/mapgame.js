@@ -811,6 +811,12 @@ function finishSession() {
     });
   }
   show('view-mapsum');
+  // "A game finished" for the install flow — see the same note in
+  // revealgame.js: dailies and Encores count, free play and practice do not.
+  if (S.mode === 'daily' || S.encore) {
+    document.dispatchEvent(new CustomEvent('gamefinished',
+      { detail: { game: 'map', daily: S.mode === 'daily' } }));
+  }
 }
 
 // ---------- init ----------

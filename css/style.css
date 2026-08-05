@@ -240,22 +240,30 @@ button.cal-cell:active { background: var(--ch-parchment); }
 
 .conn-list-intro { margin: 12px 20px 0; color: var(--ch-text-secondary); font-size: 14px; font-style: italic; line-height: 1.4; }
 
+/* The install strip (v175): the quiet second ask, left behind by a "Maybe
+   later" on the full install screen. Top of Home, one line, one button, an ×
+   that ends it. It never teaches — "Show me how ›" opens the real screen, so
+   no surface ever carries more than one idea. */
 #install-tip {
-  margin: 0 20px 10px; padding: 12px 38px 12px 14px; position: relative;
-  background: var(--ch-cream); border: 1px solid var(--ch-line); border-radius: 12px; font-size: 14px;
-  font-family: var(--ch-font-ui); color: var(--ch-text-primary);
+  margin: 12px 20px 2px; padding: 13px 40px 13px 16px; position: relative;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  background: var(--ch-cream); border: 2.5px solid var(--ch-ink); box-shadow: var(--ch-shadow-card);
 }
-#install-tip p { margin: 0; }
-#install-tip .share-glyph { width: 13px; height: 17px; vertical-align: -3px; color: var(--ch-forest); }
-#install-tip-close { position: absolute; right: 8px; top: 6px; font-size: 20px; color: var(--muted); padding: 4px 8px; }
-.install-steps { display: flex; flex-direction: column; gap: 5px; margin-top: 9px; }
-.install-step { line-height: 1.45; }
-.install-step b {
-  display: inline-block; width: 18px; height: 18px; margin-right: 4px;
-  border: 1.5px solid var(--ch-forest); border-radius: 50%;
-  font-size: 11px; line-height: 15px; text-align: center; color: var(--ch-forest);
+.install-tip-line {
+  margin: 0; font-family: var(--ch-font-ui); font-weight: 700; font-size: 12px;
+  letter-spacing: .05em; text-transform: uppercase; line-height: 1.4; color: var(--ch-text-primary);
 }
-#install-btn { margin-top: 10px; }
+.install-tip-cta {
+  flex: none; padding: 9px 14px; background: var(--df-magenta); color: var(--ch-ink);
+  border: 2.5px solid var(--ch-ink); box-shadow: 3px 3px 0 var(--ch-ink);
+  font-family: var(--ch-font-ui); font-weight: 700; font-size: 12px;
+  letter-spacing: .06em; text-transform: uppercase;
+}
+.install-tip-cta:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ch-ink); }
+#install-tip-close {
+  position: absolute; right: 7px; top: 3px; padding: 4px 7px;
+  font-family: var(--ch-font-ui); font-size: 19px; line-height: 1; color: var(--ch-text-muted);
+}
 
 /* The stranger's landing (see applyStrangerMode): headline + one door for
    visitors with no play history; the regulars' furniture below stays hidden
@@ -379,6 +387,132 @@ button.cal-cell:active { background: var(--ch-parchment); }
 @media (min-width: 700px) {
   .intro-sheet { border-left: 2.5px solid var(--ch-ink); border-right: 2.5px solid var(--ch-ink); }
 }
+/* ---------- Save it as an app: the install surface (v175) ----------
+   Direction "The Pass", approved 5 Aug 2026. Same shape as the v164 intro
+   poster — a whole page rather than a box in a corner, with the house ‹ chip
+   top-left as its way out (the navigation contract). Six faces, one shell;
+   js/install.js paints #install-body per detected browser.
+   The one visual law here is Daniel's: the DRAWN REPLICA of the real button is
+   bigger than the words around it (body copy 15px, every replica ≥40px tall),
+   because the player is hunting a shape, not reading a sentence. */
+.install-overlay {
+  position: fixed; inset: 0; z-index: 40;
+  background-color: var(--ch-paper);
+  background-image: radial-gradient(rgba(11,11,11,.09) 1px, transparent 1.2px); background-size: 14px 14px;
+  display: flex; align-items: flex-start; justify-content: center; overflow-y: auto;
+}
+.install-overlay[hidden] { display: none; }
+.install-sheet {
+  position: relative; display: flex; flex-direction: column;
+  width: 100%; max-width: 600px; min-height: 100%;
+  padding-bottom: calc(16px + env(safe-area-inset-bottom));
+}
+#install-body { display: flex; flex-direction: column; flex: 1; }
+/* The way out, in the same language as every topbar and the intro poster. */
+.install-back {
+  position: absolute; top: max(14px, env(safe-area-inset-top)); left: 14px; z-index: 2;
+  width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+  border: 2px solid var(--ch-ink); background: var(--ch-cream); color: var(--ch-ink);
+  font-size: 24px; font-weight: 700; line-height: 1; padding-bottom: 3px;
+  box-shadow: 2.5px 2.5px 0 var(--ch-ink);
+}
+.install-back:active { transform: translate(2px,2px); box-shadow: .5px .5px 0 var(--ch-ink); }
+.install-back:focus-visible { outline: 2.5px solid var(--ch-ink); outline-offset: 2px; }
+
+.install-head { position: relative; padding: 62px 20px 0; flex: none; }
+/* Kicker plate left, app-icon sticker right, on one row — so the headline
+   below can run the full column width instead of dodging the sticker. */
+.install-head-top { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 26px; }
+.install-kicker {
+  display: inline-block; padding: 4px 10px; background: var(--df-magenta); color: var(--ch-ink);
+  font-family: var(--ch-font-ui); font-weight: 700; font-size: 12px;
+  letter-spacing: .12em; text-transform: uppercase;
+  border: 2px solid var(--ch-ink); box-shadow: 2.5px 2.5px 0 var(--ch-ink);
+}
+/* The escape page is a warning, not an invitation: print yellow, same plate. */
+.install-kicker-warn { background: var(--df-yellow); }
+.install-appicon {
+  flex: none; width: 58px; height: 58px; margin: 4px 2px 0 0;
+  border: 2.5px solid var(--ch-ink); box-shadow: 4px 4px 0 var(--ch-ink);
+  transform: rotate(5deg); background: var(--ch-cream); object-fit: cover;
+}
+.install-headline {
+  margin: 18px 0 0;
+  font-family: var(--ch-font-display); font-weight: 400; text-transform: uppercase;
+  font-size: 26px; line-height: .98; letter-spacing: -0.015em; color: var(--ch-text-primary);
+}
+.install-lede { margin: 12px 0 0; max-width: 340px; font-size: 15px; line-height: 1.45; }
+
+/* The steps float in the middle of whatever space is left (margin:auto), so
+   the page reads promise → lesson → buttons on every screen height. */
+.install-steps { margin: auto 20px; padding: 12px 0; display: flex; flex-direction: column; gap: 12px; }
+.install-step {
+  background: var(--ch-cream); border: 2.5px solid var(--ch-ink); box-shadow: 4px 4px 0 var(--ch-ink);
+  padding: 15px 15px; display: flex; align-items: flex-start; gap: 13px;
+}
+.install-num {
+  flex: none; width: 32px; height: 32px; border: 2.5px solid var(--ch-ink);
+  background: var(--ch-ink); color: var(--ch-paper);
+  font-family: var(--ch-font-display); font-size: 19px; line-height: 28px; text-align: center;
+}
+.install-step-body { flex: 1; min-width: 0; }
+.install-do {
+  font-family: var(--ch-font-display); font-weight: 400; text-transform: uppercase;
+  font-size: 20px; line-height: 1.05; letter-spacing: -0.01em;
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.install-note {
+  margin: 9px 0 0; font-family: var(--ch-font-ui); font-size: 10.5px; font-weight: 700;
+  letter-spacing: .05em; text-transform: uppercase; color: var(--ch-text-muted); line-height: 1.9;
+}
+.install-note b { color: var(--ch-text-primary); }
+.install-note-mid { text-align: center; line-height: 1.5; }
+.install-glyph { display: block; color: var(--ch-ink); flex: none; }
+/* Inline inside a line of small print, the replica still outsizes the words —
+   it just has to sit on the baseline like a letter would. */
+.install-note .install-glyph { display: inline-block; vertical-align: -13px; margin: 0 2px; }
+/* The real row from the phone's own sheet: icon left, label right. */
+.install-row {
+  margin-top: 11px; display: flex; align-items: center; gap: 12px;
+  padding: 8px 11px; background: var(--ch-parchment); border: 2px solid var(--ch-ink);
+}
+.install-row span { font-size: 15px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; }
+/* An in-app browser's menu row reads the other way round (label, then icon). */
+.install-row-menu { justify-content: space-between; }
+
+.install-cta-wrap { margin: 0; }
+.install-cta {
+  display: block; width: 100%; padding: 17px 14px; text-align: center;
+  background: var(--df-magenta); color: var(--ch-ink);
+  border: 2.5px solid var(--ch-ink); box-shadow: 4px 4px 0 var(--ch-ink);
+  font-family: var(--ch-font-display); font-weight: 400; font-size: 20px;
+  text-transform: uppercase; letter-spacing: .04em;
+}
+.install-cta:active { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--ch-ink); }
+
+.install-foot { flex: none; padding: 4px 20px 0; text-align: center; }
+.install-foot .pill.big { margin: 0 0 12px; }
+.install-later {
+  font-family: var(--ch-font-ui); font-weight: 700; font-size: 13px; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--ch-text-muted);
+  border-bottom: 2px solid var(--ch-line-soft); padding-bottom: 2px;
+}
+.install-url {
+  width: 100%; margin-top: 10px; padding: 9px 10px;
+  font-family: var(--ch-font-ui); font-size: 13px; text-align: center;
+  color: var(--ch-text-primary); background: var(--ch-cream); border: 2px solid var(--ch-ink);
+}
+/* Short screens (320x568 and friends): the head gives up its air first, so the
+   first step plate still lands above the fold. */
+@media (max-height: 700px) {
+  .install-head { padding-top: 56px; }
+  .install-headline { font-size: 23px; margin-top: 14px; }
+  .install-lede { margin-top: 9px; }
+  .install-appicon { width: 50px; height: 50px; }
+  .install-steps { padding: 8px 0; gap: 10px; }
+  .install-step { padding: 12px 13px; }
+}
+
 .topbar-help { font-family: var(--ch-font-ui); font-weight: 700; font-size: 18px; }
 
 /* "New edition off the presses" bar: appears (via js/app.js) once a freshly
