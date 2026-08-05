@@ -94,6 +94,17 @@ def _capture_errors(page, errors):
 
 def _block_external(ctx):
     def route(r):
+        # /api/score (the field line, js/percentile.js) is a Cloudflare Pages
+        # Function that doesn't exist under python -m http.server (a POST
+        # would 501 and pollute the console-error assertions). Stub it with a
+        # sub-10 field, which by the under-10 silence rule renders nothing —
+        # so every suite sees the exact pre-feature screens. test_percentile
+        # overrides this with its own page-level route (pages win over
+        # contexts) to exercise the real wording tiers.
+        if r.request.url.split("?")[0].endswith("/api/score"):
+            r.fulfill(status=200, content_type="application/json",
+                      body='{"below":0,"total":0}')
+            return
         host = r.request.url.split("/")[2].split(":")[0]
         if host in ("127.0.0.1", "localhost"):
             r.continue_()

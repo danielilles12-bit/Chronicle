@@ -1,5 +1,6 @@
 // "Map of a Life": guess the historical figure from birth/death geography.
 import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, teachWrongGuess, announce, testHooksEnabled, consumeShareLaunch } from './app.js';
+import { renderFieldLine } from './percentile.js';
 import * as store from './storage.js';
 import { track, roundOutcome, durationBucket } from './track.js';
 import { isMatch, registerPool } from './match.js';
@@ -822,6 +823,10 @@ function renderLockedSummary() {
   } : null;
   const sumShare = $('#sum-share');
   if (sumShare) sumShare.hidden = !S.share;
+  // The field line (percentile board, 5 Aug 2026): dailies only, today only,
+  // fire-and-forget — the receipt paints now, the line joins it only if the
+  // comparison service answers with 10+ players. Every failure = nothing.
+  renderFieldLine('sum-field', 'map', S.editionIndex, S.score, isDaily);
   wireTurnThePage('sum-turn', S.editionIndex, isDaily);
   // Encore lives on daily summaries (and on an Encore's own summary — it's
   // replayable), never on practice/free ones. Hidden too when the aired pool

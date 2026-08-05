@@ -3,6 +3,13 @@
 // every deploy so what phones display always names what they are running.
 const BUILD = 'v182';
 
+// Kill switch for the field line (js/percentile.js — the anonymous score
+// comparison, the app's ONE optional network feature). false = the app never
+// calls /api/score and the line never renders anywhere; the feature switched
+// off and the feature failing are deliberately indistinguishable. Ship ON,
+// flip OFF in one commit if launch week says so (plan, 5 Aug 2026).
+export const PERCENTILE_ON = true;
+
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
 // class, and initPullToRefresh rides it. Everywhere else stays solid-stop.
@@ -23,6 +30,7 @@ import * as sfx from './sfx.js';
 import { renderLedger } from './ledger.js';
 import * as carry from './carry.js';
 import { initInstall, isStandalone, qaActions as installQA, testHooks as installHooks } from './install.js';
+import * as percentile from './percentile.js';
 
 export const DATA = { figures: null, world: null, reveal: null, connections: null, editions: null };
 export const $ = (sel) => document.querySelector(sel);
@@ -666,6 +674,21 @@ function initHome() {
       sfx.setMuted(!sfx.isMuted());
       paint();
       if (!sfx.isMuted()) sfx.play('stamp'); // audible proof it's back on
+    });
+  }
+
+  // "Compare my scores anonymously" (the field line, Daniel's 5 Aug 2026
+  // ruling): default ON, disclosed on privacy.html rather than asked about.
+  // Off = no POST at all, never "POST but hide" — see js/percentile.js.
+  const cmpBtn = $('#compare-toggle');
+  if (cmpBtn) {
+    const paint = () => {
+      cmpBtn.textContent = percentile.isCompareOn() ? 'Compare scores on' : 'Compare scores off';
+    };
+    paint();
+    cmpBtn.addEventListener('click', () => {
+      percentile.setCompareOn(!percentile.isCompareOn());
+      paint();
     });
   }
 }
@@ -1336,7 +1359,7 @@ async function boot() {
   if (testHooksEnabled()) {
     window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {},
       { data: DATA, store, isMatch, daily, carry: carry.testHooks(),
-        install: installHooks(),
+        install: installHooks(), percentile,
         nav: { show, back, goHome, trail: () => trail.slice() } });
   }
 

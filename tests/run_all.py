@@ -31,6 +31,7 @@ BROWSER = [
     ("install flow", [os.path.join(HERE, "test_install.py")]),
     ("streaks + storage", [os.path.join(HERE, "test_streaks.py")]),
     ("carry: move record", [os.path.join(HERE, "test_carry.py")]),
+    ("percentile line", [os.path.join(HERE, "test_percentile.py")]),
 ]
 
 

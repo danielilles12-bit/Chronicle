@@ -132,7 +132,7 @@
          so there is exactly one source of truth for the row markup and no
          risk of the four rows drifting apart. -->
     <main class="home-rows" id="home-rows"></main>
-    <footer class="home-foot">Works offline · <button type="button" id="ledger-link" class="foot-toggle">Your Legacy</button> · <button type="button" id="sound-toggle" class="foot-toggle">Sound on</button> · <span id="build-tag"></span><br>
+    <footer class="home-foot">Works offline · <button type="button" id="ledger-link" class="foot-toggle">Your Legacy</button> · <button type="button" id="sound-toggle" class="foot-toggle">Sound on</button> · <button type="button" id="compare-toggle" class="foot-toggle" aria-label="Compare my scores anonymously">Compare scores on</button> · <span id="build-tag"></span><br>
       <a href="about.html">About</a> · <a href="sources.html">Sources</a> · <a href="privacy.html">Privacy</a></footer>
   </section>
 
@@ -205,6 +205,10 @@
         <hr>
         <div class="df-receipt-total"><span>Total:</span><b id="sum-total">0</b></div>
         <p class="df-receipt-meta" id="sum-remark"></p>
+        <!-- The field line (js/percentile.js): dailies only, and only when the
+             comparison service answers with 10+ players — otherwise this stays
+             hidden and the receipt is exactly its pre-feature self. -->
+        <p class="df-receipt-meta" id="sum-field" hidden></p>
         <div class="df-stamp df-receipt-stamp df-stamp-alea" data-stamp-alea>
           <img src="assets/brand/stamp-alea-iacta-fest.png" alt="Alea iacta fest">
         </div>
@@ -303,6 +307,7 @@
         <hr>
         <div class="df-receipt-total"><span>Total:</span><b id="rv-sum-total">0</b></div>
         <p class="df-receipt-meta" id="rv-sum-remark"></p>
+        <p class="df-receipt-meta" id="rv-sum-field" hidden></p>
         <div class="df-stamp df-receipt-stamp df-stamp-alea" data-stamp-alea>
           <img src="assets/brand/stamp-alea-iacta-fest.png" alt="Alea iacta fest">
         </div>
@@ -353,6 +358,7 @@
         <hr>
         <div class="df-receipt-total"><span>Total:</span><b id="conn-sum-total">0</b></div>
         <p class="df-receipt-meta" id="conn-sum-msg"></p>
+        <p class="df-receipt-meta" id="conn-sum-field" hidden></p>
         <div class="df-stamp df-receipt-stamp df-stamp-alea" data-stamp-alea>
           <img src="assets/brand/stamp-alea-iacta-fest.png" alt="Alea iacta fest">
         </div>

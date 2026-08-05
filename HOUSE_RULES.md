@@ -9,7 +9,7 @@ same session — this file is why his feedback compounds instead of
 evaporating.
 
 Last updated: 5 Aug 2026 (navigation contract; install flow; the rescue
-closes the shop).
+closes the shop; the field line and its under-10 silence).
 
 ## Navigation (the way back)
 
@@ -62,6 +62,39 @@ Daniel's rulings, 5 Aug 2026, from the signed-off plan. Built in `js/install.js`
   is **"Open in external browser"**, verbatim, verified on Daniel's phone; every
   other app keeps flexible phrasing. A guaranteed **COPY THE LINK** button is
   the fallback, because escaping a webview cannot be scripted in 2026.
+
+## The field line (anonymous score comparison)
+
+Daniel's rulings, 5 Aug 2026, from `design-reviews/leaderboard-plan.md` (v2,
+approved to build) plus a same-day wording override. Built in
+`js/percentile.js` + `functions/api/score.js`; `tests/test_percentile.py` is
+the check on all of it.
+
+- **[ENGINE]** **Under 10 players: total silence** (Daniel, 5 Aug 2026,
+  overriding the plan's "field < 20 shows the small-field line"). When fewer
+  than 10 people have finished today's game, the results screen renders
+  NOTHING — no line, no placeholder, no layout shift; it must look exactly
+  as it did before this feature existed. The full bands: fewer than 10 =
+  nothing; 10–19 = the honest small-field line ("You're among the first N
+  players of today's issue" — no percentage); 20–49 = approximate words
+  ("about 7 in 10"); 50+ = a percentage rounded to the nearest 5. All three
+  thresholds are named consts at the top of `js/percentile.js` so moving a
+  band is a one-line edit.
+- **[ENGINE]** **Ties are never "beaten"**: the comparison counts scores
+  STRICTLY below yours (`functions/api/score.js`).
+- **[ENGINE]** **Failure is invisible.** Offline, timeout, non-200, kill
+  switch (`PERCENTILE_ON` in `js/app.js`), opt-out toggle — every failure
+  renders nothing and never blocks, delays or alters play, scoring, streaks,
+  Carry, sharing or navigation. Opt-out means no POST at all, never "POST
+  but hide".
+- **[ENGINE]** **Dailies only, today's edition only.** Practice, Encore,
+  repair-window completions and reopened past days never POST — the line
+  says "today's players", so only today's edition may produce it.
+- **[JUDGMENT]** Participation is default-on with disclosure instead of a
+  consent prompt (privacy.html carries the full honest inventory; the
+  toggle lives there and in Home's footer). This legality rests on the
+  storage staying aggregate-only — no per-person rows, no IPs, no cross-day
+  tokens — so that design is not optional.
 
 ## Clue pricing (what a round is worth, and what it costs)
 

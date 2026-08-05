@@ -36,11 +36,61 @@ if (/iP(hone|ad|od)/.test(navigator.userAgent)
   <p class="page-back"><a href="index.html">‹ Back to the games</a></p>
   <main class="page-main">
     <h2>No accounts, no cookies</h2>
-    <p>Yesternerd doesn't have accounts, sign-in or a server database. Your
-    scores, streaks and settings live only in your browser's local storage,
-    on your own device — they're never sent anywhere. Uninstalling the app
-    or clearing site data deletes them for good; nobody else can do that for
-    you, and nobody else can see them.</p>
+    <p>Yesternerd doesn't have accounts or sign-in. Your scores, streaks and
+    settings live in your browser's local storage, on your own device.
+    Uninstalling the app or clearing site data deletes them for good; nobody
+    else can do that for you, and nobody else can see them. One thing does
+    leave your device — the anonymous score comparison, described in full
+    just below.</p>
+
+    <h2>The score comparison</h2>
+    <p>When you finish one of today's games, your results screen can tell you
+    how your score compares with everyone else's — "Your 84 beat about 7 in
+    10 of today's players." To make that line possible, the app sends exactly
+    four things to our server: the issue number, which game, your score, and
+    a meaningless random token. That's the complete list. No name, no email,
+    no account, nothing you typed.</p>
+    <p>What's kept is an anonymous tally — literally "three people scored 84
+    on issue 42's Relic". There are no records about individual players:
+    no names, no IP addresses or device details written by us, no per-person
+    timestamps. The token exists only so the same finish isn't counted twice
+    that day; it's newly random every issue and is swept away afterwards, so
+    Monday's player can never be linked to Tuesday's.</p>
+    <p>One honest caveat: Cloudflare, which hosts the app and the tally,
+    processes request details like your IP address in transit — the way any
+    host on the internet does to deliver a response. We never receive or
+    store them.</p>
+
+    <div class="privacy-toggle-note">
+      <p style="margin:0 0 10px">The score comparison is currently
+      <b id="privacy-cmp-state">on</b> for this device.</p>
+      <p style="margin:0 0 10px">
+      <button type="button" id="privacy-cmp-toggle" class="foot-toggle">Turn it off</button>
+      </p>
+      <p style="margin:0">The same switch lives in the app's home-screen
+      footer ("Compare scores"). Off means nothing is sent at all — not sent
+      and hidden, sent and ignored, or any other half-measure.</p>
+    </div>
+    <script>
+      (function () {
+        var KEY = 'skipcompare';
+        var stateEl = document.getElementById('privacy-cmp-state');
+        var btn = document.getElementById('privacy-cmp-toggle');
+        function isOff() {
+          try { return localStorage.getItem(KEY) === 't'; } catch (e) { return false; }
+        }
+        function paint() {
+          var off = isOff();
+          stateEl.textContent = off ? 'off' : 'on';
+          btn.textContent = off ? 'Turn it on' : 'Turn it off';
+        }
+        btn.addEventListener('click', function () {
+          try { localStorage.setItem(KEY, isOff() ? 'f' : 't'); } catch (e) { /* private mode */ }
+          paint();
+        });
+        paint();
+      })();
+    </script>
 
     <h2>What the analytics collect</h2>
     <p>Yesternerd uses <a href="https://www.goatcounter.com/" target="_blank" rel="noopener">GoatCounter</a>,
@@ -63,8 +113,8 @@ if (/iP(hone|ad|od)/.test(navigator.userAgent)
       </p>
       <p style="margin:0">It sets the same on-device flag as tapping the small
       version number in the app's home-screen footer five times quickly (that
-      shortcut still works too). Nothing is ever sent anywhere either way —
-      this only changes whether GoatCounter runs at all.</p>
+      shortcut still works too). This switch only changes whether GoatCounter
+      runs at all — the score comparison above has its own switch.</p>
     </div>
     <script>
       (function () {

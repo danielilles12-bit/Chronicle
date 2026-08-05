@@ -26,6 +26,12 @@ const DISPLAY = {
   'finish-who': '4-finished-facevalue',
   'finish-what': '4-finished-relic',
   'finish-day': '5-finished-all-four',
+  // The field line (percentile board, 5 Aug 2026): shown = the comparison
+  // line actually rendered on a results screen (its only success signal);
+  // the opted-in/-out pair counts taps on the settings toggle.
+  'percentile-shown': '4-percentile-shown',
+  'percentile-off': '4-percentile-opted-out',
+  'percentile-on': '4-percentile-opted-in',
   // Encore (post-daily bonus runs — practice family, tracked for uptake).
   'encore-who': '3-started-encore-facevalue',
   'encore-map': '3-started-encore-lifeline',

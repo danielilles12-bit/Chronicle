@@ -6,6 +6,7 @@
 // Mirrors the Map of a Life session shape (persisted, resumable; round count
 // comes from the edition — 3/day since edition 30, 5 before, free play 5).
 import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, teachWrongGuess, announce, testHooksEnabled, consumeShareLaunch, w800Url, loadImgFallback } from './app.js';
+import { renderFieldLine } from './percentile.js';
 import * as store from './storage.js';
 import { track, roundOutcome, durationBucket } from './track.js';
 import { isMatch, registerPool } from './match.js';
@@ -1084,6 +1085,9 @@ function renderLockedSummary() {
   } : null;
   const rvShare = $('#rv-sum-share');
   if (rvShare) rvShare.hidden = !S.share;
+  // The field line (percentile board, 5 Aug 2026) — see the twin comment in
+  // mapgame.js renderLockedSummary.
+  renderFieldLine('rv-sum-field', MODE, S.editionIndex, S.score, isDaily);
   wireTurnThePage('rv-sum-turn', S.editionIndex, isDaily);
   // Encore lives on daily summaries (and on an Encore's own summary — it's
   // replayable), never on practice/free ones. Hidden too when the aired pool

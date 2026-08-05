@@ -76,6 +76,7 @@ const ASSETS = [
   './js/carry.js',
   './js/install.js',
   './js/guesswarn.js',
+  './js/percentile.js',
   './js/sfx.js',
   './manifest.webmanifest',
   './icons/icon-192.png',
