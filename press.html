@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Press — Yesternerd</title>
+<meta name="description" content="Yesternerd: four small daily history games, free, no sign-up, in the browser. A one-page press kit — what it is, what it looks like, how to reach us.">
+<link rel="canonical" href="https://yesternerd.app/press.html">
+<meta name="theme-color" content="#F2EFE6">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Yesternerd">
+<meta property="og:title" content="Press — Yesternerd">
+<meta property="og:description" content="Yesternerd: four small daily history games, free, no sign-up, in the browser.">
+<meta property="og:url" content="https://yesternerd.app/press.html">
+<link rel="icon" href="icons/favicon.png">
+<link rel="stylesheet" href="css/brand-tokens.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pages.css">
+<style>
+  /* Press one-pager only — everything below is scoped to this page and
+     doesn't touch the shared stylesheets. Reuses --ch-* tokens + the
+     .page-main/.page-nav shell from pages.css for base type and rhythm. */
+  .press-lede { font-size: 17px; line-height: 1.55; }
+  .press-lede b { font-weight: 700; }
+
+  .press-games { list-style: none; margin: 4px 0 22px; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+  .press-game { display: flex; align-items: center; gap: 12px; }
+  .press-game img {
+    width: 52px; height: 52px; flex: none; display: block;
+    border: 2px solid var(--ch-ink); box-shadow: var(--ch-shadow-card); background: var(--ch-cream);
+  }
+  .press-game h3 {
+    font-family: var(--ch-font-display); font-weight: 400; font-size: 18px;
+    text-transform: uppercase; letter-spacing: .01em; margin: 0 0 2px; color: var(--ch-text-primary);
+  }
+  .press-game p { margin: 0; font-size: 14px; line-height: 1.4; color: var(--ch-text-secondary); }
+
+  .press-shots-wrap { max-width: 720px; margin: 0 auto 6px; padding: 0 4px; }
+  .press-shots {
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start;
+    gap: 22px 16px; padding: 10px 0 18px;
+  }
+  .press-shot { width: clamp(128px, 30vw, 160px); text-align: center; }
+  .press-shot figure { margin: 0; }
+  .press-shot img {
+    display: block; width: 100%; height: auto;
+    border: 2px solid var(--ch-ink); box-shadow: var(--ch-shadow-card); background: var(--ch-cream);
+  }
+  .press-shot:nth-child(1) img { transform: rotate(-2deg); }
+  .press-shot:nth-child(2) img { transform: rotate(1.6deg); }
+  .press-shot:nth-child(3) img { transform: rotate(-1.4deg); }
+  .press-shot:nth-child(4) img { transform: rotate(2deg); }
+  .press-shot figcaption {
+    margin-top: 10px; font-family: var(--ch-font-ui); font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .04em; color: var(--ch-text-muted);
+  }
+
+  .press-facts {
+    display: flex; flex-wrap: wrap; gap: 8px 10px; justify-content: center;
+    margin: 4px 0 26px; padding: 16px 14px; border: var(--ch-rule); background: var(--ch-cream);
+  }
+  .press-facts span {
+    font-family: var(--ch-font-ui); font-size: 11.5px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .06em; color: var(--ch-text-primary); white-space: nowrap;
+  }
+  .press-facts span:not(:last-child)::after { content: '·'; margin-left: 10px; color: var(--ch-line-soft); }
+
+  .press-contact { border: var(--ch-rule); background: var(--ch-cream); box-shadow: var(--ch-shadow-card); padding: 16px 18px; margin: 0 0 6px; }
+  .press-contact p { margin: 0 0 6px; font-size: 15px; }
+  .press-contact p:last-child { margin-bottom: 0; }
+  .press-contact a { font-weight: 700; }
+
+  @media (min-width: 640px) {
+    .press-games { display: grid; grid-template-columns: 1fr 1fr; column-gap: 26px; row-gap: 14px; }
+    .press-shot { width: 128px; }
+    .press-shots { gap: 16px 14px; }
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="masthead safe-top">
+    <img class="masthead-sticker" src="assets/brand/antinous-sticker.png" alt="" aria-hidden="true">
+    <h1><img class="masthead-wordmark" src="assets/brand/yesternerd-wordmark-primary-v2.png" alt="Yesternerd"></h1>
+    <p class="dateline">Press kit</p>
+  </header>
+  <p class="page-back"><a href="index.html">‹ Back to the games</a></p>
+  <main class="page-main">
+
+    <p class="press-lede">Four small history games, every day. <b>Free. No sign-up. No app to
+    download</b> — it just runs in the browser. A new set drops at midnight, the same four
+    puzzles for everyone, whether you show up first or last. Built for people who already
+    have a history podcast queue three deep: quick to start, harder to put down, allergic
+    to padding.</p>
+
+    <h2>The four games</h2>
+    <ul class="press-games">
+      <li class="press-game">
+        <img src="assets/brand/game-icon-face-value.webp" alt="">
+        <div><h3>Face Value</h3><p>A famous face, one scrap at a time.</p></div>
+      </li>
+      <li class="press-game">
+        <img src="assets/brand/game-icon-lifeline.webp" alt="">
+        <div><h3>Lifeline</h3><p>Born here, died there. Name the figure.</p></div>
+      </li>
+      <li class="press-game">
+        <img src="assets/brand/game-icon-relic.webp" alt="">
+        <div><h3>Relic</h3><p>A famous artefact, one scrap at a time.</p></div>
+      </li>
+      <li class="press-game">
+        <img src="assets/brand/game-icon-thread.webp" alt="">
+        <div><h3>Thread</h3><p>Group 16 clues into four hidden categories.</p></div>
+      </li>
+    </ul>
+
+    <h2>What it looks like</h2>
+  </main>
+
+  <div class="press-shots-wrap">
+    <div class="press-shots">
+      <div class="press-shot">
+        <figure><img src="assets/press/press-home.jpg" alt="Yesternerd home screen showing today's four games as a stack of newspaper-style cards."></figure>
+        <figcaption>Today's four</figcaption>
+      </div>
+      <div class="press-shot">
+        <figure><img src="assets/press/press-facevalue.jpg" alt="A Face Value round mid-play: a torn-paper photo of a famous face, mostly revealed, with a guess box below."></figure>
+        <figcaption>Face Value</figcaption>
+      </div>
+      <div class="press-shot">
+        <figure><img src="assets/press/press-thread.jpg" alt="A Thread board: sixteen clue tiles to be grouped into four hidden categories."></figure>
+        <figcaption>Thread</figcaption>
+      </div>
+      <div class="press-shot">
+        <figure><img src="assets/press/press-intro.jpg" alt="Lifeline's first-run rules card, explaining how the map game is scored."></figure>
+        <figcaption>Rules, once</figcaption>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-main">
+    <div class="press-facts">
+      <span>Free</span><span>No app store</span><span>No sign-up</span><span>~10 minutes a day</span><span>Made by one person</span>
+    </div>
+
+    <h2>Contact</h2>
+    <div class="press-contact">
+      <p>Daniel Illes — <a href="mailto:daniel.illes12@gmail.com">daniel.illes12@gmail.com</a></p>
+      <p>Instagram — <a href="https://www.instagram.com/yesternerdgame" target="_blank" rel="noopener">@yesternerdgame</a></p>
+    </div>
+  </div>
+
+  <nav class="page-nav">
+    <a href="https://yesternerd.app/">yesternerd.app</a>
+  </nav>
+</div>
+</body>
+</html>
