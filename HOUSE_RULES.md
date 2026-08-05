@@ -189,6 +189,17 @@ Daniel's rulings, 5 Aug 2026, from the signed-off plan. Built in `js/install.js`
   VESPASIAN would be emperor, not himself). When a critic softens a label,
   keep the voice, fix the claim.
 
+- **[ENGINE]** Moratorium list (Daniel, 5 Aug 2026): **Adolf Hitler and
+  Osama bin Laden are out of rotation until further notice** — too sensitive
+  for the launch window. Mechanism: `"reserve": true` on their entries in
+  `data/figures.json` (both) and `data/reveal-who.json` (bin Laden) — the
+  compiler excludes reserved items from every future proposal and Encore
+  skips them at runtime; aired editions (2, 3, 37) stay frozen history and
+  age out of the archive on schedule. Not deleted — lifting the moratorium
+  is deleting two `reserve` flags. Judgment note: their names may still
+  appear as MCQ wrong-answer options in other figures' puzzles — flagged to
+  Daniel 5 Aug, default is to leave those.
+
 ## Standing TODO (rails not yet built)
 
 1. Recognisability score for Face Value tiers, seeded from the ~90 tier
