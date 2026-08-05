@@ -82,6 +82,14 @@ the check on all of it.
   band is a one-line edit.
 - **[ENGINE]** **Ties are never "beaten"**: the comparison counts scores
   STRICTLY below yours (`functions/api/score.js`).
+- **[ENGINE]** **No bare extreme ever reaches the screen** (Daniel, 5 Aug
+  2026). Both numbered bands swap words in at their ends: "about 0 in 10"
+  and "about 10 in 10" read like misprints, "beat 0%" is needlessly cruel to
+  the player who came last, and "beat 100%" claims more than happened (you
+  never beat yourself — 199 of 200 rounds up to a lie). The replacements are
+  "Your N joins the back of today's field." and "Your N beat nearly all of
+  today's players." `tests/test_percentile.py` fails if a bare 0% or 100%
+  ever appears.
 - **[ENGINE]** **Failure is invisible.** Offline, timeout, non-200, kill
   switch (`PERCENTILE_ON` in `js/app.js`), opt-out toggle — every failure
   renders nothing and never blocks, delays or alters play, scoring, streaks,

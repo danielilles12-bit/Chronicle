@@ -74,9 +74,9 @@ function editionToken(edition) {
 
 // The line itself, or null for silence. Ties are never "beaten": `below`
 // counts scores strictly under yours (server-side); `total` includes you.
-// The two extremes of the approximate band get words instead of a broken
-// number — "about 0 in 10" and "about 10 in 10" are what the formula says,
-// and both read like a misprint.
+// Both banded numbers get words at their extremes instead of a broken or
+// brutal figure — "about 0 in 10" and "about 10 in 10" read like misprints,
+// "beat 0%" is needlessly cruel, and "beat 100%" claims more than happened.
 export function wording(score, below, total) {
   if (!Number.isFinite(below) || !Number.isFinite(total)) return null;
   if (total < FIELD_MIN) return null;                 // the under-10 silence rule
@@ -91,6 +91,11 @@ export function wording(score, below, total) {
     return `Your ${score} beat about ${tenths} in 10 of today’s players.`;
   }
   const pct = Math.round((b / total) * 20) * 5;       // nearest 5
+  // Same treatment at this band's extremes (Daniel, 5 Aug 2026). "beat 0%" is
+  // brutal, and "beat 100%" is a rounding artefact — you never beat yourself,
+  // so 199/200 rounds to a number that claims more than happened.
+  if (pct <= 0) return `Your ${score} joins the back of today’s field.`;
+  if (pct >= 100) return `Your ${score} beat nearly all of today’s players.`;
   return `Your ${score} beat ${pct}% of today’s players.`;
 }
 

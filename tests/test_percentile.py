@@ -159,8 +159,12 @@ def wording_bands_exhaustive(p, base):
                 if (!/about [1-9] in 10|back of today|nearly all/.test(line))
                   bad.push([below, total, line]);
               } else {
+                // Same two worded extremes as the approximate band, so a
+                // bare 0% or 100% never reaches the screen.
+                if (/back of today|nearly all/.test(line)) continue;
                 const m = line.match(/beat (\\d+)% of/);
                 if (!m || (+m[1]) % 5 !== 0) bad.push([below, total, line]);
+                else if (+m[1] <= 0 || +m[1] >= 100) bad.push([below, total, line]);
               }
             }
           }
