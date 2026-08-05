@@ -42,7 +42,12 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/favicon.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<!-- iOS splash screens (apple-touch-startup-image): cream ground + centered David sticker, no text, to avoid a white flash on cold launch. Not in sw.js precache. -->
+<!-- iOS splash screens (apple-touch-startup-image): cream ground + centered
+     Antinous sticker (v169; David retired 4 Aug 2026), no text, to avoid a
+     white flash on cold launch. Not in sw.js precache.
+     GOTCHA: iOS bakes these into the installed app AT INSTALL TIME and never
+     re-fetches them — an already-installed phone keeps its old splashes until
+     the app is deleted and re-added. Same rule as the home-screen icon. -->
 <!-- iPhone -->
 <link rel="apple-touch-startup-image" href="assets/splash/splash-iphone-440x956-3x.png" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"> <!-- iPhone 16 Pro Max -->
 <link rel="apple-touch-startup-image" href="assets/splash/splash-iphone-430x932-3x.png" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"> <!-- iPhone 16 Plus / 15 Plus / 15 Pro Max / 14 Pro Max -->

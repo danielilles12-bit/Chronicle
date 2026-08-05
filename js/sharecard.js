@@ -102,9 +102,37 @@ function sticker() {
   return stickerImg;
 }
 
+// The masthead the card wears (5 Aug 2026). It was type-set "DEAD / FAMOUS"
+// across two lines — the dead name, on every image anyone ever forwarded.
+// Drawing the real wordmark fixes the name AND honours the rule that
+// "Yesternerd" is never split across lines.
+let markImg = null;
+function wordmark() {
+  if (!markImg) {
+    markImg = new Image();
+    markImg.src = 'assets/brand/yesternerd-wordmark-primary-v2.png';
+  }
+  return markImg;
+}
+
+// Both brand images are created lazily, so a cold first share could reach the
+// canvas before they decode — the card would silently lose its masthead or its
+// sticker. Wait for them (briefly, and never fatally).
+function imgReady(img) {
+  if (img.complete && img.naturalWidth) return Promise.resolve();
+  return new Promise((resolve) => {
+    let done = false;
+    const end = () => { if (!done) { done = true; resolve(); } };
+    img.addEventListener('load', end, { once: true });
+    img.addEventListener('error', end, { once: true });
+    setTimeout(end, 1200);   // draw without it rather than hang the share
+  });
+}
+
 // spec: { game, glyph, score, rows: ['🟩🟨…', …], sub, stamp, url } → PNG blob.
 async function drawCard(spec) {
   try { if (document.fonts && document.fonts.ready) await document.fonts.ready; } catch (e) { /* draw anyway */ }
+  try { await Promise.all([imgReady(wordmark()), imgReady(sticker())]); } catch (e) { /* draw anyway */ }
   const W = 1080, H = 1350;
   const cv = document.createElement('canvas');
   cv.width = W; cv.height = H;
@@ -115,9 +143,15 @@ async function drawCard(spec) {
     x.beginPath(); x.arc(px, py, 2.6, 0, 7); x.fill();
   }
   x.fillStyle = '#0B0B0B'; x.textBaseline = 'top';
-  x.font = '400 118px "DF Slab","Arial Black",sans-serif';
-  x.fillText('DEAD', 64, 74);
-  x.fillText('FAMOUS', 64, 188);
+  const mk = wordmark();
+  if (mk.complete && mk.naturalWidth) {
+    const mw = 600, mh = mw * mk.naturalHeight / mk.naturalWidth;
+    x.drawImage(mk, 64, 116, mw, mh);
+  } else {
+    // Never split the name: one line, shrunk to fit rather than wrapped.
+    x.font = '400 104px "DF Slab","Arial Black",sans-serif';
+    x.fillText('YESTERNERD', 64, 150);
+  }
   x.font = '700 34px "DF Mono",monospace';
   x.fillText(spec.sub, 66, 330);
   x.fillRect(64, 396, W - 128, 8);
