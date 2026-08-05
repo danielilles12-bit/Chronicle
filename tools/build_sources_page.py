@@ -68,11 +68,17 @@ def main():
         total += len(items)
         blocks.append(build_table(title, rel_path))
 
+    # Wrapped in #reg-register (5 Aug 2026) so the search box's script — a
+    # hand-written progressive enhancement living OUTSIDE this generated
+    # block, in sources.html itself — has one stable container to scope its
+    # row-collection to, however the tables/headings inside get reshuffled.
     register = (
+        '    <div id="reg-register">\n'
         f'    <p><small>{total} images, generated from the app\'s data files. '
         f'Public-domain images need no attribution; the photographer is shown '
         f'anyway where Commons records one.</small></p>\n'
         + "\n".join(blocks)
+        + '\n    </div>'
     )
 
     text = PAGE.read_text(encoding="utf-8")

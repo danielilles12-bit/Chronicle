@@ -51,7 +51,17 @@ if (/iP(hone|ad|od)/.test(navigator.userAgent)
     and the original file. This register is generated from the app's own
     data files — see <code>tools/build_sources_page.py</code>.</p>
 
+    <div class="reg-search" id="reg-search" hidden>
+      <label for="reg-search-input" class="reg-search-label">Search by name…</label>
+      <input type="search" id="reg-search-input" class="reg-search-input"
+             placeholder="e.g. Cleopatra, Colosseum…" autocomplete="off"
+             aria-describedby="reg-search-status">
+      <p id="reg-search-status" class="reg-search-status" role="status" aria-live="polite"></p>
+      <button type="button" id="reg-show-all" class="reg-show-all" hidden>Show all</button>
+    </div>
+
 <!-- BUILD:REGISTER:START -->
+    <div id="reg-register">
     <p><small>790 images, generated from the app's data files. Public-domain images need no attribution; the photographer is shown anyway where Commons records one.</small></p>
     <h3 style="font-family:var(--ch-font-ui);font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--ch-text-muted);margin:20px 0 6px">Face Value — portraits (426)</h3>
     <div class="reg-table-wrap"><table class="reg-table">
@@ -877,7 +887,86 @@ photo: Marie-Lan Nguyen (user:Jastrow)</td><td><a href="https://creativecommons.
       <tr><td class="reg-name">Ziggurat of Ur</td><td>Hardnfast</td><td><a href="https://creativecommons.org/licenses/by/3.0" target="_blank" rel="noopener">CC BY 3.0</a></td><td><a href="https://commons.wikimedia.org/wiki/File:Ancient_ziggurat_at_Ali_Air_Base_Iraq_2005.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
       <tr><td class="reg-name">Çatalhöyük</td><td>Unknown</td><td><a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a></td><td><a href="https://commons.wikimedia.org/wiki/File:CatalHoyukSouthArea.JPG" target="_blank" rel="noopener">Wikimedia Commons</a></td></tr>
     </table></div>
+    </div>
 <!-- BUILD:REGISTER:END -->
+    <script>
+      // Sources search (Daniel, 5 Aug 2026): a live filter over the ~790-row
+      // image credit register so a visitor can find one photo instead of
+      // scanning everything. Pure progressive enhancement — #reg-search
+      // ships `hidden` in the raw HTML and the register's rows are never
+      // hidden in markup, so with JS off this script never runs and the
+      // full table renders exactly as it always has.
+      (function () {
+        var box = document.getElementById('reg-search');
+        var input = document.getElementById('reg-search-input');
+        var status = document.getElementById('reg-search-status');
+        var showAllBtn = document.getElementById('reg-show-all');
+        var register = document.getElementById('reg-register');
+        if (!box || !input || !status || !showAllBtn || !register) return;
+
+        var wraps = Array.prototype.slice.call(register.querySelectorAll('.reg-table-wrap'));
+        if (!wraps.length) return;
+
+        var sections = wraps.map(function (wrap) {
+          var table = wrap.querySelector('table');
+          var rows = Array.prototype.slice.call(table.querySelectorAll('tr')).slice(1);
+          var heading = wrap.previousElementSibling;
+          if (!heading || heading.tagName !== 'H3') heading = null;
+          return {
+            heading: heading,
+            wrap: wrap,
+            rows: rows.map(function (tr) { return { el: tr, text: norm(tr.textContent) }; })
+          };
+        });
+        var total = sections.reduce(function (n, s) { return n + s.rows.length; }, 0);
+        var showAll = false;
+
+        function norm(s) {
+          return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        }
+
+        function render() {
+          var q = norm(input.value.trim());
+          var visible = 0;
+          sections.forEach(function (section) {
+            var sectionVisible = 0;
+            section.rows.forEach(function (row) {
+              var show = q ? row.text.indexOf(q) !== -1 : showAll;
+              row.el.hidden = !show;
+              if (show) sectionVisible++;
+            });
+            var anySection = sectionVisible > 0;
+            section.wrap.hidden = !anySection;
+            if (section.heading) section.heading.hidden = !anySection;
+            visible += sectionVisible;
+          });
+
+          if (q) {
+            status.textContent = visible
+              ? 'Showing ' + visible + ' of ' + total + '.'
+              : 'Nothing matches “' + input.value.trim() + '”.';
+            showAllBtn.hidden = true;
+          } else if (showAll) {
+            status.textContent = 'Showing all ' + total + '.';
+            showAllBtn.hidden = true;
+          } else {
+            status.textContent = 'Search above, or show all ' + total + ' below.';
+            showAllBtn.hidden = false;
+            showAllBtn.textContent = 'Show all ' + total;
+          }
+        }
+
+        input.addEventListener('input', render);
+        showAllBtn.addEventListener('click', function () {
+          showAll = true;
+          render();
+          input.focus();
+        });
+
+        box.hidden = false;
+        render();
+      })();
+    </script>
   </main>
   <nav class="page-nav">
     <a href="index.html">Play</a> · <a href="about.html">About</a> ·

@@ -50,6 +50,35 @@
 }
 .page-nav a { color: inherit; }
 
+/* Sources search (5 Aug 2026): the live filter over the register below.
+   Ships `hidden` in the HTML — js in sources.html un-hides it once it has
+   wired the listeners, so with JS off it never appears and the full
+   register (unaffected by any of this) is all a visitor ever sees. */
+.reg-search { margin: 4px 0 20px; }
+.reg-search-label {
+  display: block; font-family: var(--ch-font-ui); font-size: 12px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .04em; color: var(--ch-text-muted);
+  margin: 0 0 6px;
+}
+.reg-search-input {
+  width: 100%; box-sizing: border-box; font-family: var(--ch-font-ui); font-size: 15px;
+  padding: 10px 12px; border: 2px solid var(--ch-ink); border-radius: 0;
+  background: var(--ch-cream); color: var(--ch-text-primary);
+  -webkit-appearance: none; appearance: none;
+}
+.reg-search-input:focus { outline: 3px solid var(--ch-gold); outline-offset: 1px; }
+.reg-search-input::-webkit-search-cancel-button { -webkit-appearance: none; }
+.reg-search-status {
+  margin: 8px 0 0; font-family: var(--ch-font-ui); font-size: 12.5px; color: var(--ch-text-muted);
+}
+.reg-show-all {
+  display: inline-block; margin-top: 10px; font-family: var(--ch-font-ui); font-weight: 700;
+  font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--ch-ink);
+  border: 2px solid var(--ch-ink); background: var(--ch-cream); padding: 8px 14px;
+  box-shadow: 2.5px 2.5px 0 var(--ch-ink);
+}
+.reg-show-all:active { transform: translate(2px,2px); box-shadow: .5px .5px 0 var(--ch-ink); }
+
 /* Sources register: one row per credited image. Plain, dense, scannable —
    this is a legal register, not a moment screen. */
 .reg-table { width: 100%; border-collapse: collapse; margin: 8px 0 24px; font-size: 13.5px; }
