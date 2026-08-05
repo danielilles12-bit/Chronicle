@@ -97,7 +97,17 @@ search for the "TEMPORARY" comments in index.html and js/sharecard.js.
    at Namecheap; wait for the certificate.
 3. Flip `CNAME` to `yesternerd.app`, merge `rename/yesternerd` → main, set
    `DESTINATION` back to `''`.
-4. Point `deadfamous.app` + `.com`/`.co.uk` at 301 redirects.
+4. ~~Point `deadfamous.app` + `.com`/`.co.uk` at 301 redirects.~~ **DONE
+   5 Aug 2026.** All three are Cloudflare zones with one Single Redirect rule
+   each, 301, path AND query preserved, apex + `www`. `.com`/`.co.uk` match
+   *all incoming requests*. `deadfamous.app` matches everything EXCEPT
+   `stay=1` in the query string or in the referer — that is the deliberate
+   **back door**: `https://deadfamous.app/?stay=1` still loads the old app
+   (and its assets, via the referer half of the rule) so an early player can
+   still mint a Carry link and rescue their streak. Send that URL with the
+   personal notes in step 5. The Namecheap MX/SPF records were left intact in
+   every zone; the `yesternerd.app` zone was not touched (it carries live
+   Workspace email).
 5. Daniel reinstalls from the new domain; verify unfurls (iMessage, WhatsApp,
    Discord, X); send Carry links to early users.
 
