@@ -257,6 +257,21 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
   appear as MCQ wrong-answer options in other figures' puzzles — flagged to
   Daniel 5 Aug, default is to leave those.
 
+- **[ENGINE]** The shop-window face (6 Aug 2026): **Frida Kahlo is out of
+  rotation.** Her portrait is the demo board on the stranger's Home
+  (`assets/brand/demo-facevalue.webp`), so it is on permanent public
+  display — and a face we advertise must never also be a live puzzle.
+  Mechanism: `"reserve": true` on her entry in `data/reveal-who.json`.
+  She aired in editions 2 and 22 and was staged nowhere in 39–71, so this
+  cost the schedule nothing. If the hero ever shows someone else, move the
+  flag with the picture (regenerate via `python3 tools/make_demo_shot.py`).
+  **Gotcha, learned the hard way:** the live pools the app AND the compiler
+  read are `data/reveal-who.json` / `data/reveal-what.json`.
+  `data/reveal.json` is the pre-split file from before "Zoom In split" and
+  is read by nothing but the workshop review page — a `reserve` flag set
+  there does nothing at all, silently, and the compiler will happily
+  schedule the item anyway.
+
 ## Standing TODO (rails not yet built)
 
 1. Recognisability score for Face Value tiers, seeded from the ~90 tier
