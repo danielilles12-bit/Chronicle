@@ -11,14 +11,21 @@ import { track } from './track.js';
 // ---------- config ----------
 export const EPOCH = new Date(2026, 5, 29); // 2026-06-29, a Monday (local, month is 0-based)
 
+// The first edition the compiled manifest is responsible for — the same
+// number as recipeChangeEdition in data/editions.json. It is written out here
+// because the one moment it matters is the moment that file did NOT load, and
+// a number read from a missing file is no number at all. If the manifest's
+// own recipeChangeEdition ever moves, move this with it.
+export const MANIFEST_ERA_START = 24;
+
 // LEGACY recipe — rounds games (Lifeline, Face Value, Relic) at 10 rounds/day,
 // [easy, medium, hard] counts per weekday (0=Mon...6=Sun), ordered E, M, H.
 // Editions >= recipeChangeEdition come from the manifest (getEdition below):
 // 5 rounds/day from edition 24, then 3 rounds/day (one easy, one medium, one
 // hard — the 28 Jul 2026 recipe) from edition 30. The client never needs
 // those counts — it renders however many ids the manifest carries — so this
-// arithmetic serves only pre-manifest history and the missing-manifest
-// emergency, and its numbers must NEVER change.
+// arithmetic serves only pre-manifest history and the approved-but-missing
+// edition emergency, and its numbers must NEVER change.
 export const RECIPE = [
   [7, 2, 1], // Mon
   [6, 3, 1], // Tue
@@ -187,8 +194,14 @@ function poolFor(game) {
 // edition it always wins — a frozen edition stays identical even if the pool
 // files are later reordered. The cursor arithmetic below remains for two
 // jobs: history (editions the manifest might not carry, n < recipeChangeEdition)
-// and the emergency (an edition past the switch that was never approved) —
-// so the daily NEVER fails to exist.
+// and the emergency (an edition past the switch that was never approved).
+//
+// What it must NOT do is stand in for a manifest that never arrived: the
+// arithmetic is the old ten-round recipe against the raw pools, so it would
+// invent a different, unapproved issue — one that can hold items no edition
+// has aired yet — and hand it out as today's, into the ledger, the streak and
+// the share card. A lost file is a failure to report, not a schedule to
+// improvise around; see manifestReady below.
 let manifestMissTracked = false;
 
 function manifestEdition(game, n) {
@@ -213,14 +226,29 @@ function trackManifestMiss(n) {
   track('err-manifest-missing');
 }
 
+// Can edition n be built at all right now? False in exactly one case: the
+// manifest file is not loaded and n is one of the editions it owns. Launch
+// paths ask this BEFORE opening a game, so a lost manifest surfaces as the
+// same "couldn't load — tap to retry" any lost pool file already shows
+// (ensureEdition in app.js) rather than as an empty or invented round list.
+export function manifestReady(n) {
+  return !!DATA.editions || n < MANIFEST_ERA_START;
+}
+
 // getEdition(game, n) -> ordered list of item objects for that edition.
 // game: 'map' | 'who' | 'what' | 'thread'
 // For 'thread' the return is a 1-element array [board] (kept as an array for
 // a uniform call shape across games).
+// Empty means "cannot be built" — never "here is a substitute".
 export function getEdition(game, n) {
   const fromManifest = manifestEdition(game, n);
   if (fromManifest) return fromManifest;
   trackManifestMiss(n);
+  // No manifest and no arithmetic licence: refuse rather than improvise.
+  // Note this is only the MISSING-FILE case. A manifest that loaded but has
+  // no entry for n is a curation gap, not a lost file, and keeps its existing
+  // emergency fallback below.
+  if (!manifestReady(n)) return [];
   const items = poolFor(game);
   if (game === 'thread') {
     const tier = THREAD_TIER[weekday(n)];

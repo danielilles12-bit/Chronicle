@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v182';
+const BUILD = 'v183';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -251,8 +251,9 @@ function renderGameRows() {
 // and gates only on the files THIS game needs (P2.2).
 async function launchWhenReady(g) {
   const statusEl = document.querySelector(`[data-hero="${g.key}"] [data-status]`);
-  if (!await ensureGameData(g.key, statusEl)) return;
-  g.launchDaily(daily.todayIndex());
+  const n = daily.todayIndex();
+  if (!await ensureEdition(g.key, statusEl, n)) return;
+  g.launchDaily(n);
 }
 
 // Weekday comes from the edition index (not the raw device date) so it
@@ -527,7 +528,7 @@ function initArchive() {
         // launch any game, whatever row opened the archive). The button
         // carries the loading/failure state, then gets its label back.
         const label = btn.textContent;
-        if (!await ensureGameData(g.key, btn)) {
+        if (!await ensureEdition(g.key, btn, n)) {
           setTimeout(() => { btn.textContent = label; }, 1800);
           return;
         }
@@ -751,10 +752,14 @@ async function routeSharedPlay() {
   if (valid) {
     track(`land-share-${game}`);
     const g = GAME_ROWS.find((x) => x.key === game);
-    if (g && await ensureGameData(game, null)) {
+    const n = daily.todayIndex();
+    // No status element on this route (no card was tapped): a shared link
+    // that arrives while the schedule is unreachable simply lands on Home,
+    // where the game's own card carries the failure and the retry.
+    if (g && await ensureEdition(game, null, n)) {
       shareLaunchGame = game;
       track(`start-from-share-${game}`);
-      g.launchDaily(daily.todayIndex());
+      g.launchDaily(n);
     }
   }
   // Scrub after routing (track.js does the same for ref/utm): an installed
@@ -1119,8 +1124,9 @@ function initDayDone() {
 // A file that loaded once stays good in memory for the whole session; across
 // restarts the service worker's stale-while-revalidate (sw.js DATA_CACHE)
 // serves the last good copy. editions.json (the daily manifest) is attempted
-// with every gate but its failure never blocks anything — getEdition falls
-// back to the legacy arithmetic (Session 3) and fires err-manifest-missing.
+// with every gate; it fires err-manifest-missing on failure, and since it is
+// the only record of what an edition contains, a manifest-era launch stops
+// there rather than improvising one (ensureEdition below, and js/daily.js).
 const DATA_FILES = {
   figures: 'data/figures.json',
   world: 'data/worldmap.json',
@@ -1204,9 +1210,9 @@ function loadAllData() {
 
 // Gate a launch on one game's files. `statusEl` (the tapped card's status
 // line) doubles as the loading state; a failure names itself there and the
-// same tap retries. The editions manifest is awaited too — so a fast first
-// tap can't race it and serve fallback arithmetic — but its result never
-// blocks: the Session 3 fallback covers it.
+// same tap retries. The editions manifest is awaited too, so a fast first tap
+// can't race it; whether a missing one is fatal depends on the edition, which
+// is ensureEdition's job below.
 async function ensureGameData(gameKey, statusEl) {
   const needs = GAME_NEEDS[gameKey] || [];
   if (needs.every((k) => fileData[k] !== undefined) && fileData.editions !== undefined) return true;
@@ -1219,6 +1225,20 @@ async function ensureGameData(gameKey, statusEl) {
   const ok = results.every(Boolean);
   if (!ok && statusEl) statusEl.textContent = 'couldn’t load — tap to retry';
   return ok;
+}
+
+// Gate a launch on one game's files AND on the schedule that says what that
+// game's edition n actually contains. The manifest used to be optional here —
+// getEdition would fall back to the old ten-round arithmetic and serve a
+// different, unapproved issue rather than admit the file was missing (see
+// js/daily.js). It is not optional any more: a manifest-era edition without
+// its manifest is a failure, and reads as one on the control the player
+// tapped. loadFile clears its failed promise, so the same tap tries again.
+async function ensureEdition(gameKey, statusEl, editionIndex) {
+  if (!await ensureGameData(gameKey, statusEl)) return false;
+  if (daily.manifestReady(editionIndex)) return true;
+  if (statusEl) statusEl.textContent = 'couldn’t load — tap to retry';
+  return false;
 }
 
 // The farewell strip (cutover, 4 Aug 2026). Hostname-gated so only the OLD

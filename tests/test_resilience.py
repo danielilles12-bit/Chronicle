@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Resilience suite (P4.1/P5.2): share clipboard fallback, share deep-link
-landing, storage corruption + quota failure, offline play of the current
-issue, service-worker update bar.
+landing, storage corruption + quota failure, a missing daily manifest,
+offline play of the current issue, service-worker update bar.
 """
 import functools
 import http.server
@@ -135,6 +135,112 @@ def storage_quota(p, base):
         H.fail_on_errors(errors, "storage_quota")
 
 
+# ---------- missing_manifest ----------
+# Home paints from static markup + localStorage, so it is up long before the
+# data files are; this is BOOTED minus the manifest, which is the one file
+# this scenario never lets through.
+POOLS_LOADED = ("window.__CHRONICLE_TEST__ && __CHRONICLE_TEST__.data"
+                " && __CHRONICLE_TEST__.data.reveal"
+                " && __CHRONICLE_TEST__.data.figures"
+                " && __CHRONICLE_TEST__.data.connections")
+
+# game key -> the view it opens, and how to read the round it is showing.
+GAME_VIEWS = {
+    "who": "#view-reveal",
+    "map": "#view-map",
+    "what": "#view-reveal",
+    "thread": "#view-conn",
+}
+
+RETRY_SHOWN = (
+    "g => { const el = document.querySelector("
+    "'[data-hero=\"' + g + '\"] [data-status]');"
+    " return !!el && (el.innerText || '').toLowerCase().indexOf('retry') !== -1; }")
+
+
+def first_round_id(page, game):
+    """The item the game is actually showing, however it names it."""
+    if game == "thread":
+        return page.inner_text("#conn-puzzle-title").strip().lower()
+    hook = "mapRound" if game == "map" else "revealRound"
+    return page.evaluate("h => __CHRONICLE_TEST__[h].id", hook)
+
+
+def expected_first_id(page, game, n):
+    if game == "thread":
+        return H.thread_board(page, n)["title"].strip().lower()
+    return page.evaluate("a => __CHRONICLE_TEST__.daily.getEdition(a.g, a.n)[0].id",
+                         {"g": game, "n": n})
+
+
+def missing_manifest(p, base):
+    """data/editions.json is the only record of what an edition contains. If it
+    will not download, no game may invent one: the card reports the failure and
+    stays shut (it used to fall back to date arithmetic and hand out a
+    different, unapproved issue). The same tap must then work once the file is
+    back — the failed download is not cached as a verdict."""
+    blocked = {"editions": True}
+
+    def route(r):
+        host = r.request.url.split("/")[2].split(":")[0]
+        if host not in ("127.0.0.1", "localhost"):
+            r.abort()                                  # hermetic, as everywhere
+        elif blocked["editions"] and "/data/editions.json" in r.request.url:
+            r.abort()
+        else:
+            r.continue_()
+
+    # Own the routing table outright: one handler, so there is no question of
+    # which of two matching handlers Playwright consults first.
+    with H.app(p, block_external=False) as (page, errors, ctx):
+        ctx.route("**/*", route)
+        page.goto(H.app_url(base, DATE))
+        page.wait_for_function(POOLS_LOADED)
+        assert page.evaluate("__CHRONICLE_TEST__.data.editions") is None, (
+            "this scenario is meaningless if the manifest got through")
+
+        for game in GAME_VIEWS:
+            H.open_daily(page, game)
+            page.wait_for_function(RETRY_SHOWN, arg=game, timeout=15000)
+            assert page.locator("#view-home").is_visible(), (
+                "%s left Home while its schedule was unreachable" % game)
+            assert page.locator(GAME_VIEWS[game]).is_hidden(), (
+                "%s opened a playable round with no manifest to say what "
+                "belongs in it" % game)
+            assert page.locator("#intro-card").is_hidden(), (
+                "%s got as far as its intro card" % game)
+
+        # Both alarms: the file failed, and an edition that should have been
+        # manifest-served wasn't. The second is the one that used to mean
+        # "arithmetic served a substitute" and now means "nothing was served".
+        page.wait_for_function(
+            "() => { const e = window.__gc || [];"
+            " return e.indexOf('9-data-editions-failed') !== -1"
+            " && e.indexOf('9-manifest-missing') !== -1; }", timeout=15000)
+
+        # The file comes back. The very same tap has to work — loadFile drops
+        # a failed download so the next gate refetches rather than remembering.
+        blocked["editions"] = False
+        page.wait_for_selector('[data-hero="who"]')
+        for game in GAME_VIEWS:
+            H.open_daily(page, game)
+            H.dismiss_intro(page)
+            page.wait_for_selector("%s:not([hidden])" % GAME_VIEWS[game])
+            if game != "thread":
+                page.wait_for_function(
+                    "h => __CHRONICLE_TEST__[h] !== undefined",
+                    arg="mapRound" if game == "map" else "revealRound")
+            assert first_round_id(page, game) == expected_first_id(page, game, N), (
+                "%s did not open the issue the manifest names" % game)
+            page.evaluate("__CHRONICLE_TEST__.nav.goHome()")
+            page.wait_for_selector("#view-home:not([hidden])")
+
+        # The blocked download is the whole point here and the browser logs it
+        # as a failed resource; every OTHER console error still counts.
+        H.fail_on_errors([e for e in errors if "data/editions.json" not in e],
+                         "missing_manifest")
+
+
 # ---------- offline_current_issue ----------
 def offline_current_issue(p, base):
     """After one online load, today's dailies play fully offline (Chromium;
@@ -238,7 +344,7 @@ def sw_update(p, base_unused):
 
 
 TESTS = [share_fallback, share_landing, storage_corrupt, storage_quota,
-         offline_current_issue, sw_update]
+         missing_manifest, offline_current_issue, sw_update]
 
 
 def main():

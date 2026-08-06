@@ -87,7 +87,10 @@ def _capture_errors(page, errors):
         # External analytics is stubbed/blocked; its resource errors are noise.
         if "zgo.at" in url or "goatcounter" in url or "zgo.at" in m.text:
             return
-        errors.append("console: " + m.text)
+        # The URL rides along so a scenario that blocks a file on purpose can
+        # filter out its own noise by name without also blinding itself to
+        # every other failed resource.
+        errors.append("console: " + m.text + ((" [%s]" % url) if url else ""))
     page.on("console", on_console)
     page.on("pageerror", lambda e: errors.append("pageerror: " + str(e)))
 

@@ -30,9 +30,11 @@ const DISPLAY = {
   'encore-who': '3-started-encore-facevalue',
   'encore-map': '3-started-encore-lifeline',
   'encore-what': '3-started-encore-relic',
-  // The daily manifest didn't cover an edition it should have (approve not
-  // run, or editions.json failed to load) — the emergency fallback served
-  // cursor arithmetic instead. The daily still existed; this is the alarm.
+  // The daily manifest didn't cover an edition it should have. Two causes,
+  // one alarm: approve wasn't run for that edition (the file is there, the
+  // entry isn't — cursor arithmetic fills in, the daily still exists), or
+  // editions.json failed to download (nothing legitimate to serve, so the
+  // game refuses to open and shows its retry — see js/daily.js).
   'err-manifest-missing': '9-manifest-missing',
   // P2.2: one data file failed to download (once per file per session). The
   // other games stayed playable; the affected card showed a named retry.
