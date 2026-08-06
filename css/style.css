@@ -265,17 +265,72 @@ button.cal-cell:active { background: var(--ch-parchment); }
   font-family: var(--ch-font-ui); font-size: 19px; line-height: 1; color: var(--ch-text-muted);
 }
 
-/* The stranger's landing (see applyStrangerMode): headline + one door for
-   visitors with no play history; the regulars' furniture below stays hidden
-   until their first finished daily. */
-#stranger-hero { margin: 14px 24px 4px; display: flex; flex-direction: column; gap: 12px; align-items: stretch; }
+/* The stranger's landing (see applyStrangerMode), rebuilt 6 Aug 2026: a
+   newcomer now meets ONE named game, shown being played, instead of a
+   headline about four of them. Order: stamp, headline, the real board with
+   its opening scrap torn, caption, door, reassurance — then a section label
+   handing over to the other three as compact rows. The regulars' furniture (week
+   strips, archive bars, punch card) stays hidden until their first finished
+   daily. Gutters are the house 20px so the hero's edges line up with the
+   masthead rule and the rows below it. */
+#stranger-hero { margin: 9px 20px 0; display: flex; flex-direction: column; align-items: stretch; }
+/* The house inked-rubber stamp (.df-stamp), stood up as a flow element: it
+   says "this is the game, not your game" before the picture can be mistaken
+   for today's actual puzzle. */
+.stranger-stamp { align-self: flex-start; margin: 0 0 6px 2px; font-size: 12px; padding: 4px 10px; }
 .stranger-headline {
-  margin: 0; padding: 10px 12px;
-  background: var(--ch-cream); border: 2px solid var(--ch-ink); box-shadow: 3px 3px 0 var(--ch-ink);
-  font-family: var(--ch-font-ui); font-size: 12px; font-weight: 700;
-  letter-spacing: .04em; text-transform: uppercase; line-height: 1.55; color: var(--ch-text-primary);
+  margin: 0 0 10px; font-family: var(--ch-font-display); font-weight: 400;
+  font-size: clamp(26px, 8vw, 36px); line-height: .96; letter-spacing: -0.01em;
+  text-transform: uppercase; color: var(--ch-text-primary);
+}
+/* The demo board: a photograph of our own game (assets/brand/demo-facevalue.webp,
+   made by tools/make_demo_shot.py). The asset is the frame's CONTENT only — no
+   border baked in — so the ink frame below is the house's own weight and can
+   never end up scaled to some other thickness. aspect-ratio backs up the
+   width/height attributes so the reserved box survives a CSS-only load.
+   The 268px cap is deliberate: it is roughly the size the board is in the
+   real game on a phone (min(80vw, 40dvh)), and it is what keeps the CTA
+   above the fold on a 375x812 screen — the whole point of the rebuild. */
+.stranger-demo {
+  display: block; width: 100%; max-width: 268px; height: auto; aspect-ratio: 1 / 1;
+  margin: 0 auto; background: var(--ch-parchment);
+  border: 2.5px solid var(--ch-ink); box-shadow: var(--ch-shadow-card);
+}
+.stranger-caption {
+  margin: 12px 0 12px; font-size: 14.5px; line-height: 1.45; color: var(--ch-text-secondary);
+}
+.stranger-reassure {
+  margin: 9px 0 0; text-align: center;
+  font-family: var(--ch-font-ui); font-weight: 700; font-size: 11px;
+  letter-spacing: var(--ch-tracking-smallcaps); text-transform: uppercase; color: var(--ch-text-muted);
+}
+/* Hands over to the three compact rows below. Lives inside the hero so it
+   appears and disappears with it — a returning player must never see a label
+   introducing their own four game cards. */
+.stranger-also {
+  margin: 26px 0 0; padding-bottom: 6px; border-bottom: 2px solid var(--ch-ink);
+  font-family: var(--ch-font-ui); font-weight: 700; font-size: 11px;
+  letter-spacing: var(--ch-tracking-smallcaps); text-transform: uppercase; color: var(--ch-text-label);
 }
 .is-stranger .df-week, .is-stranger .row-archive, .is-stranger #punch-card { display: none !important; }
+/* No two Face Value doors: the hero IS that game's door, so its row drops out
+   of the strip below. The other three shrink to compact rows — same component,
+   same tint keys, same tap target, less of it — and swap in the newcomer
+   one-liners (strangerLine in GAME_ROWS). The edition number and the time
+   whisper go with them: this screen prices nothing but the one game it is
+   selling. The status line stays, because it is also where a slow download
+   says "spinning up the presses…" (ensureGameData). */
+.hero-tagline-new { display: none; }
+.is-stranger .hero-tagline { display: none; }
+.is-stranger .hero-tagline-new { display: block; }
+.is-stranger [data-row="who"] { display: none; }
+.is-stranger .home-rows { gap: 10px; padding-top: 12px; }
+.is-stranger .hero-card { min-height: 0; padding: 10px 14px; gap: 5px; border-left-width: 10px; }
+.is-stranger .hero-top { align-items: center; }
+.is-stranger .hero-name { font-size: 20px; margin-bottom: 3px; }
+.is-stranger .hero-glyph { width: 54px; height: 54px; }
+.is-stranger .hero-edition { display: none; }
+.is-stranger .hero-bottom { justify-content: flex-end; }
 /* The one door gets the house magenta and a periodic nudge — enough to say
    "press me", quiet enough not to feel like an ad. */
 #stranger-play {

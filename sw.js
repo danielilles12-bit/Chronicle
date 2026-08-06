@@ -7,7 +7,7 @@
 //   new worker precaches the shell, skipWaiting+claim take over immediately ->
 //   app.js sees controllerchange and shows the NEW EDITION bar -> the user's
 //   pull-to-refresh (or a tap on the bar) reloads into the new version.
-const VERSION = 'yesternerd-v184';
+const VERSION = 'yesternerd-v185';
 
 // Daily-content cache: survives version bumps so updating the app never
 // re-downloads the whole archive, served stale-while-revalidate below.
@@ -48,6 +48,10 @@ const ASSETS = [
   './assets/brand/game-icon-lifeline.webp',
   './assets/brand/game-icon-face-value.webp',
   './assets/brand/game-icon-relic.webp',
+  // The newcomer hero's demo board (a real Face Value round, one scrap in). It is
+  // the first picture a stranger ever sees, and the whole screen is built
+  // around it, so it ships with the shell rather than arriving late.
+  './assets/brand/demo-facevalue.webp',
   './assets/brand/stamp-alea-iacta-fest.png',
   './assets/brand/ptr-queen.png',
   // Intro posters (v164): the first-run intro card is the very first thing a

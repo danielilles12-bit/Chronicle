@@ -25,6 +25,7 @@ VALIDATORS = [
 BROWSER = [
     ("answer matching", [os.path.join(HERE, "match_harness.py")]),
     ("smoke: core", [os.path.join(HERE, "test_smoke_core.py")]),
+    ("home: stranger", [os.path.join(HERE, "test_stranger_home.py")]),
     ("smoke: daily flow", [os.path.join(HERE, "test_daily_flow.py")]),
     ("smoke: resilience", [os.path.join(HERE, "test_resilience.py")]),
     ("nav: no dead ends", [os.path.join(HERE, "test_no_dead_ends.py")]),

@@ -221,7 +221,10 @@ def missing_manifest(p, base):
         # The file comes back. The very same tap has to work — loadFile drops
         # a failed download so the next gate refetches rather than remembering.
         blocked["editions"] = False
-        page.wait_for_selector('[data-hero="who"]')
+        # state="attached": this profile has finished nothing, so it is still
+        # a stranger, and a stranger's Face Value row is hidden behind the
+        # hero (its CTA is that game's door — see helpers.open_daily).
+        page.wait_for_selector('[data-hero="who"]', state="attached")
         for game in GAME_VIEWS:
             H.open_daily(page, game)
             H.dismiss_intro(page)

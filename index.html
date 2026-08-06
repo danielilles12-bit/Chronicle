@@ -122,9 +122,34 @@
       <p class="install-tip-line">Save Yesternerd as an app</p>
       <button type="button" id="install-tip-btn" class="install-tip-cta">Show me how ›</button>
     </div>
+    <!-- The stranger's hero (rebuilt 6 Aug 2026): the old version named no
+         game, priced no commitment and implied you had to play all four. This
+         one SHOWS the game instead — a real Face Value board at the moment a
+         round opens, photographed out of the running app by
+         tools/make_demo_shot.py, so nothing here is a drawing of the product.
+         ONE scrap open, not several (Daniel, 6 Aug): that is the honest first
+         second of a round and it keeps the mystery — which only works because
+         the opening lands on the brow and eye that identify her.
+         The demo subject (frida-kahlo) carries "reserve": true in
+         data/reveal-who.json — the live pool the app and the edition compiler
+         both read (data/reveal.json is the pre-split legacy file and is read
+         by nothing). A face on permanent display must never also be a live
+         puzzle, and reserved items are skipped both when the compiler stages
+         future editions and when Encore samples aired ones.
+         Shown/hidden as a whole by applyStrangerMode() in js/app.js, which is
+         also why the "Also in today's issue" label lives INSIDE this block —
+         it labels the three rows below only while the hero is up. -->
     <div id="stranger-hero" hidden>
-      <p class="stranger-headline">Four little history games. New games at midnight — same games as everyone else.</p>
-      <button class="pill primary big" id="stranger-play">Play today ›</button>
+      <p class="df-stamp stranger-stamp">Game preview</p>
+      <h2 class="stranger-headline">Who’s under the paper?</h2>
+      <!-- width/height are the asset's real pixels: the box is reserved before
+           the bytes land, so the headline and the button never jump. -->
+      <img class="stranger-demo" src="assets/brand/demo-facevalue.webp" width="720" height="720"
+           alt="A Face Value board at the start of a round: eight paper scraps still cover a photograph, and the one torn away in the middle shows a single eye under a dark brow.">
+      <p class="stranger-caption">Face Value: tear back the scraps. Name the historical figure.</p>
+      <button class="pill primary big" id="stranger-play">Play Face Value ›</button>
+      <p class="stranger-reassure">Free · No sign-up</p>
+      <p class="stranger-also">Also in today’s issue</p>
     </div>
     <!-- Each .game-row (hero + day-card strip + Archive bar) is built and
          refreshed entirely by js/app.js (renderGameRows/refreshGameRows) from

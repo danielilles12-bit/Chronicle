@@ -459,9 +459,11 @@ def reading_pages(p, base):
             assert_chip(page, ".page-back a", f)
             page.click(".page-back a")
             # #view-home carries no [hidden] in the markup, so waiting on the
-            # view alone would pass before the app had booted: wait for Home's
-            # own furniture instead.
-            page.wait_for_selector("#home-rows .game-row", timeout=15000)
+            # view alone would pass before the app had booted: wait for the
+            # marker renderGameRows sets once Home's furniture is built. Not
+            # the rows themselves — a newcomer's Face Value row is hidden
+            # behind the stranger hero, and it is the first one in the DOM.
+            page.wait_for_selector("#home-rows[data-built]", timeout=15000)
             assert page.locator("#home-rows .game-row").count() == 4, (
                 "%s: the way back did not land on a painted Home" % f)
         H.fail_on_errors(errors, "reading_pages")
@@ -477,7 +479,7 @@ def not_found(p, base):
         text = page.inner_text(".notfound-main a.pill").lower()
         assert "back" in text, "404 pill should say where it goes, reads %r" % text
         page.click(".notfound-main a.pill")
-        page.wait_for_selector("#home-rows .game-row", timeout=15000)
+        page.wait_for_selector("#home-rows[data-built]", timeout=15000)
         H.fail_on_errors(errors, "not_found")
 
 
