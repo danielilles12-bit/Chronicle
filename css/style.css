@@ -267,17 +267,16 @@ button.cal-cell:active { background: var(--ch-parchment); }
 
 /* The stranger's landing (see applyStrangerMode), rebuilt 6 Aug 2026: a
    newcomer now meets ONE named game, shown being played, instead of a
-   headline about four of them. Order: stamp, headline, the real board with
-   its opening scrap torn, caption, door, reassurance — then a section label
-   handing over to the other three as compact rows. The regulars' furniture (week
-   strips, archive bars, punch card) stays hidden until their first finished
-   daily. Gutters are the house 20px so the hero's edges line up with the
-   masthead rule and the rows below it. */
-#stranger-hero { margin: 9px 20px 0; display: flex; flex-direction: column; align-items: stretch; }
-/* The house inked-rubber stamp (.df-stamp), stood up as a flow element: it
-   says "this is the game, not your game" before the picture can be mistaken
-   for today's actual puzzle. */
-.stranger-stamp { align-self: flex-start; margin: 0 0 6px 2px; font-size: 12px; padding: 4px 10px; }
+   headline about four of them. Order: headline, the real board with its
+   opening scrap torn, caption, door, reassurance — then a section label
+   handing over to the other three as compact rows. Five things and no sixth:
+   a "GAME PREVIEW" stamp sat above the headline until Daniel cut it on 6 Aug
+   — the picture explains itself, and a label about the picture was one more
+   thing to read before the button. The regulars' furniture (week strips,
+   archive bars, punch card) stays hidden until their first finished daily.
+   Gutters are the house 20px so the hero's edges line up with the masthead
+   rule and the rows below it. */
+#stranger-hero { margin: 15px 20px 0; display: flex; flex-direction: column; align-items: stretch; }
 .stranger-headline {
   margin: 0 0 10px; font-family: var(--ch-font-display); font-weight: 400;
   font-size: clamp(26px, 8vw, 36px); line-height: .96; letter-spacing: -0.01em;
@@ -288,11 +287,12 @@ button.cal-cell:active { background: var(--ch-parchment); }
    border baked in — so the ink frame below is the house's own weight and can
    never end up scaled to some other thickness. aspect-ratio backs up the
    width/height attributes so the reserved box survives a CSS-only load.
-   The 268px cap is deliberate: it is roughly the size the board is in the
-   real game on a phone (min(80vw, 40dvh)), and it is what keeps the CTA
-   above the fold on a 375x812 screen — the whole point of the rebuild. */
+   The 300px cap is deliberate: it is the size the board is in the real game
+   on a phone (min(80vw, 40dvh)), so the hero shows it life-size — and it is
+   the most that still leaves the CTA above the fold on a 375x812 screen,
+   which is the whole point of the rebuild. */
 .stranger-demo {
-  display: block; width: 100%; max-width: 268px; height: auto; aspect-ratio: 1 / 1;
+  display: block; width: 100%; max-width: 300px; height: auto; aspect-ratio: 1 / 1;
   margin: 0 auto; background: var(--ch-parchment);
   border: 2.5px solid var(--ch-ink); box-shadow: var(--ch-shadow-card);
 }

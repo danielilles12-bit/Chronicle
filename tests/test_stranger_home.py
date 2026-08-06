@@ -27,7 +27,6 @@ DATE = H.edition_date(N)
 # The hero's copy, as a reader sees it. inner_text comes back CSS-uppercased,
 # and the markup uses typographic apostrophes, so both are normalised away.
 HERO_COPY = {
-    ".stranger-stamp": "game preview",
     ".stranger-headline": "who's under the paper?",
     ".stranger-caption": "face value: tear back the scraps. name the historical figure.",
     "#stranger-play": "play face value ›",
@@ -66,6 +65,17 @@ def stranger_hero(p, base):
 
         for sel, want in HERO_COPY.items():
             assert said(page, sel) == want, "%s reads %r, expected %r" % (sel, said(page, sel), want)
+
+        # Five things and no sixth. A "GAME PREVIEW" stamp stood above the
+        # headline until Daniel cut it on 6 Aug 2026: the picture explains
+        # itself, and a label about the picture is one more thing to read
+        # before the button. Nothing may take its place either.
+        assert page.locator("#stranger-hero .df-stamp").count() == 0, \
+            "a stamp is back above the headline"
+        first = page.evaluate(
+            "document.querySelector('#stranger-hero').firstElementChild.className")
+        assert "stranger-headline" in first, \
+            "something stands between the masthead and the headline: %r" % first
 
         # The demo board: fetched, decoded, painted — not a broken-image box.
         img = page.locator(".stranger-demo")
