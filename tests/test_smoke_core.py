@@ -6,6 +6,7 @@ Each scenario runs in a fresh profile. 'Today' is pinned to the newest
 manifest edition so every assertion is deterministic (see helpers).
 """
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
@@ -35,6 +36,57 @@ def first_visit(p, base):
         page.locator("#rv-scraps .df-scrap.tearable").first.click()
         assert H.reveal_worth(page) == 90, "first paid tear should cost 10"
         H.fail_on_errors(errors, "first_visit")
+
+
+# ---------- the_mark_while_it_loads ----------
+def the_mark_while_it_loads(p, base):
+    """The opening seconds carry the Antinous and nothing else.
+
+    The retired pink-sunglasses David has twice survived a swap by hiding in a
+    file nobody re-read, and both times it landed on the LAUNCH imagery — the
+    masthead mark, the home-screen icon, the iOS startup image. That is the
+    first thing anyone sees, so it gets its own assertion.
+
+    Nothing here waits on a stopwatch: the mark is asserted to be in the SERVED
+    HTML, which is what makes it appear before any script runs (boot() in
+    app.js leans on the same fact), and then asserted to have really painted."""
+    with H.app(p) as (page, errors, _ctx):
+        asked = []
+        page.on("request", lambda r: asked.append(r.url))
+        page.goto(H.app_url(base, DATE), wait_until="commit")
+
+        # In the served markup, so it is up before a single data byte lands.
+        html = page.evaluate("() => fetch('index.html').then(r => r.text())")
+        mark = re.search(r"<img[^>]*class=\"masthead-sticker\"[^>]*>", html)
+        assert mark, "no masthead mark in the served HTML — it must not wait on JS"
+        assert "antinous" in mark.group(0), mark.group(0)
+
+        # And it really painted, rather than 404ing into an empty box.
+        sticker = page.locator(".masthead-sticker")
+        sticker.wait_for(state="visible")
+        assert page.evaluate(
+            "() => { const i = document.querySelector('.masthead-sticker');"
+            " return i.complete && i.naturalWidth > 0; }"), "masthead mark never painted"
+        assert "antinous" in sticker.get_attribute("src"), sticker.get_attribute("src")
+
+        # The launch imagery declared in <head>: the tab icon, the home-screen
+        # icon, and the startup images iOS bakes in at install time.
+        head = page.evaluate(
+            "() => [...document.querySelectorAll('link[rel*=icon], link[rel*=startup-image]')]"
+            "        .map(l => l.getAttribute('href'))")
+        assert len(head) >= 20, "expected the full icon + startup-image set, got %d" % len(head)
+        assert all("david" not in h.lower() for h in head), head
+
+        page.wait_for_function(H.BOOTED)
+
+        # Nothing the app fetched, at any point in the boot, was David brand art.
+        brand = [u for u in asked
+                 if any(d in u for d in ("/assets/brand/", "/assets/intro/",
+                                         "/assets/splash/", "/icons/"))]
+        assert brand, "boot fetched no brand art at all"
+        stray = [u for u in brand if "david" in u.rsplit("/", 1)[-1].lower()]
+        assert not stray, "boot fetched retired David brand art: %s" % stray
+        H.fail_on_errors(errors, "the_mark_while_it_loads")
 
 
 # ---------- daily_all_four ----------
@@ -468,9 +520,10 @@ def rescue_closes_map(p, base):
         H.fail_on_errors(errors, "rescue_closes_map")
 
 
-TESTS = [first_visit, daily_all_four, outcomes_reveal, outcomes_map,
-         outcomes_thread, resume_reveal, resume_map, thread_keyboard,
-         clue_prices_are_true, rescue_closes_reveal, rescue_closes_map]
+TESTS = [first_visit, the_mark_while_it_loads, daily_all_four, outcomes_reveal,
+         outcomes_map, outcomes_thread, resume_reveal, resume_map,
+         thread_keyboard, clue_prices_are_true, rescue_closes_reveal,
+         rescue_closes_map]
 
 
 def main():

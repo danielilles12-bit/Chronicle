@@ -17,6 +17,15 @@
    taken off the public site by the _redirects file instead. Every address in
    DENY_PATHS below must still have its rule.
 
+4. Brand-mark guard — the house mark is the bespectacled Antinous (Daniel,
+   4 Aug 2026). The retired pink-sunglasses Michelangelo's-David crept back
+   twice by being left behind in a file nobody was reading: once in the sw
+   precache list, once as the icon generator's source art. Both fed the
+   LAUNCH imagery — home-screen icon, Android PWA splash, iOS startup image —
+   so a leftover David shows up while the app is opening, which is the worst
+   possible place for a retired logo. This gate fails the build if a David
+   brand asset is tracked again, or if any runtime file names one.
+
 Exits non-zero with a plain explanation on any failure.
 """
 import re
@@ -58,6 +67,38 @@ DENY_TARGET = "/nowhere"
 
 # Pages accepts only these in a rule's third column.
 REDIRECT_STATUSES = {"301", "302", "303", "307", "308"}
+
+# ---------- brand-mark guard ----------
+# Directories that hold BRAND art only. Content photographs live in
+# assets/img/ and are deliberately excluded: David Hume, Jacques-Louis David
+# and Michelangelo's David are all legitimate puzzle subjects, and sources.html
+# credits them by name. This gate is about the logo, not about history.
+BRAND_DIRS = ("assets/brand/", "assets/intro/", "assets/splash/", "icons/")
+
+# Retired art, by exact path. assets/icon.svg was the icon generator's source:
+# a hand-drawn bust in pink sunglasses that never reached the site, but that
+# tools/make_icons.py would have rendered straight onto the home-screen icon
+# and the Android launch screen. Named here so it cannot quietly come back.
+RETIRED_ASSETS = [
+    ("assets/icon.svg", "the pink-sunglasses David the icon generator drew from — "
+                        "icons/icon-512.png is the master now"),
+]
+
+# The runtime app: what a browser actually downloads and runs. A reference to
+# a David brand asset in any of these is what puts the old mark on screen.
+RUNTIME_FILES = ("index.html", "sw.js", "manifest.webmanifest",
+                 "css/style.css", "css/brand-tokens.css", "css/pages.css")
+RUNTIME_DIRS = ("js/",)
+
+# The launch/loading imagery, and what must be behind it. Every one of these
+# files is something a player sees while the app is opening.
+LAUNCH_ASSETS = [
+    "icons/icon-512.png",        # Android/Chrome PWA splash + manifest
+    "icons/icon-192.png",        # manifest
+    "icons/apple-touch-icon.png",  # iOS home screen
+    "icons/favicon.png",         # browser tab
+    "assets/brand/antinous-sticker.png",  # the masthead mark, precached
+]
 
 errors = []
 
@@ -162,10 +203,61 @@ def check_deny_rules():
               % len(DENY_PATHS))
 
 
+def check_brand_mark():
+    """No retired-David brand art tracked, and none named by the runtime."""
+    before = len(errors)
+    files = tracked_files()
+
+    # 1. No David brand asset back on disk, under any of the brand paths.
+    for f in files:
+        if not f.startswith(BRAND_DIRS):
+            continue
+        if "david" in f.rsplit("/", 1)[-1].lower():
+            errors.append(
+                "brand art '%s' is tracked. The house mark is the bespectacled "
+                "Antinous (Daniel, 4 Aug 2026); the pink-sunglasses David is "
+                "retired. Brand art lives under %s — content photographs of "
+                "people called David belong in assets/img/."
+                % (f, ", ".join(BRAND_DIRS)))
+
+    # 2. Retired art stays retired, by exact path.
+    for path, why in RETIRED_ASSETS:
+        if path in files:
+            errors.append("'%s' is tracked again — %s" % (path, why))
+
+    # 3. No runtime file may point at one.
+    targets = [f for f in RUNTIME_FILES if (ROOT / f).exists()]
+    targets += [f for f in files if f.startswith(RUNTIME_DIRS) and f.endswith(".js")]
+    ref = re.compile(r"(?:assets/(?:brand|intro|splash)|icons)/[^\"'\s)]*david[^\"'\s)]*"
+                     r"|assets/icon\.svg", re.I)
+    for f in sorted(set(targets)):
+        for n, line in enumerate((ROOT / f).read_text(encoding="utf-8").splitlines(), 1):
+            hit = ref.search(line)
+            if hit:
+                errors.append(
+                    "%s:%d references the retired David mark ('%s'). The app's "
+                    "launch imagery comes off these files, so this would show "
+                    "the old logo while the app is opening."
+                    % (f, n, hit.group(0)))
+
+    # 4. The launch imagery must actually exist — a 404 here is a blank or
+    #    fallback splash on a phone, which is how the last swap got missed.
+    for a in LAUNCH_ASSETS:
+        if not (ROOT / a).exists():
+            errors.append(
+                "launch asset '%s' is missing — it is what a player sees while "
+                "the app is opening" % a)
+
+    if len(errors) == before:
+        print("brand mark OK: Antinous only, all %d launch assets present"
+              % len(LAUNCH_ASSETS))
+
+
 def main():
     check_version_lock()
     check_leaks()
     check_deny_rules()
+    check_brand_mark()
     if errors:
         for e in errors:
             print("ERROR " + e, file=sys.stderr)

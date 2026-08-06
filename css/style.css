@@ -45,8 +45,8 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 
 /* ---------- Home ---------- */
 #view-home { background-color: var(--ch-paper); background-image: radial-gradient(rgba(11,11,11,.09) 1px, transparent 1.2px); background-size: 14px 14px; }
-/* min-height: the David sticker is absolutely positioned, so the masthead must
-   be guaranteed tall enough to contain him — a one-line wordmark alone is
+/* min-height: the Antinous sticker is absolutely positioned, so the masthead
+   must be guaranteed tall enough to contain him — a one-line wordmark alone is
    shorter than he is, and he'd hang over the panel below (rename, 4 Aug).
    Fluid (4 Aug, masthead scale-up): both the wordmark and sticker now grow
    with viewport width via --mh-sticker-w, so min-height tracks the sticker's
@@ -61,14 +61,14 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 .masthead-seal { width: 44px; height: 44px; display: block; margin: 0 auto 6px; border-radius: 11px; }
 /* One unbroken word (rename, 4 Aug 2026): the mark is never split across
    lines or detached — it scales down on narrow phones instead, staying clear
-   of the absolutely-positioned David sticker on the right. */
+   of the absolutely-positioned Antinous sticker on the right. */
 .masthead h1 {
   font-family: var(--ch-font-display); font-size: clamp(28px, 7.4vw, 44px);
   letter-spacing: -0.02em; margin: 0; white-space: nowrap;
   font-weight: 400; line-height: .92; color: var(--ch-text-primary); text-transform: uppercase;
 }
 /* The drawn wordmark (CMYK misregistration on the NERD block) replaces the
-   type-set h1. Ratio 3.9:1; capped so it never runs under the David sticker.
+   type-set h1. Ratio 3.9:1; capped so it never runs under the Antinous sticker.
    Fluid (4 Aug, masthead scale-up): grows with viewport width so phones get
    a proper newspaper-masthead-sized mark, while staying clear of
    --mh-sticker-w (the sticker's own fluid width) and capping sensibly once
@@ -78,7 +78,7 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   width: clamp(150px, calc(100vw - var(--mh-sticker-w) - 76px), 258px);
 }
 /* padding-right keeps the dateline clear of the absolutely-positioned
-   David sticker, which now scales with --mh-sticker-w. */
+   Antinous sticker, which now scales with --mh-sticker-w. */
 .dateline { margin: 8px 0 0; padding-right: calc(var(--mh-sticker-w) + 8px); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--ch-text-primary); font-family: var(--ch-font-ui); }
 
 /* P1.5: the one-shot explicit wrong-guess line (first wrong guess anywhere)

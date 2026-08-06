@@ -73,9 +73,19 @@ UKTV `YESTERDAY` near-mark risk is **knowingly accepted** — no solicitor.
 - [x] **Social card REGENERATED (4 Aug):** wordmark on paper + "FOUR DAILY
       HISTORY GAMES" + yesternerd.app plate, photographic round-glasses
       Antinous on yellow right. og:image:alt updated to match.
-- [ ] Splash screens (19 files) still show pink-sunglasses David — regenerate
-      from the new statue after the social card; not cutover-blocking
-      [SESSION, post-statue-files]
+- [x] **Splash screens DONE (4 Aug, v169):** all 19 apple-touch-startup-image
+      PNGs regenerated from the Antinous — same cream ground, same centred
+      single-sticker layout, no text. Verified byte-for-byte against the live
+      site on 6 Aug: every splash, icon and sticker yesternerd.app serves is
+      the Antinous. **The last David left anywhere was assets/icon.svg**, the
+      art the icon generator rendered from — it never reached the site, but
+      re-running the tool would have put David back on the home-screen icon
+      and the Android launch screen. Retired in v184; tools/make_icons.py now
+      derives every size from icons/icon-512.png, and tools/repo_checks.py
+      fails the build if a David brand asset ever comes back.
+      **Anyone whose phone still shows David at launch is seeing their own
+      install:** iOS bakes the startup image in when the app is added to the
+      home screen and never re-fetches it. Delete the app and re-add it.
 - [ ] **Create the GoatCounter site with code `yesternerd`** — the code is
       already in js/track.js; until the site exists, analytics silently no-op
       [DANIEL]
