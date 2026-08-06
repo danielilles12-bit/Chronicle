@@ -1,0 +1,47 @@
+# Cloudflare Pages routing. The public site is the app; everything else in
+# this repository is workshop material and must not be reachable from the
+# open internet.
+#
+# There is no build step (architecture rule), so the whole repo is what gets
+# uploaded — plans, tools, tests, review sheets and all. This file is the only
+# place that can take them back off the public site. Pages applies these rules
+# "regardless of whether or not an asset matches the incoming request", so a
+# rule here beats the file sitting on disk.
+#
+# Why they point at /nowhere rather than saying "404": Pages only accepts the
+# redirect status codes (301, 302, 303, 307, 308) in the third column — a
+# literal 404 rule is rejected and the whole file can fail to apply. Sending
+# these addresses somewhere that genuinely does not exist gets the real thing
+# instead: Cloudflare answers /nowhere with a true 404 and the site's own
+# "Struck from the record" page. Nothing may ever be published at /nowhere.
+#
+# 302 (temporary) on purpose. These lines are a decision, not a law of
+# physics; a 301 would sit in browsers' caches long after a line was removed,
+# and the site would look broken rather than changed.
+#
+# The same list lives in DENY_PATHS in tools/repo_checks.py, which fails the
+# build if any address here loses its rule. tools/check_live.py proves the
+# rules are really live, against the deployed site, after a deploy.
+
+# Curation and review sheets. audit/review.html also fetches and renders an
+# arbitrary ?src= URL, so being unreachable is its fix as well as its cover.
+/audit/*              /nowhere  302
+
+# Python tooling, the compiler's config, the test suite, retired code.
+/tools/*              /nowhere  302
+/tests/*              /nowhere  302
+/attic/*              /nowhere  302
+/design-reviews/*     /nowhere  302
+
+# Working documents: plans, rulings, checklists, content inventories.
+/CRITIC_REPORT.md     /nowhere  302
+/HOUSE_RULES.md       /nowhere  302
+/LAUNCH_CHECKLIST.md  /nowhere  302
+/PLAN.md              /nowhere  302
+/README.md            /nowhere  302
+/connections_audit.md /nowhere  302
+/content-inventory.md /nowhere  302
+
+# Repository machinery that Pages uploads along with everything else.
+/.github/*            /nowhere  302
+/.claude/*            /nowhere  302

@@ -12,6 +12,11 @@
      - data/editions.proposed.json  (drafts awaiting sign-off)
      - tools/out/                   (review sheets print unaired answers)
 
+3. Deny-list guard — the host serves the whole repo either way, so the
+   internal files that DO live here (plans, tools, tests, review sheets) are
+   taken off the public site by the _redirects file instead. Every address in
+   DENY_PATHS below must still have its rule.
+
 Exits non-zero with a plain explanation on any failure.
 """
 import re
@@ -25,6 +30,34 @@ FORBIDDEN_TRACKED = [
     ("data/editions.proposed.json", "proposed (unaired) editions"),
     ("tools/out/", "compiler output — review sheets hold unaired answers"),
 ]
+
+# The single source of truth for what the public site must NOT serve. Every
+# entry needs a matching line in the repo-root _redirects file; that file's
+# header explains the mechanism, and tools/check_live.py proves it works
+# against the deployed site.
+DENY_PATHS = [
+    "/audit/*",
+    "/tools/*",
+    "/tests/*",
+    "/attic/*",
+    "/design-reviews/*",
+    "/CRITIC_REPORT.md",
+    "/HOUSE_RULES.md",
+    "/LAUNCH_CHECKLIST.md",
+    "/PLAN.md",
+    "/README.md",
+    "/connections_audit.md",
+    "/content-inventory.md",
+    "/.github/*",
+    "/.claude/*",
+]
+
+# Where a denied address is sent. Its whole job is to not exist, so that the
+# visitor's browser is answered with a real "not found" rather than a page.
+DENY_TARGET = "/nowhere"
+
+# Pages accepts only these in a rule's third column.
+REDIRECT_STATUSES = {"301", "302", "303", "307", "308"}
 
 errors = []
 
@@ -47,10 +80,14 @@ def check_version_lock():
         print(f"version lock OK: {build} == {version}")
 
 
-def check_leaks():
-    files = subprocess.run(
+def tracked_files():
+    return subprocess.run(
         ["git", "ls-files"], cwd=ROOT, capture_output=True, text=True,
         check=True).stdout.splitlines()
+
+
+def check_leaks():
+    files = tracked_files()
     for path, why in FORBIDDEN_TRACKED:
         hits = [f for f in files
                 if f == path or (path.endswith("/") and f.startswith(path))]
@@ -63,9 +100,72 @@ def check_leaks():
         print("leak guard OK: no compiler working files tracked")
 
 
+def read_redirect_rules():
+    """_redirects as {source: [target, status]}, comments and blanks dropped."""
+    rules = {}
+    text = (ROOT / "_redirects").read_text(encoding="utf-8")
+    for line in text.splitlines():
+        line = line.split("#", 1)[0].strip()
+        if not line:
+            continue
+        parts = line.split()
+        if len(parts) >= 2:
+            rules[parts[0]] = parts[1:]
+    return rules
+
+
+def check_deny_rules():
+    before = len(errors)
+    if not (ROOT / "_redirects").exists():
+        errors.append(
+            "the _redirects file is missing — without it the live site hands "
+            "out this repo's internal files (plans, tools, tests, review "
+            "sheets) to anyone who asks for them by name")
+        return
+    rules = read_redirect_rules()
+    for path in DENY_PATHS:
+        rule = rules.get(path)
+        if rule is None:
+            errors.append(
+                "_redirects has no rule for '%s', so the live site would "
+                "serve it. Add this line:  %s  %s  302"
+                % (path, path, DENY_TARGET))
+        elif rule[0] != DENY_TARGET:
+            errors.append(
+                "_redirects sends '%s' to '%s'. It must go to '%s' — an "
+                "address with nothing behind it, which is what makes the "
+                "visitor's browser get a real 'not found'"
+                % (path, rule[0], DENY_TARGET))
+        elif len(rule) < 2 or rule[1] not in REDIRECT_STATUSES:
+            errors.append(
+                "_redirects gives '%s' the status '%s'. Cloudflare Pages "
+                "accepts only %s here, and rejects anything else — use 302"
+                % (path, rule[1] if len(rule) > 1 else "(none)",
+                   ", ".join(sorted(REDIRECT_STATUSES))))
+    # If anything ever answers the target address, every denied path quietly
+    # starts working again — with no failing test to say so.
+    if DENY_TARGET in rules:
+        errors.append(
+            "_redirects has a rule for '%s' itself — that address must stay "
+            "empty, or the whole deny list stops meaning anything" % DENY_TARGET)
+    stem = DENY_TARGET.lstrip("/")
+    files = tracked_files()
+    squatters = [f for f in files
+                 if f in (stem, stem + ".html", stem + "/index.html")]
+    for s in squatters:
+        errors.append(
+            "'%s' is tracked, so '%s' would answer with a page instead of a "
+            "'not found' — and every denied path would fall through to it"
+            % (s, DENY_TARGET))
+    if len(errors) == before:
+        print("deny list OK: all %d internal paths have a _redirects rule"
+              % len(DENY_PATHS))
+
+
 def main():
     check_version_lock()
     check_leaks()
+    check_deny_rules()
     if errors:
         for e in errors:
             print("ERROR " + e, file=sys.stderr)
