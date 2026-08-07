@@ -19,6 +19,17 @@ machinery rather than a fake:
     served in place of the original. The app then cover-fits, grids and tears
     it exactly as it would any other picture. Choosing the crop chooses how
     much of the face one ninth of the board covers.
+    The photograph served here is NOT the one the round plays on. The round's
+    copy (assets/img/frida-kahlo.jpg) is 667x1000 — fine behind a whole board,
+    but the hero shows a quarter of one, so the crop is a fraction of a
+    fraction and the original's pixels run out first. Commons holds the same
+    1932 Guillermo Kahlo print at 1197x1795, and tools/demo-source/ keeps that
+    copy for this tool alone (see SOURCE). It is the same photograph to within
+    JPEG noise — a mean absolute difference of 2.4/255 against the shipped file
+    downscaled to match — so nothing about the composition changes, there are
+    simply 1.79x more real pixels under it. The round's own image file is left
+    exactly as content curation has it: marketing does not get to edit the
+    pool's pictures.
   * `start`. A real curated field the pipeline already supports (see
     startScrap in js/revealgame.js): it pins the scrap the GAME opens on the
     house. Nothing is torn by hand, so the board is a genuine opening state.
@@ -33,6 +44,10 @@ grain and torn opening in the file is the browser's own output. The quadrant
 is chosen by the opening scrap: `start` must be tile 0, 1, 3 or 4, and the
 crop is the 2x2 block whose TOP-LEFT square is that opening, so the revealed
 eye always lands nearest the headline.
+
+The board renders at DEVICE_SCALE=3, so the hero is 900x900 and stays sharp on
+a phone that draws three device pixels per CSS pixel — this is the first thing
+a newcomer ever sees of the product and a soft one undersells it.
 
 Both the pinned edition and the crop are injected as Playwright routes —
 never written to disk. The manifest belongs to the schedule, not to marketing.
@@ -66,19 +81,32 @@ import helpers as H                                # noqa: E402
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 OUT_DIR = os.path.join(ROOT, "tools", "out", "demo-candidates")
 HERO_PATH = os.path.join(ROOT, "assets", "brand", "demo-facevalue.webp")
-SOURCE = os.path.join(ROOT, "assets", "img", "frida-kahlo.jpg")
+# Demo-only, and deliberately NOT under assets/: the high-resolution Commons
+# copy of the same public-domain print (File:Frida Kahlo, by Guillermo
+# Kahlo.jpg, 1197x1795, retrieved 7 Aug 2026). It exists so the hero has real
+# pixels to crop into; the app never loads it, and /tools/* is 404ed on the
+# public site by _redirects (enforced by tools/repo_checks.py).
+SOURCE = os.path.join(ROOT, "tools", "demo-source", "frida-kahlo-commons.jpg")
+# The space the face landmarks below are measured in — the round's own copy of
+# the photograph. Crops are written in these coordinates and scaled to whatever
+# SOURCE actually is, so a sharper original never means re-measuring a face.
+LANDMARK_WIDTH = 667
 
 SUBJECT = "frida-kahlo"
 # Any aired edition works — the manifest is rewritten in flight so the pinned
 # subject is the whole round list, which makes it round 1 every time.
 PIN_EDITION = 22
 # The scrap grid's CONTENT size in CSS px (#rv-frame is border-box, so the
-# element is pinned 6px wider than this for its 3px ink border). 450 / 3 = a
-# 150px tile, x2 DPR = 300 device px per tile, so the 2x2 crop below is
-# 600x600 device px and ships without a single resampled pixel.
+# element is pinned 6px wider than this for its 3px ink border). 450 CSS px is
+# the real game's board, so the scrap borders, dashes and grain keep exactly
+# the proportions a player sees — DEVICE_SCALE is what buys resolution, and it
+# scales every one of those details together instead of thinning the lines.
+# 450 / 3 = a 150px tile, x3 DPR = 450 device px per tile, so the 2x2 crop
+# below is 900x900 device px and ships without a single resampled pixel.
 GRID_CSS_PX = 450
 FRAME_BORDER_PX = 3
-TILE_DEVICE_PX = 300        # GRID_CSS_PX / 3 * device_scale_factor
+DEVICE_SCALE = 3
+TILE_DEVICE_PX = GRID_CSS_PX // 3 * DEVICE_SCALE     # 450
 
 # Face landmarks in the 667x1000 source, measured off a gridded overlay:
 #   unibrow  x 255-455, y 240-265      left eye  centre (305, 288)
@@ -98,38 +126,29 @@ TILE_DEVICE_PX = 300        # GRID_CSS_PX / 3 * device_scale_factor
 # centred on the nose bridge); tile 1 centres it instead and buys the room
 # back, which is the only way the widest unibrow shots fit inside the source.
 #
+# THE CHOICE (Daniel, 7 Aug 2026): B, brow-join-wide. Shown all three side by
+# side he took the one where the brows MEET and both eyes are in the square —
+# that is the thing that says Frida rather than "a face", and it is what a
+# newcomer has to be able to name. A (brow-and-eye) and B2 (widest) are kept
+# below only so the comparison that settled it is still on the record; neither
+# is shipped again without a fresh decision.
+#
 # name -> (crop x, crop y, crop side, start tile, what the open tile shows)
 COMPOSITIONS = {
-    # --- A: one brow arch and one eye (shipped 7 Aug 2026) ---
-    "corner-eye": (245, 228, 360, 0,
-                   "opening scrap is the board's own top-left corner; brow + "
-                   "her right eye centred in it, two dashed tiles beside and "
-                   "below"),
-    "corner-eye-wide": (235, 218, 420, 0,
-                        "same corner opening, one step further out — more of "
-                        "the eye socket and cheek, a smaller eye"),
-    "corner-eye-tight": (252, 235, 320, 0,
-                         "same corner opening, one step further in — the eye "
-                         "crowds its square"),
-    "centre-eye": (125, 108, 360, 4,
-                   "the board's centre scrap opens and the crop takes the "
-                   "bottom-right four, so the eye sits top-left with real "
-                   "board edges on the far two sides"),
-    # --- B: the unibrow join, the thing that says Frida and not just "a face"
-    # (Daniel, 7 Aug 2026, for comparison against A) ---
-    "brow-join": (295, 190, 360, 0,
-                  "the brows meeting over the nose bridge, at A's zoom — the "
-                  "join and her right eye, her left eye just off the square"),
     "brow-join-wide": (145, 180, 420, 1,
-                       "the join with BOTH inner brow ends and both eyes in "
-                       "the square; opens on the top-centre scrap so the crop "
-                       "can sit around the middle of the face"),
+                       "SHIPPED — the join with BOTH inner brow ends and both "
+                       "eyes in the square; opens on the top-centre scrap so "
+                       "the crop can sit around the middle of the face"),
+    "corner-eye": (245, 228, 360, 0,
+                   "rejected 7 Aug (was A) — opening scrap is the board's own "
+                   "top-left corner; one brow arch + her right eye centred in "
+                   "it, two dashed tiles beside and below"),
     "brow-join-widest": (130, 175, 450, 1,
-                         "the join with nearly the whole unibrow and both "
-                         "eyes — the most unmistakably Frida, the smallest "
-                         "features"),
+                         "rejected 7 Aug (was B2) — nearly the whole unibrow "
+                         "and both eyes, the most unmistakably Frida but the "
+                         "smallest features"),
 }
-DEFAULT_PICK = "corner-eye"
+DEFAULT_PICK = "brow-join-wide"
 
 
 def pinned_manifest():
@@ -150,7 +169,20 @@ def pinned_pool(start):
 
 
 def cropped_png(x, y, side):
-    im = Image.open(SOURCE).convert("RGB").crop((x, y, x + side, y + side))
+    """The composed square, cut at the SOURCE's own resolution.
+
+    Crops are written in LANDMARK_WIDTH coordinates (the round's 667px copy,
+    which is where the face was measured) and scaled up to whatever SOURCE is,
+    so a sharper original is a one-line change rather than a re-measure. PNG
+    out, because the board is about to be photographed and a second JPEG
+    generation would put ringing on exactly the edges the hero is selling.
+    """
+    im = Image.open(SOURCE).convert("RGB")
+    k = im.width / LANDMARK_WIDTH
+    box = tuple(round(v * k) for v in (x, y, x + side, y + side))
+    assert box[2] <= im.width and box[3] <= im.height, (
+        "crop %s runs off the %dx%d source" % (box, im.width, im.height))
+    im = im.crop(box)
     buf = io.BytesIO()
     im.save(buf, "PNG")
     return buf.getvalue()
@@ -183,17 +215,22 @@ def open_board(page, base, manifest_json, pool_json, image_png):
         "getComputedStyle(document.querySelector('#rv-frame')).backgroundImage"
         ".includes('%s')" % SUBJECT)
     page.wait_for_load_state("networkidle")
-    # Guard: every composed crop is square, the shipped source is 534x800. If
-    # the route ever stops matching again, the board quietly falls back to the
-    # round's own crop and the composition is a lie — fail loudly instead.
+    # Guard: every composed crop is square, both copies of the photograph are
+    # 2:3. If the route ever stops matching again, the board quietly falls back
+    # to the round's own crop and the composition is a lie — fail loudly
+    # instead. The size is also proof of WHICH copy answered: a square smaller
+    # than the composed side means the low-resolution round image got there
+    # first and the hero would ship soft.
     got = page.evaluate("""() => new Promise(res => { const i = new Image();
         i.onload = () => res([i.naturalWidth, i.naturalHeight]);
         i.onerror = () => res(null);
         i.src = getComputedStyle(document.querySelector('#rv-frame'))
                   .backgroundImage.slice(5, -2); })""")
-    assert got and got[0] == got[1], (
-        "the board is not showing the composed crop (image is %s) — the "
-        "image route did not take" % (got,))
+    want = Image.open(io.BytesIO(image_png)).width
+    assert got and got[0] == got[1] == want, (
+        "the board is not showing the composed crop (image is %s, expected "
+        "%dpx square) — the image route did not take, or an older/smaller copy "
+        "of the photograph answered first" % (got, want))
     # #rv-frame is min(80vw, 40dvh): pin it so every candidate is identical.
     # It is border-box, so the element carries its 3px ink border on top of the
     # grid — pin the outer width and the scrap grid inside lands on exactly
@@ -237,7 +274,7 @@ def collect(p, base, manifest_json):
             # changes nothing else about the run.
             ctx = browser.new_context(
                 viewport={"width": 700, "height": int(GRID_CSS_PX / 0.4) + 260},
-                device_scale_factor=2, service_workers="block")
+                device_scale_factor=DEVICE_SCALE, service_workers="block")
             page = ctx.new_page()
             open_board(page, base, manifest_json, pinned_pool(start),
                        cropped_png(x, y, side))
@@ -278,13 +315,22 @@ def contact_sheet(shots, path):
     return path
 
 
+# The hero is the one picture a newcomer judges the product by, so it is
+# encoded for the eye and not for the byte count. q94 measures 47.3 dB PSNR
+# against the raw render — past the point where a difference is visible — and
+# lands near 57 KB, well inside the 80 KB the hero is allowed. q88 saved 20 KB
+# and put visible mush in the paper grain and along the dashed tear lines,
+# which are precisely the details that make the board look like a real object.
+WEBP_QUALITY = 94
+
+
 def write_webp(png, path, width=None):
     """WEBP of the crop. At the shipping size this resamples nothing: the
     render is already 1 device pixel per asset pixel."""
     im = Image.open(io.BytesIO(png)).convert("RGB")
     if width and width != im.width:
         im = im.resize((width, width), Image.LANCZOS)
-    im.save(path, "WEBP", quality=88, method=6)
+    im.save(path, "WEBP", quality=WEBP_QUALITY, method=6)
     return path
 
 
