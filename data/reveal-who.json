@@ -5557,7 +5557,7 @@
     "blurb": "German princess who ruled Russia longer than any other woman (1729–1796) · took the throne in a coup; her deposed husband died conveniently six days later",
     "img": "assets/img/catherine-great.jpg",
     "fx": 0.5,
-    "fy": 0.359,
+    "fy": 0.25,
     "frac": 0.24,
     "license": "Public domain",
     "attribution": "Alexander Roslin",
@@ -5569,7 +5569,8 @@
     "mcq": [
       "Marie Antoinette",
       "Mary Wollstonecraft"
-    ]
+    ],
+    "start": 3
   },
   {
     "id": "cecil-rhodes",

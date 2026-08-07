@@ -328,3 +328,11 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
    variety can be machine-checked.
 3. Per-item `start_audited` date so the intake gate on opening scraps can
    be mechanical instead of a checklist item.
+
+- **[JUDGMENT] The one-easy-one-medium-one-hard rule bends when the owner says so
+  (Daniel, 7 Aug 2026).** Edition 51 (19 Aug) carries two medium Lifeline rounds and
+  no hard one, because swapping Chandragupta Maurya for Maya Angelou was worth more
+  than the tier symmetry. Daniel's words: *"rules are rules only until I say otherwise
+  and make an exception."* Do not "repair" this day: the imbalance is deliberate and
+  signed off. Flag future breaches as before, but treat an explicit owner exception as
+  the end of the argument, not a bug to be re-raised next audit.
