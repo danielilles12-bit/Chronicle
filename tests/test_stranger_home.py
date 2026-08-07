@@ -13,7 +13,9 @@ missing from the service worker's precache (which would leave the whole hero
 blank offline), a second Face Value door creeping back in below the fold, the
 CTA's two analytics events drifting — and, since 7 Aug 2026, the side-by-side
 shape itself: headline in its own column to the LEFT of the four-square board,
-nothing spilling off a 375px screen, and the door still above the fold.
+the caption stacked directly under that headline in the same column, a board
+big enough to be the picture the screen is selling, nothing spilling off a
+375px screen, and the door still above the fold.
 """
 import os
 import re
@@ -42,14 +44,20 @@ HERO_COPY = {
 # was designed against, and a tablet, where the app column stops growing.
 SHAPES = [("phone", 375, 812), ("tablet", 768, 1024)]
 
-# Where everything in the hero actually landed, in CSS pixels.
+# Where everything in the hero actually landed, in CSS pixels. capLines counts
+# the caption's rendered line boxes — the only honest way to ask "did it wrap
+# where we meant it to", since the answer depends on the font that loaded.
 GEOMETRY = """() => {
   const box = (s) => { const r = document.querySelector(s).getBoundingClientRect();
     return {l: r.left, r: r.right, t: r.top, b: r.bottom, w: r.width, h: r.height}; };
+  const rg = document.createRange();
+  rg.selectNodeContents(document.querySelector('.stranger-caption'));
   const doc = document.documentElement;
   return {
     hero: box('#stranger-hero'), head: box('.stranger-headline'),
+    cap: box('.stranger-caption'),
     img: box('.stranger-demo'), cta: box('#stranger-play'),
+    capLines: rg.getClientRects().length,
     vh: innerHeight, scrollW: doc.scrollWidth, clientW: doc.clientWidth,
   };
 }"""
@@ -122,7 +130,9 @@ def stranger_hero(p, base):
         # Explicit dimensions, and TRUE ones: the box the page reserves has to
         # be the shape of the picture that lands in it, or the headline and the
         # button jump as it downloads. Re-shoot the asset at another size (the
-        # 2x2 crop halved it on 7 Aug 2026) and this catches the stale markup.
+        # 2x2 crop halved it to 600px on 7 Aug 2026, then the sharper Commons
+        # original took it to 900px the same day) and this catches the stale
+        # markup left behind in index.html.
         assert [img.get_attribute("width"), img.get_attribute("height")] == \
             [str(n) for n in natural], \
             "width/height say %s but the asset is %s — the reserved box is wrong" % (
@@ -171,10 +181,11 @@ def stranger_hero(p, base):
 
 # ---------- stranger_hero_side_by_side ----------
 def stranger_hero_side_by_side(p, base):
-    """The 7 Aug shape: headline in its own column on the LEFT, the four-square
-    board beside it on the RIGHT, their tops level so the torn square and the
-    question read as one unit — on a narrow phone and on a tablet, with the
-    door still above the fold and nothing hanging off the side."""
+    """The 7 Aug shape: headline in its own column on the LEFT with the caption
+    stacked under it, the four-square board beside them on the RIGHT, their tops
+    level so the torn square and the question read as one unit — on a narrow
+    phone and on a tablet, with the door still above the fold and nothing
+    hanging off the side."""
     for label, w, h in SHAPES:
         with H.app(p, context_args={"viewport": {"width": w, "height": h}}) \
                 as (page, errors, _ctx):
@@ -208,12 +219,52 @@ def stranger_hero_side_by_side(p, base):
                 why + "headline top %.0f vs board top %.0f — they don't read as one unit" % (
                     g["head"]["t"], g["img"]["t"])
 
-            # Stacked, not one long line: several lines of big type.
+            # Stacked, not one long line: several lines of big type. Four is
+            # the intent (WHO'S / UNDER / THE / PAPER?); five means the clamp
+            # outgrew its column and "PAPER?" hyphenated, which looks broken.
             fs = float(page.evaluate(
                 "getComputedStyle(document.querySelector('.stranger-headline')).fontSize")
                 .replace("px", ""))
             lines = round(g["head"]["h"] / (fs * 0.94))
-            assert lines >= 3, why + "the headline is only %d line(s) tall" % lines
+            assert 3 <= lines <= 4, why + "the headline is %d lines tall" % lines
+
+            # THE CAPTION RIDES WITH THE HEADLINE (Daniel, 7 Aug 2026): same
+            # column, same left edge, directly underneath — not spanning the
+            # full width below the board, and never pushed away from the
+            # headline by the board's spare height (grid-template-rows).
+            assert abs(g["cap"]["l"] - g["head"]["l"]) <= 1, \
+                why + "caption starts at %.0f but the headline at %.0f — different columns" % (
+                    g["cap"]["l"], g["head"]["l"])
+            assert g["cap"]["r"] <= g["img"]["l"] + 0.5, \
+                why + "the caption runs under the board (ends %.0f, board starts %.0f)" % (
+                    g["cap"]["r"], g["img"]["l"])
+            gap = g["cap"]["t"] - g["head"]["b"]
+            assert 0 <= gap <= 24, \
+                why + "%.0fpx between headline and caption — they stop reading as one block" % gap
+            # "About two lines" (Daniel's words): two where the column allows,
+            # three on the narrowest phones. One means it stretched into a
+            # banner, four means it has become a paragraph.
+            assert 2 <= g["capLines"] <= 3, \
+                why + "the caption wrapped over %d lines" % g["capLines"]
+
+            # The board is the thing being sold, so it holds its half: it was
+            # enlarged on 7 Aug and must not quietly shrink back.
+            assert g["img"]["w"] >= g["hero"]["w"] * 0.48, \
+                why + "the board is %.0f of the hero's %.0f — it has shrunk" % (
+                    g["img"]["w"], g["hero"]["w"])
+
+            # SHARP ON A GOOD PHONE. This is the first picture of the product
+            # anyone sees, and a modern screen draws three device pixels per
+            # CSS pixel — so the file has to carry 3x whatever it is drawn at.
+            # The tablet shape is the binding one: the board stops growing at
+            # its CSS cap, and the asset is cut to exactly 3x that. Enlarge the
+            # board without re-shooting the asset and this fails here.
+            nat = page.evaluate(
+                "() => document.querySelector('.stranger-demo').naturalWidth")
+            assert nat >= g["img"]["w"] * 3 - 1, \
+                why + "the board is drawn at %.0fpx but the asset is only %dpx — " \
+                "it will look soft at 3x; re-shoot with tools/make_demo_shot.py" % (
+                    g["img"]["w"], nat)
 
             # A square board (it is cut from a square scrap grid), inside the
             # page, with no sideways scroll anywhere.

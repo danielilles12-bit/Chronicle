@@ -280,30 +280,53 @@ button.cal-cell:active { background: var(--ch-parchment); }
    SIDE BY SIDE (Daniel, 7 Aug 2026): the headline no longer sits above the
    board, it stands in its own column to its LEFT, next to the torn square in
    the board's top-left corner — question and answer-hole reading as one unit.
-   A two-column grid over the FIRST row only; caption, door, reassurance and
-   the section label all span the full width underneath, and the DOM keeps the
-   headline first so reading order is untouched. The 47% board track and the
-   1fr text track are both minmax(0, …) so a long word can never push the grid
-   wider than the screen. */
+   The 54% board track and the 1fr text track are both minmax(0, …) so a long
+   word can never push the grid wider than the screen.
+
+   THE WORDS STACK, THE BOARD GROWS (Daniel, 7 Aug 2026): the caption used to
+   sit under BOTH columns, which left the board floating in the top-right with
+   dead cream under it and the button a long way from the picture selling it.
+   It now sits in the left column directly under the headline — two lines of
+   plain instruction under the big question — and the board spans both those
+   rows, so it is bigger, its bottom edge lands near the text's, and the door
+   is close underneath. Left column is the pitch, right column is the proof,
+   button under the pair.
+   DOM order is reading order — question, instruction, picture, door — so a
+   screen reader hears the ask before the board that poses it; the side-by-side
+   is only ever CSS grid. */
 #stranger-hero {
   margin: 15px 20px 0;
-  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 47%);
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 54%);
+  /* auto then 1fr, and it matters. The board spans both rows, so whenever it
+     is the taller column (every width from a big phone up) grid has to put the
+     leftover height SOMEWHERE — split evenly across two auto rows it lands
+     between the headline and the caption and opens a 60px hole in the middle
+     of the pitch. Sending all the slack to row 2 keeps the caption tight under
+     the headline and leaves the spare cream at the bottom of the column, next
+     to the board's lower half, where nobody reads it as a gap. */
+  grid-template-rows: auto 1fr;
   column-gap: 14px; align-items: start;
 }
-/* Everything spans both columns by default; the two that make the top row say
-   so themselves, and they need to out-specify the rule above — hence the
-   #stranger-hero > prefix on both. */
+/* Everything spans both columns by default; the three that make the top block
+   say so themselves, and they need to out-specify the rule above — hence the
+   #stranger-hero > prefix on each.
+   The board spans rows 1-2 (headline and caption) rather than sitting in row 1
+   only: that is what lets it be as tall as the words beside it. Whichever
+   column runs longer sets the block's height, so neither can clip the other. */
 #stranger-hero > * { grid-column: 1 / -1; }
 #stranger-hero > .stranger-headline { grid-column: 1; grid-row: 1; }
-#stranger-hero > .stranger-demo { grid-column: 2; grid-row: 1; }
+#stranger-hero > .stranger-caption { grid-column: 1; grid-row: 2; }
+#stranger-hero > .stranger-demo { grid-column: 2; grid-row: 1 / span 2; }
 .stranger-headline {
   margin: 0; font-family: var(--ch-font-display); font-weight: 400;
-  /* Sized to fill its half: 9vw holds "PAPER?" — the longest line — at 80-90%
-     of the column from a 320px phone to a desktop window, so it reads as big
-     stacked type rather than small type with a wide margin, and it stays four
-     lines the whole way. The 54px ceiling is where it stops growing once the
-     600px app column has stopped growing too. */
-  font-size: clamp(24px, 9vw, 54px); line-height: .94; letter-spacing: -0.015em;
+  /* Sized so the longest word always fits its column on one line — that is
+     what keeps it four lines (WHO'S / UNDER / THE / PAPER?) at every width
+     instead of hyphenating into five. "PAPER?" measures 4.22x the font size in
+     this face, and the text column is 46% of the hero minus the 14px gutter,
+     so 8.2vw clears it with a few px to spare from a 320px phone upward. It
+     came down from 9vw when the board took more width on 7 Aug; the ceiling of
+     54px is where it stops growing once the 600px app column has too. */
+  font-size: clamp(24px, 8.2vw, 54px); line-height: .94; letter-spacing: -0.015em;
   text-transform: uppercase; color: var(--ch-text-primary);
   /* Four short stacked lines are the intent, so let the long word break
      rather than widen the column or spill over the board. */
@@ -316,17 +339,25 @@ button.cal-cell:active { background: var(--ch-parchment); }
    baked in — so the ink frame below is the house's own weight and can never end
    up scaled to some other thickness. aspect-ratio backs up the width/height
    attributes so the reserved box survives a CSS-only load.
-   Half the width the nine-square board used to take: at 375px that is a ~154px
-   board with ~77px squares, close enough to the real game's 100px squares that
-   the eye still reads at a glance (the source crop was tightened to match — see
-   the tool). The 264px cap stops it sprawling in the 600px desktop column. */
+   At 375px that is a ~181px board with ~90px squares, near enough the real
+   game's 100px squares that the eye reads it at a glance (the source crop was
+   tightened to match — see the tool). The 300px cap stops it sprawling in the
+   600px desktop column, and the asset is 900px square, so even the cap is
+   drawn at 3 device pixels per CSS pixel. */
 .stranger-demo {
-  display: block; width: 100%; max-width: 264px; height: auto; aspect-ratio: 1 / 1;
+  display: block; width: 100%; max-width: 300px; height: auto; aspect-ratio: 1 / 1;
   margin: 0 0 0 auto; background: var(--ch-parchment);
   border: 2.5px solid var(--ch-ink); box-shadow: var(--ch-shadow-card);
 }
+/* The instruction, in the left column under the headline. Two lines from a
+   430px phone upward, three on a narrow one — "Name the historical figure."
+   alone needs 11.5x the font size and the text column at 375px is only 140px,
+   so two lines there would mean a ~12px caption. Legibility won: the third
+   line is the honest cost, and it happens to bring the column's bottom edge
+   level with the board's. Kept at 14px for that reason — do not shrink it to
+   buy the line back. */
 .stranger-caption {
-  margin: 16px 0 12px; font-size: 14.5px; line-height: 1.45; color: var(--ch-text-secondary);
+  margin: 13px 0 0; font-size: 14px; line-height: 1.4; color: var(--ch-text-secondary);
 }
 .stranger-reassure {
   margin: 9px 0 0; text-align: center;
@@ -368,7 +399,13 @@ button.cal-cell:active { background: var(--ch-parchment); }
    screen the palest thing on it. Every other magenta plate in the house —
    .install-tip-cta, .install-cta, .install-kicker, .moving-kicker, the intro
    sheet's button — is already ink on magenta; this was the one exception. */
+/* The gap under the hero block is the button's own margin now: the caption
+   used to carry it, and the caption has moved up into the left column. Kept
+   deliberately short so the door sits just under the board — the picture poses
+   the question, the button is the answer, and a wide band of cream between
+   them reads as two unrelated things. */
 #stranger-play {
+  margin-top: 18px;
   background: var(--df-magenta); color: var(--ch-ink); border-color: var(--ch-ink);
   animation: cta-nudge 3s ease-in-out infinite;
 }
