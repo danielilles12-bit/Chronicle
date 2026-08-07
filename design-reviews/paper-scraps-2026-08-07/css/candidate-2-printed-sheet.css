@@ -1,0 +1,54 @@
+/* ==========================================================================
+   CANDIDATE 2 — "ONE PRINTED SHEET"                   (mockup, 7 Aug 2026)
+   Paper-scraps art direction. NOT SHIPPED.
+   APPLY CANDIDATE 1 FIRST — this file is the delta on top of it.
+
+   Candidate 1 makes nine different sheets. This makes them one sheet again:
+   a single extremely faint composition is printed across the WHOLE cover and
+   the nine scraps each carry a different fragment of it — a cropped masthead
+   over the top row, a double newspaper rule under it, a column rule, a patch
+   of halftone residue bottom-left, registration crosshairs at two corners
+   and CMYK bars in the right-hand margin. Scraps 3, 4, 7 and 8 carry a
+   hairline or nothing at all: roughly half the cover stays blank.
+
+   PRINT FURNITURE ONLY. No facts, no dates, no illustrations, no words that
+   could be read as a clue: the only lettering is the house name at a size
+   that crops it to letterforms, which is what a masthead is.
+
+   The pieces rotate independently (the game sets an inline rotate per
+   scrap), so the composition does NOT line up perfectly across the seams —
+   it is a sheet that was torn and whose pieces then shifted. That is the
+   point, not a bug.
+
+   Mechanism: one shared 300x300 SVG, inlined as a data URI so this patch has
+   no file dependency, drawn on ::before at background-size 300% 300% with a
+   background-position per grid index. One asset, nine crops, no JS.
+
+   KNOWN LIMIT: the masthead is set in Georgia (a system serif), because an
+   SVG used as a background image cannot reach the app's own webfont. A
+   shipping version would convert those letterforms to paths — half an hour,
+   and it also makes the file smaller.
+   ========================================================================== */
+
+.df-scrap::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20300%20300%27%20width%3D%27300%27%20height%3D%27300%27%3E%20%3Cdefs%3E%20%3Cpattern%20id%3D%27h%27%20width%3D%275%27%20height%3D%275%27%20patternUnits%3D%27userSpaceOnUse%27%3E%3Ccircle%20cx%3D%271.4%27%20cy%3D%271.4%27%20r%3D%271.2%27%20fill%3D%27%230B0B0B%27%2F%3E%3C%2Fpattern%3E%20%3CradialGradient%20id%3D%27f%27%3E%3Cstop%20offset%3D%27.05%27%20stop-color%3D%27%23fff%27%20stop-opacity%3D%271%27%2F%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23fff%27%20stop-opacity%3D%270%27%2F%3E%3C%2FradialGradient%3E%20%3Cmask%20id%3D%27m%27%3E%3Cellipse%20cx%3D%2744%27%20cy%3D%27256%27%20rx%3D%2786%27%20ry%3D%2762%27%20fill%3D%27url%28%23f%29%27%2F%3E%3C%2Fmask%3E%20%3C%2Fdefs%3E%20%3Ctext%20x%3D%27-46%27%20y%3D%2766%27%20font-family%3D%27Georgia%2CTimes%20New%20Roman%2Cserif%27%20font-size%3D%27104%27%20font-weight%3D%27700%27%20letter-spacing%3D%271%27%20fill%3D%27%230B0B0B%27%20opacity%3D%27.030%27%3EYESTERNERD%3C%2Ftext%3E%20%3Cg%20stroke%3D%27%230B0B0B%27%20fill%3D%27none%27%3E%20%3Cline%20x1%3D%278%27%20y1%3D%27112%27%20x2%3D%27292%27%20y2%3D%27112%27%20stroke-width%3D%271.4%27%20opacity%3D%27.085%27%2F%3E%20%3Cline%20x1%3D%278%27%20y1%3D%27116.5%27%20x2%3D%27292%27%20y2%3D%27116.5%27%20stroke-width%3D%27.7%27%20opacity%3D%27.065%27%2F%3E%20%3Cline%20x1%3D%27196%27%20y1%3D%27131%27%20x2%3D%27196%27%20y2%3D%27287%27%20stroke-width%3D%27.8%27%20opacity%3D%27.060%27%2F%3E%20%3Cline%20x1%3D%2714%27%20y1%3D%27197%27%20x2%3D%27104%27%20y2%3D%27197%27%20stroke-width%3D%27.7%27%20opacity%3D%27.050%27%2F%3E%20%3C%2Fg%3E%20%3Crect%20x%3D%270%27%20y%3D%27186%27%20width%3D%27160%27%20height%3D%27114%27%20fill%3D%27url%28%23h%29%27%20opacity%3D%27.085%27%20mask%3D%27url%28%23m%29%27%2F%3E%20%3Cg%20stroke%3D%27%230B0B0B%27%20fill%3D%27none%27%20stroke-width%3D%27.9%27%20opacity%3D%27.15%27%3E%3Ccircle%20cx%3D%27266%27%20cy%3D%2738%27%20r%3D%279%27%2F%3E%3Cpath%20d%3D%27M266%2024v28M252%2038h28%27%2F%3E%3C%2Fg%3E%20%3Cg%20stroke%3D%27%230B0B0B%27%20fill%3D%27none%27%20stroke-width%3D%27.8%27%20opacity%3D%27.10%27%3E%3Ccircle%20cx%3D%2733%27%20cy%3D%27285%27%20r%3D%277%27%2F%3E%3Cpath%20d%3D%27M33%20274v22M22%20285h22%27%2F%3E%3C%2Fg%3E%20%3Cg%20opacity%3D%27.13%27%3E%3Crect%20x%3D%27282%27%20y%3D%27130%27%20width%3D%2712%27%20height%3D%275%27%20fill%3D%27%232FC9E8%27%2F%3E%3Crect%20x%3D%27282%27%20y%3D%27137%27%20width%3D%2712%27%20height%3D%275%27%20fill%3D%27%23FF3DDB%27%2F%3E%3Crect%20x%3D%27282%27%20y%3D%27144%27%20width%3D%2712%27%20height%3D%275%27%20fill%3D%27%23FFE93B%27%2F%3E%3Crect%20x%3D%27282%27%20y%3D%27151%27%20width%3D%2712%27%20height%3D%275%27%20fill%3D%27%230B0B0B%27%2F%3E%3C%2Fg%3E%20%3C%2Fsvg%3E");
+  background-size: 300% 300%;
+  background-repeat: no-repeat;
+  /* One knob for the whole composition. Below ~.6 it disappears on a phone;
+     above ~1.4 it starts to look like a pattern instead of a ghost. */
+  opacity: var(--sheet-strength, 1);
+}
+
+.df-scrap[data-i="0"]::before { background-position: 0% 0%; }
+.df-scrap[data-i="1"]::before { background-position: 50% 0%; }
+.df-scrap[data-i="2"]::before { background-position: 100% 0%; }
+.df-scrap[data-i="3"]::before { background-position: 0% 50%; }
+.df-scrap[data-i="4"]::before { background-position: 50% 50%; }
+.df-scrap[data-i="5"]::before { background-position: 100% 50%; }
+.df-scrap[data-i="6"]::before { background-position: 0% 100%; }
+.df-scrap[data-i="7"]::before { background-position: 50% 100%; }
+.df-scrap[data-i="8"]::before { background-position: 100% 100%; }
+
+/* The printer's mark from candidate 1 sits over the sheet, not under it. */
+.df-scrap[data-i="8"]::after { z-index: 1; }

@@ -1,0 +1,120 @@
+diff --git a/css/style.css b/css/style.css
+index 2dcb740c..36fa747f 100644
+--- a/css/style.css
++++ b/css/style.css
+@@ -1408,3 +1408,115 @@ button.cal-cell:active { background: var(--ch-parchment); }
+ #qa-panel .qa-btn:active { background: #2c2c35; }
+ #qa-panel .qa-danger { grid-column: 1 / -1; border-color: var(--df-red); color: #ff9b9b; }
+ #qa-panel .qa-off { grid-column: 1 / -1; border-color: #55555f; color: #b9b9c2; }
++
++
++/* ##########################################################################
++   PAPER-SCRAPS MOCKUP — candidate-1-cheap-80.css
++   Appended block. A shipping version would fold these overrides
++   into the .df-scrap rules above rather than restating them.
++   ########################################################################## */
++/* ==========================================================================
++   CANDIDATE 1 — "THE CHEAP 80%"                       (mockup, 7 Aug 2026)
++   Paper-scraps art direction. NOT SHIPPED. Nothing here touches game logic,
++   adjacency, scoring, saved games, sound or accessibility behaviour.
++
++   The complaint: nine identically stamped squares read as branded wrapping
++   paper, or as game tiles, rather than as one sheet of paper torn apart.
++
++   The fix, in three moves, all pure CSS, no new assets:
++     1. ONE printer's mark instead of nine watermarks. A chop in the corner
++        of a sheet reads as print; the same chop nine times reads as a
++        repeat pattern.
++     2. Nine sheets, not one mould. Each scrap gets its own paper shade,
++        its own grain angle, its own halftone-dot offset and its own extra
++        fraction of a degree of rotation.
++     3. Nine pieces lying on each other. A 1.5px hard ink shadow per scrap
++        plus a reversed paint order, so each piece sits ON the ones down
++        and to its right — the same hard-shadow language as the house's
++        `box-shadow: 3px 3px 0 var(--ch-ink)` cards.
++
++   Applied as an append to css/style.css (it only overrides the existing
++   `.df-scrap` block); a shipping version would fold it into that block.
++   ========================================================================== */
++
++/* --- Paper stock: same recipe, now driven by per-scrap variables --------- */
++.df-scrap {
++  /* the three gradient stops, the grain angle, the dot ink and the dot
++     offset are all per-scrap below; these are the defaults. */
++  --p1: #F4F0E4; --p2: #EDE7D5; --p3: #E4DDC8;
++  --grain: 160deg;
++  --dot-ink: rgba(11,11,11,.08);
++  --dot-x: 0px; --dot-y: 0px;
++  /* `locked` paints a whisper of grey through this layer (see below): with
++     the watermark gone, the locked state needs its own quiet mark. */
++  --veil: rgba(11,11,11,0);
++  background:
++    linear-gradient(var(--veil), var(--veil)),
++    radial-gradient(var(--dot-ink) 1px, transparent 1.2px) var(--dot-x) var(--dot-y) / 9px 9px,
++    linear-gradient(var(--grain), var(--p1) 0%, var(--p2) 55%, var(--p3) 100%);
++  /* A hard ink shadow, not a blur — the house draws shadows as offset ink.
++     3% over-scale closes the slivers of photograph that the existing ±2deg
++     rotations open along the seams, and buys the overlap the shadow needs
++     to fall on. */
++  box-shadow: 1.5px 1.5px 0 rgba(11,11,11,.17);
++  scale: 1.03;
++}
++
++/* Reversed paint order: scrap 0 on top, scrap 8 at the bottom, so every
++   piece's down-right shadow lands on the piece it overlaps. Torn scraps are
++   opacity 0 / pointer-events none, so this changes nothing about hit
++   testing or the tear. */
++.df-scrap[data-i="0"] { z-index: 9; }
++.df-scrap[data-i="1"] { z-index: 8; }
++.df-scrap[data-i="2"] { z-index: 7; }
++.df-scrap[data-i="3"] { z-index: 6; }
++.df-scrap[data-i="4"] { z-index: 5; }
++.df-scrap[data-i="5"] { z-index: 4; }
++.df-scrap[data-i="6"] { z-index: 3; }
++.df-scrap[data-i="7"] { z-index: 2; }
++.df-scrap[data-i="8"] { z-index: 1; }
++
++/* --- Nine sheets off the same ream -------------------------------------
++   Tones stay inside a 5-value band around the current stock, so this reads
++   as "same paper, different sheets", never as a patchwork. `rotate` is the
++   independent transform property, so it ADDS to the inline rotation the
++   game already sets (js/revealgame.js buildScraps) without fighting it —
++   the tell-tale −2/0/2/−1/1 repeat stops being visible.
++   -------------------------------------------------------------------- */
++.df-scrap[data-i="0"] { --p1:#F6F2E7; --p2:#EFE9D8; --p3:#E5DECA; --grain:160deg; --dot-x:0px;  --dot-y:0px; --dot-ink:rgba(11,11,11,.085); rotate:  .70deg; border-color: rgba(11,11,11,.50); }
++.df-scrap[data-i="1"] { --p1:#F2EEE1; --p2:#EBE5D2; --p3:#E2DBC5; --grain:148deg; --dot-x:3px;  --dot-y:2px; --dot-ink:rgba(11,11,11,.070); rotate: -.50deg; border-color: rgba(11,11,11,.44); }
++.df-scrap[data-i="2"] { --p1:#F5F1E6; --p2:#EEE8D6; --p3:#E6DFCB; --grain:172deg; --dot-x:5px;  --dot-y:6px; --dot-ink:rgba(11,11,11,.090); rotate:  .40deg; border-color: rgba(11,11,11,.52); }
++.df-scrap[data-i="3"] { --p1:#F3EFE3; --p2:#ECE6D4; --p3:#E3DCC7; --grain:155deg; --dot-x:1px;  --dot-y:4px; --dot-ink:rgba(11,11,11,.065); rotate:  .90deg; border-color: rgba(11,11,11,.42); }
++.df-scrap[data-i="4"] { --p1:#F6F2E6; --p2:#F0EAD9; --p3:#E7E0CC; --grain:166deg; --dot-x:6px;  --dot-y:1px; --dot-ink:rgba(11,11,11,.080); rotate: -.80deg; border-color: rgba(11,11,11,.50); }
++.df-scrap[data-i="5"] { --p1:#F1EDE0; --p2:#EAE4D1; --p3:#E1DAC4; --grain:143deg; --dot-x:2px;  --dot-y:7px; --dot-ink:rgba(11,11,11,.075); rotate:  .50deg; border-color: rgba(11,11,11,.47); }
++.df-scrap[data-i="6"] { --p1:#F5F0E5; --p2:#EEE7D5; --p3:#E5DEC9; --grain:176deg; --dot-x:7px;  --dot-y:3px; --dot-ink:rgba(11,11,11,.060); rotate:  .90deg; border-color: rgba(11,11,11,.44); }
++.df-scrap[data-i="7"] { --p1:#F3EFE4; --p2:#EDE7D6; --p3:#E4DDC9; --grain:151deg; --dot-x:4px;  --dot-y:5px; --dot-ink:rgba(11,11,11,.088); rotate: -.60deg; border-color: rgba(11,11,11,.52); }
++.df-scrap[data-i="8"] { --p1:#F4F0E5; --p2:#EDE7D5; --p3:#E4DDC8; --grain:160deg; --dot-x:0px;  --dot-y:8px; --dot-ink:rgba(11,11,11,.078); rotate:  .35deg; border-color: rgba(11,11,11,.47); }
++
++/* --- One printer's mark, not nine watermarks ---------------------------
++   Eight scraps carry nothing. The ninth carries the house name once, small,
++   in the corner where a plate mark lives — bottom-right, the last corner a
++   3x3 usually loses. Same string, same −14deg, roughly a ninth of the ink.
++   -------------------------------------------------------------------- */
++.df-scrap::after { content: ''; }
++
++.df-scrap[data-i="8"]::after {
++  content: 'YESTERNERD';
++  position: absolute; right: 9px; bottom: 15px;
++  font-family: var(--ch-font-ui); font-size: 7px; font-weight: 700;
++  letter-spacing: .14em; color: rgba(11,11,11,.26);
++  /* the −14deg swings the far end of the line downward, so the mark sits a
++     line-and-a-half up from the paper's edge to keep its tail off the ink
++     frame (the frame clips: #rv-frame is overflow:hidden). */
++  transform: rotate(-14deg); transform-origin: 100% 100%;
++  white-space: nowrap; pointer-events: none;
++}
++
++/* --- Locked keeps its own mark ------------------------------------------
++   Today a locked scrap is signalled by `.df-scrap.locked::after {opacity:.5}`
++   — a dimmer watermark — plus cursor:not-allowed. With the watermark gone
++   from eight scraps that whisper would vanish, so the veil layer carries it
++   instead: a locked scrap sits a shade flatter than a live one. The dashed
++   `.tearable` border remains the loud half of the pair, unchanged.
++   -------------------------------------------------------------------- */
++.df-scrap.locked { --veil: rgba(11,11,11,.05); }
