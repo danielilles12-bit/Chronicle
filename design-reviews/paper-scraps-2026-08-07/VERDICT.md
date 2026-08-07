@@ -233,6 +233,10 @@ found. This mockup took four rebuilds to get here.
 
 ## Every path
 
+**The review page** (private artifact, everything below laid out to look at,
+tap any board for the detailed view):
+https://claude.ai/code/artifact/a222ab85-512e-4478-be79-ea1b2a383d70
+
 **Contact sheets (start here)** — current vs 1 vs 2 vs 3, four states each:
 - `design-reviews/paper-scraps-2026-08-07/renders/_contact-sheet_who.png` (Face Value)
 - `design-reviews/paper-scraps-2026-08-07/renders/_contact-sheet_what.png` (Relic)
