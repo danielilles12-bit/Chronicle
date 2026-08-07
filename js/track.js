@@ -40,6 +40,12 @@ const DISPLAY = {
   'archive-map': '3-started-archive-lifeline',
   'archive-what': '3-started-archive-relic',
   'archive-thread': '3-started-archive-thread',
+  // The repair strip (7 Aug 2026): a missed day still inside the two-day
+  // window, offered at the top of Home. -shown fires once per session when the
+  // strip actually appears, -open when the player takes it — the pair is the
+  // only way to tell whether making the repair window visible does any work.
+  'repair-shown': '3-repair-offered',
+  'repair-open': '3-started-repair',
   // The daily manifest didn't cover an edition it should have. Two causes,
   // one alarm: approve wasn't run for that edition (the file is there, the
   // entry isn't — cursor arithmetic fills in, the daily still exists), or

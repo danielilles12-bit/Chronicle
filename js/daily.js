@@ -401,10 +401,118 @@ export function derivedStreak(validAt, today) {
   return { streak: n, lastEdition: anchor };
 }
 
+// ---------- the SHOWED-UP streak (locked decision #2, displayed 7 Aug 2026) ----------
+// Locked decision #2 says finishing any ONE of the four games keeps the run
+// alive; all four is a full house — prestige, never the minimum. The ledger
+// always honoured that in the data, but every surface on screen read the
+// FULL-HOUSE number, so the faithful one-game-a-morning player was shown an
+// empty week forever. These helpers are what the display reads now.
+//
+// Nothing about the RULES moved: isStreakValid (the two-day repair window) and
+// derivedStreak are untouched, and the predicate below is simply
+// "any one game counts" instead of "all four". Because streaks are DERIVED
+// from the completion records rather than incremented, no migration is needed —
+// an existing player's number becomes correct on their next load, and it will
+// mostly go UP.
+
+// Is this game's entry for edition e both present and inside the window?
+function entryValidIn(entries, g) {
+  return (e) => {
+    const en = entries[g] && entries[g][e];
+    return !!en && isStreakValid(e, en.completedOn);
+  };
+}
+
+// The one predicate the whole display hangs off: did the player show up for
+// edition e — any one of the four games, completed inside the window?
+// Score is irrelevant: closing the issue counts even with losses (decision #2).
+export function showedUpAt(e, ledgerEntries) {
+  const entries = ledgerEntries || store.getDailyLedger().entries || {};
+  return GAMES.some((g) => entryValidIn(entries, g)(e));
+}
+
+// All four, same window. The punch card's richer mark — the same punch, plus
+// the gold token — so a full house reads as part of one continuous run rather
+// than a separate achievement sitting alongside it.
+export function fullHouseAt(e, ledgerEntries) {
+  const entries = ledgerEntries || store.getDailyLedger().entries || {};
+  return GAMES.every((g) => entryValidIn(entries, g)(e));
+}
+
+// The live showed-up streak: derivedStreak with the "any one game" predicate.
+// Same walk, same anchor, same two-day reach — only the predicate is kinder.
+export function showedUpStreak(today) {
+  const t = today == null ? todayIndex() : today;
+  const entries = store.getDailyLedger().entries || {};
+  return derivedStreak((e) => showedUpAt(e, entries), t);
+}
+
+// The showed-up run as it STOOD, whether or not it is still alive. The
+// obituary needs this: derivedStreak reports 0 the moment a run is beyond
+// repair, which is exactly the moment the wake is held, so the wake would have
+// nothing to bury. It used to read the frozen ledger.fullHouse cache instead;
+// deriving it means it is right for players who never completed anything since
+// this shipped, with no migration.
+export function lastShowedUpRun(today) {
+  const t = today == null ? todayIndex() : today;
+  const entries = store.getDailyLedger().entries || {};
+  const valid = (e) => showedUpAt(e, entries);
+  let last = -Infinity;
+  GAMES.forEach((g) => {
+    Object.keys(entries[g] || {}).forEach((k) => {
+      const e = +k;
+      if (Number.isFinite(e) && e <= t && e > last && valid(e)) last = e;
+    });
+  });
+  if (!Number.isFinite(last)) return { streak: 0, lastEdition: -Infinity };
+  let n = 0;
+  while (valid(last - n)) n++;
+  return { streak: n, lastEdition: last };
+}
+
+// ---------- the repair window, made visible (7 Aug 2026) ----------
+// isStreakValid has always let a missed Tuesday be healed by finishing it from
+// the archive by Thursday. Nothing on screen ever said so, so a kind mechanic
+// did no work at all. This finds the one day worth telling the player about,
+// or null — and Home shows a quiet strip only when it returns something.
+//
+// All four conditions the strip needs live here, in one place:
+//   1. an edition still inside the two-day window has NO completed game;
+//   2. it is genuinely repairable — reachable through the Archive window, so
+//      canPlayEdition would actually open it (the launch path's own guard);
+//   3. there is a real run at stake (see `rescued` below);
+//   4. it has not already been repaired — a completed game makes showedUpAt
+//      true, and this returns null again by itself. No dismiss control, no
+//      stored flag: it expires on its own.
+//
+// Oldest first, because the older gap is the one that expires tonight.
+//
+// `rescued` is the run the player would have AFTER repairing — simulated by
+// running the existing derivedStreak over a predicate with that one day filled
+// in. That, not the currently-visible number, is what is at stake: a gap two
+// days back has already dragged the live streak down to 0 or 1, so gating on
+// the live number would hide the strip in precisely the case it exists for.
+export function repairOpportunity(today) {
+  const t = today == null ? todayIndex() : today;
+  const entries = store.getDailyLedger().entries || {};
+  const valid = (e) => showedUpAt(e, entries);
+  const current = derivedStreak(valid, t).streak;
+  for (let e = t - 2; e <= t - 1; e++) {
+    if (e < 0 || valid(e)) continue;                 // played already (or repaired)
+    if (!canPlayEdition(e, t)) continue;             // outside the Archive window
+    const rescued = derivedStreak((x) => (x === e ? true : valid(x)), t).streak;
+    // A run worth saving, and saving it has to actually change something.
+    if (rescued < 3 || rescued <= current) continue;
+    return { edition: e, rescued, lastDay: e + 2 === t };
+  }
+  return null;
+}
+
 // Record a daily completion: one immutable entry per (game, edition), then
-// recompute the per-game and full-house streaks from the record. A streak is
-// only truly dead once its first missed edition is past the repair window —
-// the obituary check in app.js uses lastEdition <= today - 4 accordingly.
+// recompute the showed-up, per-game and full-house streaks from the record. A
+// streak is only truly dead once its first missed edition is past the repair
+// window — the obituary check in app.js uses lastEdition <= today - 4
+// accordingly.
 export function recordDailyCompletion(game, editionIndex, detail) {
   const ledger = store.getDailyLedger();
   const completedOn = todayIndex();
@@ -422,6 +530,11 @@ export function recordDailyCompletion(game, editionIndex, detail) {
   GAMES.forEach((g) => { ledger.streaks[g] = derivedStreak(gameValid(g), completedOn); });
   const allValid = (e) => GAMES.every((g) => gameValid(g)(e));
   ledger.fullHouse = derivedStreak(allValid, completedOn);
+  // The number the display reads. Cached alongside the other two so the stored
+  // ledger describes itself; every SURFACE derives it live (showedUpStreak),
+  // which is what makes this migration-free for players already on a run.
+  const anyValid = (e) => GAMES.some((g) => gameValid(g)(e));
+  ledger.showedUp = derivedStreak(anyValid, completedOn);
 
   store.setDailyLedger(ledger);
   track(`finish-${game}`);

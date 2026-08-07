@@ -104,6 +104,35 @@ in player-facing copy: **Archive**. "Back issues" and "the Morgue" are retired.
   "today's" would be false on a Thursday card. The gold in-progress colour and
   the `row-progress` hook are unchanged.
 
+## Sharing (what a share actually is)
+
+Daniel's ruling, 7 Aug 2026. It had been agreed verbally before and was never
+written down here — which is exactly why the app drifted back to shipping a
+picture. Written down now. Built in `js/sharecard.js`;
+`tests/test_share_text_only.py` is the check on all of it.
+
+- **[ENGINE]** **A share is text and emoji only, ending in the link.** Written
+  results + the emoji result rows + `https://yesternerd.app/…`. **No generated
+  image, ever.** The canvas "receipt card" (a 1080×1350 PNG with wordmark,
+  Antinous sticker, big score and stamp) was deleted on 7 Aug 2026 along with
+  its brand-image preloading and all file/blob plumbing.
+- **[ENGINE]** **No share path may attach a file.** `navigator.share` is only
+  ever called with `{ text }` — never `{ files }`, and `navigator.canShare` is
+  not consulted at all. Enforced by `tests/test_share_text_only.py`, which
+  covers all four games plus the full-house and obituary screens.
+- **[ENGINE]** **The clipboard fallback stays.** Where the Web Share API is
+  missing, the same text is copied and the button says
+  **"Copied — paste it anywhere"** (failure says "Sharing unavailable here").
+- **[ENGINE]** **The emoji result rows are the point** and are untouched —
+  Thread's colour grid, Lifeline's ✅/🧭/⚰️ row, Face Value / Relic's 🟩/🟨/🟥
+  row. Pure colour squares in the shared text, Wordle-family convention; the
+  in-app colourblind glyphs stay in-app.
+- **[ENGINE]** **Every share ends with the link**, keeping its per-game
+  `?play=<game>&ref=share` path so a tapped link opens the recipient's own
+  today of that game.
+- **[JUDGMENT]** Removing the picture changed **no wording**. The five share
+  templates read exactly as they did before.
+
 ## Save it as an app (the install flow)
 
 Daniel's rulings, 5 Aug 2026, from the signed-off plan. Built in `js/install.js`;

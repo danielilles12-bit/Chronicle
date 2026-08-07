@@ -90,7 +90,7 @@
       <img class="masthead-sticker" src="assets/brand/antinous-sticker.png" alt="" aria-hidden="true">
       <h1><img class="masthead-wordmark" src="assets/brand/yesternerd-wordmark-primary-v2.png" alt="Yesternerd"></h1>
       <p class="dateline" id="dateline"></p>
-      <div id="punch-card" hidden role="button" tabindex="0" aria-label="Full-house streak this week — open Your Legacy"></div>
+      <div id="punch-card" hidden role="button" tabindex="0" aria-label="Your streak this week — open Your Legacy"></div>
     </header>
     <!-- Farewell strip (cutover, 4 Aug 2026): unhidden by app.js ONLY when
          served from deadfamous.* — the new house never shows it. -->
@@ -111,6 +111,17 @@
         <b id="ic-score">0</b>
       </div>
       <p class="ic-countdown" id="ic-countdown"></p>
+    </div>
+    <!-- The repair strip (7 Aug 2026): the two-day repair window, finally said
+         out loud. isStreakValid has always let a missed Tuesday be healed by
+         finishing it from the archive by Thursday; nothing ever told anyone,
+         so a kind mechanic did no work. Shown by refreshRepairStrip() only
+         when daily.repairOpportunity() finds a day worth saving, and it
+         disappears by itself once repaired or expired — no dismiss control.
+         Same box as the edition-closed strip above: no new visual language. -->
+    <div id="repair-strip" hidden>
+      <p class="rp-line" id="rp-line"></p>
+      <button type="button" class="pill primary" id="rp-btn"></button>
     </div>
     <!-- The install strip (v175): what a "Maybe later" leaves behind. One
          line, one button, an × that kills it for good — it teaches nothing,

@@ -88,6 +88,49 @@ def open_ledger(page):
     page.wait_for_selector("#ledger-body .ledger-table")
 
 
+# ---------- showed-up helpers (7 Aug 2026) ----------
+# One game per day, rotated, so no edition is ever a full house: the shape of a
+# real casual player's week and the exact shape the display used to render as
+# an empty card with no number.
+def seed_showed_up(page, base, editions, score=80):
+    for i, n in enumerate(editions):
+        g = GAMES[i % len(GAMES)]
+        seed_day(page, base, n, [g], score=score)
+
+
+def punch(page):
+    """What the masthead punch card is showing right now."""
+    return page.evaluate("""() => {
+      const el = document.querySelector('#punch-card');
+      if (!el || el.hidden) return null;
+      const sq = Array.from(el.querySelectorAll('.punch-day'));
+      const count = el.querySelector('.punch-count');
+      return {
+        text: (count && count.textContent) || '',
+        punched: sq.filter(s => s.classList.contains('punched')).length,
+        full: sq.filter(s => s.classList.contains('full')).length,
+        savable: sq.filter(s => s.classList.contains('savable')).length,
+        // display:none for a first-time visitor (.is-stranger #punch-card)
+        onScreen: el.offsetParent !== null,
+      };
+    }""")
+
+
+def repair_strip(page):
+    """The Home repair strip's copy, or None when it is not being offered."""
+    return page.evaluate("""() => {
+      const s = document.querySelector('#repair-strip');
+      if (!s || s.hidden) return null;
+      return { line: document.querySelector('#rp-line').innerText,
+               btn: document.querySelector('#rp-btn').innerText };
+    }""")
+
+
+def showed_up_streak(page, today):
+    return page.evaluate(
+        "t => __CHRONICLE_TEST__.daily.showedUpStreak(t).streak", today)
+
+
 # ---------- streak_counts_up ----------
 def streak_counts_up(p, base):
     """Four consecutive full houses: every per-game streak and the full-house
@@ -116,9 +159,9 @@ def streak_counts_up(p, base):
         page.click("#dd-home")
         page.wait_for_selector("#view-home:not([hidden])")
 
-        # Masthead punch card: this week's holes plus the running count.
+        # Masthead punch card: this week's holes plus the plain streak label.
         punch = page.inner_text("#punch-card").lower()
-        assert "4 running" in punch, "punch card lost the streak: %r" % punch
+        assert "4-day streak" in punch, "punch card lost the streak: %r" % punch
 
         # Your Legacy prints the same current streak (column 3 of each row).
         open_ledger(page)
@@ -444,10 +487,277 @@ def edition_math_is_dst_proof(p, base):
             H.fail_on_errors(errors, "edition_math_is_dst_proof/" + tz)
 
 
+# ---------- showed_up_streak_is_what_is_displayed ----------
+def showed_up_streak_is_what_is_displayed(p, base):
+    """Locked decision #2, finally on screen. One game a day — a DIFFERENT game
+    each day, so not one edition is a full house — must read as a live run
+    everywhere, and a day scored ZERO must count exactly the same as a good one
+    ("closing the issue is celebrated even with losses").
+
+    This is the regression the whole change exists for: before it, the ledger
+    derived this run and every surface printed the full-house one, so the card
+    below would have shown seven blank squares and no number at all.
+    """
+    # Anchored on a Sunday so all six days sit inside the card's Mon–Sun week
+    # (see full_house_is_marked_but_counts_as_one_day for the same trick).
+    T = N - (N % 7) - 1
+    with H.app(p) as (page, errors, _ctx):
+        seed_showed_up(page, base, [T - 6, T - 5, T - 4, T - 3, T - 1])
+        seed_day(page, base, T - 2, ["what"], score=0)   # a day lost outright
+
+        H.boot(page, base, H.edition_date(T))             # today, still unplayed
+        assert showed_up_streak(page, T) == 6, (
+            "six one-game days should be a six-day run, got %r"
+            % showed_up_streak(page, T))
+        # The full-house streak — what every surface used to read — is nothing.
+        assert H.ledger(page)["fullHouse"]["streak"] == 0, (
+            "the scenario needs NO full house, else it proves nothing")
+
+        pc = punch(page)
+        assert pc and pc["onScreen"], "the punch card is missing for a regular"
+        assert pc["punched"] == 6, (
+            "punch card should hole six days, got %r" % pc)
+        assert pc["full"] == 0, "no day was a full house here: %r" % pc
+        assert "6-day streak" in pc["text"].lower(), (
+            "punch card lost the showed-up run: %r" % pc["text"])
+        # The zero-score day is one of the six holes, not a gap.
+        assert page.evaluate(
+            "n => __CHRONICLE_TEST__.daily.showedUpAt(n)", T - 2) is True, (
+            "a zero-score completion must still count as showing up")
+        H.fail_on_errors(errors, "showed_up_streak_is_what_is_displayed")
+
+
+# ---------- full_house_is_marked_but_counts_as_one_day ----------
+def full_house_is_marked_but_counts_as_one_day(p, base):
+    """Prestige inside the same run. A full-house day wears a richer mark than
+    a one-game day, but it is still ONE day of ONE continuous run — it must not
+    count twice, and it must not start a second, rival streak display."""
+    # The punch card is a Mon–Sun week, so this scenario runs on the most recent
+    # SUNDAY at or before N: the whole week is on the card with nothing cut off
+    # either end. (weekday(n) == n % 7 for n >= 0, because EPOCH is a Monday.)
+    sunday = N - (N % 7) - 1
+    assert sunday >= 42, "need a full week inside the launch era, got %d" % sunday
+    week = list(range(sunday - 6, sunday))        # Mon..Sat; Sunday is 'today'
+    with H.app(p) as (page, errors, _ctx):
+        seed_showed_up(page, base, week)
+        seed_day(page, base, week[1], GAMES)          # one full house, mid-run
+
+        H.boot(page, base, H.edition_date(sunday))
+        pc = punch(page)
+        assert pc["full"] == 1, (
+            "exactly one day of this week was a full house, got %r" % pc)
+        assert pc["punched"] == len(week), (
+            "the full-house day must still be one of the holes: %r" % pc)
+        assert ("%d-day streak" % len(week)) in pc["text"].lower(), (
+            "a full house must not inflate the run: %r" % pc["text"])
+        # And it is the SAME element, wearing an extra class — not a second
+        # display bolted on beside the run.
+        assert page.evaluate(
+            "() => document.querySelectorAll('#punch-card .punch-day.full:not(.punched)').length") == 0, (
+            "a full-house mark that is not also a punch breaks the one run")
+        H.fail_on_errors(errors, "full_house_is_marked_but_counts_as_one_day")
+
+
+# ---------- celebration_and_share_carry_the_showed_up_run ----------
+def celebration_and_share_carry_the_showed_up_run(p, base):
+    """You Made History, its milestone postmark and its share receipt all read
+    the showed-up run. Four one-game days then a full house today = a 5-day run
+    (a milestone); the full-house streak is 1, which is what the screen used to
+    print — and 1 is no milestone at all, so the postmark never fired either."""
+    with H.app(p) as (page, errors, ctx):
+        ctx.grant_permissions(["clipboard-read", "clipboard-write"], origin=base)
+        seed_showed_up(page, base, [N - 4, N - 3, N - 2, N - 1], score=70)
+        seed_day(page, base, N, GAMES)                # all four today
+
+        H.boot(page, base, DATE)
+        page.wait_for_selector("#view-daydone:not([hidden])")
+        assert H.ledger(page)["fullHouse"]["streak"] == 1, (
+            "the scenario needs a 1-day full-house streak to be meaningful")
+        assert "5 days" in page.inner_text("#dd-streak").lower(), (
+            "celebration should name the 5-day showed-up run, got %r"
+            % page.inner_text("#dd-streak"))
+        assert page.locator("#dd-milestone").is_visible(), (
+            "day 5 is a milestone on the showed-up run")
+        assert "5" in page.inner_text("#dd-milestone-n")
+
+        page.click("#dd-share")                        # clipboard fallback path
+        page.wait_for_function(
+            "document.querySelector('#dd-share').textContent"
+            ".toLowerCase().indexOf('copied') === 0", timeout=8000)
+        clip = page.evaluate("navigator.clipboard.readText()")
+        assert "5-day streak" in clip, (
+            "the receipt should carry the showed-up run: %r" % clip[:160])
+        H.fail_on_errors(errors, "celebration_and_share_carry_the_showed_up_run")
+
+
+# ---------- obituary_buries_the_showed_up_run ----------
+def obituary_buries_the_showed_up_run(p, base):
+    """A three-day one-game-a-morning run, no full house anywhere. It dies the
+    same way, and now it gets the same wake — before this, maybeMourn read the
+    full-house streak, so this player's run ended in total silence."""
+    last = N - 4
+    with H.app(p) as (page, errors, _ctx):
+        seed_showed_up(page, base, [last - 2, last - 1, last])
+        assert H.ledger(page)["fullHouse"]["streak"] == 0, (
+            "the scenario needs no full house at all")
+
+        H.boot(page, base, H.edition_date(last + 3))    # still repairable
+        assert page.locator("#view-daydone").is_hidden(), "wake held a day early"
+
+        H.boot(page, base, H.edition_date(last + 4))    # beyond repair
+        page.wait_for_selector("#view-daydone:not([hidden])")
+        assert "history" in page.inner_text("#dd-title").lower()
+        assert "3 days" in page.inner_text("#dd-total").lower(), (
+            "the wake should name the 3-day run, got %r"
+            % page.inner_text("#dd-total"))
+        H.fail_on_errors(errors, "obituary_buries_the_showed_up_run")
+
+
+# ---------- never_shows_a_zero ----------
+def never_shows_a_zero(p, base):
+    """No player is ever shown a "0". A first-time visitor never sees the card
+    at all; a player whose run has just died gets a quiet line instead."""
+    with H.app(p) as (page, errors, _ctx):
+        H.boot(page, base, DATE)                       # brand new
+        pc = punch(page)
+        assert pc is None or not pc["onScreen"], (
+            "a stranger should not be shown the punch card: %r" % pc)
+
+        # A run, then four days of nothing: dead, and past repair.
+        seed_showed_up(page, base, [N - 8, N - 7, N - 6])
+        H.boot(page, base, DATE)
+        assert showed_up_streak(page, N) == 0, "the scenario needs a dead run"
+        # A moment screen may open over Home (the wake); the card is behind it.
+        pc = punch(page)
+        assert pc is not None, "the punch card vanished for a regular"
+        assert "0" not in pc["text"], (
+            "a dead run must never be printed as a zero: %r" % pc["text"])
+        # With no streak the label is absent entirely — silence, not a notice of
+        # failure, and not the old "No run yet" (Daniel, 7 Aug 2026).
+        assert "streak" not in pc["text"].lower(), (
+            "a dead run should carry no streak label at all, got %r" % pc["text"])
+        H.fail_on_errors(errors, "never_shows_a_zero")
+
+
+# ---------- repair_strip_shows_only_when_all_four_conditions_hold ----------
+def repair_strip_shows_only_when_all_four_conditions_hold(p, base):
+    """The repair window, made visible. The strip needs ALL of: a missed
+    edition still inside the two-day window, genuinely reachable, a real run at
+    stake, and not already repaired. It carries the deadline and the number it
+    is protecting, its button goes into that day's first unplayed game, and it
+    disappears by itself the moment the day is repaired."""
+    with H.app(p) as (page, errors, _ctx):
+        # Five showed-up days, a hole at N-2, and today untouched.
+        seed_showed_up(page, base, [N - 6, N - 5, N - 4, N - 3])
+        seed_day(page, base, N - 1, ["thread"])
+        H.boot(page, base, DATE)
+
+        assert showed_up_streak(page, N) == 1, (
+            "the gap should already have collapsed the live run to 1, got %r"
+            % showed_up_streak(page, N))
+        strip = repair_strip(page)
+        assert strip is not None, "the repair strip did not appear"
+        day = page.evaluate("n => __CHRONICLE_TEST__.daily.weekdayName(n)", N - 2)
+        assert day.lower() in strip["line"].lower(), (
+            "the strip should name the day it is offering: %r" % strip)
+        assert "tonight" in strip["line"].lower(), (
+            "a day at its last chance closes TONIGHT: %r" % strip)
+        assert "6-day" in strip["line"].lower(), (
+            "the strip should price the run it saves: %r" % strip)
+        assert day.lower() in strip["btn"].lower(), (
+            "the button should name the day: %r" % strip)
+
+        # The button is the day cards' route, not a second one: it opens that
+        # edition's first unplayed game through the same guarded launch path.
+        page.click("#rp-btn")
+        H.dismiss_intro(page)
+        page.wait_for_selector("#view-reveal:not([hidden])")
+        page.wait_for_function("__CHRONICLE_TEST__.revealRound !== undefined")
+        want = page.evaluate(
+            "n => __CHRONICLE_TEST__.daily.getEdition('who', n).map(x => x.id)", N - 2)
+        got = page.evaluate("__CHRONICLE_TEST__.revealRound.id")
+        assert got in want, (
+            "the strip opened the wrong day: round %r is not in edition %d"
+            % (got, N - 2))
+
+        # Repaired: the strip retires itself, and the run is whole again.
+        H.boot(page, base, DATE)
+        H.seed_completion(page, "who", N - 2, score=44)
+        H.boot(page, base, DATE)
+        assert repair_strip(page) is None, (
+            "the strip should be gone once the day is repaired")
+        assert showed_up_streak(page, N) == 6, (
+            "the repair should have restored the six-day run, got %r"
+            % showed_up_streak(page, N))
+        assert "6-day streak" in punch(page)["text"].lower()
+        H.fail_on_errors(errors, "repair_strip/appears-and-retires")
+
+    # Nothing at stake: one lonely day behind the gap is not a run to nag about.
+    with H.app(p) as (page, errors, _ctx):
+        seed_day(page, base, N - 1, ["who"])
+        H.boot(page, base, DATE)
+        assert repair_strip(page) is None, (
+            "the strip nagged a player with nothing at stake")
+        H.fail_on_errors(errors, "repair_strip/nothing-at-stake")
+
+    # Past repair: a gap older than the two-day window is never offered, and a
+    # gap the player has already filled is never offered either.
+    with H.app(p) as (page, errors, _ctx):
+        seed_showed_up(page, base, [N - 6, N - 5, N - 4])   # hole at N-3
+        seed_day(page, base, N - 2, ["map"])
+        seed_day(page, base, N - 1, ["what"])
+        H.boot(page, base, DATE)
+        assert repair_strip(page) is None, (
+            "a gap outside the two-day window must not be offered")
+        assert punch(page)["savable"] == 0, (
+            "nothing is savable, so no square should be marked savable")
+        H.fail_on_errors(errors, "repair_strip/past-repair")
+
+
+# ---------- late_archive_play_cannot_revive_a_dead_run ----------
+def late_archive_play_cannot_revive_a_dead_run(p, base):
+    """The kind display must not become a loophole. Playing an old edition from
+    the Archive still writes the entry and still reads Done — but outside the
+    two-day window it buys no run, for the showed-up streak exactly as for the
+    per-game ones. isStreakValid is untouched, and this proves it."""
+    with H.app(p) as (page, errors, _ctx):
+        seed_showed_up(page, base, [N - 6, N - 5])
+        H.boot(page, base, DATE)
+        assert showed_up_streak(page, N) == 0, "the run should already be dead"
+
+        # Today, from the Archive, finish edition N-4: air + 2 = N-2 < N.
+        H.seed_completion(page, "who", N - 4, score=90)
+        assert page.evaluate(
+            "__CHRONICLE_TEST__.daily.dailyStatus('who', %d)" % (N - 4)) == "done", (
+            "the archive record must still be kept")
+        assert showed_up_streak(page, N) == 0, (
+            "a late archive play resurrected a dead run: %r"
+            % showed_up_streak(page, N))
+        # Still dead, so the masthead carries no streak label at all.
+        assert "streak" not in punch(page)["text"].lower(), (
+            "a late archive play must not put a streak back on the masthead: %r"
+            % punch(page))
+
+        # The day INSIDE the window still heals, so the window itself is intact.
+        H.seed_completion(page, "map", N - 2, score=30)
+        assert showed_up_streak(page, N) == 1, (
+            "a completion inside the window should still count: %r"
+            % showed_up_streak(page, N))
+        H.fail_on_errors(errors, "late_archive_play_cannot_revive_a_dead_run")
+
+
 TESTS = [streak_counts_up, grace_is_a_repair_window, repair_window_boundary,
          past_midnight_completion, obituary_threshold, ledger_survives_reload,
          backup_heals_ledger, read_failure_never_wipes,
-         edition_math_is_dst_proof]
+         edition_math_is_dst_proof,
+         # The showed-up display (7 Aug 2026)
+         showed_up_streak_is_what_is_displayed,
+         full_house_is_marked_but_counts_as_one_day,
+         celebration_and_share_carry_the_showed_up_run,
+         obituary_buries_the_showed_up_run,
+         never_shows_a_zero,
+         repair_strip_shows_only_when_all_four_conditions_hold,
+         late_archive_play_cannot_revive_a_dead_run]
 
 
 def main():

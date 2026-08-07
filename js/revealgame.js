@@ -11,7 +11,7 @@ import { track, roundOutcome, durationBucket } from './track.js';
 import { isMatch, registerPool } from './match.js';
 import { confirmFirstGuess } from './guesswarn.js';
 import * as daily from './daily.js';
-import { revealShareText, revealEmojiRow, shareResult, flashShareButton, shareUrl } from './sharecard.js';
+import { revealShareText, shareResult, flashShareButton } from './sharecard.js';
 import { attachPinchZoom } from './pinchzoom.js';
 import * as sfx from './sfx.js';
 
@@ -1081,13 +1081,6 @@ function renderLockedSummary() {
   const isDaily = S.mode === 'daily' && S.editionIndex != null;
   S.share = isDaily ? {
     text: revealShareText(MODE, S.editionIndex, S.results, S.score),
-    card: {
-      game: MODE === 'who' ? 'FACE VALUE' : 'RELIC',
-      glyph: MODE === 'who' ? '🖼️' : '🏺',
-      score: S.score, sub: `ISSUE № ${S.editionIndex}`,
-      rows: [revealEmojiRow(S.results.slice(0, 5)), revealEmojiRow(S.results.slice(5))].filter(Boolean),
-      url: shareUrl(MODE),
-    },
     trackAs: `share-${MODE}`,
   } : null;
   const rvShare = $('#rv-sum-share');

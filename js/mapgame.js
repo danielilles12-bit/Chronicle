@@ -5,7 +5,7 @@ import { track, roundOutcome, durationBucket } from './track.js';
 import { isMatch, registerPool } from './match.js';
 import { confirmFirstGuess } from './guesswarn.js';
 import * as daily from './daily.js';
-import { mapShareText, mapEmojiRow, shareResult, flashShareButton, shareUrl } from './sharecard.js';
+import { mapShareText, shareResult, flashShareButton } from './sharecard.js';
 import * as sfx from './sfx.js';
 
 const MAP_W = 1000, MAP_H = 500;
@@ -808,11 +808,6 @@ function renderLockedSummary() {
   const isDaily = S.mode === 'daily' && S.editionIndex != null;
   S.share = isDaily ? {
     text: mapShareText(S.editionIndex, S.results, S.score),
-    card: {
-      game: 'LIFELINE', glyph: '🗺️', score: S.score, sub: `ISSUE № ${S.editionIndex}`,
-      rows: [mapEmojiRow(S.results.slice(0, 5)), mapEmojiRow(S.results.slice(5))].filter(Boolean),
-      url: shareUrl('map'),
-    },
     trackAs: 'share-map',
   } : null;
   const sumShare = $('#sum-share');

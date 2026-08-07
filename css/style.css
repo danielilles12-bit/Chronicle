@@ -111,10 +111,22 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   width: 9px; height: 9px; border-radius: 50%; background: var(--ch-ink);
   box-shadow: inset 1px 1px 0 rgba(255,255,255,.35);
 }
+/* Full house = the SAME punch, on a gold (magenta) ticket. Prestige lives
+   inside the one continuous run rather than as a rival mark beside it: every
+   day you showed up has a hole, and the days you cleared all four are the ones
+   printed on colour. At the card's real 17px the ~4px magenta border round the
+   hole is unmistakable next to a cream square — checked on a 375px phone. */
+#punch-card .punch-day.full { background: var(--ch-gold); }
+/* Missed, but still savable: a square scored for punching rather than punched.
+   Dashed ink edge (not the soft grey a future day gets), so at 17px the gap in
+   the week reads as an open offer — the one the repair strip below is making. */
+#punch-card .punch-day.savable { border-style: dashed; color: var(--ch-ink); }
 #punch-card .punch-count {
   margin-left: 7px; font-family: var(--ch-font-ui); font-weight: 700; font-size: 11px;
   letter-spacing: .12em; text-transform: uppercase; color: var(--ch-ink);
 }
+/* Never a zero. A brand-new player never sees the card at all
+   (.is-stranger #punch-card); a player between runs gets this instead of "0". */
 
 /* Celebration milestone postmark (streak days 2/3/5/7/10/25/50/100). */
 .dd-postmark { display: flex; justify-content: center; margin: 2px 0 8px; }
@@ -462,6 +474,15 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 .ic-row b { font-family: var(--ch-font-display); font-weight: 400; font-size: 30px; line-height: 1; color: var(--ch-text-primary); font-variant-numeric: tabular-nums; }
 .ic-countdown { margin: 10px 0 0; font-family: var(--ch-font-ui); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--ch-text-muted); }
 .ic-countdown b { display: block; margin-top: 2px; font-family: var(--ch-font-display); font-weight: 400; font-size: 22px; letter-spacing: .02em; color: var(--ch-text-primary); }
+
+/* The repair strip (7 Aug 2026): a missed day that is still savable. Same box
+   as the edition-closed strip above — cream, ink, hard shadow, no new visual
+   language — because this is an invitation, not an alarm. The one accent is
+   the deadline in the first clause, which is the whole point of the thing. */
+#repair-strip { margin: 12px 20px 2px; padding: 14px 16px; background: var(--ch-cream); border: 2px solid var(--ch-ink); box-shadow: var(--ch-shadow-card); }
+.rp-line { margin: 0 0 12px; font-size: 15px; line-height: 1.45; color: var(--ch-text-primary); }
+.rp-line b { font-weight: 700; }
+#repair-strip .pill { width: 100%; text-align: center; }
 
 /* Farewell strip (cutover, 4 Aug 2026): shown by app.js only on deadfamous.*.
    Deliberately LOUD — magenta plate, top of Home — because for a stranded
@@ -1363,6 +1384,11 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 
 /* Full-house streak pair. */
 .ledger-streaks { display: flex; gap: 10px; margin: 14px 0 4px; padding: 12px 0; border-top: 2px dashed var(--ch-line-soft); border-bottom: 2px dashed var(--ch-line-soft); }
+/* The full-house pair sits directly under the showed-up pair inside ONE ruled
+   band — a rule top and bottom only, so the two read as the same record rather
+   than as two competing scoreboards. */
+.ledger-streaks-lead { margin-bottom: 0; padding-bottom: 4px; border-bottom: 0; }
+.ledger-streaks-fh { margin-top: 0; padding-top: 0; border-top: 0; }
 .ledger-streak { flex: 1; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
 .ledger-streak span { font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--ch-text-muted); }
 .ledger-streak b { font-family: var(--ch-font-display); font-weight: 400; font-size: 26px; line-height: 1; font-variant-numeric: tabular-nums; color: var(--ch-text-primary); }

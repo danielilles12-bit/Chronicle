@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v192';
+const BUILD = 'v195';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -13,7 +13,7 @@ if (/iP(hone|ad|od)/.test(navigator.userAgent)
 
 import * as store from './storage.js';
 import { track, initTracking } from './track.js';
-import { fullHouseShareText, obituaryShareText, shareResult, flashShareButton, shareUrl } from './sharecard.js';
+import { fullHouseShareText, obituaryShareText, shareResult, flashShareButton } from './sharecard.js';
 import { isMatch } from './match.js';
 import { initMapGame, renderMapStart, startMapDaily } from './mapgame.js';
 import { initRevealGame, renderRevealStart, startRevealDaily } from './revealgame.js';
@@ -94,7 +94,7 @@ function render() {
   // Rollover: revisiting Home re-evaluates today's edition, so a session left
   // open across local midnight picks up the new day's Today strip without
   // needing a live timer (see spec "Rollover").
-  if (id === 'view-home') { refreshHomeStats(); refreshTodayStrip(); refreshIssueClosed(); }
+  if (id === 'view-home') { refreshHomeStats(); refreshTodayStrip(); refreshIssueClosed(); refreshRepairStrip(); }
   else stopIssueClosedCountdown();
   if (id === 'view-mapstart') renderMapStart();
   if (id === 'view-revealstart') renderRevealStart();
@@ -420,26 +420,54 @@ function renderDayCards(g, today, stranger) {
 }
 
 // The masthead punch card (approved streak look, the "combo"): this week as
-// seven die-punched ticket squares — a hole is that day's full house — plus
-// the running count while the streak is alive. "Alive" includes runs still
-// inside the 48h repair window, matching derivedStreak's anchor in daily.js.
+// seven die-punched ticket squares plus the running count.
+//
+// A hole is a day you SHOWED UP — any one of the four games finished inside
+// the streak window (locked decision #2). It used to be a full house, which is
+// why a player who faithfully finished one game every morning was shown an
+// empty week and no number, forever: the app counted a kind streak and
+// displayed a brutal one. Nothing about the rules changed here — only which
+// predicate the display reads (daily.showedUpAt / daily.showedUpStreak).
+//
+// A full-house day keeps the same hole and adds the gold token behind it, so
+// prestige lives INSIDE the one continuous run rather than as a rival mark.
+// The one day the repair strip is offering gets a dashed square — a hole not
+// punched YET — so the gap in the week and the offer below it tell one story
+// rather than two. Never a zero: with no run the card says so quietly instead
+// of printing "0", and a stranger never sees the card at all
+// (.is-stranger #punch-card).
 function renderPunchCard() {
   const el = $('#punch-card');
   if (!el) return;
   const today = daily.todayIndex();
   if (today < 0) { el.hidden = true; return; }
+  const entries = store.getDailyLedger().entries || {};
+  const op = daily.repairOpportunity(today);
   const monday = today - daily.weekday(today);
   const letters = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
   const chips = letters.map((ch, i) => {
     const day = monday + i;
-    const done = day <= today && day >= 0 && fullHouseDone(day);
-    const cls = ['punch-day', done ? 'punched' : '', day === today ? 'today' : '', day > today ? 'future' : '']
+    const live = day <= today && day >= 0;
+    const done = live && daily.showedUpAt(day, entries);
+    const full = done && daily.fullHouseAt(day, entries);
+    const savable = !done && !!op && op.edition === day;
+    const cls = ['punch-day', done ? 'punched' : '', full ? 'full' : '',
+      savable ? 'savable' : '',
+      day === today ? 'today' : '', day > today ? 'future' : '']
       .filter(Boolean).join(' ');
-    return `<span class="${cls}">${done ? '<i></i>' : ch}</span>`;
+    const spoken = full ? ' title="Full house"'
+      : savable ? ' title="Still open — finish any one game"' : '';
+    return `<span class="${cls}"${spoken}>${done ? '<i></i>' : ch}</span>`;
   }).join('');
-  const fh = store.getDailyLedger().fullHouse || { streak: 0, lastEdition: -Infinity };
-  const alive = Number.isFinite(fh.lastEdition) && fh.lastEdition >= today - 3 && fh.streak > 0;
-  el.innerHTML = chips + (alive ? `<span class="punch-count">№ ${fh.streak} running</span>` : '');
+  // Plainest possible words (Daniel, 7 Aug 2026): "6-day streak", not "№ 6
+  // running" — house voice must never cost a player a beat of comprehension.
+  // With no streak the label is simply absent; the week of squares still shows
+  // which days were played, and a player between runs is told nothing at all
+  // rather than handed a small notice of failure.
+  const run = daily.showedUpStreak(today).streak;
+  el.innerHTML = chips + (run > 0
+    ? `<span class="punch-count">${run}-day streak</span>`
+    : '');
   el.hidden = false;
 }
 
@@ -966,8 +994,10 @@ function fullHouseDone(n) {
 // A "win" is any daily that scored above zero; scoring nothing (giving up every
 // round, or losing the Thread board) is a loss. The full-house celebration is
 // the reward for winning all four — a day finished with a loss gets the quiet
-// edition-closed strip instead (Change A). The ledger/streak/punch-card
-// semantics stay completion-based (fullHouseDone), untouched.
+// edition-closed strip instead (Change A). fullHouseDone is now used by that
+// strip alone: since 7 Aug 2026 the punch card's full-house mark asks
+// daily.fullHouseAt instead, which adds the streak-window test the strip does
+// not want (the strip is about the day you are standing in, nothing else).
 function allWon(n) {
   const ledger = store.getDailyLedger();
   return daily.GAMES.every((g) => {
@@ -993,16 +1023,13 @@ function fullHouseShare(n) {
     const e = ledger.entries[g] && ledger.entries[g][n];
     scores[g] = (e && e.score) || 0;
   });
-  const streak = (ledger.fullHouse && ledger.fullHouse.streak) || 1;
+  // The showed-up run (locked decision #2), not the full-house one: the number
+  // in the share has to be the number on the masthead, or the share turns a
+  // player's real six-day run into a lie about a one-day one.
+  const streak = daily.showedUpStreak(n).streak || 1;
   const total = dayTotal(n);
   return {
     text: fullHouseShareText(n, scores, total, streak),
-    card: {
-      game: 'FULL HOUSE', glyph: '🏛️', score: total, sub: `ISSUE № ${n}`,
-      rows: [`🧵 ${scores.thread}   🗺️ ${scores.map}`, `🖼️ ${scores.who}   🏺 ${scores.what}`]
-        .concat(streak > 1 ? [`🔥 ${streak}-day streak`] : []),
-      url: shareUrl(),
-    },
     trackAs: 'share-fullhouse',
     idle: "Share today's receipt",
   };
@@ -1051,6 +1078,47 @@ function refreshIssueClosed() {
   icCountdownTimer = setInterval(tick, 1000);
 }
 
+// ---------- the repair strip (7 Aug 2026) ----------
+// The two-day repair window said out loud, at Home, at the moment of decision.
+// daily.repairOpportunity() owns all four conditions (a missed day still
+// inside the window, genuinely reachable, a real run at stake, not already
+// repaired) and returns null the instant any of them stops holding — so this
+// strip appears on open, and vanishes on its own once the day is repaired or
+// the window shuts. No dismiss control, no stored flag.
+//
+// Deadline-led, not guilt-led: it names the day, names the closing time, and
+// prices the fix at ONE game — which is all locked decision #2 ever asked for.
+// The button goes straight into that day's first unplayed game through
+// launchEdition, the same one door the day cards use.
+let repairShownFor = null;
+function refreshRepairStrip() {
+  const strip = $('#repair-strip');
+  if (!strip) return;
+  const today = daily.todayIndex();
+  const op = today >= 0 ? daily.repairOpportunity(today) : null;
+  if (!op) { strip.hidden = true; return; }
+  // Once per session per day offered — Home repaints on every visit, and an
+  // offer counted twenty times would drown its own take-up rate.
+  if (repairShownFor !== op.edition) { repairShownFor = op.edition; track('repair-shown'); }
+  const day = daily.weekdayName(op.edition);
+  const when = op.lastDay ? 'tonight' : 'tomorrow night';
+  // "is back", not "stands": the gap has already dropped the masthead count to
+  // 1 or 2, and the player can see it. Promising that a streak "stands" beside
+  // a number that plainly does not is the kind of small lie that costs trust.
+  // One word for this thing everywhere — "streak", never "run" (Daniel, 7 Aug
+  // 2026); the masthead label says the same.
+  $('#rp-line').innerHTML =
+    `<b>${day}’s issue is open until ${when}.</b> Finish any one game and your `
+    + `${op.rescued}-day streak is back.`;
+  $('#rp-btn').textContent = `Open ${day} ›`;
+  $('#rp-btn').onclick = () => {
+    const g = nextUnplayedDaily(op.edition) || daily.GAMES[0];
+    track('repair-open');
+    launchEdition(g, op.edition, document.querySelector(`[data-hero="${g}"] [data-status]`));
+  };
+  strip.hidden = false;
+}
+
 function showCelebration(n) {
   flagSet('df.celebrated', String(n));
   sfx.play('fanfare');
@@ -1060,8 +1128,9 @@ function showCelebration(n) {
   $('#dd-title').textContent = 'You made history.';
   $('#dd-score-label').textContent = "Today's total";
   $('#dd-total').textContent = dayTotal(n);
-  const ledger = store.getDailyLedger();
-  const streak = (ledger.fullHouse && ledger.fullHouse.streak) || 1;
+  // The showed-up run, so the celebration credits every morning the player
+  // turned up — not only the mornings they cleared all four.
+  const streak = daily.showedUpStreak(n).streak || 1;
   $('#dd-streak-label').textContent = 'Streak';
   $('#dd-streak').textContent = `${streak} day${streak === 1 ? '' : 's'}`;
   $('#dd-stamp').hidden = true;
@@ -1096,12 +1165,6 @@ function showObituary(streak, lastEdition) {
   // The obituary is the most human share in the app — dark humour travels.
   dayDoneShare = {
     text: obituaryShareText(streak, Math.max(0, lastEdition - streak + 1), lastEdition),
-    card: {
-      game: 'IN MEMORIAM', glyph: '⚰️', score: streak, unit: 'DAYS',
-      sub: `ISSUES №${Math.max(0, lastEdition - streak + 1)}–№${lastEdition}`,
-      rows: [], stamp: 'MEMENTO MORI',
-      url: shareUrl(),
-    },
     trackAs: 'share-obituary',
     idle: 'Share the obituary',
   };
@@ -1118,14 +1181,17 @@ function maybeCelebrate() {
   if (allWon(n) && flagGet('df.celebrated') !== String(n)) showCelebration(n);
 }
 function maybeMourn() {
-  const ledger = store.getDailyLedger();
-  const fh = ledger.fullHouse || { streak: 0, lastEdition: -Infinity };
   const today = daily.todayIndex();
+  // The showed-up run, derived rather than read from the frozen ledger cache
+  // (daily.lastShowedUpRun): the app now buries the run the player actually
+  // had — every morning they turned up — instead of a full-house run most of
+  // them never had in the first place.
+  const run = daily.lastShowedUpRun(today);
   // Dead means beyond repair: the first missed edition (lastEdition + 1) can
   // be healed until (lastEdition + 1) + 2, so the wake happens the day after.
-  if (fh.streak >= 3 && Number.isFinite(fh.lastEdition) && fh.lastEdition <= today - 4
-      && flagGet('df.mourned') !== String(fh.lastEdition)) {
-    showObituary(fh.streak, fh.lastEdition);
+  if (run.streak >= 3 && Number.isFinite(run.lastEdition) && run.lastEdition <= today - 4
+      && flagGet('df.mourned') !== String(run.lastEdition)) {
+    showObituary(run.streak, run.lastEdition);
     return true;
   }
   return false;
@@ -1360,9 +1426,10 @@ async function boot() {
   refreshTodayStrip();
   if (!maybeMourn()) maybeCelebrate();
   // Boot renders Home without going through render() (the view is visible by
-  // default), so paint the edition-closed strip here too — unless a moment
-  // screen (mourn/celebrate) already navigated away.
-  if (trail[trail.length - 1] === 'view-home') refreshIssueClosed();
+  // default), so paint the edition-closed and repair strips here too — unless
+  // a moment screen (mourn/celebrate) already navigated away. The repair strip
+  // has to be here in particular: Home on open IS the moment of decision.
+  if (trail[trail.length - 1] === 'view-home') { refreshIssueClosed(); refreshRepairStrip(); }
 
   maybeInitQA();
 

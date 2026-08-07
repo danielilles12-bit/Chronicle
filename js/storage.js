@@ -239,6 +239,7 @@ const emptyLedger = () => ({
   entries: {},   // entries[game][editionIndex] = { score, completedOn, detail }
   streaks: {},   // streaks[game] = { streak, lastEdition }
   fullHouse: { streak: 0, lastEdition: -Infinity },
+  showedUp: { streak: 0, lastEdition: -Infinity },  // any ONE game — what the display reads
 });
 
 // Always hands back a ledger with all three branches present. A blob that
@@ -255,6 +256,9 @@ export function getDailyLedger() {
   if (!l.streaks || typeof l.streaks !== 'object') l.streaks = {};
   if (!l.fullHouse || typeof l.fullHouse !== 'object') {
     l.fullHouse = { streak: 0, lastEdition: -Infinity };
+  }
+  if (!l.showedUp || typeof l.showedUp !== 'object') {
+    l.showedUp = { streak: 0, lastEdition: -Infinity };
   }
   return l;
 }

@@ -450,12 +450,17 @@ function initStrip() {
 // ---------------------------------------------------------------------------
 // the timing state machine
 // ---------------------------------------------------------------------------
-// The longest streak this device holds, across the four games and the full
-// house. Read straight off the ledger rather than through daily.js, which
-// imports app.js — this module stays free of that cycle.
+// The longest streak this device holds, across the four games, the full house
+// and — since the display switched to it — the showed-up run, which is the
+// number the player is actually looking at when this offer says "protect your
+// streak". Read straight off the ledger rather than through daily.js, which
+// imports app.js — this module stays free of that cycle. The cached showedUp
+// field is written by the same recordDailyCompletion that gates this offer, so
+// it is always fresh by the time this is asked.
 function bestStreak() {
   const l = store.getDailyLedger();
-  let best = (l.fullHouse && l.fullHouse.streak) || 0;
+  let best = Math.max((l.fullHouse && l.fullHouse.streak) || 0,
+                      (l.showedUp && l.showedUp.streak) || 0);
   Object.keys(l.streaks || {}).forEach((g) => {
     const s = (l.streaks[g] && l.streaks[g].streak) || 0;
     if (s > best) best = s;

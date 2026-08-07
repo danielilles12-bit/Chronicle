@@ -206,10 +206,10 @@ def capture_home_screens():
                           "js/app.js", 180),
                     field("Thread tagline", txt(page, '[data-hero="thread"] .hero-tagline'),
                           "js/app.js", 188),
-                    field("Untouched day-card label", "Untouched", "js/app.js", 392,
-                          note="dayCardLabels(): a past day nobody has opened yet. Deliberately never "
-                               "says “Play” (house rule, 7 Aug 2026)."),
-                    field("Done day-card label", "{points} pts", "js/app.js", 386),
+                    field("Done day-card label", "{points} pts", "js/app.js", 386,
+                          note="dayCardLabels(). A past day nobody has opened carries NO status line "
+                               "at all — silence, not a word (Daniel, 7 Aug 2026), so there is nothing "
+                               "to edit for that state."),
                     field("In-progress day-card label", "Resume", "js/app.js", 388),
                     field("Letters plate heading", txt(page, ".lt-head"), "index.html", 189),
                     field("Letters plate sub-line", txt(page, ".lt-sub"), "index.html", 190),
@@ -1442,6 +1442,12 @@ textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
   font-weight:800;font-size:14px;cursor:pointer}
 .cr-copybtn:active{transform:translateY(1px)}
 .cr-copystatus{color:var(--muted);font-size:13px}
+.cr-copyrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.cr-out{display:block;width:100%;margin-top:10px;min-height:120px;max-height:34vh;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;line-height:1.5;
+  padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);
+  color:var(--ink);resize:vertical;white-space:pre}
+.cr-out[hidden]{display:none}
 """
 
 PAGE_JS = """
@@ -1461,20 +1467,69 @@ function collectChanges(){
   });
   return out.join('\\n\\n');
 }
+// Edits are autosaved to this browser so a reload, a stray tap or a closed tab
+// can never bin an afternoon's work. Keyed by screen + label so the key stays
+// stable when the page is regenerated and screens shift position.
+var SAVE_KEY = 'yesternerd-copy-review-edits-v1';
+
+function fieldKey(t){
+  var scr = t.closest('.cr-screen').querySelector('h3').textContent.trim();
+  var label = t.closest('.cr-field').querySelector('label').textContent.trim();
+  return scr + '||' + label;
+}
+function saveEdits(){
+  var store = {};
+  document.querySelectorAll('.cr-screen textarea').forEach(function(t){
+    if (t.value !== t.dataset.original) store[fieldKey(t)] = t.value;
+  });
+  try { localStorage.setItem(SAVE_KEY, JSON.stringify(store)); } catch (e) {}
+}
+function restoreEdits(){
+  var store;
+  try { store = JSON.parse(localStorage.getItem(SAVE_KEY) || '{}'); } catch (e) { return 0; }
+  var n = 0;
+  document.querySelectorAll('.cr-screen textarea').forEach(function(t){
+    var v = store[fieldKey(t)];
+    if (typeof v === 'string' && v !== t.value) { t.value = v; n++; }
+  });
+  return n;
+}
+
+// The clipboard API is blocked inside a sandboxed frame, so the text box below
+// is the real mechanism and the clipboard call is only an opportunistic bonus.
 function copyAll(){
   var text = collectChanges();
   var status = document.getElementById('cr-status');
-  if (!text) { status.textContent = 'No changes yet \\u2014 edit a box above first.'; return; }
-  var lines = text.split('\\n\\n== ').length;
-  function done(ok){
-    status.textContent = ok ? ('Copied ' + lines + ' change block(s) to the clipboard.')
-                             : 'Could not copy automatically \\u2014 select the text yourself.';
+  var out = document.getElementById('cr-out');
+  if (!text) {
+    out.hidden = true;
+    status.textContent = 'No changes yet \\u2014 edit a box above first.';
+    return;
   }
+  var blocks = text.split('\\n\\n== ').length;
+  out.hidden = false;
+  out.value = text;
+  out.focus();
+  out.select();
+  status.textContent = blocks + ' change block(s) ready below \\u2014 press Cmd+C (or Ctrl+C) to copy, then paste into chat.';
   if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(text).then(function(){done(true);}, function(){done(false);});
-  } else { done(false); }
+    navigator.clipboard.writeText(text).then(function(){
+      status.textContent = 'Copied ' + blocks + ' change block(s). Paste into chat. (Also shown below, just in case.)';
+    }, function(){});
+  }
 }
+
 document.getElementById('cr-copyall').addEventListener('click', copyAll);
+document.addEventListener('input', function(e){
+  if (e.target && e.target.tagName === 'TEXTAREA' && e.target.closest('.cr-screen')) saveEdits();
+});
+(function(){
+  var n = restoreEdits();
+  if (n) {
+    document.getElementById('cr-status').textContent =
+      'Restored ' + n + ' edit(s) you made earlier in this browser.';
+  }
+})();
 """
 
 
@@ -1505,15 +1560,22 @@ def build_html():
     <p><b>You can stop after Tier 1</b> and still have covered most of what a player actually reads —
     Tiers 2 and 3 are folded shut below; open a section only if you want to go further.</p>
     <p>To send edits back: change any box you want to fix, then press <b>Copy all my changes</b> at the
-    bottom of the page and paste into chat. Untouched boxes are left out automatically.</p>
+    bottom of the page. Your changes appear in a text box there — select them and copy, then paste into
+    chat. Untouched boxes are left out automatically.</p>
+    <p><b>Your edits are saved in this browser as you type</b>, so closing the tab or reloading the page
+    will not lose them.</p>
     <p>%d screens/states captured, %d with a screenshot (the rest are text-only sets — share
     templates, screen-reader announcements, and the baked-into-artwork stamp — explained where they
     appear).</p>
   </div>
   %s
   <div class="cr-copybar">
-    <button class="cr-copybtn" id="cr-copyall" type="button">Copy all my changes</button>
-    <span class="cr-copystatus" id="cr-status"></span>
+    <div class="cr-copyrow">
+      <button class="cr-copybtn" id="cr-copyall" type="button">Copy all my changes</button>
+      <span class="cr-copystatus" id="cr-status"></span>
+    </div>
+    <textarea id="cr-out" class="cr-out" readonly hidden
+              aria-label="Your changes, ready to copy"></textarea>
   </div>
 </div>
 <script>%s</script>

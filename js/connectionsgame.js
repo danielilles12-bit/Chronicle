@@ -2,14 +2,15 @@
 import { $, $$, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, wireEncore, announce, consumeShareLaunch } from './app.js';
 import * as store from './storage.js';
 import * as daily from './daily.js';
-import { threadShareText, threadEmojiRows, shareResult, flashShareButton, shareUrl } from './sharecard.js';
+import { threadShareText, shareResult, flashShareButton } from './sharecard.js';
 import { track, durationBucket } from './track.js';
 import * as sfx from './sfx.js';
 
 const MAX_MISTAKES = 4;
 const COLOUR_ORDER = ['yellow', 'green', 'blue', 'purple'];
 // Card #12: colorblind print glyphs — zine ornaments, not an a11y mode toggle.
-// Prefixed on every solved-group label, in-app and on the canvas receipt.
+// Prefixed on every solved-group label in-app. (The shared text stays pure
+// colour squares — the Wordle-family convention.)
 const GROUP_GLYPH = { yellow: '●', green: '▲', blue: '■', purple: '✦' };
 let S = null;
 let currentPuzzle = null;
@@ -432,11 +433,6 @@ function renderThreadReceipt({ editionIndex, mode, title, score, solved, perfect
   const isDaily = mode === 'daily' && editionIndex != null;
   S.share = isDaily ? {
     text: threadShareText(editionIndex, { guesses, solved, perfect, mistakes, title }),
-    card: {
-      game: 'THREAD', glyph: '🧵', score, sub: `ISSUE № ${editionIndex}`,
-      rows: threadEmojiRows(guesses),
-      url: shareUrl('thread'),
-    },
     trackAs: 'share-thread',
   } : null;
   const shareBtn = $('#conn-sum-share');

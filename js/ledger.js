@@ -80,6 +80,16 @@ export function computeLedger(ledger, today) {
   anyEditions.forEach((n) => { if (allValidAt(n)) fhValidSet.add(n); });
   const fhBest = longestRun(fhValidSet);
 
+  // The SHOWED-UP streak — any one game, the run the masthead punch card
+  // prints. The punch card is one of this page's two doors, so the number it
+  // shows has to be on the page it opens; without this row Your Legacy would
+  // greet a six-day run with a "2" and look like the punch card was lying.
+  const anyValidAt = (e) => ROWS.some(({ key }) => gameValidAt(entries, key)(e));
+  const suCurrent = daily.derivedStreak(anyValidAt, today).streak;
+  const suValidSet = new Set();
+  anyEditions.forEach((n) => { if (anyValidAt(n)) suValidSet.add(n); });
+  const suBest = longestRun(suValidSet);
+
   const games = ROWS.map(({ key, label }) => {
     const p = played(key);
     let wins = 0;
@@ -104,6 +114,7 @@ export function computeLedger(ledger, today) {
     issuesFiled: anyEditions.size,
     fullHouses, perfectIssues,
     fhCurrent, fhBest,
+    suCurrent, suBest,
     firstEdition,
     games,
   };
@@ -162,10 +173,16 @@ export function renderLedger() {
       ${tallyBlock('Perfect days', empty ? '—' : d.perfectIssues)}
     </div>`;
 
+  // Showing up leads, the full house follows: same order of importance as the
+  // punch card, which is one of the two doors into this page.
   const streaks = `
-    <div class="ledger-streaks">
+    <div class="ledger-streaks ledger-streaks-lead">
+      <div class="ledger-streak"><span>Current streak</span><b>${empty ? '—' : d.suCurrent}</b></div>
+      <div class="ledger-streak"><span>Longest ever</span><b>${empty ? '—' : d.suBest}</b></div>
+    </div>
+    <div class="ledger-streaks ledger-streaks-fh">
       <div class="ledger-streak"><span>Full-house streak</span><b>${empty ? '—' : d.fhCurrent}</b></div>
-      <div class="ledger-streak"><span>Longest ever</span><b>${empty ? '—' : d.fhBest}</b></div>
+      <div class="ledger-streak"><span>Longest full house</span><b>${empty ? '—' : d.fhBest}</b></div>
     </div>`;
 
   const rows = d.games.map((g) => gameRow(g, empty)).join('');

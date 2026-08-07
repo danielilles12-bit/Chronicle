@@ -601,6 +601,7 @@ function recomputeStreaks(ledger, today) {
   ledger.streaks = ledger.streaks || {};
   GAMES.forEach((g) => { ledger.streaks[g] = daily.derivedStreak(validAt(g), today); });
   ledger.fullHouse = daily.derivedStreak((e) => GAMES.every((g) => validAt(g)(e)), today);
+  ledger.showedUp = daily.derivedStreak((e) => GAMES.some((g) => validAt(g)(e)), today);
   return ledger;
 }
 
@@ -673,15 +674,20 @@ export function summarise(source) {
   };
   const editions = new Set();
   GAMES.forEach((g) => Object.keys(entries[g] || {}).forEach((k) => editions.add(+k)));
-  const full = daily.derivedStreak((e) => GAMES.every((g) => validAt(g)(e)), today).streak;
+  // The showed-up run (locked decision #2) is the headline number, because it
+  // is the number the player sees on the masthead — a crate labelled "2-day
+  // full-house streak" when their punch card says 6 reads like the move lost
+  // four days. Falls back to the best single-game run only when nobody has
+  // shown up inside the window at all.
+  const showedUp = daily.derivedStreak((e) => GAMES.some((g) => validAt(g)(e)), today).streak;
   let best = 0;
   let bestGame = null;
   GAMES.forEach((g) => {
     const s = daily.derivedStreak(validAt(g), today).streak;
     if (s > best) { best = s; bestGame = g; }
   });
-  const streak = full > 0 ? full : best;
-  const label = full > 0 ? 'full-house streak' : (bestGame ? `${GAME_LABEL[bestGame]} streak` : 'streak');
+  const streak = showedUp > 0 ? showedUp : best;
+  const label = showedUp > 0 ? 'streak' : (bestGame ? `${GAME_LABEL[bestGame]} streak` : 'streak');
   return { issues: editions.size, streak, streakLabel: label };
 }
 

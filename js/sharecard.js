@@ -1,12 +1,14 @@
 // Share 2.0 — the approved grammar: one headline, one spoiler-free emoji row
-// that encodes the run, one human brag/wound line, then the link (once the
-// domain exists). Every game keeps its own glyph so a group chat can tell
-// games apart at a glance. Also draws the image receipt offered alongside
-// the text on share sheets that accept files.
+// that encodes the run, one human brag/wound line, then the link. Every game
+// keeps its own glyph so a group chat can tell games apart at a glance.
+//
+// TEXT AND EMOJI ONLY (Daniel, 7 Aug 2026). A share is written results +
+// emoji + the link — never a generated image. The canvas "receipt card" that
+// used to ride along as a PNG file attachment is gone; no share path may ever
+// attach a file again. See HOUSE_RULES.md "Sharing".
 import { track } from './track.js';
 
 // Full scheme on purpose: bare domains don't linkify in Discord/Slack.
-// The canvas receipt strips the scheme for display.
 // ?ref=share shows shared-link visits under the GoatCounter Campaigns panel
 // ("ref" is in its default campaign params). track.js scrubs the param after
 // the pageview is counted so it never bakes into an installed app's URL.
@@ -24,16 +26,10 @@ export function shareUrl(game) {
 }
 
 const THREAD_EMOJI = { yellow: '🟨', green: '🟩', blue: '🟦', purple: '🟪' };
-// Card #12: colorblind print glyphs. The text emoji-grid share (above) stays
-// pure colour squares — that's the Wordle-family convention, untouched here.
-// The canvas image receipt below additionally prefixes a solved-group row
-// (a guess where all four tiles matched, i.e. a homogeneous row) with its
-// glyph, drawn as ink text so it survives regardless of hue perception.
-const THREAD_GLYPH = { yellow: '●', green: '▲', blue: '■', purple: '✦' };
-const EMOJI_TO_COLOUR = Object.fromEntries(Object.entries(THREAD_EMOJI).map(([c, e]) => [e, c]));
 
-// Row builders are exported so the canvas receipt can reuse the exact same
-// encoding the text uses — one grammar, two renderings.
+// The result grid. This IS the shareable thing — pure colour squares, the
+// Wordle-family convention. Exported so any surface can render the same
+// encoding the share text uses.
 export function threadEmojiRows(guesses) {
   return (guesses || []).map((g) => g.map((c) => THREAD_EMOJI[c] || '⬜').join(''));
 }
@@ -92,132 +88,13 @@ export function obituaryShareText(streak, fromIssue, toIssue) {
     `RIP №${fromIssue}–№${toIssue}. MEMENTO MORI.`);
 }
 
-// ---------- the image receipt ----------
-let stickerImg = null;
-function sticker() {
-  if (!stickerImg) {
-    stickerImg = new Image();
-    stickerImg.src = 'assets/brand/antinous-sticker.png';
-  }
-  return stickerImg;
-}
-
-// The masthead the card wears (5 Aug 2026). It was type-set "DEAD / FAMOUS"
-// across two lines — the dead name, on every image anyone ever forwarded.
-// Drawing the real wordmark fixes the name AND honours the rule that
-// "Yesternerd" is never split across lines.
-let markImg = null;
-function wordmark() {
-  if (!markImg) {
-    markImg = new Image();
-    markImg.src = 'assets/brand/yesternerd-wordmark-primary-v2.png';
-  }
-  return markImg;
-}
-
-// Both brand images are created lazily, so a cold first share could reach the
-// canvas before they decode — the card would silently lose its masthead or its
-// sticker. Wait for them (briefly, and never fatally).
-function imgReady(img) {
-  if (img.complete && img.naturalWidth) return Promise.resolve();
-  return new Promise((resolve) => {
-    let done = false;
-    const end = () => { if (!done) { done = true; resolve(); } };
-    img.addEventListener('load', end, { once: true });
-    img.addEventListener('error', end, { once: true });
-    setTimeout(end, 1200);   // draw without it rather than hang the share
-  });
-}
-
-// spec: { game, glyph, score, rows: ['🟩🟨…', …], sub, stamp, url } → PNG blob.
-async function drawCard(spec) {
-  try { if (document.fonts && document.fonts.ready) await document.fonts.ready; } catch (e) { /* draw anyway */ }
-  try { await Promise.all([imgReady(wordmark()), imgReady(sticker())]); } catch (e) { /* draw anyway */ }
-  const W = 1080, H = 1350;
-  const cv = document.createElement('canvas');
-  cv.width = W; cv.height = H;
-  const x = cv.getContext('2d');
-  x.fillStyle = '#F2EFE6'; x.fillRect(0, 0, W, H);
-  x.fillStyle = 'rgba(11,11,11,.09)';
-  for (let px = 20; px < W; px += 38) for (let py = 20; py < H; py += 38) {
-    x.beginPath(); x.arc(px, py, 2.6, 0, 7); x.fill();
-  }
-  x.fillStyle = '#0B0B0B'; x.textBaseline = 'top';
-  const mk = wordmark();
-  if (mk.complete && mk.naturalWidth) {
-    const mw = 600, mh = mw * mk.naturalHeight / mk.naturalWidth;
-    x.drawImage(mk, 64, 116, mw, mh);
-  } else {
-    // Never split the name: one line, shrunk to fit rather than wrapped.
-    x.font = '400 104px "DF Slab","Arial Black",sans-serif';
-    x.fillText('YESTERNERD', 64, 150);
-  }
-  x.font = '700 34px "DF Mono",monospace';
-  x.fillText(spec.sub, 66, 330);
-  x.fillRect(64, 396, W - 128, 8);
-  const st = sticker();
-  if (st.complete && st.naturalWidth) {
-    x.save(); x.translate(W - 200, 168); x.rotate(0.10);
-    const sw = 240, sh = sw * st.naturalHeight / st.naturalWidth;
-    x.drawImage(st, -sw / 2, -sh / 2, sw, sh); x.restore();
-  }
-  const cy = 470;
-  x.fillStyle = '#0B0B0B'; x.fillRect(94, cy + 10, W - 168, 620);
-  x.fillStyle = '#FFF'; x.fillRect(84, cy, W - 168, 620);
-  x.strokeStyle = '#0B0B0B'; x.lineWidth = 6; x.strokeRect(84, cy, W - 168, 620);
-  x.fillStyle = '#0B0B0B'; x.textAlign = 'center';
-  x.font = '700 30px "DF Mono",monospace';
-  x.fillText(`${spec.glyph}  ${spec.game}`, W / 2, cy + 40);
-  x.setLineDash([16, 12]); x.beginPath(); x.moveTo(130, cy + 110); x.lineTo(W - 130, cy + 110); x.stroke(); x.setLineDash([]);
-  x.font = '400 200px "DF Slab","Arial Black",sans-serif';
-  x.fillText(String(spec.score), W / 2, cy + 150);
-  x.font = '700 26px "DF Mono",monospace'; x.fillStyle = '#6B675C';
-  x.fillText(spec.unit || 'POINTS', W / 2, cy + 372);
-  x.fillStyle = '#0B0B0B';
-  x.textAlign = 'center';
-  x.font = '48px -apple-system,"Segoe UI Emoji",sans-serif';
-  // Card #12: a Thread row where all four tiles matched (colours[0] repeated
-  // 4x in the emoji string) is a solved group. Prefix it with the group's
-  // ink-coloured glyph, drawn as text sized like the card's other label-scale
-  // text (30px, matching spec.sub above) — the emoji squares themselves are
-  // left untouched, exactly as the plain-text share grid stays pure colour.
-  (spec.rows || []).slice(0, 4).forEach((row, i) => {
-    const y = cy + 430 + i * 62;
-    if (spec.game === 'THREAD') {
-      const chars = Array.from(row);
-      const colour = chars.length && chars.every((c) => c === chars[0]) ? EMOJI_TO_COLOUR[chars[0]] : null;
-      const glyph = colour ? THREAD_GLYPH[colour] : null;
-      if (glyph) {
-        const rowWidth = x.measureText(row).width;
-        x.save();
-        x.font = '700 30px "DF Mono",monospace';
-        x.fillStyle = 'rgba(11,11,11,.8)';
-        x.textAlign = 'right';
-        x.fillText(glyph, W / 2 - rowWidth / 2 - 16, y + 9);
-        x.restore();
-      }
-    }
-    x.fillText(row, W / 2, y);
-  });
-  x.save(); x.translate(W / 2, 1210); x.rotate(-0.06);
-  x.strokeStyle = '#E02020'; x.lineWidth = 6; x.strokeRect(-250, -44, 500, 88);
-  x.fillStyle = '#E02020'; x.font = '700 40px "DF Mono",monospace';
-  x.fillText(spec.stamp || 'CARPET DIEM', 0, -20);
-  x.restore();
-  if (spec.url) {
-    x.fillStyle = '#0B0B0B'; x.font = '700 28px "DF Mono",monospace';
-    x.fillText(spec.url.replace(/^https?:\/\//, ''), W / 2, 1286);
-  }
-  x.textAlign = 'left';
-  return new Promise((res) => cv.toBlob(res, 'image/png'));
-}
-
 // ---------- the share flow ----------
-// Text is the primary unit (it pastes everywhere); the image receipt rides
-// along on share sheets that accept files (iOS 15+). Cancelling the sheet is
-// respected silently; no sheet at all falls back to the clipboard.
-export async function shareResult({ text, card, trackAs }) {
-  const outcome = await performShare(text, card);
+// Text is the only unit: it pastes everywhere, it survives every app, and it
+// is what a group chat actually reads. Never a file — see the ruling at the
+// top of this file. Cancelling the sheet is respected silently; no sheet at
+// all falls back to the clipboard.
+export async function shareResult({ text, trackAs }) {
+  const outcome = await performShare(text);
   // Count what actually happened, not the button tap: only 'shared' fires the
   // success event; copied/cancelled/failed each get their own suffixed event
   // so abandoned share sheets never inflate the share numbers.
@@ -225,22 +102,7 @@ export async function shareResult({ text, card, trackAs }) {
   return outcome;
 }
 
-async function performShare(text, card) {
-  if (card && navigator.share && navigator.canShare) {
-    try {
-      const blob = await drawCard(card);
-      if (blob) {
-        const file = new File([blob], 'yesternerd-receipt.png', { type: 'image/png' });
-        if (navigator.canShare({ files: [file] })) {
-          await navigator.share({ files: [file], text });
-          return 'shared';
-        }
-      }
-    } catch (e) {
-      if (e && e.name === 'AbortError') return 'cancelled';
-      // fall through to text-only
-    }
-  }
+async function performShare(text) {
   try {
     if (navigator.share) { await navigator.share({ text }); return 'shared'; }
   } catch (e) {
