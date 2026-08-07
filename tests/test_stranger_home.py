@@ -33,8 +33,8 @@ DATE = H.edition_date(N)
 # The caption stopped naming Face Value on 7 Aug 2026 — the button underneath
 # it already does, and twice is redundant.
 HERO_COPY = {
-    ".stranger-headline": "who's under the paper?",
-    ".stranger-caption": "tear back the scraps. name the historical figure.",
+    ".stranger-headline": "who's under the scraps?",
+    ".stranger-caption": "tear them away. name the historical figure.",
     "#stranger-play": "play face value ›",
     ".stranger-reassure": "free · no sign-up",
     ".stranger-also": "also in today's issue",
@@ -220,8 +220,8 @@ def stranger_hero_side_by_side(p, base):
                     g["head"]["t"], g["img"]["t"])
 
             # Stacked, not one long line: several lines of big type. Four is
-            # the intent (WHO'S / UNDER / THE / PAPER?); five means the clamp
-            # outgrew its column and "PAPER?" hyphenated, which looks broken.
+            # the intent (WHO'S / UNDER / THE / SCRAPS?); five means the clamp
+            # outgrew its column and "SCRAPS?" hyphenated, which looks broken.
             fs = float(page.evaluate(
                 "getComputedStyle(document.querySelector('.stranger-headline')).fontSize")
                 .replace("px", ""))

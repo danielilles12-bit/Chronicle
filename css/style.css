@@ -363,13 +363,20 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 .stranger-headline {
   margin: 0; font-family: var(--ch-font-display); font-weight: 400;
   /* Sized so the longest word always fits its column on one line — that is
-     what keeps it four lines (WHO'S / UNDER / THE / PAPER?) at every width
-     instead of hyphenating into five. "PAPER?" measures 4.22x the font size in
-     this face, and the text column is 46% of the hero minus the 14px gutter,
-     so 8.2vw clears it with a few px to spare from a 320px phone upward. It
-     came down from 9vw when the board took more width on 7 Aug; the ceiling of
-     54px is where it stops growing once the 600px app column has too. */
-  font-size: clamp(24px, 8.2vw, 54px); line-height: .94; letter-spacing: -0.015em;
+     what keeps it four lines (WHO'S / UNDER / THE / SCRAPS?) at every width
+     instead of hyphenating into five. The text column is 46% of the hero minus
+     the 14px gutter: 140px on a 375px phone, 251px once the 600px app column
+     stops growing. The longest word sets the size, so RE-MEASURE THIS IF THE
+     HEADLINE EVER CHANGES — "SCRAPS?" is 5.01x the font size in this face
+     (the old "PAPER?" was only 4.22x, which is why 8.2vw had to come down when
+     the wording changed on 7 Aug 2026). The binding width is the NARROWEST
+     phone, not the widest: the 20px side margins are a fixed cost, so the
+     column is only 35.9% of a 320px screen against 37.4% of a 375px one, and a
+     vw that fits the 375 overflows the 320. Measured ceilings for "SCRAPS?":
+     7.17vw at 320px, 7.46vw at 375px, 47.7px once the 600px app column caps
+     the growth. 7.1vw / 47px clears all three with about a pixel to spare, and
+     the 22px floor covers anything narrower than ~310px. */
+  font-size: clamp(22px, 7.1vw, 47px); line-height: .94; letter-spacing: -0.015em;
   text-transform: uppercase; color: var(--ch-text-primary);
   /* Four short stacked lines are the intent, so let the long word break
      rather than widen the column or spill over the board. */
