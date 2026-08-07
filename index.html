@@ -130,6 +130,12 @@
          ONE scrap open, not several (Daniel, 6 Aug): that is the honest first
          second of a round and it keeps the mystery — which only works because
          the opening lands on the brow and eye that identify her.
+         FOUR SQUARES, NOT NINE, and the headline BESIDE them (Daniel, 7 Aug):
+         four squares tell the whole story, so the picture gives half the width
+         back to the headline and the two read as one unit — torn square top-
+         left, headline stacked down the left edge next to it. The asset is a
+         pixel-exact crop of a genuine nine-square render (see the tool), not a
+         redrawn board: the game itself is still a 3x3.
          The demo subject (frida-kahlo) carries "reserve": true in
          data/reveal-who.json — the live pool the app and the edition compiler
          both read (data/reveal.json is the pre-split legacy file and is read
@@ -138,14 +144,17 @@
          future editions and when Encore samples aired ones.
          Shown/hidden as a whole by applyStrangerMode() in js/app.js, which is
          also why the "Also in today's issue" label lives INSIDE this block —
-         it labels the three rows below only while the hero is up. -->
+         it labels the three rows below only while the hero is up.
+         DOM order is reading order — headline, board, caption, door — and the
+         side-by-side is done in CSS grid, so a screen reader still hears the
+         question before the picture that poses it. -->
     <div id="stranger-hero" hidden>
       <h2 class="stranger-headline">Who’s under the paper?</h2>
       <!-- width/height are the asset's real pixels: the box is reserved before
            the bytes land, so the headline and the button never jump. -->
-      <img class="stranger-demo" src="assets/brand/demo-facevalue.webp" width="720" height="720"
-           alt="A Face Value board at the start of a round: eight paper scraps still cover a photograph, and the one torn away in the middle shows a single eye under a dark brow.">
-      <p class="stranger-caption">Face Value: tear back the scraps. Name the historical figure.</p>
+      <img class="stranger-demo" src="assets/brand/demo-facevalue.webp" width="600" height="600"
+           alt="A corner of a Face Value board at the start of a round: four paper scraps, and the one torn away at the top left shows a single eye under a dark brow.">
+      <p class="stranger-caption">Tear back the scraps. Name the historical figure.</p>
       <button class="pill primary big" id="stranger-play">Play Face Value ›</button>
       <p class="stranger-reassure">Free · No sign-up</p>
       <p class="stranger-also">Also in today’s issue</p>

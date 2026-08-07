@@ -7,11 +7,13 @@ the other three games as compact rows underneath. A player with history meets
 the classic Home — four full rows, week strips, back-issue bars, punch card —
 and must never see any of the hero's furniture.
 
-The two scenarios below are the fence between those states. The stranger one
-also guards the things that break quietly: the demo image 404ing, the demo
-image missing from the service worker's precache (which would leave the whole
-hero blank offline), a second Face Value door creeping back in below the fold,
-and the CTA's two analytics events drifting.
+The scenarios below are the fence between those states. The stranger ones also
+guard the things that break quietly: the demo image 404ing, the demo image
+missing from the service worker's precache (which would leave the whole hero
+blank offline), a second Face Value door creeping back in below the fold, the
+CTA's two analytics events drifting — and, since 7 Aug 2026, the side-by-side
+shape itself: headline in its own column to the LEFT of the four-square board,
+nothing spilling off a 375px screen, and the door still above the fold.
 """
 import os
 import re
@@ -26,13 +28,44 @@ DATE = H.edition_date(N)
 
 # The hero's copy, as a reader sees it. inner_text comes back CSS-uppercased,
 # and the markup uses typographic apostrophes, so both are normalised away.
+# The caption stopped naming Face Value on 7 Aug 2026 — the button underneath
+# it already does, and twice is redundant.
 HERO_COPY = {
     ".stranger-headline": "who's under the paper?",
-    ".stranger-caption": "face value: tear back the scraps. name the historical figure.",
+    ".stranger-caption": "tear back the scraps. name the historical figure.",
     "#stranger-play": "play face value ›",
     ".stranger-reassure": "free · no sign-up",
     ".stranger-also": "also in today's issue",
 }
+
+# The screens the hero has to hold its shape on: the narrow phone the layout
+# was designed against, and a tablet, where the app column stops growing.
+SHAPES = [("phone", 375, 812), ("tablet", 768, 1024)]
+
+# Where everything in the hero actually landed, in CSS pixels.
+GEOMETRY = """() => {
+  const box = (s) => { const r = document.querySelector(s).getBoundingClientRect();
+    return {l: r.left, r: r.right, t: r.top, b: r.bottom, w: r.width, h: r.height}; };
+  const doc = document.documentElement;
+  return {
+    hero: box('#stranger-hero'), head: box('.stranger-headline'),
+    img: box('.stranger-demo'), cta: box('#stranger-play'),
+    vh: innerHeight, scrollW: doc.scrollWidth, clientW: doc.clientWidth,
+  };
+}"""
+
+# Contrast of the door's letters against its own plate. The magenta CTA
+# inherited .pill.primary's cream text until Daniel called it on 7 Aug 2026:
+# cream on print magenta is 2.7:1, the palest thing on a newcomer's screen.
+# Ink on the same plate is 6.5:1, so 4.5 cleanly separates the two.
+CTA_CONTRAST = """() => {
+  const cs = getComputedStyle(document.querySelector('#stranger-play'));
+  const lum = (c) => { const [r, g, b] = c.match(/\\d+/g).slice(0, 3).map(Number)
+      .map(v => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); });
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
+  const a = lum(cs.color), b = lum(cs.backgroundColor);
+  return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
+}"""
 
 # Row key -> (the one-liner it shows a newcomer, the view its tap must open).
 OTHER_GAMES = [
@@ -80,14 +113,22 @@ def stranger_hero(p, base):
         # The demo board: fetched, decoded, painted — not a broken-image box.
         img = page.locator(".stranger-demo")
         img.wait_for(state="visible")
-        assert page.evaluate(
+        natural = page.evaluate(
             "() => { const i = document.querySelector('.stranger-demo');"
-            " return i.complete && i.naturalWidth > 0; }"), "the demo board never loaded"
+            " return i.complete && i.naturalWidth > 0"
+            "   ? [i.naturalWidth, i.naturalHeight] : null; }")
+        assert natural, "the demo board never loaded"
         src = img.get_attribute("src")
-        # Explicit dimensions: the box is reserved, so nothing below the
-        # picture jumps while it downloads.
-        assert img.get_attribute("width") and img.get_attribute("height"), \
-            "the demo board has no intrinsic size — the hero will jump as it loads"
+        # Explicit dimensions, and TRUE ones: the box the page reserves has to
+        # be the shape of the picture that lands in it, or the headline and the
+        # button jump as it downloads. Re-shoot the asset at another size (the
+        # 2x2 crop halved it on 7 Aug 2026) and this catches the stale markup.
+        assert [img.get_attribute("width"), img.get_attribute("height")] == \
+            [str(n) for n in natural], \
+            "width/height say %s but the asset is %s — the reserved box is wrong" % (
+                [img.get_attribute("width"), img.get_attribute("height")], natural)
+        assert natural[0] == natural[1], \
+            "the demo board is %s, not square — the scrap grid it is cut from is" % (natural,)
         # Offline is the house promise, and the hero is the whole screen for a
         # newcomer: the picture has to ship with the shell.
         with open(os.path.join(H.ROOT, "sw.js"), encoding="utf-8") as f:
@@ -126,6 +167,70 @@ def stranger_hero(p, base):
         for want in ("3-tapped-play-today", "3-started-facevalue"):
             assert want in events, "missing %s: %r" % (want, events)
         H.fail_on_errors(errors, "stranger_hero")
+
+
+# ---------- stranger_hero_side_by_side ----------
+def stranger_hero_side_by_side(p, base):
+    """The 7 Aug shape: headline in its own column on the LEFT, the four-square
+    board beside it on the RIGHT, their tops level so the torn square and the
+    question read as one unit — on a narrow phone and on a tablet, with the
+    door still above the fold and nothing hanging off the side."""
+    for label, w, h in SHAPES:
+        with H.app(p, context_args={"viewport": {"width": w, "height": h}}) \
+                as (page, errors, _ctx):
+            H.boot(page, base, DATE)
+            page.wait_for_selector("#stranger-hero:not([hidden])")
+            page.locator(".stranger-demo").wait_for(state="visible")
+            page.wait_for_function(
+                "() => { const i = document.querySelector('.stranger-demo');"
+                " return i.complete && i.naturalWidth > 0; }")
+            g = page.evaluate(GEOMETRY)
+            why = "%s (%dx%d): " % (label, w, h)
+
+            # Two columns, not a stack: the headline ENDS before the board
+            # BEGINS, and neither is wide enough to be the full hero.
+            assert g["head"]["r"] <= g["img"]["l"] + 0.5, \
+                why + "the headline runs into the board (ends %.0f, board starts %.0f)" % (
+                    g["head"]["r"], g["img"]["l"])
+            assert g["img"]["l"] - g["head"]["r"] >= 8, \
+                why + "only %.0fpx between the headline and the board" % (
+                    g["img"]["l"] - g["head"]["r"])
+            for name, part in (("headline", g["head"]), ("board", g["img"])):
+                assert part["w"] < g["hero"]["w"] * 0.62, \
+                    why + "the %s is %.0f of the hero's %.0f — the columns collapsed" % (
+                        name, part["w"], g["hero"]["w"])
+            # Headline on the left, board on the right — not the other way up.
+            assert g["head"]["l"] < g["img"]["l"], why + "the board is left of the headline"
+
+            # Level tops: the torn square is the board's top-left corner, so
+            # the question sits right beside the hole it asks about.
+            assert abs(g["head"]["t"] - g["img"]["t"]) <= 6, \
+                why + "headline top %.0f vs board top %.0f — they don't read as one unit" % (
+                    g["head"]["t"], g["img"]["t"])
+
+            # Stacked, not one long line: several lines of big type.
+            fs = float(page.evaluate(
+                "getComputedStyle(document.querySelector('.stranger-headline')).fontSize")
+                .replace("px", ""))
+            lines = round(g["head"]["h"] / (fs * 0.94))
+            assert lines >= 3, why + "the headline is only %d line(s) tall" % lines
+
+            # A square board (it is cut from a square scrap grid), inside the
+            # page, with no sideways scroll anywhere.
+            assert abs(g["img"]["w"] - g["img"]["h"]) <= 1, \
+                why + "the board renders %.0fx%.0f, not square" % (g["img"]["w"], g["img"]["h"])
+            assert g["img"]["r"] <= g["hero"]["r"] + 0.5, why + "the board overhangs the gutter"
+            assert g["scrollW"] <= g["clientW"], \
+                why + "the page scrolls sideways (%d > %d)" % (g["scrollW"], g["clientW"])
+
+            # The whole point of the rebuild: the door is visible without a
+            # scroll, and its letters are legible on the magenta.
+            assert g["cta"]["b"] <= g["vh"], \
+                why + "the door ends at %.0f, below the %.0f fold" % (g["cta"]["b"], g["vh"])
+            contrast = page.evaluate(CTA_CONTRAST)
+            assert contrast >= 4.5, \
+                why + "the door's letters are %.1f:1 against their own plate — ink, not cream" % contrast
+            H.fail_on_errors(errors, "stranger_hero_side_by_side/%s" % label)
 
 
 # ---------- stranger_rows_open_their_own_games ----------
@@ -188,7 +293,8 @@ def returning_home_unchanged(p, base):
         H.fail_on_errors(errors, "returning_home_unchanged")
 
 
-TESTS = [stranger_hero, stranger_rows_open_their_own_games, returning_home_unchanged]
+TESTS = [stranger_hero, stranger_hero_side_by_side,
+         stranger_rows_open_their_own_games, returning_home_unchanged]
 
 
 def main():

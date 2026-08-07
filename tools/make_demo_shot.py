@@ -23,6 +23,17 @@ machinery rather than a fake:
     startScrap in js/revealgame.js): it pins the scrap the GAME opens on the
     house. Nothing is torn by hand, so the board is a genuine opening state.
 
+FOUR SQUARES, NOT NINE (Daniel, 7 Aug 2026): the hero now shows a 2x2 corner
+of the board — four squares tell the story and the page gets its width back
+for the headline beside it. The GAME is still a 3x3 (SCRAPS = 9 in
+js/revealgame.js is the only board the engine has), so the asset is a straight
+CROP of a genuine nine-square render, taken at exactly 1:1 device pixels — no
+resampling, no redrawing. Every scrap edge, dashed tearable border, paper
+grain and torn opening in the file is the browser's own output. The quadrant
+is chosen by the opening scrap: `start` must be tile 0, 1, 3 or 4, and the
+crop is the 2x2 block whose TOP-LEFT square is that opening, so the revealed
+eye always lands nearest the headline.
+
 Both the pinned edition and the crop are injected as Playwright routes —
 never written to disk. The manifest belongs to the schedule, not to marketing.
 
@@ -31,10 +42,12 @@ the live pool, not the legacy data/reveal.json), so the face on permanent
 display can never also be a live puzzle.
 
     python3 tools/make_demo_shot.py                     # all candidates
-    python3 tools/make_demo_shot.py --pick centre-eye   # write the chosen one
+    python3 tools/make_demo_shot.py --pick corner-eye   # write the chosen one
 
-Candidates land in tools/out/demo-candidates/ (never served); --pick saves the
-finished hero to assets/brand/demo-facevalue.webp.
+Candidates land in tools/out/demo-candidates/ (never served) — both the cropped
+2x2 that would ship and the whole nine-square board it came out of, so the crop
+can be checked against its source; --pick saves the finished hero to
+assets/brand/demo-facevalue.webp.
 """
 import argparse
 import io
@@ -59,31 +72,64 @@ SUBJECT = "frida-kahlo"
 # Any aired edition works — the manifest is rewritten in flight so the pinned
 # subject is the whole round list, which makes it round 1 every time.
 PIN_EDITION = 22
-FRAME_CSS_PX = 450          # rendered size of #rv-frame; x2 DPR = 900px shot
-HERO_WIDTH = 720            # final asset width (hero image on a phone)
+# The scrap grid's CONTENT size in CSS px (#rv-frame is border-box, so the
+# element is pinned 6px wider than this for its 3px ink border). 450 / 3 = a
+# 150px tile, x2 DPR = 300 device px per tile, so the 2x2 crop below is
+# 600x600 device px and ships without a single resampled pixel.
+GRID_CSS_PX = 450
+FRAME_BORDER_PX = 3
+TILE_DEVICE_PX = 300        # GRID_CSS_PX / 3 * device_scale_factor
 
 # Face landmarks in the 667x1000 source, measured off a gridded overlay:
 #   unibrow  x 255-455, y 240-265      left eye  centre (305, 288)
 #   right eye centre (420, 288)        face box  x 215-470, y 150-470
-# A tile is one ninth of the board, so tile size = crop side / 3; a crop of
-# ~450 makes one tile about a quarter of the face, which is the brief.
+#   the JOIN — where the brows meet over the nose bridge — (355, 250)
+# A tile is one ninth of the board, so tile size = crop side / 3. The hero's
+# 2x2 shows the face at a smaller tile than the 3x3 did, so the source crop
+# tightens to compensate: crop side 360 puts as much brow-and-eye inside an
+# 84px hero tile as crop side 450 put inside the old 100px one.
 #
-# name -> (crop x, crop y, crop side, start tile 0-8, what the open tile shows)
+# `start` is also the crop key: the 2x2 taken is the block whose top-left
+# square is the opening scrap, so start must be 0, 1, 3 or 4. Which one also
+# decides how much room the composition has: the opening square is the crop's
+# top-left, so the rest of the board runs down and to the RIGHT of whatever it
+# frames. Tile 0 lets the source run 5/6 of the crop side to the right of the
+# feature (the 667px-wide photograph caps that at side 374 for anything
+# centred on the nose bridge); tile 1 centres it instead and buys the room
+# back, which is the only way the widest unibrow shots fit inside the source.
+#
+# name -> (crop x, crop y, crop side, start tile, what the open tile shows)
 COMPOSITIONS = {
-    "centre-eye": (82, 45, 450, 4,
-                   "centre tile on brow + her right eye; face fills the board, "
-                   "hair above and mouth below still covered"),
-    "upper-eye": (82, 170, 450, 1,
-                  "upper-centre tile on brow + her right eye, tighter on the "
-                  "eyeline; forehead at the top edge"),
-    "upper-eye-mirrored": (200, 170, 450, 1,
-                           "upper-centre tile on brow + her left eye, face "
-                           "shifted to the left of the board"),
-    "centre-eye-tight": (112, 77, 400, 4,
-                         "centre tile on brow + her right eye, zoomed in one "
-                         "step further so the face crowds the frame"),
+    # --- A: one brow arch and one eye (shipped 7 Aug 2026) ---
+    "corner-eye": (245, 228, 360, 0,
+                   "opening scrap is the board's own top-left corner; brow + "
+                   "her right eye centred in it, two dashed tiles beside and "
+                   "below"),
+    "corner-eye-wide": (235, 218, 420, 0,
+                        "same corner opening, one step further out — more of "
+                        "the eye socket and cheek, a smaller eye"),
+    "corner-eye-tight": (252, 235, 320, 0,
+                         "same corner opening, one step further in — the eye "
+                         "crowds its square"),
+    "centre-eye": (125, 108, 360, 4,
+                   "the board's centre scrap opens and the crop takes the "
+                   "bottom-right four, so the eye sits top-left with real "
+                   "board edges on the far two sides"),
+    # --- B: the unibrow join, the thing that says Frida and not just "a face"
+    # (Daniel, 7 Aug 2026, for comparison against A) ---
+    "brow-join": (295, 190, 360, 0,
+                  "the brows meeting over the nose bridge, at A's zoom — the "
+                  "join and her right eye, her left eye just off the square"),
+    "brow-join-wide": (145, 180, 420, 1,
+                       "the join with BOTH inner brow ends and both eyes in "
+                       "the square; opens on the top-centre scrap so the crop "
+                       "can sit around the middle of the face"),
+    "brow-join-widest": (130, 175, 450, 1,
+                         "the join with nearly the whole unibrow and both "
+                         "eyes — the most unmistakably Frida, the smallest "
+                         "features"),
 }
-DEFAULT_PICK = "centre-eye"
+DEFAULT_PICK = "corner-eye"
 
 
 def pinned_manifest():
@@ -149,10 +195,33 @@ def open_board(page, base, manifest_json, pool_json, image_png):
         "the board is not showing the composed crop (image is %s) — the "
         "image route did not take" % (got,))
     # #rv-frame is min(80vw, 40dvh): pin it so every candidate is identical.
+    # It is border-box, so the element carries its 3px ink border on top of the
+    # grid — pin the outer width and the scrap grid inside lands on exactly
+    # GRID_CSS_PX, which is what keeps the 2x2 crop a whole number of pixels.
     page.evaluate("w => { const f = document.querySelector('#rv-frame');"
                   " f.style.width = w + 'px'; f.style.transition = 'none'; }",
-                  FRAME_CSS_PX)
+                  GRID_CSS_PX + 2 * FRAME_BORDER_PX)
     page.wait_for_timeout(600)
+
+
+def quadrant(png, start):
+    """The 2x2 block of a nine-square board whose top-left square is `start`.
+
+    A straight pixel crop of the browser's own render — the hero must not
+    contain one redrawn or resampled scrap edge.
+    """
+    assert start in (0, 1, 3, 4), (
+        "start tile %d has no 2x2 block below-and-right of it; the opening "
+        "scrap must be tile 0, 1, 3 or 4" % start)
+    im = Image.open(io.BytesIO(png)).convert("RGB")
+    assert im.width == im.height == 3 * TILE_DEVICE_PX, (
+        "board render is %s, expected %d square — the 2x2 crop would land off "
+        "the scrap edges" % (im.size, 3 * TILE_DEVICE_PX))
+    left, top = (start % 3) * TILE_DEVICE_PX, (start // 3) * TILE_DEVICE_PX
+    cut = im.crop((left, top, left + 2 * TILE_DEVICE_PX, top + 2 * TILE_DEVICE_PX))
+    buf = io.BytesIO()
+    cut.save(buf, "PNG")
+    return buf.getvalue()
 
 
 def collect(p, base, manifest_json):
@@ -167,7 +236,7 @@ def collect(p, base, manifest_json):
             # app registers the worker inside a .catch(), so blocking it
             # changes nothing else about the run.
             ctx = browser.new_context(
-                viewport={"width": 700, "height": int(FRAME_CSS_PX / 0.4) + 260},
+                viewport={"width": 700, "height": int(GRID_CSS_PX / 0.4) + 260},
                 device_scale_factor=2, service_workers="block")
             page = ctx.new_page()
             open_board(page, base, manifest_json, pinned_pool(start),
@@ -176,7 +245,8 @@ def collect(p, base, manifest_json):
                 "[...document.querySelectorAll('#rv-scraps .df-scrap')]"
                 ".flatMap((el, i) => el.classList.contains('torn') ? [i] : [])")
             assert torn == [start], "expected only tile %d open, got %s" % (start, torn)
-            shots[name] = page.locator("#rv-scraps").screenshot()
+            board = page.locator("#rv-scraps").screenshot()
+            shots[name] = (board, quadrant(board, start))
             ctx.close()
     finally:
         browser.close()
@@ -184,27 +254,36 @@ def collect(p, base, manifest_json):
 
 
 def contact_sheet(shots, path):
+    """Every candidate as it would ship (the 2x2) over the board it came from."""
     from PIL import ImageDraw
     tiles = list(shots.items())
-    cell, pad, cap = 330, 14, 24
+    cell, pad, cap = 300, 14, 24
     cols = min(4, len(tiles))
     rows = (len(tiles) + cols - 1) // cols
-    sheet = Image.new("RGB",
-                      (cols * (cell + pad) + pad, rows * (cell + cap + pad) + pad),
+    row_h = cell + cap + cell * 2 // 3 + cap + pad
+    sheet = Image.new("RGB", (cols * (cell + pad) + pad, rows * row_h + pad),
                       (242, 239, 230))
     draw = ImageDraw.Draw(sheet)
-    for n, (name, png) in enumerate(tiles):
-        im = Image.open(io.BytesIO(png)).convert("RGB").resize((cell, cell), Image.LANCZOS)
+    for n, (name, (board, cut)) in enumerate(tiles):
         x = pad + (n % cols) * (cell + pad)
-        y = pad + (n // cols) * (cell + cap + pad)
-        sheet.paste(im, (x, y))
-        draw.text((x + 2, y + cell + 6), name, fill=(11, 11, 11))
+        y = pad + (n // cols) * row_h
+        big = Image.open(io.BytesIO(cut)).convert("RGB").resize((cell, cell), Image.LANCZOS)
+        sheet.paste(big, (x, y))
+        draw.text((x + 2, y + cell + 6), name + "  (ships)", fill=(11, 11, 11))
+        small = cell * 2 // 3
+        src = Image.open(io.BytesIO(board)).convert("RGB").resize((small, small), Image.LANCZOS)
+        sheet.paste(src, (x, y + cell + cap))
+        draw.text((x + 2, y + cell + cap + small + 6), "  from this board", fill=(90, 90, 90))
     sheet.save(path)
     return path
 
 
-def write_webp(png, path, width):
-    im = Image.open(io.BytesIO(png)).convert("RGB").resize((width, width), Image.LANCZOS)
+def write_webp(png, path, width=None):
+    """WEBP of the crop. At the shipping size this resamples nothing: the
+    render is already 1 device pixel per asset pixel."""
+    im = Image.open(io.BytesIO(png)).convert("RGB")
+    if width and width != im.width:
+        im = im.resize((width, width), Image.LANCZOS)
     im.save(path, "WEBP", quality=88, method=6)
     return path
 
@@ -220,19 +299,22 @@ def main():
         with sync_playwright() as p:
             shots = collect(p, base, manifest_json)
 
-    for name, png in shots.items():
-        # Candidates are written full-size AND at ship size, so what Daniel
-        # picks from is what the page would actually show.
+    for name, (board, cut) in shots.items():
+        # Both halves of the evidence: the 2x2 exactly as it would ship, and
+        # the whole nine-square board it was cut out of.
+        with open(os.path.join(OUT_DIR, "%s-board.png" % name), "wb") as f:
+            f.write(board)
         with open(os.path.join(OUT_DIR, "%s-full.png" % name), "wb") as f:
-            f.write(png)
-        write_webp(png, os.path.join(OUT_DIR, "%s.webp" % name), HERO_WIDTH)
+            f.write(cut)
+        write_webp(cut, os.path.join(OUT_DIR, "%s.webp" % name))
         print("%-20s %s" % (name, COMPOSITIONS[name][4]))
     print("contact sheet:", contact_sheet(shots, os.path.join(OUT_DIR, "_sheet.png")))
 
     if args.pick:
-        write_webp(shots[args.pick], HERO_PATH, HERO_WIDTH)
+        write_webp(shots[args.pick][1], HERO_PATH)
         print("hero written:", HERO_PATH,
-              "(%s, %.0f KB)" % (args.pick, os.path.getsize(HERO_PATH) / 1024))
+              "(%s, %dpx, %.0f KB)"
+              % (args.pick, 2 * TILE_DEVICE_PX, os.path.getsize(HERO_PATH) / 1024))
     return 0
 
 
