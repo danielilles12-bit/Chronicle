@@ -23,6 +23,7 @@ import * as sfx from './sfx.js';
 import { renderLedger } from './ledger.js';
 import * as carry from './carry.js';
 import { initInstall, isStandalone, qaActions as installQA, testHooks as installHooks } from './install.js';
+import { initFeedback } from './feedback.js';
 
 export const DATA = { figures: null, world: null, reveal: null, connections: null, editions: null };
 export const $ = (sel) => document.querySelector(sel);
@@ -1332,6 +1333,9 @@ async function boot() {
   carry.initCarry();
   initInstall();
   initMovingNote();
+  // Letters to the Editor (js/feedback.js). Before maybeMourn/maybeCelebrate,
+  // so the day-done stamp card is wired when a moment screen opens at boot.
+  initFeedback(BUILD);
   refreshHomeStats();
   refreshTodayStrip();
   if (!maybeMourn()) maybeCelebrate();

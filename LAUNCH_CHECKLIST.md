@@ -198,12 +198,18 @@ main is untouched and the live site is unaffected.**
       screen, Daniel picks in 30 seconds [BOTH]
 - [ ] One consistency pass over moment/celebration screens [SESSION]
 
-## 4 · Feedback flow *(new build — nothing exists today)*
+## 4 · Feedback flow
 
-- [ ] Google Form: 2 fields (what happened / what should happen), no login [DANIEL]
-- [ ] Entry points: a menu item + a quiet line on the full-house screen, opening
-      the form with build number + device auto-appended; mailto fallback;
-      GoatCounter event on tap [SESSION]
+- [x] Google Form: 2 fields (what happened / what should happen), no login
+      [DANIEL] — live 5 Aug, the pre-fill link is wired into js/feedback.js
+- [x] Entry points — DONE 5 Aug per the approved "Letters to the Editor"
+      rulings (design-reviews/install-flow-rulings.md; there is no menu, so
+      the old "menu item" wording was superseded by the plan): the Home
+      letters plate (cyan Antinous stamp, from the first finished daily),
+      the day-done Complaints Dept stamp card (both faces), a Your Legacy
+      coupon row, the footer "Write to us", and an About-page letters
+      section. Form opens with build + device auto-appended; mailto
+      fallback; GoatCounter event on tap. tests/test_feedback.py [SESSION]
 - [ ] Launch-week habit: check the form every morning, triage into this file [DANIEL]
 
 ## 5 · Content close-out (Sessions B + D from the July review)

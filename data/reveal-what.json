@@ -136,10 +136,10 @@
   "license": "Public domain",
   "attribution": "Leonardo da Vinci",
   "source": "Wikimedia Commons: Mona Lisa, by Leonardo da Vinci, from C2RMF natural color.jpg",
-  "image_source_url": "https://commons.wikimedia.org/wiki/File:Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_natural_color.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_natural_color.jpg",
   "image_author": "Leonardo da Vinci",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "The Garden of Earthly Delights",
    "The Scream"
@@ -767,14 +767,14 @@
   "fy": 0.62,
   "frac": 0.16,
   "license": "CC BY-SA 4.0",
-  "attribution": "Dmitry Ivanov",
+  "attribution": "Dmitry Ivanov.",
   "source": "Wikimedia Commons: Moscow Kremlin Towers of south wall.jpg",
   "start": 6,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Moscow_Kremlin_Towers_of_south_wall.jpg",
   "image_author": "Dmitry Ivanov.",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Rijksmuseum",
    "Kazan Kremlin"
@@ -844,7 +844,7 @@
   "image_author": "Saffron Blaze",
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "image_retrieved": "2026-07-30",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Notre-Dame de Paris",
    "Cologne Cathedral"
@@ -895,11 +895,11 @@
   "attribution": "PIERRE ANDRE LECLERCQ",
   "source": "Wikimedia Commons: Machu Picchu with Huayna Picchu Pérou (3).jpg",
   "start": 3,
-  "image_source_url": "https://commons.wikimedia.org/wiki/File:Machu_Picchu_with_Huayna_Picchu_P%C3%A9rou_%283%29.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Machu_Picchu_with_Huayna_Picchu_P%C3%A9rou_(3).jpg",
   "image_author": "PIERRE ANDRE LECLERCQ",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Chichén Itzá",
    "Teotihuacan"
@@ -925,8 +925,8 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Neuschwanstein_Castle_2024-02.jpg",
   "image_author": "Wilfredor",
   "image_license": "CC0",
-  "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "image_retrieved": "2026-07-21",
+  "image_license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Reichstag building",
    "Victoria and Albert Museum"
@@ -951,11 +951,11 @@
   "license": "CC BY-SA 3.0",
   "attribution": "DXR",
   "source": "Wikimedia Commons: Cathédrale Notre-Dame de Paris, 20 March 2014.jpg",
-  "image_source_url": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Notre-Dame_de_Paris%2C_20_March_2014.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Notre-Dame_de_Paris,_20_March_2014.jpg",
   "image_author": "DXR",
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Leaning Tower of Pisa",
    "Tower of London"
@@ -1013,7 +1013,7 @@
   "image_author": "A.Savin",
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Pompeii Forum",
    "Villa of the Mysteries"
@@ -1073,7 +1073,7 @@
   "image_author": "Al_Khazneh_Petra.jpg: Graham Racher from London, UK\nderivative work: MrPanyGoff",
   "image_license": "CC BY-SA 2.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Terracotta Army",
    "Hegra (Mada'in Salih)"
@@ -1094,13 +1094,13 @@
   "fy": 0.65,
   "frac": 0.16,
   "license": "CC BY 4.0",
-  "attribution": "Yuriy D.K.",
+  "attribution": "Юрий Д.К.",
   "source": "Wikimedia Commons: Red Square in Moscow (general view in 2025).jpg",
-  "image_source_url": "https://commons.wikimedia.org/wiki/File:Red_Square_in_Moscow_%28general_view_in_2025%29.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Red_Square_in_Moscow_(general_view_in_2025).jpg",
   "image_author": "Юрий Д.К.",
   "image_license": "CC BY 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Golden Temple",
    "Tiananmen Square"
@@ -1181,13 +1181,13 @@
   "fy": 0.6521428571428571,
   "frac": 0.28,
   "license": "Public domain",
-  "attribution": "Andrew Horne",
+  "attribution": "Karora",
   "source": "Wikimedia Commons: The Thinker, Auguste Rodin.jpg",
   "start": 3,
-  "image_source_url": "https://commons.wikimedia.org/wiki/File:The_Thinker%2C_Auguste_Rodin.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:The_Thinker,_Auguste_Rodin.jpg",
   "image_author": "Karora",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Discobolus",
    "The Age of Bronze"
@@ -1266,11 +1266,11 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Diego Delso",
   "source": "Wikimedia Commons: Templo de Ramsés II, Abu Simbel, Egipto, 2022-04-02, DD 03.jpg",
-  "image_source_url": "https://commons.wikimedia.org/wiki/File:Templo_de_Rams%C3%A9s_II%2C_Abu_Simbel%2C_Egipto%2C_2022-04-02%2C_DD_03.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Templo_de_Rams%C3%A9s_II,_Abu_Simbel,_Egipto,_2022-04-02,_DD_03.jpg",
   "image_author": "Diego Delso",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Great Sphinx of Giza",
    "Karnak Temple"
@@ -1327,7 +1327,7 @@
   "image_author": "Jakub Hałun",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Borobudur",
    "The Forbidden City"
@@ -1412,7 +1412,7 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Bayeux_Tapestry_scene57_Harold_death.jpg",
   "image_author": "Myrabella",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Lindisfarne Gospels",
    "Très Riches Heures"
@@ -1636,13 +1636,13 @@
   "fy": 0.35,
   "frac": 0.24,
   "license": "CC0",
-  "attribution": "K. Venkataramana",
+  "attribution": "K.Venkataramana",
   "source": "Wikimedia Commons: The Kailash Temple (also Kailasanatha),Cave No.16.jpg",
-  "image_source_url": "https://commons.wikimedia.org/wiki/File:The_Kailash_Temple_%28also_Kailasanatha%29%2CCave_No.16.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:The_Kailash_Temple_(also_Kailasanatha),Cave_No.16.jpg",
   "image_author": "K.Venkataramana",
   "image_license": "CC0",
-  "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "image_retrieved": "2026-07-21",
+  "image_license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Elephanta Caves",
    "Sigiriya"
@@ -1734,11 +1734,11 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Zhengan",
   "source": "Wikimedia Commons: Göbekli Tepe site (1).JPG",
-  "image_source_url": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_site_%281%29.JPG",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_site_(1).JPG",
   "image_author": "Zhengan",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Persepolis",
    "Çatalhöyük"
@@ -2003,11 +2003,11 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Subhrajyoti07",
   "source": "Wikimedia Commons: Sun Temple Main Structure, Konark, Orissa.jpg",
-  "image_source_url": "https://commons.wikimedia.org/wiki/File:Sun_Temple_Main_Structure%2C_Konark%2C_Orissa.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Sun_Temple_Main_Structure,_Konark,_Orissa.jpg",
   "image_author": "Subhrajyoti07",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Meenakshi Temple",
    "Florence Cathedral Dome"
@@ -2212,7 +2212,7 @@
   "image_author": "W. Bulach",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Lindisfarne Priory",
    "Carcassonne"
@@ -2389,7 +2389,7 @@
   "image_author": "Stanislav Traykov",
   "image_license": "CC BY 2.5",
   "image_license_url": "https://creativecommons.org/licenses/by/2.5",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Rondanini Pietà",
    "Laocoön and His Sons"
@@ -2473,11 +2473,11 @@
   "license": "CC BY 4.0",
   "attribution": "Jakub Hałun",
   "source": "Wikimedia Commons: Predjama Castle, Slovenia, 20240502 0833 7417.jpg",
-  "image_source_url": "https://commons.wikimedia.org/wiki/File:Predjama_Castle%2C_Slovenia%2C_20240502_0833_7417.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Predjama_Castle,_Slovenia,_20240502_0833_7417.jpg",
   "image_author": "Jakub Hałun",
   "image_license": "CC BY 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Stari Most",
    "Bran Castle"
@@ -2823,7 +2823,7 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Da_Vinci_Vitruve_Luc_Viatour.jpg",
   "image_author": "Leonardo da Vinci",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Antikythera Mechanism",
    "Göbekli Tepe"
@@ -3417,7 +3417,7 @@
   "image_author": "Safa.daneshvar",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Hindenburg",
    "Codex Sinaiticus"
@@ -3534,7 +3534,7 @@
   "image_author": "© CEphoto, Uwe Aranas",
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Angkor Wat",
    "Borobudur"
@@ -3736,7 +3736,7 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Himeji_Castle_0804_1.jpg",
   "image_author": "Gorgo",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Matsumoto Castle",
    "Osaka Castle"
@@ -5132,7 +5132,7 @@
   "image_author": "Alvesgaspar",
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Palenque",
    "Leptis Magna"
@@ -5352,13 +5352,13 @@
   "fy": 0.42,
   "frac": 0.2,
   "license": "CC BY-SA 4.0",
-  "attribution": "Mike Peel",
+  "attribution": "Photograph by Mike Peel (www.mikepeel.net).",
   "source": "Wikimedia Commons: Cyrus Cylinder 2.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Cyrus_Cylinder_2.jpg",
   "image_author": "Photograph by Mike Peel (www.mikepeel.net).",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Lewis Chessmen",
    "Bayeux Tapestry"
@@ -5719,15 +5719,15 @@
   "fx": 0.7869571428571429,
   "fy": 0.4642857142857143,
   "frac": 0.26696329254727486,
-  "license": "CC BY-SA 3.0",
-  "attribution": "Livioandronico2013",
+  "license": "CC BY-SA 4.0",
+  "attribution": "Hagesandros, Athenedoros, and Polydoros",
   "source": "Wikimedia Commons: Laocoon and His Sons.jpg",
   "start": 6,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Laocoon_and_His_Sons.jpg",
   "image_author": "Hagesandros, Athenedoros, and Polydoros",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Codex Gigas",
    "Trajan's Column"
@@ -6159,7 +6159,7 @@
   "image_author": "Bernard Gagnon",
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Acropolis of Athens",
    "Baalbek"
@@ -6470,12 +6470,12 @@
   "fy": 0.3,
   "frac": 0.8507916200223892,
   "license": "Public domain",
-  "attribution": "Flickr user Jean-Pierre Dalbéra",
+  "attribution": "Gary Todd from Xinzheng, China",
   "source": "Wikimedia Commons: Trajan's Column (48423812647).jpg",
-  "image_source_url": "https://commons.wikimedia.org/wiki/File:Trajan%27s_Column_%2848423812647%29.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Trajan%27s_Column_(48423812647).jpg",
   "image_author": "Gary Todd from Xinzheng, China",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-21",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Codex Gigas",
    "Laocoön and His Sons"
@@ -6900,7 +6900,7 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:RMS_Titanic_3.jpg",
   "image_author": "Francis Godolphin Osbourne Stuart",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Lusitania",
    "Britannic"
@@ -6923,12 +6923,12 @@
   "fy": 0.72,
   "frac": 0.3,
   "license": "Public domain",
-  "attribution": "William Stone (1823 facsimile), after the Second Continental Congress",
+  "attribution": "original: Second Continental Congress; reproduction: William Stone",
   "source": "Wikimedia Commons: United States Declaration of Independence.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:United_States_Declaration_of_Independence.jpg",
   "image_author": "original: Second Continental Congress; reproduction: William Stone",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "United States Constitution",
    "Magna Carta"
@@ -6953,10 +6953,10 @@
   "license": "Public domain",
   "attribution": "Constitutional Convention",
   "source": "Wikimedia Commons: Constitution of the United States - DPLA - 9ca804144bd5965e992ae3528bc3c6a3 (page 1).jpg",
-  "image_source_url": "https://commons.wikimedia.org/wiki/File:Constitution_of_the_United_States_-_DPLA_-_9ca804144bd5965e992ae3528bc3c6a3_%28page_1%29.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Constitution_of_the_United_States_-_DPLA_-_9ca804144bd5965e992ae3528bc3c6a3_(page_1).jpg",
   "image_author": "Constitutional Convention",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "United States Declaration of Independence",
    "Magna Carta"
@@ -6984,7 +6984,7 @@
   "image_author": "Edward Valachovic",
   "image_license": "CC BY-SA 2.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
-  "image_retrieved": "2026-07-24",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Golden Gate Bridge",
    "Arc de Triomphe"
@@ -7268,7 +7268,7 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Little_Boy_bomb.jpg",
   "image_author": "US Atomic Energy Commission (now US Department of Energy)",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Saturn V",
    "Enola Gay"
@@ -7294,7 +7294,7 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Victory_Portsmouth_um_1900.jpg",
   "image_author": "Unknown author",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Mary Rose",
    "Cutty Sark"
@@ -7322,7 +7322,7 @@
   "image_author": "Marcin Białek",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-24",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Ellora Caves",
    "Elephanta Caves"
@@ -7378,7 +7378,7 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:The_Sounds_of_Earth_Record_Cover_-_GPN-2000-001978.jpg",
   "image_author": "NASA/JPL",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Enola Gay",
    "Chrysler Building"
@@ -7458,12 +7458,12 @@
   "fy": 0.75,
   "frac": 0.3,
   "license": "Public domain",
-  "attribution": "U.S. Navy photo by Seaman Matthew R. Fairchild",
+  "attribution": "U.S. Navy photo by Seaman Matthew R. Fairchild/Released (140704-N-OG138-866)",
   "source": "Wikimedia Commons: USS Constitution fires a 17-gun salute.jpg",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:USS_Constitution_fires_a_17-gun_salute.jpg",
   "image_author": "U.S. Navy photo by Seaman Matthew R. Fairchild/Released (140704-N-OG138-866)",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Liberty Bell",
    "Vasa"
@@ -7519,7 +7519,7 @@
   "image_author": "Ham",
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "image_retrieved": "2026-07-24",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "National Gallery",
    "Altes Museum"
@@ -7550,7 +7550,7 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Replica_of_the_Koh-i-Noor_(cropped).jpg",
   "image_author": "aiva.",
   "image_license": "CC BY 2.0",
-  "image_retrieved": "2026-07-29",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Hope Diamond",
    "Daria-i-Noor"
@@ -7723,7 +7723,7 @@
   "image_author": "Mark Fosh",
   "image_license": "CC BY 2.0",
   "image_license_url": "https://creativecommons.org/licenses/by/2.0",
-  "image_retrieved": "2026-07-24",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "St Peter's Basilica",
    "Les Invalides"
@@ -7836,7 +7836,7 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Ansel_Adams_-_National_Archives_79-AAB-01.jpg",
   "image_author": "Ansel Adams",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "National Gallery of Art",
    "Flatiron Building"
@@ -8573,10 +8573,10 @@
   "license": "Public domain",
   "attribution": "Branson DeCou",
   "source": "Wikimedia Commons: Catherine Palace interior - Amber Room (1).jpg",
-  "image_source_url": "https://commons.wikimedia.org/wiki/File:Catherine_Palace_interior_-_Amber_Room_%281%29.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Catherine_Palace_interior_-_Amber_Room_(1).jpg",
   "image_author": "Branson DeCou",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Hall of Mirrors at Versailles",
    "Malachite Room of the Winter Palace"
@@ -9616,11 +9616,11 @@
   "license": "CC BY 4.0",
   "attribution": "Vyacheslav Argenberg",
   "source": "Wikimedia Commons: Elephanta Caves, India.jpg",
-  "image_source_url": "https://commons.wikimedia.org/wiki/File:Elephanta_Caves%2C_India.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Elephanta_Caves,_India.jpg",
   "image_author": "Vyacheslav Argenberg",
   "image_license": "CC BY 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
-  "image_retrieved": "2026-07-24",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Sigiriya",
    "Kailasa Temple"
@@ -9648,7 +9648,7 @@
   "image_author": "Raychristofer",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-24",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Palenque",
    "Herculaneum"
@@ -9843,7 +9843,7 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Spirit_of_St_Louis_Smithsonian_01_2012_258.jpg",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-30",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Wright Flyer",
    "Enola Gay"
@@ -10012,11 +10012,11 @@
   "license": "CC BY-SA 3.0",
   "attribution": "Mys 721tx",
   "source": "Wikimedia Commons: Exterior of the Independence Hall, Aug 2019.jpg",
-  "image_source_url": "https://commons.wikimedia.org/wiki/File:Exterior_of_the_Independence_Hall%2C_Aug_2019.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Exterior_of_the_Independence_Hall,_Aug_2019.jpg",
   "image_author": "Mys 721tx",
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "image_retrieved": "2026-07-24",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "United States Capitol",
    "Faneuil Hall"
@@ -10072,7 +10072,7 @@
   "image_author": "Rohaan Bhatti",
   "image_license": "CC BY-SA 3.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "image_retrieved": "2026-07-24",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Meenakshi Temple",
    "Hawa Mahal"
@@ -10126,7 +10126,7 @@
   "image_author": "Canaan",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-  "image_retrieved": "2026-07-24",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "Casa Batlló",
    "Palau de la Música Catalana"
@@ -10489,7 +10489,7 @@
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Roman_fresco_Villa_dei_Misteri_Pompeii_009.jpg",
   "image_author": "Unknown Pompeian painter, c. 60 BC",
   "image_license": "Public domain",
-  "image_retrieved": "2026-07-24",
+  "image_retrieved": "2026-08-06",
   "mcq": [
    "The Last Supper",
    "Bayeux Tapestry"

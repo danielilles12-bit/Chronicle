@@ -1341,6 +1341,140 @@ button.cal-cell:active { background: var(--ch-parchment); }
 .carry-status[hidden] { display: none; }
 .carry-status.is-bad { color: var(--ch-burgundy); }
 
+/* ---------- Letters to the Editor (approved 5 Aug 2026) ----------
+   The zine's standing letters column. Approved mock: feedback-mock-d — the
+   rulings in design-reviews/install-flow-rulings.md ("FEEDBACK PLATE").
+   Home is a lobby, not a play screen, so the magenta kicker + cyan stamp
+   sit inside the loud/quiet law. */
+/* The plate: cream, hard shadow, and a newspaper letters-column masthead
+   rule — thick over thin — along its top edge. */
+.letters {
+  position: relative; margin: 6px 20px 20px;
+  border: 2.5px solid var(--ch-ink); background: var(--ch-cream);
+  box-shadow: var(--ch-shadow-card);
+  padding: 16px 18px 18px;
+}
+.letters::before {
+  content: ''; position: absolute; left: 0; right: 0; top: 0; height: 0;
+  border-top: 6px solid var(--ch-ink); border-bottom: 2px solid var(--ch-ink);
+}
+.lt-kicker {
+  display: inline-block; margin: 10px 0 10px; padding: 3px 9px;
+  background: var(--df-magenta); color: var(--ch-ink);
+  font-family: var(--ch-font-ui); font-weight: 700; font-size: 11.5px;
+  letter-spacing: .14em; text-transform: uppercase;
+  border: 2px solid var(--ch-ink); box-shadow: 2px 2px 0 var(--ch-ink);
+}
+.lt-row { display: flex; gap: 14px; align-items: flex-start; }
+.lt-text { flex: 1; min-width: 0; }
+.lt-head {
+  font-family: var(--ch-font-display); font-weight: 400; font-size: 27px; line-height: .95;
+  text-transform: uppercase; margin: 0 0 7px; letter-spacing: -.005em; color: var(--ch-text-primary);
+}
+.lt-sub { margin: 0; font-size: 14px; line-height: 1.45; color: var(--ch-text-secondary); font-family: var(--ch-font-text); }
+.lt-btn {
+  display: block; width: 100%; box-sizing: border-box; margin-top: 14px; text-align: center;
+  background: var(--ch-ink); color: var(--ch-text-inverse); text-decoration: none;
+  font-family: var(--ch-font-ui); font-weight: 700; font-size: 15px;
+  letter-spacing: .06em; text-transform: uppercase;
+  border: 2.5px solid var(--ch-ink); padding: 13px 14px;
+  box-shadow: 3px 3px 0 var(--df-magenta);
+}
+.lt-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--df-magenta); }
+/* Only ever painted while offline (js/feedback.js): says why the button
+   suddenly promises a mail app. Invisible in the normal state. */
+.lt-offline {
+  margin: 8px 0 0; text-align: center; font-family: var(--ch-font-ui);
+  font-weight: 700; font-size: 9.5px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ch-text-muted);
+}
+/* The definitive stamp: cyan Antinous, perforated edges, denomination = the
+   live issue number (British definitive-stamp language — no envelope). */
+.lt-stamp {
+  position: relative; flex: none; width: 86px; transform: rotate(-3.5deg);
+  filter: drop-shadow(2px 2px 0 rgba(11,11,11,.32));
+}
+.lt-stamp-inner { position: relative; padding: 6px; background: transparent; }
+/* Perforation: paper-coloured half-dots punched along the four edges only,
+   so the stamp face stays solid. Two pseudo-elements, four backgrounds. */
+.lt-stamp-inner::before, .lt-stamp-inner::after {
+  content: ''; position: absolute; pointer-events: none;
+}
+.lt-stamp-inner::before {           /* top + bottom rows of punches */
+  left: 0; right: 0; top: 0; bottom: 0;
+  background:
+    radial-gradient(circle 3.1px at 50% 0, var(--ch-cream) 98%, transparent 100%) repeat-x 0 0 / 10px 8px,
+    radial-gradient(circle 3.1px at 50% 100%, var(--ch-cream) 98%, transparent 100%) repeat-x 0 100% / 10px 8px;
+}
+.lt-stamp-inner::after {            /* left + right columns of punches */
+  left: 0; right: 0; top: 0; bottom: 0;
+  background:
+    radial-gradient(circle 3.1px at 0 50%, var(--ch-cream) 98%, transparent 100%) repeat-y 0 0 / 8px 10px,
+    radial-gradient(circle 3.1px at 100% 50%, var(--ch-cream) 98%, transparent 100%) repeat-y 100% 0 / 8px 10px;
+}
+.lt-stamp-face {
+  border: 1.5px solid var(--ch-ink);
+  background: var(--df-cyan);
+  aspect-ratio: 5 / 6;
+  display: flex; align-items: flex-end; justify-content: center;
+  overflow: hidden; position: relative;
+}
+.lt-stamp-face img { width: 118%; margin-bottom: -6%; display: block; filter: grayscale(1) contrast(1.12); }
+.lt-stamp-value {
+  position: absolute; top: 3px; left: 4px; z-index: 2;
+  font-family: var(--ch-font-ui); font-weight: 700; font-size: 8px;
+  letter-spacing: .01em; color: #0B0B0B;
+}
+.lt-stamp-word {
+  position: absolute; bottom: 3px; left: 0; right: 0; text-align: center;
+  font-family: var(--ch-font-ui); font-weight: 700; font-size: 6.5px;
+  letter-spacing: .14em; text-transform: uppercase; color: #0B0B0B;
+}
+/* The circular postmark franking the stamp: real current date, set live.
+   color-mix keeps the cancellation ink legible in both themes. */
+.lt-postmark {
+  position: absolute; right: -20px; top: -10px; width: 58px; height: 58px; z-index: 3;
+  border: 1.8px solid color-mix(in srgb, var(--ch-ink) 62%, transparent);
+  border-radius: 50%; background: color-mix(in srgb, var(--ch-cream) 30%, transparent);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  transform: rotate(9deg); opacity: .78; pointer-events: none;
+}
+.lt-postmark::before, .lt-postmark::after {
+  content: ''; position: absolute; left: 6px; right: 6px; height: 1.2px;
+  background: color-mix(in srgb, var(--ch-ink) 50%, transparent);
+}
+.lt-postmark::before { top: 16px; } .lt-postmark::after { bottom: 16px; }
+.lt-pm-a {
+  font-family: var(--ch-font-ui); font-weight: 700; font-size: 7px; letter-spacing: .1em;
+  color: color-mix(in srgb, var(--ch-ink) 75%, transparent); text-transform: uppercase;
+}
+.lt-pm-b {
+  font-family: var(--ch-font-ui); font-weight: 700; font-size: 9px; letter-spacing: .04em;
+  color: color-mix(in srgb, var(--ch-ink) 75%, transparent); text-transform: uppercase;
+}
+/* The day-done stamp card (Direction B): a cream loud-block carrying the
+   tappable Complaints Dept rubber stamp — same inked-rubber language as
+   MEMENTO MORI / CARPET DIEM, −4.5° per the mock. Below Share + Home. */
+.dd-letters {
+  display: block; margin: 18px 0 0; padding: 16px 14px 14px;
+  text-align: center; text-decoration: none; color: var(--ch-text-primary);
+  cursor: pointer;
+}
+.dd-letters:active { background: var(--ch-parchment); }
+.dd-letters-stamp {
+  position: static; transform: rotate(-4.5deg); font-size: 17px;
+  text-align: center; line-height: 1.2; pointer-events: none;
+}
+.dd-letters-stamp b { display: block; font-weight: 700; }
+.dd-letters-stamp small { display: block; font-size: 9px; font-weight: 700; letter-spacing: .12em; margin-top: 3px; }
+.dd-letters-line {
+  display: block; margin-top: 10px; font-family: var(--ch-font-ui);
+  font-weight: 700; font-size: 11.5px; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--ch-text-primary);
+}
+/* The Legacy coupon row is an <a> wearing the carry-open coupon clothes. */
+.feedback-open { text-decoration: none; }
+
 /* ---------- QA forcing panel (js/qa.js) ----------
    Only ever in the DOM when ?qa=1 / misc.qaMode is on. Deliberately looks
    like a dev tool rather than part of the app, so a screenshot taken with it

@@ -30,6 +30,7 @@ BROWSER = [
     ("smoke: resilience", [os.path.join(HERE, "test_resilience.py")]),
     ("nav: no dead ends", [os.path.join(HERE, "test_no_dead_ends.py")]),
     ("install flow", [os.path.join(HERE, "test_install.py")]),
+    ("letters/feedback", [os.path.join(HERE, "test_feedback.py")]),
     ("streaks + storage", [os.path.join(HERE, "test_streaks.py")]),
     ("carry: move record", [os.path.join(HERE, "test_carry.py")]),
 ]

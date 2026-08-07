@@ -115,6 +115,18 @@ const DISPLAY = {
   'webview-shown-tiktok': '7-webview-shown-tiktok',
   'webview-shown-other': '7-webview-shown-other',
   'webview-copylink': '7-webview-link-copied',
+  // Letters to the Editor (js/feedback.js, 5 Aug 2026): the TAP, never the
+  // submission — GoatCounter cannot see the Google Form, so taps ÷ replies
+  // is the form's drop-off rate and will not be 1:1. 6f keeps the family out
+  // of the plain 6-shared sums, same convention as 4x/6x above. -mailto is
+  // the offline fallback going out by email INSTEAD of a surface event, so
+  // form-tap counts stay honest.
+  'feedback-home': '6f-feedback-tapped-home',
+  'feedback-fullhouse': '6f-feedback-tapped-fullhouse',
+  'feedback-obituary': '6f-feedback-tapped-obituary',
+  'feedback-legacy': '6f-feedback-tapped-legacy',
+  'feedback-footer': '6f-feedback-tapped-footer',
+  'feedback-mailto': '6f-feedback-tapped-mailto',
   // Crash beacons arrive pre-named from app.js ('9-app-error-<script>' /
   // '9-app-rejection-<type>') and pass through the map untouched.
 };
