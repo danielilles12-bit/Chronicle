@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v189';
+const BUILD = 'v192';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -15,9 +15,9 @@ import * as store from './storage.js';
 import { track, initTracking } from './track.js';
 import { fullHouseShareText, obituaryShareText, shareResult, flashShareButton, shareUrl } from './sharecard.js';
 import { isMatch } from './match.js';
-import { initMapGame, renderMapStart, startMapDaily, startMapPractice } from './mapgame.js';
-import { initRevealGame, renderRevealStart, startRevealDaily, startRevealPractice } from './revealgame.js';
-import { initConnectionsGame, startThreadDaily, startThreadPractice } from './connectionsgame.js';
+import { initMapGame, renderMapStart, startMapDaily } from './mapgame.js';
+import { initRevealGame, renderRevealStart, startRevealDaily } from './revealgame.js';
+import { initConnectionsGame, startThreadDaily } from './connectionsgame.js';
 import * as daily from './daily.js';
 import * as sfx from './sfx.js';
 import { renderLedger } from './ledger.js';
@@ -98,7 +98,6 @@ function render() {
   else stopIssueClosedCountdown();
   if (id === 'view-mapstart') renderMapStart();
   if (id === 'view-revealstart') renderRevealStart();
-  if (id === 'view-archive') renderArchive();
   if (id === 'view-ledger') renderLedger();
   document.dispatchEvent(new CustomEvent('viewchange', { detail: id }));
 }
@@ -145,15 +144,19 @@ export function refreshHomeStats() {
   // paint here for now. A future stats screen reads the same storage getters.
 }
 
-// ---------- Game rows (hero + day-card strip + Archive bar) ----------
+// ---------- Game rows (hero + day-card scroller) ----------
 // One row per game, in the fixed presentation order Face Value, Lifeline,
 // Relic, Thread — most instantly-graspable first, heaviest cold-open last
 // (conversion call, 2026-07-20; keep in sync with GAMES in daily.js, which
-// drives the same order for "turn the page"). `launchDaily`/`launchPractice`
-// take the edition index.
+// drives the same order for "turn the page"). `launchDaily` takes the
+// edition index.
+// Archive v2 (Daniel, 7 Aug 2026): each row is ONE horizontal scroller —
+// today's hero card, then the reachable past days to the right, newest
+// first. There is no calendar screen, no game picker and no "Back issues"
+// bar any more; a past-day card goes straight into that game, that day.
 // Per-row accent tints are Archive Codex versions of NYT's per-game colour
 // coding (spec "Per-row accent tints"): a strong tint for the hero card, a
-// slightly lighter one (lower mix %) for day cards + the Archive bar.
+// slightly lighter one (lower mix %) for the day cards.
 const GAME_ROWS = [
   // `time` is the expected-time whisper on the hero card (P1.4): muted and
   // small next to the issue number, same voice as the dateline whisper.
@@ -162,7 +165,7 @@ const GAME_ROWS = [
     glyph: 'assets/brand/game-icon-face-value.webp', time: '~3 min',
     tintStrong: 'var(--df-magenta)',
     tintSoft: 'color-mix(in srgb, var(--df-magenta) 12%, var(--ch-cream))',
-    launchDaily: (n) => startRevealDaily('who', n), launchPractice: (n) => startRevealPractice('who', n),
+    launchDaily: (n) => startRevealDaily('who', n),
   },
   {
     key: 'map', label: 'Lifeline', tagline: 'Born here, died there. Name the figure.',
@@ -170,7 +173,7 @@ const GAME_ROWS = [
     glyph: 'assets/brand/game-icon-lifeline.webp', time: '~3 min',
     tintStrong: 'var(--df-yellow)',
     tintSoft: 'color-mix(in srgb, var(--df-yellow) 18%, var(--ch-cream))',
-    launchDaily: startMapDaily, launchPractice: startMapPractice,
+    launchDaily: startMapDaily,
   },
   {
     key: 'what', label: 'Relic', tagline: 'A famous artefact, one scrap at a time.',
@@ -178,7 +181,7 @@ const GAME_ROWS = [
     glyph: 'assets/brand/game-icon-relic.webp', time: '~3 min',
     tintStrong: 'var(--df-red)',
     tintSoft: 'color-mix(in srgb, var(--df-red) 10%, var(--ch-cream))',
-    launchDaily: (n) => startRevealDaily('what', n), launchPractice: (n) => startRevealPractice('what', n),
+    launchDaily: (n) => startRevealDaily('what', n),
   },
   {
     key: 'thread', label: 'Thread', tagline: 'Group 16 clues into four hidden categories.',
@@ -186,17 +189,50 @@ const GAME_ROWS = [
     glyph: 'assets/brand/game-icon-thread.webp', time: '~2 min',
     tintStrong: 'var(--df-cyan)',
     tintSoft: 'color-mix(in srgb, var(--df-cyan) 14%, var(--ch-cream))',
-    launchDaily: startThreadDaily, launchPractice: startThreadPractice,
+    launchDaily: startThreadDaily,
   },
 ];
-// Kept for the Archive picker (practice-game buttons) and archive-row dots,
-// which key off the same game list/order.
-const TODAY_GAMES = GAME_ROWS;
 
+// The card's one status line. An untouched card says NOTHING (Daniel, 7 Aug
+// 2026): "Play ›" came out because the whole card is visibly the button, and
+// the line is now a status report again — it lives under the game's name and
+// stands in for the tagline while it has something to say (see showsStatus
+// below and the .hero-status rules in style.css).
+//
+// A half-finished daily says "Resume today's puzzle" rather than the old flat
+// "In progress" (Daniel, 7 Aug 2026): a status describes, an instruction
+// invites, and "today's" carries the deadline — this thing expires at
+// midnight. The past-day cards say a plain "Resume" instead (see
+// dayCardLabels), because on a Thursday card "today's" would simply be false.
 function statusLabel(status, score) {
   if (status === 'done') return `Done · ${score} pts`;
-  if (status === 'in-progress') return 'In progress';
-  return 'Play ›';   // an invitation, not a status report (conversion audit 2026-07-20)
+  if (status === 'in-progress') return "Resume today's puzzle";
+  return '';
+}
+
+// Does this card's status line get to speak over the game's tagline?
+// Returning player (the four full cards): yes for done AND in progress —
+// where you are in today's issue beats a description you have read 40 times.
+// Newcomer (the three compact cards under the Face Value hero): only for the
+// resume prompt. A stranger's card is still selling the game, so "Done · 72
+// pts" — which they cannot see anyway, since one finished daily ends stranger
+// mode — must never cost them the one-liner.
+function showsStatus(status, stranger) {
+  return status === 'in-progress' || (!stranger && status === 'done');
+}
+
+// Every write to a card's status line goes through here, because the line
+// doubles as that card's loading/error state (ensureGameData/ensureEdition)
+// and it is now hidden unless something switches it on. Without this, "couldn’t
+// load — tap to retry" would be written into an invisible element on a card
+// that has not been played yet — which is exactly the card a player is most
+// likely to be tapping. Harmless on the archive picker's buttons, which are
+// not hero cards (closest() finds nothing).
+export function setCardStatus(el, text) {
+  if (!el) return;
+  el.textContent = text;
+  const card = el.closest ? el.closest('.hero-card') : null;
+  if (card) card.classList.toggle('show-status', !!text);
 }
 
 // Build the static shell for all four rows once. Called on boot; content
@@ -209,25 +245,23 @@ function renderGameRows() {
   root.innerHTML = GAME_ROWS.map((g) => `
     <section class="game-row" data-row="${g.key}"
              style="--row-tint-strong:${g.tintStrong};--row-tint-soft:${g.tintSoft}">
-      <button class="hero-card" data-hero="${g.key}" aria-label="Play today's ${g.label}">
-        <div class="hero-top">
-          <div class="hero-text">
-            <h2 class="hero-name">${g.label}</h2>
-            <p class="hero-tagline">${g.tagline}</p>
-            <p class="hero-tagline hero-tagline-new">${g.strangerLine || g.tagline}</p>
+      <div class="game-strip" data-strip>
+        <button class="hero-card" data-hero="${g.key}" aria-label="Play today's ${g.label}">
+          <div class="hero-col">
+            <div class="hero-text">
+              <h2 class="hero-name">${g.label}</h2>
+              <p class="hero-status" data-status></p>
+              <p class="hero-tagline">${g.tagline}</p>
+              <p class="hero-tagline hero-tagline-new">${g.strangerLine || g.tagline}</p>
+            </div>
+            <div class="hero-bottom">
+              <span class="hero-edition" data-edition></span>
+            </div>
           </div>
           <img class="hero-glyph" src="${g.glyph}" alt="">
-        </div>
-        <div class="hero-bottom">
-          <span class="hero-edition" data-edition></span>
-          <span class="hero-status" data-status></span>
-        </div>
-      </button>
-      <div class="df-week" data-week aria-hidden="true"></div>
-      <button class="row-archive" data-archive="${g.key}" aria-label="Open back issues">
-        <span>Back issues</span>
-        <svg class="row-archive-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6 H20 V19 A1 1 0 0 1 19 20 H5 A1 1 0 0 1 4 19 Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2.5 6 H21.5 L20 3 H4 Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9.5 10.5 H14.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-      </button>
+        </button>
+        <div class="day-cards" data-days></div>
+      </div>
     </section>
   `).join('');
   root.dataset.built = '1';
@@ -243,22 +277,86 @@ function renderGameRows() {
       track(`start-${g.key}`);
       launchWhenReady(g);
     });
-    $(`[data-archive="${g.key}"]`).addEventListener('click', async () => {
-      if (!await ensureGameData(g.key, $(`[data-row="${g.key}"] [data-status]`))) return;
-      renderArchive();
-      show('view-archive');
+    // ONE delegated listener per row, on the day-card container. The cards
+    // themselves are repainted on every Home visit (rollover, a finished
+    // daily), so per-card listeners would have to be re-attached each time —
+    // and a card that outlived its repaint is exactly the stale tap the
+    // guard in launchEdition exists to refuse.
+    $(`[data-row="${g.key}"] [data-days]`).addEventListener('click', (e) => {
+      const card = e.target.closest ? e.target.closest('[data-edition-index]') : null;
+      if (!card) return;
+      track(`archive-${g.key}`);
+      launchEdition(g.key, +card.dataset.editionIndex,
+        document.querySelector(`[data-hero="${g.key}"] [data-status]`));
     });
   });
+}
+
+// THE ONE DOOR into a daily from anywhere in the app (Home's hero card, a
+// past-day card, Encore, a ?play= share link). It gates on three things in
+// order, and any one of them says no on its own:
+//
+//   1. the access window (daily.canPlayEdition) — the hard guard. Unaired
+//      content must be unreachable by any casual path, so the refusal lives
+//      HERE, in the function that launches, not merely in what gets drawn.
+//      A card left on screen across a midnight rollover, or a URL, hits this.
+//   2. the game's data files (ensureGameData), and
+//   3. the schedule that says what edition n holds (ensureEdition).
+//
+// `onLaunch` runs SYNCHRONOUSLY in the same tick as launchDaily, for state a
+// game reads back with no await in between (the share-link flag below).
+// Returns true only if the game actually opened.
+export async function launchEdition(gameKey, n, statusEl, onLaunch) {
+  const g = GAME_ROWS.find((x) => x.key === gameKey);
+  if (!g) return false;
+  if (!daily.canPlayEdition(n)) {
+    // Fail closed, and repaint: whatever the player tapped is out of date, so
+    // put them back on a freshly-drawn Home rather than leaving the lie up.
+    goHome();
+    return false;
+  }
+  if (!await ensureEdition(gameKey, statusEl, n)) return false;
+  // Re-check after the await: a slow first download can straddle midnight,
+  // and the window that was true when the tap landed may not be any more.
+  if (!daily.canPlayEdition(n)) { goHome(); return false; }
+  if (onLaunch) onLaunch();
+  g.launchDaily(n);
+  return true;
 }
 
 // Launch a game from Home, waiting out the background data download if the
 // player outran it. The card's own status line doubles as the loading state,
 // and gates only on the files THIS game needs (P2.2).
-async function launchWhenReady(g) {
-  const statusEl = document.querySelector(`[data-hero="${g.key}"] [data-status]`);
-  const n = daily.todayIndex();
-  if (!await ensureEdition(g.key, statusEl, n)) return;
-  g.launchDaily(n);
+function launchWhenReady(g) {
+  return launchEdition(g.key, daily.todayIndex(),
+    document.querySelector(`[data-hero="${g.key}"] [data-status]`));
+}
+
+// Encore (locked decision #6, rewritten 7 Aug 2026): same game, most recent
+// unplayed accessible day. A real daily — it scores, it lands in the Ledger —
+// so it goes through the same one door as everything else. The old version
+// was five random aired rounds run through practice, which recorded nothing.
+export async function startEncore(gameKey) {
+  const n = daily.encoreEdition(gameKey, daily.todayIndex());
+  if (n == null) return false;
+  track(`encore-${gameKey}`);
+  return launchEdition(gameKey, n, null);
+}
+
+// Wire (and label, and show/hide) one game summary's Encore button. Shared by
+// all four games so the rule lives once: Encore appears on a DAILY summary
+// and only while that game still has an unplayed day inside the window; once
+// every accessible day is played, the button is simply gone. It names the day
+// it will open, because "Encore ›" alone gives no idea what is behind it.
+// Idempotent (.onclick) — summaries re-render on every visit.
+export function wireEncore(btnId, gameKey, isDaily) {
+  const btn = document.getElementById(btnId);
+  if (!btn) return;
+  const n = isDaily ? daily.encoreEdition(gameKey, daily.todayIndex()) : null;
+  if (n == null) { btn.hidden = true; btn.onclick = null; return; }
+  btn.textContent = `Encore: ${daily.weekdayName(n)} ›`;
+  btn.hidden = false;
+  btn.onclick = () => startEncore(gameKey);
 }
 
 // Weekday comes from the edition index (not the raw device date) so it
@@ -268,15 +366,57 @@ function datelineHTML(n) {
   return `№ ${safe} // ${daily.weekdayName(safe)}`;
 }
 
-// 'done' | 'in-progress' | 'not-started' for a past (aired) edition, for the
-// day cards. v1 note (spec "Cautions"): this reads the daily ledger only —
-// practice completions leave no persistent record in any game engine
-// (mapgame.js/revealgame.js/connectionsgame.js all no-op storage on practice
-// finish "no ledger, no trace"), so a day card cannot distinguish "played in
-// practice" from "not played" today. Showing daily results only, as the spec
-// allows for v1.
-function dayCardStatus(gameKey, editionIndex) {
-  return daily.dailyStatus(gameKey, editionIndex);
+// ---------- past-day cards (Archive v2) ----------
+const SHORT_DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+const SHORT_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+// A day card's three states. A finished day leads with its score, a
+// half-played one invites you back in — and an untouched one SAYS NOTHING
+// (Daniel, 7 Aug 2026). It used to read "Untouched", which put the same cold
+// word on screen up to 24 times at once; the weekday and date are label
+// enough, and the silence is what makes the two cards that DO speak carry.
+// "Resume", not the hero card's "Resume today's puzzle": these are past days,
+// and "today's" would be a plain lie on a Thursday card.
+// `spoken` still names the state for screen readers, where a blank card would
+// be genuinely ambiguous rather than restful.
+function dayCardLabels(gameKey, n) {
+  const status = daily.dailyStatus(gameKey, n);
+  if (status === 'done') {
+    const entry = store.getDailyEntry(gameKey, n);
+    const pts = (entry && entry.score) || 0;
+    return { status, line: `${pts} pts`, spoken: `done, ${pts} points` };
+  }
+  if (status === 'in-progress') return { status, line: 'Resume', spoken: 'in progress, resume' };
+  return { status, line: '', spoken: 'not played' };
+}
+
+// One row's past-day cards: the reachable archive editions, newest first.
+// Empty on launch day, and empty for a newcomer — the archive is regulars'
+// furniture, the same call the punch card and the old week strip lived under
+// (a stranger's Home sells one game and nothing else).
+function renderDayCards(g, today, stranger) {
+  const wrap = $(`[data-row="${g.key}"] [data-days]`);
+  if (!wrap) return;
+  const editions = stranger ? [] : daily.archiveEditions(today);
+  wrap.innerHTML = editions.map((n) => {
+    const d = daily.editionDate(n);
+    const { status, line, spoken } = dayCardLabels(g.key, n);
+    const cls = ['day-card', status === 'done' ? 'day-done'
+      : status === 'in-progress' ? 'day-progress' : 'day-fresh'].join(' ');
+    const date = `${d.getDate()} ${SHORT_MONTHS[d.getMonth()]}`;
+    return `<button type="button" class="${cls}" data-edition-index="${n}"
+      aria-label="${g.label}, ${daily.weekdayName(n)} ${date} — ${spoken}">
+      <span class="day-weekday">${SHORT_DAYS[daily.weekday(n)]}</span>
+      <span class="day-date">${date}</span>
+      ${line ? `<span class="day-status">${line}</span>` : ''}
+    </button>`;
+  }).join('');
+  // The strip only scrolls when there is something to scroll to; without
+  // this the hero card would sit at 'room for a peek' width with nothing
+  // in the gap (launch day, and every newcomer's first visit).
+  const row = $(`[data-row="${g.key}"]`);
+  if (row) row.classList.toggle('has-days', editions.length > 0);
 }
 
 // The masthead punch card (approved streak look, the "combo"): this week as
@@ -303,12 +443,10 @@ function renderPunchCard() {
   el.hidden = false;
 }
 
-const MAX_DAY_CARDS = 7;
-
 export function refreshGameRows() {
   if (!$('#home-rows')) return;
   renderGameRows();
-  applyStrangerMode();
+  const stranger = applyStrangerMode();
   const today = Math.max(0, daily.todayIndex());
   $('#dateline').innerHTML = datelineHTML(today);
   renderPunchCard();
@@ -321,20 +459,13 @@ export function refreshGameRows() {
     hero.querySelector('[data-status]').textContent = statusLabel(status, entry && entry.score);
     hero.classList.toggle('row-done', status === 'done');
     hero.classList.toggle('row-progress', status === 'in-progress');
+    // Also clears any 'spinning up the presses…' / 'tap to retry' left on the
+    // card by a launch that failed: every Home visit repaints from the ledger,
+    // so the switch has to be recomputed here too, not only in setCardStatus.
+    hero.classList.toggle('show-status', showsStatus(status, stranger));
 
-    // This week's M-S strip: filled square = that day's daily completed.
-    const weekEl = $(`[data-row="${g.key}"] [data-week]`);
-    if (weekEl) {
-      const monday = today - daily.weekday(today);
-      weekEl.innerHTML = ['M','T','W','T','F','S','S'].map((ch, i) => {
-        const n = monday + i;
-        const cls = [];
-        if (n === today) cls.push('today');
-        if (n <= today && daily.dailyStatus(g.key, n) === 'done') cls.push('done');
-        return `<span class="${cls.join(' ')}">${ch}</span>`;
-      }).join('');
-    }
-
+    // The Archive: today's card, then the reachable past days to its right.
+    renderDayCards(g, today, stranger);
   });
 }
 
@@ -479,7 +610,6 @@ export function openIntroHelp(gameKey) {
 }
 
 function initDaily() {
-  initArchive();
   // Escape closes the intro in either mode; in first-run mode this is the
   // same "back to Home, intro stays unseen" path as the ✕.
   document.addEventListener('keydown', (e) => {
@@ -514,127 +644,14 @@ export function teachWrongGuess(noteId, text, srText) {
   if (el) { el.textContent = text; el.hidden = false; }
 }
 
-// ---------- Archive / Practice ----------
-// The Morgue is a CALENDAR (owner call 2026-07-15): month grids, newest month
-// first, one tappable cell per aired edition. Replaces the old flat
-// "Fri / Issue № N" list (and the weekday filter chips a calendar makes
-// redundant — the weekday IS the column).
-function initArchive() {
-  const filterRow = $('#archive-filters');
-  if (filterRow) filterRow.hidden = true; // chips retired; calendar columns carry the weekday
-  const picker = $('#archive-picker');
-  if (picker) {
-    picker.querySelectorAll('[data-practice-game]').forEach((btn) => {
-      btn.addEventListener('click', async () => {
-        const g = TODAY_GAMES.find((x) => x.key === btn.dataset.practiceGame);
-        const n = +picker.dataset.editionIndex;
-        if (!g) return;
-        // P2.2: a practice launch gates on ITS game's files (the picker can
-        // launch any game, whatever row opened the archive). The button
-        // carries the loading/failure state, then gets its label back.
-        const label = btn.textContent;
-        if (!await ensureEdition(g.key, btn, n)) {
-          setTimeout(() => { btn.textContent = label; }, 1800);
-          return;
-        }
-        btn.textContent = label;
-        picker.hidden = true;
-        // The repair window (streak rule, Daniel's kinder call 2026-07-10):
-        // an edition still completable-for-streak (within 2 days of airing,
-        // daily.isStreakValid) and not yet in the ledger launches as the
-        // DAILY — this is the only path that can heal a missed day. Anything
-        // older, or already completed, is practice as before.
-        const today = daily.todayIndex();
-        const repairable = daily.isStreakValid(n, today) && !store.getDailyEntry(g.key, n);
-        if (repairable) g.launchDaily(n);
-        else g.launchPractice(n);
-      });
-    });
-    const closeBtn = $('#archive-picker-close');
-    if (closeBtn) closeBtn.addEventListener('click', () => { picker.hidden = true; });
-  }
-}
-
-function calDots(n) {
-  return TODAY_GAMES.map((g) => {
-    const status = daily.dailyStatus(g.key, n);
-    const dot = status === 'done' ? 'done' : status === 'in-progress' ? 'progress' : '';
-    return `<span class="archive-dot ${dot}" title="${g.label}"></span>`;
-  }).join('');
-}
-
-// One month's grid, Monday-first. `today`/`first`/`last` are edition indices;
-// only [first, last] (the trailing aired window) renders as tappable cells.
-// Today is marked but not tappable (its edition lives on the front page);
-// everything else — older aired days included — renders as dead numbers.
-function renderMonth(monthStart, today, first, last) {
-  const sec = document.createElement('section');
-  sec.className = 'cal-month';
-  const title = monthStart.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
-  const dows = ['M', 'T', 'W', 'T', 'F', 'S', 'S']
-    .map((d) => `<span class="cal-dow">${d}</span>`).join('');
-  const lead = (monthStart.getDay() + 6) % 7;
-  const daysInMonth = new Date(monthStart.getFullYear(), monthStart.getMonth() + 1, 0).getDate();
-  let cells = '';
-  for (let d = 1; d <= daysInMonth; d++) {
-    const n = daily.editionIndex(new Date(monthStart.getFullYear(), monthStart.getMonth(), d));
-    if (n === today) {
-      cells += `<span class="cal-cell today" aria-label="№ ${n} — today">`
-        + `<b>${d}</b><span class="cal-dots">${calDots(n)}</span></span>`;
-    } else if (n >= first && n <= last) {
-      cells += `<button type="button" class="cal-cell" data-edition="${n}"`
-        + ` aria-label="№ ${n} · ${daily.weekdayName(n)}">`
-        + `<b>${d}</b><span class="cal-dots">${calDots(n)}</span></button>`;
-    } else {
-      cells += `<span class="cal-cell dead">${d}</span>`;
-    }
-  }
-  for (let i = 0; i < lead; i++) cells = '<span class="cal-cell blank"></span>' + cells;
-  sec.innerHTML = `<h3 class="cal-title">${title}</h3><div class="cal-grid">${dows}${cells}</div>`;
-  sec.querySelectorAll('[data-edition]').forEach((b) => {
-    b.addEventListener('click', () => openArchiveEdition(+b.dataset.edition));
-  });
-  return sec;
-}
-
-function renderArchive() {
-  const main = $('#archive-list');
-  // The calendar itself needs no content files (dates + the ledger only), so
-  // it renders whatever the data situation — per-game gating happens on the
-  // practice buttons instead (P2.2).
-  if (!main) return;
-  main.innerHTML = '';
-  const today = daily.todayIndex();
-  // The Morgue holds the trailing 7 aired days ONLY (locked decision #4):
-  // older editions go dark, which frees their content for rescheduling later
-  // without feeling stale. No future previews of any kind — the unaired run
-  // must never be browsable (QA uses ?dailydate= instead).
-  const first = Math.max(0, today - 7);
-  const last = today - 1;
-  const newest = daily.editionDate(Math.max(0, today));
-  const oldest = daily.editionDate(Math.max(0, Math.min(first, today)));
-  const stop = new Date(oldest.getFullYear(), oldest.getMonth(), 1);
-  let cursor = new Date(newest.getFullYear(), newest.getMonth(), 1);
-  while (cursor >= stop) {
-    main.appendChild(renderMonth(cursor, today, first, last));
-    cursor = new Date(cursor.getFullYear(), cursor.getMonth() - 1, 1);
-  }
-}
-
-function openArchiveEdition(editionIndex) {
-  const picker = $('#archive-picker');
-  if (!picker) return;
-  picker.dataset.editionIndex = editionIndex;
-  $('#archive-picker-title').textContent = daily.editionLabel(editionIndex);
-  picker.hidden = false;
-}
-
 function initHome() {
   $('#dateline').innerHTML = datelineHTML(daily.todayIndex());
-  // The other three games' free-play "Start a run" views
-  // (view-mapstart/view-revealstart) are untouched, but Home no longer links
-  // to them directly — free play is reached via Archive → practice (spec
-  // "Removals/moves"), so they're hidden routes.
+  // The free-play "Start a run" views (view-mapstart/view-revealstart) are
+  // untouched, but nothing in the UI routes to them any more. Archive → practice
+  // was their last door and it retired with the calendar on 7 Aug 2026: past
+  // days are now real, scored dailies, which serves the same want better. The
+  // views and the engines' practice support stay shipped (and stay under the
+  // navigation contract) — they are simply unrouted.
   $$('[data-back]').forEach((b) => b.addEventListener('click', back));
 
   // The stranger's door (conversion Phase 2): one primary CTA straight into
@@ -689,11 +706,14 @@ function hasAnyDailyCompletion() {
 // furniture that stays hidden (see the .is-stranger rules in style.css).
 // Everything unlocks at the same moment the install pitch arrives: the first
 // completed daily.
+// Returns the verdict so refreshGameRows can ask each card to behave like a
+// stranger's or a regular's without deciding "am I a stranger" a second time.
 function applyStrangerMode() {
   const stranger = !hasAnyDailyCompletion();
   document.body.classList.toggle('is-stranger', stranger);
   const hero = $('#stranger-hero');
   if (hero) hero.hidden = !stranger;
+  return stranger;
 }
 
 // The whole "save it as an app" flow — detection, timing, the six screens and
@@ -759,16 +779,16 @@ async function routeSharedPlay() {
   const valid = ['thread', 'map', 'who', 'what'].indexOf(game) !== -1;
   if (valid) {
     track(`land-share-${game}`);
-    const g = GAME_ROWS.find((x) => x.key === game);
-    const n = daily.todayIndex();
     // No status element on this route (no card was tapped): a shared link
     // that arrives while the schedule is unreachable simply lands on Home,
-    // where the game's own card carries the failure and the retry.
-    if (g && await ensureEdition(game, null, n)) {
+    // where the game's own card carries the failure and the retry. The launch
+    // goes through the same guarded door as everything else — recipients play
+    // their OWN today, so the guard is a formality here, but the rule is that
+    // nothing opens a daily any other way.
+    await launchEdition(game, daily.todayIndex(), null, () => {
       shareLaunchGame = game;
       track(`start-from-share-${game}`);
-      g.launchDaily(n);
-    }
+    });
   }
   // Scrub after routing (track.js does the same for ref/utm): an installed
   // "Add to Home Screen" must never bake a share route into the app's
@@ -1225,13 +1245,13 @@ async function ensureGameData(gameKey, statusEl) {
   const needs = GAME_NEEDS[gameKey] || [];
   if (needs.every((k) => fileData[k] !== undefined) && fileData.editions !== undefined) return true;
   const slow = setTimeout(() => {
-    if (statusEl) statusEl.textContent = 'spinning up the presses…';
+    setCardStatus(statusEl, 'spinning up the presses…');
   }, 150);
   const results = await Promise.all(needs.map(loadFile));
   await loadFile('editions');
   clearTimeout(slow);
   const ok = results.every(Boolean);
-  if (!ok && statusEl) statusEl.textContent = 'couldn’t load — tap to retry';
+  if (!ok) setCardStatus(statusEl, 'couldn’t load — tap to retry');
   return ok;
 }
 
@@ -1245,7 +1265,7 @@ async function ensureGameData(gameKey, statusEl) {
 async function ensureEdition(gameKey, statusEl, editionIndex) {
   if (!await ensureGameData(gameKey, statusEl)) return false;
   if (daily.manifestReady(editionIndex)) return true;
-  if (statusEl) statusEl.textContent = 'couldn’t load — tap to retry';
+  setCardStatus(statusEl, 'couldn’t load — tap to retry');
   return false;
 }
 
@@ -1368,6 +1388,10 @@ async function boot() {
     window.__CHRONICLE_TEST__ = Object.assign(window.__CHRONICLE_TEST__ || {},
       { data: DATA, store, isMatch, daily, carry: carry.testHooks(),
         install: installHooks(),
+        // The real launch path, exactly as a card tap reaches it — including
+        // the access guard. tests/test_archive_window.py drives it to prove
+        // an out-of-window edition fails CLOSED rather than merely undrawn.
+        launch: (gameKey, n) => launchEdition(gameKey, n, null),
         nav: { show, back, goHome, trail: () => trail.slice() } });
   }
 

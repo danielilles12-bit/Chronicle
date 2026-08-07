@@ -5,7 +5,7 @@
 // only spender.
 // Mirrors the Map of a Life session shape (persisted, resumable; round count
 // comes from the edition — 3/day since edition 30, 5 before, free play 5).
-import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, teachWrongGuess, announce, testHooksEnabled, consumeShareLaunch, w800Url, loadImgFallback } from './app.js';
+import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, wireEncore, teachWrongGuess, announce, testHooksEnabled, consumeShareLaunch, w800Url, loadImgFallback } from './app.js';
 import * as store from './storage.js';
 import { track, roundOutcome, durationBucket } from './track.js';
 import { isMatch, registerPool } from './match.js';
@@ -757,32 +757,40 @@ function startEdition(sessMode, editionIndex) {
   }
 }
 
-export function startRevealDaily(mode, editionIndex) { MODE = mode; startEdition('daily', editionIndex); }
+// The access guard lives on the entry point itself, not only on the cards
+// that call it (spec §4 / CLAUDE.md): a stale card tapped after a midnight
+// rollover, or a hand-typed edition, must fail closed here too. app.js's
+// launchEdition checks the same rule before it gets this far — this is the
+// belt to that pair of braces, because THIS is the function that opens a
+// daily, and nothing may open one without passing the window.
+export function startRevealDaily(mode, editionIndex) {
+  if (!daily.canPlayEdition(editionIndex)) { goHome(); return; }
+  MODE = mode;
+  startEdition('daily', editionIndex);
+}
 export function startRevealPractice(mode, editionIndex) { MODE = mode; startEdition('practice', editionIndex); }
 
-// Encore (locked decision #6): 5 more rounds drawn from previously-aired
-// editions only (daily.encoreItems), run through the practice machinery —
-// no ledger, no streak, no score record. Nothing is persisted: every Encore
-// is a fresh sample, so there is nothing to resume.
-function startRevealEncore() {
-  const rounds = daily.encoreItems(MODE, daily.todayIndex());
-  if (!rounds.length) return;
-  track(`encore-${MODE}`);
-  S = {
-    mode: 'practice', encore: true, dailyKey: null,
-    store: { get: () => null, set: () => {}, clear: () => {} },
-    rounds, i: 0, score: 0, streak: 0, bestStreak: 0, results: [],
-  };
-  show('view-reveal');
-  startRound();
-}
-
+// A locked (already-completed) daily: the summary view, read-only. The round
+// list is rebuilt from the MANIFEST (daily.getEdition), not from the ledger
+// entry — the manifest is the record of what actually aired, while the entry
+// only carries what the player scored on it. Points are matched back onto the
+// manifest's rounds by id.
 function showLockedResult(editionIndex, entry) {
+  const scored = new Map((entry.detail || []).map((r) => [r.id, r]));
+  const aired = daily.getEdition(MODE, editionIndex);
+  const results = aired.map((item) => {
+    const r = scored.get(item.id) || {};
+    return { item, pts: r.pts || 0, correct: !!r.correct, torn: r.torn || 0, wrongs: r.wrongs || 0 };
+  });
   S = {
     mode: 'daily', dailyKey: daily.dailyKey(MODE, editionIndex), store: modeStore('daily', null),
     editionIndex, done: true, locked: true,
     score: entry.score,
-    results: (entry.detail || []).map((r) => ({
+    // Re-opening a finished daily is the ONLY place the solution recap shows.
+    // A player who has just finished a live run watched every reveal happen;
+    // repeating it under their receipt would be noise.
+    showSolution: true,
+    results: results.length ? results : (entry.detail || []).map((r) => ({
       item: byId(r.id) || { name: '(removed)', kind: MODE === 'who' ? 'portrait' : 'artefact' },
       pts: r.pts, correct: r.correct, torn: r.torn || 0, wrongs: r.wrongs || 0,
     })),
@@ -1085,15 +1093,57 @@ function renderLockedSummary() {
   const rvShare = $('#rv-sum-share');
   if (rvShare) rvShare.hidden = !S.share;
   wireTurnThePage('rv-sum-turn', S.editionIndex, isDaily);
-  // Encore lives on daily summaries (and on an Encore's own summary — it's
-  // replayable), never on practice/free ones. Hidden too when the aired pool
-  // has nothing to offer (early-epoch edge).
-  const rvEncore = $('#rv-sum-encore');
-  if (rvEncore) {
-    rvEncore.hidden = !((isDaily || S.encore)
-      && daily.encoreItems(MODE, daily.todayIndex()).length > 0);
+  renderSolution();
+  wireEncore('rv-sum-encore', MODE, isDaily);
+  $('#rv-sum-again').hidden = !!S.locked;
+}
+
+// The solution recap under the receipt (Archive v2). One plate per round, in
+// manifest order: the fully uncovered image — exactly the reveal the round
+// ended on — plus the blurb that came with it, and the same discreet ⓘ credit
+// affordance the live reveal carries (locked decision #8).
+function renderSolution() {
+  const wrap = $('#rv-sum-solution');
+  if (!wrap) return;
+  if (!S.showSolution || !S.results || !S.results.length) {
+    wrap.hidden = true;
+    wrap.innerHTML = '';
+    return;
   }
-  $('#rv-sum-again').hidden = !!S.locked || !!S.encore;
+  wrap.innerHTML = '<p class="sum-solution-head">The answers</p>'
+    + S.results.map((r, i) => {
+      const item = r.item || {};
+      const credit = creditHTML(item);
+      // w800 first, full original on error — the same ladder every other
+      // image load in the app uses (app.js loadImgFallback), inlined here
+      // because these are declarative <img> tags rather than JS loads.
+      const img = item.img
+        ? `<span class="sol-figure-wrap"><img class="sol-figure" src="${w800Url(item.img)}"
+             alt="${item.name || ''}" loading="lazy"
+             onerror="this.onerror=null;this.src='${item.img}'"></span>`
+        : '';
+      return `<article class="sol-round">
+        <span class="sol-pts${r.pts ? '' : ' zero'}">${r.pts ? '+' + r.pts : '0 pts'}</span>
+        ${img}
+        <div class="sol-body">
+          <h3 class="sol-name">${item.name || '(removed)'}</h3>
+          ${item.blurb ? `<p class="sol-blurb">${item.blurb}</p>` : ''}
+          ${credit ? `<button type="button" class="sol-credit-btn" data-credit="${i}"
+              aria-label="Photo credit" aria-expanded="false">ⓘ</button>
+            <div class="sol-credit-panel" id="sol-credit-${i}" hidden>${credit}</div>` : ''}
+        </div>
+      </article>`;
+    }).join('');
+  wrap.hidden = false;
+  wrap.querySelectorAll('[data-credit]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const panel = $(`#sol-credit-${btn.dataset.credit}`);
+      if (!panel) return;
+      const open = panel.hidden;
+      panel.hidden = !open;
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  });
 }
 
 function finishSession() {
@@ -1132,13 +1182,13 @@ function finishSession() {
     });
   }
   show('view-revealsum');
-  // "A game finished" for the install flow (js/install.js listens): a daily or
-  // an Encore, per Daniel's ruling — free play and archive practice do not
-  // count. Announced rather than called so this file keeps no dependency on
-  // the install flow at all.
-  if (S.mode === 'daily' || S.encore) {
+  // "A game finished" for the install flow (js/install.js listens): a daily —
+  // free play does not count. Encore is itself a daily now (Archive v2), so it
+  // arrives here through the same branch. Announced rather than called so this
+  // file keeps no dependency on the install flow at all.
+  if (S.mode === 'daily') {
     document.dispatchEvent(new CustomEvent('gamefinished',
-      { detail: { game: MODE, daily: S.mode === 'daily' } }));
+      { detail: { game: MODE, daily: true } }));
   }
 }
 
@@ -1248,6 +1298,5 @@ export function initRevealGame() {
   }
   $('#rv-sum-back').addEventListener('click', goHome);
   $('#rv-sum-again').addEventListener('click', () => { back(); startSession(); });
-  $('#rv-sum-encore').addEventListener('click', startRevealEncore);
   $('#rv-sum-home').addEventListener('click', goHome);
 }

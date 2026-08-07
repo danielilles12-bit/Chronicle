@@ -8,7 +8,9 @@ check). When a new audit produces a new ruling, it gets added HERE in the
 same session — this file is why his feedback compounds instead of
 evaporating.
 
-Last updated: 7 Aug 2026 (women-per-issue floor; occupation-family
+Last updated: 7 Aug 2026 (Archive v2 — per-game day-card scrollers, the
+edition-42 floor, Encore rewritten, read-only Done summaries that show the
+solution, "Resume today's puzzle"; women-per-issue floor; occupation-family
 duplicates advisory; Lighthouse of Alexandria retired; image rights
 free-licensed only; `frac` confirmed inert).
 
@@ -25,10 +27,82 @@ free-licensed only; `frac` confirmed inert).
   was written down. The test walks every view, the intro overlay in both its
   modes, the sheets, the moment screens, the reading pages and 404, and fails
   CI on any dead end.
-- **[JUDGMENT]** Sheets and overlays (archive picker, carry, confirm) are not
+- **[JUDGMENT]** Sheets and overlays (carry, confirm, the intro card) are not
   surfaces and do not get a chip — they get an explicit Close, above the
   fold, that returns to the surface underneath. Nothing that opens over a
   view may be dismissable only by tapping outside it.
+
+## The Archive (Daniel, 7 Aug 2026)
+
+Replaced the calendar "Morgue", the per-row Back-issues bar, the per-row
+M–T–W–T–F–S–S week strip, and the old Encore. One word for the whole feature
+in player-facing copy: **Archive**. "Back issues" and "the Morgue" are retired.
+
+- **[ENGINE]** **The window is today plus the six editions before it, floored
+  at the launch edition.** In `js/daily.js`: `ARCHIVE_FLOOR = 42`,
+  `ARCHIVE_SPAN = 6`, `first = max(FLOOR, today − 6)`, `last = today − 1`,
+  newest first, empty when `first > last`. Verified arithmetic: an edition
+  airs on EPOCH + n days, and 2026-06-29 + 42 days = **Monday 10 August 2026**,
+  launch day. Enforced and worked through five dated examples by
+  `tests/test_archive_window.py`.
+  Why six: content repeats on a 28–42 day gap, so a deeper archive would start
+  showing material already scheduled to come back. Why a floor: editions 24–41
+  aired before launch and are not launch quality — no player may reach one.
+- **[ENGINE]** **The window is a hard access guard, not a drawing rule.**
+  `daily.canPlayEdition(n)` is asked by the function that LAUNCHES a daily —
+  `startRevealDaily`/`startMapDaily`/`startThreadDaily` and `app.js`'s
+  `launchEdition` — not only by the code that decides which cards to render. A
+  stale card tapped across a midnight rollover, a hand-typed edition, or a
+  slow download that straddles midnight all fail closed and land on a
+  repainted Home. This is the CLAUDE.md "no casual path to unaired content"
+  rule made mechanical.
+- **[JUDGMENT]** **Home is the only door.** Each game's row is one horizontal
+  scroller: today's hero card, then the reachable past days to its right,
+  newest first, each showing that game's result for that day. Tapping one goes
+  straight into that game, that day — no calendar, no "which game?" picker.
+  A past-day card reads weekday · date, plus a status line ONLY when it has
+  something to say: `N pts` (done) or `Resume` (half-played). An untouched day
+  shows nothing (Daniel, 7 Aug 2026) — the earlier "Untouched" label put the
+  same cold word on screen 24 times at once, and silence is what lets the two
+  states that do speak carry. Screen readers still get the state via the
+  card's aria-label, where a blank card would be ambiguous rather than restful.
+  The cards are 124px tall against the hero's ~173px: torn-off stubs, not
+  cards that failed to fill.
+- **[JUDGMENT]** **The Archive is regulars' furniture.** A newcomer (no
+  completed daily) sees no day cards at all, the same call that already hides
+  the punch card — their screen sells one game and nothing else.
+- **[ENGINE]** **An archive play is a real daily.** It launches as the daily
+  for that edition, writes a normal ledger entry, and shows up in the Ledger.
+  It does NOT loosen streaks: `isStreakValid` still requires completion within
+  two days of the air date, so a play from four days back records a score and
+  revives nothing. That rule is untouched and must stay untouched
+  (`tests/test_daily_flow.py: daily_lock_and_repair`).
+- **[JUDGMENT]** Unscored "practice" loses its last player-facing route with
+  the calendar, and that is intended — a past day being playable AND scored
+  serves the same want better. The engines keep their practice support; only
+  the routes are gone.
+- **[JUDGMENT]** **A finished day opens its result, read-only, AND SHOWS THE
+  SOLUTION.** The receipt says what you scored; the plates under it say what
+  the answers were. Per game: Face Value and Relic show the fully uncovered
+  image (in the same duotone the live reveal applies, because the credit line
+  says "duotone") plus its blurb and the discreet ⓘ credit; Lifeline shows the
+  map with both pins plus name, occupation and fact — `data/figures.json`
+  carries no image for any of its 541 entries, so a portrait is impossible
+  without a separate content-and-rights project; Thread shows the solved board
+  in its four colours with its labels and title, and no fact line (boards
+  carry none). The round list is rebuilt from `getEdition(game, n)` — the
+  manifest is the record of what aired — never from the ledger entry.
+- **[JUDGMENT]** **Encore = same game, most recent unplayed accessible day.**
+  It keeps its name and its place on a finished daily's summary, names the day
+  it will open ("Encore: Sunday ›"), launches straight in, and disappears once
+  every accessible day for that game is played. It is a real daily now, so it
+  scores. Thread gained an Encore at the same time; the old five-random-aired-
+  rounds practice run is gone.
+- **[JUDGMENT]** **"Resume today's puzzle", not "In progress"** (Daniel, 7 Aug
+  2026). A status reports; an instruction invites, and "today's" carries the
+  fact that it expires at midnight. Past-day cards say a plain **"Resume"** —
+  "today's" would be false on a Thursday card. The gold in-progress colour and
+  the `row-progress` hook are unchanged.
 
 ## Save it as an app (the install flow)
 

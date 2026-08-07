@@ -26,10 +26,20 @@ const DISPLAY = {
   'finish-who': '4-finished-facevalue',
   'finish-what': '4-finished-relic',
   'finish-day': '5-finished-all-four',
-  // Encore (post-daily bonus runs — practice family, tracked for uptake).
+  // Encore (7 Aug 2026: no longer a practice run — it opens the most recent
+  // unplayed day from the Archive, which scores and lands in the Ledger like
+  // any other daily). Tracked for uptake; Thread joined when it gained one.
   'encore-who': '3-started-encore-facevalue',
   'encore-map': '3-started-encore-lifeline',
   'encore-what': '3-started-encore-relic',
+  'encore-thread': '3-started-encore-thread',
+  // A past-day card tapped on Home (the Archive's only door since 7 Aug
+  // 2026). Sits in the 3-started family because that is what it is: a start,
+  // just not today's. Counted apart so archive appetite is legible.
+  'archive-who': '3-started-archive-facevalue',
+  'archive-map': '3-started-archive-lifeline',
+  'archive-what': '3-started-archive-relic',
+  'archive-thread': '3-started-archive-thread',
   // The daily manifest didn't cover an edition it should have. Two causes,
   // one alarm: approve wasn't run for that edition (the file is there, the
   // entry isn't — cursor arithmetic fills in, the daily still exists), or

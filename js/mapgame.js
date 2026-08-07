@@ -1,5 +1,5 @@
 // "Map of a Life": guess the historical figure from birth/death geography.
-import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, teachWrongGuess, announce, testHooksEnabled, consumeShareLaunch } from './app.js';
+import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, wireEncore, teachWrongGuess, announce, testHooksEnabled, consumeShareLaunch } from './app.js';
 import * as store from './storage.js';
 import { track, roundOutcome, durationBucket } from './track.js';
 import { isMatch, registerPool } from './match.js';
@@ -539,39 +539,34 @@ function startEdition(mode, editionIndex) {
   else begin();
 }
 
-export function startMapDaily(editionIndex) { startEdition('daily', editionIndex); }
+// The access guard lives on the entry point itself — see the twin comment in
+// revealgame.js startRevealDaily. Nothing may open a daily without passing
+// the archive window first.
+export function startMapDaily(editionIndex) {
+  if (!daily.canPlayEdition(editionIndex)) { goHome(); return; }
+  startEdition('daily', editionIndex);
+}
 export function startMapPractice(editionIndex) { startEdition('practice', editionIndex); }
 
-// Encore (locked decision #6): 5 more figures drawn from previously-aired
-// editions only (daily.encoreItems), through the practice machinery — no
-// ledger, no streak, no record. Nothing is persisted: every Encore is a
-// fresh sample, so there is nothing to resume.
-function startMapEncore() {
-  const rounds = daily.encoreItems('map', daily.todayIndex());
-  if (!rounds.length) return;
-  track('encore-map');
-  S = {
-    mode: 'practice', encore: true, dailyKey: null,
-    store: { get: () => null, set: () => {}, clear: () => {} },
-    rounds, i: 0, score: 0, streak: 0, bestStreak: 0, results: [],
-  };
-  renderWorld();
-  setVb([0, 0, MAP_W, MAP_H]);
-  show('view-map');
-  startRound();
-}
-
-// A locked (already-completed) daily: reuse the summary view read-only —
-// rebuild S.results from the ledger detail so finishSession's render can be
-// reused verbatim.
+// A locked (already-completed) daily: the summary view, read-only. Rounds are
+// rebuilt from the MANIFEST (daily.getEdition) rather than from the ledger
+// entry — see the twin comment in revealgame.js showLockedResult.
 function showLockedResult(editionIndex, entry) {
-  const byId = (id) => DATA.figures.find((f) => f.id === id);
+  const byId = (id) => (DATA.figures || []).find((f) => f.id === id);
+  const scored = new Map((entry.detail || []).map((r) => [r.id, r]));
+  const aired = daily.getEdition('map', editionIndex);
+  const results = aired.map((fig) => {
+    const r = scored.get(fig.id) || {};
+    return { fig, pts: r.pts || 0, correct: !!r.correct, hints: r.hints || 0 };
+  });
   S = {
     mode: 'daily', dailyKey: daily.dailyKey('map', editionIndex), store: modeStore('daily', null),
     editionIndex, done: true, locked: true,
     score: entry.score,
-    results: (entry.detail || []).map((r) => ({
-      fig: byId(r.id) || { name: '(removed)', birth: {}, death: {} }, pts: r.pts, correct: r.correct, hints: r.hints || 0,
+    showSolution: true,
+    results: results.length ? results : (entry.detail || []).map((r) => ({
+      fig: byId(r.id) || { name: '(removed)', birth: {}, death: {} },
+      pts: r.pts, correct: r.correct, hints: r.hints || 0,
     })),
   };
   renderLockedSummary();
@@ -823,16 +818,89 @@ function renderLockedSummary() {
   const sumShare = $('#sum-share');
   if (sumShare) sumShare.hidden = !S.share;
   wireTurnThePage('sum-turn', S.editionIndex, isDaily);
-  // Encore lives on daily summaries (and on an Encore's own summary — it's
-  // replayable), never on practice/free ones. Hidden too when the aired pool
-  // has nothing to offer (early-epoch edge).
-  const sumEncore = $('#sum-encore');
-  if (sumEncore) {
-    sumEncore.hidden = !((isDaily || S.encore)
-      && daily.encoreItems('map', daily.todayIndex()).length > 0);
+  renderSolution();
+  wireEncore('sum-encore', 'map', isDaily);
+  $('#sum-again').hidden = !!S.locked;
+}
+
+// ---------- the solution recap (Archive v2) ----------
+// figures.json carries NO image for any of its 541 entries (verified 7 Aug
+// 2026: id, name, occupation, birth, death, fact, mcq, variants, difficulty),
+// so a portrait here is impossible without a separate content-and-rights
+// project. The map IS this game's picture, so the recap shows exactly that:
+// the two pins revealed, framed on the pair, with the name, the occupation
+// and the fact underneath.
+
+// A standalone framing box for one figure, independent of the live #map-svg
+// (which is not on screen while the summary is). Fixed 2:1, matching the
+// .sol-map aspect ratio in style.css.
+function soloBox(p1, p2) {
+  const aspect = 2;
+  const x0 = Math.min(p1[0], p2[0]), x1 = Math.max(p1[0], p2[0]);
+  const y0 = Math.min(p1[1], p2[1]), y1 = Math.max(p1[1], p2[1]);
+  let w = Math.max((x1 - x0) * 2.2, 220);
+  let h = Math.max((y1 - y0) * 2.2, 110);
+  h += 0.14 * w;
+  if (w / h > aspect) h = w / aspect; else w = h * aspect;
+  const maxW = MAP_W + 2 * MAP_BLEED, maxH = MAP_H + 2 * MAP_BLEED;
+  if (w > maxW) { w = maxW; h = w / aspect; }
+  if (h > maxH) { h = maxH; w = Math.min(maxW, h * aspect); }
+  let cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+  cx = Math.min(Math.max(cx, w / 2 - MAP_BLEED), MAP_W - w / 2 + MAP_BLEED);
+  cy = Math.min(Math.max(cy, h / 2 - MAP_BLEED), MAP_H - h / 2 + MAP_BLEED);
+  return [cx - w / 2, cy - h / 2, w, h];
+}
+
+// One static SVG per round: same land path, same projection, same marker
+// language (filled dot = birth, ring = death) as the live board, sized off
+// the box rather than re-scaled every frame.
+function miniMapSVG(fig) {
+  if (!DATA.world || !fig || !fig.birth || fig.birth.lon == null) return '';
+  const b = proj(fig.birth.lon, fig.birth.lat);
+  const d = proj(fig.death.lon, fig.death.lat);
+  const box = soloBox(b, d);
+  const w = box[2];
+  const r = w * 0.016;
+  const up = b[1] <= d[1];
+  const label = (pt, x, y, above) =>
+    `<text class="mk-label" x="${(x + r * 2).toFixed(1)}" y="${(above ? y - r * 1.6 : y + r * 3.0).toFixed(1)}"`
+    + ` font-size="${(w * 0.034).toFixed(2)}" stroke-width="${(w * 0.008).toFixed(2)}"`
+    + ` text-anchor="start">${yearLabel(pt)}</text>`;
+  return `<svg class="sol-map" viewBox="${box.map((v) => v.toFixed(2)).join(' ')}"
+      role="img" aria-label="Born ${fig.birth.place}, died ${fig.death.place}">
+    <rect x="-40" y="-40" width="1080" height="580" fill="var(--ch-cream)"></rect>
+    <path class="map-land" d="${DATA.world.land}" fill-rule="evenodd"></path>
+    <circle class="mk-dot mk-birth" cx="${b[0]}" cy="${b[1]}" r="${r.toFixed(2)}"></circle>
+    <circle class="mk-ring mk-death-ring" cx="${d[0]}" cy="${d[1]}" r="${(r * 1.55).toFixed(2)}"
+            fill="none" stroke="var(--ch-map-origin)" stroke-width="${(r * 0.55).toFixed(2)}"></circle>
+    <circle class="mk-dot mk-death" cx="${d[0]}" cy="${d[1]}" r="${(r * 0.55).toFixed(2)}"></circle>
+    ${label(fig.birth, b[0], b[1], up)}
+    ${label(fig.death, d[0], d[1], !up)}
+  </svg>`;
+}
+
+function renderSolution() {
+  const wrap = $('#sum-solution');
+  if (!wrap) return;
+  if (!S.showSolution || !S.results || !S.results.length) {
+    wrap.hidden = true;
+    wrap.innerHTML = '';
+    return;
   }
-  $('#sum-again').hidden = !!S.locked || !!S.encore;
-  $('#sum-home').textContent = S.locked ? 'Home' : 'Home';
+  wrap.innerHTML = '<p class="sum-solution-head">The answers</p>'
+    + S.results.map((r) => {
+      const fig = r.fig || {};
+      return `<article class="sol-round">
+        <span class="sol-pts${r.pts ? '' : ' zero'}">${r.pts ? '+' + r.pts : '0 pts'}</span>
+        ${miniMapSVG(fig)}
+        <div class="sol-body">
+          <h3 class="sol-name">${fig.name || '(removed)'}</h3>
+          ${fig.occupation ? `<p class="sol-meta">${fig.occupation}</p>` : ''}
+          ${fig.fact ? `<p class="sol-blurb">${fig.fact}</p>` : ''}
+        </div>
+      </article>`;
+    }).join('');
+  wrap.hidden = false;
 }
 
 function finishSession() {
@@ -873,10 +941,10 @@ function finishSession() {
   }
   show('view-mapsum');
   // "A game finished" for the install flow — see the same note in
-  // revealgame.js: dailies and Encores count, free play and practice do not.
-  if (S.mode === 'daily' || S.encore) {
+  // revealgame.js: dailies count (Encore is one now), free play does not.
+  if (S.mode === 'daily') {
     document.dispatchEvent(new CustomEvent('gamefinished',
-      { detail: { game: 'map', daily: S.mode === 'daily' } }));
+      { detail: { game: 'map', daily: true } }));
   }
 }
 
@@ -967,7 +1035,6 @@ export function initMapGame() {
     back();              // drop the summary from the view trail
     startSession();
   });
-  $('#sum-encore').addEventListener('click', startMapEncore);
   $('#sum-home').addEventListener('click', goHome);
   const sumShareBtn = $('#sum-share');
   if (sumShareBtn) {

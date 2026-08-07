@@ -4,8 +4,8 @@
 A newcomer with no play history meets a hero built to convert: a real Face
 Value board shown at the moment a round opens, one named game, one door, and
 the other three games as compact rows underneath. A player with history meets
-the classic Home — four full rows, week strips, back-issue bars, punch card —
-and must never see any of the hero's furniture.
+the classic Home — four full rows, the punch card, and each row's Archive of
+past-day cards — and must never see any of the hero's furniture.
 
 The scenarios below are the fence between those states. The stranger ones also
 guard the things that break quietly: the demo image 404ing, the demo image
@@ -328,12 +328,28 @@ def returning_home_unchanged(p, base):
                 "%s row lost its tagline: %r" % (key, said(page, '[data-row="%s"] .hero-tagline' % key))
             assert page.locator('[data-row="%s"] .hero-tagline-new' % key).is_hidden(), \
                 "the newcomer one-liner leaked into the classic %s row" % key
+            # Thread is the game we finished to get here, and since 7 Aug 2026
+            # a finished card shows "Done · N pts" in place of its tagline
+            # (home_card_status_and_icons owns that rule). The other three are
+            # untouched, so their taglines must actually be on screen — not
+            # merely present in the markup, which is all inner_text proves.
+            if key != "thread":
+                assert page.locator('[data-row="%s"] .hero-tagline' % key).first.is_visible(), \
+                    "%s row's tagline is in the markup but not on the screen" % key
 
-        # The regulars' furniture is all back.
+        # The regulars' furniture is all back. Since 7 Aug 2026 that means the
+        # Archive's day cards (the week strip and the Back Issues bar retired
+        # with the calendar screen) — six of them, newest first, in every row.
         assert page.locator("#punch-card").is_visible()
+        want = list(range(N - 1, N - 7, -1))
         for key in CLASSIC_TAGLINES:
-            assert page.locator('[data-row="%s"] [data-week]' % key).is_visible()
-            assert page.locator('[data-archive="%s"]' % key).is_visible()
+            got = page.evaluate(
+                "g => [...document.querySelectorAll("
+                "'[data-row=\"' + g + '\"] [data-days] [data-edition-index]')]"
+                ".map(b => +b.dataset.editionIndex)", key)
+            assert got == want, "%s row's Archive reads %r, expected %r" % (key, got, want)
+            assert page.locator(
+                '[data-row="%s"] [data-days] [data-edition-index]' % key).first.is_visible()
             assert page.locator('[data-row="%s"] .hero-edition' % key).is_visible()
         assert "№" in page.inner_text('[data-hero="who"] [data-edition]')
 
@@ -344,8 +360,156 @@ def returning_home_unchanged(p, base):
         H.fail_on_errors(errors, "returning_home_unchanged")
 
 
+# ---------- home_card_status_and_icons ----------
+# What every game card says and shows (Daniel, 7 Aug 2026):
+#   * the icon has no ink frame and is big enough to read at a glance —
+#     80px on the stranger's compact cards (they were 54px and illegible),
+#     136px on the returning player's, both inside a card no taller than the
+#     framed version's;
+#   * "Play ›" is gone everywhere — the whole card is visibly the button;
+#   * the status line moved out of the bottom row to sit under the game's
+#     name, where it stands in for the tagline while it has something to say:
+#     "Resume today's puzzle" in both states, "Done · N pts" only for a returning
+#     player (a newcomer's card is still selling the game, so it keeps its
+#     one-liner);
+#   * the bottom row keeps the issue number and the time whisper.
+GLYPH = """(k) => {
+  const card = document.querySelector('[data-hero="' + k + '"]');
+  const g = card.querySelector('.hero-glyph');
+  const cs = getComputedStyle(g);
+  const cr = card.getBoundingClientRect(), gr = g.getBoundingClientRect();
+  const ccs = getComputedStyle(card);
+  return {
+    w: gr.width, h: gr.height, cardH: cr.height,
+    pad: parseFloat(ccs.paddingTop) + parseFloat(ccs.paddingBottom),
+    border: cs.borderTopWidth, shadow: cs.boxShadow,
+  };
+}"""
+
+
+def home_card_status_and_icons(p, base):
+    for label, seed in (("stranger", False), ("returning", True)):
+        with H.app(p) as (page, errors, _ctx):
+            H.boot(page, base, DATE)
+            if seed:
+                H.seed_completion(page, "thread", N, score=72,
+                                  detail={"solved": True, "perfect": False,
+                                          "mistakes": 1, "guesses": []})
+                H.boot(page, base, DATE)   # stranger mode is decided on render
+                page.wait_for_selector("#stranger-hero", state="hidden")
+            else:
+                page.wait_for_selector("#stranger-hero:not([hidden])")
+            why = label + ": "
+
+            # No invitation text anywhere in the strip — the card is the
+            # button.
+            assert "play" not in page.inner_text("#home-rows").lower(), \
+                why + "a 'Play ›' survives in the game cards"
+
+            # The Archive is regulars' furniture: a newcomer sees none of it.
+            n_days = page.locator("#home-rows [data-edition-index]").count()
+            if seed:
+                assert n_days == 4 * 6, \
+                    why + "expected four rows of six day cards, found %d" % n_days
+            else:
+                assert n_days == 0, \
+                    why + "a newcomer was shown %d past-day cards" % n_days
+
+            # The icons: unframed, and as tall as the card's content box.
+            want = 136 if seed else 80
+            for key in (CLASSIC_TAGLINES if seed else dict(
+                    (g, 1) for g, _, _ in OTHER_GAMES)):
+                g = page.evaluate(GLYPH, key)
+                assert g["border"] == "0px", \
+                    why + "%s icon still has a %s frame" % (key, g["border"])
+                assert g["shadow"] == "none", \
+                    why + "%s icon still casts the framed print's shadow" % key
+                assert g["w"] == want and g["h"] == want, \
+                    why + "%s icon is %.0fx%.0f, expected %d" % (
+                        key, g["w"], g["h"], want)
+                # It fills the card rather than forcing it taller: the whole
+                # point of moving the icon beside the bottom line.
+                assert g["h"] <= g["cardH"] - g["pad"] + 1, \
+                    why + "%s icon (%.0f) overflows its card's content box" % (
+                        key, g["h"])
+                assert g["h"] >= (g["cardH"] - g["pad"]) * 0.9, \
+                    why + "%s icon (%.0f) leaves %.0fpx of card height unused" % (
+                        key, g["h"], g["cardH"] - g["pad"] - g["h"])
+
+            # The status line lives under the name, above the bottom row.
+            probe = "thread" if seed else "map"
+            geom = page.evaluate(
+                """(k) => { const c = document.querySelector('[data-hero="' + k + '"]');
+                  const b = (s) => { const e = c.querySelector(s);
+                    const r = e.getBoundingClientRect();
+                    return {t: r.top, b: r.bottom, shown: getComputedStyle(e).display}; };
+                  return {name: b('.hero-name'), status: b('[data-status]'),
+                          bottom: b('.hero-bottom')}; }""", probe)
+            if seed:
+                # Returning player, done game: "Done · N pts" under the name,
+                # tagline gone, issue number + time whisper still below.
+                assert said(page, '[data-hero="thread"] [data-status]') == "done · 72 pts", \
+                    why + "the done card lost its score line"
+                assert geom["status"]["t"] >= geom["name"]["b"] - 1, \
+                    why + "the status sits above the game's name"
+                assert geom["status"]["b"] <= geom["bottom"]["t"] + 1, \
+                    why + "the status is still down in the bottom row"
+                assert page.locator('[data-row="thread"] .hero-tagline').first.is_hidden(), \
+                    why + "the tagline is still showing under a done card"
+                edition = page.inner_text('[data-hero="thread"] [data-edition]')
+                assert ("№ %d" % N) in edition and "min" in edition, \
+                    why + "the bottom row lost the issue number or the time whisper: %r" % edition
+            else:
+                # Newcomer: silent card, one-liner intact, bottom row gone.
+                assert page.inner_text('[data-hero="map"] [data-status]').strip() == "", \
+                    why + "an unplayed card is talking"
+                assert geom["status"]["shown"] == "none", why + "the silent status line is rendered"
+                assert geom["bottom"]["shown"] == "none", \
+                    why + "the newcomer's card still prices the issue"
+                assert page.locator('[data-row="map"] .hero-tagline-new').is_visible(), \
+                    why + "the newcomer one-liner is gone"
+            H.fail_on_errors(errors, "home_card_status_and_icons/" + label)
+
+
+# ---------- in_progress_replaces_the_one_liner ----------
+def in_progress_replaces_the_one_liner(p, base):
+    """A newcomer who starts Lifeline and comes back sees the resume prompt
+    where that card's one-liner was — and only on that card.
+
+    The wording is "Resume today's puzzle", not the old flat "In progress"
+    (Daniel, 7 Aug 2026): an instruction invites where a status only reports,
+    and "today's" carries the fact that it expires at midnight. The past-day
+    cards say a plain "Resume" instead — see test_daily_flow.rollover — since
+    "today's" would be false there."""
+    with H.app(p) as (page, errors, _ctx):
+        H.boot(page, base, DATE)
+        page.wait_for_selector("#stranger-hero:not([hidden])")
+        H.open_daily(page, "map")
+        H.dismiss_intro(page)
+        page.wait_for_selector("#view-map:not([hidden])")
+        page.click("#map-quit")
+        if page.locator("#confirm-sheet:not([hidden])").count():
+            page.click("#confirm-yes")
+        page.wait_for_selector("#view-home:not([hidden])")
+        assert page.evaluate("document.body.classList.contains('is-stranger')"), \
+            "quitting a daily should not end stranger mode"
+
+        assert said(page, '[data-hero="map"] [data-status]') == "resume today's puzzle"
+        assert page.locator('[data-row="map"] .hero-tagline-new').is_hidden(), \
+            "the resume prompt should stand in for the one-liner, not sit beside it"
+        for key, line, _view in OTHER_GAMES:
+            if key == "map":
+                continue
+            assert said(page, '[data-row="%s"] .hero-tagline-new' % key) == line, \
+                "%s lost its one-liner to another game's progress" % key
+            assert page.locator('[data-hero="%s"] [data-status]' % key).is_hidden(), \
+                "%s is reporting a status it does not have" % key
+        H.fail_on_errors(errors, "in_progress_replaces_the_one_liner")
+
+
 TESTS = [stranger_hero, stranger_hero_side_by_side,
-         stranger_rows_open_their_own_games, returning_home_unchanged]
+         stranger_rows_open_their_own_games, returning_home_unchanged,
+         home_card_status_and_icons, in_progress_replaces_the_one_liner]
 
 
 def main():

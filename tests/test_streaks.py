@@ -221,8 +221,17 @@ def past_midnight_completion(p, base):
             % led["streaks"]["who"])
 
         assert ("№ %d" % N) in page.inner_text("#dateline"), "Home stuck on the old issue"
-        status = page.inner_text('[data-hero="who"] [data-status]').lower()
-        assert "play" in status, "today's Face Value should still invite: %r" % status
+        # Today's own Face Value is still untouched. It used to say "Play ›";
+        # since 7 Aug 2026 an untouched card is silent and shows its tagline
+        # instead (see test_stranger_home.py: home_card_status_and_icons), so
+        # what we check is that last night's finish did not mark TODAY.
+        cls = page.get_attribute('[data-hero="who"]', "class")
+        assert "row-done" not in cls and "row-progress" not in cls, (
+            "yesterday's late finish marked today's Face Value: %r" % cls)
+        status = page.inner_text('[data-hero="who"] [data-status]').strip()
+        assert status == "", "today's untouched card should say nothing: %r" % status
+        assert page.locator('[data-hero="who"] .hero-tagline').first.is_visible(), \
+            "today's untouched card lost its tagline"
         H.fail_on_errors(errors, "past_midnight_completion")
 
 

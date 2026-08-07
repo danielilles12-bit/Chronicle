@@ -202,10 +202,12 @@ def qa_force(page, label, wait_selector):
 # 1. every view in index.html
 # ---------------------------------------------------------------------------
 # view id -> (selector for its way back, shape). view-home is the hub and is
-# deliberately absent. view-mapstart/view-revealstart have no UI route today
-# (free play moved behind Archive → practice) but are still shipped views, so
-# they are still held to the contract — reached through the test-only router
-# hook (__CHRONICLE_TEST__.nav.show).
+# deliberately absent. view-mapstart/view-revealstart have no UI route at all
+# (their last one, Archive → practice, retired with the calendar on 7 Aug
+# 2026) but are still shipped views, so they are still held to the contract —
+# reached through the test-only router hook (__CHRONICLE_TEST__.nav.show).
+# view-archive is gone: the Archive is now day cards on Home, which is the hub
+# and needs no way back to itself.
 WAYS_BACK = [
     ("view-mapstart", "#view-mapstart [data-back]", "chip"),
     ("view-map", "#map-quit", "chip"),
@@ -216,7 +218,6 @@ WAYS_BACK = [
     ("view-conn", "#conn-quit", "chip"),
     ("view-connsum", "#conn-sum-back", "chip"),
     ("view-daydone", "#dd-home", "moment"),
-    ("view-archive", "#view-archive [data-back]", "chip"),
     ("view-ledger", "#view-ledger [data-back]", "chip"),
 ]
 
@@ -320,11 +321,18 @@ def played_summary(p, base):
 
 
 # ---------------------------------------------------------------------------
-# 3. ledger, archive, and the sheets that open over them
+# 3. the ledger, the carry sheet, and the Archive's day cards
 # ---------------------------------------------------------------------------
 def ledger_and_sheets(p, base):
-    """Your Legacy and Back Issues carry chips; the carry sheet and the
-    archive picker carry a Close that returns to the surface underneath."""
+    """Your Legacy carries a chip, and the carry sheet that opens over it
+    carries a Close that returns to the surface underneath.
+
+    The Back Issues half of this scenario retired on 7 Aug 2026 with the
+    calendar screen and its game picker. Its replacement — a past-day card on
+    Home — opens a game view, and every game view's way back is already held
+    to the contract by live_rounds above. The one thing worth keeping here is
+    that a past day really does land on a screen WITH a way back, rather than
+    on a surface nobody registered."""
     with H.app(p) as (page, errors, _ctx):
         H.boot(page, base, DATE)
         page.click("#ledger-link")
@@ -341,25 +349,32 @@ def ledger_and_sheets(p, base):
         page.click("#view-ledger [data-back]")
         assert_on(page, "view-home", "ledger -> back")
 
-        # The archive bar is regulars' furniture: one completed daily, then a
-        # reload, takes the page out of stranger mode.
+        # The Archive is regulars' furniture: one completed daily, then a
+        # reload, takes the page out of stranger mode and the day cards appear.
         H.seed_completion(page, "thread", N, score=80,
                           detail={"solved": True, "perfect": False,
                                   "mistakes": 1, "guesses": []})
         H.boot(page, base, DATE)
-        page.click('[data-archive="who"]')
-        assert_on(page, "view-archive", "archive")
-        assert_chip(page, "#view-archive [data-back]", "Back Issues")
+        card = '[data-row="who"] [data-days] [data-edition-index="%d"]' % (N - 1)
+        page.wait_for_selector(card)
+        page.click(card)
+        H.dismiss_intro(page, timeout=2500)
+        assert_on(page, "view-reveal", "past day card")
+        assert_chip(page, "#rv-quit", "a past day's round")
+        page.click("#rv-quit")
+        assert_on(page, "view-home", "past day round -> back")
 
-        page.click('#archive-list [data-edition="%d"]' % (N - 1))
-        page.wait_for_selector("#archive-picker:not([hidden])")
-        assert_close(page, "#archive-picker-close", "archive picker sheet")
-        page.click("#archive-picker-close")
-        page.wait_for_selector("#archive-picker", state="hidden")
-        assert_on(page, "view-archive", "picker close -> archive")
-
-        page.click("#view-archive [data-back]")
-        assert_on(page, "view-home", "archive -> back")
+        # A finished past day opens its read-only summary, which is a real
+        # surface and needs its own way back.
+        H.seed_completion(page, "map", N - 2, score=55, detail=[])
+        H.boot(page, base, DATE)
+        done = '[data-row="map"] [data-days] [data-edition-index="%d"]' % (N - 2)
+        page.wait_for_selector(done)
+        page.click(done)
+        assert_on(page, "view-mapsum", "a finished past day")
+        assert_chip(page, "#sum-back", "a finished past day's summary")
+        page.click("#sum-back")
+        assert_on(page, "view-home", "finished past day -> back")
         H.fail_on_errors(errors, "ledger_and_sheets")
 
 
@@ -503,8 +518,8 @@ def os_back_gesture(p, base):
         # Two views deep: back walks them one at a time, in order.
         page.click("#ledger-link")
         assert_on(page, "view-ledger", "ledger")
-        page.evaluate("() => __CHRONICLE_TEST__.nav.show('view-archive')")
-        assert_on(page, "view-archive", "archive")
+        page.evaluate("() => __CHRONICLE_TEST__.nav.show('view-revealstart')")
+        assert_on(page, "view-revealstart", "a second surface")
         page.go_back()
         assert_on(page, "view-ledger", "OS back -> prior surface")
         page.go_back()

@@ -281,6 +281,12 @@
         </div>
         <span class="df-stamp df-receipt-stamp df-stamp-damnatio" data-stamp-zero hidden>Damnatio memoriae<small>struck from the record</small></span>
       </div>
+      <!-- Archive v2 (Daniel, 7 Aug 2026): re-opening a finished daily shows
+           the SOLUTION, not just the score — the reveal moment the player
+           saw when each round resolved. Painted by the game engines'
+           showLockedResult; empty and hidden on a live finish, where the
+           player has only just watched it happen. -->
+      <div class="sum-solution" id="sum-solution" hidden></div>
       <div class="sum-actions">
         <button class="pill primary big" id="sum-turn" hidden>Turn the page ›</button>
         <button class="pill primary big" id="sum-share" hidden>Share the run</button>
@@ -379,6 +385,12 @@
         </div>
         <span class="df-stamp df-receipt-stamp df-stamp-damnatio" data-stamp-zero hidden>Damnatio memoriae<small>struck from the record</small></span>
       </div>
+      <!-- Archive v2 (Daniel, 7 Aug 2026): re-opening a finished daily shows
+           the SOLUTION, not just the score — the reveal moment the player
+           saw when each round resolved. Painted by the game engines'
+           showLockedResult; empty and hidden on a live finish, where the
+           player has only just watched it happen. -->
+      <div class="sum-solution" id="rv-sum-solution" hidden></div>
       <div class="sum-actions">
         <button class="pill primary big" id="rv-sum-turn" hidden>Turn the page ›</button>
         <button class="pill primary big" id="rv-sum-share" hidden>Share the tear-up</button>
@@ -433,12 +445,13 @@
       <div class="sum-actions" style="margin-top:20px">
         <button class="pill primary big" id="conn-sum-turn" hidden>Turn the page ›</button>
         <button class="pill primary big" id="conn-sum-share" hidden>Share the thread</button>
+        <button class="pill big" id="conn-sum-encore" hidden>Encore ›</button>
       </div>
       <a class="sum-report-link" id="conn-sum-report" href="#">Report a problem</a>
     </main>
   </section>
 
-  <!-- ============ ARCHIVE / PRACTICE ============ -->
+  <!-- ============ DAY DONE (celebration / obituary) ============ -->
   <section class="view view-loud" id="view-daydone" hidden>
     <header class="topbar safe-top" style="background:transparent;border-bottom-color:var(--ch-ink)">
       <span class="topbar-right"></span>
@@ -473,20 +486,6 @@
         <span class="dd-letters-line" id="dd-letters-line">The editor reads every one →</span>
       </a>
     </main>
-  </section>
-
-  <section class="view" id="view-archive" hidden>
-    <header class="topbar safe-top">
-      <button class="iconbtn" data-back aria-label="Back">‹</button>
-      <h2>Back Issues</h2>
-      <span class="topbar-right"></span>
-    </header>
-    <div class="df-morgue-banner" aria-hidden="true">
-      <span class="df-morgue-title">The Morgue</span>
-      <span class="df-morgue-sticker">Nothing in here ever dies</span>
-    </div>
-    <div id="archive-filters" class="archive-filters"></div>
-    <main id="archive-list" class="scroll-main"></main>
   </section>
 
   <!-- ============ THE LEDGER (stats) ============
@@ -531,20 +530,6 @@
         <button type="button" class="pill primary" id="guess-warn-go">Guess anyway</button>
         <button type="button" class="pill ghost" id="guess-warn-back">Keep looking</button>
       </div>
-    </div>
-  </div>
-
-  <div id="archive-picker" class="sheet" hidden>
-    <div class="sheet-card">
-      <h3 id="archive-picker-title">Day</h3>
-      <p class="start-copy small" style="margin:0 0 4px">Practice mode: replayable, doesn't affect streaks.</p>
-      <div class="sheet-row">
-        <button class="pill" data-practice-game="thread">Thread</button>
-        <button class="pill" data-practice-game="map">Lifeline</button>
-        <button class="pill" data-practice-game="who">Face Value</button>
-        <button class="pill" data-practice-game="what">Relic</button>
-      </div>
-      <button class="pill ghost sheet-close" id="archive-picker-close">Close</button>
     </div>
   </div>
 

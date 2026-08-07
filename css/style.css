@@ -127,16 +127,24 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 .dd-postmark b { font-family: var(--ch-font-display); font-size: 24px; line-height: 1; font-weight: 400; }
 .dd-postmark small { font-family: var(--ch-font-ui); font-weight: 700; font-size: 6.5px; letter-spacing: .14em; text-transform: uppercase; text-align: center; line-height: 1.5; }
 
-/* ---------- Game rows (NYT-Games-style: hero + day-card strip + Archive) --
-   Built by js/app.js (renderGameRows). Each row carries its own accent tint
-   via inline custom properties (--row-tint-strong/--row-tint-soft) computed
-   once from GAME_ROWS so the CSS below stays purely structural. */
+/* ---------- Game rows (hero + past-day scroller) --------------------------
+   Built by js/app.js (renderGameRows/renderDayCards). Each row carries its
+   own accent tint via inline custom properties (--row-tint-strong/
+   --row-tint-soft) computed once from GAME_ROWS so the CSS below stays
+   purely structural.
+
+   ARCHIVE v2 (Daniel, 7 Aug 2026): the row IS the archive. Today's hero card
+   sits first in a horizontal scroller and the reachable past days follow it,
+   newest first — no calendar screen, no "Back issues" bar, no week strip. */
 .home-rows { flex: 1; padding: 10px 0 14px; display: flex; flex-direction: column; gap: 18px; }
 .game-row { display: flex; flex-direction: column; }
 .game-strip {
-  display: flex; gap: 10px; overflow-x: auto; overflow-y: hidden;
-  padding: 0 24px 10px; scroll-padding: 0 24px; scroll-snap-type: x proximity;
+  display: flex; gap: 8px; overflow-x: auto; overflow-y: hidden;
+  padding: 0 20px 4px; scroll-padding-left: 20px; scroll-snap-type: x proximity;
   scrollbar-width: none; -ms-overflow-style: none;
+  /* The hero card's 2.5px ink border + hard shadow would be clipped flush by
+     the scroll container; a couple of px of top padding lets them breathe. */
+  padding-top: 3px;
 }
 .game-strip::-webkit-scrollbar { display: none; }
 /* .day-cards is just a semantic wrapper around the day-card buttons in the
@@ -144,99 +152,122 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
    .game-strip (siblings of .hero-card) without an extra nested flex layer. */
 .day-cards { display: contents; }
 
+/* The card is a ROW (Daniel, 7 Aug 2026): the words in a column on the left,
+   the icon standing beside all of them on the right. It used to be a stack —
+   [text | icon] over [edition · status] — which capped the icon at the height
+   of its own top half. Spanning the icon down past the edition line buys it
+   ~35% more height out of a card that is no taller than before. */
 .hero-card {
-  width: calc(100% - 40px); margin: 0 20px;
-  display: flex; flex-direction: column; justify-content: space-between; gap: 14px;
+  flex: 0 0 100%; scroll-snap-align: start;
+  display: flex; align-items: center; gap: 11px;
   text-align: left; border: 2.5px solid var(--ch-ink); border-left: 12px solid var(--row-tint-strong, var(--ch-ink));
-  padding: 16px 18px; background: var(--ch-cream);
+  padding: 16px 13px; background: var(--ch-cream);
   box-shadow: var(--ch-shadow-card); min-height: 118px;
   transition: transform .12s ease;
 }
 .hero-card:active { transform: scale(.985); }
-.hero-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
-.hero-text { flex: 1; min-width: 0; }
+.hero-col { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 14px; }
+.hero-text { min-width: 0; }
 .hero-name { font-family: var(--ch-font-display); font-weight: 400; margin: 0 0 4px; font-size: 26px; text-transform: uppercase; letter-spacing: .01em; color: var(--ch-text-primary); }
 .hero-tagline { margin: 0; color: var(--ch-text-secondary); font-size: 14px; line-height: 1.4; }
-/* Icons are framed mini-prints (Daniel, 4 Aug 2026): the art carries its own
-   cream paper ground, so the ink frame + hard shadow makes that deliberate.
-   104px earned by demoting the Play chip — the whole card is the button. */
-.hero-glyph { width: 104px; height: 104px; flex: none; display: block; border: 2px solid var(--ch-ink); box-shadow: 2.5px 2.5px 0 var(--ch-ink); background: var(--ch-cream); }
+/* UNFRAMED, AND BIGGER FOR IT (Daniel, 7 Aug 2026). The ink frame + hard
+   shadow of the 4 Aug "framed mini-print" is gone: it stole ~6px a side and
+   drew the eye to the box instead of the picture. The art now sits straight on
+   the card's cream, and the space that bought plus the row layout above takes
+   it 104px → 136px — the full height of the card's content box, so the card
+   itself is no taller than it was. */
+.hero-glyph { width: 136px; height: 136px; flex: none; display: block; }
 .hero-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .hero-edition {
   font-size: 11px; text-transform: uppercase; letter-spacing: var(--ch-tracking-smallcaps);
   font-weight: 700; color: var(--ch-text-label); font-family: var(--ch-font-ui); white-space: nowrap;
 }
-.hero-status { font-size: 12px; font-weight: 700; color: var(--ch-text-muted); font-family: var(--ch-font-ui); white-space: nowrap; }
+/* THE STATUS MOVED UNDER THE NAME (Daniel, 7 Aug 2026). It used to sit
+   bottom-right opposite the issue number, saying "Play ›" on a card nobody
+   could mistake for anything but a button. Now it is a real status line in the
+   text block, and it speaks INSTEAD of the tagline — one line under the name,
+   never two. .show-status is the switch (js/app.js: showsStatus, and
+   setCardStatus for the loading/error text this same line carries), so it
+   also out-ranks the stranger rules further down that decide which tagline
+   a card is showing. */
+.hero-status {
+  display: none; margin: 0 0 1px;
+  font-size: 13px; font-weight: 700; color: var(--ch-text-muted);
+  font-family: var(--ch-font-ui); white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
+}
+.hero-card.show-status .hero-status { display: block; }
+.hero-card.show-status .hero-tagline { display: none; }
 /* P1.4: the expected-time whisper on each hero card — quiet lowercase
    voice riding the edition line. */
 .hero-time { text-transform: none; font-weight: 600; letter-spacing: normal; color: var(--ch-text-muted); }
-/* "Play ›" demoted from ink chip to quiet uppercase text (Daniel, 4 Aug
-   2026): the WHOLE hero card is the button, and the freed space bought the
-   104px icon. Supersedes the conversion-audit chip; watch tap-through in
-   the Session D tester round. */
-.hero-card:not(.row-done):not(.row-progress) .hero-status {
-  color: var(--ch-ink); font-size: 13px;
-  letter-spacing: .08em; text-transform: uppercase;
-}
 .hero-card.row-done .hero-status { color: var(--ch-forest); }
 .hero-card.row-progress .hero-status { color: var(--ch-gold); }
+/* ROOM FOR A PEEK. The only thing telling a player the row scrolls is a slice
+   of the next card showing past the screen edge, and 15px of it (the first
+   cut) was too thin to read as anything. So the hero gives up 28px, which at
+   375px leaves ~36px of the first day card showing — its tinted edge plus
+   enough paper to be obviously another card.
+   WHERE THE SPACE CAME FROM matters (Daniel, 7 Aug 2026): NOT from the icon,
+   which is settled at 136px unframed, and not from the text column either.
+   The card's side padding went 18px → 13px and its inner gap 14px → 11px, so
+   the words still get the same width they had at the wider card — same wrap,
+   same card height, same icon filling it. Taking the 28px off the column
+   instead would gain a tagline line, grow the card, and leave the icon no
+   longer filling it: the regression tests/test_stranger_home.py guards.
+   Only when the row actually HAS past days (js/app.js sets .has-days); on
+   launch day a hero holding a gap open for nothing would read as a bug. */
+.game-row.has-days .hero-card { flex-basis: calc(100% - 28px); }
+/* Belt to that brace: on a screen narrower than the 375px this was measured
+   at, the tagline can never be what makes the card taller than its icon.
+   Deliberately a max-height and NOT -webkit-line-clamp: the clamp needs
+   `display: -webkit-box`, and any rule that sets `display` on a tagline
+   fights the two rules that decide which tagline a card is showing — it
+   showed both at once, and then kept one under a done card, before this was
+   rewritten. Capping the height touches neither. 4.2em = three lines at the
+   1.4 line-height above. */
+.game-row.has-days .hero-tagline { max-height: 4.2em; overflow: hidden; }
 
+/* THE PAST-DAY CARDS (Archive v2, 7 Aug 2026). Deliberately the hero card's
+   little sibling rather than a new object: same cream paper, same ink rule,
+   same tint on the left edge — a torn-off stub of the same page. Narrow
+   enough that the next one always peeks past the screen edge, which is the
+   only affordance saying "this row scrolls".
+   SHORTER THAN THE HERO, ON PURPOSE (Daniel, 7 Aug 2026). They used to
+   stretch to the hero's full height, which read as four big empty rectangles
+   holding three words each. A fixed 124px against the hero's ~173px makes
+   them look like stubs someone tore off rather than cards that failed to
+   fill, and centring them in the strip keeps the row's optical middle. */
 .day-card {
-  flex: 0 0 27%; max-width: 27%; scroll-snap-align: start;
-  display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 4px;
-  text-align: left; border: 2px solid var(--ch-ink);
-  padding: 10px 12px; background: var(--ch-cream); min-height: 92px;
+  flex: 0 0 96px; scroll-snap-align: start; align-self: center; height: 124px;
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 2px;
+  text-align: left; background: var(--ch-cream);
+  border: 2.5px solid var(--ch-ink); border-left: 8px solid var(--row-tint-soft, var(--ch-ink));
+  box-shadow: var(--ch-shadow-card); padding: 12px 10px;
+  transition: transform .12s ease;
 }
 .day-card:active { transform: scale(.97); }
-.day-weekday { font-family: var(--ch-font-ui); font-weight: 700; font-size: 15px; text-transform: uppercase; color: var(--ch-text-primary); line-height: 1.15; }
-.day-status { font-size: 10px; font-family: var(--ch-font-ui); color: var(--ch-text-muted); text-transform: uppercase; letter-spacing: .04em; }
-.day-card.day-done { background: var(--row-tint-strong, var(--ch-pale-gold)); }
-.day-card.day-done .day-status { color: var(--ch-ink); font-weight: 700; }
-
-.row-archive {
-  display: flex; align-items: center; justify-content: center; gap: 7px;
-  width: calc(100% - 40px); margin: 0 20px; padding: 9px 0;
-  background: var(--ch-cream); border: 2px solid var(--ch-ink); border-top: none;
-  font-size: 12px; font-weight: 700; letter-spacing: var(--ch-tracking-smallcaps); text-transform: uppercase;
-  color: var(--ch-text-label); font-family: var(--ch-font-ui);
+.day-weekday { font-family: var(--ch-font-display); font-weight: 400; font-size: 22px; text-transform: uppercase; color: var(--ch-text-primary); line-height: 1.05; letter-spacing: .01em; }
+.day-date {
+  font-family: var(--ch-font-ui); font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: var(--ch-tracking-smallcaps);
+  color: var(--ch-text-label);
 }
-.row-archive:active { background: var(--ch-parchment); }
-.row-archive-glyph { width: 14px; height: 14px; color: var(--ch-ink); }
+.day-status {
+  margin-top: 5px; font-size: 11px; font-family: var(--ch-font-ui); font-weight: 700;
+  color: var(--ch-text-muted); text-transform: uppercase; letter-spacing: .04em;
+  line-height: 1.25;
+}
+/* A played day wears the game's own colour on its left edge — the same
+   "this one is settled" signal the hero card's row-done state gives. */
+.day-card.day-done { border-left-color: var(--row-tint-strong, var(--ch-ink)); }
+.day-card.day-done .day-status { color: var(--ch-forest); }
+.day-card.day-progress .day-status { color: var(--ch-gold); }
 
 .home-foot { text-align: center; color: var(--ch-text-muted); font-size: 12px; padding: 4px 0 calc(16px + env(safe-area-inset-bottom)); font-family: var(--ch-font-ui); }
 .foot-toggle { background: none; border: none; padding: 0; font: inherit; color: inherit; text-decoration: underline; cursor: pointer; }
 .home-foot a { color: inherit; }
 .home-foot br { content: ''; display: block; margin-top: 4px; }
-
-/* ---------- Archive ---------- */
-.archive-filters { display: flex; gap: 6px; overflow-x: auto; padding: 10px 20px; border-bottom: 1px solid var(--ch-line); background: var(--ch-paper); }
-.archive-chip { flex: none; border-color: var(--ch-line); color: var(--ch-text-muted); font-family: var(--ch-font-ui); }
-.archive-chip.active { background: var(--ch-ink); color: var(--ch-text-inverse); border-color: var(--ch-ink); }
-.archive-row { width: 100%; }
-.archive-marks { display: flex; gap: 5px; flex: none; }
-.archive-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--ch-line); display: inline-block; }
-.archive-dot.done { background: var(--ch-forest); }
-.archive-dot.progress { background: var(--ch-gold); }
-
-/* Back Issues calendar (The Morgue): one month per section, Monday-first. */
-.cal-month { padding: 12px 20px 2px; }
-.cal-title { font-family: var(--ch-font-display); font-weight: 400; font-size: 20px; text-transform: uppercase; margin: 8px 0 10px; }
-.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
-.cal-dow { text-align: center; font-family: var(--ch-font-ui); font-size: 10px; font-weight: 700; color: var(--ch-text-muted); padding-bottom: 2px; }
-.cal-cell {
-  position: relative; aspect-ratio: 1; padding: 0; cursor: pointer;
-  border: 1.5px solid var(--ch-line-soft); background: var(--ch-paper);
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 3px; font-family: var(--ch-font-ui);
-}
-.cal-cell b { font-size: 13px; font-weight: 700; color: var(--ch-ink); line-height: 1; }
-button.cal-cell:active { background: var(--ch-parchment); }
-.cal-cell.blank, .cal-cell.dead { border-color: transparent; background: transparent; cursor: default; }
-.cal-cell.dead { color: var(--ch-text-muted); font-size: 12px; opacity: .35; }
-.cal-cell.future { opacity: .45; }
-.cal-cell.today { border: 2.5px solid var(--ch-ink); box-shadow: 2px 2px 0 var(--ch-ink); cursor: default; }
-.cal-dots { display: flex; gap: 3px; }
-.cal-dots .archive-dot { width: 6px; height: 6px; }
 
 .conn-list-intro { margin: 12px 20px 0; color: var(--ch-text-secondary); font-size: 14px; font-style: italic; line-height: 1.4; }
 
@@ -372,25 +403,29 @@ button.cal-cell:active { background: var(--ch-parchment); }
   font-family: var(--ch-font-ui); font-weight: 700; font-size: 11px;
   letter-spacing: var(--ch-tracking-smallcaps); text-transform: uppercase; color: var(--ch-text-label);
 }
-.is-stranger .df-week, .is-stranger .row-archive, .is-stranger #punch-card { display: none !important; }
+.is-stranger #punch-card { display: none !important; }
 /* No two Face Value doors: the hero IS that game's door, so its row drops out
    of the strip below. The other three shrink to compact rows — same component,
    same tint keys, same tap target, less of it — and swap in the newcomer
-   one-liners (strangerLine in GAME_ROWS). The edition number and the time
-   whisper go with them: this screen prices nothing but the one game it is
-   selling. The status line stays, because it is also where a slow download
-   says "spinning up the presses…" (ensureGameData). */
+   one-liners (strangerLine in GAME_ROWS). The edition number, the time whisper
+   and the whole bottom line go with them: this screen prices nothing but the
+   one game it is selling, and "Play ›" left with them on 7 Aug (Daniel) — the
+   card is obviously tappable. The status line survives, silent, because it is
+   still where a slow download says "spinning up the presses…"
+   (ensureGameData → setCardStatus) and where a half-finished daily says
+   "Resume today's puzzle" over its one-liner (js/app.js: showsStatus).
+   The icon goes 54px → 80px: this was the illegible one, and losing the frame
+   plus the dead bottom line pays for all of it inside the same ~100px card. */
 .hero-tagline-new { display: none; }
 .is-stranger .hero-tagline { display: none; }
 .is-stranger .hero-tagline-new { display: block; }
 .is-stranger [data-row="who"] { display: none; }
 .is-stranger .home-rows { gap: 10px; padding-top: 12px; }
-.is-stranger .hero-card { min-height: 0; padding: 10px 14px; gap: 5px; border-left-width: 10px; }
-.is-stranger .hero-top { align-items: center; }
+.is-stranger .hero-card { min-height: 0; padding: 10px 14px; gap: 12px; border-left-width: 10px; }
+.is-stranger .hero-col { gap: 5px; justify-content: center; }
 .is-stranger .hero-name { font-size: 20px; margin-bottom: 3px; }
-.is-stranger .hero-glyph { width: 54px; height: 54px; }
-.is-stranger .hero-edition { display: none; }
-.is-stranger .hero-bottom { justify-content: flex-end; }
+.is-stranger .hero-glyph { width: 80px; height: 80px; }
+.is-stranger .hero-bottom { display: none; }
 /* The one door gets the house magenta and a periodic nudge — enough to say
    "press me", quiet enough not to feel like an ad.
    INK LETTERS, not cream (Daniel, 7 Aug 2026). .pill.primary is built for an
@@ -1185,17 +1220,6 @@ button.cal-cell:active { background: var(--ch-parchment); }
 }
 .df-duotone .df-moment-badge { filter: none; }
 
-/* Weekday strip (home rows) */
-.df-week { display: flex; gap: 6px; padding: 8px 24px 0; }
-.df-week span {
-  width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center;
-  font-family: var(--ch-font-ui); font-weight: 700; font-size: 11px;
-  border: 1.5px solid var(--ch-line-soft); color: var(--ch-text-muted); background: transparent;
-}
-.df-week span.done { background: var(--ch-ink); border-color: var(--ch-ink); color: var(--ch-text-inverse); }
-.df-week span.today { border: 2px solid var(--ch-ink); color: var(--ch-ink); }
-.df-week span.today.done { background: var(--row-tint-strong, var(--ch-ink)); color: var(--ch-ink); }
-
 .df-receipt-list { list-style: none; margin: 0; padding: 0; }
 .df-receipt-list li { display: flex; align-items: center; gap: 10px; padding: 6px 0; border-bottom: none; font-family: var(--ch-font-ui); font-size: 13px; text-transform: uppercase; color: #111; }
 .df-receipt-list .sum-name small { display: none; }
@@ -1204,6 +1228,65 @@ button.cal-cell:active { background: var(--ch-parchment); }
 .df-receipt-stamp { position: absolute; right: 22px; bottom: 6px; }
 .df-receipt .df-receipt-total b { font-variant-numeric: tabular-nums; }
 .sum-actions { margin-top: 14px; }
+
+/* ---------- The solution recap (Archive v2, Daniel 7 Aug 2026) ------------
+   Re-opening a finished daily has to SHOW THE SOLUTION, not just the score:
+   the receipt above says what you scored, this says what the answers were.
+   One plate per round, in the house's framed-print language — Face Value and
+   Relic show the fully uncovered image and its blurb (the reveal moment), and
+   Lifeline shows the map with both pins plus name, occupation and fact.
+   Thread's solved board already renders below its receipt (#conn-sum-groups)
+   and keeps that rendering unchanged. */
+.sum-solution { margin-top: 18px; display: flex; flex-direction: column; gap: 14px; }
+.sum-solution-head {
+  font-family: var(--ch-font-ui); font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: var(--ch-tracking-smallcaps);
+  color: var(--ch-text-label); margin: 0;
+}
+.sol-round {
+  border: 2.5px solid var(--ch-ink); background: var(--ch-cream);
+  box-shadow: var(--ch-shadow-card); position: relative;
+}
+/* The same duotone the live reveal applies (.df-duotone img) — not decoration
+   for its own sake: the credit line under each plate states "duotone" as the
+   modification made to the photograph, and it has to be true of the copy the
+   reader is actually looking at. */
+.sol-figure {
+  display: block; width: 100%; aspect-ratio: 1; object-fit: cover;
+  border-bottom: 2.5px solid var(--ch-ink); background: var(--ch-parchment);
+  filter: grayscale(1) contrast(1.08) brightness(1.02);
+}
+/* The reveal's halftone dot screen, over the picture only — .df-duotone::after
+   covers its whole element, which here would be the plate's words as well. */
+.sol-round .sol-figure-wrap { position: relative; display: block; }
+.sol-round .sol-figure-wrap::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(rgba(11,11,11,.22) 1px, transparent 1.35px) 0 0/4px 4px;
+  mix-blend-mode: overlay;
+}
+.sol-map { display: block; width: 100%; aspect-ratio: 2 / 1; border-bottom: 2.5px solid var(--ch-ink); background: var(--ch-cream); }
+.sol-body { padding: 12px 14px 14px; }
+.sol-name { font-family: var(--ch-font-display); font-weight: 400; font-size: 24px; line-height: 1.05; text-transform: uppercase; margin: 0 0 6px; color: var(--ch-text-primary); }
+.sol-blurb { margin: 0; font-size: 14px; line-height: 1.45; color: var(--ch-text-secondary); }
+.sol-meta {
+  margin: 0 0 6px; font-family: var(--ch-font-ui); font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: var(--ch-tracking-smallcaps); color: var(--ch-text-label);
+}
+.sol-pts {
+  position: absolute; top: 8px; right: 8px; z-index: 1;
+  font-family: var(--ch-font-ui); font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .04em;
+  background: var(--ch-ink); color: var(--ch-text-inverse); padding: 3px 7px;
+}
+.sol-pts.zero { background: var(--ch-text-muted); }
+/* Locked decision #8: attribution stays a discreet tap-to-expand ⓘ, never
+   a loud caption. Same control as the round's own credit affordance. */
+.sol-credit-btn {
+  display: inline-block; margin-top: 8px; padding: 0; cursor: pointer;
+  font-size: 15px; line-height: 1; color: var(--ch-text-muted);
+}
+.sol-credit-panel { margin-top: 8px; font-size: 11px; line-height: 1.5; color: var(--ch-text-muted); }
+.sol-credit-panel a { color: inherit; }
 
 /* ---------- You Made History / You're History ---------- */
 #view-daydone { background: var(--df-magenta); }
@@ -1226,27 +1309,6 @@ button.cal-cell:active { background: var(--ch-parchment); }
 /* Archive masthead: a typographic band standing in for a photo banner.
    Repeating diagonal stripes at very low contrast give it some print
    texture without competing with the sticker or title. */
-.df-morgue-banner {
-  position: relative; margin: 22px 20px 30px; min-height: 60px;
-  display: flex; align-items: center; padding: 0 18px;
-  background-color: var(--ch-ink);
-  background-image: repeating-linear-gradient(45deg, rgba(255,255,255,.06) 0 2px, transparent 2px 11px);
-  border: 2px solid var(--ch-ink); box-shadow: var(--ch-shadow-card);
-  overflow: visible;
-}
-.df-morgue-title {
-  font-family: var(--ch-font-display); font-weight: 400; font-size: 26px; line-height: 1;
-  text-transform: uppercase; letter-spacing: .01em; color: var(--ch-text-inverse);
-  white-space: nowrap; max-width: 65%; overflow: hidden; text-overflow: ellipsis;
-}
-.df-morgue-sticker {
-  position: absolute; right: -8px; top: -16px; max-width: 118px; text-align: center;
-  transform: rotate(-4deg);
-  background: var(--df-yellow); border: 2px solid var(--ch-ink); color: var(--ch-ink);
-  font-family: var(--ch-font-ui); font-weight: 700; text-transform: uppercase;
-  font-size: 9.5px; letter-spacing: .02em; line-height: 1.25; padding: 5px 9px;
-  box-shadow: 2px 2px 0 var(--ch-ink);
-}
 
 /* Adjacency tearing: only scraps touching an open scrap are tearable. */
 .df-scrap.locked { cursor: not-allowed; }

@@ -1,9 +1,25 @@
 #!/usr/bin/env python3
-"""Daily-calendar suite (P4.1): streak repair via the archive, midnight
-rollover, the 7-day archive window, Encore's aired-only guarantee.
+"""Daily-flow suite (P4.1): streak repair from the Archive, midnight
+rollover, and Encore.
 
 'Today' is pinned to the newest manifest edition N; the days behind it are
 all aired and manifest-served, so these scenarios are deterministic.
+
+Rewritten 7 Aug 2026 for Archive v2. What changed, and why the assertions
+moved with it:
+
+  * There is no calendar screen, no game picker and no "Back issues" bar. A
+    past day is a card in its own game's row on Home, and tapping it goes
+    straight into that game, that day (open_archive_edition below).
+  * A past day inside the window is a REAL daily now, not practice — it
+    scores and it lands in the ledger. The old "older than the repair window
+    means practice" branch is gone with the picker that offered it.
+  * Streaks are untouched by any of that: isStreakValid still wants a
+    completion within two days of the air date, so an archive play from four
+    days ago writes a score and buys no streak. daily_lock_and_repair proves
+    both halves of that on the new route.
+  * The window's own arithmetic (and the hard access guard) lives in
+    tests/test_archive_window.py.
 """
 import os
 import sys
@@ -17,20 +33,19 @@ DATE = H.edition_date(N)
 
 
 def open_archive_edition(page, game, n):
-    """Home -> a row's Back issues -> tap the calendar cell for edition n ->
-    pick the game in the sheet."""
-    page.click('[data-archive="%s"]' % game)
-    page.wait_for_selector("#view-archive:not([hidden])")
-    page.click('#archive-list [data-edition="%d"]' % n)
-    page.wait_for_selector("#archive-picker:not([hidden])")
-    page.click('[data-practice-game="%s"]' % game)
+    """Tap that game's day card for edition n, in its own row on Home. One
+    tap — there is nothing in between any more."""
+    sel = '[data-row="%s"] [data-days] [data-edition-index="%d"]' % (game, n)
+    page.wait_for_selector(sel)
+    page.click(sel)
 
 
 # ---------- daily_lock_and_repair ----------
 def daily_lock_and_repair(p, base):
-    """A hole healed from the archive inside the 2-day window counts toward
-    the streak; an older edition launches as practice and never touches the
-    ledger."""
+    """A hole healed from the Archive inside the 2-day window counts toward
+    the streak. An older day inside the Archive window is still fully
+    playable and still scores — it simply buys no streak, because
+    isStreakValid has not moved and must not."""
     with H.app(p) as (page, errors, _ctx):
         # Day N-2: complete the daily (on time). Day N: complete today's too.
         H.boot(page, base, H.edition_date(N - 2))
@@ -41,8 +56,8 @@ def daily_lock_and_repair(p, base):
         assert led["streaks"]["who"]["streak"] == 1, (
             "hole at N-1 should cap the streak at 1, got %r" % led["streaks"]["who"])
 
-        # Repair: N-1 is still inside the window -> the archive serves the
-        # real DAILY; completing it heals the streak to 3.
+        # Repair: N-1 is still inside the repair window -> completing it from
+        # the Archive heals the streak to 3.
         open_archive_edition(page, "who", N - 1)
         H.dismiss_intro(page, timeout=1200)
         H.play_reveal_daily(page)
@@ -54,10 +69,13 @@ def daily_lock_and_repair(p, base):
         assert page.evaluate(
             "__CHRONICLE_TEST__.daily.isStreakValid(%d, %d)" % (N - 1, N))
 
-        # Beyond the window: an older edition is practice — no ledger trace.
+        # Beyond the REPAIR window but inside the ARCHIVE window: N-5 opens
+        # as the real daily (it writes chronicle.daily.*, never a practice
+        # key), records a score, and does not resurrect the streak.
         page.click("#rv-sum-home")
         page.wait_for_selector("#view-home:not([hidden])")
         open_archive_edition(page, "who", N - 5)
+        H.dismiss_intro(page, timeout=1200)
         page.wait_for_selector("#view-reveal:not([hidden])")
         page.wait_for_function("__CHRONICLE_TEST__.revealDebug !== undefined")
         page.locator("#rv-scraps .df-scrap.tearable").first.click()  # persists the session
@@ -65,18 +83,27 @@ def daily_lock_and_repair(p, base):
             "({daily: __CHRONICLE_TEST__.store.getDailySession('chronicle.daily.who.%d'),"
             "  practice: __CHRONICLE_TEST__.store.getDailySession('chronicle.practice.who.%d')})"
             % (N - 5, N - 5))
-        assert keys["practice"] is not None, "old edition should run as practice"
-        assert keys["daily"] is None, "old edition must NOT run as the daily"
+        assert keys["daily"] is not None, "an archive day must run as the DAILY"
+        assert keys["practice"] is None, "practice has no player-facing route any more"
         assert not page.evaluate(
             "__CHRONICLE_TEST__.daily.isStreakValid(%d, %d)" % (N - 5, N))
-        assert H.ledger(page)["entries"]["who"].get(str(N - 5)) is None
+
+        # Finish it: the score is recorded, the streak is NOT revived. This is
+        # the streak rule falling out of the existing design, untouched.
+        H.play_reveal_daily(page)
+        led = H.ledger(page)
+        assert str(N - 5) in led["entries"]["who"], (
+            "an archive play must be recorded like any other daily")
+        assert led["streaks"]["who"]["streak"] == 3, (
+            "a late archive play must not extend the streak, got %r"
+            % led["streaks"]["who"])
         H.fail_on_errors(errors, "daily_lock_and_repair")
 
 
 # ---------- rollover ----------
 def rollover(p, base):
     """Day N-1 then day N: a new issue appears; the old in-progress session
-    is reachable from the archive, not today's front page."""
+    is reachable from yesterday's day card, not today's hero card."""
     with H.app(p) as (page, errors, _ctx):
         H.boot(page, base, H.edition_date(N - 1))
         assert ("№ %d" % (N - 1)) in page.inner_text("#dateline")
@@ -93,8 +120,18 @@ def rollover(p, base):
 
         H.boot(page, base, DATE)               # midnight passed
         assert ("№ %d" % N) in page.inner_text("#dateline")
-        status = page.inner_text('[data-hero="who"] [data-status]')
-        assert "play" in status.lower(), "new day's hero should invite, got %r" % status
+        # The new day's card is untouched again. It used to say "Play ›"; since
+        # 7 Aug 2026 an untouched card says NOTHING — the status line is silent
+        # and the game's tagline holds the slot (see test_stranger_home.py:
+        # home_card_status_and_icons). So "today is fresh" is now read as
+        # "yesterday's In progress is gone", not as an invitation.
+        cls = page.get_attribute('[data-hero="who"]', "class")
+        assert "row-progress" not in cls and "row-done" not in cls, (
+            "yesterday's state stuck to the new day's card: %r" % cls)
+        status = page.inner_text('[data-hero="who"] [data-status]').strip()
+        assert status == "", "a fresh card should say nothing, got %r" % status
+        assert page.locator('[data-hero="who"] .hero-tagline').first.is_visible(), \
+            "the fresh card lost its tagline"
         assert page.evaluate(
             "__CHRONICLE_TEST__.store.getDailySession('chronicle.daily.who.%d')"
             % (N - 1)) is not None, "yesterday's session lost on rollover"
@@ -102,74 +139,109 @@ def rollover(p, base):
         # fires abandon-<game> once.
         assert "4x-abandoned-facevalue" in H.gc_events(page), (
             "rollover should fire abandon-who: %r" % H.gc_events(page))
-        page.click('[data-archive="who"]')
-        page.wait_for_selector("#view-archive:not([hidden])")
-        cell = page.locator('#archive-list [data-edition="%d"]' % (N - 1))
-        assert cell.count() == 1, "yesterday missing from the archive"
-        assert cell.locator(".archive-dot.progress").count() == 1, (
-            "yesterday's in-progress state not shown in the archive")
+        card = page.locator(
+            '[data-row="who"] [data-days] [data-edition-index="%d"]' % (N - 1))
+        assert card.count() == 1, "yesterday missing from the Archive row"
+        assert "day-progress" in (card.get_attribute("class") or ""), (
+            "yesterday's half-played state is not shown on its day card")
+        assert card.inner_text().lower().strip().endswith("resume"), (
+            "a half-played day card should invite a resume, reads %r"
+            % card.inner_text())
         H.fail_on_errors(errors, "rollover")
 
 
-# ---------- archive_window ----------
-def archive_window(p, base):
-    """Exactly the 7 trailing aired days are tappable; today is marked but
-    not tappable; nothing future, nothing older."""
+# ---------- archive_strip ----------
+def archive_strip(p, base):
+    """Each game's row offers exactly the reachable window, newest first, and
+    never today. (The window arithmetic itself, the floor and the five worked
+    dates live in tests/test_archive_window.py.)"""
     with H.app(p) as (page, errors, _ctx):
         H.boot(page, base, DATE)
-        # Leave stranger mode so the archive bar is on screen (a reload —
-        # stranger mode is evaluated when Home renders).
+        # One completed daily takes the page out of stranger mode, where the
+        # Archive is deliberately hidden.
         H.seed_completion(page, "thread", N, score=80,
                           detail={"solved": True, "perfect": False,
                                   "mistakes": 1, "guesses": []})
         H.boot(page, base, DATE)
-        page.click('[data-archive="who"]')
-        page.wait_for_selector("#view-archive:not([hidden])")
-        editions = page.evaluate(
-            "Array.from(document.querySelectorAll("
-            "'#archive-list button[data-edition]')).map(b => +b.dataset.edition)")
-        assert sorted(editions) == list(range(N - 7, N)), (
-            "tappable window should be %d..%d, got %r" % (N - 7, N - 1, sorted(editions)))
-        assert page.locator("#archive-list .cal-cell.today").count() == 1
-        assert page.locator('#archive-list button[data-edition="%d"]' % N).count() == 0
-        H.fail_on_errors(errors, "archive_window")
+        page.wait_for_selector("#home-rows[data-built]")
+        want = list(range(N - 1, N - 7, -1))
+        for game in ("who", "map", "what", "thread"):
+            got = page.evaluate(
+                "g => [...document.querySelectorAll("
+                "'[data-row=\"' + g + '\"] [data-days] [data-edition-index]')]"
+                ".map(b => +b.dataset.editionIndex)", game)
+            assert got == want, (
+                "%s row: expected %r newest-first, got %r" % (game, want, got))
+        # Today lives on the hero card and nowhere else.
+        assert page.locator(
+            '#home-rows [data-edition-index="%d"]' % N).count() == 0
+        H.fail_on_errors(errors, "archive_strip")
 
 
 # ---------- encore ----------
 def encore(p, base):
-    """Encore serves only previously-aired ids, never today's or unaired."""
+    """Encore is 'same game, most recent unplayed accessible day' (Daniel,
+    7 Aug 2026). It opens a real daily, it never reaches unaired content, and
+    it disappears once every day in the window has been played."""
     with H.app(p) as (page, errors, _ctx):
         H.boot(page, base, DATE)
-        # The pool the rules allow: everything aired on editions 0..N, minus
-        # today's own items.
-        allowed = page.evaluate(
-            """(n) => {
-                 const d = __CHRONICLE_TEST__.daily;
-                 const today = new Set(d.getEdition('who', n).map(x => x.id));
-                 const aired = new Set();
-                 for (let e = 0; e <= n; e++)
-                   for (const it of d.getEdition('who', e))
-                     if (!today.has(it.id)) aired.add(it.id);
-                 return [...aired];
-               }""", N)
-        allowed = set(allowed)
-        for _ in range(5):                     # Encore resamples every call
-            ids = page.evaluate(
-                "n => __CHRONICLE_TEST__.daily.encoreItems('who', n).map(x => x.id)", N)
-            assert ids and set(ids) <= allowed, (
-                "encore leaked non-aired ids: %r" % (set(ids) - allowed))
+        first, last = N - 6, N - 1
 
-        # The UI path: a finished daily offers Encore; its first round is an
-        # aired item too.
+        # Nothing played behind today -> Encore offers yesterday.
+        assert page.evaluate(
+            "n => __CHRONICLE_TEST__.daily.encoreEdition('who', n)", N) == last
+
+        # Play the newest two from the archive; Encore walks backwards.
+        for n in (last, last - 1):
+            H.seed_completion(page, "who", n, score=50)
+        assert page.evaluate(
+            "n => __CHRONICLE_TEST__.daily.encoreEdition('who', n)", N) == last - 2
+
+        # The UI path: finish today, and the summary offers that day by name.
         H.seed_completion(page, "who", N, score=60)
         H.open_daily(page, "who")
         page.wait_for_selector("#view-revealsum:not([hidden])")
         page.wait_for_selector("#rv-sum-encore:not([hidden])")
+        label = page.inner_text("#rv-sum-encore").lower()
+        target = page.evaluate(
+            "n => __CHRONICLE_TEST__.daily.encoreEdition('who', n)", N)
+        weekday = page.evaluate(
+            "n => __CHRONICLE_TEST__.daily.weekdayName(n)", target).lower()
+        assert weekday in label, (
+            "Encore should name the day it opens, reads %r" % label)
+
         page.click("#rv-sum-encore")
+        H.dismiss_intro(page, timeout=1200)
         page.wait_for_selector("#view-reveal:not([hidden])")
         page.wait_for_function("__CHRONICLE_TEST__.revealRound !== undefined")
-        rid = page.evaluate("__CHRONICLE_TEST__.revealRound.id")
-        assert rid in allowed, "encore round %r not from the aired pool" % rid
+        # It really opened that edition, as the DAILY.
+        assert page.evaluate(
+            "n => __CHRONICLE_TEST__.store.getDailySession("
+            "  'chronicle.practice.who.' + n)", target) is None, (
+            "Encore must not run through practice any more")
+        aired = set(page.evaluate(
+            "n => __CHRONICLE_TEST__.daily.getEdition('who', n).map(x => x.id)",
+            target))
+        assert page.evaluate("__CHRONICLE_TEST__.revealRound.id") in aired, (
+            "Encore opened a round that is not in that edition")
+
+        # Play out the rest of the window, and the button goes away.
+        page.evaluate("__CHRONICLE_TEST__.nav.goHome()")
+        for n in range(first, last + 1):
+            H.seed_completion(page, "who", n, score=40)
+        assert page.evaluate(
+            "n => __CHRONICLE_TEST__.daily.encoreEdition('who', n)", N) is None
+        H.open_daily(page, "who")
+        page.wait_for_selector("#view-revealsum:not([hidden])")
+        assert page.locator("#rv-sum-encore").is_hidden(), (
+            "Encore should be gone once every accessible day is played")
+
+        # And it never offers anything unaired, at any point.
+        for n in range(first, N + 2):
+            got = page.evaluate(
+                "n => __CHRONICLE_TEST__.daily.encoreEdition('who', n)", n)
+            assert got is None or got < n, (
+                "Encore offered edition %r on day %d" % (got, n))
         H.fail_on_errors(errors, "encore")
 
 
@@ -189,7 +261,7 @@ def return_milestones(p, base):
         H.fail_on_errors(errors, "return_milestones")
 
 
-TESTS = [daily_lock_and_repair, rollover, archive_window, encore, return_milestones]
+TESTS = [daily_lock_and_repair, rollover, archive_strip, encore, return_milestones]
 
 
 def main():

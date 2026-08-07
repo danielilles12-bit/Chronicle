@@ -293,43 +293,69 @@ export function getEdition(game, n) {
   return out;
 }
 
-// ---------- Encore (locked decision #6) ----------
-// After a finished daily, an optional extra run drawn ONLY from previously-
-// aired editions (any edition <= today, under either recipe) — never unaired
-// content, that would burn the schedule. Excludes items in today's edition,
-// prefers items that haven't aired in the last week (the ones the player is
-// least likely to have fresh in mind); random within that. New sample every
-// call — Encore is replayable by design.
-export function encoreItems(game, todayN, count = 5) {
-  if (todayN < 0) return [];
-  const exclude = new Set(getEdition(game, todayN).map((x) => x.id));
-  const aired = new Map();     // id -> item, across every aired edition
-  const recent = new Set();    // aired within the last 7 editions
-  for (let n = 0; n <= todayN; n++) {
-    for (const item of getEdition(game, n)) {
-      if (exclude.has(item.id)) continue;
-      // Reserved items are out of rotation (obscurity cull, retired faces):
-      // frozen dailies and the archive still show them, Encore must not.
-      if (item.reserve) continue;
-      aired.set(item.id, item);
-      if (n >= todayN - 7) recent.add(item.id);
-    }
-  }
-  const sample = (arr, k) => {
-    const a = arr.slice();
-    for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a.slice(0, k);
-  };
-  const pool = [...aired.values()];
-  const out = sample(pool.filter((x) => !recent.has(x.id)), count);
-  if (out.length < count) {
-    const used = new Set(out.map((x) => x.id));
-    out.push(...sample(pool.filter((x) => !used.has(x.id)), count - out.length));
-  }
+// ---------- the Archive window (Daniel, 7 Aug 2026) ----------
+// Locked decision #4, tightened. What a player can reach at any moment is
+// today's edition plus the SIX editions before it, with a hard floor at the
+// launch edition. The calendar Morgue and its trailing-7 window are gone;
+// these three functions are now the only definition of "reachable".
+//
+// Why six and not more: content repeats on a 28–42 day gap (locked decision
+// #5), so a deeper archive would start showing material already scheduled to
+// come back. Why a floor: editions 24–41 aired before launch day and are not
+// launch quality — no player should ever be handed one.
+//
+// ARCHIVE_FLOOR is 42 because edition n airs on EPOCH + n days, and
+// 2026-06-29 + 42 days = 2026-08-10, launch day (a Monday, like EPOCH).
+// Verified against editionIndex/editionDate by tests/test_archive_window.py.
+export const ARCHIVE_FLOOR = 42;
+export const ARCHIVE_SPAN = 6;
+
+// Oldest / newest reachable ARCHIVE edition for a given today. The window is
+// empty (first > last) on launch day itself, which is exactly right: there is
+// no back issue on the first day.
+export function archiveFirst(today) {
+  return Math.max(ARCHIVE_FLOOR, today - ARCHIVE_SPAN);
+}
+export function archiveLast(today) {
+  return today - 1;
+}
+
+// The reachable archive editions, NEWEST FIRST — the order the day cards are
+// laid out in on Home. Empty array when nothing is reachable.
+export function archiveEditions(today) {
+  const first = archiveFirst(today);
+  const out = [];
+  for (let n = archiveLast(today); n >= first; n--) out.push(n);
   return out;
+}
+
+// THE HARD ACCESS GUARD (spec §4). Every path that opens a daily asks this
+// first — not just the ones that render a card. A stale card tapped after a
+// midnight rollover, a hand-typed URL, or a double-tap mid-rollover must all
+// fail closed, because a "yes" here on an edition past today would hand a
+// player unaired content (CLAUDE.md: no casual path may reach it).
+//
+// Today is always playable, even before the floor (a QA date, or the days
+// between the epoch and launch): the floor governs the ARCHIVE, never the
+// issue of the day.
+export function canPlayEdition(n, today) {
+  const t = today == null ? todayIndex() : today;
+  if (!Number.isInteger(n) || n < 0) return false;
+  if (n === t) return true;
+  return n >= archiveFirst(t) && n <= archiveLast(t);
+}
+
+// ---------- Encore (locked decision #6, rewritten 7 Aug 2026) ----------
+// Encore is no longer five random aired rounds run through practice. It is
+// "same game, most recent unplayed accessible day" — a real daily, on the
+// real ledger. Returns that edition index, or null when every day inside the
+// window has already been played for this game (the button then hides).
+export function encoreEdition(game, today) {
+  const t = today == null ? todayIndex() : today;
+  for (const n of archiveEditions(t)) {
+    if (!store.getDailyEntry(game, n)) return n;
+  }
+  return null;
 }
 
 export function editionThreadTier(n) {

@@ -157,6 +157,19 @@ RETRY_SHOWN = (
     "'[data-hero=\"' + g + '\"] [data-status]');"
     " return !!el && (el.innerText || '').toLowerCase().indexOf('retry') !== -1; }")
 
+# ...and the words have to be ON THE SCREEN, not just in the markup. Since
+# 7 Aug 2026 a card's status line is hidden unless something switches it on
+# (it stands in for the tagline instead of sitting in the bottom row), so the
+# failure message is one class away from being written into an invisible
+# element — exactly the bug this guards. Face Value is the one exemption: a
+# newcomer's Home has no Face Value card at all, its door being the hero, so
+# there is nowhere for its status to show.
+RETRY_VISIBLE = (
+    "g => { const row = document.querySelector('[data-row=\"' + g + '\"]');"
+    " const el = document.querySelector('[data-hero=\"' + g + '\"] [data-status]');"
+    " if (!row || row.offsetParent === null) return 'no-card';"
+    " return (el && el.offsetParent !== null) ? 'visible' : 'hidden'; }")
+
 
 def first_round_id(page, game):
     """The item the game is actually showing, however it names it."""
@@ -202,6 +215,9 @@ def missing_manifest(p, base):
         for game in GAME_VIEWS:
             H.open_daily(page, game)
             page.wait_for_function(RETRY_SHOWN, arg=game, timeout=15000)
+            assert page.evaluate(RETRY_VISIBLE, game) in ("visible", "no-card"), (
+                "%s wrote 'tap to retry' into a status line nobody can see"
+                % game)
             assert page.locator("#view-home").is_visible(), (
                 "%s left Home while its schedule was unreachable" % game)
             assert page.locator(GAME_VIEWS[game]).is_hidden(), (

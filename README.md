@@ -34,12 +34,15 @@ difficulty climbs through the week to a Sunday stinker.
 - Finishing a daily locks it — reopening shows your result, not a replay.
 - Completing any one game's daily keeps that game's streak alive; completing
   all four is the celebrated **full house**. A missed day can be repaired
-  from the archive within two days.
-- **Encore** — after a finished daily, "Encore: 5 more ›" offers a bonus run
-  drawn only from puzzles that have already aired. Replayable, never affects
-  scores or streaks.
-- **Back Issues (The Morgue)** — the trailing 7 aired days, replayable in
-  Practice mode (no effect on streaks or the record). Older issues retire.
+  from the Archive within two days.
+- **The Archive** — each game's row on Home is a horizontal scroller: today's
+  card, then the last 6 days (floored at edition 42, launch day), newest
+  first, each showing that game's result for that day. Tapping one plays that
+  game, that day, as a real scored daily; a finished day opens read-only and
+  shows the answers. Older issues retire so they can be rescheduled later.
+- **Encore** — after a finished daily, "Encore" opens that same game's most
+  recent unplayed day from the Archive. Hidden once every reachable day is
+  played.
 - **Your Legacy** — the stats page: days played, full houses, streaks and
   bests, reached from the masthead punch card or the home footer.
 
