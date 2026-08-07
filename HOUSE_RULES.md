@@ -8,8 +8,9 @@ check). When a new audit produces a new ruling, it gets added HERE in the
 same session — this file is why his feedback compounds instead of
 evaporating.
 
-Last updated: 5 Aug 2026 (navigation contract; install flow; the rescue
-closes the shop; the letters page).
+Last updated: 7 Aug 2026 (women-per-issue floor; occupation-family
+duplicates advisory; Lighthouse of Alexandria retired; image rights
+free-licensed only; `frac` confirmed inert).
 
 ## Navigation (the way back)
 
@@ -272,6 +273,20 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
   variant) is readable once its scrap tears. A label you can find by
   playing is a fine EASY mechanic and a broken MEDIUM (Cutty Sark's bow,
   31 Jul — held out of ed 45 for this; retier before staging her).
+- **[JUDGMENT]** Image rights: free-licensed only — do not purchase
+  licences to clear a subject (Daniel, 7 Aug 2026).
+- **[JUDGMENT]** Lighthouse of Alexandria retired from rotation (Daniel,
+  7 Aug 2026: "it is just a lighthouse") — no surviving structure and no
+  photograph exists, only a Victorian reconstruction drawing, and the
+  drawing alone can't carry a subject nobody could pick out unaided.
+  Standing test for the next reconstruction-only artefact: a reconstruction
+  is acceptable only when the SUBJECT itself is famous enough to be named
+  from it — the Statue of Zeus at Olympia and the Colossus of Rhodes stay
+  in rotation on that basis, Lighthouse doesn't. Mechanism: `reserve: true`
+  on `lighthouse-alexandria` in `data/reveal-what.json`; not deleted.
+- **[JUDGMENT]** `frac` in `data/reveal-who.json` / `data/reveal-what.json`
+  is inert — confirmed 7 Aug 2026 that no runtime code reads it. Leave it
+  where it exists rather than stripping it; don't treat it as a lever.
 
 ## Casting and tone
 
@@ -283,6 +298,14 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
   a pedant's reading ("coined" vs "made famous"; Josephus predicted
   VESPASIAN would be emperor, not himself). When a critic softens a label,
   keep the voice, fix the claim.
+- **[JUDGMENT]** Every issue must carry at least one woman across Face
+  Value + Lifeline combined (Daniel, 7 Aug 2026). New standing rule — still
+  to be enforced in the compiler; until then it's a check on the review
+  sheet, same as the other judgment rules.
+- **[JUDGMENT]** Occupation-family duplicates within an issue are
+  advisory, not blocking (Daniel, 6 Aug 2026: Mother Teresa/Malcolm X and
+  Josephus/Dickinson on the same day are fine together). Flag them for a
+  second look; don't hold content back over the overlap alone.
 
 - **[ENGINE]** Moratorium list (Daniel, 5 Aug 2026): **Adolf Hitler and
   Osama bin Laden are out of rotation until further notice** — too sensitive
@@ -343,3 +366,11 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
    variety can be machine-checked.
 3. Per-item `start_audited` date so the intake gate on opening scraps can
    be mechanical instead of a checklist item.
+
+- **[JUDGMENT] The one-easy-one-medium-one-hard rule bends when the owner says so
+  (Daniel, 7 Aug 2026).** Edition 51 (19 Aug) carries two medium Lifeline rounds and
+  no hard one, because swapping Chandragupta Maurya for Maya Angelou was worth more
+  than the tier symmetry. Daniel's words: *"rules are rules only until I say otherwise
+  and make an exception."* Do not "repair" this day: the imbalance is deliberate and
+  signed off. Flag future breaches as before, but treat an explicit owner exception as
+  the end of the argument, not a bug to be re-raised next audit.

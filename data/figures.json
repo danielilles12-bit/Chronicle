@@ -537,7 +537,9 @@
       "alexander i of russia",
       "alexander i",
       "alexander ii",
-      "alexander iii"
+      "alexander iii",
+      "alexander bell",
+      "alexander graham bell"
     ]
   },
   {
@@ -6872,8 +6874,8 @@
     "difficulty": "hard",
     "fact": "Captured by Rome, he prophesied that his captor Vespasian would become emperor — proven right within two years, earning his freedom",
     "mcq": [
-      "Paul the Apostle",
-      "Saint Peter"
+      "Philo of Alexandria",
+      "Tacitus"
     ]
   },
   {
@@ -9270,7 +9272,9 @@
     "variants": [
       "william iii",
       "william iii of england",
-      "king william iii"
+      "king william iii",
+      "william of orange",
+      "william and mary"
     ],
     "occupation": "Dutch prince who became King of England",
     "birth": {
@@ -9286,9 +9290,6 @@
       "lon": -0.14
     },
     "fact": "His horse stumbled on a molehill and threw him — enemies toasted 'the little gentleman in black velvet' after",
-    "reject": [
-      "william of orange"
-    ],
     "mcq": [
       "James II of England",
       "Louis XIV of France"
