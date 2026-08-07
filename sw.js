@@ -7,7 +7,7 @@
 //   new worker precaches the shell, skipWaiting+claim take over immediately ->
 //   app.js sees controllerchange and shows the NEW EDITION bar -> the user's
 //   pull-to-refresh (or a tap on the bar) reloads into the new version.
-const VERSION = 'yesternerd-v184';
+const VERSION = 'yesternerd-v185';
 
 // Daily-content cache: survives version bumps so updating the app never
 // re-downloads the whole archive, served stale-while-revalidate below.
@@ -17,7 +17,12 @@ const DATA_CACHE = 'df-data';
 // proof (the files are immutable). app.js prefetches today's + tomorrow's
 // editions into it on every online open, so a later offline open (the
 // aeroplane case) still has playable rounds.
-const IMG_CACHE = 'df-img';
+// 6 Aug 2026: renamed df-img -> df-img-2. Puzzle images are served cache-first
+// and matched with ignoreSearch, so a file replaced at the SAME path never
+// reaches anyone who already cached it — no query string or version bump gets
+// around that. Renaming the cache is what retires the old low-resolution copies
+// (the activate handler below deletes any cache that isn't one of these three).
+const IMG_CACHE = 'df-img-2';
 
 // The shell: everything the app needs to boot and look right. Deliberately
 // EXCLUDES data/*.json (they live in DATA_CACHE) so the install stays small —

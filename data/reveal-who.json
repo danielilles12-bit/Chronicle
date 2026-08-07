@@ -51,12 +51,12 @@
     "frac": 0.3,
     "start": 1,
     "license": "Public domain",
-    "attribution": "P. D. Jankens",
+    "attribution": "P.D Jankens",
     "source": "Wikimedia Commons: Charlie Chaplin.jpg",
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Charlie_Chaplin.jpg",
     "image_author": "P.D Jankens",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "John Wayne",
       "Harry Houdini"
@@ -81,12 +81,12 @@
     "frac": 0.4,
     "start": 2,
     "license": "Public domain",
-    "attribution": "Frank Powolny / 20th Century Fox",
+    "attribution": "Frank Powolny",
     "source": "Wikimedia Commons: Monroe 1953 publicity.jpg",
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Monroe_1953_publicity.jpg",
     "image_author": "Frank Powolny",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Judy Garland",
       "Jayne Mansfield"
@@ -257,7 +257,7 @@
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Abraham_Lincoln_O-77_matte_collodion_print.jpg",
     "image_author": "Alexander Gardner",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "James Buchanan",
       "Martin Van Buren"
@@ -922,7 +922,7 @@
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Ronald_Reagan_1981_presidential_portrait.jpg",
     "image_author": "Michael Evans",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Gerald Ford",
       "Richard Nixon"
@@ -974,13 +974,13 @@
     "fy": 0.28,
     "frac": 0.20447816432272384,
     "license": "Public domain",
-    "attribution": "War Office official photographer (Capt. Horton)",
+    "attribution": "War Office official photographer, Horton (Capt)",
     "source": "Wikimedia Commons: Winston Churchill, cigar in mouth, gives his famous 'V' for victory sign during a visit to Bradford, 4 December 1942. H25966.jpg",
     "start": 3,
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:Winston_Churchill%2C_cigar_in_mouth%2C_gives_his_famous_%27V%27_for_victory_sign_during_a_visit_to_Bradford%2C_4_December_1942._H25966.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Winston_Churchill,_cigar_in_mouth,_gives_his_famous_%27V%27_for_victory_sign_during_a_visit_to_Bradford,_4_December_1942._H25966.jpg",
     "image_author": "War Office official photographer, Horton (Capt)",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Neville Chamberlain",
       "Clement Attlee"
@@ -1010,7 +1010,7 @@
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Ada_Lovelace_portrait.jpg",
     "image_author": "Alfred Edward Chalon",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Mary Shelley",
       "Charlotte Brontë"
@@ -1195,13 +1195,13 @@
     "fy": 0.28,
     "frac": 0.15,
     "license": "CC BY-SA 4.0",
-    "attribution": "Anonymous (Palais des Beaux-Arts)",
+    "attribution": "Clermont Auvergne Métropole, Musée d'Art Roger-Quilliot",
     "source": "Wikimedia Commons: Portrait de Blaise Pascal (MARQ 999.3.1).jpg",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:Portrait_de_Blaise_Pascal_%28MARQ_999.3.1%29.jpg",
-    "image_author": "Unknown author",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Portrait_de_Blaise_Pascal_(MARQ_999.3.1).jpg",
+    "image_author": "Clermont Auvergne Métropole, Musée d'Art Roger-Quilliot",
     "image_license": "CC BY-SA 4.0",
     "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Gottfried Leibniz",
       "Galileo Galilei"
@@ -1369,12 +1369,12 @@
     "fy": 0.3,
     "frac": 0.24,
     "license": "Public domain",
-    "attribution": "Attributed to William Segar",
+    "attribution": "Attributed to William Segar / Attributed to George Gower / Formerly attributed to Nicholas Hilliard",
     "source": "Wikimedia Commons: Elizabeth1England.jpg",
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Elizabeth1England.jpg",
     "image_author": "Attributed to William Segar / Attributed to George Gower / Formerly attributed to Nicholas Hilliard",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Mary, Queen of Scots",
       "Mary I of England"
@@ -1539,7 +1539,7 @@
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Fr%C3%A9d%C3%A9ric_Chopin_-_Eug%C3%A8ne_Delacroix_-_Mus%C3%A9e_du_Louvre_Peintures_RF_1717.jpg",
     "image_author": "Eugène Delacroix",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Ludwig van Beethoven",
       "Franz Schubert"
@@ -1922,7 +1922,7 @@
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Karl_Marx_001.jpg",
     "image_author": "John Jabez Edwin Mayall",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Charles Darwin",
       "James Clerk Maxwell"
@@ -2089,8 +2089,8 @@
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Louis_XIV_Rigaud_Cond%C3%A9_Chantilly.jpg",
     "image_author": "Hyacinthe Rigaud",
     "image_license": "CC0",
-    "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-    "image_retrieved": "2026-07-21",
+    "image_license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Oliver Cromwell",
       "Peter the Great"
@@ -2195,12 +2195,12 @@
     "fy": 0.24,
     "frac": 0.41600283235970964,
     "license": "Public domain",
-    "attribution": "Henri Manuel",
+    "attribution": "Nobel foundation",
     "source": "Wikimedia Commons: Marie Curie 1903.jpg",
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Marie_Curie_1903.jpg",
     "image_author": "Nobel foundation",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Lise Meitner",
       "Florence Nightingale"
@@ -2224,10 +2224,10 @@
     "license": "Public domain",
     "attribution": "Lucas Cranach the Elder",
     "source": "Wikimedia Commons: Lucas Cranach d.Ä. - Martin Luther, 1528 (Veste Coburg).jpg",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:Lucas_Cranach_d.%C3%84._-_Martin_Luther%2C_1528_%28Veste_Coburg%29.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Lucas_Cranach_d.%C3%84._-_Martin_Luther,_1528_(Veste_Coburg).jpg",
     "image_author": "Lucas Cranach the Elder",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Henry VIII",
       "Hernán Cortés"
@@ -2276,12 +2276,12 @@
     "fy": 0.42,
     "frac": 0.39835164835164805,
     "license": "Public domain",
-    "attribution": "Johann Nepomuk della Croce",
+    "attribution": "Barbara Krafft",
     "source": "Wikimedia Commons: Wolfgang-amadeus-mozart 1.jpg",
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Wolfgang-amadeus-mozart_1.jpg",
     "image_author": "Barbara Krafft",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Joseph Haydn",
       "George Frideric Handel"
@@ -2475,7 +2475,7 @@
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Queen_Victoria_-_Winterhalter_1859.jpg",
     "image_author": "Franz Xaver Winterhalter",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Empress Elisabeth of Austria",
       "Isabella II of Spain"
@@ -3034,10 +3034,10 @@
     "license": "Public domain",
     "attribution": "Albrecht Dürer",
     "source": "Wikimedia Commons: Albrecht Dürer - 1500 self-portrait (High resolution and detail).jpg",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:Albrecht_D%C3%BCrer_-_1500_self-portrait_%28High_resolution_and_detail%29.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Albrecht_D%C3%BCrer_-_1500_self-portrait_(High_resolution_and_detail).jpg",
     "image_author": "Albrecht Dürer",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Raphael",
       "Michelangelo"
@@ -3061,10 +3061,10 @@
     "license": "Public domain",
     "attribution": "John Trumbull",
     "source": "Wikimedia Commons: John Trumbull - Alexander Hamilton (1757-1804) - 1832.11 - Yale University Art Gallery.jpg",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:John_Trumbull_-_Alexander_Hamilton_%281757-1804%29_-_1832.11_-_Yale_University_Art_Gallery.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:John_Trumbull_-_Alexander_Hamilton_(1757-1804)_-_1832.11_-_Yale_University_Art_Gallery.jpg",
     "image_author": "John Trumbull",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Adam Smith",
       "Immanuel Kant"
@@ -3257,7 +3257,7 @@
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Statue-Augustus.jpg",
     "image_author": "Till Niermann",
     "image_license": "CC BY-SA 2.5",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Julius Caesar",
       "Marcus Aurelius"
@@ -3310,11 +3310,11 @@
     "fy": 0.2,
     "frac": 0.13,
     "license": "Public domain",
-    "attribution": "Titian",
+    "attribution": "Web Gallery of Art:   Image  Info about artworkwga QS:P11807,\"t/tiziano/10/22/05charle\"",
     "source": "Wikimedia Commons: Titian - Portrait of Charles V Seated - WGA22964.jpg",
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Titian_-_Portrait_of_Charles_V_Seated_-_WGA22964.jpg",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "image_author": "Web Gallery of Art:   Image  Info about artworkwga QS:P11807,\"t/tiziano/10/22/05charle\"",
     "mcq": [
       "Philip II of Spain",
@@ -3454,7 +3454,7 @@
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Self-portrait_by_Diego_Vel%C3%A1zquez.jpg",
     "image_author": "Diego Velázquez",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Rembrandt",
       "Peter Paul Rubens"
@@ -3893,12 +3893,12 @@
     "fy": 0.721,
     "frac": 0.2,
     "license": "CC0",
-    "attribution": "Metropolitan Museum of Art",
+    "attribution": "This file was donated to Wikimedia Commons as part of a project by the Metropolitan Museum of Art. See the Image and Data Resources Open Access Policy",
     "source": "Wikimedia Commons: Large Kneeling Statue of Hatshepsut MET DP116049.jpg",
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Large_Kneeling_Statue_of_Hatshepsut_MET_DP116049.jpg",
     "image_license": "CC0",
-    "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-    "image_retrieved": "2026-07-21",
+    "image_license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "image_retrieved": "2026-08-06",
     "image_author": "This file was donated to Wikimedia Commons as part of a project by the Metropolitan Museum of Art. See the Image and Data Resources Open Access Policy",
     "mcq": [
       "Nefertiti",
@@ -4092,7 +4092,7 @@
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Vasnetsov_Ioann_4.jpg",
     "image_author": "Viktor Vasnetsov",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Philip II of Spain",
       "Charles V"
@@ -4169,10 +4169,10 @@
     "license": "Public domain",
     "attribution": "Keystone View Company/FPG",
     "source": "Wikimedia Commons: Jawaharlal Nehru, circa 1925.jpg",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:Jawaharlal_Nehru%2C_circa_1925.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Jawaharlal_Nehru,_circa_1925.jpg",
     "image_author": "Keystone View Company/FPG",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "B. R. Ambedkar",
       "Muhammad Ali Jinnah"
@@ -4750,7 +4750,7 @@
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Robert_Edward_Lee.jpg",
     "image_author": "Julian Vannerson",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Douglas MacArthur",
       "Stonewall Jackson"
@@ -4917,10 +4917,10 @@
     "license": "Public domain",
     "attribution": "Attributed to John Taylor",
     "source": "Wikimedia Commons: William Shakespeare by John Taylor, edited.jpg",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:William_Shakespeare_by_John_Taylor%2C_edited.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:William_Shakespeare_by_John_Taylor,_edited.jpg",
     "image_author": "Attributed to John Taylor",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Voltaire",
       "Denis Diderot"
@@ -5929,12 +5929,12 @@
     "fy": 0.65,
     "frac": 0.18152114721365037,
     "license": "Public domain",
-    "attribution": "Chinese imperial court painter",
+    "attribution": "Digitized by National Palace Museum; file is directly from Shuge",
     "source": "Wikimedia Commons: YuanEmperorAlbumGenghisPortrait.jpg",
     "image_source_url": "https://commons.wikimedia.org/wiki/File:YuanEmperorAlbumGenghisPortrait.jpg",
     "image_author": "Digitized by National Palace Museum; file is directly from Shuge",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Kublai Khan",
       "Ögedei Khan"
@@ -6256,10 +6256,10 @@
     "license": "Public domain",
     "attribution": "Godfrey Kneller",
     "source": "Wikimedia Commons: Godfrey Kneller - Portrait of John Locke (Hermitage).jpg",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:Godfrey_Kneller_-_Portrait_of_John_Locke_%28Hermitage%29.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Godfrey_Kneller_-_Portrait_of_John_Locke_(Hermitage).jpg",
     "image_author": "Godfrey Kneller",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Thomas Hobbes",
       "Montesquieu"
@@ -7093,13 +7093,13 @@
     "fy": 0.455,
     "frac": 0.22,
     "license": "Public domain",
-    "attribution": "Unknown artist (late 16th century)",
+    "attribution": "Scanned from the book The National Portrait Gallery History of the Kings and Queens of England by David Williamson, ISBN 1855142287.",
     "source": "Wikimedia Commons: Anne Boleyn.jpg",
     "start": 2,
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Anne_Boleyn.jpg",
     "image_author": "Scanned from the book The National Portrait Gallery History of the Kings and Queens of England by David Williamson, ISBN 1855142287.",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Catherine de' Medici",
       "Catherine Howard"
@@ -7493,10 +7493,10 @@
     "attribution": "Ángel M. Felicísimo",
     "source": "Wikimedia Commons: Retrato de Julio César (26724093101).jpg",
     "start": 7,
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:Retrato_de_Julio_C%C3%A9sar_%2826724093101%29.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Retrato_de_Julio_C%C3%A9sar_(26724093101).jpg",
     "image_author": "Ángel M. Felicísimo",
     "image_license": "CC BY 2.0",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Augustus",
       "Saint Peter"
@@ -7629,13 +7629,13 @@
     "fy": 0.519,
     "frac": 0.25,
     "license": "Public domain",
-    "attribution": "Napoleon Sarony",
+    "attribution": "Downloaded from: https://historyrat.wordpress.com/2013/01/13/lighting-the-1893-worlds-fair-the-race-to-light-the-world/",
     "source": "Wikimedia Commons: N.Tesla.JPG",
     "start": 2,
     "image_source_url": "https://commons.wikimedia.org/wiki/File:N.Tesla.JPG",
     "image_author": "Downloaded from: https://historyrat.wordpress.com/2013/01/13/lighting-the-1893-worlds-fair-the-race-to-light-the-world/",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Alexander Graham Bell",
       "Henry Ford"
@@ -7714,12 +7714,12 @@
     "fy": 0.292,
     "frac": 0.26,
     "license": "Public domain",
-    "attribution": "Louis Bachrach",
+    "attribution": "Louis Bachrach, Bachrach Studios, restored by Michel Vuijlsteke",
     "source": "Wikimedia Commons: Thomas Edison2.jpg",
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Thomas_Edison2.jpg",
     "image_author": "Louis Bachrach, Bachrach Studios, restored by Michel Vuijlsteke",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Nikola Tesla",
       "Alexander Graham Bell"
@@ -8502,7 +8502,7 @@
     "image_author": "Korea.net / Korean Culture and Information Service (Jeon Han)",
     "image_license": "CC BY-SA 2.0",
     "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
-    "image_retrieved": "2026-07-24",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Pope Benedict XVI",
       "Pope John Paul II"
@@ -8561,7 +8561,7 @@
     "image_author": "MetalGearLiquid, based on File:Steve_Jobs_Headshot_2010-CROP.jpg made by Matt Yohe",
     "image_license": "CC BY-SA 3.0",
     "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-    "image_retrieved": "2026-07-24",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Stan Lee",
       "Stanley Kubrick"
@@ -8757,10 +8757,10 @@
     "license": "Public domain",
     "attribution": "Matson Photo Service",
     "source": "Wikimedia Commons: King George VI LOC matpc.14736 A (cropped).jpg",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:King_George_VI_LOC_matpc.14736_A_%28cropped%29.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:King_George_VI_LOC_matpc.14736_A_(cropped).jpg",
     "image_author": "Matson Photo Service",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-24",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Benito Mussolini",
       "Adolf Hitler"
@@ -8815,7 +8815,7 @@
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Stephen_Hawking_NASA_50th_200804210002HQ.jpg",
     "image_author": "NASA/Paul Alers",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-30",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Albert Einstein",
       "Richard Feynman"
@@ -8927,12 +8927,12 @@
     "frac": 0.22,
     "license": "CC BY-SA 2.0",
     "attribution": "John Mathew Smith & www.celebrity-photos.com from Laurel Maryland, USA (Archived link)",
-    "source": "Wikimedia Commons: Diana, Princess of Wales 1997 (2) (cropped).jpg",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:Diana%2C_Princess_of_Wales_1997_%282%29_%28cropped%29.jpg",
+    "source": "Wikimedia Commons: Diana, Princess of Wales 1997 (2) (3).jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Diana,_Princess_of_Wales_1997_(2)_(3).jpg",
     "image_author": "John Mathew Smith & www.celebrity-photos.com from Laurel Maryland, USA (Archived link)",
     "image_license": "CC BY-SA 2.0",
     "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
-    "image_retrieved": "2026-07-24",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Grace Kelly",
       "Audrey Hepburn"
@@ -8986,10 +8986,10 @@
     "license": "Public domain",
     "attribution": "David Hume Kennerly",
     "source": "Wikimedia Commons: Gerald Ford presidential portrait (cropped).jpg",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:Gerald_Ford_presidential_portrait_%28cropped%29.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Gerald_Ford_presidential_portrait_(cropped).jpg",
     "image_author": "David Hume Kennerly",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-24",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Ronald Reagan",
       "George H. W. Bush"
@@ -9046,7 +9046,7 @@
     "image_source_url": "https://commons.wikimedia.org/wiki/File:ErnestHemingway.jpg",
     "image_author": "Lloyd Arnold",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-24",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "T. S. Eliot",
       "John Steinbeck"
@@ -9356,11 +9356,11 @@
     "license": "CC BY-SA 3.0",
     "attribution": "Stevan Kragujević",
     "source": "Wikimedia Commons: Moamer el Gadafi (cropped).jpg",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:Moamer_el_Gadafi_%28cropped%29.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Moamer_el_Gadafi_(cropped).jpg",
     "image_author": "Stevan Kragujević",
     "image_license": "CC BY-SA 3.0",
     "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-    "image_retrieved": "2026-07-24",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Saddam Hussein",
       "Mohammad Reza Pahlavi"
@@ -9446,7 +9446,7 @@
     "image_source_url": "https://commons.wikimedia.org/wiki/File:John_Adams_A18236.jpg",
     "image_author": "Gilbert Stuart",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-24",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Thomas Jefferson",
       "James Madison"
@@ -9583,7 +9583,7 @@
     "image_source_url": "https://commons.wikimedia.org/wiki/File:King-Edward-VII_(cropped).jpg",
     "image_author": "W. & D. Downey",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-24",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Prince Philip, Duke of Edinburgh",
       "Oscar Wilde"
@@ -9640,7 +9640,7 @@
     "image_author": "Cassowary Colorizations",
     "image_license": "CC BY 2.0",
     "image_license_url": "https://creativecommons.org/licenses/by/2.0",
-    "image_retrieved": "2026-07-24",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Aldous Huxley",
       "Graham Greene"
@@ -9670,7 +9670,7 @@
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Andrew_jackson_head.jpg",
     "image_author": "Ralph Eleaser Whiteside Earl",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-24",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "John Quincy Adams",
       "William Henry Harrison"
@@ -9700,7 +9700,7 @@
     "image_author": "Joop van Bilsen / Anefo",
     "image_license": "CC0",
     "image_license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-    "image_retrieved": "2026-07-30",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Dorothy L. Sayers",
       "Daphne du Maurier"
@@ -10315,7 +10315,7 @@
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Henry_ford_1919.jpg",
     "image_author": "Fred Hartsook",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-24",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Nikola Tesla",
       "Alexander Graham Bell"
@@ -10577,12 +10577,12 @@
     "fy": 0.3,
     "frac": 0.3,
     "license": "Public domain",
-    "attribution": "Mathew Brady, retouched by Mmxx",
+    "attribution": "Mathew Brady",
     "source": "Wikimedia Commons: President Andrew Johnson.jpg",
     "image_source_url": "https://commons.wikimedia.org/wiki/File:President_Andrew_Johnson.jpg",
     "image_author": "Mathew Brady",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-24",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "James A. Garfield",
       "James Buchanan"
@@ -11144,7 +11144,7 @@
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Jackie_Kennedy_Color_Portrait_(3x4_cropped).jpg",
     "image_author": "Mark Shaw",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-24",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "Amelia Earhart",
       "Lady Bird Johnson"
@@ -11479,7 +11479,7 @@
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Martin_Van_Buren.jpg",
     "image_author": "Mathew Benjamin Brady / Levin Corbin Handy",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-24",
+    "image_retrieved": "2026-08-06",
     "mcq": [
       "James Buchanan",
       "Abraham Lincoln"

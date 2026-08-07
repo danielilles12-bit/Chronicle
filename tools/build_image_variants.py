@@ -22,8 +22,15 @@ from PIL import Image, ImageOps
 ROOT = Path(__file__).resolve().parent.parent
 SRC_DIR = ROOT / "assets/img"
 OUT_DIR = SRC_DIR / "w800"
-MAX_EDGE = 800
-QUALITY = 80
+# 6 Aug 2026: raised from 800 to 1600. The game crops every picture to a SQUARE
+# window and then allows 4x zoom, so an 800px longest edge left portrait and
+# panoramic sources with only 400-650 usable pixels across the square — visibly
+# soft on a modern phone, and softer still once zoomed. Measured cost of the
+# change on a 30-image sample: 64KB -> 160KB average, i.e. 0.63MB -> 1.56MB for
+# a day's ten puzzle images. The directory name stays w800 because that path is
+# baked into js/app.js and js/revealgame.js; renaming it is a separate job.
+MAX_EDGE = 1600
+QUALITY = 78
 EXTS = {".jpg", ".jpeg", ".png"}
 
 
@@ -46,12 +53,17 @@ def build_variant(src, dst):
 
 
 def main():
+    # --force rebuilds every variant regardless of mtime. Needed whenever
+    # MAX_EDGE or QUALITY changes: the mtime check only knows about replaced
+    # SOURCES, so without this a cap change silently leaves every untouched
+    # image at the old size.
+    force = "--force" in sys.argv[1:]
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     sources = sorted(p for p in SRC_DIR.iterdir() if p.is_file() and p.suffix.lower() in EXTS)
     built = skipped = failed = 0
     for src in sources:
         dst = OUT_DIR / (src.stem + ".webp")
-        if not needs_build(src, dst):
+        if not force and not needs_build(src, dst):
             skipped += 1
             continue
         try:
