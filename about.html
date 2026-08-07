@@ -66,10 +66,40 @@ if (/iP(hone|ad|od)/.test(navigator.userAgent)
     record follows you. Nothing is overwritten — the two records are merged
     and the better one wins.</p>
 
-    <h2>Contact</h2>
-    <p>Found something wrong, or just want to say hello? Every game result
-    has a "Report a problem" link, or write in directly at
-    <a href="mailto:daniel.illes12@gmail.com">daniel.illes12@gmail.com</a>.</p>
+    <h2>The letters page</h2>
+    <p>One person makes this and one person reads the replies. If a round was
+    wrong, too obscure, or quietly brilliant, that's worth knowing. Two
+    questions, no login, and your app version comes along so a bug can
+    actually be found.</p>
+    <p><a class="letters-cta" id="about-write"
+    href="https://docs.google.com/forms/d/e/1FAIpQLScsbY9qiaomY00CABsQqPXztvjqvTy_hO4jIa9WorckJdcOUQ/viewform?usp=pp_url"
+    target="_blank" rel="noopener">Write to the editor →</a>
+    &nbsp;· or email <a href="mailto:daniel.illes12@gmail.com">daniel.illes12@gmail.com</a>.</p>
+    <p>For a factual mistake in a specific round, the "Report a problem" link
+    on that game's result is quicker — it carries the round's ID, which is
+    what makes a wrong date findable.</p>
+    <script>
+      // Keep the letters button's promise ("your app version comes along"):
+      // read BUILD out of the app bundle — precached by sw.js, so this works
+      // offline too — and pre-fill the form's version field with it plus a
+      // coarse device family. With JS off, the plain form link above stands.
+      (function () {
+        var a = document.getElementById('about-write');
+        fetch('js/app.js').then(function (r) { return r.text(); }).then(function (src) {
+          var m = /const BUILD = '([^']+)'/.exec(src);
+          if (!m) return;
+          var ua = navigator.userAgent || '';
+          var dev = /iPhone|iPod/.test(ua) ? 'iPhone'
+            : (/iPad/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) ? 'iPad'
+            : /Android/.test(ua) ? 'Android'
+            : /CrOS/.test(ua) ? 'Chromebook'
+            : /Mac/.test(ua) ? 'Mac'
+            : /Windows/.test(ua) ? 'Windows'
+            : /Linux/.test(ua) ? 'Linux' : 'Other';
+          a.href += '&entry.2050964733=' + encodeURIComponent(m[1] + ' · ' + dev);
+        }).catch(function () { /* the plain link is still the form */ });
+      })();
+    </script>
   </main>
   <nav class="page-nav">
     <a href="index.html">Play</a> · <a href="how-to-play.html">How to play</a> ·

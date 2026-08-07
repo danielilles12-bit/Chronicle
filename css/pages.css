@@ -93,6 +93,17 @@
 .reg-table td.reg-name { font-weight: 700; white-space: nowrap; }
 .reg-table-wrap { overflow-x: auto; }
 
+/* The letters page's one button (about.html): the same ink-plate-with-
+   magenta-shadow language as the Home letters plate, sized for a paragraph. */
+.letters-cta {
+  display: inline-block; background: var(--ch-ink); color: var(--ch-text-inverse) !important;
+  text-decoration: none; font-family: var(--ch-font-ui); font-weight: 700;
+  font-size: 13px; letter-spacing: .06em; text-transform: uppercase;
+  border: 2.5px solid var(--ch-ink); padding: 10px 16px;
+  box-shadow: 3px 3px 0 var(--df-magenta);
+}
+.letters-cta:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--df-magenta); }
+
 .corr-empty {
   border: 2px solid var(--ch-ink); background: var(--ch-cream); padding: 16px;
   font-family: var(--ch-font-ui); font-size: 13px; color: var(--ch-text-muted); text-align: center;

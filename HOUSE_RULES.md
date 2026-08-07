@@ -9,7 +9,7 @@ same session — this file is why his feedback compounds instead of
 evaporating.
 
 Last updated: 5 Aug 2026 (navigation contract; install flow; the rescue
-closes the shop).
+closes the shop; the letters page).
 
 ## Navigation (the way back)
 
@@ -62,6 +62,44 @@ Daniel's rulings, 5 Aug 2026, from the signed-off plan. Built in `js/install.js`
   is **"Open in external browser"**, verbatim, verified on Daniel's phone; every
   other app keeps flexible phrasing. A guaranteed **COPY THE LINK** button is
   the fallback, because escaping a webview cannot be scripted in 2026.
+
+## The letters page (player feedback)
+
+Daniel's rulings, 5 Aug 2026 (design-reviews/install-flow-rulings.md
+"FEEDBACK PLATE", overriding the 4 Aug feedback-plan wherever they differ).
+Built in `js/feedback.js`; `tests/test_feedback.py` is the check.
+
+- **[JUDGMENT]** **Feedback is furniture, not an interruption.** It lives
+  only where the player has stopped playing — the foot of Home, the day-done
+  screen, the foot of Your Legacy, the footer, About. Never on a play
+  screen, never a modal/toast/badge, and nothing ever has to be dismissed.
+- **[ENGINE]** **One honest gate, nothing else:** the Home plate stays
+  hidden until the player's FIRST ever finished daily, then shows forever.
+  No time or visit counters (they would mute launch week), no nag state, no
+  suppression after writing (with no backend, "already wrote" would be a
+  guess). `test_feedback.py::plate_hidden_until_first_daily`.
+- **[JUDGMENT]** The approved plate (mock D): letters-column masthead rule
+  (thick over thin), magenta LETTERS TO THE EDITOR kicker, headline **"Got
+  opinions? Write in."**, and a **CYAN Antinous definitive stamp** —
+  perforated edges, denomination = the LIVE issue number, circular postmark
+  carrying the ACTUAL current date + YESTERNERD. British definitive-stamp
+  language; **no envelope, no US iconography**. The earlier red "Complaints
+  Dept" plate direction is dead for Home.
+- **[ENGINE]** **"Tell us where it hurts" belongs to the win-screen rubber
+  stamp only** (the day-done Complaints Dept card; the obituary face asks
+  "Any last words?" instead). It must not appear on the Home plate.
+  `test_feedback.py::plate_links_and_stamp` /
+  `::daydone_card_both_faces`.
+- **[ENGINE]** **What travels with a letter:** the Google Form link
+  pre-fills ONE field — app version + coarse device family (e.g.
+  "v182 · iPhone"), URL-encoded. No scores, no answers, no identifiers.
+  Offline, every surface swaps to the mailto fallback (subject = build +
+  surface, body = the same device line) and says so. GoatCounter records
+  the TAP only (6f family; the mailto tap is counted apart so form-tap
+  numbers stay honest).
+- **[JUDGMENT]** **The corrections lane stays separate:** the per-round
+  "Report a problem" mailto keeps carrying the content ID — never fold it
+  into the form, or a wrong date stops being findable.
 
 ## Clue pricing (what a round is worth, and what it costs)
 
