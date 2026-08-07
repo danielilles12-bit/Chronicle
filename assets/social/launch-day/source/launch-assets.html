@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Yesternerd launch-day social assets</title>
+<style>
+@font-face{font-family:"YN Display";src:url("../../../fonts/archivo-black.woff2") format("woff2");font-weight:900}
+@font-face{font-family:"YN Text";src:url("../../../fonts/archivo-regular.woff2") format("woff2");font-weight:400}
+@font-face{font-family:"YN Text";src:url("../../../fonts/archivo-bold.woff2") format("woff2");font-weight:700}
+@font-face{font-family:"YN Mono";src:url("../../../fonts/space-mono-bold.woff2") format("woff2");font-weight:700}
+:root{
+  --paper:#F2EFE6;--white:#FFFFFF;--ink:#0B0B0B;--cyan:#2FC9E8;
+  --magenta:#FF3DDB;--yellow:#FFE93B;--red:#E02020;--green:#4CDB86;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#333}
+body{width:100vw;height:100vh;overflow:hidden}
+.canvas{display:none;position:relative;overflow:hidden;background:var(--paper);color:var(--ink)}
+.canvas.selected{display:block}
+.story{width:1080px;height:1920px}
+.feed{width:1080px;height:1440px}
+.reel{width:1080px;height:1680px}
+.dots{background-color:var(--paper);background-image:radial-gradient(rgba(11,11,11,.11) 2px,transparent 2.5px);background-size:28px 28px}
+.frame{position:absolute;inset:28px;border:6px solid var(--ink);pointer-events:none;z-index:20}
+.kicker{font:700 27px/1 "YN Mono",monospace;letter-spacing:.11em;text-transform:uppercase}
+.display{margin:0;font:900 120px/.9 "YN Display",sans-serif;text-transform:uppercase;letter-spacing:-.035em}
+.copy{margin:0;font:700 42px/1.18 "YN Text",sans-serif}
+.mono{font-family:"YN Mono",monospace;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.wordmark{display:block;width:100%;height:auto}
+.plate{display:inline-block;background:var(--ink);color:var(--paper);padding:18px 26px;box-shadow:12px 12px 0 var(--magenta)}
+.sticker{position:absolute;display:block;object-fit:contain;z-index:3}
+.seq{position:absolute;right:82px;top:272px;font:700 24px/1 "YN Mono",monospace;letter-spacing:.08em;z-index:10}
+.feed .seq{top:78px;right:78px}
+.game-icon{display:block;width:100%;height:100%;object-fit:cover}
+.game-name{font:900 39px/.95 "YN Display",sans-serif;text-transform:uppercase;margin:0 0 10px}
+.game-desc{font:400 22px/1.22 "YN Text",sans-serif;margin:0}
+.shadow{box-shadow:14px 14px 0 var(--ink)}
+
+/* STORY 01 */
+#story-01 .brand{position:absolute;left:85px;right:85px;top:360px;z-index:5}
+#story-01 .hook{position:absolute;left:82px;top:660px;width:760px;z-index:6;font-size:144px}
+#story-01 .hook span{display:inline-block;background:var(--yellow);padding:4px 18px 13px;box-shadow:12px 12px 0 var(--ink)}
+#story-01 .sub{position:absolute;left:88px;top:1012px;z-index:7;font-size:42px}
+#story-01 .sticker{width:760px;right:-74px;bottom:-42px}
+#story-01 .burst{position:absolute;width:690px;height:690px;border-radius:50%;right:-80px;bottom:-25px;background:var(--magenta);z-index:1}
+
+/* STORY 02 */
+#story-02{background:var(--yellow)}
+#story-02 .headline{position:absolute;left:80px;right:80px;top:325px;font-size:100px;z-index:3}
+#story-02 .games{position:absolute;left:80px;right:80px;top:720px;display:grid;grid-template-columns:1fr 1fr;gap:30px}
+#story-02 .game{height:360px;background:var(--white);border:5px solid var(--ink);padding:26px;box-shadow:12px 12px 0 var(--ink);display:grid;grid-template-columns:150px 1fr;gap:24px;align-items:center}
+#story-02 .game:nth-child(1){border-left:24px solid var(--magenta)}
+#story-02 .game:nth-child(2){border-left:24px solid var(--cyan)}
+#story-02 .game:nth-child(3){border-left:24px solid var(--red)}
+#story-02 .game:nth-child(4){border-left:24px solid var(--green)}
+#story-02 .game-name{font-size:37px}
+
+/* STORY 03 */
+#story-03{background:var(--cyan)}
+#story-03 .headline{position:absolute;left:82px;right:82px;top:330px;font-size:104px;z-index:5}
+#story-03 .phone{position:absolute;left:76px;top:670px;width:470px;height:900px;background:var(--ink);padding:19px;border:5px solid var(--ink);box-shadow:18px 18px 0 var(--magenta);overflow:hidden;z-index:5}
+#story-03 .phone img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+#story-03 .notes{position:absolute;right:73px;top:775px;width:390px;display:flex;flex-direction:column;gap:32px;z-index:6}
+#story-03 .note{background:var(--paper);border:5px solid var(--ink);padding:24px;font:700 30px/1.18 "YN Mono",monospace;text-transform:uppercase;box-shadow:10px 10px 0 var(--ink)}
+
+/* STORY 04 */
+#story-04{background:var(--ink);color:var(--paper)}
+#story-04 .frame{border-color:var(--paper)}
+#story-04 .kicker{position:absolute;left:86px;top:340px;color:var(--yellow)}
+#story-04 .quote{position:absolute;left:82px;right:82px;top:470px;font-size:109px;line-height:.94;color:var(--paper);z-index:4}
+#story-04 .quote em{font-style:normal;color:var(--magenta)}
+#story-04 .why{position:absolute;left:86px;right:96px;top:1248px;padding-top:32px;border-top:5px solid var(--paper);font:700 38px/1.25 "YN Text",sans-serif;z-index:5}
+#story-04 .stamp{position:absolute;width:290px;height:290px;right:82px;bottom:90px;transform:rotate(9deg);z-index:3}
+
+/* STORY 05 */
+#story-05{background:var(--yellow)}
+#story-05 .brand{position:absolute;left:84px;right:84px;top:338px;z-index:6}
+#story-05 .live{position:absolute;left:82px;top:645px;z-index:7;font-size:135px}
+#story-05 .facts{position:absolute;left:82px;top:1012px;z-index:7;font:700 31px/1.45 "YN Mono",monospace;text-transform:uppercase;background:var(--paper);border:5px solid var(--ink);padding:22px 28px;box-shadow:12px 12px 0 var(--magenta)}
+#story-05 .url{position:absolute;left:82px;top:1290px;z-index:7;font:900 66px/.95 "YN Display",sans-serif;background:var(--ink);color:var(--paper);padding:22px 28px}
+#story-05 .tap{position:absolute;left:82px;top:1435px;z-index:7;font:700 31px/1.2 "YN Mono",monospace;text-transform:uppercase}
+#story-05 .tap::after{content:"↓";font-size:72px;display:block;margin-left:120px;line-height:1}
+#story-05 .sticker{width:585px;right:-96px;bottom:0;opacity:.98}
+#story-05 .blank{position:absolute;left:62px;right:62px;bottom:70px;height:300px;background:rgba(242,239,230,.22)}
+
+/* FEED COMMON */
+.feed .frame{inset:24px}
+.feed .kicker{font-size:24px}
+.feed .display{font-size:106px}
+
+/* FEED 01 */
+#feed-01 .brand{position:absolute;left:72px;right:72px;top:150px;z-index:5}
+#feed-01 .launch{position:absolute;left:72px;top:445px;font-size:144px;z-index:7}
+#feed-01 .launch span{background:var(--yellow);padding:0 18px 10px;box-shadow:12px 12px 0 var(--magenta)}
+#feed-01 .tag{position:absolute;left:76px;top:796px;width:510px;font:700 37px/1.2 "YN Mono",monospace;text-transform:uppercase;z-index:7}
+#feed-01 .url{position:absolute;left:76px;bottom:94px;font:700 30px/1 "YN Mono",monospace;z-index:8;background:var(--ink);color:var(--paper);padding:16px 22px;box-shadow:10px 10px 0 var(--magenta)}
+#feed-01 .sticker{width:630px;right:-37px;bottom:-50px}
+#feed-01 .burst{position:absolute;width:610px;height:610px;border-radius:50%;right:-48px;bottom:-30px;background:var(--magenta);z-index:1}
+
+/* FEED 02 */
+#feed-02{background:var(--yellow)}
+#feed-02 .headline{position:absolute;left:72px;top:128px;font-size:110px}
+#feed-02 .games{position:absolute;left:72px;right:72px;top:410px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+#feed-02 .game{height:405px;background:var(--white);border:5px solid var(--ink);padding:24px;box-shadow:12px 12px 0 var(--ink)}
+#feed-02 .icon-wrap{width:178px;height:178px;border:4px solid var(--ink);margin-bottom:21px}
+#feed-02 .game:nth-child(1){border-top:22px solid var(--magenta)}
+#feed-02 .game:nth-child(2){border-top:22px solid var(--cyan)}
+#feed-02 .game:nth-child(3){border-top:22px solid var(--red)}
+#feed-02 .game:nth-child(4){border-top:22px solid var(--green)}
+
+/* FEED 03 */
+#feed-03{background:var(--cyan)}
+#feed-03 .headline{position:absolute;left:72px;top:130px;font-size:108px;width:800px;z-index:6}
+#feed-03 .phone{position:absolute;left:72px;top:465px;width:430px;height:820px;background:var(--ink);padding:17px;border:5px solid var(--ink);box-shadow:18px 18px 0 var(--magenta);overflow:hidden}
+#feed-03 .phone img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+#feed-03 .notes{position:absolute;left:555px;right:60px;top:540px;display:flex;flex-direction:column;gap:35px}
+#feed-03 .note{background:var(--paper);border:5px solid var(--ink);padding:25px;font:700 29px/1.2 "YN Mono",monospace;text-transform:uppercase;box-shadow:10px 10px 0 var(--ink)}
+
+/* FEED 04 */
+#feed-04{background:var(--ink);color:var(--paper)}
+#feed-04 .frame{border-color:var(--paper)}
+#feed-04 .kicker{position:absolute;left:76px;top:145px;color:var(--yellow)}
+#feed-04 .quote{position:absolute;left:72px;right:72px;top:285px;font-size:106px;line-height:.94;color:var(--paper)}
+#feed-04 .quote em{font-style:normal;color:var(--magenta)}
+#feed-04 .why{position:absolute;left:76px;right:280px;bottom:175px;border-top:5px solid var(--paper);padding-top:30px;font:700 37px/1.25 "YN Text",sans-serif}
+#feed-04 .stamp{position:absolute;width:240px;height:240px;right:70px;bottom:55px;transform:rotate(9deg);opacity:.96}
+
+/* FEED 05 */
+#feed-05{background:var(--yellow)}
+#feed-05 .brand{position:absolute;left:74px;right:74px;top:145px;z-index:6}
+#feed-05 .cta{position:absolute;left:72px;top:452px;font-size:146px;z-index:7}
+#feed-05 .facts{position:absolute;left:75px;top:820px;z-index:7;font:700 30px/1.52 "YN Mono",monospace;text-transform:uppercase;background:var(--paper);border:5px solid var(--ink);padding:22px 28px;box-shadow:12px 12px 0 var(--magenta)}
+#feed-05 .url{position:absolute;left:75px;bottom:105px;z-index:7;font:900 61px/1 "YN Display",sans-serif;background:var(--ink);color:var(--paper);padding:20px 26px}
+#feed-05 .sticker{width:555px;right:-70px;bottom:-18px}
+
+/* REEL COVER */
+#reel-cover{background:var(--magenta)}
+#reel-cover .brand{position:absolute;left:105px;right:105px;top:325px;z-index:7;background:var(--paper);padding:28px;border:5px solid var(--ink);box-shadow:14px 14px 0 var(--ink)}
+#reel-cover .headline{position:absolute;left:100px;top:640px;font-size:128px;z-index:8;color:var(--paper);text-shadow:7px 7px 0 var(--ink)}
+#reel-cover .tag{position:absolute;left:105px;top:970px;z-index:8;font:700 35px/1.25 "YN Mono",monospace;text-transform:uppercase;background:var(--yellow);color:var(--ink);border:5px solid var(--ink);padding:20px 24px;box-shadow:12px 12px 0 var(--ink)}
+#reel-cover .sticker{width:590px;right:-80px;bottom:-68px}
+#reel-cover .frame{border-color:var(--ink)}
+</style>
+</head>
+<body>
+
+<section id="story-01" class="canvas story dots" aria-label="Story 1: I made a thing">
+  <div class="frame"></div><div class="seq">01 / 05</div>
+  <div class="brand"><img class="wordmark" src="../../../brand/yesternerd-wordmark-primary-v2.png" alt="Yesternerd"></div>
+  <h1 class="display hook"><span>I made<br>a thing.</span></h1>
+  <p class="copy sub">Meet Yesternerd.</p>
+  <div class="burst"></div>
+  <img class="sticker" src="../../../brand/concepts/yesternerd-antinous-square-glasses-diecut-sticker-v2.png" alt="">
+</section>
+
+<section id="story-02" class="canvas story" aria-label="Story 2: Four games">
+  <div class="frame"></div><div class="seq">02 / 05</div>
+  <h1 class="display headline">Four little<br>history games.<br>Every day.</h1>
+  <div class="games">
+    <article class="game"><img class="game-icon" src="../../../brand/game-icon-face-value.webp" alt=""><div><h2 class="game-name">Face Value</h2><p class="game-desc">Guess a face from a torn photo.</p></div></article>
+    <article class="game"><img class="game-icon" src="../../../brand/game-icon-lifeline.webp" alt=""><div><h2 class="game-name">Lifeline</h2><p class="game-desc">Born here, died there. Name the figure.</p></div></article>
+    <article class="game"><img class="game-icon" src="../../../brand/game-icon-relic.webp" alt=""><div><h2 class="game-name">Relic</h2><p class="game-desc">Guess an artefact from a torn photo.</p></div></article>
+    <article class="game"><img class="game-icon" src="../../../brand/game-icon-thread.webp" alt=""><div><h2 class="game-name">Thread</h2><p class="game-desc">Group 16 clues into four hidden categories.</p></div></article>
+  </div>
+</section>
+
+<section id="story-03" class="canvas story" aria-label="Story 3: How it works">
+  <div class="frame"></div><div class="seq">03 / 05</div>
+  <h1 class="display headline">A new set<br>at midnight.</h1>
+  <div class="phone"><img src="../../../press/press-home.jpg" alt="Yesternerd home screen"></div>
+  <div class="notes">
+    <div class="note">Same games for everyone.</div>
+    <div class="note">About 10 minutes a day.</div>
+    <div class="note">Quick to start. No grinding.</div>
+  </div>
+</section>
+
+<section id="story-04" class="canvas story" aria-label="Story 4: Why I made it">
+  <div class="frame"></div><div class="seq">04 / 05</div>
+  <p class="kicker">Why I made it</p>
+  <h1 class="display quote">I wanted a history game that rewards <em>showing up</em>, not grinding.</h1>
+  <p class="why">A genuinely interesting fact or image every time. No padding.</p>
+  <img class="stamp" src="../../../brand/stamp-alea-iacta-fest.png" alt="">
+</section>
+
+<section id="story-05" class="canvas story" aria-label="Story 5: Play today">
+  <div class="frame"></div><div class="seq">05 / 05</div>
+  <div class="brand"><img class="wordmark" src="../../../brand/yesternerd-wordmark-primary-v2.png" alt="Yesternerd"></div>
+  <h1 class="display live">It’s live.</h1>
+  <div class="facts">Free<br>No sign-up<br>No app download</div>
+  <div class="url">yesternerd.app</div>
+  <div class="tap">Tap the link sticker</div>
+  <div class="blank"></div>
+  <img class="sticker" src="../../../brand/concepts/yesternerd-antinous-square-glasses-diecut-sticker-v2.png" alt="">
+</section>
+
+<section id="feed-01" class="canvas feed dots" aria-label="Feed slide 1: Yesternerd is live">
+  <div class="frame"></div><div class="seq">01 / 05</div>
+  <div class="brand"><img class="wordmark" src="../../../brand/yesternerd-wordmark-primary-v2.png" alt="Yesternerd"></div>
+  <h1 class="display launch"><span>Is live.</span></h1>
+  <p class="tag">Four little history games. Every day.</p>
+  <p class="url">yesternerd.app</p>
+  <div class="burst"></div>
+  <img class="sticker" src="../../../brand/concepts/yesternerd-antinous-square-glasses-diecut-sticker-v2.png" alt="">
+</section>
+
+<section id="feed-02" class="canvas feed" aria-label="Feed slide 2: The four games">
+  <div class="frame"></div><div class="seq">02 / 05</div>
+  <h1 class="display headline">What<br>you play.</h1>
+  <div class="games">
+    <article class="game"><div class="icon-wrap"><img class="game-icon" src="../../../brand/game-icon-face-value.webp" alt=""></div><h2 class="game-name">Face Value</h2><p class="game-desc">Guess a face from a torn photo.</p></article>
+    <article class="game"><div class="icon-wrap"><img class="game-icon" src="../../../brand/game-icon-lifeline.webp" alt=""></div><h2 class="game-name">Lifeline</h2><p class="game-desc">Born here, died there. Name the figure.</p></article>
+    <article class="game"><div class="icon-wrap"><img class="game-icon" src="../../../brand/game-icon-relic.webp" alt=""></div><h2 class="game-name">Relic</h2><p class="game-desc">Guess an artefact from a torn photo.</p></article>
+    <article class="game"><div class="icon-wrap"><img class="game-icon" src="../../../brand/game-icon-thread.webp" alt=""></div><h2 class="game-name">Thread</h2><p class="game-desc">Group 16 clues into four hidden categories.</p></article>
+  </div>
+</section>
+
+<section id="feed-03" class="canvas feed" aria-label="Feed slide 3: Daily format">
+  <div class="frame"></div><div class="seq">03 / 05</div>
+  <h1 class="display headline">New every<br>midnight.</h1>
+  <div class="phone"><img src="../../../press/press-home.jpg" alt="Yesternerd home screen"></div>
+  <div class="notes">
+    <div class="note">Same set for everyone.</div>
+    <div class="note">About 10 minutes.</div>
+    <div class="note">Built for daily play.</div>
+  </div>
+</section>
+
+<section id="feed-04" class="canvas feed" aria-label="Feed slide 4: Why I made it">
+  <div class="frame"></div><div class="seq">04 / 05</div>
+  <p class="kicker">Why I made it</p>
+  <h1 class="display quote">A history game that rewards <em>showing up</em>, not grinding.</h1>
+  <p class="why">A genuinely interesting fact or image every time. No padding.</p>
+  <img class="stamp" src="../../../brand/stamp-alea-iacta-fest.png" alt="">
+</section>
+
+<section id="feed-05" class="canvas feed" aria-label="Feed slide 5: Play today">
+  <div class="frame"></div><div class="seq">05 / 05</div>
+  <div class="brand"><img class="wordmark" src="../../../brand/yesternerd-wordmark-primary-v2.png" alt="Yesternerd"></div>
+  <h1 class="display cta">Play<br>today.</h1>
+  <div class="facts">Free<br>No sign-up<br>No app download</div>
+  <div class="url">yesternerd.app</div>
+  <img class="sticker" src="../../../brand/concepts/yesternerd-antinous-square-glasses-diecut-sticker-v2.png" alt="">
+</section>
+
+<section id="reel-cover" class="canvas reel" aria-label="Reel cover: Meet Yesternerd">
+  <div class="frame"></div>
+  <div class="brand"><img class="wordmark" src="../../../brand/yesternerd-wordmark-primary-v2.png" alt="Yesternerd"></div>
+  <h1 class="display headline">Meet<br>Yesternerd.</h1>
+  <p class="tag">Four daily history games</p>
+  <img class="sticker" src="../../../brand/concepts/yesternerd-antinous-square-glasses-diecut-sticker-v2.png" alt="">
+</section>
+
+<script>
+const requested = new URLSearchParams(location.search).get("asset") || "story-01";
+const selected = document.getElementById(requested);
+if (!selected) throw new Error(`Unknown asset: ${requested}`);
+selected.classList.add("selected");
+document.body.style.width = `${selected.offsetWidth}px`;
+document.body.style.height = `${selected.offsetHeight}px`;
+</script>
+</body>
+</html>

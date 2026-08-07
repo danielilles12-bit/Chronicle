@@ -122,18 +122,33 @@ skip the round-trip through `fetch_commons.py`'s printed stub and just build
 the record fields directly — but still use `fetch_commons.py fetch` (or the
 same URL shape) to actually get the bytes onto disk at `assets/img/<id>.jpg`.
 
-### 2.3 Build the small-serving variant
+### 2.3 Shrink the originals, then build the small-serving variant
 
 ```bash
-python3 tools/build_image_variants.py
+python3 tools/build_image_variants.py --cap-originals   # first
+python3 tools/build_image_variants.py                   # then
 ```
 
-Run once after a batch of downloads (it's idempotent — skips anything whose
-`w800/<name>.webp` is already newer than its source). This is the "shrink"
-tool from the v127 commit: longest edge capped at 800px, WebP quality 80,
-EXIF rotation baked in. Current corpus: `assets/img/` (originals) = 251 MB
-over 558 files (~450 KB avg); `assets/img/w800/` = 36 MB over 558 files
-(~65 KB avg) — roughly a seventh to a tenth the size.
+**Run `--cap-originals` after any batch, and run it FIRST.** It shrinks the
+top-level originals in place to the same 1600px ceiling the variant uses,
+keeping the filename, the real format, the colour mode and the embedded
+colour profile — only the pixel dimensions change. Skipping it is not
+cosmetic: the "Sharper pictures" commit (`e4748ec3`, 7 Aug 2026) pulled 97
+files at full museum resolution, `assets/img/` reached 814 MB with three
+files of 59, 59 and 29 MB, and **every Cloudflare deploy failed** because Pages
+refuses any single file over 25 MiB. `tools/repo_checks.py` now fails CI
+at 20 MB, so this cannot reach the host again — but the failure will be
+yours to fix, and `--cap-originals` is the fix.
+
+The second command is idempotent — it skips anything whose
+`w800/<name>.webp` is already newer than its source. This is the "shrink"
+tool from the v127 commit: longest edge capped at 1600px, WebP quality 78,
+EXIF rotation baked in. Current corpus (7 Aug 2026): `assets/img/`
+(originals) = 324 MB over 819 files (~405 KB avg); `assets/img/w800/` =
+139 MB over 819 files (~174 KB avg).
+
+Order matters: capping first means each variant is built from the master
+rather than from an already re-compressed original.
 
 **This step is easy to skip by accident and nothing will error if you do** —
 `js/app.js`'s `loadImgFallback()` tries the w800 URL first and silently falls

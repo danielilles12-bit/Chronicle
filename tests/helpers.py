@@ -205,9 +205,22 @@ def dismiss_guess_warn(page, timeout=1500):
 
 
 def open_daily(page, game):
-    """Tap a game's hero card on Home (waits for Home to be interactive)."""
-    page.wait_for_selector('[data-hero="%s"]' % game)
-    page.click('[data-hero="%s"]' % game)
+    """Tap a game's door on Home (waits for Home to be interactive).
+
+    Face Value has two doors depending on who is looking (stranger hero
+    rebuild, 6 Aug 2026): a newcomer gets the hero's CTA and no Face Value row
+    at all — one game, one door — while a player with history gets the classic
+    hero card. Callers here care about the game behind the door, not which
+    door, so this taps whichever one is on screen. The doors themselves are
+    asserted in tests/test_stranger_home.py.
+    """
+    sel = '[data-hero="%s"]' % game
+    page.wait_for_selector(sel, state="attached")
+    if game == "who" and page.locator('[data-row="who"]').is_hidden():
+        page.wait_for_selector("#stranger-play")
+        page.click("#stranger-play")
+        return
+    page.click(sel)
 
 
 def play_reveal_daily(page):

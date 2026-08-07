@@ -122,9 +122,52 @@
       <p class="install-tip-line">Save Yesternerd as an app</p>
       <button type="button" id="install-tip-btn" class="install-tip-cta">Show me how ›</button>
     </div>
+    <!-- The stranger's hero (rebuilt 6 Aug 2026): the old version named no
+         game, priced no commitment and implied you had to play all four. This
+         one SHOWS the game instead — a real Face Value board at the moment a
+         round opens, photographed out of the running app by
+         tools/make_demo_shot.py, so nothing here is a drawing of the product.
+         ONE scrap open, not several (Daniel, 6 Aug): that is the honest first
+         second of a round and it keeps the mystery — which only works because
+         the opening lands on the part of her that is nameable. Daniel picked
+         that opening on 7 Aug from three: the brows MEETING with both eyes in
+         the square, not a single brow and eye — the unibrow is the thing that
+         says Frida rather than "a face".
+         FOUR SQUARES, NOT NINE, and the headline BESIDE them (Daniel, 7 Aug):
+         four squares tell the whole story, so the picture gives half the width
+         back to the headline and the two read as one unit — torn square top-
+         left, headline stacked down the left edge next to it. The asset is a
+         pixel-exact crop of a genuine nine-square render (see the tool), not a
+         redrawn board: the game itself is still a 3x3.
+         It is cut at 900px so it stays sharp on a 3x phone screen, from a
+         higher-resolution copy of the same public-domain photograph that lives
+         in tools/demo-source/ for this picture alone — the round's own image
+         file is untouched (see HOUSE_RULES.md, 7 Aug).
+         The demo subject (frida-kahlo) carries "reserve": true in
+         data/reveal-who.json — the live pool the app and the edition compiler
+         both read (data/reveal.json is the pre-split legacy file and is read
+         by nothing). A face on permanent display must never also be a live
+         puzzle, and reserved items are skipped both when the compiler stages
+         future editions and when Encore samples aired ones.
+         Shown/hidden as a whole by applyStrangerMode() in js/app.js, which is
+         also why the "Also in today's issue" label lives INSIDE this block —
+         it labels the three rows below only while the hero is up.
+         DOM order is reading order — question, instruction, board, door — and
+         the side-by-side is done in CSS grid, so a screen reader hears the ask
+         and how to answer it before the picture that poses it. The caption
+         moved up next to the headline on 7 Aug (Daniel): it used to sit under
+         both columns, which left the board floating with dead space beneath it
+         and the button a long way from the picture doing the selling. -->
     <div id="stranger-hero" hidden>
-      <p class="stranger-headline">Four little history games. New games at midnight — same games as everyone else.</p>
-      <button class="pill primary big" id="stranger-play">Play today ›</button>
+      <h2 class="stranger-headline">Who’s under the paper?</h2>
+      <p class="stranger-caption">Tear back the scraps. Name the historical figure.</p>
+      <!-- width/height are the asset's real pixels: the box is reserved before
+           the bytes land, so the headline and the button never jump. -->
+      <img class="stranger-demo" src="assets/brand/demo-facevalue.webp" width="900" height="900"
+           alt="A corner of a Face Value board at the start of a round: four paper scraps, and the one torn away at the top left shows a pair of eyes under dark brows that meet in the middle.">
+      <button class="pill primary big" id="stranger-play">Play Face Value ›</button>
+      <p class="stranger-reassure">Free · No sign-up</p>
+      <p class="stranger-also">Also in today’s issue</p>
     </div>
     <!-- Each .game-row (hero + day-card strip + Archive bar) is built and
          refreshed entirely by js/app.js (renderGameRows/refreshGameRows) from

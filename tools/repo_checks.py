@@ -26,6 +26,14 @@
    possible place for a retired logo. This gate fails the build if a David
    brand asset is tracked again, or if any runtime file names one.
 
+5. File-size guard — Cloudflare Pages refuses to publish ANY single file over
+   25 MiB, and it fails the whole deploy, not just that file. The "Sharper
+   pictures" commit (e4748ec3, 7 Aug 2026) re-sourced 97 photographs at full
+   museum resolution and committed three of 59, 59 and 29 MB; every deploy
+   failed from then on, and the live site went on quietly serving an older
+   build while the repo looked perfectly healthy. Nothing in CI noticed,
+   because nothing was measuring file size. This gate does.
+
 Exits non-zero with a plain explanation on any failure.
 """
 import re
@@ -100,7 +108,42 @@ LAUNCH_ASSETS = [
     "assets/brand/antinous-sticker.png",  # the masthead mark, precached
 ]
 
+# ---------- file-size guard ----------
+# What the host actually refuses. Cloudflare Pages rejects any single file
+# larger than this, and the rejection fails the entire deployment.
+HOST_MAX_BYTES = 25 * 1024 * 1024        # 25 MiB
+# Where we fail instead: comfortably below the host's limit, so a file that
+# creeps upward is caught here, on a branch, rather than by a red deploy after
+# a merge. A picture has no business being anywhere near either number —
+# the biggest thing the site legitimately serves is a few hundred KB.
+SAFE_MAX_BYTES = 20 * 1024 * 1024        # 20 MiB
+
 errors = []
+
+
+def check_file_sizes():
+    """No tracked file may approach the host's per-file publishing limit."""
+    before = len(errors)
+    oversized = []
+    for f in tracked_files():
+        p = ROOT / f
+        if not p.is_file():
+            continue          # tracked but deleted in the working tree
+        n = p.stat().st_size
+        if n > SAFE_MAX_BYTES:
+            oversized.append((n, f))
+    for n, f in sorted(oversized, reverse=True):
+        errors.append(
+            "'%s' is %.1f MB. Cloudflare Pages refuses to publish any file "
+            "over %d MB and fails the WHOLE deploy when it finds one, so this "
+            "would stop every update reaching phones — the site would keep "
+            "serving the last build that worked. Shrink it before merging; "
+            "for a picture in assets/img/ that is "
+            "'python3 tools/build_image_variants.py --cap-originals'."
+            % (f, n / 1048576, HOST_MAX_BYTES // 1048576))
+    if len(errors) == before:
+        print("file size OK: nothing tracked is over %d MB"
+              % (SAFE_MAX_BYTES // 1048576))
 
 
 def check_version_lock():
@@ -128,6 +171,9 @@ def tracked_files():
 
 
 def check_leaks():
+    # Counts only ITS OWN failures: this used to test the shared error list,
+    # so any earlier check failing would silently suppress this one's "OK".
+    before = len(errors)
     files = tracked_files()
     for path, why in FORBIDDEN_TRACKED:
         hits = [f for f in files
@@ -137,7 +183,7 @@ def check_leaks():
     review = [f for f in files if re.search(r"(^|/)review-\d{4}-\d{2}-\d{2}\.html$", f)]
     for h in review:
         errors.append(f"leak: review sheet '{h}' is tracked — it prints unaired answers")
-    if not errors:
+    if len(errors) == before:
         print("leak guard OK: no compiler working files tracked")
 
 
@@ -255,6 +301,7 @@ def check_brand_mark():
 
 def main():
     check_version_lock()
+    check_file_sizes()
     check_leaks()
     check_deny_rules()
     check_brand_mark()

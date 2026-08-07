@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v186';
+const BUILD = 'v188';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -166,6 +166,7 @@ const GAME_ROWS = [
   },
   {
     key: 'map', label: 'Lifeline', tagline: 'Born here, died there. Name the figure.',
+    strangerLine: 'Birth. Death. Two dots. Who?',
     glyph: 'assets/brand/game-icon-lifeline.webp', time: '~3 min',
     tintStrong: 'var(--df-yellow)',
     tintSoft: 'color-mix(in srgb, var(--df-yellow) 18%, var(--ch-cream))',
@@ -173,6 +174,7 @@ const GAME_ROWS = [
   },
   {
     key: 'what', label: 'Relic', tagline: 'A famous artefact, one scrap at a time.',
+    strangerLine: 'Uncover an artefact. Name it.',
     glyph: 'assets/brand/game-icon-relic.webp', time: '~3 min',
     tintStrong: 'var(--df-red)',
     tintSoft: 'color-mix(in srgb, var(--df-red) 10%, var(--ch-cream))',
@@ -180,6 +182,7 @@ const GAME_ROWS = [
   },
   {
     key: 'thread', label: 'Thread', tagline: 'Group 16 clues into four hidden categories.',
+    strangerLine: 'Sort 16 terms into four groups.',
     glyph: 'assets/brand/game-icon-thread.webp', time: '~2 min',
     tintStrong: 'var(--df-cyan)',
     tintSoft: 'color-mix(in srgb, var(--df-cyan) 14%, var(--ch-cream))',
@@ -211,6 +214,7 @@ function renderGameRows() {
           <div class="hero-text">
             <h2 class="hero-name">${g.label}</h2>
             <p class="hero-tagline">${g.tagline}</p>
+            <p class="hero-tagline hero-tagline-new">${g.strangerLine || g.tagline}</p>
           </div>
           <img class="hero-glyph" src="${g.glyph}" alt="">
         </div>
@@ -677,11 +681,14 @@ function hasAnyDailyCompletion() {
   return daily.GAMES.some((g) => entries[g] && Object.keys(entries[g]).length > 0);
 }
 
-// The stranger's landing (conversion Phase 2): until the first finished
-// daily, Home is one headline and one door — week strips, archive bars and
-// the punch card are regulars' furniture and stay hidden (see .is-stranger
-// rules in style.css). Everything unlocks at the same moment the install
-// pitch arrives: the first completed daily.
+// The stranger's landing (conversion Phase 2; hero rebuilt 6 Aug 2026): until
+// the first finished daily, Home is the Face Value hero — a real board with
+// its opening scrap torn — and then the other three as compact rows. Face Value's own
+// row drops out (the hero is its door, and two doors to one game read as
+// clutter), and week strips, archive bars and the punch card are regulars'
+// furniture that stays hidden (see the .is-stranger rules in style.css).
+// Everything unlocks at the same moment the install pitch arrives: the first
+// completed daily.
 function applyStrangerMode() {
   const stranger = !hasAnyDailyCompletion();
   document.body.classList.toggle('is-stranger', stranger);

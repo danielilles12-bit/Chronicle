@@ -474,6 +474,7 @@
     "image_author": "Guillermo Kahlo",
     "image_license": "Public domain",
     "image_retrieved": "2026-07-21",
+    "reserve": true,
     "mcq": [
       "Coco Chanel",
       "Eva Perón"
