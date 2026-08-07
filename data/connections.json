@@ -1665,7 +1665,7 @@
      "Kaiser Wilhelm II",
      "Mehmed VI",
      "Alfonso XIII",
-     "Shah of Iran"
+     "Shah Mohammad Reza Pahlavi"
     ]
    },
    {
@@ -1673,19 +1673,19 @@
     "label": "Writers banished by the state",
     "items": [
      "Ovid",
-     "Machiavelli",
+     "Dante",
      "Victor Hugo",
      "Karl Marx"
     ]
    },
    {
     "colour": "purple",
-    "label": "Official ways to cast a person out",
+    "label": "Voluntarily gave up tremendous power",
     "items": [
-     "Ostracism",
-     "Proscription",
-     "Transportation",
-     "Excommunication"
+     "Diocletian",
+     "Sulla",
+     "Benedict XVI",
+     "Celestine V"
     ]
    }
   ],
@@ -2171,7 +2171,7 @@
     "label": "Children's books of the Victorian age",
     "items": [
      "Treasure Island",
-     "The Water Babies",
+     "Alice in Wonderland",
      "Struwwelpeter",
      "Black Beauty"
     ]
@@ -2452,7 +2452,7 @@
     "label": "Pioneers of the fight against infection",
     "items": [
      "Pasteur",
-     "Fleming",
+     "Semmelweis",
      "Jenner",
      "Lister"
     ]
@@ -2544,17 +2544,17 @@
   "groups": [
    {
     "colour": "yellow",
-    "label": "Peoples and empires of Mesopotamia",
+    "label": "Empires over Mesopotamia",
     "items": [
-     "Sumer",
      "Babylon",
      "Assyria",
-     "Akkad"
+     "Akkad",
+     "Persia"
     ]
    },
    {
     "colour": "green",
-    "label": "Wonders and structures",
+    "label": "Wonders and structures of Mesopotamia",
     "items": [
      "Ziggurat",
      "Hanging Gardens",
@@ -2564,7 +2564,7 @@
    },
    {
     "colour": "blue",
-    "label": "Kings and lawgivers",
+    "label": "Kings and lawgivers of Mesopotamia",
     "items": [
      "Hammurabi",
      "Sargon",
@@ -2578,8 +2578,8 @@
     "items": [
      "Cuneiform",
      "Wheel",
-     "Sexagesimal",
-     "Code of Hammurabi"
+     "Sexagesimal / Base 60",
+     "Written laws"
     ]
    }
   ]
@@ -2591,17 +2591,17 @@
   "groups": [
    {
     "colour": "yellow",
-    "label": "Korean kingdoms and dynasties",
+    "label": "Dynasties of China",
     "items": [
-     "Silla",
-     "Goguryeo",
-     "Baekje",
-     "Joseon"
+     "Han",
+     "Tang",
+     "Ming",
+     "Qing"
     ]
    },
    {
     "colour": "green",
-    "label": "Khanates carved from the Mongol Empire",
+    "label": "What the Mongol Empire became",
     "items": [
      "Golden Horde",
      "Chagatai Khanate",
@@ -2732,42 +2732,42 @@
   "groups": [
    {
     "colour": "yellow",
-    "label": "History's shortest reigns and terms",
+    "label": "Europe's four smallest countries",
     "items": [
-     "Lady Jane Grey",
-     "Pope John Paul I",
-     "William Henry Harrison",
-     "Louis XIX"
+     "Vatican City",
+     "Monaco",
+     "San Marino",
+     "Liechtenstein"
     ]
    },
    {
     "colour": "green",
-    "label": "Wars over within a fortnight",
+    "label": "Heads of state for under six weeks",
     "items": [
-     "Anglo-Zanzibar War",
-     "Six-Day War",
-     "Ten-Day War",
-     "Indo-Pakistani War of 1971"
+     "Lady Jane Grey",
+     "William Henry Harrison",
+     "John Paul I",
+     "Louis XIX"
     ]
    },
    {
     "colour": "blue",
-    "label": "Famous 'Hundred Days'",
+    "label": "Kings of England for less than a year",
     "items": [
-     "Napoleon's return",
-     "FDR's New Deal opening",
-     "The 1898 reforms in China",
-     "The 1918 Allied offensive"
+     "Harold II",
+     "Edward V",
+     "Edmund Ironside",
+     "Edward VIII"
     ]
    },
    {
     "colour": "purple",
-    "label": "States gone within two years",
+    "label": "Independent for less than a year",
     "items": [
-     "The Paris Commune",
-     "Republic of Formosa",
-     "The Republic of West Florida",
-     "The Republic of Ezo"
+     "Elba",
+     "Zanzibar",
+     "West Florida",
+     "Ezo"
     ]
    }
   ]
@@ -2779,42 +2779,42 @@
   "groups": [
    {
     "colour": "yellow",
-    "label": "Ancient Greek playwrights",
+    "label": "Seating areas of a British theatre",
     "items": [
-     "Aeschylus",
-     "Sophocles",
-     "Euripides",
-     "Aristophanes"
+     "Stalls",
+     "Circle",
+     "Balcony",
+     "Box"
     ]
    },
    {
     "colour": "green",
-    "label": "French dramatists",
+    "label": "Playhouses of Shakespeare's London",
     "items": [
-     "Moliere",
-     "Racine",
-     "Corneille",
-     "Beaumarchais"
+     "Globe",
+     "Rose",
+     "Swan",
+     "Curtain"
     ]
    },
    {
     "colour": "blue",
-    "label": "Playwrights of the modern European stage",
+    "label": "West End musicals",
     "items": [
-     "Ibsen",
-     "Chekhov",
-     "George Bernard Shaw",
-     "Oscar Wilde"
+     "Cats",
+     "Wicked",
+     "Grease",
+     "Hair"
     ]
    },
    {
     "colour": "purple",
-    "label": "American playwrights",
+    "label": "Everyday words descended from Greek theatre terms",
     "items": [
-     "Arthur Miller",
-     "Tennessee Williams",
-     "Eugene O'Neill",
-     "Edward Albee"
+     "Hypocrite",
+     "Scene",
+     "Chorus",
+     "Protagonist"
     ]
    }
   ]
@@ -3847,7 +3847,7 @@
     "items": [
      "Eiffel Tower",
      "Nintendo",
-     "Starry Night",
+     "The Wall Street Journal",
      "Moulin Rouge"
     ]
    }
@@ -4471,12 +4471,12 @@
   "groups": [
    {
     "colour": "yellow",
-    "label": "Heroes of Greek myth",
+    "label": "Greek monster-slayers",
     "items": [
      "Heracles",
      "Perseus",
      "Theseus",
-     "Jason"
+     "Bellerophon"
     ]
    },
    {
@@ -4501,7 +4501,7 @@
    },
    {
     "colour": "purple",
-    "label": "Heroes of the great epics",
+    "label": "Headliners of a great epic",
     "items": [
      "Gilgamesh",
      "Rama",
@@ -6957,7 +6957,7 @@
  },
  {
   "id": "conn-073",
-  "title": "Rivers of Civilization",
+  "title": "All Roads Lead to Rome",
   "difficulty": "easy",
   "groups": [
    {
@@ -6972,12 +6972,12 @@
    },
    {
     "colour": "green",
-    "label": "Heroes of the American Revolution",
+    "label": "Roman gods with planets named after them",
     "items": [
-     "George Washington",
-     "Thomas Paine",
-     "Paul Revere",
-     "John Paul Jones"
+     "Jupiter",
+     "Venus",
+     "Mars",
+     "Neptune"
     ]
    },
    {
@@ -8455,6 +8455,53 @@
      "Siren",
      "Odyssey",
      "Trojan"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-182",
+  "title": "On the Map",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Allied conferences of the Second World War",
+    "items": [
+     "Yalta",
+     "Potsdam",
+     "Tehran",
+     "Casablanca"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Battles of the American Civil War",
+    "items": [
+     "Gettysburg",
+     "Antietam",
+     "Shiloh",
+     "Vicksburg"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Planned cities that became a nation's capital",
+    "items": [
+     "Canberra",
+     "Brasília",
+     "Islamabad",
+     "St Petersburg"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Cities that gave their name to a medical syndrome",
+    "items": [
+     "Stockholm",
+     "Paris",
+     "Jerusalem",
+     "Havana"
     ]
    }
   ]
