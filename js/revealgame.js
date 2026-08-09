@@ -21,7 +21,7 @@ const TEAR_COST = 10;           // per player tear (the opening scrap is on the 
 const WRONG_PENALTY = 15;       // per wrong guess
 const WORTH_START = 100;
 const WORTH_FLOOR = 10;         // a correct answer never pays less than this
-const CLUE_A_COST = 25;         // "Claim to fame" (who) / "First letters" (what)
+const CLUE_A_COST = 25;         // "Claim to fame" (who); Relic has no slip A
 const CLUE_B_COST = 15;         // "Lived" (who) / "Era" (what)
 // The ultimate clue (Daniel, 28 Jul 2026; repriced as a COST 28 Jul evening):
 // three choices instead of a dead-end give-up. Opening it docks the round's
@@ -69,18 +69,6 @@ function clueYears(item) {
   return m ? m[1].trim() : null;
 }
 
-// Leading articles/particles skipped when abbreviating an artefact's name to
-// initials ("The Colosseum" → "C.", "Hanging Gardens of Babylon" → "H. G. B.").
-const REVEAL_ARTICLES = new Set([
-  'the', 'of', 'a', 'an', 'and', 'la', 'le', 'el', 'al', 'de', 'del', 'della',
-  'di', 'da', 'van', 'von', 'des', 'du', 'les',
-]);
-function clueInitials(name) {
-  const parts = (name || '').split(/\s+/)
-    .filter((w) => w && !REVEAL_ARTICLES.has(w.toLowerCase().replace(/[^a-z']/gi, '')));
-  return parts.map((w) => (w[0] || '').toUpperCase() + '.').join(' ').trim();
-}
-
 // WHAT blurbs are freeform prose that USUALLY carries a date. Try, in order:
 // (a) an N-th-century phrase, (b) a year tagged BC/BCE/AD/CE, (c) a plain
 // modern year (1000–2100, with optional "c.", range, or decade "s"). Returns
@@ -105,8 +93,24 @@ function extractEra(item) {
   return null;
 }
 
-// The two clue slips per MODE. Button A always has content; button B may be
-// null (undatable Relic) → its button is hidden for that round.
+// The clue slips per MODE. Either slip may be absent: a def of null means the
+// game has no such slip at all, and a def whose value() comes back empty means
+// this round can't fill it. Both hide the button.
+//
+// RELIC HAS NO SLIP A (Daniel, 9 Aug 2026). It used to be "First letters" —
+// the answer's initials. That is a crossword clue in a history game: it asks
+// you to unscramble an abbreviation rather than know anything, it swings from
+// a giveaway ("M. L.") to worthless ("S.") with no relation to difficulty, and
+// it quietly tells you which WORDING the game wants, so a player thinking
+// "Flavian Amphitheatre" is told "C." Location, size and claim-to-fame were all
+// weighed as replacements and each failed: the pool is ~60% places, so location
+// is either already in the name or is the whole answer; size gives a player
+// nothing to retrieve a name FROM; claim-to-fame reveals the answer outright.
+// Rather than ship a second badly-aimed clue the night before launch, Relic
+// keeps Era and the 3-choices rescue — and unlike Lifeline it can always earn
+// more information by tearing another scrap. Revisit with real failure data.
+// Lifeline's own Initials slip is deliberately untouched: a person's initials
+// plus two map pins is a real deduction in a way "H. G. B." never is.
 function clueDefs() {
   const item = round();
   if (MODE === 'who') {
@@ -116,7 +120,7 @@ function clueDefs() {
     };
   }
   return {
-    a: { label: 'First letters', cost: CLUE_A_COST, value: () => clueInitials(item.name) },
+    a: null,
     b: { label: 'Era', cost: CLUE_B_COST, value: () => extractEra(item) },
   };
 }
@@ -208,26 +212,26 @@ function refreshControlLabels() {
   }
 }
 
-// Label the two clue buttons for this round's MODE, re-enable them, and hide
-// button B when its clue has no content (an undatable Relic).
+// Label this round's clue buttons for its MODE and re-enable them. A button is
+// hidden when the game has no such slip at all (Relic's A) or when this round
+// cannot fill it (an undatable Relic's B) — a slip that can't pay out must not
+// sit there quoting a price.
 function setupClues() {
   clearClueSlots();
   const defs = clueDefs();
-  const btnA = $('#rv-clue-a');
-  btnA.dataset.clueLabel = defs.a.label;
-  btnA.dataset.clueCost = defs.a.cost;
-  btnA.disabled = false;
-  btnA.hidden = false;
-  const btnB = $('#rv-clue-b');
-  const bVal = defs.b.value();
-  btnB.dataset.clueLabel = defs.b.label;
-  btnB.dataset.clueCost = defs.b.cost;
-  if (bVal == null || bVal === '') {
-    btnB.hidden = true;
-    btnB.disabled = true;
-  } else {
-    btnB.disabled = false;
-    btnB.hidden = false;
+  for (const [id, def] of [['#rv-clue-a', defs.a], ['#rv-clue-b', defs.b]]) {
+    const btn = $(id);
+    if (!btn) continue;
+    const value = def && def.value();
+    if (!def || value == null || value === '') {
+      btn.hidden = true;
+      btn.disabled = true;
+      continue;
+    }
+    btn.dataset.clueLabel = def.label;
+    btn.dataset.clueCost = def.cost;
+    btn.disabled = false;
+    btn.hidden = false;
   }
   refreshControlLabels();
 }
@@ -238,6 +242,7 @@ function buyClue(which) {
   const key = which === 'a' ? 'clueA' : 'clueB';
   if (S.cur[key]) return;
   const def = clueDefs()[which];
+  if (!def) return;            // this game has no such slip (Relic's A)
   const value = def.value();
   if (value == null || value === '') return;
   S.cur[key] = true;
@@ -854,9 +859,12 @@ function startRound() {
   setupClues();
   // Resumed round: put the bought-clue chips (values re-derive from the item)
   // and the wrong-guess chips back exactly as they were.
+  // The `defs.a &&` guard also carries a Relic round that was saved BEFORE slip
+  // A was removed and is reopened after the update: it had bought a clue this
+  // build no longer defines, so the chip is simply dropped rather than thrown on.
   const defs = clueDefs();
-  if (S.cur.clueA) revealClueInSlot($('#rv-clue-a'), `${defs.a.label}: ${defs.a.value()}`);
-  if (S.cur.clueB) revealClueInSlot($('#rv-clue-b'), `${defs.b.label}: ${defs.b.value()}`);
+  if (S.cur.clueA && defs.a) revealClueInSlot($('#rv-clue-a'), `${defs.a.label}: ${defs.a.value()}`);
+  if (S.cur.clueB && defs.b) revealClueInSlot($('#rv-clue-b'), `${defs.b.label}: ${defs.b.value()}`);
   if (S.cur.mcqOpts) renderMcq();   // resumed mid-choice: same three, same order
   (S.cur.wrongGuesses || []).forEach((g) => addGuessChip(g));
   // Back to the square scrap window (clears any inline aspect/width the last

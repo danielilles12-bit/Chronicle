@@ -623,8 +623,21 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
    below. The topbar "?" reopens the same card over a live game (tap-outside
    to close). Accent colour arrives as --intro-accent / --intro-accent-ink,
    set on .intro-sheet by fillIntro() in js/app.js. */
+/* THE VISIBLE VIEWPORT, NOT THE PHANTOM ONE (Daniel, 9 Aug 2026). `inset: 0`
+   alone sizes a fixed box to iOS Safari's toolbar-HIDDEN viewport, so the
+   overlay's bottom edge — and the Play pill glued to it by margin-top:auto —
+   sat underneath Safari's floating toolbar. Worse, the sheet is exactly
+   viewport-height, so there was no overflow to scroll: the button wasn't below
+   the fold, it was under the furniture, with no way to reach it. Measured at
+   375x812, ~2/3 of the pill was covered. An explicit height wins over the
+   `inset` shorthand's `bottom`, so this needs no restructuring; the plain vh
+   line is the pre-dvh fallback and reproduces today's behaviour exactly.
+   Only bites a browser TAB — the installed app has no toolbar, and dvh == vh
+   there, on Android and on desktop, so nothing moves on any working surface. */
 .intro-overlay {
   position: fixed; inset: 0; z-index: 30;
+  height: 100vh;
+  height: 100dvh;
   background-color: var(--ch-paper);
   background-image: radial-gradient(rgba(11,11,11,.06) 1px, transparent 1.2px); background-size: 14px 14px;
   display: flex; align-items: flex-start; justify-content: center; overflow-y: auto;
@@ -643,7 +656,7 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 .intro-art { position: relative; flex: none; }
 .intro-art img {
   display: block; width: 100%;
-  height: 48vh; min-height: 168px; max-height: 420px;
+  height: 48dvh; min-height: 168px; max-height: 420px;
   object-fit: cover; background: var(--ch-parchment);
   border-bottom: 3px solid var(--ch-ink);
 }
@@ -687,7 +700,9 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 /* Short screens (320x568 and friends): the poster gives up height first so the
    title and first line of copy still land above the fold. */
 @media (max-height: 640px) {
-  .intro-art img { height: 33vh; }
+  /* dvh here too: sized off the phantom viewport, the art plus the copy filled
+     the corrected overlay to within a pixel on an iPhone SE. */
+  .intro-art img { height: 33dvh; }
   .intro-body { gap: 7px; padding-top: 22px; }
   .intro-body .start-title { font-size: 27px; }
 }
@@ -704,6 +719,8 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
    because the player is hunting a shape, not reading a sentence. */
 .install-overlay {
   position: fixed; inset: 0; z-index: 40;
+  height: 100vh;   /* see .intro-overlay: the visible viewport, not the phantom one */
+  height: 100dvh;
   background-color: var(--ch-paper);
   background-image: radial-gradient(rgba(11,11,11,.06) 1px, transparent 1.2px); background-size: 14px 14px;
   display: flex; align-items: flex-start; justify-content: center; overflow-y: auto;
@@ -916,7 +933,12 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 .view-game { height: 100dvh; overflow: hidden; }
 
 /* ---------- Sheets, modals, toast ---------- */
-.sheet { position: fixed; inset: 0; background: rgba(43,33,24,.4); z-index: 20; display: flex; align-items: flex-end; justify-content: center; }
+/* Same iOS fix as .intro-overlay, and it matters MORE here: these sheets are
+   bottom-anchored, so #mcq-warn's "Keep tearing" — the way OUT of the rescue
+   warning — was sitting under the toolbar. That brushes the navigation
+   contract, not just the look. Covers #guess-warn, #mcq-warn, #carry-sheet
+   and #confirm-sheet. */
+.sheet { position: fixed; inset: 0; height: 100vh; height: 100dvh; background: rgba(43,33,24,.4); z-index: 20; display: flex; align-items: flex-end; justify-content: center; }
 .sheet[hidden] { display: none; }
 .sheet-card {
   background: var(--ch-paper); border-radius: 0; padding: 18px 20px calc(20px + env(safe-area-inset-bottom));

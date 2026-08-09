@@ -247,9 +247,9 @@ def capture_facevalue_flow():
                     field("Input placeholder", page.get_attribute("#rv-input", "placeholder") or "",
                           "index.html", 353),
                     field("Guess button", txt(page, "#rv-guess-btn"), "index.html", 354),
-                    field("Clue A (Face Value)", txt(page, "#rv-clue-a"), "js/revealgame.js", 114,
-                          note="“Claim to fame” for Face Value, “First letters” for Relic."),
-                    field("Clue B (Face Value)", txt(page, "#rv-clue-b"), "js/revealgame.js", 115,
+                    field("Clue A (Face Value)", txt(page, "#rv-clue-a"), "js/revealgame.js", 118,
+                          note="“Claim to fame” — Face Value only; Relic has no slip A."),
+                    field("Clue B (Face Value)", txt(page, "#rv-clue-b"), "js/revealgame.js", 119,
                           note="“Lived to/from” for Face Value, “Era” for Relic."),
                     field("Rescue button", txt(page, "#rv-mcq"), "index.html", 359,
                           note="“3 choices · round worth {n}” — MCQ_COST=80, revealgame.js:33."),
@@ -571,11 +571,10 @@ def capture_relic_flow():
                 img_play,
                 [
                     field("Prompt", txt(page, "#rv-prompt"), "js/revealgame.js", 825),
-                    field("Clue A (Relic)", txt(page, "#rv-clue-a"), "js/revealgame.js", 119,
-                          note="“First letters” — Face Value's equivalent is “Claim to fame”."),
-                    field("Clue B (Relic)", txt(page, "#rv-clue-b"), "js/revealgame.js", 120,
-                          note="“Era” — Face Value's equivalent is “Lived to/from”. Hidden "
-                               "entirely for an undatable relic."),
+                    field("Clue B (Relic)", txt(page, "#rv-clue-b"), "js/revealgame.js", 124,
+                          note="“Era” — Face Value's equivalent is “Lived to/from”. Relic's "
+                               "only clue slip: it has no equivalent of “Claim to fame” "
+                               "(removed 9 Aug 2026). Hidden entirely for an undatable relic."),
                 ],
             )
             page.click("#rv-mcq")

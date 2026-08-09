@@ -299,12 +299,62 @@ def check_brand_mark():
               % len(LAUNCH_ASSETS))
 
 
+def check_full_screen_overlays():
+    """A full-screen fixed overlay must be sized in dvh, not by `inset: 0`.
+
+    iOS Safari sizes a `position: fixed; inset: 0` box to the viewport with the
+    floating toolbar HIDDEN, so the box's bottom edge — and anything anchored to
+    it — ends up underneath that toolbar. On 9 Aug 2026 this was clipping the
+    intro screen's Play button (~2/3 covered, and the sheet had no scroll
+    overflow, so it could not be brought into view) and the bottom-anchored
+    sheets, including #mcq-warn's "Keep tearing" — the way out of that dialog.
+
+    No rendering test can catch this: Playwright drives Chromium, where every
+    viewport unit returns the same number and the toolbar does not exist. So it
+    is caught statically, here, instead.
+    """
+    before = len(errors)
+    rule = re.compile(r"([^{}]*)\{([^{}]*)\}")
+    checked = 0
+    for path in sorted((ROOT / "css").glob("*.css")):
+        css = path.read_text(encoding="utf-8")
+        # Comments carry example code and prose; strip before matching.
+        body_only = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
+        for m in rule.finditer(body_only):
+            selector, decls = m.group(1).strip(), m.group(2)
+            if not re.search(r"position\s*:\s*fixed", decls):
+                continue
+            # Only rules that span the FULL height, where `height: 100dvh` is
+            # the right advice: `inset: 0`, or an explicit top:0 + bottom:0.
+            # A merely bottom-docked bar (#qa-panel, .df-save-toast) is a
+            # different shape with a different fix, and is not this gate's job.
+            full_height = (re.search(r"inset\s*:\s*0\b", decls)
+                           or (re.search(r"top\s*:\s*0\b", decls)
+                               and re.search(r"bottom\s*:\s*0\b", decls)))
+            if not full_height:
+                continue
+            checked += 1
+            if re.search(r"height\s*:[^;]*dvh", decls):
+                continue
+            errors.append(
+                "css/%s: '%s' is a full-screen fixed overlay pinned to the "
+                "bottom edge with no dvh height. On iOS Safari it will be sized "
+                "to the toolbar-hidden viewport, so its bottom edge (and any "
+                "button anchored there) sits UNDER the browser toolbar, "
+                "unreachable. Add 'height: 100vh; height: 100dvh;' — the plain "
+                "vh line is the pre-dvh fallback. See .intro-overlay."
+                % (path.name, selector.replace("\n", " ")[:70]))
+    if len(errors) == before:
+        print("overlay sizing OK: all %d full-screen fixed rules use dvh" % checked)
+
+
 def main():
     check_version_lock()
     check_file_sizes()
     check_leaks()
     check_deny_rules()
     check_brand_mark()
+    check_full_screen_overlays()
     if errors:
         for e in errors:
             print("ERROR " + e, file=sys.stderr)

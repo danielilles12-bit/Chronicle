@@ -397,6 +397,13 @@ def clue_prices_are_true(p, base):
         page.wait_for_selector("#view-reveal:not([hidden])")
         assert page.inner_text("#rv-worth").lower().startswith("worth"), \
             page.inner_text("#rv-worth")
+        # RELIC HAS NO SLIP A (Daniel, 9 Aug 2026). "First letters" was a
+        # crossword clue in a history game and is gone; nothing replaced it.
+        # Era must survive — the point was to remove one clue, not both.
+        assert page.locator("#rv-clue-a").is_hidden(), \
+            "Relic is offering a clue slip A again — 'First letters' was removed"
+        assert page.locator("#rv-clue-b").is_visible(), \
+            "Relic lost its Era clue as well — only slip A was meant to go"
         H.fail_on_errors(errors, "clue_prices_are_true")
 
 
