@@ -70,6 +70,15 @@ STATE = """(sel) => {
     marks: [...row.querySelectorAll('.cs-mark')]
       .map(m => m.className.replace('cs-mark cs-', '')),
     chevrons: row.querySelectorAll('.cs-chev').length,
+    // How far the chevron sits from the last mark. It belongs BESIDE the
+    // marks (Daniel, 9 Aug 2026): parked at the far end of the row it left
+    // Thread's single ◐ stranded ~105px from its own arrow.
+    chevGap: (() => {
+      const c = row.querySelector('.cs-chev');
+      const m = [...row.querySelectorAll('.cs-mark')].pop();
+      if (!c || !m) return null;
+      return Math.round(c.getBoundingClientRect().left - m.getBoundingClientRect().right);
+    })(),
     ticks: row.querySelectorAll('.cs-tick').length,
     words: row.innerText.trim(),
     hidden: row.getAttribute('aria-hidden'),
@@ -219,6 +228,9 @@ def thread_is_one_puzzle(p, base):
                     why + "drew %r, expected exactly one half mark" % st["marks"]
                 assert len(st["marks"]) != 4, why + "four marks — Thread is one puzzle"
                 assert st["chevrons"] == 1, why + "lost its chevron"
+                assert st["chevGap"] is not None and st["chevGap"] <= 14, \
+                    why + "the chevron sits %spx from the mark — it belongs " \
+                    "beside it, not at the far end of the row" % st["chevGap"]
                 assert st["words"] == "", why + "printed %r" % st["words"]
             hero = state(page, HERO % "thread")
             assert hero["tagline"], why + "the tagline vanished"

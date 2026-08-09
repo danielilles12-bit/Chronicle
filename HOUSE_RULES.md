@@ -114,7 +114,11 @@ in player-facing copy: **Archive**. "Back issues" and "the Morgue" are retired.
   **●** a puzzle finished · **◐** the puzzle you are inside · **○** not
   started · **›** there is still play to do · **✓ 33 PTS** finished, and what
   it paid. A chevron never appears on a finished card; a finished card never
-  greys out, and still opens its own read-only result.
+  greys out, and still opens its own read-only result. **The chevron sits
+  beside the marks, not at the far end of the row** (Daniel, 9 Aug 2026):
+  parking it right looked deliberate on a three-round game and left Thread's
+  single ◐ stranded 105px from its own arrow. The state reads as one cluster
+  at any count, on the big cards and the stubs alike.
   **THE COUNTING RULE, which is the whole point:** one marker per ACTUAL
   puzzle. Face Value, Lifeline and Relic run three rounds a day and show
   three. **Thread is ONE puzzle and shows ONE.** Its four groups and its four
