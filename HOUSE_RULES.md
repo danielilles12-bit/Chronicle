@@ -174,8 +174,15 @@ in player-facing copy: **Archive**. "Back issues" and "the Morgue" are retired.
   one). One format on every surface, so no two write the same day differently.
   The masthead can still wrap on the narrowest phones or the longest weekdays;
   `// WEDNESDAY` is bound together (`.dateline-day`) so when it does, the
-  slashes go with the day they introduce and the break reads as designed. The one surviving `№` is the streak milestone
-  postmark ("№2 / days running"), which counts days, not issues.
+  slashes go with the day they introduce and the break reads as designed.
+- **[ENGINE]** **No `№` faces a player anywhere now.** The last one was the
+  streak milestone postmark, which read "№2 / days running" — and it was also
+  the last place the app called a streak anything other than an "N-day
+  streak". Both went the same day (Daniel: *"I prefer the 2-day streak
+  wording"*): the stamp reads **2 / DAY STREAK**, matching the punch card, the
+  streak-rescue line and every share. The only `№` left in the codebase is a
+  joke inside the letters stamp's address — "Complaints Dept · Desk № 1" —
+  which is a desk, not an issue.
 - **[JUDGMENT]** **The Home cards carry no bottom line of WORDS.** It held the
   issue number and a "~3 min" estimate; both went that morning, and the row
   with them. A bottom row came back the same day to hold the state marks and

@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v203';
+const BUILD = 'v204';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -1219,7 +1219,12 @@ function showCelebration(n) {
   const MILESTONES = [2, 3, 5, 7, 10, 25, 50, 100];
   const milestone = MILESTONES.includes(streak);
   $('#dd-milestone').hidden = !milestone;
-  if (milestone) $('#dd-milestone-n').textContent = `№${streak}`;
+  // "2 / DAY STREAK", the same words the punch card, the streak rescue and
+  // every share already use (Daniel, 9 Aug 2026 — "I prefer the 2-day streak
+  // wording"). This stamp was the last "№" a player could meet, and it was
+  // also the last place the app called a streak something else ("days
+  // running"). Both went together.
+  if (milestone) $('#dd-milestone-n').textContent = String(streak);
   dayDoneShare = fullHouseShare(n);
   $('#dd-share').textContent = dayDoneShare.idle;
   $('#dd-share').hidden = false;

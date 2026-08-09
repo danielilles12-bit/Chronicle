@@ -823,7 +823,7 @@ def capture_obituary_and_milestone():
                 img,
                 [
                     field("Milestone postmark", txt(page, "#dd-milestone"), "js/app.js", 1075,
-                          note="Template: “№{streak}” over “days running”. Shown at "
+                          note="Template: “{streak}” over “day streak”. Shown at "
                                "streaks 2, 3, 5, 7, 10, 25, 50, 100 — front-loaded because early days "
                                "move retention most."),
                 ],
