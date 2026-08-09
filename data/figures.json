@@ -3858,7 +3858,10 @@
     "id": "pele",
     "name": "Pelé",
     "variants": [
-      "pele"
+      "pele",
+      "pelé",
+      "edson arantes do nascimento",
+      "edson arantes"
     ],
     "occupation": "Brazilian footballer, three-time World Cup winner",
     "birth": {
@@ -3969,7 +3972,7 @@
       "mercury",
       "farrokh bulsara"
     ],
-    "occupation": "Rock singer with a four-octave range and a stadium in his palm",
+    "occupation": "Rock singer with an operatic streak and a stadium in his palm",
     "birth": {
       "year": 1946,
       "place": "Zanzibar City, Tanzania",
@@ -6776,7 +6779,11 @@
     "id": "frederick-barbarossa",
     "name": "Frederick Barbarossa",
     "variants": [
-      "frederick barbarossa"
+      "frederick barbarossa",
+      "barbarossa",
+      "friedrich barbarossa",
+      "frederick i",
+      "frederick i barbarossa"
     ],
     "occupation": "Holy Roman Emperor who drowned on crusade",
     "birth": {
@@ -9287,7 +9294,7 @@
       "year": 1702,
       "place": "London, England",
       "lat": 51.5,
-      "lon": -0.14
+      "lon": -0.19
     },
     "fact": "His horse stumbled on a molehill and threw him — enemies toasted 'the little gentleman in black velvet' after",
     "mcq": [
@@ -11286,7 +11293,9 @@
     "difficulty": "medium",
     "variants": [
       "hedy lamarr",
-      "lamarr"
+      "lamarr",
+      "hedwig eva maria kiesler",
+      "hedy kiesler"
     ],
     "occupation": "Actress and inventor",
     "birth": {
