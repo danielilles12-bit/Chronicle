@@ -44,6 +44,18 @@ def latest_edition():
     return max(int(k) for k in manifest()["editions"])
 
 
+def edition_day_label(n):
+    """The words the app uses for edition n, everywhere a player can read it —
+    "9 Aug 2026". Must match js/daily.js editionDateLabel exactly (the issue
+    number stopped facing players on 9 Aug 2026). %-d avoids a leading zero,
+    and %b is locale-dependent in theory but C/en_* in this suite.
+
+    NOTE: the masthead is CSS-uppercased, so compare .upper() against
+    inner_text("#dateline"). The letters stamp and share text are not."""
+    d = EPOCH + timedelta(days=n)
+    return "%d %s %d" % (d.day, d.strftime("%b"), d.year)
+
+
 def edition_date(n):
     return (EPOCH + timedelta(days=n)).isoformat()
 
@@ -201,6 +213,20 @@ def dismiss_guess_warn(page, timeout=1500):
         return False
     page.click("#guess-warn-go")
     page.wait_for_selector("#guess-warn", state="hidden")
+    return True
+
+
+def dismiss_rescue_warn(page, timeout=1500):
+    """Confirm the "3 choices" warning if it opened (js/guesswarn.js asks once
+    per game, on that game's first rescue). Same deal as dismiss_guess_warn:
+    its own behaviour is asserted in tests/test_smoke_core.py, and everywhere
+    else it is furniture — "Show me three" opens the chips as before."""
+    try:
+        page.wait_for_selector("#mcq-warn:not([hidden])", timeout=timeout)
+    except Exception:
+        return False
+    page.click("#mcq-warn-go")
+    page.wait_for_selector("#mcq-warn", state="hidden")
     return True
 
 

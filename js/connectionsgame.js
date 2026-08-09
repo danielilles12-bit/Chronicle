@@ -1,5 +1,5 @@
 // Connections — group 16 history clues into four hidden categories
-import { $, $$, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, wireEncore, announce, consumeShareLaunch } from './app.js';
+import { $, $$, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, announce, consumeShareLaunch } from './app.js';
 import * as store from './storage.js';
 import * as daily from './daily.js';
 import { threadShareText, shareResult, flashShareButton } from './sharecard.js';
@@ -416,7 +416,7 @@ function finishPuzzle() {
     : 'The thread snapped. 0 points.');
   show('view-connsum');
   // "A game finished" for the install flow — see the same note in
-  // revealgame.js. Encore is itself a daily now, so it arrives here too.
+  // revealgame.js: a daily counts, free play does not.
   if (S.mode === 'daily') {
     document.dispatchEvent(new CustomEvent('gamefinished',
       { detail: { game: 'thread', daily: true } }));
@@ -438,14 +438,10 @@ function renderThreadReceipt({ editionIndex, mode, title, score, solved, perfect
   const shareBtn = $('#conn-sum-share');
   if (shareBtn) shareBtn.hidden = !S.share;
   wireTurnThePage('conn-sum-turn', editionIndex, isDaily);
-  // Thread gained an Encore on 7 Aug 2026: it never had one, because the old
-  // five-random-rounds shape made no sense for a single board. The new Encore
-  // is "the most recent unplayed day", which fits a one-board game exactly.
-  wireEncore('conn-sum-encore', 'thread', isDaily);
   const head = $('#conn-receipt-head');
   if (head) {
     head.textContent = 'Yesternerd · Thread'
-      + (mode === 'daily' && editionIndex != null ? ` · № ${editionIndex}` : '');
+      + (mode === 'daily' && editionIndex != null ? ` · ${daily.editionDateLabel(editionIndex)}` : '');
   }
   const rows = $('#conn-sum-rows');
   rows.innerHTML = '';

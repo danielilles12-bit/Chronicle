@@ -159,7 +159,7 @@
          both read (data/reveal.json is the pre-split legacy file and is read
          by nothing). A face on permanent display must never also be a live
          puzzle, and reserved items are skipped both when the compiler stages
-         future editions and when Encore samples aired ones.
+         future editions and when any past-day card opens an aired one.
          Shown/hidden as a whole by applyStrangerMode() in js/app.js, which is
          also why the "Also in today's issue" label lives INSIDE this block —
          it labels the three rows below only while the hero is up.
@@ -203,7 +203,7 @@
         <div class="lt-stamp" aria-hidden="true">
           <div class="lt-stamp-inner">
             <div class="lt-stamp-face">
-              <span class="lt-stamp-value" id="lt-stamp-no">№ —</span>
+              <span class="lt-stamp-value" id="lt-stamp-no">—</span>
               <img src="assets/brand/antinous-sticker.png" alt="">
               <span class="lt-stamp-word">Yesternerd</span>
             </div>
@@ -263,7 +263,7 @@
       <div id="map-hints">
         <button class="pill small" id="hint-occ"><span>Claim to fame <span class="cost">−15</span></span></button>
         <button class="pill small" id="hint-ini"><span>Initials <span class="cost">−25</span></span></button>
-        <button class="pill small wide" id="map-mcq"><span>3 choices <span class="leaves">· round worth 20</span></span></button>
+        <button class="pill small wide" id="map-mcq"><span>3 choices <span class="cost">−80</span></span></button>
       </div>
       <div id="map-mcq-chips" class="mcq-chips" hidden></div>
       <div id="map-guesses"></div>
@@ -301,7 +301,6 @@
       <div class="sum-actions">
         <button class="pill primary big" id="sum-turn" hidden>Play the next puzzle ›</button>
         <button class="pill primary big" id="sum-share" hidden>Share the run</button>
-        <button class="pill big" id="sum-encore" hidden>Encore: 5 more ›</button>
         <button class="pill primary big" id="sum-again">Play again</button>
         <button class="pill ghost big" id="sum-home">Home</button>
       </div>
@@ -367,7 +366,7 @@
       <div id="rv-controls">
         <button class="pill small" id="rv-clue-a"><span>Claim to fame <span class="cost">−25</span></span></button>
         <button class="pill small" id="rv-clue-b"><span>Lived <span class="cost">−15</span></span></button>
-        <button class="pill small wide" id="rv-mcq"><span>3 choices <span class="leaves">· round worth 20</span></span></button>
+        <button class="pill small wide" id="rv-mcq"><span>3 choices <span class="cost">−80</span></span></button>
       </div>
       <div id="rv-mcq-chips" class="mcq-chips" hidden></div>
       <div id="rv-guesses"></div>
@@ -405,7 +404,6 @@
       <div class="sum-actions">
         <button class="pill primary big" id="rv-sum-turn" hidden>Play the next puzzle ›</button>
         <button class="pill primary big" id="rv-sum-share" hidden>Share the tear-up</button>
-        <button class="pill big" id="rv-sum-encore" hidden>Encore: 5 more ›</button>
         <button class="pill primary big" id="rv-sum-again">Play again</button>
         <button class="pill ghost big" id="rv-sum-home">Home</button>
       </div>
@@ -456,7 +454,6 @@
       <div class="sum-actions" style="margin-top:20px">
         <button class="pill primary big" id="conn-sum-turn" hidden>Play the next puzzle ›</button>
         <button class="pill primary big" id="conn-sum-share" hidden>Share the thread</button>
-        <button class="pill big" id="conn-sum-encore" hidden>Encore ›</button>
       </div>
       <a class="sum-report-link" id="conn-sum-report" href="#">Report a problem</a>
     </main>
@@ -466,7 +463,7 @@
   <section class="view view-loud" id="view-daydone" hidden>
     <header class="topbar safe-top" style="background:transparent;border-bottom-color:var(--ch-ink)">
       <span class="topbar-right"></span>
-      <h2 id="dd-issue">№ —</h2>
+      <h2 id="dd-issue">—</h2>
       <button class="iconbtn" id="dd-close" aria-label="Close">×</button>
     </header>
     <main class="scroll-main df-moment">
@@ -540,6 +537,23 @@
       <div class="sheet-row">
         <button type="button" class="pill primary" id="guess-warn-go">Guess anyway</button>
         <button type="button" class="pill ghost" id="guess-warn-back">Keep looking</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rescue warning (Daniel, 9 Aug 2026): "3 choices" is the priciest button
+       in the app AND the only one that closes the round's other work, and a
+       first-timer could press it knowing neither. Same machine as the guess
+       warning above (js/guesswarn.js askOnce), its own storage key, asked once
+       per game. The cost is written in by the caller so it can never disagree
+       with the number on the button. -->
+  <div id="mcq-warn" class="sheet" hidden>
+    <div class="sheet-card">
+      <h3>Before you take three</h3>
+      <p class="start-copy" id="mcq-warn-copy"></p>
+      <div class="sheet-row">
+        <button type="button" class="pill primary" id="mcq-warn-go">Show me three</button>
+        <button type="button" class="pill ghost" id="mcq-warn-back">Keep tearing</button>
       </div>
     </div>
   </div>

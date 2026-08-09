@@ -8,11 +8,10 @@ check). When a new audit produces a new ruling, it gets added HERE in the
 same session — this file is why his feedback compounds instead of
 evaporating.
 
-Last updated: 7 Aug 2026 (Archive v2 — per-game day-card scrollers, the
-edition-42 floor, Encore rewritten, read-only Done summaries that show the
-solution, "Resume today's puzzle"; women-per-issue floor; occupation-family
-duplicates advisory; Lighthouse of Alexandria retired; image rights
-free-licensed only; `frac` confirmed inert).
+Last updated: 9 Aug 2026 (the issue number stopped facing players — the date
+replaces it everywhere; Encore deleted; every clue control quotes its true
+cost; the rescue asks once per game before it fires; blurbs capitalised after
+the middle dot).
 
 ## Navigation (the way back)
 
@@ -92,17 +91,36 @@ in player-facing copy: **Archive**. "Back issues" and "the Morgue" are retired.
   in its four colours with its labels and title, and no fact line (boards
   carry none). The round list is rebuilt from `getEdition(game, n)` — the
   manifest is the record of what aired — never from the ledger entry.
-- **[JUDGMENT]** **Encore = same game, most recent unplayed accessible day.**
-  It keeps its name and its place on a finished daily's summary, names the day
-  it will open ("Encore: Sunday ›"), launches straight in, and disappears once
-  every accessible day for that game is played. It is a real daily now, so it
-  scores. Thread gained an Encore at the same time; the old five-random-aired-
-  rounds practice run is gone.
+- **[ENGINE]** **Encore is gone** (Daniel, 9 Aug 2026 — reverses CLAUDE.md
+  locked decision #6, which had itself rewritten the feature on 7 Aug). A
+  finished daily's summary offered "Encore: Sunday ›", another day of the SAME
+  game. The behaviour worth encouraging is the opposite one: *"move on to the
+  next puzzle of the day."* Anyone who wants more of one game reaches it from
+  that game's row on Home — which is what the Archive is for. A summary now
+  ends with **Play the next puzzle** (or **Call it a day** once all four are
+  played), **Share**, and **Home**, and nothing else. `encoreEdition`,
+  `startEncore`, `wireEncore`, the three buttons and the four `encore-*`
+  analytics events are all deleted, not hidden.
 - **[JUDGMENT]** **"Resume today's puzzle", not "In progress"** (Daniel, 7 Aug
   2026). A status reports; an instruction invites, and "today's" carries the
   fact that it expires at midnight. Past-day cards say a plain **"Resume"** —
   "today's" would be false on a Thursday card. The gold in-progress colour and
   the `row-progress` hook are unchanged.
+
+## The date, not the issue number (Daniel, 9 Aug 2026)
+
+- **[ENGINE]** **Nothing a player reads says "№ 71" any more.** Daniel watched
+  friends play and none of them knew what the issue number meant. `№` is gone
+  from the masthead (now `9 AUG 2026 // SUNDAY`), the four Home cards, the
+  first-run Play button, all three game receipts, the letters stamp, the
+  Ledger's "in the making since" line, the day-done screen and every share
+  headline (`FACE VALUE 9 Aug 2026 🖼️`). The edition index is still the app's
+  internal spine — it just never faces a player. One helper does the words:
+  `daily.editionDateLabel(n)`. The one surviving `№` is the streak milestone
+  postmark ("№2 / days running"), which counts days, not issues.
+- **[JUDGMENT]** **The Home cards carry no bottom line at all.** It held the
+  issue number and a "~3 min" estimate; both went the same day, and the row
+  with them. A card is its name, its one line and its picture.
 
 ## Sharing (what a share actually is)
 
@@ -211,21 +229,30 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
 `design-reviews/clue-pricing-2026-08-05/`. Built in `js/revealgame.js` and
 `js/mapgame.js`; `tests/test_smoke_core.py::clue_prices_are_true` is the check.
 
-- **[ENGINE]** **No control may quote a price the floor would swallow.** A
-  correct answer never pays under 10, so "−25" stops being true near the
-  bottom. Every price is derived from `worthNow()` at paint time and flips to
-  the honest outcome — `· LEAVES 10` — the moment the whole deduction can no
-  longer come off. The three-choices rescue never quotes its nominal −80 at
-  all: it always says what it LEAVES (20 on an untouched round, 10 after any
-  spending). This is why the old "3 CHOICES −80" had to go — on a 65-point
-  round it was simply a false number.
+- **[ENGINE]** **Every control quotes what it would really take** (Daniel,
+  9 Aug 2026, REPLACING the 5 Aug "say what it LEAVES" rule). A correct
+  answer never pays under 10, so a nominal "−25" stops being true near the
+  bottom — but the fix is a smaller true number, not different words. Each
+  control shows `worthNow()` minus what the round would be worth after it,
+  floor included: a 25-point clue on a 20-point round says `−10`, and on a
+  round already at the floor it says `· FREE`, because it is. The three-
+  choices rescue obeys the same rule (`−80` untouched, `−65` after a 25-point
+  clue), which is what Daniel asked for: *"flipping the logic between clues is
+  odd… it's confusing."* The tear price on the worth line follows too.
+  Nothing anywhere says `LEAVES` or `DROPS TO` any more.
 - **[ENGINE]** **One price, in one place, once.** The tear price lives on the
   worth line (it is the only cost paid without pressing a control); every
   other price lives on the control that charges it. At the floor the worth
   line reads `WORTH: 10 PTS · MINIMUM`.
 - **[JUDGMENT]** **Prices are RED** (Daniel, 5 Aug 2026, overruling a proposal
   to make ordinary prices black): the red minus is what says "this is a cost".
-  Outcomes — `LEAVES 10`, `MINIMUM` — are not prices and stay ink.
+  What is not a price — `FREE`, `MINIMUM` — is not red, and stays ink.
+- **[ENGINE]** **The rescue asks before it fires** (Daniel, 9 Aug 2026). "3
+  choices" is the priciest button in the app and the only one that closes the
+  round's other work, and a first-timer could press it knowing neither. It now
+  asks once per game, off the same machine as the first-guess warning
+  (`js/guesswarn.js` `askOnce`, `misc.rescueWarned`), quoting the same true
+  cost the button does.
 - **[JUDGMENT]** **The wrong-guess price rides on the Guess button**: "IF
   WRONG −15 PTS", Daniel's wording, with the "if". It is the one cost a player
   can incur without any warning at all.

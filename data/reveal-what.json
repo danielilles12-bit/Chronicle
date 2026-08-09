@@ -325,6 +325,7 @@
       "tutankhamun mask",
       "tutankhamun",
       "king tut",
+      "tut",
       "death mask of tutankhamun"
     ],
     "blurb": "Burial mask of Tutankhamun, c. 1323 BC · In 2014, museum staff snapped off the braided beard while cleaning the case, then glued it back on with epoxy",
@@ -5547,6 +5548,7 @@
     "fx": 0.3,
     "fy": 0.45,
     "frac": 0.24,
+    "start": 7,
     "license": "CC BY-SA 4.0",
     "attribution": "Corrector007",
     "source": "Wikimedia Commons: Stone Chariot at Vittala temple, Hampi.jpg",

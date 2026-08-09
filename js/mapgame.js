@@ -1,9 +1,9 @@
 // "Map of a Life": guess the historical figure from birth/death geography.
-import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, wireEncore, teachWrongGuess, announce, testHooksEnabled, consumeShareLaunch } from './app.js';
+import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, teachWrongGuess, announce, testHooksEnabled, consumeShareLaunch } from './app.js';
 import * as store from './storage.js';
 import { track, roundOutcome, durationBucket } from './track.js';
 import { isMatch, registerPool } from './match.js';
-import { confirmFirstGuess } from './guesswarn.js';
+import { confirmFirstGuess, confirmFirstRescue } from './guesswarn.js';
 import * as daily from './daily.js';
 import { mapShareText, shareResult, flashShareButton } from './sharecard.js';
 import * as sfx from './sfx.js';
@@ -395,14 +395,19 @@ function rescueOpen() {
   return !!(S && S.cur && S.cur.mcqOpts);
 }
 
-// A price is only true while the whole of it can come off; near the floor the
-// control says what it LEAVES instead. Same rule as Face Value/Relic, same
-// source of truth: worthNow().
-function priceSpan(cost) {
+// Every control quotes its REAL deduction, floor included (Daniel, 9 Aug
+// 2026) — same rule as Face Value/Relic, same source of truth: worthNow().
+// See the long note in js/revealgame.js for why the old "drops to" flip went.
+function trueCost(cost) {
   const w = worthNow();
-  return w - cost < WORTH_FLOOR
-    ? `<span class="leaves">· drops to ${Math.max(WORTH_FLOOR, w - cost)}</span>`
-    : `<span class="cost">−${cost}</span>`;
+  return w - Math.max(WORTH_FLOOR, w - cost);
+}
+
+function priceSpan(cost) {
+  const real = trueCost(cost);
+  return real > 0
+    ? `<span class="cost">−${real}</span>`
+    : '<span class="leaves">· free</span>';
 }
 
 function refreshControlLabels() {
@@ -424,7 +429,7 @@ function refreshControlLabels() {
   }
   const mcq = $('#map-mcq');
   if (mcq && !S.cur.mcqOpts) {
-    mcq.innerHTML = `<span>3 choices <span class="leaves">· round worth ${Math.max(WORTH_FLOOR, worthNow() - MCQ_COST)}</span></span>`;
+    mcq.innerHTML = `<span>3 choices ${priceSpan(MCQ_COST)}</span>`;
   }
 }
 
@@ -680,6 +685,8 @@ function mcqOptionsFor(fig) {
 
 function openMcq() {
   if (!S || !S.cur || !S.cur.open || S.cur.mcqOpts) return;
+  // See the twin note in js/revealgame.js: asked once per game, then never.
+  if (!confirmFirstRescue('map', trueCost(MCQ_COST), openMcq)) return;
   S.cur.mcqOpts = mcqOptionsFor(round());
   S.cur.hintCost = (S.cur.hintCost || 0) + MCQ_COST;  // priced like a clue slip
   persistSession();
@@ -776,7 +783,7 @@ function resolveRound(correct, opts) {
 function renderLockedSummary() {
   const head = document.querySelector('#view-mapsum [data-receipt-head]');
   if (head) head.textContent = 'Yesternerd · Lifeline'
-    + (S.editionIndex != null ? ` · № ${S.editionIndex}` : '');
+    + (S.editionIndex != null ? ` · ${daily.editionDateLabel(S.editionIndex)}` : '');
   $('#sum-total').textContent = S.score;
   setReceiptStamp('view-mapsum', S.score);
   $('#sum-report').href = daily.reportProblemHref(null, S.editionIndex);
@@ -814,7 +821,6 @@ function renderLockedSummary() {
   if (sumShare) sumShare.hidden = !S.share;
   wireTurnThePage('sum-turn', S.editionIndex, isDaily);
   renderSolution();
-  wireEncore('sum-encore', 'map', isDaily);
   $('#sum-again').hidden = !!S.locked;
 }
 
@@ -936,7 +942,7 @@ function finishSession() {
   }
   show('view-mapsum');
   // "A game finished" for the install flow — see the same note in
-  // revealgame.js: dailies count (Encore is one now), free play does not.
+  // revealgame.js: dailies count, free play does not.
   if (S.mode === 'daily') {
     document.dispatchEvent(new CustomEvent('gamefinished',
       { detail: { game: 'map', daily: true } }));

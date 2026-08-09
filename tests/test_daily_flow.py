@@ -106,7 +106,7 @@ def rollover(p, base):
     is reachable from yesterday's day card, not today's hero card."""
     with H.app(p) as (page, errors, _ctx):
         H.boot(page, base, H.edition_date(N - 1))
-        assert ("№ %d" % (N - 1)) in page.inner_text("#dateline")
+        assert H.edition_day_label(N - 1).upper() in page.inner_text("#dateline").upper()
         # Leave stranger mode (archive bars are regulars' furniture): one
         # completed daily in an unrelated game.
         H.seed_completion(page, "thread", N - 1, score=80,
@@ -119,7 +119,7 @@ def rollover(p, base):
         page.click("#rv-quit")
 
         H.boot(page, base, DATE)               # midnight passed
-        assert ("№ %d" % N) in page.inner_text("#dateline")
+        assert H.edition_day_label(N).upper() in page.inner_text("#dateline").upper()
         # The new day's card is untouched again. It used to say "Play ›"; since
         # 7 Aug 2026 an untouched card says NOTHING — the status line is silent
         # and the game's tagline holds the slot (see test_stranger_home.py:
@@ -178,71 +178,29 @@ def archive_strip(p, base):
         H.fail_on_errors(errors, "archive_strip")
 
 
-# ---------- encore ----------
-def encore(p, base):
-    """Encore is 'same game, most recent unplayed accessible day' (Daniel,
-    7 Aug 2026). It opens a real daily, it never reaches unaired content, and
-    it disappears once every day in the window has been played."""
+# ---------- no_encore ----------
+def no_encore(p, base):
+    """Encore is gone (Daniel, 9 Aug 2026, reversing locked decision #6). A
+    finished daily's summary offers exactly one way onward — the next game of
+    TODAY's issue — plus the share and the way home. Nothing on that screen
+    sends the player back into another day of the same game; anyone who wants
+    that uses the game's own Archive row on Home."""
     with H.app(p) as (page, errors, _ctx):
         H.boot(page, base, DATE)
-        first, last = N - 6, N - 1
-
-        # Nothing played behind today -> Encore offers yesterday.
         assert page.evaluate(
-            "n => __CHRONICLE_TEST__.daily.encoreEdition('who', n)", N) == last
-
-        # Play the newest two from the archive; Encore walks backwards.
-        for n in (last, last - 1):
-            H.seed_completion(page, "who", n, score=50)
-        assert page.evaluate(
-            "n => __CHRONICLE_TEST__.daily.encoreEdition('who', n)", N) == last - 2
-
-        # The UI path: finish today, and the summary offers that day by name.
+            "() => typeof __CHRONICLE_TEST__.daily.encoreEdition"), "unbound"
         H.seed_completion(page, "who", N, score=60)
         H.open_daily(page, "who")
         page.wait_for_selector("#view-revealsum:not([hidden])")
-        page.wait_for_selector("#rv-sum-encore:not([hidden])")
-        label = page.inner_text("#rv-sum-encore").lower()
-        target = page.evaluate(
-            "n => __CHRONICLE_TEST__.daily.encoreEdition('who', n)", N)
-        weekday = page.evaluate(
-            "n => __CHRONICLE_TEST__.daily.weekdayName(n)", target).lower()
-        assert weekday in label, (
-            "Encore should name the day it opens, reads %r" % label)
-
-        page.click("#rv-sum-encore")
-        H.dismiss_intro(page, timeout=1200)
-        page.wait_for_selector("#view-reveal:not([hidden])")
-        page.wait_for_function("__CHRONICLE_TEST__.revealRound !== undefined")
-        # It really opened that edition, as the DAILY.
-        assert page.evaluate(
-            "n => __CHRONICLE_TEST__.store.getDailySession("
-            "  'chronicle.practice.who.' + n)", target) is None, (
-            "Encore must not run through practice any more")
-        aired = set(page.evaluate(
-            "n => __CHRONICLE_TEST__.daily.getEdition('who', n).map(x => x.id)",
-            target))
-        assert page.evaluate("__CHRONICLE_TEST__.revealRound.id") in aired, (
-            "Encore opened a round that is not in that edition")
-
-        # Play out the rest of the window, and the button goes away.
-        page.evaluate("__CHRONICLE_TEST__.nav.goHome()")
-        for n in range(first, last + 1):
-            H.seed_completion(page, "who", n, score=40)
-        assert page.evaluate(
-            "n => __CHRONICLE_TEST__.daily.encoreEdition('who', n)", N) is None
-        H.open_daily(page, "who")
-        page.wait_for_selector("#view-revealsum:not([hidden])")
-        assert page.locator("#rv-sum-encore").is_hidden(), (
-            "Encore should be gone once every accessible day is played")
-
-        # And it never offers anything unaired, at any point.
-        for n in range(first, N + 2):
-            got = page.evaluate(
-                "n => __CHRONICLE_TEST__.daily.encoreEdition('who', n)", n)
-            assert got is None or got < n, (
-                "Encore offered edition %r on day %d" % (got, n))
-        H.fail_on_errors(errors, "encore")
+        assert page.locator("#rv-sum-encore").count() == 0, \
+            "the Encore button is back on the Face Value summary"
+        assert "encore" not in page.inner_text("#view-revealsum").lower(), \
+            "the word Encore survives on a finished summary"
+        # The one onward move: today's next unplayed game.
+        turn = page.locator("#rv-sum-turn")
+        assert turn.is_visible(), "the summary lost its forward button"
+        assert "next puzzle" in turn.inner_text().lower(), turn.inner_text()
+        H.fail_on_errors(errors, "no_encore")
 
 
 # ---------- return_milestones ----------
@@ -261,7 +219,7 @@ def return_milestones(p, base):
         H.fail_on_errors(errors, "return_milestones")
 
 
-TESTS = [daily_lock_and_repair, rollover, archive_strip, encore, return_milestones]
+TESTS = [daily_lock_and_repair, rollover, archive_strip, no_encore, return_milestones]
 
 
 def main():

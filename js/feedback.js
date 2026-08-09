@@ -109,7 +109,7 @@ function paintPlate() {
   if (!plate) return;
   plate.hidden = !hasAnyDailyCompletion();
   const no = document.getElementById('lt-stamp-no');
-  if (no) no.textContent = `№ ${Math.max(0, daily.todayIndex())}`;
+  if (no) no.textContent = daily.editionDateLabel(daily.todayIndex());
   const pm = document.getElementById('lt-postmark-date');
   if (pm) pm.textContent = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
 }

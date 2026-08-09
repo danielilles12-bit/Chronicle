@@ -14,7 +14,8 @@ Covered:
   1. detection — the right branch for the right browser, standalone first
   2. every screen renders, carries the house ‹ chip (the navigation contract,
      measured with test_no_dead_ends' own geometry), and its way back works
-  3. timing — 2 completed games before the ask, dailies AND encores counting,
+  3. timing — 2 completed games before the ask, today and Archive days both
+     counting,
      decline -> strip, strip × -> one final offer at a 7-day streak, then
      silence; webviews at 1 game, at most twice
   4. the guaranteed fallback: COPY THE LINK really writes the clipboard
@@ -67,7 +68,7 @@ Object.defineProperty(navigator, 'clipboard', {
 });"""
 STANDALONE = "Object.defineProperty(navigator, 'standalone', {value: true});"
 
-# The event the three game engines dispatch when a daily or an Encore ends.
+# The event the three game engines dispatch when a daily ends.
 FINISH = ("(g) => document.dispatchEvent(new CustomEvent('gamefinished',"
           " {detail: {game: g, daily: true}}))")
 
@@ -255,24 +256,28 @@ def real_games_count(p, base):
         H.fail_on_errors(errors, "real_games_count")
 
 
-def encore_counts_as_a_game(p, base):
-    """Daniel's ruling: a daily and an Encore of the same game are two games.
-    Played for real, because "does an Encore announce itself?" is exactly the
-    kind of wiring that rots quietly."""
+def a_past_day_counts_as_a_game(p, base):
+    """Encore went on 9 Aug 2026, but the ruling it tested stands: today's Face
+    Value and an Archive day of the SAME game are two games as far as the ask
+    is concerned. Played for real, because "does a past day announce itself?"
+    is exactly the kind of wiring that rots quietly."""
     with H.app(p) as (page, errors, _c):
         H.boot(page, base, DATE)
         H.open_daily(page, "who")
         H.dismiss_intro(page, timeout=2500)
         H.play_reveal_daily(page)
         assert misc(page).get("installGames") == 1
-        assert page.locator("#rv-sum-encore").is_visible(), (
-            "no Encore offered on the summary — this scenario cannot run")
-        page.click("#rv-sum-encore")
+        page.click("#rv-sum-back")
+        page.wait_for_selector("#view-home:not([hidden])")
+        card = page.locator('[data-row="who"] [data-days] [data-edition-index]').first
+        assert card.is_visible(), (
+            "no past-day card to play — this scenario cannot run")
+        card.click()
         H.play_reveal_daily(page)
         page.wait_for_selector(SCREEN)
         assert misc(page).get("installGames") == 2, (
-            "an Encore should count as a game: %r" % misc(page))
-        H.fail_on_errors(errors, "encore_counts_as_a_game")
+            "a past day should count as a game: %r" % misc(page))
+        H.fail_on_errors(errors, "a_past_day_counts_as_a_game")
 
 
 def decline_leaves_the_strip(p, base):
@@ -468,7 +473,7 @@ def never_in_the_installed_app(p, base):
 
 
 TESTS = [detection, screens_render, qa_panel_summons_every_branch,
-         two_games_then_the_ask, real_games_count, encore_counts_as_a_game,
+         two_games_then_the_ask, real_games_count, a_past_day_counts_as_a_game,
          decline_leaves_the_strip, strip_x_then_one_last_offer,
          saved_it_ends_the_asking, android_one_tap,
          webview_after_one_game_twice, copy_the_link,

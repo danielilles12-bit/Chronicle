@@ -1005,6 +1005,7 @@
     "fx": 0.53,
     "fy": 0.3,
     "frac": 0.15,
+    "start": 7,
     "license": "Public domain",
     "attribution": "Alfred Edward Chalon",
     "source": "Wikimedia Commons: Ada Lovelace portrait.jpg",

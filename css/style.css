@@ -44,7 +44,7 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 .center-main { display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center; gap: 8px; }
 
 /* ---------- Home ---------- */
-#view-home { background-color: var(--ch-paper); background-image: radial-gradient(rgba(11,11,11,.09) 1px, transparent 1.2px); background-size: 14px 14px; }
+#view-home { background-color: var(--ch-paper); background-image: radial-gradient(rgba(11,11,11,.06) 1px, transparent 1.2px); background-size: 14px 14px; }
 /* min-height: the Antinous sticker is absolutely positioned, so the masthead
    must be guaranteed tall enough to contain him — a one-line wordmark alone is
    shorter than he is, and he'd hang over the panel below (rename, 4 Aug).
@@ -178,7 +178,7 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   transition: transform .12s ease;
 }
 .hero-card:active { transform: scale(.985); }
-.hero-col { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 14px; }
+.hero-col { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 14px; }
 .hero-text { min-width: 0; }
 .hero-name { font-family: var(--ch-font-display); font-weight: 400; margin: 0 0 4px; font-size: 26px; text-transform: uppercase; letter-spacing: .01em; color: var(--ch-text-primary); }
 .hero-tagline { margin: 0; color: var(--ch-text-secondary); font-size: 14px; line-height: 1.4; }
@@ -189,11 +189,11 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
    it 104px → 136px — the full height of the card's content box, so the card
    itself is no taller than it was. */
 .hero-glyph { width: 136px; height: 136px; flex: none; display: block; }
-.hero-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-.hero-edition {
-  font-size: 11px; text-transform: uppercase; letter-spacing: var(--ch-tracking-smallcaps);
-  font-weight: 700; color: var(--ch-text-label); font-family: var(--ch-font-ui); white-space: nowrap;
-}
+/* THE CARD HAS NO BOTTOM LINE (Daniel, 9 Aug 2026). It used to carry
+   "№ 71 · ~3 min": the issue number meant nothing to the people he watched
+   play, and the time estimate was never earned. Both went, and with them the
+   whole row — so .hero-col now holds one child and centres it against the
+   picture instead of pushing two apart. */
 /* THE STATUS MOVED UNDER THE NAME (Daniel, 7 Aug 2026). It used to sit
    bottom-right opposite the issue number, saying "Play ›" on a card nobody
    could mistake for anything but a button. Now it is a real status line in the
@@ -210,9 +210,6 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 }
 .hero-card.show-status .hero-status { display: block; }
 .hero-card.show-status .hero-tagline { display: none; }
-/* P1.4: the expected-time whisper on each hero card — quiet lowercase
-   voice riding the edition line. */
-.hero-time { text-transform: none; font-weight: 600; letter-spacing: normal; color: var(--ch-text-muted); }
 .hero-card.row-done .hero-status { color: var(--ch-forest); }
 .hero-card.row-progress .hero-status { color: var(--ch-gold); }
 /* ROOM FOR A PEEK. The only thing telling a player the row scrolls is a slice
@@ -444,7 +441,6 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 .is-stranger .hero-col { gap: 5px; justify-content: center; }
 .is-stranger .hero-name { font-size: 20px; margin-bottom: 3px; }
 .is-stranger .hero-glyph { width: 80px; height: 80px; }
-.is-stranger .hero-bottom { display: none; }
 /* The one door gets the house magenta and a periodic nudge — enough to say
    "press me", quiet enough not to feel like an ad.
    INK LETTERS, not cream (Daniel, 7 Aug 2026). .pill.primary is built for an
@@ -509,7 +505,7 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 .intro-overlay {
   position: fixed; inset: 0; z-index: 30;
   background-color: var(--ch-paper);
-  background-image: radial-gradient(rgba(11,11,11,.09) 1px, transparent 1.2px); background-size: 14px 14px;
+  background-image: radial-gradient(rgba(11,11,11,.06) 1px, transparent 1.2px); background-size: 14px 14px;
   display: flex; align-items: flex-start; justify-content: center; overflow-y: auto;
   padding: 0;
 }
@@ -588,7 +584,7 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 .install-overlay {
   position: fixed; inset: 0; z-index: 40;
   background-color: var(--ch-paper);
-  background-image: radial-gradient(rgba(11,11,11,.09) 1px, transparent 1.2px); background-size: 14px 14px;
+  background-image: radial-gradient(rgba(11,11,11,.06) 1px, transparent 1.2px); background-size: 14px 14px;
   display: flex; align-items: flex-start; justify-content: center; overflow-y: auto;
 }
 .install-overlay[hidden] { display: none; }
@@ -1369,7 +1365,7 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
    numerals, ONE red accent (the earned stamp only). Reads in both themes off
    the --ch-* tokens. */
 #punch-card[role="button"] { cursor: pointer; }
-#view-ledger { background-color: var(--ch-paper); background-image: radial-gradient(rgba(11,11,11,.09) 1px, transparent 1.2px); background-size: 14px 14px; }
+#view-ledger { background-color: var(--ch-paper); background-image: radial-gradient(rgba(11,11,11,.06) 1px, transparent 1.2px); background-size: 14px 14px; }
 [data-theme='candlelit'] #view-ledger { background-image: radial-gradient(rgba(242,239,230,.08) 1px, transparent 1.2px); }
 
 .ledger-sheet {

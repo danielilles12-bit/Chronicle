@@ -132,7 +132,7 @@ def plate_links_and_stamp(p, base):
         target = page.get_attribute("#lt-btn", "target")
         assert target == "_blank", "the form must open in a new context (swipe back intact)"
 
-        assert ("№ %d" % N) in text(page, "#lt-stamp-no"), (
+        assert H.edition_day_label(N) in text(page, "#lt-stamp-no"), (
             "stamp denomination must be the live issue number, got %r" % text(page, "#lt-stamp-no"))
         today = datetime.date.today()
         expect_pm = ("%d %s" % (today.day, today.strftime("%b"))).lower()

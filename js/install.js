@@ -35,7 +35,7 @@
 // than the words around them, so the eye lands on the button first.
 //
 // THE TIMING (plan §4)
-//   - a "completed game" is any finished daily OR encore, any of the four.
+//   - a "completed game" is any finished daily, any of the four.
 //   - Screen A: at the end of game 2. Declined → a quiet strip at the top of
 //     Home ("Save Yesternerd as an app — Show me how ›"). Strip × → one last
 //     Screen A the day a streak reaches 7, then silence forever.
@@ -472,9 +472,8 @@ function bestStreak() {
 // the same moment.
 const OFFER_DELAY = 650;
 
-// Called at the end of every finished daily and every finished encore (the
-// three game engines dispatch 'gamefinished'; both count as "a game", Daniel's
-// ruling). Nothing here ever fires mid-round.
+// Called at the end of every finished daily (the three game engines dispatch
+// 'gamefinished'). Nothing here ever fires mid-round.
 function onGameFinished() {
   const misc = store.getMisc();
   const games = (misc.installGames || 0) + 1;

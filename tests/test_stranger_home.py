@@ -358,8 +358,12 @@ def returning_home_unchanged(p, base):
             assert got == want, "%s row's Archive reads %r, expected %r" % (key, got, want)
             assert page.locator(
                 '[data-row="%s"] [data-days] [data-edition-index]' % key).first.is_visible()
-            assert page.locator('[data-row="%s"] .hero-edition' % key).is_visible()
-        assert "№" in page.inner_text('[data-hero="who"] [data-edition]')
+        # The hero card's bottom line is gone entirely (Daniel, 9 Aug 2026):
+        # no issue number, no time estimate, no row to hold them.
+        assert page.locator('[data-hero="who"] .hero-bottom').count() == 0, \
+            "the hero card's bottom row is back"
+        assert "№" not in page.inner_text("#home-rows"), \
+            "an issue number survives somewhere in the game rows"
 
         # And the classic doors still work.
         page.click('[data-hero="who"]')
@@ -458,28 +462,25 @@ def home_card_status_and_icons(p, base):
                     const r = e.getBoundingClientRect();
                     return {t: r.top, b: r.bottom, shown: getComputedStyle(e).display}; };
                   return {name: b('.hero-name'), status: b('[data-status]'),
-                          bottom: b('.hero-bottom')}; }""", probe)
+                          tagline: b('.hero-tagline')}; }""", probe)
             if seed:
                 # Returning player, done game: "Done · N pts" under the name,
-                # tagline gone, issue number + time whisper still below.
+                # standing in for the tagline. Nothing below it any more.
                 assert said(page, '[data-hero="thread"] [data-status]') == "done · 72 pts", \
                     why + "the done card lost its score line"
                 assert geom["status"]["t"] >= geom["name"]["b"] - 1, \
                     why + "the status sits above the game's name"
-                assert geom["status"]["b"] <= geom["bottom"]["t"] + 1, \
-                    why + "the status is still down in the bottom row"
-                assert page.locator('[data-row="thread"] .hero-tagline').first.is_hidden(), \
+                assert geom["tagline"]["shown"] == "none", \
                     why + "the tagline is still showing under a done card"
-                edition = page.inner_text('[data-hero="thread"] [data-edition]')
-                assert ("№ %d" % N) in edition and "min" in edition, \
-                    why + "the bottom row lost the issue number or the time whisper: %r" % edition
+                assert page.locator('[data-hero="thread"] .hero-bottom').count() == 0, \
+                    why + "the bottom row is back on a done card"
             else:
-                # Newcomer: silent card, one-liner intact, bottom row gone.
+                # Newcomer: silent card, one-liner intact, no bottom row.
                 assert page.inner_text('[data-hero="map"] [data-status]').strip() == "", \
                     why + "an unplayed card is talking"
                 assert geom["status"]["shown"] == "none", why + "the silent status line is rendered"
-                assert geom["bottom"]["shown"] == "none", \
-                    why + "the newcomer's card still prices the issue"
+                assert page.locator('[data-hero="map"] .hero-bottom').count() == 0, \
+                    why + "the newcomer's card still carries a bottom row"
                 assert page.locator('[data-row="map"] .hero-tagline-new').is_visible(), \
                     why + "the newcomer one-liner is gone"
             H.fail_on_errors(errors, "home_card_status_and_icons/" + label)

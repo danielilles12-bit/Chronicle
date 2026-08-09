@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v198';
+const BUILD = 'v199';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -158,11 +158,12 @@ export function refreshHomeStats() {
 // coding (spec "Per-row accent tints"): a strong tint for the hero card, a
 // slightly lighter one (lower mix %) for the day cards.
 const GAME_ROWS = [
-  // `time` is the expected-time whisper on the hero card (P1.4): muted and
-  // small next to the issue number, same voice as the dateline whisper.
+  // The cards carry no bottom line any more (Daniel, 9 Aug 2026): the issue
+  // number meant nothing to playtesters and the "~3 min" estimate was never
+  // needed. Name, one line, picture — nothing else.
   {
     key: 'who', label: 'Face Value', tagline: 'Tear back the scraps to reveal a historical figure.',
-    glyph: 'assets/brand/game-icon-face-value.webp', time: '~3 min',
+    glyph: 'assets/brand/game-icon-face-value.webp',
     tintStrong: 'var(--df-magenta)',
     tintSoft: 'color-mix(in srgb, var(--df-magenta) 12%, var(--ch-cream))',
     launchDaily: (n) => startRevealDaily('who', n),
@@ -170,7 +171,7 @@ const GAME_ROWS = [
   {
     key: 'map', label: 'Lifeline', tagline: 'Birth. Death. Two pins on the map. Who?',
     strangerLine: 'Birth. Death. Two dots. Who?',
-    glyph: 'assets/brand/game-icon-lifeline.webp', time: '~3 min',
+    glyph: 'assets/brand/game-icon-lifeline.webp',
     tintStrong: 'var(--df-yellow)',
     tintSoft: 'color-mix(in srgb, var(--df-yellow) 18%, var(--ch-cream))',
     launchDaily: startMapDaily,
@@ -178,7 +179,7 @@ const GAME_ROWS = [
   {
     key: 'what', label: 'Relic', tagline: 'Tear back the scraps to reveal an artefact or landmark.',
     strangerLine: 'Uncover an artefact. Name it.',
-    glyph: 'assets/brand/game-icon-relic.webp', time: '~3 min',
+    glyph: 'assets/brand/game-icon-relic.webp',
     tintStrong: 'var(--df-red)',
     tintSoft: 'color-mix(in srgb, var(--df-red) 10%, var(--ch-cream))',
     launchDaily: (n) => startRevealDaily('what', n),
@@ -186,7 +187,7 @@ const GAME_ROWS = [
   {
     key: 'thread', label: 'Thread', tagline: 'Sort 16 clues into four groups, each with a hidden connection.',
     strangerLine: 'Sort 16 terms into four groups.',
-    glyph: 'assets/brand/game-icon-thread.webp', time: '~2 min',
+    glyph: 'assets/brand/game-icon-thread.webp',
     tintStrong: 'var(--df-cyan)',
     tintSoft: 'color-mix(in srgb, var(--df-cyan) 14%, var(--ch-cream))',
     launchDaily: startThreadDaily,
@@ -254,9 +255,6 @@ function renderGameRows() {
               <p class="hero-tagline">${g.tagline}</p>
               <p class="hero-tagline hero-tagline-new">${g.strangerLine || g.tagline}</p>
             </div>
-            <div class="hero-bottom">
-              <span class="hero-edition" data-edition></span>
-            </div>
           </div>
           <img class="hero-glyph" src="${g.glyph}" alt="">
         </button>
@@ -293,7 +291,7 @@ function renderGameRows() {
 }
 
 // THE ONE DOOR into a daily from anywhere in the app (Home's hero card, a
-// past-day card, Encore, a ?play= share link). It gates on three things in
+// past-day card, a ?play= share link). It gates on three things in
 // order, and any one of them says no on its own:
 //
 //   1. the access window (daily.canPlayEdition) — the hard guard. Unaired
@@ -332,38 +330,21 @@ function launchWhenReady(g) {
     document.querySelector(`[data-hero="${g.key}"] [data-status]`));
 }
 
-// Encore (locked decision #6, rewritten 7 Aug 2026): same game, most recent
-// unplayed accessible day. A real daily — it scores, it lands in the Ledger —
-// so it goes through the same one door as everything else. The old version
-// was five random aired rounds run through practice, which recorded nothing.
-export async function startEncore(gameKey) {
-  const n = daily.encoreEdition(gameKey, daily.todayIndex());
-  if (n == null) return false;
-  track(`encore-${gameKey}`);
-  return launchEdition(gameKey, n, null);
-}
+// ENCORE IS GONE (Daniel, 9 Aug 2026 — reverses locked decision #6). A
+// finished game used to offer "Encore: Tuesday ›", another day of the SAME
+// game. The behaviour worth encouraging is the opposite one: move on to the
+// next game of today's issue. Anyone who wants more of one game can reach it
+// from that game's row on Home, which is what the Archive is for. The
+// summary's forward button (wireTurnThePage) is now the only onward move.
 
-// Wire (and label, and show/hide) one game summary's Encore button. Shared by
-// all four games so the rule lives once: Encore appears on a DAILY summary
-// and only while that game still has an unplayed day inside the window; once
-// every accessible day is played, the button is simply gone. It names the day
-// it will open, because "Encore ›" alone gives no idea what is behind it.
-// Idempotent (.onclick) — summaries re-render on every visit.
-export function wireEncore(btnId, gameKey, isDaily) {
-  const btn = document.getElementById(btnId);
-  if (!btn) return;
-  const n = isDaily ? daily.encoreEdition(gameKey, daily.todayIndex()) : null;
-  if (n == null) { btn.hidden = true; btn.onclick = null; return; }
-  btn.textContent = `Encore: ${daily.weekdayName(n)} ›`;
-  btn.hidden = false;
-  btn.onclick = () => startEncore(gameKey);
-}
-
-// Weekday comes from the edition index (not the raw device date) so it
-// honours the ?dailydate= QA override the same way the issue number does.
+// Date AND weekday both come from the edition index (not the raw device
+// date) so the masthead honours the ?dailydate= QA override.
+// The issue number came out on 9 Aug 2026 (Daniel, after playtesting: nobody
+// knew what "№ 71" meant). The date says the same thing in words everyone
+// already reads — see daily.editionDateLabel.
 function datelineHTML(n) {
   const safe = Math.max(0, n);
-  return `№ ${safe} // ${daily.weekdayName(safe)}`;
+  return `${daily.editionDateLabel(safe)} // ${daily.weekdayName(safe)}`;
 }
 
 // ---------- past-day cards (Archive v2) ----------
@@ -482,8 +463,6 @@ export function refreshGameRows() {
     const status = daily.dailyStatus(g.key, today);
     const entry = status === 'done' ? store.getDailyEntry(g.key, today) : null;
     const hero = $(`[data-hero="${g.key}"]`);
-    hero.querySelector('[data-edition]').innerHTML =
-      `№ ${Math.max(0, today)}<span class="hero-time"> · ${g.time}</span>`;
     hero.querySelector('[data-status]').textContent = statusLabel(status, entry && entry.score);
     hero.classList.toggle('row-done', status === 'done');
     hero.classList.toggle('row-progress', status === 'in-progress');
@@ -614,7 +593,7 @@ export function maybeIntro(gameKey, n, begin) {
   if (seen || !fillIntro(gameKey)) { begin(); return; }
   const ov = $('#intro-card');
   const btn = $('#intro-play');
-  btn.textContent = `Play № ${n} ›`;
+  btn.textContent = 'Play ›';
   btn.onclick = () => {
     const cur = store.getMisc().introSeen || {};
     store.setMisc({ introSeen: Object.assign({}, cur, { [gameKey]: true }) });
@@ -777,7 +756,7 @@ function maybeInitQA() {
       issueClosed: () => {
         const strip = $('#issue-closed');
         if (!strip) return;
-        $('#ic-verdict').textContent = `№ ${n}, done. Some got away.`;
+        $('#ic-verdict').textContent = `${daily.editionDateLabel(n)}, done. Some got away.`;
         strip.hidden = false;
         strip.scrollIntoView({ block: 'center' });
       },
@@ -1073,7 +1052,7 @@ function refreshIssueClosed() {
   if (!strip) return;
   const n = daily.todayIndex();
   if (!(n >= 0 && fullHouseDone(n) && !allWon(n))) { strip.hidden = true; stopIssueClosedCountdown(); return; }
-  $('#ic-verdict').textContent = `№ ${n}, done. Some got away.`;
+  $('#ic-verdict').textContent = `${daily.editionDateLabel(n)}, done. Some got away.`;
   $('#ic-score').textContent = dayTotal(n);
   strip.hidden = false;
   const tick = () => { $('#ic-countdown').innerHTML = countdownText(); };
@@ -1128,7 +1107,7 @@ function showCelebration(n) {
   sfx.play('fanfare');
   const v = $('#view-daydone');
   v.classList.remove('obituary');
-  $('#dd-issue').textContent = `№ ${n}`;
+  $('#dd-issue').textContent = daily.editionDateLabel(n);
   $('#dd-title').textContent = 'You made history.';
   $('#dd-score-label').textContent = "Today's total";
   $('#dd-total').textContent = dayTotal(n);
@@ -1157,7 +1136,7 @@ function showObituary(streak, lastEdition) {
   sfx.play('toll');
   const v = $('#view-daydone');
   v.classList.add('obituary');
-  $('#dd-issue').textContent = `№ ${daily.todayIndex()}`;
+  $('#dd-issue').textContent = daily.editionDateLabel(daily.todayIndex());
   $('#dd-title').textContent = "You're history.";
   $('#dd-score-label').textContent = 'Your streak ended at';
   $('#dd-total').textContent = `${streak} days`;

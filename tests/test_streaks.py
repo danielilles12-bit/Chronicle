@@ -263,7 +263,8 @@ def past_midnight_completion(p, base):
             "yesterday's late finish should link to N-2, got %r"
             % led["streaks"]["who"])
 
-        assert ("№ %d" % N) in page.inner_text("#dateline"), "Home stuck on the old issue"
+        assert H.edition_day_label(N).upper() in page.inner_text("#dateline").upper(), \
+            "Home stuck on the old day"
         # Today's own Face Value is still untouched. It used to say "Play ›";
         # since 7 Aug 2026 an untouched card is silent and shows its tagline
         # instead (see test_stranger_home.py: home_card_status_and_icons), so
@@ -317,8 +318,9 @@ def obituary_threshold(p, base):
             "document.querySelector('#dd-share').textContent"
             ".toLowerCase().indexOf('copied') === 0", timeout=8000)
         clip = page.evaluate("navigator.clipboard.readText()")
-        assert str(last) in clip and str(max(0, last - 2)) in clip, (
-            "the obituary share should name the run it is burying: %r" % clip[:120])
+        assert H.edition_day_label(last) in clip \
+            and H.edition_day_label(max(0, last - 2)) in clip, (
+            "the obituary share should name the days it is burying: %r" % clip[:120])
         assert "6-shared-obituary-copied" in H.gc_events(page)
 
         # Once, not every boot.

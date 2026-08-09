@@ -23,6 +23,7 @@ import helpers as H  # noqa: E402
 
 N = H.latest_edition()
 DATE = H.edition_date(N)
+DAY = H.edition_day_label(N)   # shares name the day, not the issue (9 Aug 2026)
 LINK = "https://yesternerd.app/"
 
 # A share sheet that always exists and always succeeds, wired to a recorder.
@@ -122,7 +123,7 @@ def four_games_share_text_only(p, base):
         H.play_reveal_daily(page)
         page.wait_for_selector("#rv-sum-share:not([hidden])")
         t = share_and_capture(page, "#rv-sum-share", "Face Value")
-        assert t.startswith("FACE VALUE №%d \U0001F5BC" % N), \
+        assert t.startswith("FACE VALUE %s \U0001F5BC" % DAY), \
             "Face Value headline changed: %r" % t.split("\n")[0]
         row = emoji_row(t)
         assert row and set(row) <= set("\U0001F7E9\U0001F7E8\U0001F7E5"), \
@@ -139,7 +140,7 @@ def four_games_share_text_only(p, base):
         H.dismiss_install(page)          # game two: the install screen opens
         page.wait_for_selector("#sum-share:not([hidden])")
         t = share_and_capture(page, "#sum-share", "Lifeline")
-        assert t.startswith("LIFELINE №%d \U0001F5FA" % N), \
+        assert t.startswith("LIFELINE %s \U0001F5FA" % DAY), \
             "Lifeline headline changed: %r" % t.split("\n")[0]
         row = emoji_row(t)
         assert row and set(row) <= set("✅\U0001F9ED⚰️"), \
@@ -155,7 +156,7 @@ def four_games_share_text_only(p, base):
         H.play_reveal_daily(page)
         page.wait_for_selector("#rv-sum-share:not([hidden])")
         t = share_and_capture(page, "#rv-sum-share", "Relic")
-        assert t.startswith("RELIC №%d \U0001F3FA" % N), \
+        assert t.startswith("RELIC %s \U0001F3FA" % DAY), \
             "Relic headline changed: %r" % t.split("\n")[0]
         row = emoji_row(t)
         assert row and set(row) <= set("\U0001F7E9\U0001F7E8\U0001F7E5"), \
@@ -171,7 +172,7 @@ def four_games_share_text_only(p, base):
         H.play_thread_daily(page, board)
         page.wait_for_selector("#conn-sum-share:not([hidden])")
         t = share_and_capture(page, "#conn-sum-share", "Thread")
-        assert t.startswith("THREAD №%d \U0001F9F5" % N), \
+        assert t.startswith("THREAD %s \U0001F9F5" % DAY), \
             "Thread headline changed: %r" % t.split("\n")[0]
         grid = t.split("\n")[1:-2]       # headline, grid..., human line, link
         assert grid, "Thread share lost its emoji grid"
@@ -190,7 +191,7 @@ def four_games_share_text_only(p, base):
         page.wait_for_selector("#view-daydone:not([hidden])")
         page.wait_for_selector("#dd-share:not([hidden])")
         t = share_and_capture(page, "#dd-share", "full house")
-        assert t.startswith("YESTERNERD №%d — FULL HOUSE \U0001F3DB" % N), \
+        assert t.startswith("YESTERNERD %s — FULL HOUSE \U0001F3DB" % DAY), \
             "full-house headline changed: %r" % t.split("\n")[0]
         assert "PTS" in emoji_row(t), "full-house score row lost"
         assert t.split("\n")[-1] == LINK + "?ref=share", (

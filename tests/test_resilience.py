@@ -39,7 +39,8 @@ def share_fallback(p, base):
             "document.querySelector('#conn-sum-share').textContent"
             ".indexOf('Copied') === 0")
         clip = page.evaluate("navigator.clipboard.readText()")
-        assert ("THREAD №%d" % N) in clip, "clipboard text wrong: %r" % clip[:80]
+        assert ("THREAD %s" % H.edition_day_label(N)) in clip, \
+            "clipboard text wrong: %r" % clip[:80]
         assert "?play=thread&ref=share" in clip, (
             "Thread's receipt should carry its own game deep link: %r" % clip)
         events = H.gc_events(page)

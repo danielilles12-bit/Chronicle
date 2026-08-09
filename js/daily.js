@@ -108,8 +108,21 @@ export function weekdayName(n) {
   return WEEKDAY_NAMES[weekday(n)];
 }
 
+// THE DATE IS THE NAME OF THE DAY (Daniel, 9 Aug 2026). The issue number
+// used to head the masthead, every game card, every receipt, the letters
+// stamp and every share — and playtesters simply did not know what "№ 71"
+// meant. The edition index is still the app's internal spine; it just never
+// faces a player any more. "9 Aug 2026" — day, short month, full year.
+const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+export function editionDateLabel(n) {
+  const d = editionDate(Math.max(0, n));
+  return `${d.getDate()} ${MONTH_NAMES[d.getMonth()]} ${d.getFullYear()}`;
+}
+
 export function editionLabel(n) {
-  return `№ ${n} · ${weekdayName(n)}`;
+  return `${editionDateLabel(n)} · ${weekdayName(n)}`;
 }
 
 // ---------- cursor arithmetic ----------
@@ -343,19 +356,6 @@ export function canPlayEdition(n, today) {
   if (!Number.isInteger(n) || n < 0) return false;
   if (n === t) return true;
   return n >= archiveFirst(t) && n <= archiveLast(t);
-}
-
-// ---------- Encore (locked decision #6, rewritten 7 Aug 2026) ----------
-// Encore is no longer five random aired rounds run through practice. It is
-// "same game, most recent unplayed accessible day" — a real daily, on the
-// real ledger. Returns that edition index, or null when every day inside the
-// window has already been played for this game (the button then hides).
-export function encoreEdition(game, today) {
-  const t = today == null ? todayIndex() : today;
-  for (const n of archiveEditions(t)) {
-    if (!store.getDailyEntry(game, n)) return n;
-  }
-  return null;
 }
 
 export function editionThreadTier(n) {

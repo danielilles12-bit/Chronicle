@@ -189,6 +189,7 @@ def outcomes_reveal(p, base):
         page.locator("#rv-scraps .df-scrap.tearable").first.click()
         assert H.reveal_worth(page) == 50, "tear should cost 10"
         page.click("#rv-mcq")
+        H.dismiss_rescue_warn(page, timeout=1200)
         page.wait_for_selector("#rv-mcq-chips button")
         assert H.reveal_worth(page) == 10, (
             "three choices costs 80, floored at the 10-pt minimum")
@@ -221,6 +222,7 @@ def outcomes_map(p, base):
         page.click("#hint-ini")
         assert H.map_worth(page) == 60, "initials clue should cost 25"
         page.click("#map-mcq")
+        H.dismiss_rescue_warn(page, timeout=1200)
         page.wait_for_selector("#map-mcq-chips button")
         assert H.map_worth(page) == 10, (
             "three choices costs 80, floored at the 10-pt minimum")
@@ -355,26 +357,26 @@ def thread_keyboard(p, base):
 
 # ---------- clue_prices_are_true ----------
 def clue_prices_are_true(p, base):
-    """Clue pricing (Daniel, 5 Aug 2026): no control may quote a deduction the
-    10-point floor would swallow. The rescue always names what the round is
-    still worth ("· round worth 20", Daniel 9 Aug 2026); an ordinary clue
-    switches from "−25" to "· drops to 10" once the floor bites;
-    the worth line says MINIMUM at the bottom; and Relic says WORTH, not INK."""
+    """Clue pricing (Daniel, 9 Aug 2026, replacing the 5 Aug rule): EVERY
+    control quotes the points it would really take, floor included — clue
+    slips and the "3 choices" rescue alike, in the same grammar. Nothing
+    flips language near the floor any more: a price that can only take 10
+    says "−10", and one that can take nothing says "free". The worth line
+    still says MINIMUM at the bottom, and Relic still says WORTH, not INK."""
     with H.app(p) as (page, errors, _ctx):
         H.boot(page, base, DATE)
         H.open_daily(page, "who")
         H.dismiss_intro(page, timeout=1200)
         page.wait_for_selector("#view-reveal:not([hidden])")
-        # Untouched round: 100 − 80 = 20, and that is what the button says.
-        assert "round worth 20" in page.inner_text("#rv-mcq").lower(), \
-            page.inner_text("#rv-mcq")
+        # Untouched round: the rescue really would take 80 of the 100.
+        assert "−80" in page.inner_text("#rv-mcq"), page.inner_text("#rv-mcq")
         assert "each tear" in page.inner_text("#rv-worth").lower()
-        # Spend 25: the rescue's real remainder is now the floor, not 100 − 80.
+        # Spend 25: the rescue can now only take the round down to the floor,
+        # so it must quote 65 — not its nominal 80.
         page.click("#rv-clue-a")
         page.wait_for_selector("#rv-controls .hint-chip")
-        assert "round worth 10" in page.inner_text("#rv-mcq").lower(), \
-            page.inner_text("#rv-mcq")
-        # Drive to the floor: every remaining price becomes an outcome.
+        assert "−65" in page.inner_text("#rv-mcq"), page.inner_text("#rv-mcq")
+        # Drive to the floor: every remaining price becomes nothing at all.
         for i in range(6):
             page.fill("#rv-input", "definitely not the answer %d" % i)
             page.click("#rv-guess-btn")
@@ -382,8 +384,10 @@ def clue_prices_are_true(p, base):
         assert H.reveal_worth(page) == 10
         worth = page.inner_text("#rv-worth").lower()
         assert "minimum" in worth and "each tear" not in worth, worth
-        assert "drops to 10" in page.inner_text("#rv-clue-b").lower(), \
-            "a clue the floor would truncate must not quote its nominal price"
+        assert "free" in page.inner_text("#rv-clue-b").lower(), \
+            "a clue that can no longer charge anything must say so"
+        assert "free" in page.inner_text("#rv-mcq").lower(), \
+            "the rescue follows the same rule as the slips beside it"
         assert "guess" == page.inner_text("#rv-guess-btn").strip().lower(), \
             "the Guess button carries no price now — the warning sheet does it"
         # Relic shares the label (the old "INK" variant is gone).
@@ -422,6 +426,7 @@ def rescue_closes_reveal(p, base):
         assert page.locator("#rv-scraps .df-scrap.tearable").count() > 0
 
         page.click("#rv-mcq")
+        H.dismiss_rescue_warn(page, timeout=1200)
         page.wait_for_selector("#rv-mcq-chips button")
         assert H.reveal_worth(page) == 20, "an untouched round plus the rescue is worth 20"
 
@@ -493,6 +498,7 @@ def rescue_closes_map(p, base):
         assert H.map_worth(page) == 100
 
         page.click("#map-mcq")
+        H.dismiss_rescue_warn(page, timeout=1200)
         page.wait_for_selector("#map-mcq-chips button")
         assert H.map_worth(page) == 20, "an untouched round plus the rescue is worth 20"
         for sel in ("#hint-occ", "#hint-ini"):

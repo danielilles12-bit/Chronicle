@@ -7,6 +7,12 @@
 // used to ride along as a PNG file attachment is gone; no share path may ever
 // attach a file again. See HOUSE_RULES.md "Sharing".
 import { track } from './track.js';
+import * as daily from './daily.js';
+
+// A share names the DAY, not the issue number (Daniel, 9 Aug 2026): the
+// callers still pass an edition index, and this is the one place it turns
+// into words a recipient can read.
+const day = (issue) => daily.editionDateLabel(issue);
 
 // Full scheme on purpose: bare domains don't linkify in Discord/Slack.
 // ?ref=share shows shared-link visits under the GoatCounter Campaigns panel
@@ -54,7 +60,7 @@ export function threadShareText(issue, d) {
   const human = d.perfect ? 'Flawless.'
     : d.solved ? `${d.mistakes} slip${d.mistakes === 1 ? '' : 's'}${d.title ? ` — ${d.title.toUpperCase()} had me` : ''}.`
     : `${d.title ? d.title.toUpperCase() : 'The board'} beat me.`;
-  return lines(shareUrl('thread'), `THREAD №${issue} 🧵`, grid, human);
+  return lines(shareUrl('thread'), `THREAD ${day(issue)} 🧵`, grid, human);
 }
 
 export function mapShareText(issue, rounds, score) {
@@ -65,7 +71,7 @@ export function mapShareText(issue, rounds, score) {
   if (hints) bits.push(`${hints} hint${hints === 1 ? '' : 's'}`);
   if (coffins) bits.push(`${coffins} funeral${coffins === 1 ? '' : 's'}`);
   const human = `${score} pts${bits.length ? ' · ' + bits.join(', ') : ' · a clean sweep'}`;
-  return lines(shareUrl('map'), `LIFELINE №${issue} 🗺️`, row, human);
+  return lines(shareUrl('map'), `LIFELINE ${day(issue)} 🗺️`, row, human);
 }
 
 export function revealShareText(kind, issue, rounds, score) {
@@ -73,19 +79,19 @@ export function revealShareText(kind, issue, rounds, score) {
   const glyph = kind === 'who' ? '🖼️' : '🏺';
   const row = revealEmojiRow(rounds);
   const scraps = rounds.reduce((s, r) => s + (r.torn || 0), 0);
-  return lines(shareUrl(kind), `${name} №${issue} ${glyph}`, row, `${score} pts · ${scraps} scraps torn`);
+  return lines(shareUrl(kind), `${name} ${day(issue)} ${glyph}`, row, `${score} pts · ${scraps} scraps torn`);
 }
 
 export function fullHouseShareText(issue, scores, total, streak) {
   const row = `🖼️${scores.who} 🗺️${scores.map} 🏺${scores.what} 🧵${scores.thread} · ${total} PTS`;
   const flame = streak > 1 ? `🔥 ${streak}-day streak` : '';
-  return lines(shareUrl(), `YESTERNERD №${issue} — FULL HOUSE 🏛️`, row, flame);
+  return lines(shareUrl(), `YESTERNERD ${day(issue)} — FULL HOUSE 🏛️`, row, flame);
 }
 
 export function obituaryShareText(streak, fromIssue, toIssue) {
   return lines(shareUrl(), 'YESTERNERD ⚰️',
     `My ${streak}-day streak died.`,
-    `RIP №${fromIssue}–№${toIssue}. MEMENTO MORI.`);
+    `RIP ${day(fromIssue)}–${day(toIssue)}. MEMENTO MORI.`);
 }
 
 // ---------- the share flow ----------

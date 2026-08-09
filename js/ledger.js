@@ -164,7 +164,7 @@ export function renderLedger() {
   // opening date. FLAGGED FOR VOICE REVIEW.
   const since = empty
     ? 'History starts at midnight.'
-    : `In the making since № ${d.firstEdition}.`;
+    : `In the making since ${daily.editionDateLabel(d.firstEdition)}.`;
 
   const tallies = `
     <div class="ledger-tallies">

@@ -5,11 +5,11 @@
 // only spender.
 // Mirrors the Map of a Life session shape (persisted, resumable; round count
 // comes from the edition — 3/day since edition 30, 5 before, free play 5).
-import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, wireEncore, teachWrongGuess, announce, testHooksEnabled, consumeShareLaunch, w800Url, loadImgFallback } from './app.js';
+import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, teachWrongGuess, announce, testHooksEnabled, consumeShareLaunch, w800Url, loadImgFallback } from './app.js';
 import * as store from './storage.js';
 import { track, roundOutcome, durationBucket } from './track.js';
 import { isMatch, registerPool } from './match.js';
-import { confirmFirstGuess } from './guesswarn.js';
+import { confirmFirstGuess, confirmFirstRescue } from './guesswarn.js';
 import * as daily from './daily.js';
 import { revealShareText, shareResult, flashShareButton } from './sharecard.js';
 import { attachPinchZoom } from './pinchzoom.js';
@@ -163,15 +163,25 @@ function rescueOpen() {
   return !!(S && S.cur && S.cur.mcqOpts);
 }
 
-// A price is only true while the whole of it can actually come off. Once the
-// floor would swallow part of it, "−25 pts" is a lie — so near the floor the
-// control says what it LEAVES instead (clue pricing, 5 Aug 2026). Both halves
-// come from worthNow(), never from hard-coded arithmetic.
-function priceSpan(cost) {
+// EVERY CONTROL SHOWS WHAT IT ACTUALLY TAKES (Daniel, 9 Aug 2026, replacing
+// the 5 Aug "say what it LEAVES" rule). The old scheme flipped grammar near
+// the floor — a clue slip said "−25" until the floor would swallow part of
+// it and then switched to "drops to 10", and the rescue never quoted a price
+// at all — so two controls side by side were speaking different languages.
+// Now every one of them quotes its REAL deduction: the difference between
+// what the round is worth now and what it would be worth after, floor
+// included. So a 25-point clue on a round worth 20 honestly says "−10", and
+// on a round already at the floor it says "free", because it is.
+function trueCost(cost) {
   const w = worthNow();
-  return w - cost < WORTH_FLOOR
-    ? `<span class="leaves">· drops to ${Math.max(WORTH_FLOOR, w - cost)}</span>`
-    : `<span class="cost">−${cost}</span>`;
+  return w - Math.max(WORTH_FLOOR, w - cost);
+}
+
+function priceSpan(cost) {
+  const real = trueCost(cost);
+  return real > 0
+    ? `<span class="cost">−${real}</span>`
+    : '<span class="leaves">· free</span>';
 }
 
 // Relabel every still-live control for the round's CURRENT worth. Called from
@@ -191,10 +201,10 @@ function refreshControlLabels() {
     if (frozen) btn.disabled = true;
   }
   const mcq = $('#rv-mcq');
-  // The rescue never quotes its nominal −80: on an untouched round it leaves
-  // 20, after any spending it leaves 10, and that is the number that matters.
+  // The rescue is priced exactly like the slips beside it — its real
+  // deduction, shrinking as the round nears the floor.
   if (mcq && !S.cur.mcqOpts) {
-    mcq.innerHTML = `<span>3 choices <span class="leaves">· round worth ${Math.max(WORTH_FLOOR, worthNow() - MCQ_COST)}</span></span>`;
+    mcq.innerHTML = `<span>3 choices ${priceSpan(MCQ_COST)}</span>`;
   }
 }
 
@@ -473,13 +483,12 @@ function updateWorth() {
   // player pays without pressing a control, so it has nowhere else to live.
   // Never say "free": the freebie is the scrap the GAME opened, not the
   // player's first tear (owner correction 2026-07-20). Near the floor the
-  // nominal −10 stops being true, so it becomes the honest outcome instead.
+  // nominal −10 stops being true, so the line quotes the REAL deduction —
+  // same rule as every button now (9 Aug 2026, see trueCost).
   let suffix;
   if (w <= WORTH_FLOOR) suffix = ' · <span class="worth-note">minimum</span>';
   else if (rescueOpen()) suffix = '';   // no tears left to price (see rescueOpen)
-  else if (w - TEAR_COST < WORTH_FLOOR) {
-    suffix = ` · <span class="worth-note">next tear · drops to ${WORTH_FLOOR}</span>`;
-  } else suffix = ` · each tear <span class="cost">−${TEAR_COST}</span>`;
+  else suffix = ` · each tear <span class="cost">−${trueCost(TEAR_COST)}</span>`;
   el.innerHTML = `WORTH: <b>${w} PTS</b>${suffix}`;
   flashWorth(el, w);
   refreshControlLabels();
@@ -933,6 +942,10 @@ function mcqOptionsFor(item) {
 
 function openMcq() {
   if (!S || !S.cur || !S.cur.open || S.cur.mcqOpts) return;
+  // First time in this game, say what the button is about to do. The sheet
+  // takes over and calls back here on "Show me three"; the guard above makes
+  // the second pass through harmless.
+  if (!confirmFirstRescue(MODE, trueCost(MCQ_COST), openMcq)) return;
   S.cur.mcqOpts = mcqOptionsFor(round());
   S.cur.clueCost = (S.cur.clueCost || 0) + MCQ_COST;  // priced like a clue slip
   persist();
@@ -1051,7 +1064,7 @@ function resolveRound(correct, opts) {
 function renderLockedSummary() {
   const head = document.querySelector('#view-revealsum [data-receipt-head]');
   if (head) head.textContent = `Yesternerd · ${MODE === 'who' ? 'Face Value' : 'Relic'}`
-    + (S.editionIndex != null ? ` · № ${S.editionIndex}` : '');
+    + (S.editionIndex != null ? ` · ${daily.editionDateLabel(S.editionIndex)}` : '');
   $('#rv-sum-total').textContent = S.score;
   setReceiptStamp('view-revealsum', S.score);
   $('#rv-sum-report').href = daily.reportProblemHref(null, S.editionIndex);
@@ -1087,7 +1100,6 @@ function renderLockedSummary() {
   if (rvShare) rvShare.hidden = !S.share;
   wireTurnThePage('rv-sum-turn', S.editionIndex, isDaily);
   renderSolution();
-  wireEncore('rv-sum-encore', MODE, isDaily);
   $('#rv-sum-again').hidden = !!S.locked;
 }
 
@@ -1176,8 +1188,7 @@ function finishSession() {
   }
   show('view-revealsum');
   // "A game finished" for the install flow (js/install.js listens): a daily —
-  // free play does not count. Encore is itself a daily now (Archive v2), so it
-  // arrives here through the same branch. Announced rather than called so this
+  // free play does not count. Announced rather than called so this
   // file keeps no dependency on the install flow at all.
   if (S.mode === 'daily') {
     document.dispatchEvent(new CustomEvent('gamefinished',
