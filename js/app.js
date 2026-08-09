@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v201';
+const BUILD = 'v202';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -421,7 +421,16 @@ function launchWhenReady(g) {
 // already reads — see daily.editionDateLabel.
 function datelineHTML(n) {
   const safe = Math.max(0, n);
-  return `${daily.editionDateLabel(safe)} // ${daily.weekdayName(safe)}`;
+  // "// WEDNESDAY" is one unbreakable unit (Daniel, 9 Aug 2026). The date is
+  // longer than the "№ 71" it replaced, so on a narrow phone the masthead can
+  // still run to two lines — and the default break point was AFTER the
+  // slashes, which left them dangling off the end of line one looking like a
+  // mistake. Bound to the weekday they introduce, the wrap reads as designed:
+  //   26 AUG ’26
+  //   // WEDNESDAY
+  // The short year (editionDateLabel) is what keeps most days on one line.
+  return `${daily.editionDateLabel(safe)} `
+    + `<span class="dateline-day">// ${daily.weekdayName(safe)}</span>`;
 }
 
 // ---------- past-day cards (Archive v2) ----------

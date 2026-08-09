@@ -157,12 +157,18 @@ in player-facing copy: **Archive**. "Back issues" and "the Morgue" are retired.
 
 - **[ENGINE]** **Nothing a player reads says "№ 71" any more.** Daniel watched
   friends play and none of them knew what the issue number meant. `№` is gone
-  from the masthead (now `9 AUG 2026 // SUNDAY`), the four Home cards, the
+  from the masthead (now `9 AUG ’26 // SUNDAY`), the four Home cards, the
   first-run Play button, all three game receipts, the letters stamp, the
   Ledger's "in the making since" line, the day-done screen and every share
   headline (`FACE VALUE 9 Aug 2026 🖼️`). The edition index is still the app's
   internal spine — it just never faces a player. One helper does the words:
-  `daily.editionDateLabel(n)`. The one surviving `№` is the streak milestone
+  `daily.editionDateLabel(n)` — **"9 Aug ’26", a two-digit year with a
+  typographic apostrophe** (Daniel, same day, after seeing the full year wrap
+  the masthead onto two lines with the "//" left dangling at the end of line
+  one). One format on every surface, so no two write the same day differently.
+  The masthead can still wrap on the narrowest phones or the longest weekdays;
+  `// WEDNESDAY` is bound together (`.dateline-day`) so when it does, the
+  slashes go with the day they introduce and the break reads as designed. The one surviving `№` is the streak milestone
   postmark ("№2 / days running"), which counts days, not issues.
 - **[JUDGMENT]** **The Home cards carry no bottom line of WORDS.** It held the
   issue number and a "~3 min" estimate; both went that morning, and the row

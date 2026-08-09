@@ -79,6 +79,7 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 }
 /* padding-right keeps the dateline clear of the absolutely-positioned
    Antinous sticker, which now scales with --mh-sticker-w. */
+.dateline-day { white-space: nowrap; }
 .dateline { margin: 8px 0 0; padding-right: calc(var(--mh-sticker-w) + 8px); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--ch-text-primary); font-family: var(--ch-font-ui); }
 
 /* P1.5: the one-shot explicit wrong-guess line (first wrong guess anywhere)

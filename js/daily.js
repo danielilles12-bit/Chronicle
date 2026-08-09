@@ -118,7 +118,15 @@ const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
 
 export function editionDateLabel(n) {
   const d = editionDate(Math.max(0, n));
-  return `${d.getDate()} ${MONTH_NAMES[d.getMonth()]} ${d.getFullYear()}`;
+  // Two-digit year with a typographic apostrophe (Daniel, 9 Aug 2026):
+  // "9 Aug 2026 // SUNDAY" wrapped to two lines on any phone narrower than
+  // ~400px and left the "//" dangling at the end of line one. "9 Aug ’26"
+  // holds one line down to 320px, and the year is the least useful part of a
+  // daily game's dateline anyway. One format everywhere — masthead, receipts,
+  // letters stamp, Ledger, day-done and every share — so no two surfaces
+  // write the same day differently.
+  const yy = String(d.getFullYear()).slice(-2);
+  return `${d.getDate()} ${MONTH_NAMES[d.getMonth()]} \u2019${yy}`;
 }
 
 export function editionLabel(n) {

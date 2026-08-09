@@ -46,14 +46,14 @@ def latest_edition():
 
 def edition_day_label(n):
     """The words the app uses for edition n, everywhere a player can read it —
-    "9 Aug 2026". Must match js/daily.js editionDateLabel exactly (the issue
+    "9 Aug \u201926". Must match js/daily.js editionDateLabel exactly (the issue
     number stopped facing players on 9 Aug 2026). %-d avoids a leading zero,
     and %b is locale-dependent in theory but C/en_* in this suite.
 
     NOTE: the masthead is CSS-uppercased, so compare .upper() against
     inner_text("#dateline"). The letters stamp and share text are not."""
     d = EPOCH + timedelta(days=n)
-    return "%d %s %d" % (d.day, d.strftime("%b"), d.year)
+    return "%d %s \u2019%02d" % (d.day, d.strftime("%b"), d.year % 100)
 
 
 def edition_date(n):
