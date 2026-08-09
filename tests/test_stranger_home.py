@@ -585,27 +585,49 @@ def the_masthead_stacks_on_one_margin(p, base):
     The wordmark PNG carries transparent gutter down its left edge, so the
     visible Y used to land several pixels right of everything under it. CSS
     pulls it back by exactly that fraction (.masthead-wordmark margin-left).
-    The fraction is measured from the ASSET here rather than hardcoded twice,
-    so re-exporting the logo with a different gutter fails this test instead
-    of quietly reintroducing the wobble."""
-    from PIL import Image
-    img = Image.open(os.path.join(H.ROOT, "assets", "brand",
-                                  "yesternerd-wordmark-primary-v2.png"))
-    gutter = img.getbbox()[0] / img.size[0]
+    The fraction is measured from the ASSET rather than hardcoded twice, so
+    re-exporting the logo with a different gutter fails this test instead of
+    quietly reintroducing the wobble.
+
+    That measurement is done in the BROWSER — canvas, same origin, no taint —
+    and deliberately NOT with Pillow: the Playwright suite has to run on CI,
+    where only the browser and the standard library are installed. (It once
+    imported PIL and went red on CI while passing on the owner's Mac.)"""
+    GUTTER = """() => new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => {
+        const c = document.createElement('canvas');
+        c.width = img.naturalWidth; c.height = img.naturalHeight;
+        const ctx = c.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+        const { data } = ctx.getImageData(0, 0, c.width, c.height);
+        for (let x = 0; x < c.width; x += 1) {
+          for (let y = 0; y < c.height; y += 1) {
+            if (data[(y * c.width + x) * 4 + 3] > 8) return resolve(x / c.width);
+          }
+        }
+        resolve(0);
+      };
+      img.onerror = () => resolve(null);
+      img.src = document.querySelector('.masthead-wordmark').src;
+    })"""
 
     css = io.open(os.path.join(H.ROOT, "css", "style.css"), encoding="utf-8").read()
     m = re.search(r"--mh-wordmark-w\) \* (-[\d.]+)\)", css)
     assert m, "the wordmark's alignment margin is gone from css/style.css"
-    assert abs(abs(float(m.group(1))) - gutter) < 0.004, (
-        "the wordmark asset's transparent gutter is %.4f of its width but the "
-        "CSS pulls it back by %s — re-measure and update the margin"
-        % (gutter, m.group(1)))
+    pullback = abs(float(m.group(1)))
 
     for width in (320, 375, 430, 768):
         with H.app(p, device=None,
                    context_args={"viewport": {"width": width, "height": 812}}) as (page, errors, _ctx):
             H.boot(page, base, DATE)
             page.wait_for_selector("#stranger-hero:not([hidden])")
+            gutter = page.evaluate(GUTTER)
+            assert gutter is not None, "the wordmark asset did not load"
+            assert abs(gutter - pullback) < 0.004, (
+                "the wordmark's transparent gutter is %.4f of its width but the "
+                "CSS pulls it back by %.4f — re-measure and update the margin"
+                % (gutter, pullback))
             edges = page.evaluate(
                 """(g) => { const r = document.querySelector('.masthead-wordmark')
                               .getBoundingClientRect();
