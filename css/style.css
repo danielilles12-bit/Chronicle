@@ -73,10 +73,36 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
    a proper newspaper-masthead-sized mark, while staying clear of
    --mh-sticker-w (the sticker's own fluid width) and capping sensibly once
    the #app shell hits its 600px ceiling. */
+/* THE Y SITS ON THE MARGIN (Daniel, 9 Aug 2026). The wordmark PNG carries
+   75px of transparent gutter down its left edge — 3.85% of its 1950px width —
+   so the visible Y always landed 6-10px right of everything stacked under it
+   (the slogan, the dateline), which read as a wobble rather than a margin.
+   The negative margin is that exact fraction of whatever width the clamp
+   resolves to, so the alignment holds at every screen size instead of being
+   true at one. Re-measure this if the wordmark asset is ever re-exported:
+   python3 -c "from PIL import Image; im=Image.open('assets/brand/
+   yesternerd-wordmark-primary-v2.png'); print(im.getbbox()[0]/im.size[0])" */
 .masthead-wordmark {
+  --mh-wordmark-w: clamp(150px, calc(100vw - var(--mh-sticker-w) - 76px), 258px);
   display: block; height: auto;
-  width: clamp(150px, calc(100vw - var(--mh-sticker-w) - 76px), 258px);
+  width: var(--mh-wordmark-w);
+  margin-left: calc(var(--mh-wordmark-w) * -0.0385);
 }
+/* The nameplate slogan, newcomers only (Daniel, 9 Aug 2026) — see the note
+   in index.html. Same sticker clearance as the dateline below it, so neither
+   runs under the Antinous. Quiet on purpose: the wordmark is the loud thing
+   in this block and this only has to be readable. */
+.masthead-tagline {
+  display: none; margin: 6px 0 0;
+  padding-right: calc(var(--mh-sticker-w) + 8px);
+  font-size: 13px; line-height: 1.35; color: var(--ch-text-secondary);
+}
+.is-stranger .masthead-tagline { display: block; }
+/* Each sentence is one unbreakable unit, so when the line does wrap — and on
+   a 375px phone, next to the sticker, it always does — it breaks BETWEEN the
+   two sentences instead of mid-clause after "Same". Same trick as
+   .dateline-day above. */
+.masthead-tagline span { white-space: nowrap; }
 /* padding-right keeps the dateline clear of the absolutely-positioned
    Antinous sticker, which now scales with --mh-sticker-w. */
 .dateline-day { white-space: nowrap; }

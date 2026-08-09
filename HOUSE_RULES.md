@@ -159,6 +159,25 @@ in player-facing copy: **Archive**. "Back issues" and "the Morgue" are retired.
   stand taller than the art. New copy that needs a fifth line needs shorter
   copy, not a taller card.
 
+## The masthead (Daniel, 9 Aug 2026)
+
+- **[JUDGMENT]** **The newcomer gets a nameplate slogan.** Under the wordmark,
+  above the dateline: *"Four daily history games. Same set for everyone."* —
+  one line telling someone arriving cold what the whole thing IS, in the
+  newspaper's own place for it. Shown ONLY in stranger mode: a returning
+  player knows what the app is and does not need telling every morning.
+  Each sentence is one unbreakable unit, so a narrow phone breaks the line
+  between them rather than mid-clause.
+- **[ENGINE]** **Everything in the masthead starts on one margin.** The
+  wordmark PNG carries 75px of transparent gutter down its left edge (3.85% of
+  its width), so the visible Y used to land 6–10px right of the slogan and the
+  dateline stacked under it — a wobble, not a margin. `.masthead-wordmark`
+  pulls it back by exactly that fraction of whatever width the clamp resolves
+  to, so it holds at every screen size. If the wordmark is ever re-exported,
+  re-measure the gutter: `tests/test_stranger_home.py::
+  the_masthead_stacks_on_one_margin` reads it straight off the asset and fails
+  if the CSS no longer matches.
+
 ## The date, not the issue number (Daniel, 9 Aug 2026)
 
 - **[ENGINE]** **Nothing a player reads says "№ 71" any more.** Daniel watched

@@ -17,6 +17,7 @@ the caption stacked directly under that headline in the same column, a board
 big enough to be the picture the screen is selling, nothing spilling off a
 375px screen, and the door still above the fold.
 """
+import io
 import os
 import re
 import sys
@@ -33,6 +34,7 @@ DATE = H.edition_date(N)
 # The caption stopped naming Face Value on 7 Aug 2026 — the button underneath
 # it already does, and twice is redundant.
 HERO_COPY = {
+    ".masthead-tagline": "four daily history games. same set for everyone.",
     ".stranger-headline": "who's under the scraps?",
     ".stranger-caption": "tear them away. name the historical figure.",
     "#stranger-play": "play face value ›",
@@ -316,7 +318,8 @@ def returning_home_unchanged(p, base):
         page.wait_for_selector("#stranger-hero", state="hidden")
         assert not page.evaluate("document.body.classList.contains('is-stranger')")
 
-        # Every one of the hero's parts is off the page.
+        # Every one of the hero's parts is off the page — including the
+        # nameplate slogan, which only ever greets a newcomer (9 Aug 2026).
         for sel in list(HERO_COPY) + [".stranger-demo"]:
             assert page.locator(sel).is_hidden(), "%s survives into the classic Home" % sel
 
@@ -574,6 +577,50 @@ def in_progress_draws_on_a_newcomers_card(p, base):
         H.fail_on_errors(errors, "in_progress_draws_on_a_newcomers_card")
 
 
+# ---------- the_masthead_stacks_on_one_margin ----------
+def the_masthead_stacks_on_one_margin(p, base):
+    """The wordmark's Y, the slogan and the dateline all start on the same
+    vertical line, at every width.
+
+    The wordmark PNG carries transparent gutter down its left edge, so the
+    visible Y used to land several pixels right of everything under it. CSS
+    pulls it back by exactly that fraction (.masthead-wordmark margin-left).
+    The fraction is measured from the ASSET here rather than hardcoded twice,
+    so re-exporting the logo with a different gutter fails this test instead
+    of quietly reintroducing the wobble."""
+    from PIL import Image
+    img = Image.open(os.path.join(H.ROOT, "assets", "brand",
+                                  "yesternerd-wordmark-primary-v2.png"))
+    gutter = img.getbbox()[0] / img.size[0]
+
+    css = io.open(os.path.join(H.ROOT, "css", "style.css"), encoding="utf-8").read()
+    m = re.search(r"--mh-wordmark-w\) \* (-[\d.]+)\)", css)
+    assert m, "the wordmark's alignment margin is gone from css/style.css"
+    assert abs(abs(float(m.group(1))) - gutter) < 0.004, (
+        "the wordmark asset's transparent gutter is %.4f of its width but the "
+        "CSS pulls it back by %s — re-measure and update the margin"
+        % (gutter, m.group(1)))
+
+    for width in (320, 375, 430, 768):
+        with H.app(p, device=None,
+                   context_args={"viewport": {"width": width, "height": 812}}) as (page, errors, _ctx):
+            H.boot(page, base, DATE)
+            page.wait_for_selector("#stranger-hero:not([hidden])")
+            edges = page.evaluate(
+                """(g) => { const r = document.querySelector('.masthead-wordmark')
+                              .getBoundingClientRect();
+                     const box = (s) => document.querySelector(s).getBoundingClientRect().left;
+                     return {ink: r.left + r.width * g,
+                             slogan: box('.masthead-tagline'),
+                             dateline: box('.dateline')}; }""", gutter)
+            for name in ("slogan", "dateline"):
+                drift = edges["ink"] - edges[name]
+                assert abs(drift) <= 1.5, (
+                    "%dpx: the wordmark's Y is %+.1fpx off the %s's left margin"
+                    % (width, drift, name))
+            H.fail_on_errors(errors, "the_masthead_stacks_on_one_margin/%d" % width)
+
+
 # ---------- taglines_survive_the_narrowest_phone ----------
 def taglines_survive_the_narrowest_phone(p, base):
     """No card may eat a word of its own description on a 375px screen.
@@ -617,7 +664,8 @@ def taglines_survive_the_narrowest_phone(p, base):
 TESTS = [stranger_hero, stranger_hero_side_by_side,
          stranger_rows_open_their_own_games, returning_home_unchanged,
          home_card_status_and_icons, in_progress_draws_on_a_newcomers_card,
-         taglines_survive_the_narrowest_phone]
+         taglines_survive_the_narrowest_phone,
+         the_masthead_stacks_on_one_margin]
 
 
 def main():
