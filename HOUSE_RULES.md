@@ -127,10 +127,16 @@ in player-facing copy: **Archive**. "Back issues" and "the Morgue" are retired.
   ("Face Value, in progress, two of three rounds completed, resume"); and the
   transient load/error line ("spinning up the presses…", "couldn't load — tap
   to retry"), which is the one thing a card is still allowed to say out loud.
-  The newcomer's three compact cards are OUT of this system on purpose — that
-  screen sells one game and is not to be redesigned, so a half-finished daily
-  still says "Resume today's puzzle" there. `tests/test_home_card_states.py`
-  is the check; the gold and forest state tints went with the sentences they
+  **BOTH HOMES, one language** (Daniel, 9 Aug 2026, the same day): the
+  newcomer's three compact cards were held out of this for one release, and
+  that left the app with two dialects and a player crossing between them the
+  moment they finished their first daily. They now draw the same marks one
+  size down, and "Resume today's puzzle" — the last status sentence anywhere
+  on Home — is gone with them. A newcomer can only ever reach two of the
+  three states, because finishing a daily is what ends stranger mode.
+  `tests/test_home_card_states.py` and
+  `tests/test_stranger_home.py::in_progress_draws_on_a_newcomers_card` are the
+  checks; the gold and forest state tints went with the sentences they
   used to tint, and `row-progress`/`row-done`/`day-done` survive only as
   hooks for the day stub's left-edge tint.
 - **[ENGINE]** **The marks must fit inside the picture's height.** The hero

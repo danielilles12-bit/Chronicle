@@ -203,7 +203,6 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
    two-line name over a three-line tagline leaves ~17px — hence 12px and a
    4px gap, not a comfortable 20. */
 .hero-state { display: flex; align-items: center; gap: 7px; height: 12px; }
-.is-stranger .hero-state { display: none; }
 /* THE STATUS MOVED UNDER THE NAME (Daniel, 7 Aug 2026). It used to sit
    bottom-right opposite the issue number, saying "Play ›" on a card nobody
    could mistake for anything but a button. Now it is a real status line in the
@@ -212,13 +211,11 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
    setCardStatus for the loading/error text this same line carries), so it
    also out-ranks the stranger rules further down that decide which tagline
    a card is showing.
-   WHAT IS LEFT OF IT (9 Aug 2026): for a returning player this line is now
-   the loading/error voice and nothing else — "spinning up the presses…",
-   "couldn’t load — tap to retry" — because state is drawn, not narrated. The
-   one sentence that survives is the newcomer's "Resume today's puzzle" on
-   their three compact cards, which are deliberately untouched. So its colour
-   is plain ink in every case: the forest/gold state tints went with the
-   sentences they used to tint. */
+   WHAT IS LEFT OF IT (9 Aug 2026): this line is now the loading/error voice
+   and nothing else — "spinning up the presses…", "couldn’t load — tap to
+   retry" — on BOTH Homes, because state is drawn, not narrated, at either
+   size. So its colour is plain ink in every case: the forest/gold state tints
+   went with the sentences they used to tint. */
 .hero-status {
   display: none; margin: 0 0 1px;
   font-size: 13px; font-weight: 700; color: var(--ch-text-muted);
@@ -524,6 +521,14 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 .is-stranger .hero-col { gap: 5px; justify-content: center; }
 .is-stranger .hero-name { font-size: 20px; margin-bottom: 3px; }
 .is-stranger .hero-glyph { width: 80px; height: 80px; }
+/* The newcomer's cards draw the SAME state as a regular's, one size down
+   (Daniel, 9 Aug 2026): the two Homes stopped disagreeing. A stranger can
+   only ever see two of the states — untouched, or a daily they started and
+   left — because finishing one is what ends stranger mode. */
+.is-stranger .hero-state { height: 9px; gap: 6px; }
+.is-stranger .hero-state .cs-mark { width: 7px; height: 7px; border-width: 1.25px; }
+.is-stranger .hero-state .cs-marks { gap: 4px; }
+.is-stranger .hero-state .cs-chev { width: 5px; height: 5px; border-width: 1.75px; }
 /* The one door gets the house magenta and a periodic nudge — enough to say
    "press me", quiet enough not to feel like an ad.
    INK LETTERS, not cream (Daniel, 7 Aug 2026). .pill.primary is built for an

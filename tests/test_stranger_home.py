@@ -494,25 +494,35 @@ def home_card_status_and_icons(p, base):
                 assert geom["status"]["shown"] == "none", why + "the silent status line is rendered"
                 assert page.locator('[data-hero="map"] .hero-bottom').count() == 0, \
                     why + "the newcomer's card still carries a bottom row"
-                # The marks are regulars' furniture too: a newcomer's compact
-                # cards are deliberately outside the 9 Aug state system.
-                assert geom["state"]["shown"] == "none", \
-                    why + "the state row leaked onto a newcomer's compact card"
+                # The marks are NOT regulars' furniture (Daniel, 9 Aug 2026):
+                # both Homes draw the same state, the newcomer's one size down.
+                # An untouched card carries the chevron and no circles.
+                assert geom["state"]["shown"] != "none", \
+                    why + "the newcomer's compact card draws no state at all"
+                assert page.locator('[data-hero="map"] .cs-chev').count() == 1, \
+                    why + "an unplayed newcomer card lost its chevron"
+                assert page.locator('[data-hero="map"] .cs-mark').count() == 0, \
+                    why + "an unplayed card is drawing progress it does not have"
                 assert page.locator('[data-row="map"] .hero-tagline-new').is_visible(), \
                     why + "the newcomer one-liner is gone"
             H.fail_on_errors(errors, "home_card_status_and_icons/" + label)
 
 
 # ---------- in_progress_replaces_the_one_liner ----------
-def in_progress_replaces_the_one_liner(p, base):
-    """A newcomer who starts Lifeline and comes back sees the resume prompt
-    where that card's one-liner was — and only on that card.
+def in_progress_draws_on_a_newcomers_card(p, base):
+    """A newcomer who starts Lifeline and comes back sees a half-filled circle
+    and a chevron on that card — and their one-liner still under the name.
 
-    The wording is "Resume today's puzzle", not the old flat "In progress"
-    (Daniel, 7 Aug 2026): an instruction invites where a status only reports,
-    and "today's" carries the fact that it expires at midnight. The past-day
-    cards say a plain "Resume" instead — see test_daily_flow.rollover — since
-    "today's" would be false there."""
+    Both Homes speak one language now (Daniel, 9 Aug 2026). This card used to
+    say "Resume today's puzzle" INSTEAD of its one-liner, which was the last
+    status sentence left on Home and the reason the newcomer's screen and the
+    regular's disagreed — a player crossed between the two the moment they
+    finished their first daily. The sentence is gone; the marks are the same
+    shapes the big cards use, one size down.
+
+    A newcomer can only ever reach two of the three states, because finishing
+    a daily is what ends stranger mode — so "done" is deliberately untested
+    here and lives in tests/test_home_card_states.py."""
     with H.app(p) as (page, errors, _ctx):
         H.boot(page, base, DATE)
         page.wait_for_selector("#stranger-hero:not([hidden])")
@@ -526,17 +536,42 @@ def in_progress_replaces_the_one_liner(p, base):
         assert page.evaluate("document.body.classList.contains('is-stranger')"), \
             "quitting a daily should not end stranger mode"
 
-        assert said(page, '[data-hero="map"] [data-status]') == "resume today's puzzle"
-        assert page.locator('[data-row="map"] .hero-tagline-new').is_hidden(), \
-            "the resume prompt should stand in for the one-liner, not sit beside it"
+        # No card anywhere on this screen says a status sentence any more.
+        assert said(page, '[data-hero="map"] [data-status]') == "", \
+            "the newcomer's card is still narrating its state"
+        assert "resume" not in page.inner_text("#home-rows").lower(), \
+            "a Resume sentence survives on the newcomer's Home"
+
+        # The one-liner survives the state it used to be replaced by.
+        assert page.locator('[data-row="map"] .hero-tagline-new').is_visible(), \
+            "the one-liner is gone from a started card"
+        one_liner = dict((k, line) for k, line, _ in OTHER_GAMES)
+        assert said(page, '[data-row="map"] .hero-tagline-new') == one_liner["map"], \
+            "the started card lost its own words"
+
+        # Lifeline runs three rounds, so a freshly-started daily reads ◐ ○ ○.
+        marks = page.evaluate(
+            """() => [...document.querySelectorAll('[data-hero="map"] .cs-mark')]
+                 .map(m => m.className.replace('cs-mark ', ''))""")
+        assert marks == ["cs-half", "cs-todo", "cs-todo"], marks
+        assert page.locator('[data-hero="map"] .cs-chev').count() == 1, \
+            "a card with play left lost its chevron"
+        # ...and the state is still readable without eyes.
+        label = page.get_attribute('[data-hero="map"]', "aria-label").lower()
+        assert "in progress" in label and "resume" in label, label
+
+        # Only that card. The other two are untouched: their words, a chevron,
+        # and no circles.
         for key, line, _view in OTHER_GAMES:
             if key == "map":
                 continue
             assert said(page, '[data-row="%s"] .hero-tagline-new' % key) == line, \
                 "%s lost its one-liner to another game's progress" % key
-            assert page.locator('[data-hero="%s"] [data-status]' % key).is_hidden(), \
-                "%s is reporting a status it does not have" % key
-        H.fail_on_errors(errors, "in_progress_replaces_the_one_liner")
+            assert page.locator('[data-hero="%s"] .cs-mark' % key).count() == 0, \
+                "%s is drawing progress it does not have" % key
+            assert page.locator('[data-hero="%s"] .cs-chev' % key).count() == 1, \
+                "%s lost its chevron" % key
+        H.fail_on_errors(errors, "in_progress_draws_on_a_newcomers_card")
 
 
 # ---------- taglines_survive_the_narrowest_phone ----------
@@ -581,7 +616,7 @@ def taglines_survive_the_narrowest_phone(p, base):
 
 TESTS = [stranger_hero, stranger_hero_side_by_side,
          stranger_rows_open_their_own_games, returning_home_unchanged,
-         home_card_status_and_icons, in_progress_replaces_the_one_liner,
+         home_card_status_and_icons, in_progress_draws_on_a_newcomers_card,
          taglines_survive_the_narrowest_phone]
 
 

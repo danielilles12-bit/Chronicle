@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v202';
+const BUILD = 'v203';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -285,17 +285,20 @@ function heroLabel(g, st) {
   return `Play today's ${g.label}`;
 }
 
-// The status line is now ONLY the card's loading/error voice (setCardStatus) —
-// with one exception, the newcomer. A stranger's three compact cards are out of
-// scope for the marker system (their Home sells one game and is deliberately
-// untouched), so a half-finished daily still says "Resume today's puzzle" over
-// their one-liner. A returning player never sees a status sentence again.
-function statusLabel(status, stranger) {
-  return (stranger && status === 'in-progress') ? "Resume today's puzzle" : '';
+// The status line is now ONLY the card's loading/error voice (setCardStatus).
+// BOTH HOMES SPEAK THE SAME LANGUAGE (Daniel, 9 Aug 2026). The newcomer's
+// three compact cards kept "Resume today's puzzle" for one release, because
+// the redesign brief ruled that screen out of scope — which left the app with
+// two dialects and a player crossing between them the moment they finished
+// their first daily. They now draw the same marks at their own smaller scale,
+// so nothing on Home narrates state at either size. `stranger` is no longer
+// consulted here; the parameter stays only so the call sites read the same.
+function statusLabel() {
+  return '';
 }
 
-function showsStatus(status, stranger) {
-  return !!statusLabel(status, stranger);
+function showsStatus() {
+  return false;
 }
 
 // Every write to a card's status line goes through here, because the line
@@ -556,13 +559,13 @@ export function refreshGameRows() {
     // The shapes are aria-hidden, so the whole state has to survive in words
     // here or a screen-reader user loses it entirely.
     hero.setAttribute('aria-label', heroLabel(g, st));
-    hero.querySelector('[data-status]').textContent = statusLabel(status, stranger);
+    hero.querySelector('[data-status]').textContent = statusLabel();
     hero.classList.toggle('row-done', status === 'done');
     hero.classList.toggle('row-progress', status === 'in-progress');
     // Also clears any 'spinning up the presses…' / 'tap to retry' left on the
     // card by a launch that failed: every Home visit repaints from the ledger,
     // so the switch has to be recomputed here too, not only in setCardStatus.
-    hero.classList.toggle('show-status', showsStatus(status, stranger));
+    hero.classList.toggle('show-status', showsStatus());
 
     // The Archive: today's card, then the reachable past days to its right.
     renderDayCards(g, today, stranger);
