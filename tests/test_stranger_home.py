@@ -86,7 +86,7 @@ OTHER_GAMES = [
 CLASSIC_TAGLINES = {
     "who": "tear back the scraps to reveal a historical figure.",
     "map": "birth. death. two pins on the map. who?",
-    "what": "tear back the scraps to reveal a historical artefact or landmark.",
+    "what": "tear back the scraps to reveal an artefact or landmark.",
     "thread": "sort 16 clues into four groups, each with a hidden connection.",
 }
 

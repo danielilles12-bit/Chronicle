@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v197';
+const BUILD = 'v198';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -176,7 +176,7 @@ const GAME_ROWS = [
     launchDaily: startMapDaily,
   },
   {
-    key: 'what', label: 'Relic', tagline: 'Tear back the scraps to reveal a historical artefact or landmark.',
+    key: 'what', label: 'Relic', tagline: 'Tear back the scraps to reveal an artefact or landmark.',
     strangerLine: 'Uncover an artefact. Name it.',
     glyph: 'assets/brand/game-icon-relic.webp', time: '~3 min',
     tintStrong: 'var(--df-red)',
@@ -544,7 +544,11 @@ export function wireTurnThePage(btnId, editionIndex, isDaily) {
 const INTRO_CONTENT = {
   thread: {
     art: 'assets/intro/intro-thread.webp',
-    kicker: 'Thread',            // "Thread · thread" would be a stutter, so one word
+    // The plate says the game and nothing else (Daniel, 9 Aug 2026). It used
+    // to carry the internal key too — "Relic · What", "Lifeline · Map" — which
+    // named a thing no player has ever seen. Thread never had one: "Thread ·
+    // thread" was a stutter, and that turned out to be the right shape for all four.
+    kicker: 'Thread',
     accent: 'var(--df-cyan)',
     accentInk: 'var(--ch-ink)',
     title: 'Find the four threads.',
@@ -553,7 +557,7 @@ const INTRO_CONTENT = {
   },
   map: {
     art: 'assets/intro/intro-map.webp',
-    kicker: 'Lifeline · Map',
+    kicker: 'Lifeline',
     accent: 'var(--df-yellow)',
     accentInk: 'var(--ch-ink)',
     title: 'Two pins, one life.',
@@ -562,7 +566,7 @@ const INTRO_CONTENT = {
   },
   who: {
     art: 'assets/intro/intro-who.webp',
-    kicker: 'Face Value · Who',
+    kicker: 'Face Value',
     accent: 'var(--df-magenta)',
     accentInk: 'var(--ch-ink)',
     title: 'Tear towards it.',
@@ -571,7 +575,7 @@ const INTRO_CONTENT = {
   },
   what: {
     art: 'assets/intro/intro-what.webp',
-    kicker: 'Relic',             // Daniel, 9 Aug 2026 — the plate says the game, nothing else
+    kicker: 'Relic',
     accent: 'var(--df-red)',
     accentInk: 'var(--ch-text-inverse)',
     title: 'Tear towards it.',
