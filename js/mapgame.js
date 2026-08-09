@@ -424,7 +424,7 @@ function refreshControlLabels() {
   }
   const mcq = $('#map-mcq');
   if (mcq && !S.cur.mcqOpts) {
-    mcq.innerHTML = `<span>3 choices <span class="leaves">· drops to ${Math.max(WORTH_FLOOR, worthNow() - MCQ_COST)}</span></span>`;
+    mcq.innerHTML = `<span>3 choices <span class="leaves">· round worth ${Math.max(WORTH_FLOOR, worthNow() - MCQ_COST)}</span></span>`;
   }
 }
 

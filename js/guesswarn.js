@@ -42,10 +42,13 @@ export function confirmFirstGuess(game, cost, proceed) {
   if (already || !sheet) return true;
 
   el('guess-warn-copy').textContent =
-    `Are you sure? A wrong guess costs ${cost} points. A right one costs nothing.`;
+    `Are you sure? A wrong guess costs ${cost} points.`;
 
   const go = el('guess-warn-go');
   const back = el('guess-warn-back');
+  // The way out is phrased in the game's own verb (Daniel, 9 Aug 2026): the two
+  // tearing games send you back to the scraps, Lifeline back to the two pins.
+  back.textContent = game === 'map' ? 'Keep looking' : 'Keep tearing';
   const finish = (confirmed) => {
     go.onclick = null; back.onclick = null; sheet.onclick = null;
     document.removeEventListener('keydown', onKey);

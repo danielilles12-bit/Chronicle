@@ -42,6 +42,19 @@ def ends_bare_period(text):
     return t.endswith(".") and not t.endswith("...")
 
 
+# A blurb is "Occupation (years) · the second half", and the second half is a
+# sentence in its own right on the verdict line — so it starts with a capital
+# (Daniel, 9 Aug 2026; the whole pool was swept that day). Only a lowercase
+# LETTER is wrong: a clause opening on a digit ("1882 saw…") or a quote
+# ("'Tierra y libertad'…") is left alone.
+LOWER_AFTER_DOT_RE = re.compile(r"·\s+([a-zà-öø-ÿ])")
+
+
+def lower_after_dot(text):
+    m = LOWER_AFTER_DOT_RE.search(text or "")
+    return m.group(1) if m else None
+
+
 # ---------- `years` field sanity (js/revealgame.js clueYears/extractEra) ----------
 # Loose lifespan/era shape: digits, ordinal suffixes, "century"/"centuries",
 # an en dash or hyphen, "c.", BC/BCE/AD/CE, and the odd trailing "onwards" seen
@@ -267,6 +280,10 @@ def check_reveal(path):
                     f"licence requires naming the photographer")
         for run in bad_punct_runs(it.get("blurb")):
             err(f"{path} {iid}: doubled punctuation {run!r} in blurb")
+        ch = lower_after_dot(it.get("blurb"))
+        if ch:
+            err(f"{path} {iid}: blurb clause after '·' starts lowercase ({ch!r}) — "
+                f"it reads as a sentence on the verdict line, so capitalise it")
         if ends_bare_period(it.get("blurb")):
             err(f"{path} {iid}: blurb ends in a bare '.' — the renderer appends "
                 f"this itself (js/revealgame.js withTerminalPunct); strip it from the data")

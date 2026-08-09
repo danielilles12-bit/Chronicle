@@ -401,6 +401,14 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
   a pedant's reading ("coined" vs "made famous"; Josephus predicted
   VESPASIAN would be emperor, not himself). When a critic softens a label,
   keep the voice, fix the claim.
+- **[ENGINE]** Blurb shape (Daniel, 9 Aug 2026): a blurb is
+  "Who/what they were (years) · the second half", and **the second half
+  starts with a CAPITAL** — on the verdict line it reads as its own
+  sentence, and the old lowercase start looked like a mistake. The whole
+  pool (669 blurbs across Face Value and Relic) was swept that day.
+  `tools/validate_reveal.py` now ERRORs on a lowercase letter after the
+  "·"; a clause opening on a digit or a quote is left alone. The blurb
+  still carries no closing full stop — the app appends that itself.
 - **[JUDGMENT]** Every issue must carry at least one woman across Face
   Value + Lifeline combined (Daniel, 7 Aug 2026). New standing rule — still
   to be enforced in the compiler; until then it's a check on the review

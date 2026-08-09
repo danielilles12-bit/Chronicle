@@ -84,10 +84,10 @@ OTHER_GAMES = [
 
 # The classic Home's own taglines, which a returning player must still get.
 CLASSIC_TAGLINES = {
-    "who": "a famous face, one scrap at a time.",
-    "map": "born here, died there. name the figure.",
-    "what": "a famous artefact, one scrap at a time.",
-    "thread": "group 16 clues into four hidden categories.",
+    "who": "tear back the scraps to reveal a historical figure.",
+    "map": "birth. death. two pins on the map. who?",
+    "what": "tear back the scraps to reveal a historical artefact or landmark.",
+    "thread": "sort 16 clues into four groups, each with a hidden connection.",
 }
 
 
@@ -328,6 +328,14 @@ def returning_home_unchanged(p, base):
                 "%s row lost its tagline: %r" % (key, said(page, '[data-row="%s"] .hero-tagline' % key))
             assert page.locator('[data-row="%s"] .hero-tagline-new' % key).is_hidden(), \
                 "the newcomer one-liner leaked into the classic %s row" % key
+            # The 3-line cap must never eat a word of it (9 Aug 2026: the
+            # taglines got longer, so this is the guard that matters now).
+            clipped = page.evaluate(
+                """(k) => { const t = document.querySelector(
+                     '[data-row="' + k + '"] .hero-tagline');
+                   return t.scrollHeight - t.clientHeight; }""", key)
+            assert clipped <= 1, \
+                "%s tagline is cut off — %dpx of it is hidden" % (key, clipped)
             # Thread is the game we finished to get here, and since 7 Aug 2026
             # a finished card shows "Done · N pts" in place of its tagline
             # (home_card_status_and_icons owns that rule). The other three are
@@ -381,6 +389,7 @@ GLYPH = """(k) => {
   const ccs = getComputedStyle(card);
   return {
     w: gr.width, h: gr.height, cardH: cr.height,
+    colH: card.querySelector('.hero-col').getBoundingClientRect().height,
     pad: parseFloat(ccs.paddingTop) + parseFloat(ccs.paddingBottom),
     border: cs.borderTopWidth, shadow: cs.boxShadow,
   };
@@ -432,7 +441,12 @@ def home_card_status_and_icons(p, base):
                 assert g["h"] <= g["cardH"] - g["pad"] + 1, \
                     why + "%s icon (%.0f) overflows its card's content box" % (
                         key, g["h"])
-                assert g["h"] >= (g["cardH"] - g["pad"]) * 0.9, \
+                # Slack under the icon is only allowed when the WORDS are what
+                # made the card taller (Face Value's name wraps to two lines,
+                # and its tagline runs to three since 9 Aug 2026). Slack with a
+                # shorter text column than icon means the card grew for nothing.
+                assert (g["h"] >= (g["cardH"] - g["pad"]) * 0.9
+                        or g["colH"] > g["h"]), \
                     why + "%s icon (%.0f) leaves %.0fpx of card height unused" % (
                         key, g["h"], g["cardH"] - g["pad"] - g["h"])
 

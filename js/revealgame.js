@@ -112,7 +112,7 @@ function clueDefs() {
   if (MODE === 'who') {
     return {
       a: { label: 'Claim to fame', cost: CLUE_A_COST, value: () => clueOccupation(item) },
-      b: { label: 'Lived', cost: CLUE_B_COST, value: () => clueYears(item) },
+      b: { label: 'Lived to/from', cost: CLUE_B_COST, value: () => clueYears(item) },
     };
   }
   return {
@@ -194,7 +194,7 @@ function refreshControlLabels() {
   // The rescue never quotes its nominal −80: on an untouched round it leaves
   // 20, after any spending it leaves 10, and that is the number that matters.
   if (mcq && !S.cur.mcqOpts) {
-    mcq.innerHTML = `<span>3 choices <span class="leaves">· drops to ${Math.max(WORTH_FLOOR, worthNow() - MCQ_COST)}</span></span>`;
+    mcq.innerHTML = `<span>3 choices <span class="leaves">· round worth ${Math.max(WORTH_FLOOR, worthNow() - MCQ_COST)}</span></span>`;
   }
 }
 

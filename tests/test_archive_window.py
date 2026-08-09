@@ -265,6 +265,7 @@ def day_card_shape(p, base):
             const d = day.getBoundingClientRect();
             const cs = getComputedStyle(hero);
             out.push({game: k, heroH: h.height, glyphH: g.height, dayH: d.height,
+                      colH: hero.querySelector('.hero-col').getBoundingClientRect().height,
                       peek: window.innerWidth - d.left,
                       pad: parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom)});
           }
@@ -273,7 +274,11 @@ def day_card_shape(p, base):
         for r in geom:
             why = r["game"] + ": "
             assert r["glyphH"] == 136, why + "the icon moved off 136px (%.0f)" % r["glyphH"]
-            assert r["glyphH"] >= (r["heroH"] - r["pad"]) * 0.9, (
+            # The icon may sit in a taller card ONLY when the words are what
+            # made it taller (Face Value, 9 Aug 2026: two-line name over a
+            # three-line tagline). Otherwise the peek came out of the icon.
+            assert (r["glyphH"] >= (r["heroH"] - r["pad"]) * 0.9
+                    or r["colH"] > r["glyphH"]), (
                 why + "the peek was paid for out of the icon — it now fills only "
                 "%.0f%% of the card" % (100 * r["glyphH"] / (r["heroH"] - r["pad"])))
             assert r["dayH"] < r["heroH"] - 20, (

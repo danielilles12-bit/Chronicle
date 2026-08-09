@@ -250,9 +250,9 @@ def capture_facevalue_flow():
                     field("Clue A (Face Value)", txt(page, "#rv-clue-a"), "js/revealgame.js", 114,
                           note="“Claim to fame” for Face Value, “First letters” for Relic."),
                     field("Clue B (Face Value)", txt(page, "#rv-clue-b"), "js/revealgame.js", 115,
-                          note="“Lived” for Face Value, “Era” for Relic."),
+                          note="“Lived to/from” for Face Value, “Era” for Relic."),
                     field("Rescue button", txt(page, "#rv-mcq"), "index.html", 359,
-                          note="“3 choices · leaves {n}” — MCQ_COST=80, revealgame.js:33."),
+                          note="“3 choices · round worth {n}” — MCQ_COST=80, revealgame.js:33."),
                     field("Scrap tear aria-label", "Tear scrap {n}", "js/revealgame.js", 508),
                     field("Blocked-tap: already torn", "Already torn.", "js/revealgame.js", 524),
                     field("Blocked-tap: not adjacent", "Choose a scrap next to an open space.",
@@ -277,10 +277,12 @@ def capture_facevalue_flow():
                 [
                     field("Heading", txt(page, "#guess-warn h3"), "index.html", 527),
                     field("Body", txt(page, "#guess-warn-copy"), "js/guesswarn.js", 44,
-                          note="Template: “Are you sure? A wrong guess costs {cost} points. A right "
-                               "one costs nothing.” Cost is 15 in Face Value/Lifeline, 15 in Relic."),
+                          note="Template: “Are you sure? A wrong guess costs {cost} points.” Cost is 15 "
+                               "in Face Value/Lifeline, 15 in Relic."),
                     field("Confirm button", txt(page, "#guess-warn-go"), "index.html", 530),
-                    field("Cancel button", txt(page, "#guess-warn-back"), "index.html", 531),
+                    field("Cancel button", txt(page, "#guess-warn-back"), "js/guesswarn.js", 50,
+                          note="“Keep tearing” in Face Value and Relic; “Keep looking” in Lifeline, "
+                               "which has nothing to tear."),
                 ],
                 note="Fires once per game (Face Value, Lifeline, Relic each ask separately) on the very "
                      "first guess a player submits, ever, on this device.",
@@ -386,7 +388,7 @@ def capture_facevalue_flow():
                     field("Remark band 3 (≥35)", "A good eye — keep looking.", "js/revealgame.js", 1066),
                     field("Remark band 4 (≥15)", "The details are coming into focus.", "js/revealgame.js", 1067),
                     field("Remark band 5 (0+)", "Every expert starts by squinting.", "js/revealgame.js", 1068),
-                    field("Turn-the-page button", txt(page, "#rv-sum-turn") or "Turn the page ›",
+                    field("Turn-the-page button", txt(page, "#rv-sum-turn") or "Play the next puzzle ›",
                           "js/app.js", 503, note="“Call it a day ›” once every daily is played."),
                     field("Share button", "Share the tear-up", "index.html", 396),
                     field("Encore button", txt(page, "#rv-sum-encore") or "Encore: {Weekday} ›",
@@ -572,7 +574,7 @@ def capture_relic_flow():
                     field("Clue A (Relic)", txt(page, "#rv-clue-a"), "js/revealgame.js", 119,
                           note="“First letters” — Face Value's equivalent is “Claim to fame”."),
                     field("Clue B (Relic)", txt(page, "#rv-clue-b"), "js/revealgame.js", 120,
-                          note="“Era” — Face Value's equivalent is “Lived”. Hidden "
+                          note="“Era” — Face Value's equivalent is “Lived to/from”. Hidden "
                                "entirely for an undatable relic."),
                 ],
             )

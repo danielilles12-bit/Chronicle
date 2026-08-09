@@ -356,8 +356,9 @@ def thread_keyboard(p, base):
 # ---------- clue_prices_are_true ----------
 def clue_prices_are_true(p, base):
     """Clue pricing (Daniel, 5 Aug 2026): no control may quote a deduction the
-    10-point floor would swallow. The rescue always shows what it LEAVES; an
-    ordinary clue switches from "−25" to "· leaves 10" once the floor bites;
+    10-point floor would swallow. The rescue always names what the round is
+    still worth ("· round worth 20", Daniel 9 Aug 2026); an ordinary clue
+    switches from "−25" to "· drops to 10" once the floor bites;
     the worth line says MINIMUM at the bottom; and Relic says WORTH, not INK."""
     with H.app(p) as (page, errors, _ctx):
         H.boot(page, base, DATE)
@@ -365,13 +366,13 @@ def clue_prices_are_true(p, base):
         H.dismiss_intro(page, timeout=1200)
         page.wait_for_selector("#view-reveal:not([hidden])")
         # Untouched round: 100 − 80 = 20, and that is what the button says.
-        assert "drops to 20" in page.inner_text("#rv-mcq").lower(), \
+        assert "round worth 20" in page.inner_text("#rv-mcq").lower(), \
             page.inner_text("#rv-mcq")
         assert "each tear" in page.inner_text("#rv-worth").lower()
         # Spend 25: the rescue's real remainder is now the floor, not 100 − 80.
         page.click("#rv-clue-a")
         page.wait_for_selector("#rv-controls .hint-chip")
-        assert "drops to 10" in page.inner_text("#rv-mcq").lower(), \
+        assert "round worth 10" in page.inner_text("#rv-mcq").lower(), \
             page.inner_text("#rv-mcq")
         # Drive to the floor: every remaining price becomes an outcome.
         for i in range(6):

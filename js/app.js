@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v196';
+const BUILD = 'v197';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -161,14 +161,14 @@ const GAME_ROWS = [
   // `time` is the expected-time whisper on the hero card (P1.4): muted and
   // small next to the issue number, same voice as the dateline whisper.
   {
-    key: 'who', label: 'Face Value', tagline: 'A famous face, one scrap at a time.',
+    key: 'who', label: 'Face Value', tagline: 'Tear back the scraps to reveal a historical figure.',
     glyph: 'assets/brand/game-icon-face-value.webp', time: '~3 min',
     tintStrong: 'var(--df-magenta)',
     tintSoft: 'color-mix(in srgb, var(--df-magenta) 12%, var(--ch-cream))',
     launchDaily: (n) => startRevealDaily('who', n),
   },
   {
-    key: 'map', label: 'Lifeline', tagline: 'Born here, died there. Name the figure.',
+    key: 'map', label: 'Lifeline', tagline: 'Birth. Death. Two pins on the map. Who?',
     strangerLine: 'Birth. Death. Two dots. Who?',
     glyph: 'assets/brand/game-icon-lifeline.webp', time: '~3 min',
     tintStrong: 'var(--df-yellow)',
@@ -176,7 +176,7 @@ const GAME_ROWS = [
     launchDaily: startMapDaily,
   },
   {
-    key: 'what', label: 'Relic', tagline: 'A famous artefact, one scrap at a time.',
+    key: 'what', label: 'Relic', tagline: 'Tear back the scraps to reveal a historical artefact or landmark.',
     strangerLine: 'Uncover an artefact. Name it.',
     glyph: 'assets/brand/game-icon-relic.webp', time: '~3 min',
     tintStrong: 'var(--df-red)',
@@ -184,7 +184,7 @@ const GAME_ROWS = [
     launchDaily: (n) => startRevealDaily('what', n),
   },
   {
-    key: 'thread', label: 'Thread', tagline: 'Group 16 clues into four hidden categories.',
+    key: 'thread', label: 'Thread', tagline: 'Sort 16 clues into four groups, each with a hidden connection.',
     strangerLine: 'Sort 16 terms into four groups.',
     glyph: 'assets/brand/game-icon-thread.webp', time: '~2 min',
     tintStrong: 'var(--df-cyan)',
@@ -516,8 +516,8 @@ function launchDailyByKey(key, n) {
   if (g) g.launchDaily(n);
 }
 
-// Wire a daily summary's forward button: "Turn the page ›" to the next unplayed
-// game, or "Close the issue ›" (→ Home, where the ending shows) once all four
+// Wire a daily summary's forward button: "Play the next puzzle ›" to the next
+// unplayed game, or "Call it a day ›" (→ Home, where the ending shows) once all four
 // are played. Hidden for practice/free and any non-today edition, so archive/
 // practice flows never surface it. Idempotent (.onclick) — called on every
 // summary render.
@@ -527,7 +527,7 @@ export function wireTurnThePage(btnId, editionIndex, isDaily) {
   const today = daily.todayIndex();
   if (!isDaily || editionIndex !== today) { btn.hidden = true; btn.onclick = null; return; }
   const next = nextUnplayedDaily(today);
-  btn.textContent = next ? 'Turn the page ›' : 'Call it a day ›';
+  btn.textContent = next ? 'Play the next puzzle ›' : 'Call it a day ›';
   btn.hidden = false;
   btn.onclick = () => { if (next) launchDailyByKey(next, today); else goHome(); };
 }
@@ -548,7 +548,7 @@ const INTRO_CONTENT = {
     accent: 'var(--df-cyan)',
     accentInk: 'var(--ch-ink)',
     title: 'Find the four threads.',
-    copy: 'Sixteen clues hide four secret groups of four. Tap the four you think belong together, then submit.',
+    copy: 'Sixteen clues form four hidden groups. Tap four clues you think are connected, then submit.',
     copy2: 'A solved board scores 100; each wrong group costs 20, down to a floor of 20. Four wrong guesses and the thread snaps.',
   },
   map: {
@@ -556,8 +556,8 @@ const INTRO_CONTENT = {
     kicker: 'Lifeline · Map',
     accent: 'var(--df-yellow)',
     accentInk: 'var(--ch-ink)',
-    title: 'Two dots, one life.',
-    copy: 'Each round shows where a figure was born and where they died, with the years. Type their name — spelling needn’t be perfect.',
+    title: 'Two pins, one life.',
+    copy: 'Each round shows where a historical figure was born and where they died, with the years. Type their name — spelling needn’t be perfect.',
     copy2: 'Each round starts at 100 points. Clues and wrong guesses lower what a correct answer is worth, never below 10.',
   },
   who: {
@@ -571,11 +571,11 @@ const INTRO_CONTENT = {
   },
   what: {
     art: 'assets/intro/intro-what.webp',
-    kicker: 'Relic · What',
+    kicker: 'Relic',             // Daniel, 9 Aug 2026 — the plate says the game, nothing else
     accent: 'var(--df-red)',
     accentInk: 'var(--ch-text-inverse)',
     title: 'Tear towards it.',
-    copy: 'A famous artefact hides under nine scraps — one is already open. You can only tear scraps touching what’s open, so plot your route.',
+    copy: 'A historical artefact or landmark hides under the scraps — one is already open. You can only tear scraps touching what’s open, so plot your route.',
     copy2: 'Each round starts at 100 points. Tears, clues and wrong guesses lower what a correct answer is worth, never below 10.',
   },
 };
