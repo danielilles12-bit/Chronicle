@@ -348,9 +348,17 @@ def ledger_survives_reload(p, base):
         page.wait_for_selector("#view-daydone:not([hidden])")   # full-house screen
         page.click("#dd-home")
         page.wait_for_selector("#view-home:not([hidden])")
+        # Since 9 Aug 2026 a finished card DRAWS its state: ✓ and the score in
+        # the bottom row, no chevron, and no "Done" anywhere on screen.
         for g in GAMES:
-            status = page.inner_text('[data-hero="%s"] [data-status]' % g).lower()
-            assert "done" in status, "%s hero lost its Done state: %r" % (g, status)
+            state = page.inner_text('[data-hero="%s"] .hero-state' % g).strip()
+            assert state.endswith("PTS"), (
+                "%s hero lost its ✓ score after a reload: %r" % (g, state))
+            assert page.locator('[data-hero="%s"] .cs-chev' % g).count() == 0, (
+                "%s hero still offers a chevron on a finished day" % g)
+            assert "completed" in page.get_attribute(
+                '[data-hero="%s"]' % g, "aria-label").lower(), (
+                "%s hero does not tell a screen reader it is finished" % g)
 
         # A second tab reads the same jar.
         page2 = ctx.new_page()

@@ -26,6 +26,7 @@ BROWSER = [
     ("answer matching", [os.path.join(HERE, "match_harness.py")]),
     ("smoke: core", [os.path.join(HERE, "test_smoke_core.py")]),
     ("home: stranger", [os.path.join(HERE, "test_stranger_home.py")]),
+    ("home: card states", [os.path.join(HERE, "test_home_card_states.py")]),
     ("smoke: daily flow", [os.path.join(HERE, "test_daily_flow.py")]),
     ("archive window", [os.path.join(HERE, "test_archive_window.py")]),
     ("smoke: resilience", [os.path.join(HERE, "test_resilience.py")]),

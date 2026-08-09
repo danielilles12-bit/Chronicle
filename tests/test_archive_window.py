@@ -209,13 +209,17 @@ def stale_card_fails_closed(p, base):
 
 # ---------- day_card_shape ----------
 def day_card_shape(p, base):
-    """What a past-day card says and how big it is (Daniel, 7 Aug 2026).
+    """What a past-day card says and how big it is (Daniel, 7 Aug 2026,
+    amended 9 Aug).
 
     Three rulings live here, all reversals of a first cut he saw and rejected:
-      * an UNTOUCHED day says nothing at all — no status line in the markup.
-        "Untouched" appeared 24 times on one screen and read cold; weekday and
-        date are label enough, and the silence is what lets a score or a
-        Resume carry. Screen readers still get the state from aria-label.
+      * a past-day card carries NO STATUS WORDS. It read "Untouched" on 24
+        cards at once in the first cut; from 7 Aug the untouched ones went
+        silent and the other two said "N pts" / "Resume"; from 9 Aug none of
+        them says anything at all — state is drawn as marks, a chevron and a
+        ✓ score in the same language as the hero card above
+        (tests/test_home_card_states.py owns that system). Screen readers
+        still get the whole state from aria-label.
       * the stubs are SHORTER than the hero card, so they read as torn-off
         stubs rather than big empty rectangles.
       * the hero gives up enough width that the next card visibly peeks —
@@ -237,16 +241,23 @@ def day_card_shape(p, base):
         strip = page.inner_text("#home-rows").lower()
         assert "untouched" not in strip, "the retired Untouched label is back"
         assert "unplayed" not in strip, "an unplayed day should say nothing at all"
+        assert "resume" not in strip, "the retired Resume label is back"
+        assert "done" not in strip, "the retired Done label is back"
 
-        # Only the two cards with something to say carry a status line.
+        # Every card carries a state row, and the only words in any of them
+        # are a finished day's score.
         cards = page.locator("#home-rows .day-card").count()
-        lines = page.locator("#home-rows .day-status").count()
+        rows = page.locator("#home-rows .day-state").count()
         assert cards == 24, "expected 4 rows x 6 days, found %d" % cards
-        assert lines == 2, (
-            "%d of %d day cards are talking; only the finished one and the "
-            "half-played one should" % (lines, cards))
-        assert page.locator(
-            "#home-rows .day-card.day-fresh .day-status").count() == 0
+        assert rows == cards, (
+            "%d of %d day cards have no state row" % (cards - rows, cards))
+        assert page.locator("#home-rows .day-status").count() == 0, \
+            "the retired .day-status word is back"
+        spoken = page.evaluate(
+            """() => [...document.querySelectorAll('#home-rows .day-state')]
+                 .map(s => s.innerText.trim()).filter(Boolean)""")
+        assert spoken == ["91 PTS"], (
+            "the only words a day card may print are a finished score: %r" % spoken)
 
         # ...but the state is still spoken.
         label = page.get_attribute(

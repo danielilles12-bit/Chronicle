@@ -11,7 +11,8 @@ evaporating.
 Last updated: 9 Aug 2026 (the issue number stopped facing players — the date
 replaces it everywhere; Encore deleted; every clue control quotes its true
 cost; the rescue asks once per game before it fires; blurbs capitalised after
-the middle dot).
+the middle dot; Home stopped narrating state and started drawing it — one
+marker per puzzle).
 
 ## Navigation (the way back)
 
@@ -59,14 +60,14 @@ in player-facing copy: **Archive**. "Back issues" and "the Morgue" are retired.
   scroller: today's hero card, then the reachable past days to its right,
   newest first, each showing that game's result for that day. Tapping one goes
   straight into that game, that day — no calendar, no "which game?" picker.
-  A past-day card reads weekday · date, plus a status line ONLY when it has
-  something to say: `N pts` (done) or `Resume` (half-played). An untouched day
-  shows nothing (Daniel, 7 Aug 2026) — the earlier "Untouched" label put the
-  same cold word on screen 24 times at once, and silence is what lets the two
-  states that do speak carry. Screen readers still get the state via the
-  card's aria-label, where a blank card would be ambiguous rather than restful.
-  The cards are 124px tall against the hero's ~173px: torn-off stubs, not
-  cards that failed to fill.
+  A past-day card reads weekday · date and then DRAWS its state in the same
+  marks the hero card above it uses (see "One marker per puzzle" below) — it
+  prints no status word at all. The words it used to print died in two steps:
+  "Untouched" on 7 Aug 2026 (the same cold word on screen 24 times at once),
+  then `N pts` and `Resume` on 9 Aug. Screen readers still get the whole state
+  via the card's aria-label, where a silent card would be ambiguous rather
+  than restful. The cards are 124px tall against the hero's ~173px: torn-off
+  stubs, not cards that failed to fill.
 - **[JUDGMENT]** **The Archive is regulars' furniture.** A newcomer (no
   completed daily) sees no day cards at all, the same call that already hides
   the punch card — their screen sells one game and nothing else.
@@ -101,11 +102,56 @@ in player-facing copy: **Archive**. "Back issues" and "the Morgue" are retired.
   played), **Share**, and **Home**, and nothing else. `encoreEdition`,
   `startEncore`, `wireEncore`, the three buttons and the four `encore-*`
   analytics events are all deleted, not hidden.
-- **[JUDGMENT]** **"Resume today's puzzle", not "In progress"** (Daniel, 7 Aug
-  2026). A status reports; an instruction invites, and "today's" carries the
-  fact that it expires at midnight. Past-day cards say a plain **"Resume"** —
-  "today's" would be false on a Thursday card. The gold in-progress colour and
-  the `row-progress` hook are unchanged.
+- **[ENGINE]** **One marker per puzzle** (Daniel, 9 Aug 2026 — REPLACES the
+  7 Aug rule "'Resume today's puzzle', not 'In progress'", and the day cards'
+  `N pts` / `Resume` with it). Home stopped saying where you are and started
+  showing it. Three status sentences in two different dialects — `Done · 33
+  pts` and `Resume today's puzzle` on the big cards, `N pts` and `Resume` on
+  the stubs directly beneath them — were shouting over the game names they sat
+  under, and the two sizes of card did not even agree with each other. One
+  drawn language now, identical at both sizes, ink only, always secondary to
+  the name and the one-liner:
+  **●** a puzzle finished · **◐** the puzzle you are inside · **○** not
+  started · **›** there is still play to do · **✓ 33 PTS** finished, and what
+  it paid. A chevron never appears on a finished card; a finished card never
+  greys out, and still opens its own read-only result.
+  **THE COUNTING RULE, which is the whole point:** one marker per ACTUAL
+  puzzle. Face Value, Lifeline and Relic run three rounds a day and show
+  three. **Thread is ONE puzzle and shows ONE.** Its four groups and its four
+  allowed mistakes are the inside of that puzzle; four markers on Home would
+  be a false promise about how much is left, so `found`, `mistakes`, groups
+  and guesses are deliberately never read by the card. Marks come from the
+  REAL saved session and nothing is inferred.
+  Written state survives in exactly two places: the card's aria-label, which
+  carries the whole thing in words because every shape is `aria-hidden`
+  ("Face Value, in progress, two of three rounds completed, resume"); and the
+  transient load/error line ("spinning up the presses…", "couldn't load — tap
+  to retry"), which is the one thing a card is still allowed to say out loud.
+  The newcomer's three compact cards are OUT of this system on purpose — that
+  screen sells one game and is not to be redesigned, so a half-finished daily
+  still says "Resume today's puzzle" there. `tests/test_home_card_states.py`
+  is the check; the gold and forest state tints went with the sentences they
+  used to tint, and `row-progress`/`row-done`/`day-done` survive only as
+  hooks for the day stub's left-edge tint.
+- **[ENGINE]** **The marks must fit inside the picture's height.** The hero
+  card's bottom row exists inside the 136px the illustration already occupies
+  (12px row, 4px gap, against Face Value's ~17px of headroom), because a
+  taller card is a card its own art no longer fills. Guarded from three
+  directions: `tests/test_stranger_home.py::home_card_status_and_icons`,
+  `tests/test_archive_window.py::day_card_shape`, and
+  `tests/test_home_card_states.py::archive_shape_survives`. Anything new on
+  that row has to buy its space from that budget, not from the card's height.
+- **[ENGINE]** **A card may never eat a word of its own description**, and the
+  narrowest phone is where it tries to. The tagline cap went from three lines
+  to FOUR on 9 Aug 2026 (`.game-row.has-days .hero-tagline`, `max-height:
+  5.6em`): the longer Relic and Thread lines Daniel wrote that morning wrapped
+  to a fourth line at 375px and lost "landmark." and "connection." to the old
+  cap — invisible at the 390px every other test measured, and it would have
+  shipped. Four lines still fit the picture's height budget above. The check
+  is `tests/test_stranger_home.py::taglines_survive_the_narrowest_phone`,
+  which runs at 375 AND 390 and asserts nothing is clipped and the words never
+  stand taller than the art. New copy that needs a fifth line needs shorter
+  copy, not a taller card.
 
 ## The date, not the issue number (Daniel, 9 Aug 2026)
 
@@ -118,9 +164,12 @@ in player-facing copy: **Archive**. "Back issues" and "the Morgue" are retired.
   internal spine — it just never faces a player. One helper does the words:
   `daily.editionDateLabel(n)`. The one surviving `№` is the streak milestone
   postmark ("№2 / days running"), which counts days, not issues.
-- **[JUDGMENT]** **The Home cards carry no bottom line at all.** It held the
-  issue number and a "~3 min" estimate; both went the same day, and the row
-  with them. A card is its name, its one line and its picture.
+- **[JUDGMENT]** **The Home cards carry no bottom line of WORDS.** It held the
+  issue number and a "~3 min" estimate; both went that morning, and the row
+  with them. A bottom row came back the same day to hold the state marks and
+  nothing else (see "One marker per puzzle" above) — no issue number, no time
+  estimate, no date, ever again. A card is its name, its one line, its
+  picture, and how far you have got.
 
 ## Sharing (what a share actually is)
 

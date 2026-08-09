@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v199';
+const BUILD = 'v201';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -194,32 +194,108 @@ const GAME_ROWS = [
   },
 ];
 
-// The card's one status line. An untouched card says NOTHING (Daniel, 7 Aug
-// 2026): "Play ›" came out because the whole card is visibly the button, and
-// the line is now a status report again — it lives under the game's name and
-// stands in for the tagline while it has something to say (see showsStatus
-// below and the .hero-status rules in style.css).
+// ---------- one marker per puzzle (Daniel, 9 Aug 2026) ----------
+// State stopped being a SENTENCE on Home. "Done · 33 pts", "Resume today's
+// puzzle" and the day cards' "Resume" were three different status languages
+// shouting over the game names, and the two sizes of card did not even agree
+// with each other. They are replaced by one visual system, drawn the same way
+// on the big cards and the archive stubs (cardState + stateHTML below):
 //
-// A half-finished daily says "Resume today's puzzle" rather than the old flat
-// "In progress" (Daniel, 7 Aug 2026): a status describes, an instruction
-// invites, and "today's" carries the deadline — this thing expires at
-// midnight. The past-day cards say a plain "Resume" instead (see
-// dayCardLabels), because on a Thursday card "today's" would simply be false.
-function statusLabel(status, score) {
-  if (status === 'done') return `Done · ${score} pts`;
-  if (status === 'in-progress') return "Resume today's puzzle";
-  return '';
+//   ● a solid circle    = a puzzle finished
+//   ◐ a half circle     = the puzzle you are inside, unfinished
+//   ○ an outlined circle= a puzzle not started
+//   › a chevron         = there is still play to do (never on a done card)
+//   ✓ 33 PTS            = finished, and what it paid
+//
+// THE COUNTING RULE: one marker per ACTUAL PUZZLE. Face Value, Lifeline and
+// Relic run three rounds a day, so they get three. Thread is ONE puzzle and
+// gets ONE — its four groups and four allowed mistakes are the inside of that
+// puzzle, not four Home-screen puzzles, and drawing them as four markers would
+// be a different (and wrong) promise about what is left to do.
+//
+// The circles are CSS shapes (see .cs-mark in style.css), not ◐/○ characters:
+// those render at the mercy of whatever font a phone falls back to.
+
+// A game's progress markers, read from the REAL saved daily session — never
+// inferred. For the three rounds games that is: rounds with a recorded result
+// are solid, the next one is half, the rest are outlines. For Thread it is one
+// half marker and nothing else, and the session's `found`/`mistakes`/`guesses`
+// are deliberately not consulted.
+function progressMarks(gameKey, n) {
+  if (gameKey === 'thread') return ['half'];
+  const session = store.getDailySession(daily.dailyKey(gameKey, n));
+  const ids = session && session.ids;
+  const total = ids && ids.length ? ids.length : 3;
+  const done = Math.min(total, (session && session.results) ? session.results.length : 0);
+  const marks = [];
+  for (let i = 0; i < total; i += 1) {
+    marks.push(i < done ? 'done' : i === done ? 'half' : 'todo');
+  }
+  return marks;
 }
 
-// Does this card's status line get to speak over the game's tagline?
-// Returning player (the four full cards): yes for done AND in progress —
-// where you are in today's issue beats a description you have read 40 times.
-// Newcomer (the three compact cards under the Face Value hero): only for the
-// resume prompt. A stranger's card is still selling the game, so "Done · 72
-// pts" — which they cannot see anyway, since one finished daily ends stranger
-// mode — must never cost them the one-liner.
+// THE one place either size of card asks "where is this player up to?", so the
+// hero card and its archive stubs can never drift apart. dailyStatus stays the
+// definition of the three states; this only decorates it.
+function cardState(gameKey, n) {
+  const status = daily.dailyStatus(gameKey, n);
+  if (status === 'done') {
+    const entry = store.getDailyEntry(gameKey, n);
+    return { status, score: (entry && entry.score) || 0, marks: [] };
+  }
+  if (status === 'in-progress') return { status, score: 0, marks: progressMarks(gameKey, n) };
+  return { status, score: 0, marks: [] };
+}
+
+// The shapes themselves. Purely decorative — every one of them is repeated in
+// words in the card's aria-label, so the whole row is aria-hidden.
+function stateHTML(st) {
+  if (st.status === 'done') {
+    return `<span class="cs-score"><i class="cs-tick"></i>${st.score} pts</span>`;
+  }
+  const marks = st.marks.map((m) => `<i class="cs-mark cs-${m}"></i>`).join('');
+  return (marks ? `<span class="cs-marks">${marks}</span>` : '') + '<i class="cs-chev"></i>';
+}
+
+const COUNT_WORDS = ['no', 'one', 'two', 'three', 'four', 'five'];
+
+// What a screen reader hears instead of the shapes. The count is spoken out in
+// full ("two of three rounds completed") because "2/3" is read back a dozen
+// different ways depending on the reader.
+function spokenProgress(st) {
+  const total = st.marks.length;
+  if (total <= 1) return 'in progress, resume';
+  const done = st.marks.filter((m) => m === 'done').length;
+  const word = COUNT_WORDS[done] || String(done);
+  return done === 0
+    ? `in progress, no rounds completed yet, resume`
+    : `in progress, ${word} of ${COUNT_WORDS[total] || total} rounds completed, resume`;
+}
+
+// A hero card's accessible name, which carries the whole state in words.
+function heroLabel(g, st) {
+  if (st.status === 'done') {
+    return `${g.label}, completed, ${st.score} points, view results`;
+  }
+  if (st.status === 'in-progress') {
+    return g.key === 'thread'
+      ? `${g.label}, in progress, resume today's puzzle`
+      : `${g.label}, ${spokenProgress(st)}`;
+  }
+  return `Play today's ${g.label}`;
+}
+
+// The status line is now ONLY the card's loading/error voice (setCardStatus) —
+// with one exception, the newcomer. A stranger's three compact cards are out of
+// scope for the marker system (their Home sells one game and is deliberately
+// untouched), so a half-finished daily still says "Resume today's puzzle" over
+// their one-liner. A returning player never sees a status sentence again.
+function statusLabel(status, stranger) {
+  return (stranger && status === 'in-progress') ? "Resume today's puzzle" : '';
+}
+
 function showsStatus(status, stranger) {
-  return status === 'in-progress' || (!stranger && status === 'done');
+  return !!statusLabel(status, stranger);
 }
 
 // Every write to a card's status line goes through here, because the line
@@ -255,6 +331,7 @@ function renderGameRows() {
               <p class="hero-tagline">${g.tagline}</p>
               <p class="hero-tagline hero-tagline-new">${g.strangerLine || g.tagline}</p>
             </div>
+            <div class="hero-state" data-state aria-hidden="true"></div>
           </div>
           <img class="hero-glyph" src="${g.glyph}" alt="">
         </button>
@@ -352,24 +429,27 @@ const SHORT_DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 const SHORT_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
                       'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-// A day card's three states. A finished day leads with its score, a
-// half-played one invites you back in — and an untouched one SAYS NOTHING
-// (Daniel, 7 Aug 2026). It used to read "Untouched", which put the same cold
-// word on screen up to 24 times at once; the weekday and date are label
-// enough, and the silence is what makes the two cards that DO speak carry.
-// "Resume", not the hero card's "Resume today's puzzle": these are past days,
-// and "today's" would be a plain lie on a Thursday card.
-// `spoken` still names the state for screen readers, where a blank card would
-// be genuinely ambiguous rather than restful.
+// A day card's three states, in the SAME language as the hero card above it
+// (Daniel, 9 Aug 2026) — the markers, the chevron and the ✓ score, drawn
+// smaller. It used to be words: "N pts" for a finished day, "Resume" for a
+// half-played one and silence for the rest, which made the archive stubs speak
+// a second dialect right beside the big card's "Done · N pts". One system now,
+// one helper (cardState/stateHTML), so the two sizes cannot drift.
+// `spoken` still names the state in full for screen readers, because the
+// shapes themselves are aria-hidden.
 function dayCardLabels(gameKey, n) {
-  const status = daily.dailyStatus(gameKey, n);
-  if (status === 'done') {
-    const entry = store.getDailyEntry(gameKey, n);
-    const pts = (entry && entry.score) || 0;
-    return { status, line: `${pts} pts`, spoken: `done, ${pts} points` };
+  const st = cardState(gameKey, n);
+  if (st.status === 'done') {
+    return { status: st.status, state: stateHTML(st), spoken: `completed, ${st.score} points, view results` };
   }
-  if (status === 'in-progress') return { status, line: 'Resume', spoken: 'in progress, resume' };
-  return { status, line: '', spoken: 'not played' };
+  if (st.status === 'in-progress') {
+    return {
+      status: st.status,
+      state: stateHTML(st),
+      spoken: gameKey === 'thread' ? 'in progress, resume' : spokenProgress(st),
+    };
+  }
+  return { status: st.status, state: stateHTML(st), spoken: 'not played' };
 }
 
 // One row's past-day cards: the reachable archive editions, newest first.
@@ -382,7 +462,7 @@ function renderDayCards(g, today, stranger) {
   const editions = stranger ? [] : daily.archiveEditions(today);
   wrap.innerHTML = editions.map((n) => {
     const d = daily.editionDate(n);
-    const { status, line, spoken } = dayCardLabels(g.key, n);
+    const { status, state, spoken } = dayCardLabels(g.key, n);
     const cls = ['day-card', status === 'done' ? 'day-done'
       : status === 'in-progress' ? 'day-progress' : 'day-fresh'].join(' ');
     const date = `${d.getDate()} ${SHORT_MONTHS[d.getMonth()]}`;
@@ -390,7 +470,7 @@ function renderDayCards(g, today, stranger) {
       aria-label="${g.label}, ${daily.weekdayName(n)} ${date} — ${spoken}">
       <span class="day-weekday">${SHORT_DAYS[daily.weekday(n)]}</span>
       <span class="day-date">${date}</span>
-      ${line ? `<span class="day-status">${line}</span>` : ''}
+      <span class="day-state" aria-hidden="true">${state}</span>
     </button>`;
   }).join('');
   // The strip only scrolls when there is something to scroll to; without
@@ -460,10 +540,14 @@ export function refreshGameRows() {
   $('#dateline').innerHTML = datelineHTML(today);
   renderPunchCard();
   GAME_ROWS.forEach((g) => {
-    const status = daily.dailyStatus(g.key, today);
-    const entry = status === 'done' ? store.getDailyEntry(g.key, today) : null;
+    const st = cardState(g.key, today);
+    const status = st.status;
     const hero = $(`[data-hero="${g.key}"]`);
-    hero.querySelector('[data-status]').textContent = statusLabel(status, entry && entry.score);
+    hero.querySelector('[data-state]').innerHTML = stateHTML(st);
+    // The shapes are aria-hidden, so the whole state has to survive in words
+    // here or a screen-reader user loses it entirely.
+    hero.setAttribute('aria-label', heroLabel(g, st));
+    hero.querySelector('[data-status]').textContent = statusLabel(status, stranger);
     hero.classList.toggle('row-done', status === 'done');
     hero.classList.toggle('row-progress', status === 'in-progress');
     // Also clears any 'spinning up the presses…' / 'tap to retry' left on the

@@ -165,8 +165,11 @@ def stranger_hero(p, base):
         for key, line, _view in OTHER_GAMES:
             assert said(page, '[data-row="%s"] .hero-tagline-new' % key) == line
         # The time whisper and the issue number are off this screen: it prices
-        # nothing but the one game it is selling.
-        assert page.locator('[data-row="map"] .hero-edition').is_hidden()
+        # nothing but the one game it is selling. (.hero-edition itself was
+        # deleted on 9 Aug 2026, so assert on the words, not the element —
+        # is_hidden() on a element that does not exist passes vacuously.)
+        strip = page.inner_text("#home-rows").lower()
+        assert "№" not in strip and "min" not in strip, strip
 
         # The door itself: same two events as before the rebuild, then Face Value.
         page.click("#stranger-play")
@@ -336,14 +339,13 @@ def returning_home_unchanged(p, base):
                    return t.scrollHeight - t.clientHeight; }""", key)
             assert clipped <= 1, \
                 "%s tagline is cut off — %dpx of it is hidden" % (key, clipped)
-            # Thread is the game we finished to get here, and since 7 Aug 2026
-            # a finished card shows "Done · N pts" in place of its tagline
-            # (home_card_status_and_icons owns that rule). The other three are
-            # untouched, so their taglines must actually be on screen — not
-            # merely present in the markup, which is all inner_text proves.
-            if key != "thread":
-                assert page.locator('[data-row="%s"] .hero-tagline' % key).first.is_visible(), \
-                    "%s row's tagline is in the markup but not on the screen" % key
+            # ...and it is on the SCREEN, which is all four cards including the
+            # game we finished to get here. A done card used to hide its
+            # tagline behind "Done · N pts"; since 9 Aug 2026 state is drawn
+            # in the bottom row instead, so the description survives every
+            # state (tests/test_home_card_states.py owns that rule).
+            assert page.locator('[data-row="%s"] .hero-tagline' % key).first.is_visible(), \
+                "%s row's tagline is in the markup but not on the screen" % key
 
         # The regulars' furniture is all back. Since 7 Aug 2026 that means the
         # Archive's day cards (the week strip and the Back Issues bar retired
@@ -358,12 +360,17 @@ def returning_home_unchanged(p, base):
             assert got == want, "%s row's Archive reads %r, expected %r" % (key, got, want)
             assert page.locator(
                 '[data-row="%s"] [data-days] [data-edition-index]' % key).first.is_visible()
-        # The hero card's bottom line is gone entirely (Daniel, 9 Aug 2026):
-        # no issue number, no time estimate, no row to hold them.
+        # The hero card's bottom line carries no WORDS (Daniel, 9 Aug 2026).
+        # The old .hero-bottom held "№ 71 · ~3 min" and was deleted that
+        # morning; .hero-state replaced it later the same day to hold marks
+        # only. Both halves of the ruling are checked: the text row must never
+        # come back, and nothing in the strip may name an issue or a duration.
         assert page.locator('[data-hero="who"] .hero-bottom').count() == 0, \
-            "the hero card's bottom row is back"
+            "the hero card's text bottom row is back"
         assert "№" not in page.inner_text("#home-rows"), \
             "an issue number survives somewhere in the game rows"
+        assert "min" not in page.inner_text("#home-rows").lower(), \
+            "a time estimate survives somewhere in the game rows"
 
         # And the classic doors still work.
         page.click('[data-hero="who"]')
@@ -373,18 +380,20 @@ def returning_home_unchanged(p, base):
 
 
 # ---------- home_card_status_and_icons ----------
-# What every game card says and shows (Daniel, 7 Aug 2026):
+# What every game card says and shows (Daniel, 7 Aug 2026, amended 9 Aug):
 #   * the icon has no ink frame and is big enough to read at a glance —
 #     80px on the stranger's compact cards (they were 54px and illegible),
 #     136px on the returning player's, both inside a card no taller than the
 #     framed version's;
 #   * "Play ›" is gone everywhere — the whole card is visibly the button;
-#   * the status line moved out of the bottom row to sit under the game's
-#     name, where it stands in for the tagline while it has something to say:
-#     "Resume today's puzzle" in both states, "Done · N pts" only for a returning
-#     player (a newcomer's card is still selling the game, so it keeps its
-#     one-liner);
-#   * the bottom row keeps the issue number and the time whisper.
+#   * a RETURNING player's state is drawn, not written (9 Aug 2026): the marks
+#     and the ✓ score live in the card's bottom row and the tagline stays put.
+#     The status line under the name survives for the loading/error text only;
+#   * a NEWCOMER's three compact cards are untouched by that change — a half-
+#     finished daily still says "Resume today's puzzle" over their one-liner,
+#     which is what in_progress_replaces_the_one_liner below covers.
+# The full state system is tested in tests/test_home_card_states.py; what is
+# checked here is that it did not cost the icons their height.
 GLYPH = """(k) => {
   const card = document.querySelector('[data-hero="' + k + '"]');
   const g = card.querySelector('.hero-glyph');
@@ -462,18 +471,22 @@ def home_card_status_and_icons(p, base):
                     const r = e.getBoundingClientRect();
                     return {t: r.top, b: r.bottom, shown: getComputedStyle(e).display}; };
                   return {name: b('.hero-name'), status: b('[data-status]'),
+                          state: b('.hero-state'),
                           tagline: b('.hero-tagline')}; }""", probe)
             if seed:
-                # Returning player, done game: "Done · N pts" under the name,
-                # standing in for the tagline. Nothing below it any more.
-                assert said(page, '[data-hero="thread"] [data-status]') == "done · 72 pts", \
-                    why + "the done card lost its score line"
-                assert geom["status"]["t"] >= geom["name"]["b"] - 1, \
-                    why + "the status sits above the game's name"
-                assert geom["tagline"]["shown"] == "none", \
-                    why + "the tagline is still showing under a done card"
+                # Returning player, done game (9 Aug 2026): the score is DRAWN
+                # in the bottom row, under a tagline that stayed where it was.
+                # The old "Done · N pts" status sentence is gone entirely.
+                assert said(page, '[data-hero="thread"] [data-status]') == "", \
+                    why + "a returning player's done card is narrating its state"
+                assert said(page, '[data-hero="thread"] .hero-state') == "72 pts", \
+                    why + "the done card lost its ✓ score"
+                assert geom["tagline"]["shown"] != "none", \
+                    why + "the tagline is hidden under a done card"
+                assert geom["state"]["t"] >= geom["tagline"]["b"] - 1, \
+                    why + "the state row is not below the tagline"
                 assert page.locator('[data-hero="thread"] .hero-bottom').count() == 0, \
-                    why + "the bottom row is back on a done card"
+                    why + "the retired text bottom row is back on a done card"
             else:
                 # Newcomer: silent card, one-liner intact, no bottom row.
                 assert page.inner_text('[data-hero="map"] [data-status]').strip() == "", \
@@ -481,6 +494,10 @@ def home_card_status_and_icons(p, base):
                 assert geom["status"]["shown"] == "none", why + "the silent status line is rendered"
                 assert page.locator('[data-hero="map"] .hero-bottom').count() == 0, \
                     why + "the newcomer's card still carries a bottom row"
+                # The marks are regulars' furniture too: a newcomer's compact
+                # cards are deliberately outside the 9 Aug state system.
+                assert geom["state"]["shown"] == "none", \
+                    why + "the state row leaked onto a newcomer's compact card"
                 assert page.locator('[data-row="map"] .hero-tagline-new').is_visible(), \
                     why + "the newcomer one-liner is gone"
             H.fail_on_errors(errors, "home_card_status_and_icons/" + label)
@@ -522,9 +539,50 @@ def in_progress_replaces_the_one_liner(p, base):
         H.fail_on_errors(errors, "in_progress_replaces_the_one_liner")
 
 
+# ---------- taglines_survive_the_narrowest_phone ----------
+def taglines_survive_the_narrowest_phone(p, base):
+    """No card may eat a word of its own description on a 375px screen.
+
+    The rest of this suite runs at the iPhone 13's 390px, and that is exactly
+    how this shipped once: Daniel's longer Relic and Thread lines (9 Aug 2026)
+    wrapped to a fourth line on an iPhone SE / 12 mini / 13 mini and the
+    three-line cap silently ate "landmark." and "connection." — invisible at
+    390px, invisible in every existing test. 375 is the narrowest phone the
+    layout is designed against, so it gets its own scenario. Card height and
+    the icon budget are asserted here too, because the cheap way to "fix"
+    clipping is to let the card grow past its picture."""
+    for width in (375, 390):
+        with H.app(p, device=None,
+                   context_args={"viewport": {"width": width, "height": 812}}) as (page, errors, _ctx):
+            H.boot(page, base, DATE)
+            H.seed_completion(page, "thread", N, score=72,
+                              detail={"solved": True, "perfect": False,
+                                      "mistakes": 1, "guesses": []})
+            H.boot(page, base, DATE)
+            page.wait_for_selector("#stranger-hero", state="hidden")
+            why = "%dpx: " % width
+            for key in CLASSIC_TAGLINES:
+                geom = page.evaluate(
+                    """(k) => { const c = document.querySelector('[data-hero="' + k + '"]');
+                       const t = c.querySelector('.hero-tagline');
+                       return {clip: t.scrollHeight - t.clientHeight,
+                               col: c.querySelector('.hero-col').getBoundingClientRect().height,
+                               glyph: c.querySelector('.hero-glyph').getBoundingClientRect().height};
+                     }""", key)
+                assert geom["clip"] <= 1, \
+                    why + "%s tagline is cut off — %dpx of it is hidden" % (key, geom["clip"])
+                assert geom["col"] <= geom["glyph"] + 1, \
+                    why + "%s words (%.0fpx) now stand taller than the picture (%.0fpx) — " \
+                    "the card is about to grow" % (key, geom["col"], geom["glyph"])
+            assert page.evaluate("document.documentElement.scrollWidth <= document.documentElement.clientWidth"), \
+                why + "Home scrolls sideways"
+            H.fail_on_errors(errors, "taglines_survive_the_narrowest_phone/%d" % width)
+
+
 TESTS = [stranger_hero, stranger_hero_side_by_side,
          stranger_rows_open_their_own_games, returning_home_unchanged,
-         home_card_status_and_icons, in_progress_replaces_the_one_liner]
+         home_card_status_and_icons, in_progress_replaces_the_one_liner,
+         taglines_survive_the_narrowest_phone]
 
 
 def main():

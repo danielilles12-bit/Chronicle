@@ -144,9 +144,22 @@ def rollover(p, base):
         assert card.count() == 1, "yesterday missing from the Archive row"
         assert "day-progress" in (card.get_attribute("class") or ""), (
             "yesterday's half-played state is not shown on its day card")
-        assert card.inner_text().lower().strip().endswith("resume"), (
-            "a half-played day card should invite a resume, reads %r"
-            % card.inner_text())
+        # A half-played day card SHOWS its progress rather than saying
+        # "Resume" (Daniel, 9 Aug 2026): one mark per round, the round you are
+        # inside half-filled, plus the chevron that means there is play left.
+        # The words survive only in the accessible name.
+        marks = page.evaluate(
+            """(sel) => [...document.querySelectorAll(sel + ' .cs-mark')]
+                 .map(m => m.className.replace('cs-mark cs-', ''))""",
+            '[data-row="who"] [data-days] [data-edition-index="%d"]' % (N - 1))
+        assert marks == ["half", "todo", "todo"], (
+            "a day card one tear into round 1 should read ◐ ○ ○, got %r" % marks)
+        assert card.locator(".cs-chev").count() == 1, (
+            "a half-played day card lost the chevron that says there is play left")
+        assert "resume" not in card.inner_text().lower(), (
+            "the retired Resume word is back on a day card: %r" % card.inner_text())
+        assert "resume" in (card.get_attribute("aria-label") or "").lower(), (
+            "a half-played day card must still say 'resume' to a screen reader")
         H.fail_on_errors(errors, "rollover")
 
 

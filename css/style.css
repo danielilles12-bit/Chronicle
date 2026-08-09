@@ -178,7 +178,7 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   transition: transform .12s ease;
 }
 .hero-card:active { transform: scale(.985); }
-.hero-col { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 14px; }
+.hero-col { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 4px; }
 .hero-text { min-width: 0; }
 .hero-name { font-family: var(--ch-font-display); font-weight: 400; margin: 0 0 4px; font-size: 26px; text-transform: uppercase; letter-spacing: .01em; color: var(--ch-text-primary); }
 .hero-tagline { margin: 0; color: var(--ch-text-secondary); font-size: 14px; line-height: 1.4; }
@@ -189,11 +189,20 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
    it 104px → 136px — the full height of the card's content box, so the card
    itself is no taller than it was. */
 .hero-glyph { width: 136px; height: 136px; flex: none; display: block; }
-/* THE CARD HAS NO BOTTOM LINE (Daniel, 9 Aug 2026). It used to carry
-   "№ 71 · ~3 min": the issue number meant nothing to the people he watched
-   play, and the time estimate was never earned. Both went, and with them the
-   whole row — so .hero-col now holds one child and centres it against the
-   picture instead of pushing two apart. */
+/* THE BOTTOM LINE IS BACK, AND IT HOLDS NO WORDS (Daniel, 9 Aug 2026). It
+   carried "№ 71 · ~3 min" until that morning; the issue number meant nothing
+   to the people he watched play and the time estimate was never earned, so
+   both went and the row went with them. It returns here for one job only —
+   carrying the card's STATE as marks rather than a sentence (.cs-* below).
+   Nothing on it is ever a number of an issue, a date or a duration.
+   Height budget matters: the row plus .hero-col's 4px gap has to fit inside
+   the 136px the picture already occupies, or the card grows and the picture
+   stops filling it (the regression tests/test_stranger_home.py and
+   tests/test_archive_window.py both guard). Face Value is the tight one — a
+   two-line name over a three-line tagline leaves ~17px — hence 12px and a
+   4px gap, not a comfortable 20. */
+.hero-state { display: flex; align-items: center; gap: 7px; height: 12px; }
+.is-stranger .hero-state { display: none; }
 /* THE STATUS MOVED UNDER THE NAME (Daniel, 7 Aug 2026). It used to sit
    bottom-right opposite the issue number, saying "Play ›" on a card nobody
    could mistake for anything but a button. Now it is a real status line in the
@@ -201,7 +210,14 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
    never two. .show-status is the switch (js/app.js: showsStatus, and
    setCardStatus for the loading/error text this same line carries), so it
    also out-ranks the stranger rules further down that decide which tagline
-   a card is showing. */
+   a card is showing.
+   WHAT IS LEFT OF IT (9 Aug 2026): for a returning player this line is now
+   the loading/error voice and nothing else — "spinning up the presses…",
+   "couldn’t load — tap to retry" — because state is drawn, not narrated. The
+   one sentence that survives is the newcomer's "Resume today's puzzle" on
+   their three compact cards, which are deliberately untouched. So its colour
+   is plain ink in every case: the forest/gold state tints went with the
+   sentences they used to tint. */
 .hero-status {
   display: none; margin: 0 0 1px;
   font-size: 13px; font-weight: 700; color: var(--ch-text-muted);
@@ -210,8 +226,60 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 }
 .hero-card.show-status .hero-status { display: block; }
 .hero-card.show-status .hero-tagline { display: none; }
-.hero-card.row-done .hero-status { color: var(--ch-forest); }
-.hero-card.row-progress .hero-status { color: var(--ch-gold); }
+
+/* ---------- THE STATE MARKS (Daniel, 9 Aug 2026) ------------------------
+   One visual language for "where am I with this?", drawn identically on the
+   big cards and the archive stubs (js/app.js: cardState/stateHTML), so the
+   two sizes of card can never come to mean different things:
+
+     ●  solid   — that puzzle is finished
+     ◐  half    — the puzzle you are inside, unfinished
+     ○  outline — not started
+     ›  chevron — there is still play to do (never on a finished card)
+     ✓ 33 PTS   — finished, and what it paid
+
+   ONE MARK PER PUZZLE: three for Face Value / Lifeline / Relic (three rounds
+   a day), exactly ONE for Thread, which is one puzzle — its four groups and
+   four allowed mistakes live inside it and are none of Home's business.
+
+   CSS SHAPES, NOT CHARACTERS. ◐ and ○ are exactly the sort of glyph a phone
+   silently substitutes out of a fallback font, at a different size and
+   baseline each time; a bordered box with a border-radius renders the same
+   everywhere. Ink only, no accent colour: this is secondary information and
+   must never be the loudest thing on a card, and colour is never the only
+   thing carrying a state (the shape is). */
+.cs-marks { display: inline-flex; align-items: center; gap: 5px; }
+.cs-mark {
+  width: 9px; height: 9px; flex: none; display: inline-block;
+  border: 1.5px solid var(--ch-text-primary); border-radius: 50%;
+}
+.cs-mark.cs-done { background: var(--ch-text-primary); }
+.cs-mark.cs-half {
+  background: linear-gradient(to right,
+    var(--ch-text-primary) 0 50%, transparent 50% 100%);
+}
+/* The chevron is the house ‹ chip's arrow at card scale: two borders on a
+   square, turned 45°. margin-left:auto parks it at the far end of the row. */
+.cs-chev {
+  width: 6px; height: 6px; flex: none; display: inline-block;
+  margin-left: auto; transform: rotate(45deg);
+  border-top: 2px solid var(--ch-text-primary);
+  border-right: 2px solid var(--ch-text-primary);
+}
+.cs-score {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--ch-font-ui); font-weight: 700; font-size: 11px;
+  text-transform: uppercase; letter-spacing: .04em; line-height: 1;
+  color: var(--ch-text-primary); white-space: nowrap;
+}
+/* Same trick as the chevron, turned the other way: a tick is two borders on
+   a square rotated 45°, with the box squashed to a tick's proportions. */
+.cs-tick {
+  width: 5px; height: 9px; flex: none; display: inline-block;
+  transform: rotate(45deg); margin-bottom: 2px;
+  border-right: 2px solid var(--ch-text-primary);
+  border-bottom: 2px solid var(--ch-text-primary);
+}
 /* ROOM FOR A PEEK. The only thing telling a player the row scrolls is a slice
    of the next card showing past the screen edge, and 15px of it (the first
    cut) was too thin to read as anything. So the hero gives up 28px, which at
@@ -233,9 +301,16 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
    `display: -webkit-box`, and any rule that sets `display` on a tagline
    fights the two rules that decide which tagline a card is showing — it
    showed both at once, and then kept one under a done card, before this was
-   rewritten. Capping the height touches neither. 4.2em = three lines at the
-   1.4 line-height above. */
-.game-row.has-days .hero-tagline { max-height: 4.2em; overflow: hidden; }
+   rewritten. Capping the height touches neither.
+   FOUR lines, not three (9 Aug 2026). Three was set when the card still had
+   a "№ 71 · ~3 min" row under the words; with that row gone the column has
+   room to spare, and the longer taglines Daniel wrote that morning needed it
+   — Relic and Thread both ran to four lines on a 375px phone and were losing
+   their last word to this very cap. The budget is still the icon: 4 lines
+   (5.6em ≈ 78px) + a two-line game name + the state row is 126px against the
+   icon's 136px, so the card does not grow. tests/test_home_card_states.py
+   and test_stranger_home.py both measure a 375px screen for exactly this. */
+.game-row.has-days .hero-tagline { max-height: 5.6em; overflow: hidden; }
 
 /* THE PAST-DAY CARDS (Archive v2, 7 Aug 2026). Deliberately the hero card's
    little sibling rather than a new object: same cream paper, same ink rule,
@@ -262,16 +337,23 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   text-transform: uppercase; letter-spacing: var(--ch-tracking-smallcaps);
   color: var(--ch-text-label);
 }
-.day-status {
-  margin-top: 5px; font-size: 11px; font-family: var(--ch-font-ui); font-weight: 700;
-  color: var(--ch-text-muted); text-transform: uppercase; letter-spacing: .04em;
-  line-height: 1.25;
+/* The stub's state row: the hero card's marks at stub scale (Daniel, 9 Aug
+   2026). It replaced a status WORD — "N pts", "Resume", or nothing at all —
+   which was a second dialect standing directly under the big card's own
+   sentence. Marks are 7px here against the hero's 9px so they read as the
+   same thing, quieter; the score keeps the hero's 11px because a number has
+   to stay legible at arm's length. Full width so the chevron parks at the
+   card's right edge, in line with the hero's. */
+.day-state {
+  margin-top: 6px; align-self: stretch;
+  display: flex; align-items: center; gap: 6px; height: 11px;
 }
+.day-state .cs-mark { width: 7px; height: 7px; border-width: 1.25px; }
+.day-state .cs-marks { gap: 4px; }
+.day-state .cs-tick { width: 4px; height: 8px; border-width: 1.75px; }
 /* A played day wears the game's own colour on its left edge — the same
    "this one is settled" signal the hero card's row-done state gives. */
 .day-card.day-done { border-left-color: var(--row-tint-strong, var(--ch-ink)); }
-.day-card.day-done .day-status { color: var(--ch-forest); }
-.day-card.day-progress .day-status { color: var(--ch-gold); }
 
 .home-foot { text-align: center; color: var(--ch-text-muted); font-size: 12px; padding: 4px 0 calc(16px + env(safe-area-inset-bottom)); font-family: var(--ch-font-ui); }
 .foot-toggle { background: none; border: none; padding: 0; font: inherit; color: inherit; text-decoration: underline; cursor: pointer; }
