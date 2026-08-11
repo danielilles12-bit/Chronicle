@@ -407,10 +407,13 @@ def money_scrap(item):
 
 def start_scrap(item):
     """The scrap that opens torn — curated `start` override, else the cell
-    farthest from the money shot (corners first). Mirrors js/revealgame.js."""
+    farthest from the money shot (corners first). Mirrors js/revealgame.js,
+    INCLUDING the owner ruling (29 Jul 2026) that a curated start MAY be the
+    money cell itself — the old `s != m` guard here made the review board
+    disagree with the shipped game (found 11 Aug 2026, Andrew Jackson)."""
     m = money_scrap(item)
     s = item.get("start")
-    if isinstance(s, int) and 0 <= s <= 8 and s != m:
+    if isinstance(s, int) and 0 <= s <= 8:
         return s
     mr, mc = divmod(m, 3)
     best, bd = 0, -1

@@ -4278,7 +4278,7 @@
       "justinian i",
       "justinian the great"
     ],
-    "blurb": "Byzantine emperor who codified Roman law (482–565) · Married Theodora, a former actress, after having the law barring it rewritten",
+    "blurb": "Byzantine emperor who codified Roman law (482–565) · Married Theodora, a former actress, after changing a law that would have prevented him from doing so",
     "img": "assets/img/justinian-i.jpg",
     "fx": 0.47,
     "fy": 0.35,
@@ -5571,7 +5571,7 @@
     "image_retrieved": "2026-07-21",
     "mcq": [
       "Marie Antoinette",
-      "Mary Wollstonecraft"
+      "Jane Austen"
     ],
     "start": 3
   },
@@ -5654,7 +5654,7 @@
     "image_retrieved": "2026-07-21",
     "mcq": [
       "Ferdinand Magellan",
-      "Hernán Cortés"
+      "Vasco da Gama"
     ]
   },
   {
@@ -6388,7 +6388,7 @@
     "image_retrieved": "2026-07-21",
     "mcq": [
       "Alfred Nobel",
-      "Charles Darwin"
+      "James Clerk Maxwell"
     ]
   },
   {
@@ -6469,7 +6469,7 @@
     "image_retrieved": "2026-07-21",
     "mcq": [
       "Jane Austen",
-      "Catherine the Great"
+      "Marie Antoinette"
     ]
   },
   {
@@ -6977,7 +6977,7 @@
     "reserve": true,
     "mcq": [
       "Yamagata Aritomo",
-      "Douglas MacArthur"
+      "Saigo Takamori"
     ]
   },
   {
@@ -7394,8 +7394,8 @@
     "image_license": "Public domain",
     "image_retrieved": "2026-07-21",
     "mcq": [
-      "Ella Fitzgerald",
-      "Emily Dickinson"
+      "Enid Blyton",
+      "Elizabeth Cady Stanton"
     ]
   },
   {
@@ -8945,7 +8945,8 @@
     "mcq": [
       "Grace Kelly",
       "Audrey Hepburn"
-    ]
+    ],
+    "start": 3
   },
   {
     "id": "truman",
@@ -9515,8 +9516,8 @@
     "image_license": "Public domain",
     "image_retrieved": "2026-07-24",
     "mcq": [
-      "Albert Einstein",
-      "Sigmund Freud"
+      "John von Neumann",
+      "A. A. Milne"
     ]
   },
   {
@@ -9685,7 +9686,7 @@
       "John Quincy Adams",
       "William Henry Harrison"
     ],
-    "start": 1,
+    "start": 4,
     "image_modifications": "cropped"
   },
   {

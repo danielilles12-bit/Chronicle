@@ -116,6 +116,10 @@
   "kurosawa": [
    "Yasujirō Ozu",
    "Toshiro Mifune"
+  ],
+  "turing": [
+   "John von Neumann",
+   "A. A. Milne"
   ]
  },
  "what": {
@@ -330,6 +334,14 @@
   "shroud-of-turin": [
    "Veil of Veronica",
    "Sudarium of Oviedo"
+  ],
+  "mona-lisa": [
+   "Virgin of the Rocks",
+   "Madonna of the Carnation"
+  ],
+  "lewis-chessmen": [
+   "Cyrus Cylinder",
+   "Venus of Willendorf"
   ]
  },
  "map": {
@@ -342,8 +354,8 @@
    "Jesse James"
   ],
   "saladin": [
-   "Baibars",
-   "Nur ad-Din"
+   "Genghis Khan",
+   "Ptolemy I Soter"
   ],
   "charles-xii-sweden": [
    "George I of Great Britain",

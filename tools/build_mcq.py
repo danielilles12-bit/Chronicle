@@ -122,7 +122,9 @@ def load(path):
 
 
 def save(path, items):
-    path.write_text(json.dumps(items, indent=1, ensure_ascii=False) + "\n",
+    # indent=2 matches how the data files are committed — indent=1 here used
+    # to reformat all three files wholesale on every write (75k-line diffs).
+    path.write_text(json.dumps(items, indent=2, ensure_ascii=False) + "\n",
                     encoding="utf-8")
 
 

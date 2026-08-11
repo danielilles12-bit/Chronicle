@@ -8227,7 +8227,7 @@
   {
     "id": "conn-067",
     "title": "When in Rome",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "groups": [
       {
         "colour": "yellow",
@@ -8251,9 +8251,9 @@
       },
       {
         "colour": "blue",
-        "label": "Everyday words that began as Roman gods",
+        "label": "English words that began as Roman gods",
         "items": [
-          "Volcano",
+          "Mercurial",
           "Cereal",
           "Money",
           "Martial"
@@ -8261,12 +8261,12 @@
       },
       {
         "colour": "purple",
-        "label": "Roman forts hiding in their names",
+        "label": "Rome's greatest hits (and misses) in war",
         "items": [
-          "Chester",
-          "Manchester",
-          "Winchester",
-          "Lancaster"
+          "Cannae",
+          "Actium",
+          "Teutoburg Forest",
+          "Alesia"
         ]
       }
     ]

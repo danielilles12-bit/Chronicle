@@ -347,6 +347,19 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
 - **[JUDGMENT]** **The wrong-guess price rides on the Guess button**: "IF
   WRONG −15 PTS", Daniel's wording, with the "if". It is the one cost a player
   can incur without any warning at all.
+- **[JUDGMENT]** **Rescue distractors scale AGAINST the answer's fame**
+  (Daniel, 11 Aug 2026, edition-44 review). For a lesser-known answer, the
+  distractors are KIND — famous names the player can rule out (Saladin:
+  Baibars/Nur ad-Din → Genghis Khan/Ptolemy I Soter; three unknowns is no
+  rescue at all). For a very famous answer they are CRUEL — near neighbours
+  that keep the 20 points earned (Mona Lisa: The Scream → Virgin of the
+  Rocks/Madonna of the Carnation, all Leonardo). A distractor must also never
+  be a same-day or adjacent-day ANSWER (Lewis Chessmen carried "Bayeux
+  Tapestry" the day after it aired — anyone who played could eliminate it).
+- **[JUDGMENT]** **Relic images are museum-grade** (Daniel, 11 Aug 2026):
+  crisp, well-lit, subject on a clean background — "no blurry figurines".
+  When a round's image is a fuzzy snapshot, replace the image, don't excuse
+  it (Lewis Chessmen: lone warder snapshot → NMS king-and-queen shot).
 - **[ENGINE]** **A bought clue replaces its own control, in the same slot.**
   Never a greyed-out button plus a duplicate yellow answer somewhere below it.
 - **[ENGINE]** **The rescue closes the shop** (Daniel, 5 Aug 2026 — the exploit
@@ -384,6 +397,14 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
 - **[ENGINE]** 3 rounds per game per day, exactly one easy/medium/hard;
   Thread tier by weekday (Mon/Tue easy, Wed/Thu medium, Fri–Sun hard).
   `compile_editions.py` recipe.
+- **[JUDGMENT]** **The tier recipe is a default Daniel may overrule on any
+  specific day (Daniel, 11 Aug 2026).** The compiler keeps producing
+  one-easy/one-medium/one-hard, and that stays the rule for anything
+  auto-staged; but when Daniel names a swap on a given issue during daily
+  review, the recipe yields for that issue only and does not need
+  relitigating. First use: edition 44 (12 Aug 2026), where Relic runs
+  Statue of Liberty (easy) + Mona Lisa (medium) + Lewis Chessmen (medium)
+  with no hard round. Do not "fix" a past issue back to the recipe.
 - **[ENGINE]** The week gets harder INSIDE each tier (Monday = the tier's
   most famous end, Sunday = its deeper half, never its dregs). Weekday
   ramp in `compile_editions.py`.

@@ -7,8 +7,18 @@ Thread tile that gave away the next day's Relic answer). Nothing else in
 the repo checks for this, so it will recur with every new content batch.
 This is the permanent guard.
 
-Two classes of finding, across the WHOLE manifest:
+Three classes of finding, across the WHOLE manifest:
 
+  0. unknown-id    an id the manifest references that does not exist in its
+                    game's pool at all. Born 11 Aug 2026: a hand-edit during
+                    the nightly review staged 'alan-turing' — the pool id is
+                    'turing' — and every check passed, because js/daily.js
+                    silently drops unknown ids (.filter(Boolean)) and the
+                    day would simply have aired one round short. Always
+                    ERROR; gates the build when the edition is still
+                    reachable in the app (today or future, or an aired day
+                    inside the 7-day archive window at/after the launch
+                    floor).
   1. id-repeat     the same item id (who/map/what/thread) scheduled twice
                     with too short a gap: ERROR under the 28-day hard floor
                     (CLAUDE.md locked decision #5), WARN 28-41 days (under
@@ -376,6 +386,41 @@ def edition_index(epoch, d):
 
 
 # ---------------------------------------------------------------------------
+# Rule 0 — ids that don't exist (the 'alan-turing' guard, 11 Aug 2026)
+# ---------------------------------------------------------------------------
+def check_unknown_ids(editions, items, connections_by_id, today_idx, launch=0):
+    """Every id the manifest references must exist in its game's pool.
+
+    who/map/what ids are checked against the pools build_linker() loaded;
+    thread ids against data/connections.json. Reachability decides gating:
+    an unknown id today/future or inside the 7-day archive window (>= the
+    launch floor, before which the archive cannot reach) is a live break —
+    the app would serve a short day. Anything older is historical
+    bookkeeping, same stance as the other rules.
+    """
+    findings = []
+    for n, ed in editions:
+        d = ed.get("date", "")
+        reachable = n >= launch and n >= today_idx - 6
+        for game in ITEM_GAMES:
+            for iid in ed.get(game) or []:
+                if (game, iid) not in items:
+                    findings.append({
+                        "rule": "unknown-id", "severity": "ERROR",
+                        "edition": n, "date": d, "game": game, "id": iid,
+                        "gates": reachable,
+                    })
+        for bid in ed.get("thread") or []:
+            if bid not in connections_by_id:
+                findings.append({
+                    "rule": "unknown-id", "severity": "ERROR",
+                    "edition": n, "date": d, "game": "thread", "id": bid,
+                    "gates": reachable,
+                })
+    return findings
+
+
+# ---------------------------------------------------------------------------
 # Rule 1 — same item id, gap too short
 # ---------------------------------------------------------------------------
 def check_id_repeats(editions, today_idx, launch=0):
@@ -483,6 +528,14 @@ def check_linked_subjects(editions, subject_of, resolve_text, label_of, connecti
 # ---------------------------------------------------------------------------
 # Reporting
 # ---------------------------------------------------------------------------
+def fmt_unknown(f):
+    gate = "" if f["gates"] else " (unreachable, no gate)"
+    kind = "board" if f["game"] == "thread" else "item"
+    pool = "connections" if f["game"] == "thread" else f["game"]
+    return (f"unknown id '{f['id']}' in №{f['edition']} ({f['date']}, {f['game']}) — "
+            f"no such {kind} in the {pool} pool{gate}")
+
+
 def fmt_id_repeat(f):
     gate = "" if f["gates"] else " (historical, no gate)" if f["severity"] == "ERROR" else ""
     a, b = f["a"], f["b"]
@@ -545,6 +598,8 @@ def main():
     except Exception:
         launch = 0
 
+    unknown_findings = check_unknown_ids(editions, items, connections_by_id,
+                                         today_idx, launch)
     id_findings = check_id_repeats(editions, today_idx, launch)
     linked_findings, ambiguous = check_linked_subjects(
         editions, subject_of, resolve_text, label_of, connections_by_id,
@@ -556,28 +611,36 @@ def main():
             "today": today.isoformat(),
             "today_edition_index": today_idx,
             "edition_range": [editions[0][0], editions[-1][0]],
+            "unknown_id_findings": unknown_findings,
             "id_repeat_findings": id_findings,
             "linked_subject_findings": linked_findings,
             "ambiguous_tile_matches": ambiguous,
             "summary": {
+                "unknown_id_errors": len(unknown_findings),
                 "id_repeat_errors": sum(1 for f in id_findings if f["severity"] == "ERROR"),
                 "id_repeat_warns": sum(1 for f in id_findings if f["severity"] == "WARN"),
                 "linked_errors": sum(1 for f in linked_findings if f["severity"] == "ERROR"),
                 "linked_warns": sum(1 for f in linked_findings if f["severity"] == "WARN"),
                 "linked_infos": sum(1 for f in linked_findings if f["severity"] == "INFO"),
-                "gating_errors": sum(1 for f in id_findings + linked_findings
+                "gating_errors": sum(1 for f in unknown_findings + id_findings + linked_findings
                                      if f["severity"] == "ERROR" and f["gates"]),
             },
         }
         print(json.dumps(out, indent=1, ensure_ascii=False))
         sys.exit(1 if out["summary"]["gating_errors"] else 0)
 
-    all_findings = id_findings + linked_findings
+    all_findings = unknown_findings + id_findings + linked_findings
     order = {"ERROR": 0, "WARN": 1, "INFO": 2}
-    all_findings.sort(key=lambda f: (order[f["severity"]], f["a"]["edition"]))
+    all_findings.sort(key=lambda f: (order[f["severity"]],
+                                     f["a"]["edition"] if "a" in f else f["edition"]))
 
     for f in all_findings:
-        line = fmt_id_repeat(f) if f["rule"] == "id-repeat" else fmt_linked(f)
+        if f["rule"] == "unknown-id":
+            line = fmt_unknown(f)
+        elif f["rule"] == "id-repeat":
+            line = fmt_id_repeat(f)
+        else:
+            line = fmt_linked(f)
         print(f"{f['severity']:<5} {line}")
 
     for a in ambiguous:
@@ -594,6 +657,7 @@ def main():
 
     print(f"validate_schedule: editions {editions[0][0]}..{editions[-1][0]} "
           f"(today = edition {today_idx}, {today.isoformat()}) — "
+          f"unknown-id {len(unknown_findings)}E, "
           f"id-repeat {n_id_err}E/{n_id_warn}W, linked-subject {n_link_err}E/{n_link_warn}W/{n_link_info}I, "
           f"{len(ambiguous)} ambiguous tile match(es) — "
           f"{len(gating)} gating error(s), {len(historical_err)} historical-only error(s)")
