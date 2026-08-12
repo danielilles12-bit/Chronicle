@@ -19,7 +19,9 @@ Covered:
      decline -> strip, strip × -> one final offer at a 7-day streak, then
      silence; webviews at 1 game, at most twice
   4. the guaranteed fallback: COPY THE LINK really writes the clipboard
-  5. an installed app is NEVER pitched an install, and reports itself once
+  5. the webview warning banner on Home (11 Aug 2026) — in-app browsers
+     only, names the app, routes to the escape screen, × snoozes 7 days
+  6. an installed app is NEVER pitched an install, and reports itself once
 
 Gotcha kept from earlier sessions: inner_text() is CSS-uppercased, so all text
 matching here is case-insensitive.
@@ -214,6 +216,14 @@ def qa_panel_summons_every_branch(p, base):
                     or "webview-shown" in e], "QA forcing sent analytics"
         page.click("#qa-panel .qa-btn:has-text('Install pitch')")
         page.wait_for_selector(STRIP)
+        # The webview banner too: forced in the named variant, silently.
+        page.click("#qa-panel .qa-btn:has-text('Webview banner')")
+        page.wait_for_selector("#webview-note:not([hidden])")
+        assert "instagram" in page.inner_text("#webview-note").lower()
+        assert not [e for e in H.gc_events(page) if "webview-banner" in e], (
+            "QA forcing sent banner analytics")
+        assert not misc(page).get("webviewNoteSnoozedAt"), (
+            "QA forcing touched the banner's snooze state")
         H.fail_on_errors(errors, "qa_panel_summons_every_branch")
 
 
@@ -450,7 +460,120 @@ def copy_the_link(p, base):
 
 
 # ---------------------------------------------------------------------------
-# 5. the installed app
+# 5. the webview warning banner on Home (11 Aug 2026)
+# ---------------------------------------------------------------------------
+NOTE = "#webview-note:not([hidden])"
+DAY_MS = 24 * 60 * 60 * 1000
+
+
+def webview_banner_warns_and_routes(p, base):
+    """Inside Instagram's browser the banner is up from the first paint: it
+    names the app in hand, fires its shown beacon once per session, lives on
+    Home and nowhere else, and its button opens the SAME escape screen the
+    end-of-game offer uses — without spending that offer's twice-per-device
+    cap or counting as an install 'maybe later'."""
+    with H.app(p, context_args={"user_agent": UA_INSTAGRAM}) as (page, errors, _c):
+        H.boot(page, base, DATE)
+        page.wait_for_selector(NOTE)
+        text = page.inner_text("#webview-note").lower()
+        assert "instagram" in text, "the banner should name the app in hand"
+        assert "streaks can die in here" in text
+        assert "show me out" in text
+        assert H.gc_events(page).count("7-webview-banner-shown") == 1
+
+        # A strip, not a screen: it lives inside Home and leaves with it.
+        page.evaluate("() => __CHRONICLE_TEST__.nav.show('view-ledger')")
+        assert page.locator("#webview-note").is_hidden(), (
+            "the banner belongs to Home, not to other views")
+        page.evaluate("() => __CHRONICLE_TEST__.nav.goHome()")
+        page.wait_for_selector(NOTE)
+        assert H.gc_events(page).count("7-webview-banner-shown") == 1, (
+            "shown is once per SESSION, not once per Home repaint")
+
+        # The door: the existing escape surface, nothing duplicated.
+        page.click("#webview-note-btn")
+        page.wait_for_selector(SCREEN)
+        assert "instagram can’t keep apps" in screen_text(page)
+        assert "open in external browser" in screen_text(page)
+        assert "copy the link" in screen_text(page)
+        assert "7-webview-banner-tapped" in H.gc_events(page)
+        assert not misc(page).get("installEscapes"), (
+            "a player-opened escape must not spend the auto-offer's cap")
+        assert "7-webview-shown-instagram" not in H.gc_events(page), (
+            "webview-shown is the auto-offer's own funnel, not the banner's")
+
+        # Backing out lands on Home with the banner still up — and closing a
+        # door you opened yourself is not an install "maybe later".
+        page.click("#install-back")
+        page.wait_for_selector("#install-screen", state="hidden")
+        page.wait_for_selector(NOTE)
+        assert "7-install-later" not in H.gc_events(page)
+        assert not misc(page).get("installLater")
+
+        # The auto-offer is untouched by any of this: one finished game still
+        # brings the escape page, counted as ever.
+        finish_game(page, "who")
+        page.wait_for_selector(SCREEN)
+        assert "7-webview-shown-instagram" in H.gc_events(page)
+        assert misc(page).get("installEscapes") == 1
+        H.fail_on_errors(errors, "webview_banner_warns_and_routes")
+
+
+def webview_banner_snooze_seven_days(p, base):
+    """The × is a snooze, not an execution: gone for a week, remembered
+    across launches, back on day eight — the app can't be installed in there,
+    so the warning has to be allowed to return."""
+    with H.app(p, context_args={"user_agent": UA_INSTAGRAM}) as (page, errors, _c):
+        H.boot(page, base, DATE)
+        page.wait_for_selector(NOTE)
+        page.click("#webview-note-close")
+        page.wait_for_selector("#webview-note", state="hidden")
+        assert "7-webview-banner-dismissed" in H.gc_events(page)
+        assert misc(page).get("webviewNoteSnoozedAt"), (
+            "the snooze must persist in the misc blob")
+
+        H.boot(page, base, DATE)          # relaunch, same device: still quiet
+        page.wait_for_timeout(600)
+        assert page.locator("#webview-note").is_hidden()
+        assert "7-webview-banner-shown" not in H.gc_events(page)
+
+        # Day six: still snoozed.
+        set_misc(page, {"webviewNoteSnoozedAt":
+                        page.evaluate("() => Date.now() - 6 * %d" % DAY_MS)})
+        H.boot(page, base, DATE)
+        page.wait_for_timeout(600)
+        assert page.locator("#webview-note").is_hidden(), (
+            "six days is inside the week")
+
+        # Day eight: a warning again.
+        set_misc(page, {"webviewNoteSnoozedAt":
+                        page.evaluate("() => Date.now() - 8 * %d" % DAY_MS)})
+        H.boot(page, base, DATE)
+        page.wait_for_selector(NOTE)
+        H.fail_on_errors(errors, "webview_banner_snooze_seven_days")
+
+
+def webview_banner_nowhere_else(p, base):
+    """Real browsers never see it, and neither does the installed app — even
+    one whose UA still carries a webview token (standalone wins, as it does
+    for every other branch)."""
+    cases = [
+        (None, (), "iOS Safari"),
+        ({"user_agent": UA_DESKTOP}, (), "a desktop browser"),
+        ({"user_agent": UA_INSTAGRAM}, (STANDALONE,), "standalone beats webview"),
+    ]
+    for ctx_args, scripts, label in cases:
+        with H.app(p, context_args=ctx_args, init_scripts=scripts) as (page, errors, _c):
+            H.boot(page, base, DATE)
+            page.wait_for_timeout(400)
+            assert page.locator("#webview-note").is_hidden(), (
+                "%s: the banner showed outside an in-app browser" % label)
+            assert "7-webview-banner-shown" not in H.gc_events(page), label
+            H.fail_on_errors(errors, "webview_banner_nowhere_else:%s" % label)
+
+
+# ---------------------------------------------------------------------------
+# 6. the installed app
 # ---------------------------------------------------------------------------
 def never_in_the_installed_app(p, base):
     """Nothing at all, ever — and the one honest success beacon, fired once."""
@@ -477,6 +600,8 @@ TESTS = [detection, screens_render, qa_panel_summons_every_branch,
          decline_leaves_the_strip, strip_x_then_one_last_offer,
          saved_it_ends_the_asking, android_one_tap,
          webview_after_one_game_twice, copy_the_link,
+         webview_banner_warns_and_routes, webview_banner_snooze_seven_days,
+         webview_banner_nowhere_else,
          never_in_the_installed_app]
 
 

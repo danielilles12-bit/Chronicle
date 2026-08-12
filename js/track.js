@@ -124,6 +124,13 @@ const DISPLAY = {
   'webview-shown-tiktok': '7-webview-shown-tiktok',
   'webview-shown-other': '7-webview-shown-other',
   'webview-copylink': '7-webview-link-copied',
+  // The Home warning banner inside in-app browsers (11 Aug 2026): shown once
+  // per session, tapped (opens the escape page above), or snoozed for a week
+  // with its ×. Taps ÷ showns is whether the warning does any work; the
+  // webview-shown family stays the auto-offer's own funnel.
+  'webview-note-shown': '7-webview-banner-shown',
+  'webview-note-tap': '7-webview-banner-tapped',
+  'webview-note-dismiss': '7-webview-banner-dismissed',
   // Letters to the Editor (js/feedback.js, 5 Aug 2026): the TAP, never the
   // submission — GoatCounter cannot see the Google Form, so taps ÷ replies
   // is the form's drop-off rate and will not be 1:1. 6f keeps the family out

@@ -106,6 +106,20 @@
         Your streak doesn’t have to die here.</p>
       <button type="button" class="pill primary" id="moving-carry-btn">Carry your record over →</button>
     </div>
+    <!-- The webview warning banner (11 Aug 2026): shown ONLY inside a
+         detected in-app browser (Instagram/Facebook and friends —
+         webviewApp() in js/install.js, the one detector). The record is
+         disposable in there and installing is impossible, and in launch week
+         only 8 of 74 such sessions found the escape unaided — so the state is
+         said out loud at the top of Home. One line, one door: the button
+         opens the SAME escape screen the end-of-game offer uses, so the
+         teach lives in exactly one place. The × snoozes it for 7 days (misc
+         blob). Shown and hidden entirely by js/install.js. -->
+    <div id="webview-note" role="status" hidden>
+      <button type="button" id="webview-note-close" aria-label="Dismiss">×</button>
+      <p class="webview-note-line" id="webview-note-line">You’re in an in-app browser — streaks can die in here.</p>
+      <button type="button" id="webview-note-btn" class="webview-note-cta">Show me out ›</button>
+    </div>
     <!-- Edition-closed strip (Change A): the quiet ending shown at the top of
          Home once all four of today's dailies are played but not all won. An
          all-won day gets the You Made History celebration instead (see

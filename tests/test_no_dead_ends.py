@@ -416,6 +416,14 @@ def home_strips(p, base):
             page.wait_for_selector("#install-tip", state="hidden")
             assert_on(page, "view-home", "install pitch dismissed")
 
+        if qa_force(page, "Webview banner", "#webview-note:not([hidden])"):
+            assert_on(page, "view-home", "webview banner")
+            assert page.locator("#webview-note-close").is_visible(), (
+                "the webview banner has no dismiss")
+            page.click("#webview-note-close")
+            page.wait_for_selector("#webview-note", state="hidden")
+            assert_on(page, "view-home", "webview banner dismissed")
+
         if qa_force(page, "Edition-closed strip", "#issue-closed:not([hidden])"):
             assert_on(page, "view-home", "edition-closed strip")
             assert page.locator("#home-rows .game-row").count() == 4, (

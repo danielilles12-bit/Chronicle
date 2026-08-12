@@ -30,6 +30,7 @@ const ACTIONS = [
   ['Save it · other browser', 'installGeneric'],
   ['Escape · Instagram', 'webviewInstagram'],
   ['Escape · other app', 'webviewGeneric'],
+  ['Webview banner', 'webviewNote'],
   ['Intro · Face Value', 'introWho'],
   ['Intro · Lifeline', 'introMap'],
   ['Intro · Relic', 'introWhat'],

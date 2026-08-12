@@ -322,6 +322,10 @@ function closeScreen() {
 // mean the same thing to the state machine — this player said no for now.
 function decline() {
   if (openReason === 'qa') { closeScreen(); return; }
+  // Closing an escape screen the player opened from the Home banner is not
+  // an install "maybe later" — they were never asked to install anything, so
+  // it earns no strip and no install-later beacon. Just back to Home.
+  if (openReason === 'banner') { closeScreen(); return; }
   track('install-later');
   // Earn the strip only on the first ask. After the strip has been killed with
   // its ×, nothing may bring it back — the final streak-7 offer is the last
@@ -407,7 +411,12 @@ function showScreenA(kind, reason) {
 
 function showScreenB(app, reason) {
   if (!paint(screenBHTML(app), `webview-${app}`, reason)) return;
-  if (reason === 'qa') return;
+  // 'banner' is the player OPENING the escape themselves (the Home warning
+  // strip): their tap is already counted (webview-note-tap), and a door they
+  // chose to walk through must not spend the auto-offer's twice-per-device
+  // cap — that cap exists to limit interruptions, and this was no
+  // interruption.
+  if (reason === 'qa' || reason === 'banner') return;
   track(`webview-shown-${app}`);
   const misc = store.getMisc();
   store.setMisc({ installEscapes: (misc.installEscapes || 0) + 1 });
@@ -443,6 +452,76 @@ function initStrip() {
       // a streak reaches 7 — and after that, silence.
       store.setMisc({ installStripGone: true, installLater: false });
       strip.hidden = true;
+    });
+  }
+}
+
+// ---------------------------------------------------------------------------
+// the webview warning banner on Home (11 Aug 2026)
+// ---------------------------------------------------------------------------
+// ~16% of launch traffic arrived inside Instagram's built-in browser, where
+// the record is disposable and installing is impossible — and only 8 of 74
+// such sessions found the escape page's exit on their own. So inside a
+// detected in-app browser (webviewApp() above — the one detector) the state
+// is said out loud at the top of Home: one line, one door. The door opens
+// the SAME escape screen the end-of-game offer uses (showScreenB), so the
+// teach lives in exactly one place; on iOS a page cannot open Safari itself,
+// which is why the door leads to instructions rather than attempting it.
+// The × snoozes the banner for SEVEN DAYS rather than forever: a warning
+// that can never return quietly rots into wallpaper, and unlike the install
+// strip (whose × is final by ruling) this strip guards against real, ongoing
+// harm — but it must also never become a daily nag, hence the week.
+const WEBVIEW_NOTE_SNOOZE_MS = 7 * 24 * 60 * 60 * 1000;
+let noteApp = null;           // which app the visible banner is naming
+let noteShownTracked = false; // the shown beacon fires once per session
+
+function paintWebviewNote(app) {
+  const line = $('#webview-note-line');
+  if (!line) return;
+  noteApp = app;
+  const name = APP_NAMES[app];
+  // Named where detection is confident (the ruling: browser-name dynamism is
+  // fine where trivially detectable); the generic line claims nothing.
+  // "CAN die", not "will": the locked streak-risk wording is universal and
+  // vague-but-true, and per-browser deletion claims are banned.
+  line.textContent = name
+    ? `You’re in ${name}’s browser — streaks can die in here.`
+    : 'You’re in an in-app browser — streaks can die in here.';
+}
+
+function refreshWebviewNote() {
+  const note = $('#webview-note');
+  if (!note) return;
+  // branch() puts 'installed' before 'webview', so a standalone app is never
+  // warned — same precedence as everything else in this file.
+  if (branch() !== 'webview') { note.hidden = true; return; }
+  const at = store.getMisc().webviewNoteSnoozedAt;
+  if (typeof at === 'number') {
+    const since = Date.now() - at;
+    // A snooze stamped in the future (a device clock that moved) does not
+    // count: fail open, towards the warning.
+    if (since >= 0 && since < WEBVIEW_NOTE_SNOOZE_MS) { note.hidden = true; return; }
+  }
+  paintWebviewNote(webviewApp());
+  note.hidden = false;
+  if (!noteShownTracked) { noteShownTracked = true; track('webview-note-shown'); }
+}
+
+function initWebviewNote() {
+  const cta = $('#webview-note-btn');
+  if (cta) {
+    cta.addEventListener('click', () => {
+      track('webview-note-tap');
+      showScreenB(noteApp || webviewApp() || 'other', 'banner');
+    });
+  }
+  const close = $('#webview-note-close');
+  if (close) {
+    close.addEventListener('click', () => {
+      track('webview-note-dismiss');
+      store.setMisc({ webviewNoteSnoozedAt: Date.now() });
+      const note = $('#webview-note');
+      if (note) note.hidden = true;
     });
   }
 }
@@ -525,6 +604,8 @@ window.addEventListener('appinstalled', () => {
 export function initInstall() {
   initStrip();
   refreshStrip();
+  initWebviewNote();
+  refreshWebviewNote();
 
   // The one honest success signal: the first launch that reports itself as an
   // installed app. Fired once per device, ever.
@@ -535,7 +616,7 @@ export function initInstall() {
 
   document.addEventListener('gamefinished', onGameFinished);
   document.addEventListener('viewchange', (e) => {
-    if (e.detail === 'view-home') refreshStrip();
+    if (e.detail === 'view-home') { refreshStrip(); refreshWebviewNote(); }
   });
   const back = $('#install-back');
   if (back) back.addEventListener('click', decline);
@@ -564,6 +645,16 @@ export const qaActions = {
   installGeneric: () => showScreenA('generic', 'qa'),
   webviewInstagram: () => showScreenB('instagram', 'qa'),
   webviewGeneric: () => showScreenB('other', 'qa'),
+  webviewNote: () => {
+    const note = document.querySelector('#webview-note');
+    if (!note) return;
+    // The named variant — the one nine in ten real webview players see. Only
+    // paints; the shown beacon and the snooze state stay untouched, same as
+    // every other forcing here.
+    paintWebviewNote('instagram');
+    note.hidden = false;
+    note.scrollIntoView({ block: 'center' });
+  },
 };
 
 // Test-only view of the machine (app.js gates this behind testHooksEnabled).
