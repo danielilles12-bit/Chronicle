@@ -2168,42 +2168,42 @@
     "groups": [
       {
         "colour": "yellow",
-        "label": "Children's books of the Victorian age",
+        "label": "Toys of a Victorian childhood",
         "items": [
-          "Treasure Island",
-          "Alice in Wonderland",
-          "Struwwelpeter",
-          "Black Beauty"
+          "Rocking horse",
+          "Spinning top",
+          "Marbles",
+          "Hoop and stick"
         ]
       },
       {
         "colour": "green",
-        "label": "Punishments in a Victorian classroom",
+        "label": "Books written for Victorian children",
         "items": [
-          "The cane",
-          "Dunce's cap",
-          "Writing lines",
-          "Standing in the corner"
+          "Alice in Wonderland",
+          "Treasure Island",
+          "The Jungle Book",
+          "The Water-Babies"
         ]
       },
       {
         "colour": "blue",
-        "label": "Nursery rhymes said to hide real history",
+        "label": "Jobs children actually did",
         "items": [
-          "Ring a Ring o' Roses",
-          "London Bridge",
-          "Humpty Dumpty",
-          "Mary Mary Quite Contrary"
+          "Chimney sweep",
+          "Match girl",
+          "Mudlark",
+          "Newsboy"
         ]
       },
       {
         "colour": "purple",
-        "label": "Jobs done by Victorian working children",
+        "label": "Characters Dickens put on the page",
         "items": [
-          "Chimney sweep",
-          "Mudlark",
-          "Match girl",
-          "Pit brow lass"
+          "The Artful Dodger",
+          "Tiny Tim",
+          "Ebenezer Scrooge",
+          "Fagin"
         ]
       }
     ]

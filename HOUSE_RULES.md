@@ -624,3 +624,17 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
   and make an exception."* Do not "repair" this day: the imbalance is deliberate and
   signed off. Flag future breaches as before, but treat an explicit owner exception as
   the end of the argument, not a bug to be re-raised next audit.
+
+- **[JUDGMENT] Re-affirmed and hardened (Daniel, 12 Aug 2026) — stop asking.** On the
+  edition 45 review Daniel asked for Ho Chi Minh in place of Ferdinand Marcos. Ho Chi
+  Minh is tagged `medium` and the slot was the `hard` one, so the day now runs
+  two-medium / no-hard. A question was put to him anyway, which was wrong twice over:
+  the 7 Aug ruling above already covered it, and it had not been read first. His
+  words: *"The rules are only the rules as long as I make them the rules… What I say
+  goes, basically."* Standing instruction, all games, all days:
+  **a named owner swap is executed as given.** Do not cite the tier recipe back at
+  him, do not offer alternatives that "fit" instead, do not re-tier the item in
+  `reveal-*.json` / `figures.json` to make the day look tidy, and do not log it as a
+  deviation. Nothing in tests or CI checks the mix, so the hand-pick always ships
+  clean. Read this file BEFORE reviewing content — it exists so settled arguments
+  stay settled.

@@ -219,15 +219,15 @@
     "license": "CC BY 2.0",
     "attribution": "Dave Souza",
     "source": "Wikimedia Commons: Stonehenge2007 07 30.jpg",
-    "start": 5,
+    "start": 6,
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Stonehenge2007_07_30.jpg",
     "image_author": "garethwiscombe",
     "image_license": "CC BY 2.0",
     "image_license_url": "https://creativecommons.org/licenses/by/2.0",
     "image_retrieved": "2026-07-21",
     "mcq": [
-      "Pompeii Forum",
-      "Villa of the Mysteries"
+      "Newgrange",
+      "Carnac stones"
     ]
   },
   {
@@ -1383,14 +1383,15 @@
     "license": "CC0",
     "attribution": "Rosemanios",
     "source": "Wikimedia Commons: Aztec Sun Stone or Calendar Stone.jpg",
+    "start": 6,
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Aztec_Sun_Stone_or_Calendar_Stone.jpg",
     "image_author": "Gary Todd",
     "image_license": "CC0",
     "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "image_retrieved": "2026-07-21",
     "mcq": [
-      "Prambanan",
-      "Aksum"
+      "Olmec colossal head",
+      "Templo Mayor"
     ]
   },
   {
@@ -1707,13 +1708,14 @@
     "license": "Public domain",
     "attribution": "Johannes Vermeer",
     "source": "Wikimedia Commons: Girl with a Pearl Earring.jpg",
+    "start": 8,
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Girl_with_a_Pearl_Earring.jpg",
     "image_author": "Johannes Vermeer",
     "image_license": "Public domain",
     "image_retrieved": "2026-07-21",
     "mcq": [
-      "Winter Palace",
-      "Sigiriya"
+      "The Night Watch",
+      "Las Meninas"
     ]
   },
   {
@@ -7851,8 +7853,8 @@
     "image_license": "Public domain",
     "image_retrieved": "2026-08-06",
     "mcq": [
-      "National Gallery of Art",
-      "Flatiron Building"
+      "Chrysler Building",
+      "National Gallery of Art"
     ]
   },
   {

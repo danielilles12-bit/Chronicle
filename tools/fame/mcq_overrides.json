@@ -123,6 +123,18 @@
   ]
  },
  "what": {
+  "stonehenge": [
+   "Newgrange",
+   "Carnac stones"
+  ],
+  "girl-pearl-earring": [
+   "The Night Watch",
+   "Las Meninas"
+  ],
+  "aztec-sun-stone": [
+   "Olmec colossal head",
+   "Templo Mayor"
+  ],
   "dead-sea-scrolls": [
    "Codex Sinaiticus",
    "Voynich Manuscript"
@@ -410,7 +422,7 @@
    "Porus"
   ],
   "hannibal": [
-   "Hamilcar Barca",
+   "Attila the Hun",
    "Scipio Africanus"
   ],
   "bayezid-i": [
