@@ -1458,21 +1458,11 @@
   },
   {
     "id": "conn-040",
-    "title": "Great Minds",
+    "title": "Hard Currency",
     "difficulty": "hard",
     "groups": [
       {
         "colour": "yellow",
-        "label": "China's Four Great Inventions",
-        "items": [
-          "Papermaking",
-          "Printing",
-          "Gunpowder",
-          "Compass"
-        ]
-      },
-      {
-        "colour": "green",
         "label": "Phrases made famous by great speeches",
         "items": [
           "Iron Curtain",
@@ -1482,7 +1472,7 @@
         ]
       },
       {
-        "colour": "blue",
+        "colour": "green",
         "label": "US presidents awarded the Nobel Peace Prize",
         "items": [
           "Theodore Roosevelt",
@@ -1492,13 +1482,23 @@
         ]
       },
       {
-        "colour": "purple",
-        "label": "All born in 1809",
+        "colour": "blue",
+        "label": "Faces on Bank of England notes",
         "items": [
-          "Abraham Lincoln",
-          "Charles Darwin",
-          "Louis Braille",
-          "Edgar Allan Poe"
+          "Winston Churchill",
+          "Jane Austen",
+          "J.M.W. Turner",
+          "Charles Darwin"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Faces on US banknotes",
+        "items": [
+          "George Washington",
+          "Alexander Hamilton",
+          "Benjamin Franklin",
+          "Andrew Jackson"
         ]
       }
     ]
@@ -8502,6 +8502,53 @@
           "Paris",
           "Jerusalem",
           "Havana"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-183",
+    "title": "A Place in the Sun",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Show the sun on their flag",
+        "items": [
+          "Japan",
+          "Argentina",
+          "Uruguay",
+          "Nepal"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Sun GODS",
+        "items": [
+          "Ra",
+          "Sol Invictus",
+          "Surya",
+          "Amaterasu"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Rulers who claimed the sun",
+        "items": [
+          "Akhenaten",
+          "Elagabalus",
+          "Atahualpa",
+          "Louis XIV"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "An accidental SOL in the name",
+        "items": [
+          "Solomon",
+          "Solon",
+          "Isolde",
+          "Solzhenitsyn"
         ]
       }
     ]

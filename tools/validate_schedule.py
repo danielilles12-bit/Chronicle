@@ -159,6 +159,21 @@ EXCLUDE_LINKS = [
     (("what", "qe2"), ("who", "queen-elizabeth-ii")),
 ]
 
+# WAIVED_COLLISIONS: linked-subject collisions the owner has explicitly
+# accepted, keyed (edition_a, edition_b, subject label as fmt_linked
+# prints it). A waived finding is downgraded ERROR -> WARN so it stays
+# visible on every run but no longer gates CI. This is NOT a place to
+# silence the validator when a swap is inconvenient — every entry needs a
+# dated owner ruling, same standard as HOUSE_RULES.md.
+WAIVED_COLLISIONS = {
+    # Daniel, 13 Aug 2026: Louis XIV is №46's Face Value answer AND a
+    # Thread tile the same day ("i don't care he shows up 2x today").
+    # The tile spoils nothing: knowing Louis XIV exists doesn't tear his
+    # portrait, and the Thread group (Rulers who claimed the sun) doesn't
+    # hint which face is behind the scraps.
+    (46, 46, "Louis XIV / Louis XIV of France"),
+}
+
 # A shared string owned by more than this many raw items is treated as
 # hopelessly generic (never a link signal, never a registry entry) —
 # purely a performance/sanity cap; nothing in the live pools comes close.
@@ -513,6 +528,9 @@ def check_linked_subjects(editions, subject_of, resolve_text, label_of, connecti
                 sev = "INFO"
             else:
                 continue
+            waived = (n1, n2, label_of(root)) in WAIVED_COLLISIONS
+            if waived and sev == "ERROR":
+                sev = "WARN"  # stays visible, no longer gates
             findings.append({
                 "rule": "linked-subject",
                 "severity": sev,
@@ -521,6 +539,7 @@ def check_linked_subjects(editions, subject_of, resolve_text, label_of, connecti
                 "a": {"edition": n1, "date": d1.isoformat(), "detail": disp1},
                 "b": {"edition": n2, "date": d2.isoformat(), "detail": disp2},
                 "gates": sev == "ERROR" and n2 > today_idx,
+                "waived": waived,
             })
     return findings, ambiguous
 
@@ -546,6 +565,8 @@ def fmt_id_repeat(f):
 
 def fmt_linked(f):
     gate = "" if f["gates"] else " (historical, no gate)" if f["severity"] == "ERROR" else ""
+    if f.get("waived"):
+        gate = " [waived — owner ruling, see WAIVED_COLLISIONS]"
     a, b = f["a"], f["b"]
     return (f"linked subject '{f['subject']}' collides after {f['gap_days']}d: "
             f"№{a['edition']} ({a['date']}) {a['detail']} -> "

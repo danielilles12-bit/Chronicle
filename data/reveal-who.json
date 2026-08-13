@@ -478,7 +478,8 @@
     "mcq": [
       "Coco Chanel",
       "Eva Perón"
-    ]
+    ],
+    "start": 7
   },
   {
     "id": "gandhi",
@@ -2101,7 +2102,8 @@
     "mcq": [
       "Oliver Cromwell",
       "Peter the Great"
-    ]
+    ],
+    "start": 7
   },
   {
     "id": "louis-xvi",

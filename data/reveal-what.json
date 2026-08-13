@@ -6984,21 +6984,22 @@
     ],
     "blurb": "Divided East and West Berlin from 13 August 1961 to 9 November 1989 · West Berliners covered their side in graffiti for decades — the East German side stayed a blank, heavily guarded 'death strip'",
     "img": "assets/img/berlin-wall.jpg",
-    "fx": 0.3,
-    "fy": 0.6,
+    "fx": 0.45,
+    "fy": 0.8,
     "frac": 0.3,
-    "license": "CC BY-SA 2.0",
-    "attribution": "Edward Valachovic",
-    "source": "Wikimedia Commons: Berlin Wall Potsdamer Platz November 1975 looking east crop.jpg",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:Berlin_Wall_Potsdamer_Platz_November_1975_looking_east_crop.jpg",
-    "image_author": "Edward Valachovic",
-    "image_license": "CC BY-SA 2.0",
-    "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
-    "image_retrieved": "2026-08-06",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Thierry Noir",
+    "source": "Wikimedia Commons: Berlinermauer.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Berlinermauer.jpg",
+    "image_author": "Thierry Noir",
+    "image_license": "CC BY-SA 3.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "image_retrieved": "2026-08-13",
     "mcq": [
-      "Golden Gate Bridge",
-      "Arc de Triomphe"
-    ]
+      "Korean Demilitarised Zone",
+      "Western Wall"
+    ],
+    "start": 1
   },
   {
     "id": "empire-state-building",

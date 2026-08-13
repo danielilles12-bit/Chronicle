@@ -479,6 +479,16 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
   schedulable (intake pipeline), and external-critic suggestions must be
   checked against the SCHEDULE before adoption (a proposed tile can
   collide with a nearby answer).
+- **[ENGINE]** The owner may waive a specific same-day/adjacent-day
+  linked-subject collision (Daniel, 13 Aug 2026: Louis XIV as №46's Face
+  Value answer AND a Thread tile the same day — "i don't care he shows up
+  2x today"). The waiver lives in `WAIVED_COLLISIONS` in
+  `tools/validate_schedule.py`, keyed to the exact edition pair and
+  subject, with a dated ruling comment; the finding downgrades to a
+  visible WARN instead of gating CI. A tile that merely NAMES a same-day
+  answer spoils nothing by itself — the test is whether it helps SOLVE the
+  other round (it must not reveal a portrait, a map journey or a relic).
+  Each waiver is one-day-one-subject; new cases need their own ruling.
 
 ## Face Value / Relic rounds
 

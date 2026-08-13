@@ -354,6 +354,10 @@
   "lewis-chessmen": [
    "Cyrus Cylinder",
    "Venus of Willendorf"
+  ],
+  "berlin-wall": [
+   "Korean Demilitarised Zone",
+   "Western Wall"
   ]
  },
  "map": {
@@ -434,7 +438,7 @@
    "Sappho"
   ],
   "mustafa-kemal-ataturk": [
-   "Leon Trotsky",
+   "Lord Byron",
    "Benito Mussolini"
   ],
   "freddie-mercury": [
@@ -452,6 +456,10 @@
   "rumi": [
    "Omar Khayyam",
    "Hafez"
+  ],
+  "mother-teresa": [
+   "Rosa Luxemburg",
+   "Indira Gandhi"
   ]
  }
 }
