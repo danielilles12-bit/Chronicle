@@ -79,7 +79,7 @@
     "fx": 0.52,
     "fy": 0.45,
     "frac": 0.4,
-    "start": 2,
+    "start": 0,
     "license": "Public domain",
     "attribution": "Frank Powolny",
     "source": "Wikimedia Commons: Monroe 1953 publicity.jpg",
@@ -758,7 +758,8 @@
     "mcq": [
       "Walt Whitman",
       "H. P. Lovecraft"
-    ]
+    ],
+    "start": 4
   },
   {
     "id": "muhammad-ali",

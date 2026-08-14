@@ -10451,9 +10451,10 @@
     "image_license": "Public domain",
     "image_retrieved": "2026-07-24",
     "mcq": [
-      "Imperial State Crown",
-      "Enola Gay"
-    ]
+      "Enola Gay",
+      "Graf Zeppelin"
+    ],
+    "start": 4
   },
   {
     "id": "little-mermaid-statue",
