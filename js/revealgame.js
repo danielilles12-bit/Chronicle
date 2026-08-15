@@ -799,7 +799,10 @@ function showLockedResult(editionIndex, entry) {
   S = {
     mode: 'daily', dailyKey: daily.dailyKey(MODE, editionIndex), store: modeStore('daily', null),
     editionIndex, done: true, locked: true,
-    score: entry.score,
+    // Coerce at the door — a carry-imported entry could arrive scoreless (see
+    // the twin note in mapgame.js showLockedResult) and the remark band
+    // lookup below throws on a non-number.
+    score: Number.isFinite(entry.score) ? entry.score : 0,
     // Re-opening a finished daily is the ONLY place the solution recap shows.
     // A player who has just finished a live run watched every reveal happen;
     // repeating it under their receipt would be noise.

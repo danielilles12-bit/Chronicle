@@ -152,7 +152,10 @@ function showLockedResult(editionIndex, entry) {
   $('#conn-sum-title').textContent = puzzle ? puzzle.title : 'Thread';
   renderThreadReceipt({
     editionIndex, mode: 'daily', title: puzzle ? puzzle.title : '',
-    score: entry.score, solved: detail.solved, perfect: detail.perfect,
+    // Coerced like map/reveal's locked doors: a carry-imported entry could be
+    // scoreless, and the receipt would print "undefined" as the total.
+    score: Number.isFinite(entry.score) ? entry.score : 0,
+    solved: detail.solved, perfect: detail.perfect,
     mistakes: detail.mistakes || 0, found: null, guesses: detail.guesses || [],
   });
   const reveal = $('#conn-sum-groups');

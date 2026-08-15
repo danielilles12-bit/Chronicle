@@ -375,8 +375,13 @@ function cleanEntry(raw) {
   const completedOn = num(raw.completedOn, LIMITS.editionIndex);
   if (completedOn === null) return null;
   const out = { completedOn };
+  // A completion whose score is missing or malformed still counts — the
+  // completedOn is what streaks read — but it must land WELL-FORMED: the
+  // locked-result screens do numeric band lookups on entry.score, and a
+  // scoreless entry crashed them on tap (the 9-app-error-mapgamejs beacons,
+  // 13–14 Aug 2026). Default to 0 rather than importing a hole.
   const score = num(raw.score, 100000);
-  if (score !== null) out.score = score;
+  out.score = score !== null ? score : 0;
   const detail = cleanDetail(raw.detail);
   if (detail !== undefined) out.detail = detail;
   return out;

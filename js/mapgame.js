@@ -567,7 +567,12 @@ function showLockedResult(editionIndex, entry) {
   S = {
     mode: 'daily', dailyKey: daily.dailyKey('map', editionIndex), store: modeStore('daily', null),
     editionIndex, done: true, locked: true,
-    score: entry.score,
+    // Foreign data enters here: a carry-imported entry could arrive without a
+    // score (carry.js used to drop an invalid one rather than default it),
+    // and renderLockedSummary's remark lookup threw on the hole — the
+    // 9-app-error-mapgamejs beacons, 13–14 Aug 2026. Entries already sitting
+    // in players' storage keep the hole, so coerce at the door.
+    score: Number.isFinite(entry.score) ? entry.score : 0,
     showSolution: true,
     results: results.length ? results : (entry.detail || []).map((r) => ({
       fig: byId(r.id) || { name: '(removed)', birth: {}, death: {} },
