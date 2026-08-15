@@ -1001,7 +1001,10 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 #map-question { margin: 0; font-size: 15px; color: var(--ch-text-primary); }
 #map-form { display: flex; gap: 8px; }
 #map-input {
-  flex: 1; font-family: var(--ch-font-ui); font-size: 15px; padding: 12px 14px;
+  /* 16px is load-bearing: any text field under 16px makes iOS Safari zoom
+     the whole page in on focus and leave it zoomed (player report, 15 Aug
+     2026). Never set a focusable field below 16px. */
+  flex: 1; font-family: var(--ch-font-ui); font-size: 16px; padding: 12px 14px;
   border: 2px solid var(--ch-ink); border-radius: 0; min-width: 0; background: var(--ch-cream);
   color: var(--ch-text-primary); text-transform: uppercase;
 }
@@ -1107,7 +1110,9 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 #rv-prompt { margin: 0; font-size: 15px; font-weight: 700; color: var(--ch-text-primary); }
 #rv-form { display: flex; gap: 8px; }
 #rv-input {
-  flex: 1; font-family: var(--ch-font-ui); font-size: 15px; padding: 12px 14px;
+  /* 16px is load-bearing — see #map-input: smaller and iOS Safari zooms the
+     page in on focus and leaves it zoomed. */
+  flex: 1; font-family: var(--ch-font-ui); font-size: 16px; padding: 12px 14px;
   border: 2px solid var(--ch-ink); border-radius: 0; min-width: 0; background: var(--ch-cream);
   color: var(--ch-text-primary); text-transform: uppercase;
 }
@@ -1637,6 +1642,11 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   resize: none; word-break: break-all; -webkit-appearance: none;
 }
 .carry-payload:focus { outline: 2px solid var(--ch-gold); outline-offset: 1px; }
+/* The PASTE box is editable, so it hits iOS Safari's focus-zoom rule (any
+   field under 16px zooms the page in and leaves it zoomed — see #map-input).
+   The readonly export strip above it never summons the keyboard and keeps
+   the 11px machine-text look. */
+#carry-paste { font-size: 16px; }
 .carry-help { margin: 6px 0 0; font-family: var(--ch-font-text); font-size: 12.5px; line-height: 1.4; color: var(--ch-text-muted); }
 .carry-status { margin: 8px 0 0; font-family: var(--ch-font-ui); font-size: 11px; font-weight: 700; letter-spacing: .04em; color: var(--ch-text-muted); }
 .carry-status[hidden] { display: none; }
