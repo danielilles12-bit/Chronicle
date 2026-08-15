@@ -1664,18 +1664,18 @@
         "items": [
           "Kaiser Wilhelm II",
           "Mehmed VI",
-          "Alfonso XIII",
+          "Napoleon Bonaparte",
           "Shah Mohammad Reza Pahlavi"
         ]
       },
       {
         "colour": "blue",
-        "label": "Writers banished by the state",
+        "label": "Found refuge from persecution in London",
         "items": [
-          "Ovid",
-          "Dante",
-          "Victor Hugo",
-          "Karl Marx"
+          "Karl Marx",
+          "Sigmund Freud",
+          "Vladimir Lenin",
+          "Charles de Gaulle"
         ]
       },
       {
@@ -1685,7 +1685,7 @@
           "Diocletian",
           "Sulla",
           "Benedict XVI",
-          "Celestine V"
+          "Charles V"
         ]
       }
     ],

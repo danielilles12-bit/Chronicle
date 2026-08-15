@@ -887,21 +887,22 @@
     ],
     "blurb": "Physicist who led the Manhattan Project (1904–1967) · Watching Trinity, he later said, he thought of the Gita: 'Now I am become Death'",
     "img": "assets/img/robert-oppenheimer.jpg",
-    "fx": 0.53,
-    "fy": 0.34,
+    "fx": 0.45,
+    "fy": 0.42,
     "frac": 0.15,
-    "license": "Public domain",
-    "attribution": "Ed Westcott / U.S. Government",
-    "source": "Wikimedia Commons: J. Robert Oppenheimer at the Guest Lodge, Oak Ridge, in 1946 4.jpg",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Erling Mandelmann",
+    "source": "Wikimedia Commons: Robert Oppenheimer 1964 Com M13-0401-0001-0002 (cropped).tif",
     "start": 6,
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:J._Robert_Oppenheimer_at_the_Guest_Lodge%2C_Oak_Ridge%2C_in_1946_4.jpg",
-    "image_author": "Ed Westcott (U.S. Government photographer)",
-    "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Robert_Oppenheimer_1964_Com_M13-0401-0001-0002_(cropped).tif",
+    "image_author": "Erling Mandelmann",
+    "image_license": "CC BY-SA 4.0",
+    "image_retrieved": "2026-08-15",
     "mcq": [
       "Richard Feynman",
       "Niels Bohr"
-    ]
+    ],
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0"
   },
   {
     "id": "ronald-reagan",
@@ -5952,7 +5953,7 @@
       "Kublai Khan",
       "Ögedei Khan"
     ],
-    "start": 1
+    "start": 2
   },
   {
     "id": "giuseppe-verdi",
@@ -6541,7 +6542,7 @@
       "niels bohr",
       "bohr"
     ],
-    "blurb": "Physicist who unlocked the atom (1885–1962) · Fled the Nazis in a Mosquito's bomb bay, passing out when his helmet didn't fit",
+    "blurb": "Physicist who unlocked the atom (1885–1962) · Escaped the Nazis stowed in an RAF bomber's bomb bay — his flying helmet didn't fit, so he missed the order to switch on oxygen and blacked out",
     "img": "assets/img/niels-bohr.jpg",
     "fx": 0.45,
     "fy": 0.25,
@@ -6611,8 +6612,8 @@
     "image_license": "Public domain",
     "image_retrieved": "2026-07-21",
     "mcq": [
-      "Pope John Paul II",
-      "Pope Benedict XVI"
+      "Pope Pius XII",
+      "Pope John Paul II"
     ]
   },
   {
@@ -6643,7 +6644,7 @@
     "image_retrieved": "2026-07-21",
     "mcq": [
       "Pope John Paul II",
-      "Pope Benedict XVI"
+      "Pope Leo XIII"
     ]
   },
   {
@@ -8831,7 +8832,7 @@
     "image_retrieved": "2026-08-06",
     "mcq": [
       "Albert Einstein",
-      "Richard Feynman"
+      "Niels Bohr"
     ],
     "start": 8
   },

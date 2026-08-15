@@ -473,6 +473,20 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
   a bug.
 - **[ENGINE]** Self-labeling groups (tiles repeating a label word — "First
   Crusade" under a Crusades label) are flagged by `validate_boards.py`.
+- **[JUDGMENT]** A group must not be solvable by surface type alone
+  (Daniel, 15 Aug 2026, on conn-004's "Writers banished by the state":
+  if the four tiles are the board's only writers, a player groups them
+  as "the writers" without ever learning the banishment — "you didn't
+  really actually get the category"). Either the surface must be mixed
+  (another tile of that type sits in a different group) or the label's
+  fact must be the only way in. The fix that session: the writers group
+  became "Found refuge from persecution in London" (Marx, Freud, Lenin,
+  de Gaulle) — Daniel wanted "political persecution", trimmed to
+  "persecution" because the Nazis persecuted Freud as a Jew, not for
+  politics, and labels must hold to a pedant's reading —
+  four unmistakable names whose surfaces (economist, doctor,
+  revolutionary, general) share nothing, so the London fact IS the
+  category.
 - **[JUDGMENT]** Category claims must be undisputable. Weird is fine if
   binary ("years ending 89"); vibes are not ("denounced as a menace").
 - **[JUDGMENT]** Every new board gets a Fable-tier review before it's
@@ -536,6 +550,14 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
   from it — the Statue of Zeus at Olympia and the Colossus of Rhodes stay
   in rotation on that basis, Lighthouse doesn't. Mechanism: `reserve: true`
   on `lighthouse-alexandria` in `data/reveal-what.json`; not deleted.
+- **[JUDGMENT]** Terracotta Army reserved (Daniel, 15 Aug 2026, ed 48
+  review): no available photo tears fairly — a close-up of one warrior
+  reads as "a statue", any wide pit shot is the answer from the first
+  scrap, and the only quiet scrap (bare pit floor) "offers no clues and
+  therefore doesn't feel fair". Un-reserve only with an image where at
+  least two opening scraps are informative WITHOUT reading instantly as
+  the army. Mechanism: `reserve: true` on `terracotta-warrior` in
+  `data/reveal-what.json`; image, credits and pinned MCQ stay current.
 - **[JUDGMENT]** `frac` in `data/reveal-who.json` / `data/reveal-what.json`
   is inert — confirmed 7 Aug 2026 that no runtime code reads it. Leave it
   where it exists rather than stripping it; don't treat it as a lever.

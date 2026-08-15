@@ -273,21 +273,22 @@
     "blurb": "c. 210–209 BC · Discovered in 1974 by farmers digging a well; the buried army numbers over 8,000, no two faces quite alike",
     "img": "assets/img/terracotta-warrior.jpg",
     "fx": 0.5,
-    "fy": 0.65,
+    "fy": 0.55,
     "frac": 0.22,
-    "license": "CC BY-SA 3.0",
-    "attribution": "J. Arpon",
-    "source": "Wikimedia Commons: Terracota warrior close-up.jpg",
-    "start": 6,
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:Terracota_warrior_close-up.jpg",
-    "image_author": "J. Arpon",
-    "image_license": "CC BY-SA 3.0",
-    "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-    "image_retrieved": "2026-07-21",
+    "license": "CC BY 2.0",
+    "attribution": "shankar s.",
+    "source": "Wikimedia Commons: Rows of terracota warriors are arranged in rows of pits (35648437816).jpg",
+    "start": 7,
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Rows_of_terracota_warriors_are_arranged_in_rows_of_pits_(35648437816).jpg",
+    "image_author": "shankar s.",
+    "image_license": "CC BY 2.0",
+    "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+    "image_retrieved": "2026-08-15",
     "mcq": [
-      "Ajanta Caves",
-      "Great Sphinx of Giza"
-    ]
+      "Longmen Grottoes",
+      "Mogao Caves"
+    ],
+    "reserve": true
   },
   {
     "id": "the-scream",
@@ -2529,20 +2530,21 @@
     "blurb": "Gaudí's unfinished basilica (begun 1882) · Its central tower was finished in Feb 2026, a century after Gaudí died — now the tallest church on Earth",
     "img": "assets/img/sagrada-familia.jpg",
     "fx": 0.5,
-    "fy": 0.6,
+    "fy": 0.35,
     "frac": 0.2,
     "license": "CC BY-SA 4.0",
-    "attribution": "Alvesgaspar",
-    "source": "Wikimedia Commons: Sagrada Familia March 2015-14a.jpg",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:Sagrada_Familia_March_2015-14a.jpg",
-    "image_author": "Alvesgaspar",
+    "attribution": "Canaan",
+    "source": "Wikimedia Commons: SF maig 2 cropped.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:SF_maig_2_cropped.jpg",
+    "image_author": "Canaan",
     "image_license": "CC BY-SA 4.0",
     "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-15",
     "mcq": [
-      "Liberty Leading the People",
-      "The Starry Night"
-    ]
+      "Milan Cathedral",
+      "Cologne Cathedral"
+    ],
+    "start": 6
   },
   {
     "id": "sigiriya",
@@ -4529,9 +4531,9 @@
     "image_retrieved": "2026-07-21",
     "mcq": [
       "Code of Hammurabi",
-      "Antikythera Mechanism"
+      "Nebra Sky Disc"
     ],
-    "start": 8
+    "start": 2
   },
   {
     "id": "sacre-coeur",
@@ -10451,8 +10453,8 @@
     "image_license": "Public domain",
     "image_retrieved": "2026-07-24",
     "mcq": [
-      "Enola Gay",
-      "Graf Zeppelin"
+      "Imperial State Crown",
+      "Enola Gay"
     ],
     "start": 4
   },
