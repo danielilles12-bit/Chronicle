@@ -386,6 +386,10 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
    "this one is settled" signal the hero card's row-done state gives. */
 .day-card.day-done { border-left-color: var(--row-tint-strong, var(--ch-ink)); }
 
+/* The Playlin "featured" badge sits between the letters desk and the small
+   print — their pill, untouched, just centred and given air. */
+.playlin-badge { text-align: center; margin: 18px 0 4px; }
+.playlin-badge img { display: inline-block; max-width: 200px; height: auto; }
 .home-foot { text-align: center; color: var(--ch-text-muted); font-size: 12px; padding: 4px 0 calc(16px + env(safe-area-inset-bottom)); font-family: var(--ch-font-ui); }
 .foot-toggle { background: none; border: none; padding: 0; font: inherit; color: inherit; text-decoration: underline; cursor: pointer; }
 .home-foot a { color: inherit; }

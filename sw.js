@@ -7,7 +7,7 @@
 //   new worker precaches the shell, skipWaiting+claim take over immediately ->
 //   app.js sees controllerchange and shows the NEW EDITION bar -> the user's
 //   pull-to-refresh (or a tap on the bar) reloads into the new version.
-const VERSION = 'yesternerd-v217';
+const VERSION = 'yesternerd-v218';
 
 // Daily-content cache: survives version bumps so updating the app never
 // re-downloads the whole archive, served stale-while-revalidate below.
@@ -59,6 +59,8 @@ const ASSETS = [
   './assets/brand/demo-facevalue.webp',
   './assets/brand/stamp-alea-iacta-fest.png',
   './assets/brand/ptr-queen.png',
+  // The Playlin featured badge on Home's footer — self-hosted (see index.html).
+  './assets/brand/playlin-featured-dark.svg',
   // Intro posters (v164): the first-run intro card is the very first thing a
   // new player sees, so its art ships with the shell rather than waiting on
   // a cold fetch behind the tap.
