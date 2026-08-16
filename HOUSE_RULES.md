@@ -503,6 +503,19 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
   answer spoils nothing by itself — the test is whether it helps SOLVE the
   other round (it must not reveal a portrait, a map journey or a relic).
   Each waiver is one-day-one-subject; new cases need their own ruling.
+- **[JUDGMENT]** Board titles display DURING play (`#conn-puzzle-title`)
+  and in the share text — so a title must never name a hidden completion
+  word or otherwise pre-solve a group (16 Aug 2026: "War Horse" would
+  have handed players two of conn-184's four fill-in words; Daniel
+  renamed it "Stable Relations"). Check the title against the mechanic
+  before staging any missing-word or wordplay board.
+- **[JUDGMENT]** conn-065 "The People's Game" reserved (Daniel, 16 Aug
+  2026, ed 49 review: "let's swap completely, i don't like this board").
+  No autopsy was given; the recorded suspicion is that all sixteen tiles
+  are sports, so the board plays as sports trivia sorted by region/era —
+  one flat surface, no polysemy, no structural twist. Mechanism:
+  `reserve: true` on `conn-065` in `data/connections.json`. Un-reserve
+  only after a rework passes the NYT-grammar rubric.
 
 ## Face Value / Relic rounds
 
@@ -561,6 +574,23 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
 - **[JUDGMENT]** `frac` in `data/reveal-who.json` / `data/reveal-what.json`
   is inert — confirmed 7 Aug 2026 that no runtime code reads it. Leave it
   where it exists rather than stripping it; don't treat it as a lever.
+- **[JUDGMENT]** Persepolis reserved (Daniel, 16 Aug 2026, ed 49 review:
+  "persepolis has too many angles, it just reads: ancient ruins").
+  Standing test this ruling adds: a site with no single canonical view —
+  where every available photo could be any ruin of its era — can't carry
+  a Relic round, however famous the name. Un-reserve only with one
+  genuinely iconic, self-identifying image. Mechanism: `reserve: true`
+  on `persepolis` in `data/reveal-what.json`; image, credits and MCQ
+  stay current.
+- **[JUDGMENT]** Pompeii's flagship relic is the Priapus fresco of the
+  House of the Vettii (Daniel, 16 Aug 2026, replacing Villa of the
+  Mysteries on ed 49: "if we do pompeii, i want to do the wall painting
+  with the man with the giant penis he is holding w a chain"). The bawdy
+  pick over the scholarly one is deliberate — dark wit, tears
+  brilliantly, unforgettable reveal. `villa-of-mysteries` stays in the
+  pool (not reserved), but when a day wants Pompeii, Priapus goes first.
+  NOTE the chain detail is Daniel's shorthand, not the picture: the god
+  weighs his member against a bag of gold on a balance scale.
 
 ## Casting and tone
 
@@ -568,6 +598,15 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
   down, hard ≠ academic. No living politicians as answers. Entertainment
   faces are fine as easy anchors (Mercury, Pelé, MJ) but never the
   majority of a day.
+- **[JUDGMENT]** A Lifeline pick is judged as a MAP, not a name (Daniel,
+  16 Aug 2026, swapping Pelé off ed 49: "swap for someone with a more
+  interesting life story (i.e. pins further apart)"). Two pins in the
+  same country is a boring puzzle whoever the person is; prefer journeys
+  that tell a story — born one continent, died another (the swap that
+  session: Bruce Lee, San Francisco → Hong Kong). Not a hard floor
+  beyond the existing `min_lifeline_km`; a short journey can still air
+  when the figure earns it, but the review sheet should ask "is the map
+  itself interesting?" before "is the name famous?".
 - **[JUDGMENT]** Blurbs and facts: dark wit welcome, claims must hold to
   a pedant's reading ("coined" vs "made famous"; Josephus predicted
   VESPASIAN would be emperor, not himself). When a critic softens a label,

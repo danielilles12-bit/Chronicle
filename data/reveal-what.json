@@ -680,20 +680,22 @@
     ],
     "blurb": "Tomb of Pharaoh Khufu (c. 2560 BC) · The tallest human-made structure on Earth for almost 3,800 years — until Lincoln Cathedral's spire, c. 1311",
     "img": "assets/img/great-pyramid-giza.jpg",
-    "fx": 0.5,
-    "fy": 0.45,
+    "fx": 0.47,
+    "fy": 0.38,
     "frac": 0.2,
-    "license": "Public domain",
-    "attribution": "Eduard Spelterini",
-    "source": "Wikimedia Commons: Spelterini Pyramids.jpg",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:Spelterini_Pyramids.jpg",
-    "image_author": "Eduard Spelterini",
-    "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "license": "CC BY 2.5",
+    "attribution": "Nina Aldin Thune",
+    "source": "Wikimedia Commons: Kheops-Pyramid.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Kheops-Pyramid.jpg",
+    "image_author": "Nina Aldin Thune",
+    "image_license": "CC BY 2.5",
+    "image_retrieved": "2026-08-16",
     "mcq": [
       "Göbekli Tepe",
       "Persepolis"
-    ]
+    ],
+    "image_license_url": "https://creativecommons.org/licenses/by/2.5",
+    "start": 7
   },
   {
     "id": "great-sphinx",
@@ -1019,7 +1021,7 @@
     "image_retrieved": "2026-08-06",
     "mcq": [
       "Pompeii Forum",
-      "Villa of the Mysteries"
+      "Priapus of the House of the Vettii"
     ]
   },
   {
@@ -4257,7 +4259,8 @@
     "mcq": [
       "Göbekli Tepe",
       "Great Pyramid of Giza"
-    ]
+    ],
+    "reserve": true
   },
   {
     "id": "phaistos-disc",
@@ -7118,7 +7121,7 @@
     "image_retrieved": "2026-07-24",
     "mcq": [
       "United States Capitol",
-      "Mount Vernon"
+      "US Supreme Court"
     ],
     "image_modifications": "cropped"
   },
@@ -10516,5 +10519,47 @@
       "Bayeux Tapestry"
     ],
     "start": 1
+  },
+  {
+    "id": "priapus-vettii",
+    "name": "Priapus of the House of the Vettii",
+    "kind": "artefact",
+    "difficulty": "hard",
+    "variants": [
+      "priapus",
+      "priapus fresco",
+      "priapus of pompeii",
+      "priapus of the house of the vettii",
+      "house of the vettii",
+      "house of the vetti",
+      "casa dei vettii",
+      "the vettii",
+      "pompeii",
+      "pompeii wall art",
+      "pompeii wall painting",
+      "pompeii fresco",
+      "pompeii mural",
+      "pompeian fresco",
+      "pompeii wall art of priapus",
+      "roman fresco of priapus",
+      "priapus fresco pompeii"
+    ],
+    "blurb": "Painted beside the front door of a rich Pompeian house, before AD 79 · Priapus weighs his manhood against a bag of gold — not a boast but a doorbell for luck: Romans hung outrageous phalluses at thresholds to stare down the evil eye",
+    "img": "assets/img/priapus-vettii.jpg",
+    "fx": 0.35,
+    "fy": 0.56,
+    "frac": 0.2,
+    "license": "Public domain",
+    "attribution": "Unknown Pompeian painter, 1st century AD",
+    "source": "Wikimedia Commons: Pompeya erótica6.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Pompeya_er%C3%B3tica6.jpg",
+    "image_author": "Unknown Pompeian painter, 1st century AD",
+    "image_license": "Public domain",
+    "image_retrieved": "2026-08-16",
+    "start": 2,
+    "mcq": [
+      "Villa of the Mysteries",
+      "Warren Cup"
+    ]
   }
 ]

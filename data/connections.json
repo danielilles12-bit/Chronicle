@@ -4227,7 +4227,8 @@
           "Polo"
         ]
       }
-    ]
+    ],
+    "reserve": true
   },
   {
     "id": "conn-046",
@@ -8549,6 +8550,53 @@
           "Solon",
           "Isolde",
           "Solzhenitsyn"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-184",
+    "title": "Stable Relations",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Walls that made history",
+        "items": [
+          "Hadrian",
+          "Wailing",
+          "Berlin",
+          "Great"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Famous wars",
+        "items": [
+          "Punic",
+          "Peloponnesian",
+          "Cold",
+          "Roses"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "___ horse",
+        "items": [
+          "Trojan",
+          "Dark",
+          "Rocking",
+          "Race"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Famous Charlies of history",
+        "items": [
+          "Chaplin",
+          "Checkpoint",
+          "Bonnie Prince",
+          "Viet Cong"
         ]
       }
     ]
