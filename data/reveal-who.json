@@ -8595,20 +8595,17 @@
     ],
     "blurb": "Animator who built a theme-park empire out of cartoons (1901–1966) · His first studio, Laugh-O-Gram, went bankrupt years before Mickey Mouse ever appeared",
     "img": "assets/img/walt-disney.jpg",
-    "fx": 0.5,
-    "fy": 0.42,
-    "frac": 0.3,
-    "license": "Public domain",
-    "attribution": "Boy Scouts of America",
-    "source": "Wikimedia Commons: Walt Disney 1946.JPG",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:Walt_Disney_1946.JPG",
-    "image_author": "Boy Scouts of America",
-    "image_license": "Public domain",
-    "image_retrieved": "2026-07-24",
+    "fx": 0.36,
+    "fy": 0.34,
+    "frac": 0.26,
     "mcq": [
       "Frank Lloyd Wright",
       "Andy Warhol"
-    ]
+    ],
+    "image_retrieved": "2026-08-17",
+    "source": "Publicity photograph, supplied by the editor",
+    "license": "Rights not cleared — owner-supplied",
+    "start": 7
   },
   {
     "id": "van-gogh",
@@ -9706,22 +9703,18 @@
     ],
     "blurb": "Crime writer whose plots have outsold everything but the Bible (1890–1976) · Vanished for 11 days in 1926, sparking a nationwide manhunt, and never once explained what happened",
     "img": "assets/img/agatha-christie.jpg",
-    "fx": 0.52,
-    "fy": 0.4,
+    "fx": 0.48,
+    "fy": 0.33,
     "frac": 0.25,
-    "license": "CC0",
-    "attribution": "Joop van Bilsen / Anefo",
-    "source": "Wikimedia Commons: Dame Agatha Christie (cropped).jpg",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:Dame_Agatha_Christie_(cropped).jpg",
-    "image_author": "Joop van Bilsen / Anefo",
-    "image_license": "CC0",
-    "image_license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-    "image_retrieved": "2026-08-06",
     "mcq": [
       "Dorothy L. Sayers",
       "Daphne du Maurier"
     ],
-    "start": 6
+    "start": 7,
+    "image_modifications": "converted from AVIF",
+    "image_retrieved": "2026-08-17",
+    "source": "Press portrait, supplied by the editor",
+    "license": "Rights not cleared — owner-supplied"
   },
   {
     "id": "moses",

@@ -7456,8 +7456,8 @@
     "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
     "image_retrieved": "2026-07-24",
     "mcq": [
-      "British Museum",
-      "St Paul's Cathedral"
+      "St Paul's Cathedral",
+      "Buckingham Palace"
     ],
     "start": 1
   },
@@ -7529,22 +7529,22 @@
     ],
     "blurb": "Britain's first national public museum, opened its doors in 1759 · It has never charged general admission in over 260 years, a condition written into the founding Act of Parliament",
     "img": "assets/img/british-museum.jpg",
-    "fx": 0.586,
-    "fy": 0.435,
-    "frac": 0.28,
+    "fx": 0.5,
+    "fy": 0.42,
+    "frac": 0.3,
     "license": "CC BY-SA 3.0",
-    "attribution": "Ham",
+    "attribution": "Diliff",
     "source": "Wikimedia Commons: British Museum from NE 2 (cropped).JPG",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:British_Museum_from_NE_2_(cropped).JPG",
-    "image_author": "Ham",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:British_Museum_Great_Court,_London,_UK_-_Diliff.jpg",
+    "image_author": "Diliff",
     "image_license": "CC BY-SA 3.0",
-    "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-    "image_retrieved": "2026-08-06",
+    "image_retrieved": "2026-08-17",
     "mcq": [
       "National Gallery",
-      "Altes Museum"
+      "The Metropolitan Museum of Art"
     ],
-    "start": 3
+    "start": 0,
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
   },
   {
     "id": "koh-i-noor",

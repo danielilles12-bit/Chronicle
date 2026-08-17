@@ -185,7 +185,7 @@
   ],
   "british-museum": [
    "National Gallery",
-   "Altes Museum"
+   "The Metropolitan Museum of Art"
   ],
   "pieta-michelangelo": [
    "Rondanini Pietà",
@@ -476,6 +476,10 @@
   "mother-teresa": [
    "Rosa Luxemburg",
    "Indira Gandhi"
+  ],
+  "nightingale": [
+   "Marie Curie",
+   "Catherine de' Medici"
   ]
  }
 }

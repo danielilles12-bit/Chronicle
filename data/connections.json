@@ -8600,5 +8600,52 @@
         ]
       }
     ]
+  },
+  {
+    "id": "conn-185",
+    "title": "Ruling the Waves",
+    "difficulty": "easy",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Queens regnant",
+        "items": [
+          "Cleopatra",
+          "Boudica",
+          "Hatshepsut",
+          "Wu Zetian"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Roman emperors",
+        "items": [
+          "Nero",
+          "Augustus",
+          "Caligula",
+          "Claudius"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Famous ships",
+        "items": [
+          "Titanic",
+          "Mayflower",
+          "Lusitania",
+          "Bismarck"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Bronze Age cities",
+        "items": [
+          "Mycenae",
+          "Hattusa",
+          "Akkad",
+          "Knossos"
+        ]
+      }
+    ]
   }
 ]
