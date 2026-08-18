@@ -85,13 +85,17 @@ export function damerau(a, b, max) {
 }
 
 // Tolerance scales with the target's length; very short names must be exact
-// so "book" never matches "Cook". Capped at 1 everywhere — "one typo per
-// word is fine; more isn't" (owner calibration). Multi-token strings are
-// compared token-by-token (see stringsMatch/covers) so this cap applies
-// per word, not to the whole phrase at once.
+// so "book" never matches "Cook". One typo for ordinary words, two for long
+// ones (>= 8 chars) — "Tutankhamun", "Khrushchev" and friends attract more
+// than one slip and stay unmistakable anyway (owner recalibration 18 Aug
+// 2026: "be lenient with spelling"; the loneFuzzBlocked guard below keeps
+// the extra headroom from ever crediting a DIFFERENT pool item's name).
+// Multi-token strings are compared token-by-token (see stringsMatch/covers)
+// so this budget applies per word, not to the whole phrase at once.
 function tolerance(len) {
   if (len <= 4) return 0;
-  return 1;
+  if (len <= 7) return 1;
+  return 2;
 }
 
 // Regnal numerals are tiny edit distances apart but name different people:
@@ -112,13 +116,40 @@ function doubledEq(a, b) {
   return collapseRuns(a) === collapseRuns(b);
 }
 
+// Phonetic forgiveness (owner ruling 18 Aug 2026: "be lenient with
+// spelling"). Fold both words onto a crude sound-alike skeleton and accept
+// equality: collapse doubled letters, x→ks ("Marks" = "Marx"), ph→f, drop
+// every non-initial h ("Ghandi" = "Gandhi", "Kruschev" = "Khrushchev"),
+// merge c/k, z/s and y/i. For longer words (>= 6 chars) the vowels are
+// additionally folded together, so "Tutenkamen" reaches "Tutankhamun".
+// Audited against all three content pools (18 Aug 2026): the only names
+// these folds conflate are ones that are ALSO each other's exact pool
+// names (Carnac/Karnak), which loneFuzzBlocked already refuses — so the
+// folds themselves never introduce a wrong-person accept. Roman numerals
+// are exempt as ever.
+function phoneticFold(s) {
+  let t = collapseRuns(s);
+  t = t.replace(/x/g, 'ks').replace(/ph/g, 'f');
+  t = t.charAt(0) + t.slice(1).replace(/h/g, '');
+  t = t.replace(/c/g, 'k').replace(/z/g, 's').replace(/y/g, 'i');
+  return collapseRuns(t);
+}
+function phoneticEq(a, b) {
+  if (a.length < 4 || b.length < 4) return false;
+  if (ROMANS.has(a) || ROMANS.has(b)) return false;
+  if (phoneticFold(a) === phoneticFold(b)) return true;
+  if (a.length < 6 || b.length < 6) return false;
+  return phoneticFold(a).replace(/[aeiou]/g, 'a')
+      === phoneticFold(b).replace(/[aeiou]/g, 'a');
+}
+
 // One shared token-level equality: exact, within the per-word typo budget,
-// or a doubled-letter respelling.
+// a doubled-letter respelling, or a phonetic sound-alike.
 function tokenFuzzyEq(gt, ct) {
   if (gt === ct) return true;
   const tol = tolerance(ct.length);
   if (tol > 0 && damerau(gt, ct, tol) <= tol) return true;
-  return doubledEq(gt, ct);
+  return doubledEq(gt, ct) || phoneticEq(gt, ct);
 }
 
 // All roman-numeral tokens anywhere in the name, in order. Fuzzy and subset
@@ -308,8 +339,9 @@ function containsPhrase(guessToks, variantToks) {
   return false;
 }
 
-// Rule 3: distinctive-core — does any guess token match (exact, or damerau
-// distance 1 for tokens >= 6 chars, or a doubled-letter respelling) a token
+// Rule 3: distinctive-core — does any guess token match (exact, or within
+// the usual typo/phonetic budget for tokens >= 6 chars, or a doubled-letter
+// respelling) a token
 // that is distinctive for this item within its registered pool? Blocked when
 // the guess carries a regnal numeral not part of the item's own name (e.g.
 // "napoleon iii" must not ride the core-token "napoleon" into a match).
@@ -330,7 +362,7 @@ function containsDistinctiveCore(guessToks, entry) {
     if (gt.length < MIN_GUESS_LEN) continue; // guard rail
     for (const dt of distinctiveSet) {
       const hit = gt === dt
-        || (gt.length >= 6 && dt.length >= 6 && damerau(gt, dt, 1) <= 1)
+        || (gt.length >= 6 && dt.length >= 6 && tokenFuzzyEq(gt, dt))
         || doubledEq(gt, dt);
       if (!hit) continue;
       if (!GENERIC_NOUNS.has(dt)) return true;   // proper-name anchor: done
@@ -413,16 +445,20 @@ function tokenwiseFuzzyEqual(gToks, cToks) {
 // "José Martí". Equality and word-for-word comparison are untouched, so two
 // items that genuinely share a short form ("Duomo", "Sunflowers", "Bertie")
 // still both match it.
-function stringsMatch(g, c, namesOther) {
+function stringsMatch(g, c, namesOther, noLoneFuzz) {
   if (g === c) return true;
   if (numeralKey(c) !== numeralKey(g)) return false; // regnal numbers must agree
   const gToks = tokens(g), cToks = tokens(c);
   // Whole-string fuzz only for single-token strings (a lone word's typo
-  // budget); multi-token strings compare per-word so the edit-distance cap
-  // of 1 applies per word, not smeared across the whole phrase.
+  // budget); multi-token strings compare per-word so the edit-distance
+  // budget applies per word, not smeared across the whole phrase.
+  // `noLoneFuzz` (set by isMatch via loneFuzzBlocked) turns both lone-word
+  // paths off when the guess sits within typo range of some OTHER pool
+  // item's one-word name: a lone word that plausibly names somebody else
+  // must be exact to count here.
   if (gToks.length === 1 && cToks.length === 1) {
-    if (tokenFuzzyEq(g, c)) return true;
-  } else if (gToks.length === 1 && cToks.length > 1) {
+    if (!noLoneFuzz && tokenFuzzyEq(g, c)) return true;
+  } else if (gToks.length === 1 && cToks.length > 1 && !noLoneFuzz) {
     // A single-token guess against a multi-word candidate: still allow a
     // one-edit match against the space-removed candidate, so a dropped
     // space ("machupicchu" for "Machu Picchu") counts as the one typo it
@@ -510,6 +546,34 @@ function matchesReject(figure, g, gNoTitle, guessToks, singleToken) {
   return false;
 }
 
+// The lone-word safety valve for the 18 Aug 2026 leniency recalibration.
+// A single-word guess within fuzzy range of some OTHER pool item's one-word
+// name/variant ("davis" for King David when Jefferson Davis is in the pool,
+// "colossus" at the Colosseum, "aristotle" at Plato) plausibly names that
+// other thing — so the lone-word FUZZY paths must not fire; only an exact
+// hit on this item's own variants counts. A one-word string this item
+// itself carries verbatim (two "Duomo"s, two "Eliot"s) is a genuinely
+// shared short form and doesn't block: respellings of it stay accepted for
+// either owner, matching the shared-identity behaviour of the exact paths.
+// This deliberately also retires some old false accepts ("plath" for
+// Plato) — being lenient with spelling must never mean crediting a
+// different person's name.
+function loneFuzzBlocked(pool, figure, g) {
+  if (!pool) return false;
+  const self = pool.byId.get(figure.id);
+  const own = self ? self.variantStrs
+    : [figure.name].concat(figure.variants || []).map(normalize);
+  for (const [otherId, entry] of pool.byId) {
+    if (otherId === figure.id) continue;
+    for (const vs of entry.variantStrs) {
+      if (vs.indexOf(' ') >= 0) continue;
+      if (own.indexOf(vs) >= 0) continue; // genuinely shared short form
+      if (tokenFuzzyEq(g, vs)) return true;
+    }
+  }
+  return false;
+}
+
 // Is the whole normalized guess exactly some OTHER pool item's name/variant?
 // Then it names that thing, not this one. Used to switch off the containment
 // paths (see stringsMatch/stringsMatchStrong) and rules 2-3 below.
@@ -583,9 +647,18 @@ export function isMatch(guess, figure, poolKey) {
   // acceptance path — rule 1b's fuzz, containment, and distinctive-core.
   if (matchesReject(figure, g, gNoTitle, guessToks, singleToken)) return false;
 
-  // Rule 1b — the FORGIVING pass: the rest of stringsMatch (a lone word one
-  // edit out, a dropped space, typo-tolerant containment).
-  const loose = (a, b) => stringsMatch(a, b, namesOther);
+  // Rule 1b — the FORGIVING pass: the rest of stringsMatch (a lone word
+  // within its typo budget, a dropped space, typo-tolerant containment).
+  // Lone-word fuzz is withheld per guess-string when it sits within fuzzy
+  // range of a DIFFERENT pool item's one-word name (see loneFuzzBlocked) —
+  // computed lazily and cached since the pool scan isn't free and the
+  // title-stripped guess needs its own verdict.
+  const loneBlockCache = new Map();
+  const loneBlockedFor = (a) => {
+    if (!loneBlockCache.has(a)) loneBlockCache.set(a, loneFuzzBlocked(pool, figure, a));
+    return loneBlockCache.get(a);
+  };
+  const loose = (a, b) => stringsMatch(a, b, namesOther, loneBlockedFor(a));
   for (const raw of cands) {
     const c = normalize(raw);
     if (!c) continue;

@@ -8647,5 +8647,52 @@
         ]
       }
     ]
+  },
+  {
+    "id": "conn-186",
+    "title": "It's all Chinese to me",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Everyday English words named after real people",
+        "items": [
+          "Sandwich",
+          "Wellington",
+          "Cardigan",
+          "Boycott"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Royal epithets",
+        "items": [
+          "Terrible",
+          "Unready",
+          "Magnificent",
+          "Conqueror"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Explorers of the New World",
+        "items": [
+          "Drake",
+          "Polo",
+          "Cook",
+          "Raleigh"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "End in a Chinese dynasty",
+        "items": [
+          "Mustang",
+          "Wyoming",
+          "Orphan",
+          "Swansong"
+        ]
+      }
+    ]
   }
 ]

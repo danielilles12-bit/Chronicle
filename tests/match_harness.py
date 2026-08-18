@@ -359,6 +359,56 @@ def main():
                 check("'muhammad ali' still matches muhammad-ali",
                       is_match(pg, "muhammad ali", ali, "who"))
 
+            # ---------------- SPELLING LENIENCY (owner ruling 18 Aug 2026) ----
+            # "Be lenient with spelling": two typos allowed on long words,
+            # phonetic sound-alikes accepted (Ghandi/Gandhi, Marks/Marx,
+            # Kruschev/Khrushchev) — but a lone word within typo range of a
+            # DIFFERENT pool item's one-word name must never be credited
+            # (loneFuzzBlocked in js/match.js). Items looked up defensively so
+            # pool recuration doesn't break the suite.
+            def by_id(items, iid):
+                return next((x for x in items if x["id"] == iid), None)
+
+            lenient_yes = [
+                ("who", "gandhi", "Ghandi"),
+                ("who", "karl-marx", "Karl Marks"),
+                ("what", "gutenberg-bible", "Guttenburg Bible"),
+                ("who", "friedrich-nietzsche", "Nietzsche"),
+                ("who", "friedrich-nietzsche", "Nietzche"),
+                ("who", "friedrich-nietzsche", "Neitzsche"),
+                ("who", "hemingway", "Hemmingway"),
+                ("what", "angkor-wat", "Ankgor Wat"),
+            ]
+            for pool_key, iid, guess in lenient_yes:
+                items = {"map": figures, "who": who, "what": what}[pool_key]
+                it = by_id(items, iid)
+                if it is None:
+                    continue  # item retired from pool; nothing to guard
+                check("lenient: %r matches %s/%s" % (guess, pool_key, iid),
+                      is_match(pg, guess, it, pool_key))
+
+            # A lone word that IS (or is a typo of) another pool item's own
+            # one-word name names that thing — leniency must not credit it.
+            lenient_no = [
+                ("who", "plato", "aristotle"),        # his birth name is a variant
+                ("who", "jacques-cousteau", "rousseau"),
+                ("who", "jean-jacques-rousseau", "cousteau"),
+                ("what", "colosseum", "colossus"),
+                ("what", "colossus-rhodes", "colosseum"),
+                ("what", "karnak-temple", "carnac"),
+                ("what", "carnac-stones", "karnak"),
+                ("who", "david", "davis"),            # Jefferson Davis is in the pool
+                ("who", "plato", "plath"),            # Sylvia Plath is in the pool
+                ("who", "agatha-christie", "christ"),
+            ]
+            for pool_key, iid, guess in lenient_no:
+                items = {"map": figures, "who": who, "what": what}[pool_key]
+                it = by_id(items, iid)
+                if it is None:
+                    continue
+                check("lenient guard: %r does NOT match %s/%s" % (guess, pool_key, iid),
+                      not is_match(pg, guess, it, pool_key))
+
             # ---------------- CROSS-ITEM SWEEP (editions 29-64) --------------
             # Answering with one scheduled item's name/variant must not be
             # accepted for a DIFFERENT scheduled item in the same pool. Run

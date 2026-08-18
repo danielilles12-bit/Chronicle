@@ -1322,20 +1322,21 @@
     "blurb": "Khmer temple complex (12th century) · It's today the only building on any national flag — Cambodia's",
     "img": "assets/img/angkor-wat.jpg",
     "fx": 0.5,
-    "fy": 0.75,
+    "fy": 0.25,
     "frac": 0.2,
     "license": "CC BY-SA 4.0",
     "attribution": "Jakub Hałun",
-    "source": "Wikimedia Commons: 20171128 Angkor Wat 5562 DxO.jpg",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:20171128_Angkor_Wat_5562_DxO.jpg",
+    "source": "Wikimedia Commons: 20171126 Angkor Wat 4712 DxO.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:20171126_Angkor_Wat_4712_DxO.jpg",
     "image_author": "Jakub Hałun",
     "image_license": "CC BY-SA 4.0",
     "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "image_retrieved": "2026-08-06",
+    "image_retrieved": "2026-08-18",
     "mcq": [
       "Borobudur",
       "The Forbidden City"
-    ]
+    ],
+    "start": 8
   },
   {
     "id": "antikythera-mechanism",
@@ -2684,14 +2685,14 @@
     "license": "CC BY-SA 2.5",
     "attribution": "Gernot Keller",
     "source": "Wikimedia Commons: Sutton Hoo helmet reconstructed.jpg",
-    "start": 8,
+    "start": 6,
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Sutton_Hoo_helmet_reconstructed.jpg",
     "image_author": "Gernot Keller (Own work)- 2008-05-17-SuttonHoo.jpg - cropped & slightly brightened",
     "image_license": "CC BY-SA 2.5",
     "image_license_url": "https://creativecommons.org/licenses/by-sa/2.5",
     "image_retrieved": "2026-07-21",
     "mcq": [
-      "Lewis Chessmen",
+      "Mask of Agamemnon",
       "Cyrus Cylinder"
     ]
   },

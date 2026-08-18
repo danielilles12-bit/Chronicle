@@ -392,6 +392,23 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
   hypotheticals, ledgers, receipts, price tags, PAID stamps, purchase
   confirmations, red warning borders on the rescue.
 
+## Answer matching (what counts as a right answer)
+
+- **[ENGINE] Lenient on spelling, never on identity (Daniel, 18 Aug 2026).**
+  Player reports agreed with by the owner: scoring was "far too strict on
+  spelling". `js/match.js` now allows **two typos on long words** (8+
+  letters — one on 5–7, exact under that) and accepts **phonetic
+  sound-alikes** ("Ghandi" = Gandhi, "Karl Marks" = Marx, "Kruschev" =
+  Khrushchev, "Tutenkamen" = Tutankhamun) via a fold that collapses doubled
+  letters and merges x/ks, ph/f, silent h, c/k, z/s, y/i — plus vowels on
+  6+ letter words. The counterweight, added the same day: a lone word
+  within typo range of a **different** pool item's one-word name is never
+  credited ("Davis" at King David, "Colossus" at the Colosseum, "Aristotle"
+  at Plato, "Carnac" at Karnak) — this also retired some pre-existing
+  false accepts. Both directions were audited against all three pools
+  before shipping and are pinned by `tests/match_harness.py` (SPELLING
+  LENIENCY block). Loosen or tighten only with a new ruling.
+
 ## Scheduling (the day compiler)
 
 - **[ENGINE]** 3 rounds per game per day, exactly one easy/medium/hard;
