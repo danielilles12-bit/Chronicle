@@ -352,7 +352,7 @@ a{{color:var(--pink)}}
 .leg{{display:flex;gap:7px;align-items:baseline}}
 .leg span:last-child{{color:#2A2A26}}
 .dot{{width:9px;height:9px;border-radius:50%;flex:0 0 9px;display:inline-block}}
-.dot.born{{background:var(--red)}} .dot.died{{background:var(--blue)}}
+.dot.born{{background:var(--blue)}} .dot.died{{background:var(--red)}}
 .legline{{margin:6px 0 6px 4px;padding-left:12px;border-left:2px dotted var(--muted);
   font-size:11px;color:var(--muted)}}
 /* --- thread ------------------------------------------------------------ */

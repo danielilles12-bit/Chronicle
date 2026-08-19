@@ -460,13 +460,19 @@ textarea.edit.changed,input.edit.changed{border-color:var(--pink);background:#FF
 .sea{fill:#DCEBEF}
 .land{fill:#F2EFE6;stroke:#B9C6C4;stroke-width:1}
 .journey-line{stroke:var(--ink);stroke-width:1.4;stroke-dasharray:3 2}
-.mk-birth{fill:var(--red)}
-.mk-death{fill:var(--blue)}
-.mk-death-ring{fill:none;stroke:var(--blue);stroke-width:1.6}
+/* Pin colours MUST match the live board (css/style.css .mk-birth/.mk-death):
+   birth is the BLUE filled dot, death the RED dot inside a red ring. The
+   tokens there read --ch-map-destination for birth and --ch-map-origin for
+   death — names that sound backwards and are exactly how this board came to
+   ship them inverted (caught by Daniel on the ed-52 board, 19 Aug 2026). If
+   you touch these, re-check style.css, not the token names. */
+.mk-birth{fill:var(--blue)}
+.mk-death{fill:var(--red)}
+.mk-death-ring{fill:none;stroke:var(--red);stroke-width:1.6}
 .journeytext{margin-top:8px;font-size:12.5px}
 .leg{display:flex;gap:6px;align-items:baseline;margin:0}
 .dot{width:9px;height:9px;border-radius:50%;flex:0 0 9px;display:inline-block}
-.dot.born{background:var(--red)} .dot.died{background:var(--blue)}
+.dot.born{background:var(--blue)} .dot.died{background:var(--red)}
 .legdist{margin:4px 0 4px 15px;font-size:11px;color:var(--muted)}
 
 /* --- thread -------------------------------------------------------------- */

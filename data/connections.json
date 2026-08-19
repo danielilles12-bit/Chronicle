@@ -8694,5 +8694,52 @@
         ]
       }
     ]
+  },
+  {
+    "id": "conn-187",
+    "title": "Hard to Swallow",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Came to Europe from the Americas",
+        "items": [
+          "Tomato",
+          "Potato",
+          "Turkey",
+          "Chocolate"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Originated in China",
+        "items": [
+          "Noodles",
+          "Tofu",
+          "Tea",
+          "Soy sauce"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Names derived from places",
+        "items": [
+          "Tangerine",
+          "Hamburger",
+          "Cheddar",
+          "Parmesan"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Named after a person",
+        "items": [
+          "Margherita",
+          "Carpaccio",
+          "Pavlova",
+          "Caesar"
+        ]
+      }
+    ]
   }
 ]
