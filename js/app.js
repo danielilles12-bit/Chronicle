@@ -1861,9 +1861,14 @@ function showNewEditionBar() {
   const bar = document.createElement('button');
   bar.id = 'new-edition';
   bar.type = 'button';
-  bar.innerHTML = document.documentElement.classList.contains('ios')
-    ? '✨ New version ready — <b>pull down to refresh</b>'
-    : '✨ New version ready — <b>tap to refresh</b>';
+  // One label on every platform (19 Aug 2026, friend report via Daniel).
+  // The bar has always reloaded on tap, but iOS advertised "pull down to
+  // refresh" — an instruction that only works on Home, where the queen pull
+  // rides the native rubber band; inside a game the board owns every touch,
+  // so the promised gesture is impossible exactly where players spend their
+  // time, and the bar reads as unclosable. The tap works everywhere: say so.
+  // (The Home pull keeps working as a bonus; it just stopped being the ad.)
+  bar.innerHTML = '✨ New version ready — <b>tap to refresh</b>';
   bar.addEventListener('click', () => location.reload());
   document.body.appendChild(bar);
 }
