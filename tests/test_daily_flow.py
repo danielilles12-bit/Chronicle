@@ -213,6 +213,13 @@ def no_encore(p, base):
         turn = page.locator("#rv-sum-turn")
         assert turn.is_visible(), "the summary lost its forward button"
         assert "next puzzle" in turn.inner_text().lower(), turn.inner_text()
+        # ...and it has to actually open that game. The button routes through
+        # app.js's launchEdition (the same door the Home cards use) since v224,
+        # so this walks the whole thing rather than only reading the label.
+        turn.click()
+        H.dismiss_intro(page)
+        page.wait_for_selector("#view-map:not([hidden])", timeout=10000)
+        page.wait_for_function("__CHRONICLE_TEST__.mapRound !== undefined")
         H.fail_on_errors(errors, "no_encore")
 
 
