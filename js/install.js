@@ -150,16 +150,31 @@ const GLYPH = {
     <path d="M18.5 21.5 33 7"/><path d="M24 7h9v9"/></svg>`,
 };
 
+// A replica row is a CUTOUT, not a control (19 Aug 2026, the Emma report —
+// second player to tap the drawing and conclude the app was broken). A
+// faithful copy of a tappable row invites the tap, so the copy now wears
+// tape strips, a small caption and a tilt: scrapbook language, "this is a
+// picture". And because people will tap it anyway, the tap answers — see
+// wireScreen — instead of the silence that reads as breakage.
+const cutout = (rowHTML) => `
+  <div class="install-cutout">
+    <span class="install-tape install-tape-l" aria-hidden="true"></span>
+    <span class="install-tape install-tape-r" aria-hidden="true"></span>
+    ${rowHTML}
+    <span class="install-cutout-cap">what it looks like</span>
+    <span class="install-cutout-note" hidden>Just a picture — find the real one on your browser’s own bar.</span>
+  </div>`;
+
 // A share-sheet row, drawn as the phone draws it: ICON LEFT, label right
 // (Daniel's screenshots settled this — the stale iOS-13-era sources had it
 // backwards).
 const sheetRow = (glyph, label) =>
-  `<div class="install-row">${glyph}<span>${label}</span></div>`;
+  cutout(`<div class="install-row">${glyph}<span>${label}</span></div>`);
 
 // An in-app browser's menu row: iOS context menus put the label first and the
 // icon on the trailing edge, which is how Instagram's own menu reads.
 const menuRow = (label, glyph) =>
-  `<div class="install-row install-row-menu"><span>${label}</span>${glyph}</div>`;
+  cutout(`<div class="install-row install-row-menu"><span>${label}</span>${glyph}</div>`);
 
 const step = (n, doHTML, extraHTML) => `
   <div class="install-step">
@@ -388,6 +403,11 @@ function nativeInstall() {
   }).catch(() => {});
 }
 
+// One beacon per session however many times the drawing gets prodded — the
+// question the dashboard answers is "does this confusion exist", not "how
+// hard did one person try".
+let replicaTapTracked = false;
+
 function wireScreen() {
   const saved = $('#install-saved');
   if (saved) saved.addEventListener('click', claimSaved);
@@ -397,6 +417,39 @@ function wireScreen() {
   if (copy) copy.addEventListener('click', copyLink);
   const now = $('#install-now');
   if (now) now.addEventListener('click', nativeInstall);
+  // The mistaken tap becomes the lesson: wobble the drawing, say what it is.
+  // No arrow, no position claim — a page cannot know where the browser put
+  // its buttons (the same ruling that banned pointing at chrome).
+  const answerTap = (el, noteHome) => {
+    el.classList.remove('install-cutout-shake');
+    void el.getBoundingClientRect();   // reflow, so the animation restarts on
+    el.classList.add('install-cutout-shake');   // every tap (SVGs included —
+    // they have no offsetWidth, the usual trick's HTMLElement-only property)
+    let note = noteHome.querySelector('.install-cutout-note');
+    if (!note) {
+      note = document.createElement('span');
+      note.className = 'install-cutout-note';
+      noteHome.appendChild(note);
+    }
+    note.textContent = 'Just a picture — find the real one on your browser’s own bar.';
+    note.hidden = false;
+    if (!replicaTapTracked) {
+      replicaTapTracked = true;
+      track('install-replica-tap');
+    }
+  };
+  document.querySelectorAll('#install-body .install-cutout').forEach((c) => {
+    c.addEventListener('click', () => answerTap(c, c));
+  });
+  // The bare glyphs too (the share icon in step 1, the ••• in its small
+  // print): drawn at button size, they invite the same tap. Their note lands
+  // at the end of the step that contains them.
+  document.querySelectorAll('#install-body .install-glyph').forEach((g) => {
+    if (g.closest('.install-cutout')) return;   // the cutout already answers
+    g.addEventListener('click', () => {
+      answerTap(g, g.closest('.install-step-body') || g.parentElement);
+    });
+  });
 }
 
 // A forced preview (reason 'qa') paints the screen and nothing else: it must

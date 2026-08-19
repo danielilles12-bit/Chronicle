@@ -595,7 +595,45 @@ def never_in_the_installed_app(p, base):
         H.fail_on_errors(errors, "never_in_the_installed_app")
 
 
+def replica_tap_teaches(p, base):
+    """The Emma report (19 Aug 2026): players tap the drawn replica as if it
+    were the real button, and silence reads as breakage. The cutout now
+    answers: caption on sight, explanation on tap, one beacon per session."""
+    with H.app(p) as (page, errors, _c):
+        H.boot(page, base, DATE)
+        force(page, "installSafari")
+        page.wait_for_selector(SCREEN)
+        text = screen_text(page)
+        assert "what it looks like" in text, (
+            "the replica cutout lost its caption")
+        note = page.locator("#install-screen .install-cutout-note").first
+        assert not note.is_visible(), "the explanation should wait for the tap"
+        page.click("#install-screen .install-cutout")
+        assert note.is_visible(), (
+            "tapping the replica must reveal the explanation")
+        assert "just a picture" in note.inner_text().lower(), (
+            "the explanation lost its point: %r" % note.inner_text())
+        page.click("#install-screen .install-cutout")   # a second prod
+        # The bare glyphs answer too (Daniel, same evening: "what if they tap
+        # the share sign in instruction 1?"). Tap the step-1 share icon: its
+        # step grows the same one-line explanation.
+        step1_glyph = page.locator(
+            "#install-screen .install-step .install-glyph").first
+        step1_glyph.click()
+        notes = page.locator("#install-screen .install-cutout-note:visible")
+        assert notes.count() >= 2, (
+            "tapping a bare glyph must answer in its own step (visible notes: %d)"
+            % notes.count())
+        events = H.gc_events(page)
+        assert events.count("7-install-replica-tapped") == 1, (
+            "replica taps beacon once per session, got %r"
+            % [e for e in events if "replica" in e])
+        H.fail_on_errors(errors, "replica_tap_teaches")
+    print("PASS replica_tap_teaches")
+
+
 TESTS = [detection, screens_render, qa_panel_summons_every_branch,
+         replica_tap_teaches,
          two_games_then_the_ask, real_games_count, a_past_day_counts_as_a_game,
          decline_leaves_the_strip, strip_x_then_one_last_offer,
          saved_it_ends_the_asking, android_one_tap,

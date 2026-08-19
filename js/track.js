@@ -113,6 +113,10 @@ const DISPLAY = {
   'install-saved-claim': '7-install-saved-claim',
   'install-later': '7-install-later',
   'install-strip-tap': '7-install-strip-tapped',
+  // The drawn replica got tapped as if it were the real button (19 Aug 2026,
+  // the Emma report). Once per session: measures whether the confusion
+  // exists, not how persistent one player was.
+  'install-replica-tap': '7-install-replica-tapped',
   // Android's OS dialog answering for itself (the native branch only).
   'install-accepted': '7-install-android-accepted',
   'install-declined': '7-install-android-declined',
