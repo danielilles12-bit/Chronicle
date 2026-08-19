@@ -1811,5 +1811,14 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
   min-height: 40px; font-family: inherit;
 }
 #qa-panel .qa-btn:active { background: #2c2c35; }
+/* The crash note (js/qa.js): read-only, inside the QA panel only, so it is
+   invisible to every player who has never used ?qa=1. */
+#qa-panel .qa-note {
+  grid-column: 1 / -1; border: 1px solid #3a3a44; background: #17171c;
+  padding: 8px; font-size: 11px; line-height: 1.35;
+}
+#qa-panel .qa-note strong { display: block; color: var(--df-magenta); letter-spacing: .12em; font-size: 10px; }
+#qa-panel .qa-note p { margin: 4px 0 0; color: #b9b9c2; }
+#qa-panel .qa-note-detail { color: #F2EFE6; word-break: break-word; }
 #qa-panel .qa-danger { grid-column: 1 / -1; border-color: var(--df-red); color: #ff9b9b; }
 #qa-panel .qa-off { grid-column: 1 / -1; border-color: #55555f; color: #b9b9c2; }

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Resilience suite (P4.1/P5.2): share clipboard fallback, share deep-link
-landing, storage corruption + quota failure, a missing daily manifest,
-offline play of the current issue, service-worker update bar.
+landing, storage corruption + quota failure, a missing daily manifest, the
+forward button's data gate, the on-device crash note, offline play of the
+current issue, service-worker update bar.
 """
 import functools
 import http.server
@@ -261,6 +262,141 @@ def missing_manifest(p, base):
                          "missing_manifest")
 
 
+# ---------- turn_the_page_gate ----------
+def turn_the_page_gate(p, base):
+    """"Play the next puzzle >" is a door into a daily, so it waits for that
+    game's files like every other door.
+
+    It used to call the game's launcher straight, skipping app.js's
+    launchEdition and therefore the data gate. A player whose connection lost
+    (or was still fetching) figures.json/worldmap.json finished one game,
+    tapped forward, and Lifeline opened with no pool and no world map: it read
+    `land` off a null world and the app died under them, while js/daily.js
+    blamed a schedule that had downloaded perfectly. Both live alarms of
+    12-18 Aug 2026 -- 9-app-error-mapgamejs and 9-manifest-missing -- came from
+    that one call.
+
+    Blocking one of Lifeline's two files and walking the real route is what
+    reproduces it, so that is what this asserts: no crash, no false schedule
+    alarm, the player on the hub with the reason visible on the card that owns
+    it, and the very same tap working once the file is back.
+    """
+    for blocked_file in ("/data/figures.json", "/data/worldmap.json"):
+        blocked = {"on": True}
+
+        def route(r):
+            host = r.request.url.split("/")[2].split(":")[0]
+            if host not in ("127.0.0.1", "localhost"):
+                r.abort()                              # hermetic, as everywhere
+            elif blocked["on"] and blocked_file in r.request.url:
+                r.abort()
+            else:
+                r.continue_()
+
+        with H.app(p, block_external=False) as (page, errors, ctx):
+            ctx.route("**/*", route)
+            page.goto(H.app_url(base, DATE))
+            # BOOTED minus the map pair -- the files this scenario withholds.
+            page.wait_for_function(
+                "window.__CHRONICLE_TEST__ && __CHRONICLE_TEST__.data"
+                " && __CHRONICLE_TEST__.data.reveal"
+                " && __CHRONICLE_TEST__.data.editions"
+                " && __CHRONICLE_TEST__.data.connections", timeout=20000)
+            assert page.evaluate("!!__CHRONICLE_TEST__.data.world") is False, (
+                "this scenario is meaningless if the world map got through")
+
+            # Face Value's own files did arrive, so it plays right through.
+            H.open_daily(page, "who")
+            H.dismiss_intro(page, timeout=2000)
+            H.play_reveal_daily(page)
+            H.dismiss_install(page, timeout=2000)
+            page.wait_for_selector("#view-revealsum:not([hidden])")
+            turn = page.locator("#rv-sum-turn")
+            assert turn.is_visible(), "no forward button to test"
+            assert "next puzzle" in turn.inner_text().lower(), (
+                "the forward button is not offering the next game")
+
+            turn.click()
+            # startEdition defers begin() behind the first-run intro card, so
+            # the pre-fix crash only landed after it was dismissed.
+            H.dismiss_intro(page, timeout=2500)
+            page.wait_for_selector("#view-home:not([hidden])", timeout=8000)
+
+            gc = H.gc_events(page)
+            assert not [e for e in gc if e.startswith("9-app-")], (
+                "forward button crashed into Lifeline: %s"
+                % [e for e in gc if e.startswith("9-app-")])
+            assert "9-manifest-missing" not in gc, (
+                "a pool file that failed to download was reported as a missing "
+                "schedule -- the schedule downloaded fine")
+            assert page.locator("#view-map").is_hidden(), (
+                "Lifeline opened with no figures and no world map")
+            assert "retry" in page.inner_text('[data-hero="map"] [data-status]').lower(), (
+                "Home does not say why the next puzzle would not open")
+            assert page.evaluate(
+                "document.querySelector('[data-hero=\"map\"]"
+                " [data-status]').offsetParent !== null"), (
+                "the reason was written into a status line nobody can see")
+
+            # The file comes back: the same journey has to work.
+            blocked["on"] = False
+            H.open_daily(page, "map")          # the tap is what refetches
+            H.dismiss_intro(page, timeout=2500)
+            page.wait_for_selector("#view-map:not([hidden])", timeout=15000)
+
+            # The blocked download is the point here and the browser logs it as
+            # a failed resource; every OTHER console error still counts.
+            H.fail_on_errors([e for e in errors if blocked_file not in e],
+                             "turn_the_page_gate " + blocked_file)
+
+
+# ---------- crash_note ----------
+CRASH_MSG = "yesternerd-test-crash-probe"
+
+
+def crash_note(p, base):
+    """The crash beacon's readable half finally has somewhere to be read.
+
+    app.js can only put a script basename in an analytics event (a message can
+    carry a URL), so the detail is kept on the device in misc.lastError -- and
+    for a week nothing anywhere read it. js/qa.js now shows it, which means an
+    affected phone can report what actually happened instead of a filename.
+
+    Gating is the other half of the test: js/qa.js is imported only when ?qa=1
+    has been used on that device, so an ordinary player never downloads it and
+    the panel adds no screen to normal navigation.
+    """
+    with H.app(p) as (page, errors, _ctx):
+        H.boot(page, base, DATE)
+        assert page.locator("#qa-panel").count() == 0, (
+            "the QA panel is showing to a player who never asked for it")
+
+        # A REAL uncaught error, through the real window 'error' listener.
+        page.evaluate("setTimeout(() => { throw new Error('%s'); }, 0)" % CRASH_MSG)
+        page.wait_for_function(
+            "() => { const m = __CHRONICLE_TEST__.store.getMisc().lastError;"
+            " return !!m && m.detail.indexOf('%s') !== -1; }" % CRASH_MSG,
+            timeout=5000)
+        assert [e for e in H.gc_events(page) if e.startswith("9-app-error-")], (
+            "an uncaught error did not raise a crash beacon")
+
+        # Same device, panel on: the note reads back what was recorded.
+        H.boot(page, base, DATE, extra="&qa=1")
+        page.wait_for_selector("#qa-panel .qa-note")
+        note = page.inner_text("#qa-panel .qa-note")
+        assert CRASH_MSG in note, "the crash note does not show what happened"
+        build = page.inner_text("#build-tag").strip()
+        assert build and build in note, (
+            "the crash note does not name the build it happened on")
+        assert str(H.date.today().year) in note, (
+            "the crash note does not say when it happened")
+        # Read-only: nothing in the note offers to change anything.
+        assert page.locator("#qa-panel .qa-note button").count() == 0, (
+            "the crash note is not read-only")
+
+        H.fail_on_errors([e for e in errors if CRASH_MSG not in e], "crash_note")
+
+
 # ---------- offline_current_issue ----------
 def offline_current_issue(p, base):
     """After one online load, today's dailies play fully offline (Chromium;
@@ -364,7 +500,8 @@ def sw_update(p, base_unused):
 
 
 TESTS = [share_fallback, share_landing, storage_corrupt, storage_quota,
-         missing_manifest, offline_current_issue, sw_update]
+         missing_manifest, turn_the_page_gate, crash_note,
+         offline_current_issue, sw_update]
 
 
 def main():

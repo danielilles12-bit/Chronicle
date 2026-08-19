@@ -226,8 +226,13 @@ function attachMapGestures() {
 function renderWorld() {
   const svg = $('#map-svg');
   svg.setAttribute('viewBox', '0 0 1000 500');
+  // The land path is read defensively because this is the exact line the app
+  // died on when a caller reached Lifeline before worldmap.json arrived (see
+  // the twin note in startEdition). Callers are gated now; the guard stays so
+  // the failure can never be a crash again — an empty sea is a bad board, but
+  // a board.
   svg.innerHTML = `<rect x="-40" y="-40" width="1080" height="580" fill="var(--ch-cream)"></rect>`
-    + `<path class="map-land" d="${DATA.world.land}" fill-rule="evenodd"></path>`
+    + `<path class="map-land" d="${(DATA.world && DATA.world.land) || ''}" fill-rule="evenodd"></path>`
     + `<g id="mk"></g>`;
 }
 
@@ -454,7 +459,7 @@ function resumeSession() {
 // Shared resume path for free/daily/practice: `saved` is the persisted
 // session shape (ids/i/score/streak/bestStreak/results/cur/editionIndex).
 function resumeFrom(mode, key, saved, fromShare) {
-  const byId = (id) => DATA.figures.find((f) => f.id === id);
+  const byId = (id) => (DATA.figures || []).find((f) => f.id === id);
   // The round to play is always the first one without a stored result —
   // a session saved mid-round (answered, "Next" untapped) must NOT replay
   // the already-scored round.
@@ -469,8 +474,13 @@ function resumeFrom(mode, key, saved, fromShare) {
     mode, dailyKey: key, store: st, editionIndex: saved.editionIndex,
     rounds: saved.ids.map(byId),
     i: Math.min(next, saved.ids.length - 1),
-    score: saved.score, streak: saved.streak,
-    bestStreak: saved.bestStreak,
+    // Coerced like the locked-result door below (v216): a session written by
+    // an older build — or one whose every round was already answered, which
+    // goes straight to finishSession → the remark band lookup — must not carry
+    // a hole into a numeric comparison.
+    score: Number.isFinite(saved.score) ? saved.score : 0,
+    streak: saved.streak || 0,
+    bestStreak: saved.bestStreak || 0,
     results: saved.results.map((r) => ({
       fig: byId(r.id), pts: r.pts, correct: r.correct, hints: r.hints, wrongs: r.wrongs,
     })),
@@ -490,11 +500,15 @@ function resumeFrom(mode, key, saved, fromShare) {
 }
 
 function startSession() {
+  // Free play is not reachable from the UI today, but the start screen exists
+  // and the nav test walks it: same data guard as the daily door above.
+  if (!DATA.figures || !DATA.world) { goHome(); return; }
   const rng = makeRng();
   const by = (d) => DATA.figures.filter((f) => f.difficulty === d);
   const picks = shuffled(by('easy'), rng).slice(0, 2)
     .concat(shuffled(by('medium'), rng).slice(0, 2))
     .concat(shuffled(by('hard'), rng).slice(0, 1));
+  if (!picks.length) { goHome(); return; }
   S = {
     mode: 'free', dailyKey: null, store: modeStore('free', null),
     rounds: shuffled(picks, rng),
@@ -512,6 +526,17 @@ function startSession() {
 // replaying. Practice: same edition list, but replayable and never touches
 // the ledger (separate `chronicle.practice.*` storage key).
 function startEdition(mode, editionIndex) {
+  // THE DATA GUARD, on the entry point itself — the belt to app.js's braces,
+  // exactly like the archive-window guard on startMapDaily below. Lifeline
+  // needs BOTH figures.json and worldmap.json, and every branch of this
+  // function assumes them: the locked summary rebuilds its rounds from the
+  // pool, the resume path looks figures up by id, and a fresh round draws the
+  // world. app.js's launchEdition is what waits for them — but "Play the next
+  // puzzle ›" used to bypass it, and this function ran on regardless with a
+  // null pool and a null world, killing the app inside renderWorld (the
+  // 9-app-error-mapgamejs beacons, 12–18 Aug 2026). Home is where the retry
+  // lives, so a caller that arrives early is sent back to it.
+  if (!DATA.figures || !DATA.world) { goHome(); return; }
   const key = mode === 'daily' ? daily.dailyKey('map', editionIndex) : daily.practiceKey('map', editionIndex);
   // P5.2: consumed synchronously (no await between app.js setting it and
   // this read), so it's safe even though the intro overlay can defer begin()
@@ -529,6 +554,11 @@ function startEdition(mode, editionIndex) {
   }
   const begin = () => {
     const rounds = daily.getEdition('map', editionIndex);
+    // getEdition returns empty for "cannot be built", never a substitute (see
+    // js/daily.js). An empty list used to be carried into startRound, which
+    // read `birth` off an undefined figure. Refuse it the way Thread always
+    // has (connectionsgame.js `if (!puzzle)`), and go to the hub.
+    if (!rounds.length) { goHome(); return; }
     S = {
       mode, dailyKey: key, store: modeStore(mode, key), editionIndex,
       rounds, i: 0, score: 0, streak: 0, bestStreak: 0, results: [],
@@ -801,7 +831,12 @@ function renderLockedSummary() {
     [15, 'Getting warm.'],
     [0, 'A footnote.'],
   ];
-  $('#sum-remark').innerHTML = remarks.find((r) => S.score >= r[0])[1];
+  // The band lookup itself must not be the thing that dies. v216 coerced the
+  // score at every door a foreign entry can come through; this is the same
+  // rule stated once, at the point of use, so a hole arriving through a door
+  // nobody has thought of yet costs a wrong remark rather than the screen.
+  const band = remarks.find((r) => S.score >= r[0]) || remarks[remarks.length - 1];
+  $('#sum-remark').innerHTML = band[1];
   const ol = $('#sum-rounds');
   ol.innerHTML = '';
   for (const r of S.results) {

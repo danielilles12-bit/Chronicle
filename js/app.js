@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v223';
+const BUILD = 'v224';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -315,6 +315,11 @@ export function setCardStatus(el, text) {
   if (card) card.classList.toggle('show-status', !!text);
 }
 
+// The one wording for "this game's files are not here". Written in three
+// places (the data gate, the schedule gate, and the forward button's own
+// refusal below), so it lives here rather than being retyped and drifting.
+const RETRY_MSG = 'couldn’t load — tap to retry';
+
 // Build the static shell for all four rows once. Called on boot; content
 // (edition label, status, day-card weekdays) is filled in by
 // refreshGameRows(), which also runs every time Home is revisited so a
@@ -586,9 +591,28 @@ function nextUnplayedDaily(n) {
   return daily.GAMES.find((g) => !store.getDailyEntry(g, n)) || null;
 }
 
+// "Play the next puzzle ›" opens a daily like any other control, so it goes
+// through THE ONE DOOR too (launchEdition, above). It used to call
+// g.launchDaily(n) straight, skipping all three gates — and the DATA gate is
+// the one that bit. The four games' pool files download in the background, so
+// a player on a slow or broken connection who finished one game and tapped
+// forward opened the next game with no content at all: Lifeline read `land`
+// off a null world map and the app died with them stuck on the summary
+// (the 9-app-error-mapgamejs beacons), while js/daily.js reported a missing
+// schedule that was never missing (9-manifest-missing). Both alarms, 12–18 Aug
+// 2026, came from this one line.
 function launchDailyByKey(key, n) {
-  const g = GAME_ROWS.find((x) => x.key === key);
-  if (g) g.launchDaily(n);
+  const statusEl = document.querySelector(`[data-hero="${key}"] [data-status]`);
+  launchEdition(key, n, statusEl).then((ok) => {
+    if (ok) return;
+    // Refused: put the player on the hub rather than under a button that did
+    // nothing. goHome() repaints the rows and clears their status lines with
+    // them, so the reason is re-stamped AFTER it — and only when the reason
+    // was the download. A rollover refusal needs no words; the freshly-drawn
+    // Home already tells that story.
+    goHome();
+    if (daily.canPlayEdition(n)) setCardStatus(statusEl, RETRY_MSG);
+  });
 }
 
 // Wire a daily summary's forward button: "Play the next puzzle ›" to the next
@@ -1381,8 +1405,13 @@ function loadAllData() {
   const editionsAttempt = loadFile('editions');
   Object.keys(DATA_FILES).forEach((k) => { if (k !== 'editions') loadFile(k); });
   Promise.all([loadFile('revealWho'), loadFile('revealWhat'), editionsAttempt])
-    .then(([who, what]) => {
-      if (who && what) setTimeout(prefetchDailyImages, 1200); // after first paint settles
+    .then(([who, what, editions]) => {
+      // The manifest's result used to be awaited and then ignored, so a failed
+      // schedule download still ran the prefetch — which asked getEdition for
+      // an edition it could not possibly answer, raising a second alarm about
+      // a failure err-data-editions had already reported. Nothing to prefetch
+      // without it anyway: the manifest is what names today's items.
+      if (who && what && editions) setTimeout(prefetchDailyImages, 1200); // after first paint settles
     });
 }
 
@@ -1401,7 +1430,7 @@ async function ensureGameData(gameKey, statusEl) {
   await loadFile('editions');
   clearTimeout(slow);
   const ok = results.every(Boolean);
-  if (!ok) setCardStatus(statusEl, 'couldn’t load — tap to retry');
+  if (!ok) setCardStatus(statusEl, RETRY_MSG);
   return ok;
 }
 
@@ -1415,7 +1444,14 @@ async function ensureGameData(gameKey, statusEl) {
 async function ensureEdition(gameKey, statusEl, editionIndex) {
   if (!await ensureGameData(gameKey, statusEl)) return false;
   if (daily.manifestReady(editionIndex)) return true;
-  setCardStatus(statusEl, 'couldn’t load — tap to retry');
+  // A player was turned away because the schedule is not here: THAT is the
+  // missing-manifest alarm, raised at the moment it actually cost someone a
+  // game. (It used to be raised by the boot-time image prefetch instead, which
+  // also raised it for pool files that had nothing to do with the schedule.)
+  // Note the order: a failed POOL download returns above, so it can never be
+  // reported as a lost schedule again.
+  daily.reportManifestMiss(editionIndex);
+  setCardStatus(statusEl, RETRY_MSG);
   return false;
 }
 
@@ -1641,6 +1677,12 @@ function prefetchDailyImages() {
   const seen = new Set();
   for (const n of (isStandalone() ? [today, today + 1] : [today])) {
     for (const game of ['who', 'what']) {
+      // Ask only for editions the schedule actually names. Tomorrow is a
+      // nicety (a buffer for a day spent offline), and on the last day the
+      // manifest covers there is no tomorrow in it — going through getEdition
+      // regardless would raise the missing-schedule alarm about a day nobody
+      // can play yet, on every installed device at once.
+      if (!daily.manifestHas(game, n)) continue;
       for (const item of daily.getEdition(game, n)) {
         if (item.img && !seen.has(item.img)) { seen.add(item.img); urls.push(item.img); }
       }

@@ -95,7 +95,13 @@ function startEdition(mode, editionIndex) {
   }
   const boards = daily.getEdition('thread', editionIndex);
   const puzzle = boards[0];
-  if (!puzzle) return;               // no board available for this tier (shouldn't happen with real content)
+  // No board to open: either the tier has no content (shouldn't happen with
+  // real content) or the caller arrived before connections.json did. THIS
+  // guard is why Thread was the one game that never crashed when "Play the
+  // next puzzle ›" outran the downloads — Lifeline and Face Value/Relic have
+  // their own now. It goes to the hub rather than returning into a dead
+  // button, so the player always lands somewhere with a way forward.
+  if (!puzzle) { goHome(); return; }
   const key = mode === 'daily' ? daily.dailyKey('thread', editionIndex) : daily.practiceKey('thread', editionIndex);
   const st = modeStore(key);
   const progress = st.get();

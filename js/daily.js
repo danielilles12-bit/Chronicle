@@ -225,26 +225,46 @@ function poolFor(game) {
 // improvise around; see manifestReady below.
 let manifestMissTracked = false;
 
-function manifestEdition(game, n) {
+function manifestIds(game, n) {
   const man = DATA.editions;
   const ed = man && man.editions && man.editions[n];
   const ids = ed && ed[game];
-  if (!ids || !ids.length) return null;
+  return ids && ids.length ? ids : null;
+}
+
+function manifestEdition(game, n) {
+  const ids = manifestIds(game, n);
+  if (!ids) return null;
   const byId = new Map(poolFor(game).map((x) => [x.id, x]));
   const items = ids.map((id) => byId.get(id)).filter(Boolean);
   return items.length ? items : null;   // ids that resolve to nothing = treat as missing
 }
 
 // Fired (once per session) when an edition that SHOULD be manifest-served is
-// not: either the manifest file never loaded, or n is past the recipe switch
-// and its edition was never approved. Legacy-era editions falling back to
-// arithmetic are normal, not an emergency.
-function trackManifestMiss(n) {
+// not: either the manifest file never loaded, or it loaded and has no entry
+// for n — a curation gap, or the schedule simply running out. Legacy-era
+// editions falling back to arithmetic are normal, not an emergency.
+//
+// Exported because the honest moment to raise this is the moment a PLAYER was
+// refused a day: app.js's launch gate. It used to fire only from getEdition,
+// which meant the one routine call at boot — the image prefetch — was doing
+// the reporting for the whole app, and reported a lost schedule for failures
+// that were nothing of the kind (see the note in getEdition).
+export function reportManifestMiss(n) {
   const man = DATA.editions;
   if (man && n < man.recipeChangeEdition) return;
   if (manifestMissTracked) return;
   manifestMissTracked = true;
   track('err-manifest-missing');
+}
+
+// Does the loaded manifest actually name this game's edition n? For callers
+// that want an edition WITHOUT asking for one — the boot-time image prefetch
+// looks tomorrow up, and tomorrow is past the end of the schedule on the day
+// before the manifest runs out. Asking through getEdition would raise the
+// missing-schedule alarm about a day nobody is playing yet.
+export function manifestHas(game, n) {
+  return !!manifestIds(game, n);
 }
 
 // Can edition n be built at all right now? False in exactly one case: the
@@ -264,7 +284,15 @@ export function manifestReady(n) {
 export function getEdition(game, n) {
   const fromManifest = manifestEdition(game, n);
   if (fromManifest) return fromManifest;
-  trackManifestMiss(n);
+  // Only sound the SCHEDULE alarm when the schedule is the thing that failed.
+  // It used to fire whenever the manifest couldn't produce items, which
+  // includes the case where the manifest named them perfectly and the POOL
+  // file (figures.json, reveal-*.json, connections.json) simply hadn't
+  // downloaded yet. Those have their own alarm — err-data-* — and counting
+  // them here reported 23 sessions of "the schedule is missing" in a week when
+  // the schedule failed to download once (12–18 Aug 2026), which is a false
+  // alarm loud enough to send a debugging session the wrong way.
+  if (!manifestIds(game, n)) reportManifestMiss(n);
   // No manifest and no arithmetic licence: refuse rather than improvise.
   // Note this is only the MISSING-FILE case. A manifest that loaded but has
   // no entry for n is a curation gap, not a lost file, and keeps its existing

@@ -48,6 +48,37 @@ function el(tag, cls, text) {
   return n;
 }
 
+// ---------- the crash note ----------
+// app.js's crash beacon can only put a script BASENAME in an analytics event —
+// an error message can carry a URL, and nothing identifying may leave the
+// device. So the readable half (message, file:line, build, when) is written to
+// misc.lastError instead... where, until now, nothing ever read it. A week of
+// "9-app-error-mapgamejs" told us a file and nothing else.
+//
+// This is that missing window: read-only, no clearing, no copying out, and
+// reachable only from the QA panel — which ordinary players never load (app.js
+// imports js/qa.js only when ?qa=1 has been used on that device). It adds
+// nothing to normal navigation, so the no-dead-ends contract is untouched.
+function crashNote(store) {
+  const wrap = el('div', 'qa-note');
+  wrap.append(el('strong', null, 'Last crash on this device'));
+  let e = null;
+  try { e = store.getMisc().lastError; } catch (err) { /* storage refused */ }
+  if (!e || !e.detail) {
+    wrap.append(el('p', null, 'None recorded.'));
+    return wrap;
+  }
+  const when = Number.isFinite(e.at) ? new Date(e.at) : null;
+  wrap.append(el('p', 'qa-note-meta',
+    [when ? when.toLocaleString() : 'time unknown',
+      e.build || 'build unknown',
+      e.kind || 'error'].join(' · ')));
+  // textContent, never innerHTML: this string is an error message from the
+  // wild and may hold anything at all.
+  wrap.append(el('p', 'qa-note-detail', String(e.detail)));
+  return wrap;
+}
+
 export function initQA(actions, store) {
   if (document.getElementById('qa-panel')) return;
 
@@ -75,6 +106,10 @@ export function initQA(actions, store) {
     });
     body.appendChild(b);
   }
+
+  // What the last crash on this device actually said, above the destructive
+  // controls (the wipe below erases it along with everything else).
+  body.appendChild(crashNote(store));
 
   // Destructive actions live at the end, visually separated.
   const wipe = el('button', 'qa-btn qa-danger', 'Fresh device (wipe + reload)');

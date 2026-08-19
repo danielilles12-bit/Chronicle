@@ -49,7 +49,7 @@ let MODE = 'who';               // 'who' = portraits, 'what' = artefacts
 let frameZoom = null;           // pinch-zoom handle for #rv-frame
 
 function pool() {
-  return DATA.reveal.filter((x) => (MODE === 'who' ? x.kind === 'portrait' : x.kind !== 'portrait'));
+  return (DATA.reveal || []).filter((x) => (MODE === 'who' ? x.kind === 'portrait' : x.kind !== 'portrait'));
 }
 
 // ---------- clue slips (buyable hints) ----------
@@ -600,7 +600,10 @@ export function renderRevealStart(mode) {
   }
 }
 
-function byId(id) { return DATA.reveal.find((x) => x.id === id); }
+// Read defensively: the locked-result door below looks ids up through this
+// before anything has checked the pool arrived (see the twin note in
+// mapgame.js startEdition — the same missing-data crash, 12–18 Aug 2026).
+function byId(id) { return (DATA.reveal || []).find((x) => x.id === id); }
 
 // Free sessions keep using store.getRevealSession/setRevealSession/
 // clearRevealSession (per MODE) exactly as before. Daily and practice
@@ -710,7 +713,10 @@ function resumeFrom(sessMode, key, saved, fromShare) {
     mode: sessMode, dailyKey: key, store: st, editionIndex: saved.editionIndex,
     rounds: saved.ids.map(byId),
     i: Math.min(next, saved.ids.length - 1),
-    score: saved.score, streak: saved.streak, bestStreak: saved.bestStreak,
+    // Coerced like the locked-result door (v216): an already-finished saved
+    // session goes straight to finishSession and its remark band lookup.
+    score: Number.isFinite(saved.score) ? saved.score : 0,
+    streak: saved.streak || 0, bestStreak: saved.bestStreak || 0,
     results: saved.results.map((r) => ({ item: byId(r.id), pts: r.pts, correct: r.correct })),
     pendingCur: saved.cur || null,
     startedAt: saved.startedAt || Date.now(),
@@ -725,6 +731,11 @@ function resumeFrom(sessMode, key, saved, fromShare) {
 // game key for the daily/practice namespace is 'who' or 'what' (MODE).
 function startEdition(sessMode, editionIndex) {
   if (MODE !== 'who' && MODE !== 'what') return;
+  // The data guard, on the entry point itself — the belt to app.js's braces,
+  // like the archive-window guard on startRevealDaily below. See the longer
+  // note in mapgame.js startEdition: "Play the next puzzle ›" used to open a
+  // game without waiting for its pool, and every branch here assumes one.
+  if (!DATA.reveal) { goHome(); return; }
   const key = sessMode === 'daily' ? daily.dailyKey(MODE, editionIndex) : daily.practiceKey(MODE, editionIndex);
   // P5.2: consumed synchronously (no await between app.js setting it and
   // this read), so it's safe even though the intro overlay can defer begin()
@@ -743,6 +754,10 @@ function startEdition(sessMode, editionIndex) {
   const mode = MODE;   // capture: MODE is stable while the intro overlay is up
   const begin = () => {
     const rounds = daily.getEdition(mode, editionIndex);
+    // Empty means "cannot be built", never a substitute (js/daily.js). Refuse
+    // it rather than opening a round list with nothing in it — see the twin
+    // note in mapgame.js.
+    if (!rounds.length) { goHome(); return; }
     S = {
       mode: sessMode, dailyKey: key, store: modeStore(sessMode, key), editionIndex,
       rounds, i: 0, score: 0, streak: 0, bestStreak: 0, results: [],
@@ -1091,7 +1106,10 @@ function renderLockedSummary() {
     [15, 'The details are coming into focus.'],
     [0, 'Every expert starts by squinting.'],
   ];
-  $('#rv-sum-remark').innerHTML = remarks.find((x) => S.score >= x[0])[1];
+  // The lookup itself never dies — see the twin note in mapgame.js
+  // renderLockedSummary.
+  const band = remarks.find((x) => S.score >= x[0]) || remarks[remarks.length - 1];
+  $('#rv-sum-remark').innerHTML = band[1];
   const ol = $('#rv-sum-rounds');
   ol.innerHTML = '';
   for (const r2 of S.results) {
