@@ -130,7 +130,7 @@ def four_games_share_text_only(p, base):
             "Face Value emoji row has stray glyphs: %r" % row
         assert "/100" in t and "scraps torn" in t, "Face Value score line lost"
         assert "Your move." in t, "Face Value share lost its dare line"
-        assert "?play=who&e=%d&s=" % N in t and t.split("\n")[-1].endswith("&ref=share"), \
+        assert "/play/face-value?e=%d&s=" % N in t and t.split("\n")[-1].endswith("&ref=share"), \
             "Face Value share lost its challenge deep link: %r" % t.split("\n")[-1]
         assert "6-shared-facevalue" in H.gc_events(page)
         page.click("#rv-sum-back")
@@ -149,7 +149,7 @@ def four_games_share_text_only(p, base):
             "Lifeline emoji row has stray glyphs: %r" % row
         assert "/100" in t, "Lifeline score line lost"
         assert "Your move." in t, "Lifeline share lost its dare line"
-        assert "?play=map&e=%d&s=" % N in t, "Lifeline share lost its challenge deep link"
+        assert "/play/lifeline?e=%d&s=" % N in t, "Lifeline share lost its challenge deep link"
         assert "6-shared-lifeline" in H.gc_events(page)
         page.click("#sum-back")
 
@@ -166,7 +166,7 @@ def four_games_share_text_only(p, base):
             "Relic emoji row has stray glyphs: %r" % row
         assert "/100" in t, "Relic score line lost"
         assert "Your move." in t, "Relic share lost its dare line"
-        assert "?play=what&e=%d&s=" % N in t, "Relic share lost its challenge deep link"
+        assert "/play/relic?e=%d&s=" % N in t, "Relic share lost its challenge deep link"
         assert "6-shared-relic" in H.gc_events(page)
         page.click("#rv-sum-back")
 
@@ -189,7 +189,7 @@ def four_games_share_text_only(p, base):
             assert set(r) <= set("\U0001F7E8\U0001F7E9\U0001F7E6\U0001F7EA⬜"), \
                 "Thread grid has stray glyphs: %r" % r
         assert "/100" in t, "Thread share lost its score-to-beat line"
-        assert "?play=thread&e=%d&s=" % N in t, "Thread share lost its challenge deep link"
+        assert "/play/thread?e=%d&s=" % N in t, "Thread share lost its challenge deep link"
         assert "6-shared-thread" in H.gc_events(page)
 
         # --- the full house, on the way home ---

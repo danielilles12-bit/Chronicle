@@ -29,13 +29,19 @@ const day = (issue) => daily.editionDateLabel(issue);
 // keeps the bare link — a wake is not a duel. Plain validated params on
 // purpose — no signing, see the discarded X1 card in the audited plan.
 const BASE_URL = 'https://yesternerd.app/';
+// Build 2 (19 Aug 2026): a per-game share links its landing page —
+// /play/<player-facing-slug> — whose static og: tags give chat apps that
+// game's own preview card (crawlers never run JS, so ?play= alone always
+// showed the generic card). The page bounces humans into the app with
+// every param preserved; old ?play= links keep working forever.
+const GAME_PATH = { who: 'face-value', map: 'lifeline', what: 'relic', thread: 'thread' };
 export function shareUrl(game, ch) {
   const p = new URLSearchParams();
-  if (game) p.set('play', game);
   if (ch && Number.isInteger(ch.e) && ch.e >= 0) p.set('e', String(ch.e));
   if (ch && Number.isInteger(ch.s) && ch.s >= 0) p.set('s', String(ch.s));
   p.set('ref', 'share');
-  return `${BASE_URL}?${p.toString()}`;
+  const base = game ? `${BASE_URL}play/${GAME_PATH[game]}` : BASE_URL;
+  return `${base}?${p.toString()}`;
 }
 
 const THREAD_EMOJI = { yellow: '🟨', green: '🟩', blue: '🟦', purple: '🟪' };

@@ -237,8 +237,12 @@ picture. Written down now. Built in `js/sharecard.js`;
   row. Pure colour squares in the shared text, Wordle-family convention; the
   in-app colourblind glyphs stay in-app.
 - **[ENGINE]** **Every share ends with the link, and the link carries the
-  dare** (Challenge Rally, 19 Aug 2026): `?play=<game>&e=<edition>&s=<score>`
-  `&ref=share`. The recipient opens the exact challenged day while it is
+  dare** (Challenge Rally, 19 Aug 2026): a per-game share links its landing
+  page — `/play/<face-value|lifeline|relic|thread>?e=<edition>&s=<score>`
+  `&ref=share` — whose static og: tags give chat apps that game's own
+  preview card (Build 2; the four GPT cards, used as delivered). The page
+  bounces humans into the app with params preserved; old `?play=` links
+  keep working. The recipient opens the exact challenged day while it is
   reachable — `e` is clamped through `daily.canPlayEdition`, so an expired
   day bridges honestly to today and a sender past their own midnight can
   never unlock unaired content. A full-house share names no game (`e`+`s`

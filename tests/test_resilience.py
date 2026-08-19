@@ -42,7 +42,7 @@ def share_fallback(p, base):
         clip = page.evaluate("navigator.clipboard.readText()")
         assert ("THREAD %s" % H.edition_day_label(N)) in clip, \
             "clipboard text wrong: %r" % clip[:80]
-        assert "?play=thread&e=%d&s=100&ref=share" % N in clip, (
+        assert "/play/thread?e=%d&s=100&ref=share" % N in clip, (
             "Thread's receipt should carry its challenge deep link "
             "(game + edition + score): %r" % clip)
         events = H.gc_events(page)

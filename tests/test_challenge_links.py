@@ -122,7 +122,7 @@ def sendback_verdict_on_the_receipt(p, base):
             "document.querySelector('#rv-sum-share').textContent"
             ".indexOf('Copied') === 0")
         clip = page.evaluate("navigator.clipboard.readText()")
-        assert "?play=what&e=%d&s=" % N in clip, (
+        assert "/play/relic?e=%d&s=" % N in clip, (
             "the send-back must dare the SAME day back: %r" % clip)
         events = H.gc_events(page)
         assert any(e.startswith("6-sendback-relic") for e in events), (
@@ -206,6 +206,28 @@ def day_rally_closes(p, base):
     print("PASS day_rally_closes")
 
 
+def landing_pages_carry_the_cards(p, base):
+    """Build 2: /play/<slug> serves each game's own preview card to crawlers
+    (static og: tags — no JS required) and bounces humans into the challenged
+    game with every param preserved."""
+    import urllib.request
+    for slug in ("face-value", "lifeline", "relic", "thread"):
+        html = urllib.request.urlopen("%s/play/%s/" % (base, slug)).read().decode()
+        assert ('og:image" content="https://yesternerd.app/assets/brand/card-%s.jpg"'
+                % slug) in html, "%s landing lost its card" % slug
+        assert 'property="og:title"' in html and 'name="twitter:card"' in html, (
+            "%s landing lost its preview tags" % slug)
+    with H.app(p) as (page, errors, _ctx):
+        page.goto("%s/play/relic/?e=%d&s=87&dailydate=%s" % (base, N, DATE))
+        H.dismiss_intro(page)
+        page.wait_for_selector("#view-reveal:not([hidden])")
+        strip = page.locator("#view-reveal .challenge-strip")
+        assert strip.is_visible() and "87/100" in strip.inner_text(), (
+            "the landing page must deliver the dare into the app")
+        H.fail_on_errors(errors, "landing_pages_carry_the_cards")
+    print("PASS landing_pages_carry_the_cards")
+
+
 TESTS = [
     challenge_opens_named_day,
     future_and_expired_links_clamp,
@@ -214,6 +236,7 @@ TESTS = [
     day_challenge_lands_on_home,
     losses_still_close_the_house,
     day_rally_closes,
+    landing_pages_carry_the_cards,
 ]
 
 

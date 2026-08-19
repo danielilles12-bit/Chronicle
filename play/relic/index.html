@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Challenge landing for Relic (Build 2, 19 Aug 2026). Chat apps read the
+     og: tags below for the link preview card; humans are bounced straight
+     into the app with every query param (e, s, ref) preserved. Static on
+     purpose — crawlers never run JS. -->
+<title>Relic — Yesternerd</title>
+<meta name="description" content="You’ve been challenged. Tear the scraps, name the artefact — beat their score.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://yesternerd.app/">
+<meta name="theme-color" content="#F2EFE6">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Yesternerd">
+<meta property="og:title" content="Relic — Yesternerd">
+<meta property="og:description" content="You’ve been challenged. Tear the scraps, name the artefact — beat their score.">
+<meta property="og:url" content="https://yesternerd.app/play/relic">
+<meta property="og:image" content="https://yesternerd.app/assets/brand/card-relic.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Relic — a torn-paper grid revealing a hidden artefact, Yesternerd’s guess-the-object game.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Relic — Yesternerd">
+<meta name="twitter:description" content="You’ve been challenged. Tear the scraps, name the artefact — beat their score.">
+<meta name="twitter:image" content="https://yesternerd.app/assets/brand/card-relic.jpg">
+<noscript><meta http-equiv="refresh" content="0;url=/?play=what"></noscript>
+<script>
+  var q = location.search ? location.search.replace(/^\?/, '&') : '';
+  location.replace('/?play=what' + q + location.hash);
+</script>
+</head>
+<body style="background:#F2EFE6;font-family:Arial,sans-serif;color:#0B0B0B;text-align:center;padding:40px 20px">
+<p><a href="/?play=what">Open Yesternerd ›</a></p>
+</body>
+</html>
