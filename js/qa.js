@@ -38,7 +38,7 @@ const ACTIONS = [
   ['Streak obituary', 'obituary'],
   ['Full-house celebration', 'celebration'],
   ['New edition bar', 'newEdition'],
-  ['Edition-closed strip', 'issueClosed'],
+  ['Day-challenge strip', 'dayChallenge'],
 ];
 
 function el(tag, cls, text) {

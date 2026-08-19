@@ -120,25 +120,19 @@
       <p class="webview-note-line" id="webview-note-line">You’re in an in-app browser — streaks can die in here.</p>
       <button type="button" id="webview-note-btn" class="webview-note-cta">Show me out ›</button>
     </div>
-    <!-- Edition-closed strip (Change A): the quiet ending shown at the top of
-         Home once all four of today's dailies are played but not all won. An
-         all-won day gets the You Made History celebration instead (see
-         allWon/maybeCelebrate in app.js); this strip is the consolation. -->
-    <div id="issue-closed" hidden>
-      <p class="ic-verdict" id="ic-verdict"></p>
-      <div class="ic-row">
-        <span class="ic-label">Today's total</span>
-        <b id="ic-score">0</b>
-      </div>
-      <p class="ic-countdown" id="ic-countdown"></p>
-    </div>
+    <!-- The full-house dare (Challenge Rally, 19 Aug 2026): a share link
+         carrying e+s and no game names the whole issue as the challenge —
+         refreshChallengeStrip() in app.js fills this with "N/400 TO BEAT".
+         It replaced the edition-closed strip ("done. Some got away."),
+         retired 19 Aug 2026 when full house became PLAYED-not-won and a day
+         with losses started getting the same You Made History as any other. -->
+    <div id="challenge-strip" class="challenge-strip challenge-strip-home" hidden></div>
     <!-- The repair strip (7 Aug 2026): the two-day repair window, finally said
          out loud. isStreakValid has always let a missed Tuesday be healed by
          finishing it from the archive by Thursday; nothing ever told anyone,
          so a kind mechanic did no work. Shown by refreshRepairStrip() only
          when daily.repairOpportunity() finds a day worth saving, and it
-         disappears by itself once repaired or expired — no dismiss control.
-         Same box as the edition-closed strip above: no new visual language. -->
+         disappears by itself once repaired or expired — no dismiss control. -->
     <div id="repair-strip" hidden>
       <p class="rp-line" id="rp-line"></p>
       <button type="button" class="pill primary" id="rp-btn"></button>
@@ -328,7 +322,7 @@
       <div class="sum-solution" id="sum-solution" hidden></div>
       <div class="sum-actions">
         <button class="pill primary big" id="sum-turn" hidden>Play the next puzzle ›</button>
-        <button class="pill primary big" id="sum-share" hidden>Share the run</button>
+        <button class="pill primary big" id="sum-share" hidden>Challenge a friend</button>
         <button class="pill primary big" id="sum-again">Play again</button>
         <button class="pill ghost big" id="sum-home">Home</button>
       </div>
@@ -431,7 +425,7 @@
       <div class="sum-solution" id="rv-sum-solution" hidden></div>
       <div class="sum-actions">
         <button class="pill primary big" id="rv-sum-turn" hidden>Play the next puzzle ›</button>
-        <button class="pill primary big" id="rv-sum-share" hidden>Share the tear-up</button>
+        <button class="pill primary big" id="rv-sum-share" hidden>Challenge a friend</button>
         <button class="pill primary big" id="rv-sum-again">Play again</button>
         <button class="pill ghost big" id="rv-sum-home">Home</button>
       </div>
@@ -481,7 +475,7 @@
       <div id="conn-sum-groups" style="margin-top:14px;display:flex;flex-direction:column;gap:8px"></div>
       <div class="sum-actions" style="margin-top:20px">
         <button class="pill primary big" id="conn-sum-turn" hidden>Play the next puzzle ›</button>
-        <button class="pill primary big" id="conn-sum-share" hidden>Share the thread</button>
+        <button class="pill primary big" id="conn-sum-share" hidden>Challenge a friend</button>
       </div>
       <a class="sum-report-link" id="conn-sum-report" href="#">Report a problem</a>
     </main>
@@ -509,7 +503,7 @@
       <p class="dd-carpet" id="dd-carpet" hidden><span class="df-stamp">Carpet diem</span></p>
       <p class="dd-postmark" id="dd-milestone" hidden><span class="postmark"><b id="dd-milestone-n">2</b><small>day<br>streak</small></span></p>
       <div class="sum-actions">
-        <button class="pill primary big" id="dd-share">Share today's receipt</button>
+        <button class="pill primary big" id="dd-share">Challenge a friend</button>
         <button class="pill ghost big" id="dd-home">Home</button>
       </div>
       <!-- The Complaints Dept stamp card (feedback plan Direction B; "Tell us

@@ -424,10 +424,10 @@ def home_strips(p, base):
             page.wait_for_selector("#webview-note", state="hidden")
             assert_on(page, "view-home", "webview banner dismissed")
 
-        if qa_force(page, "Edition-closed strip", "#issue-closed:not([hidden])"):
-            assert_on(page, "view-home", "edition-closed strip")
+        if qa_force(page, "Day-challenge strip", "#challenge-strip:not([hidden])"):
+            assert_on(page, "view-home", "day-challenge strip")
             assert page.locator("#home-rows .game-row").count() == 4, (
-                "the edition-closed strip should sit above Home, not replace it")
+                "the day-challenge strip should sit above Home, not replace it")
 
         if qa_force(page, "New edition bar", "#new-edition"):
             assert_on(page, "view-home", "new edition bar")

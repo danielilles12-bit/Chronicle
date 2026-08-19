@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v224';
+const BUILD = 'v225';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -13,7 +13,7 @@ if (/iP(hone|ad|od)/.test(navigator.userAgent)
 
 import * as store from './storage.js';
 import { track, initTracking } from './track.js';
-import { fullHouseShareText, obituaryShareText, shareResult, flashShareButton } from './sharecard.js';
+import { fullHouseShareText, obituaryShareText, shareResult, flashShareButton, challengeVerdictLine } from './sharecard.js';
 import { isMatch } from './match.js';
 import { initMapGame, renderMapStart, startMapDaily } from './mapgame.js';
 import { initRevealGame, renderRevealStart, startRevealDaily } from './revealgame.js';
@@ -94,8 +94,7 @@ function render() {
   // Rollover: revisiting Home re-evaluates today's edition, so a session left
   // open across local midnight picks up the new day's Today strip without
   // needing a live timer (see spec "Rollover").
-  if (id === 'view-home') { refreshHomeStats(); refreshTodayStrip(); refreshIssueClosed(); refreshRepairStrip(); }
-  else stopIssueClosedCountdown();
+  if (id === 'view-home') { refreshHomeStats(); refreshTodayStrip(); refreshChallengeStrip(); refreshRepairStrip(); }
   if (id === 'view-mapstart') renderMapStart();
   if (id === 'view-revealstart') renderRevealStart();
   if (id === 'view-ledger') renderLedger();
@@ -698,7 +697,37 @@ function fillIntro(gameKey) {
   $('#intro-title').textContent = c.title;
   $('#intro-copy').textContent = c.copy;
   $('#intro-copy2').textContent = c.copy2;
+  // The challenge stamp defaults hidden on every fill; only the first-run
+  // gate below turns it on. The "?" help reopen shares this card mid-game
+  // and must never wear the stamp.
+  const stamp = $('#intro-challenge');
+  if (stamp) stamp.hidden = true;
   return true;
+}
+
+// The dare on the doorstep (mockup approved by Daniel, 19 Aug 2026): a
+// first-timer who tapped a challenge link sees the score to beat ON the
+// how-to card they were getting anyway — the challenge is context for the
+// rules, not a detour before them. The game hands the dare in explicitly
+// (it already took it at startEdition, before deferring begin() behind
+// this card), so there is no module state to race.
+function showIntroChallengeStamp(gameKey, ch) {
+  if (!ch) return;
+  const body = document.querySelector('#intro-card .intro-body');
+  if (!body) return;
+  let stamp = $('#intro-challenge');
+  if (!stamp) {
+    stamp = document.createElement('div');
+    stamp.id = 'intro-challenge';
+    stamp.innerHTML = '<b></b><small></small>';
+    body.insertBefore(stamp, body.firstChild);
+  }
+  const name = (INTRO_CONTENT[gameKey] ? INTRO_CONTENT[gameKey].kicker : gameKey).toUpperCase();
+  stamp.querySelector('b').textContent = `${ch.s}/100 TO BEAT`;
+  stamp.querySelector('small').textContent = ch.bridged
+    ? `A friend’s ${name} score — their day expired, this is today’s. Your move.`
+    : `A friend’s ${name} score today. Your move.`;
+  stamp.hidden = false;
 }
 
 function closeIntro() {
@@ -708,9 +737,10 @@ function closeIntro() {
 
 // First-run gate: show the intro once before a game's first daily, then run
 // begin(). Practice/free never call this, so they never see it.
-export function maybeIntro(gameKey, n, begin) {
+export function maybeIntro(gameKey, n, begin, challenge) {
   const seen = (store.getMisc().introSeen || {})[gameKey];
   if (seen || !fillIntro(gameKey)) { begin(); return; }
+  showIntroChallengeStamp(gameKey, challenge);
   const ov = $('#intro-card');
   const btn = $('#intro-play');
   btn.textContent = 'Play ›';
@@ -873,12 +903,11 @@ function maybeInitQA() {
       obituary: () => showObituary(12, Math.max(0, n - 5)),
       celebration: () => showCelebration(n),
       newEdition: () => showNewEditionBar(),
-      issueClosed: () => {
-        const strip = $('#issue-closed');
-        if (!strip) return;
-        $('#ic-verdict').textContent = `${daily.editionDateLabel(n)}, done. Some got away.`;
-        strip.hidden = false;
-        strip.scrollIntoView({ block: 'center' });
+      dayChallenge: () => {
+        dayChallenge = { s: 291, bridged: false };
+        refreshChallengeStrip();
+        const strip = $('#challenge-strip');
+        if (strip) strip.scrollIntoView({ block: 'center' });
       },
     }), store);
   }).catch((e) => console.warn('QA panel unavailable', e));
@@ -904,31 +933,108 @@ export function consumeShareLaunch(gameKey) {
   return true;
 }
 
+// The Challenge Rally (Daniel, 19 Aug 2026). A share link that carried a
+// score becomes a dare: the recipient opens the exact puzzle it named and is
+// greeted with the number to beat. The context lives here between routing and
+// launch: maybeIntro PEEKS it (the first-run card wears the stamp without
+// spending it), the launched game TAKES it into its session blob. e is
+// always the edition actually launched, so a game can trust the pairing.
+let challengeInfo = null;   // { game, e, s, bridged } — one boot, one dare
+let dayChallenge = null;    // { s, bridged } — the full-house dare (Home strip)
+
+function peekChallenge(gameKey, n) {
+  if (!challengeInfo || challengeInfo.game !== gameKey) return null;
+  if (n != null && challengeInfo.e !== n) return null;
+  return challengeInfo;
+}
+export function takeChallenge(gameKey, n) {
+  const c = peekChallenge(gameKey, n);
+  if (c) challengeInfo = null;
+  return c;
+}
+
 async function routeSharedPlay() {
   const params = new URLSearchParams(location.search);
   const game = params.get('play');
   const valid = ['thread', 'map', 'who', 'what'].indexOf(game) !== -1;
+  const today = daily.todayIndex();
+  // e names the sender's edition, s their score. Both optional, both
+  // validated to digits and range — anything else is treated as absent
+  // (links are plain text anyone can edit; degrade, never trust).
+  const eRaw = params.get('e');
+  const sRaw = params.get('s');
+  const eNum = /^\d{1,5}$/.test(eRaw || '') ? +eRaw : null;
   if (valid) {
+    const sNum = /^\d{1,3}$/.test(sRaw || '') && +sRaw <= 100 ? +sRaw : null;
+    // The challenged edition wins while it is genuinely reachable — a PAST
+    // day inside the archive window. The recipient's own today answers
+    // everything else: a sender past their midnight (or in an earlier
+    // timezone tomorrow) must never unlock unaired content here, and an
+    // expired day gets bridged honestly rather than refused.
+    const target = (eNum != null && eNum < today && daily.canPlayEdition(eNum, today))
+      ? eNum : today;
+    const bridged = eNum != null && eNum !== target;
     track(`land-share-${game}`);
+    if (sNum != null) track(`land-challenge-${game}`);
     // No status element on this route (no card was tapped): a shared link
     // that arrives while the schedule is unreachable simply lands on Home,
-    // where the game's own card carries the failure and the retry. The launch
-    // goes through the same guarded door as everything else — recipients play
-    // their OWN today, so the guard is a formality here, but the rule is that
-    // nothing opens a daily any other way.
-    await launchEdition(game, daily.todayIndex(), null, () => {
+    // where the game's own card carries the failure and the retry. The
+    // launch goes through the same guarded door as everything else — the
+    // rule is that nothing opens a daily any other way.
+    await launchEdition(game, target, null, () => {
       shareLaunchGame = game;
+      if (sNum != null) challengeInfo = { game, e: target, s: sNum, bridged };
       track(`start-from-share-${game}`);
     });
+  } else if (eNum != null || sRaw != null) {
+    // No game named: the full-house dare. Landed as a strip on Home rather
+    // than a launch — the whole issue is the challenge.
+    const sNum = /^\d{1,3}$/.test(sRaw || '') && +sRaw <= 400 ? +sRaw : null;
+    if (sNum != null) {
+      const bridged = eNum != null && eNum !== today;
+      dayChallenge = { s: sNum, bridged };
+      // An exact-day dare is remembered for the whole day (players close an
+      // issue across several sittings), so the celebration can answer it.
+      // A bridged dare is not: their number belongs to a different issue,
+      // so comparing would be a lie — it stays a one-boot taunt.
+      if (!bridged) store.setMisc({ dayChallenge: { s: sNum, e: today } });
+      track('land-challenge-day');
+    }
   }
   // Scrub after routing (track.js does the same for ref/utm): an installed
   // "Add to Home Screen" must never bake a share route into the app's
   // permanent start URL, or every later open would re-route as a share.
-  if (params.has('play')) {
-    params.delete('play');
+  if (params.has('play') || params.has('e') || params.has('s')) {
+    ['play', 'e', 's'].forEach((k) => params.delete(k));
     const qs = params.toString();
     history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
   }
+}
+
+// The in-game strip: "87/100 TO BEAT · TODAY'S RELIC · YOUR MOVE", pinned
+// under the topbar of the launched game's view. One writer for all four
+// games; cream-and-ink with the score as the screen's one accent (the
+// loud/quiet law — play screens stay quiet). Bridged = the named day wasn't
+// reachable, so the dare is restated against today without pretending.
+export function setChallengeStrip(viewId, ch, gameName) {
+  const view = document.getElementById(viewId);
+  if (!view) return;
+  let el = view.querySelector('.challenge-strip');
+  if (!ch) { if (el) el.hidden = true; return; }
+  if (!el) {
+    el = document.createElement('div');
+    el.className = 'challenge-strip';
+    const hdr = view.querySelector('header.topbar') || view.firstElementChild;
+    hdr.insertAdjacentElement('afterend', el);
+  }
+  const today = daily.todayIndex();
+  const where = ch.e === today
+    ? `TODAY’S ${gameName}`
+    : `${gameName} · ${daily.editionDateLabel(ch.e).toUpperCase()}`;
+  el.innerHTML = ch.bridged
+    ? `THEIR <b>${ch.s}/100</b> WAS ANOTHER DAY’S — THIS IS TODAY’S ${gameName}`
+    : `<b>${ch.s}/100</b> TO BEAT · ${where} · YOUR MOVE`;
+  el.hidden = false;
 }
 
 // ---------- P5.1: abandoned dailies + return milestones ----------
@@ -1090,23 +1196,16 @@ let ddCountdownTimer = null;
 function flagGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
 function flagSet(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } }
 
+// Full house means PLAYED, not won (Daniel, 19 Aug 2026 — HOUSE_RULES). A day
+// with losses ends in exactly the same You Made History as a clean sweep;
+// this restored the letter of locked decision #2 ("closing the issue is
+// celebrated even with losses"), which the old all-wins gate (Change A) had
+// narrowed, and it retired the quiet "done. Some got away." strip. The one
+// place winning-all-four still means anything is Your Legacy's "perfect
+// issue" stat, which does its own counting in js/ledger.js.
 function fullHouseDone(n) {
   const ledger = store.getDailyLedger();
   return daily.GAMES.every((g) => ledger.entries[g] && ledger.entries[g][n]);
-}
-// A "win" is any daily that scored above zero; scoring nothing (giving up every
-// round, or losing the Thread board) is a loss. The full-house celebration is
-// the reward for winning all four — a day finished with a loss gets the quiet
-// edition-closed strip instead (Change A). fullHouseDone is now used by that
-// strip alone: since 7 Aug 2026 the punch card's full-house mark asks
-// daily.fullHouseAt instead, which adds the streak-window test the strip does
-// not want (the strip is about the day you are standing in, nothing else).
-function allWon(n) {
-  const ledger = store.getDailyLedger();
-  return daily.GAMES.every((g) => {
-    const e = ledger.entries[g] && ledger.entries[g][n];
-    return !!e && (e.score || 0) > 0;
-  });
 }
 function dayTotal(n) {
   const ledger = store.getDailyLedger();
@@ -1134,7 +1233,9 @@ function fullHouseShare(n) {
   return {
     text: fullHouseShareText(n, scores, total, streak),
     trackAs: 'share-fullhouse',
-    idle: "Share today's receipt",
+    // Challenge-first everywhere, full house included (Daniel, 19 Aug 2026)
+    // — no separate "receipt" tier. Working copy until the copy pass.
+    idle: 'Challenge a friend',
   };
 }
 
@@ -1160,25 +1261,50 @@ function startCountdown() {
   ddCountdownTimer = setInterval(tick, 1000);
 }
 
-// The edition-closed strip: a quiet Home banner shown once all four of today's
-// dailies are played but at least one was lost (an all-won day gets You Made
-// History instead). Its live countdown ticks only while Home is on screen —
-// render() stops it on every non-Home view.
-let icCountdownTimer = null;
-function stopIssueClosedCountdown() { clearInterval(icCountdownTimer); icCountdownTimer = null; }
+// The full-house dare landed (Challenge Rally, 19 Aug 2026): a link with
+// e+s and no game named puts the whole issue's score to beat at the top of
+// Home. One boot, one strip — routeSharedPlay scrubs the params, so it never
+// survives into an installed app's start URL. The old edition-closed strip
+// ("done. Some got away.") lived here until v225: full house now means
+// PLAYED, not won (HOUSE_RULES 19 Aug 2026), so a day with losses gets the
+// same You Made History as any other and the quiet strip had nothing left
+// to say.
+// The stored exact-day dare, if it is still today's; a stale one (the day
+// rolled over unanswered) is cleared on sight.
+function storedDayChallenge(today) {
+  const saved = store.getMisc().dayChallenge;
+  if (!saved || !Number.isInteger(saved.s)) return null;
+  if (saved.e !== today) {
+    store.setMisc({ dayChallenge: null });
+    return null;
+  }
+  return saved;
+}
 
-function refreshIssueClosed() {
-  const strip = $('#issue-closed');
+function refreshChallengeStrip() {
+  const strip = $('#challenge-strip');
   if (!strip) return;
-  const n = daily.todayIndex();
-  if (!(n >= 0 && fullHouseDone(n) && !allWon(n))) { strip.hidden = true; stopIssueClosedCountdown(); return; }
-  $('#ic-verdict').textContent = `${daily.editionDateLabel(n)}, done. Some got away.`;
-  $('#ic-score').textContent = dayTotal(n);
+  const today = daily.todayIndex();
+  // This boot's landing (covers the bridged taunt) or the remembered dare
+  // from an earlier sitting today. Once the issue is closed the strip
+  // retires for the day — the celebration has answered the dare by then.
+  const ch = dayChallenge || (today >= 0 && storedDayChallenge(today)) || null;
+  const cta = $('#stranger-play');
+  if (!ch || today < 0 || fullHouseDone(today)) {
+    strip.hidden = true;
+    if (cta) cta.textContent = 'Play Face Value ›';
+    return;
+  }
+  // One human sentence, and the button answers it (Daniel, 19 Aug 2026: the
+  // dare and the action were two disconnected voices — the strip shouted in
+  // caps while the CTA ignored it). Daniel's line, same day: the taunt does
+  // the selling. Sentence case here; the in-game strips keep their mono-caps
+  // ticker language.
+  strip.innerHTML = ch.bridged
+    ? `Someone thinks they’re smarter than you — but their <b>${ch.s}/400</b> was another issue’s. Today’s four are fresh.`
+    : `Someone thinks they’re smarter than you. Can you beat their <b>${ch.s}/400</b>?`;
   strip.hidden = false;
-  const tick = () => { $('#ic-countdown').innerHTML = countdownText(); };
-  tick();
-  clearInterval(icCountdownTimer);
-  icCountdownTimer = setInterval(tick, 1000);
+  if (cta) cta.textContent = 'Your move ›';
 }
 
 // ---------- the repair strip (7 Aug 2026) ----------
@@ -1250,6 +1376,31 @@ function showCelebration(n) {
   // running"). Both went together.
   if (milestone) $('#dd-milestone-n').textContent = String(streak);
   dayDoneShare = fullHouseShare(n);
+  // The full-house rally closes here (Daniel, 19 Aug 2026): a remembered
+  // exact-day dare gets its verdict on the celebration itself, and the
+  // day's share becomes the send-back — same grammar as a challenged game
+  // receipt, scaled to /400.
+  const dare = storedDayChallenge(n);
+  let dv = $('#dd-challenge-verdict');
+  if (dare) {
+    if (!dv) {
+      dv = document.createElement('p');
+      dv.id = 'dd-challenge-verdict';
+      dv.className = 'challenge-verdict';
+      const actions = document.querySelector('#view-daydone .sum-actions');
+      if (actions) actions.parentElement.insertBefore(dv, actions);
+    }
+    const total = dayTotal(n);
+    dv.textContent = challengeVerdictLine(dare.s, total, 400);
+    dv.hidden = false;
+    dayDoneShare.trackAs = 'sendback-day';
+    dayDoneShare.idle = 'Send your score back ›';
+    // Once per day by construction: showCelebration is gated on the
+    // df.celebrated one-shot above.
+    track(`challenge-day-${total > dare.s ? 'beat' : total === dare.s ? 'tied' : 'lost'}`);
+  } else if (dv) {
+    dv.hidden = true;
+  }
   $('#dd-share').textContent = dayDoneShare.idle;
   $('#dd-share').hidden = false;
   startCountdown();
@@ -1261,6 +1412,10 @@ function showObituary(streak, lastEdition) {
   sfx.play('toll');
   const v = $('#view-daydone');
   v.classList.add('obituary');
+  // The wake shares the day-done view with the celebration: never let a
+  // dare's verdict linger over a funeral.
+  const dv = $('#dd-challenge-verdict');
+  if (dv) dv.hidden = true;
   $('#dd-issue').textContent = daily.editionDateLabel(daily.todayIndex());
   $('#dd-title').textContent = "You're history.";
   $('#dd-score-label').textContent = 'Your streak ended at';
@@ -1284,9 +1439,10 @@ function showObituary(streak, lastEdition) {
 
 function maybeCelebrate() {
   const n = daily.todayIndex();
-  // You Made History is the reward for winning all four (Change A). A day
-  // finished with a loss falls through to the edition-closed strip on Home.
-  if (allWon(n) && flagGet('df.celebrated') !== String(n)) showCelebration(n);
+  // You Made History is the reward for CLOSING the issue — all four played,
+  // wins irrelevant (Daniel, 19 Aug 2026). Same screen, same words, same
+  // share, whatever got away.
+  if (n >= 0 && fullHouseDone(n) && flagGet('df.celebrated') !== String(n)) showCelebration(n);
 }
 function maybeMourn() {
   const today = daily.todayIndex();
@@ -1549,7 +1705,7 @@ async function boot() {
   // default), so paint the edition-closed and repair strips here too — unless
   // a moment screen (mourn/celebrate) already navigated away. The repair strip
   // has to be here in particular: Home on open IS the moment of decision.
-  if (trail[trail.length - 1] === 'view-home') { refreshIssueClosed(); refreshRepairStrip(); }
+  if (trail[trail.length - 1] === 'view-home') { refreshChallengeStrip(); refreshRepairStrip(); }
 
   maybeInitQA();
 

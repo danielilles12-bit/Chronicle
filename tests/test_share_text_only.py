@@ -128,8 +128,10 @@ def four_games_share_text_only(p, base):
         row = emoji_row(t)
         assert row and set(row) <= set("\U0001F7E9\U0001F7E8\U0001F7E5"), \
             "Face Value emoji row has stray glyphs: %r" % row
-        assert "pts" in t and "scraps torn" in t, "Face Value score line lost"
-        assert "?play=who&ref=share" in t, "Face Value share lost its deep link"
+        assert "/100" in t and "scraps torn" in t, "Face Value score line lost"
+        assert "Your move." in t, "Face Value share lost its dare line"
+        assert "?play=who&e=%d&s=" % N in t and t.split("\n")[-1].endswith("&ref=share"), \
+            "Face Value share lost its challenge deep link: %r" % t.split("\n")[-1]
         assert "6-shared-facevalue" in H.gc_events(page)
         page.click("#rv-sum-back")
 
@@ -145,8 +147,9 @@ def four_games_share_text_only(p, base):
         row = emoji_row(t)
         assert row and set(row) <= set("✅\U0001F9ED⚰️"), \
             "Lifeline emoji row has stray glyphs: %r" % row
-        assert "pts" in t, "Lifeline score line lost"
-        assert "?play=map&ref=share" in t, "Lifeline share lost its deep link"
+        assert "/100" in t, "Lifeline score line lost"
+        assert "Your move." in t, "Lifeline share lost its dare line"
+        assert "?play=map&e=%d&s=" % N in t, "Lifeline share lost its challenge deep link"
         assert "6-shared-lifeline" in H.gc_events(page)
         page.click("#sum-back")
 
@@ -161,7 +164,9 @@ def four_games_share_text_only(p, base):
         row = emoji_row(t)
         assert row and set(row) <= set("\U0001F7E9\U0001F7E8\U0001F7E5"), \
             "Relic emoji row has stray glyphs: %r" % row
-        assert "?play=what&ref=share" in t, "Relic share lost its deep link"
+        assert "/100" in t, "Relic score line lost"
+        assert "Your move." in t, "Relic share lost its dare line"
+        assert "?play=what&e=%d&s=" % N in t, "Relic share lost its challenge deep link"
         assert "6-shared-relic" in H.gc_events(page)
         page.click("#rv-sum-back")
 
@@ -174,7 +179,7 @@ def four_games_share_text_only(p, base):
         t = share_and_capture(page, "#conn-sum-share", "Thread")
         assert t.startswith("THREAD %s \U0001F9F5" % DAY), \
             "Thread headline changed: %r" % t.split("\n")[0]
-        grid = t.split("\n")[1:-2]       # headline, grid..., human line, link
+        grid = t.split("\n")[1:-3]       # headline, grid..., human line, dare, link
         assert grid, "Thread share lost its emoji grid"
         widths = set(len(r) for r in grid)
         assert widths == {4}, (
@@ -183,7 +188,8 @@ def four_games_share_text_only(p, base):
         for r in grid:
             assert set(r) <= set("\U0001F7E8\U0001F7E9\U0001F7E6\U0001F7EA⬜"), \
                 "Thread grid has stray glyphs: %r" % r
-        assert "?play=thread&ref=share" in t, "Thread share lost its deep link"
+        assert "/100" in t, "Thread share lost its score-to-beat line"
+        assert "?play=thread&e=%d&s=" % N in t, "Thread share lost its challenge deep link"
         assert "6-shared-thread" in H.gc_events(page)
 
         # --- the full house, on the way home ---
@@ -193,10 +199,12 @@ def four_games_share_text_only(p, base):
         t = share_and_capture(page, "#dd-share", "full house")
         assert t.startswith("YESTERNERD %s — FULL HOUSE \U0001F3DB" % DAY), \
             "full-house headline changed: %r" % t.split("\n")[0]
-        assert "PTS" in emoji_row(t), "full-house score row lost"
-        assert t.split("\n")[-1] == LINK + "?ref=share", (
-            "the full house has no single game to route to, so it keeps the "
-            "bare link: %r" % t.split("\n")[-1])
+        assert "/400" in emoji_row(t), "full-house score row lost its /400 total"
+        assert "Your move." in t, "full-house share lost its dare line"
+        last = t.split("\n")[-1]
+        assert last.startswith(LINK + "?e=%d&s=" % N) and last.endswith("&ref=share"), (
+            "the full house names no game but still carries the day dare "
+            "(e + s): %r" % last)
         assert "6-shared-full-house" in H.gc_events(page)
 
         H.fail_on_errors(errors, "four_games_share_text_only")

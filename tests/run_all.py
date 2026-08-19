@@ -31,6 +31,7 @@ BROWSER = [
     ("archive window", [os.path.join(HERE, "test_archive_window.py")]),
     ("smoke: resilience", [os.path.join(HERE, "test_resilience.py")]),
     ("share: text only", [os.path.join(HERE, "test_share_text_only.py")]),
+    ("share: challenge rally", [os.path.join(HERE, "test_challenge_links.py")]),
     ("nav: no dead ends", [os.path.join(HERE, "test_no_dead_ends.py")]),
     ("install flow", [os.path.join(HERE, "test_install.py")]),
     ("letters/feedback", [os.path.join(HERE, "test_feedback.py")]),

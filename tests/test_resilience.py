@@ -42,8 +42,9 @@ def share_fallback(p, base):
         clip = page.evaluate("navigator.clipboard.readText()")
         assert ("THREAD %s" % H.edition_day_label(N)) in clip, \
             "clipboard text wrong: %r" % clip[:80]
-        assert "?play=thread&ref=share" in clip, (
-            "Thread's receipt should carry its own game deep link: %r" % clip)
+        assert "?play=thread&e=%d&s=100&ref=share" % N in clip, (
+            "Thread's receipt should carry its challenge deep link "
+            "(game + edition + score): %r" % clip)
         events = H.gc_events(page)
         assert "6-shared-thread-copied" in events, (
             "copied event missing from analytics: %r" % events)
@@ -54,9 +55,10 @@ def share_fallback(p, base):
 
 # ---------- share_landing (P5.2) ----------
 def share_landing(p, base):
-    """A ?play=<game> deep link (Wordle convention): lands, routes into that
-    game's TODAY daily regardless of any issue the sender's link carried, and
-    scrubs the param. Events fire in order land -> start -> answer. An
+    """A bare ?play=<game> deep link (no e= edition param, the pre-Challenge-
+    Rally shape still in old chat threads): lands, routes into that game's
+    TODAY daily, and scrubs the param. Events fire in order land -> start ->
+    answer. An
     unrecognised game value is ignored — no route, no land event — rather
     than crashing or falling through to some default game.
 

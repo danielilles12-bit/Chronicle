@@ -236,11 +236,55 @@ picture. Written down now. Built in `js/sharecard.js`;
   Thread's colour grid, Lifeline's ✅/🧭/⚰️ row, Face Value / Relic's 🟩/🟨/🟥
   row. Pure colour squares in the shared text, Wordle-family convention; the
   in-app colourblind glyphs stay in-app.
-- **[ENGINE]** **Every share ends with the link**, keeping its per-game
-  `?play=<game>&ref=share` path so a tapped link opens the recipient's own
-  today of that game.
-- **[JUDGMENT]** Removing the picture changed **no wording**. The five share
-  templates read exactly as they did before.
+- **[ENGINE]** **Every share ends with the link, and the link carries the
+  dare** (Challenge Rally, 19 Aug 2026): `?play=<game>&e=<edition>&s=<score>`
+  `&ref=share`. The recipient opens the exact challenged day while it is
+  reachable — `e` is clamped through `daily.canPlayEdition`, so an expired
+  day bridges honestly to today and a sender past their own midnight can
+  never unlock unaired content. A full-house share names no game (`e`+`s`
+  alone) and lands as the taunt strip on Home ("Someone thinks they're
+  smarter than you…" — Daniel's line); an exact-day dare is remembered all
+  day (`misc.dayChallenge`, sittings apart) and the celebration answers it
+  with the /400 verdict and "Send your score back ›". Params are plain
+  and validated, never trusted (no signing — the discarded X1 card stays
+  discarded).
+- **[ENGINE]** **Challenge-first framing everywhere** (19 Aug 2026): buttons
+  say **"Challenge a friend"** (working copy); a summary reached from a
+  challenge link says **"Send your score back ›"**, shows the verdict line
+  (their score · your score) and counts as `sendback`, not `share`. Scores
+  read over their maximum — `87/100`, full house `N/400` — in strips,
+  stamps, verdicts and share text alike ("87 to beat" sounded like 87
+  people). In-game surfaces built earlier (worth line, Home card states)
+  keep their `pts` wording until the copy pass rules on them.
+- **[JUDGMENT]** The 7 Aug picture removal changed no wording; the 19 Aug
+  challenge revision changed ONLY the wording above (score format + the
+  dare line) — the emoji rows and text-only rule are untouched.
+  `tests/test_share_text_only.py` + `tests/test_challenge_links.py` are the
+  checks.
+
+## Full house means played, not won (Daniel, 19 Aug 2026)
+
+Ruled during the sharing review; shipped with the Challenge Rally (v225).
+
+- **[JUDGMENT]** A **full house is finishing all four of the day's games,
+  win or lose.** Losing a puzzle must not change the day-end experience in
+  ANY way: same celebration, same share, same copy. The quiet "done. Some
+  got away." strip retires when this ships. (This restores locked decision
+  #2's letter — "closing the issue is celebrated even with losses" — which
+  the all-wins gate on the celebration had narrowed.)
+- **[JUDGMENT]** Share framing is **challenge-first everywhere**, full house
+  included — no separate "receipt" tier for the day-level share. Working
+  button copy **"Challenge a friend"**; final wording at the screenshot
+  copy pass.
+
+## Link-preview cards (Daniel, 19 Aug 2026)
+
+- **[JUDGMENT]** The four per-game link-preview images are the GPT set
+  delivered 19 Aug (Face Value / Lifeline / Relic / Thread), used **exactly
+  as delivered**. Concerns about recognisable answers on the cards
+  (Einstein on Face Value, Tutankhamun's stripes on Relic) and Thread's
+  pictogram board were raised and overruled — the same imagery already
+  fronts the first-run intros. Settled; do not re-raise.
 
 ## Save it as an app (the install flow)
 

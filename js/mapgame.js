@@ -1,11 +1,11 @@
 // "Map of a Life": guess the historical figure from birth/death geography.
-import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, teachWrongGuess, announce, testHooksEnabled, consumeShareLaunch } from './app.js';
+import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, teachWrongGuess, announce, testHooksEnabled, consumeShareLaunch, takeChallenge, setChallengeStrip } from './app.js';
 import * as store from './storage.js';
 import { track, roundOutcome, durationBucket } from './track.js';
 import { isMatch, registerPool } from './match.js';
 import { confirmFirstGuess, confirmFirstRescue } from './guesswarn.js';
 import * as daily from './daily.js';
-import { mapShareText, shareResult, flashShareButton } from './sharecard.js';
+import { mapShareText, shareResult, flashShareButton, challengeVerdictLine } from './sharecard.js';
 import * as sfx from './sfx.js';
 
 const MAP_W = 1000, MAP_H = 500;
@@ -336,6 +336,7 @@ function persistSession() {
     i: S.i, score: S.score, streak: S.streak, bestStreak: S.bestStreak,
     editionIndex: S.editionIndex,
     startedAt: S.startedAt,
+    challenge: S.challenge || null,
     cur: S.cur && S.cur.open
       ? {
           hints: S.cur.hints, wrongs: S.cur.wrongs, occUsed: !!S.cur.occUsed, iniUsed: !!S.cur.iniUsed,
@@ -458,7 +459,7 @@ function resumeSession() {
 
 // Shared resume path for free/daily/practice: `saved` is the persisted
 // session shape (ids/i/score/streak/bestStreak/results/cur/editionIndex).
-function resumeFrom(mode, key, saved, fromShare) {
+function resumeFrom(mode, key, saved, fromShare, challenge) {
   const byId = (id) => (DATA.figures || []).find((f) => f.id === id);
   // The round to play is always the first one without a stored result —
   // a session saved mid-round (answered, "Next" untapped) must NOT replay
@@ -487,12 +488,16 @@ function resumeFrom(mode, key, saved, fromShare) {
     pendingCur: saved.cur || null,
     startedAt: saved.startedAt || Date.now(),
     fromShare: !!fromShare,
+    // A fresh dare on this boot wins; otherwise the one the interrupted
+    // session was already carrying.
+    challenge: challenge || saved.challenge || null,
   };
   if (next >= saved.ids.length) {
     // every round already answered when the app died: go straight to results
     finishSession();
     return;
   }
+  setChallengeStrip('view-map', S.challenge, 'LIFELINE');
   renderWorld();
   setVb([0, 0, MAP_W, MAP_H]);
   show('view-map');
@@ -542,14 +547,20 @@ function startEdition(mode, editionIndex) {
   // this read), so it's safe even though the intro overlay can defer begin()
   // behind a user tap — fromShare is closed over either way.
   const fromShare = mode === 'daily' && consumeShareLaunch('map');
+  // The dare travels the same synchronous road: taken here, kept on S (and
+  // in the persisted session, so a mid-game reload keeps the strip), spent
+  // on the summary's verdict + send-back.
+  const challenge = mode === 'daily' ? takeChallenge('map', editionIndex) : null;
   if (mode === 'daily') {
     const entry = store.getDailyEntry('map', editionIndex);
-    if (entry) { showLockedResult(editionIndex, entry); return; }
+    // A challenge link can land on a day already played: the locked receipt
+    // then answers the dare with the score it already holds.
+    if (entry) { showLockedResult(editionIndex, entry, challenge); return; }
   }
   const saved = store.getDailySession(key);
   if (saved && saved.ids && saved.results) {
     if (mode === 'daily') track('resume-map');
-    resumeFrom(mode, key, saved, fromShare);
+    resumeFrom(mode, key, saved, fromShare, challenge);
     return;
   }
   const begin = () => {
@@ -562,15 +573,16 @@ function startEdition(mode, editionIndex) {
     S = {
       mode, dailyKey: key, store: modeStore(mode, key), editionIndex,
       rounds, i: 0, score: 0, streak: 0, bestStreak: 0, results: [],
-      startedAt: Date.now(), fromShare,
+      startedAt: Date.now(), fromShare, challenge,
     };
+    setChallengeStrip('view-map', S.challenge, 'LIFELINE');
     renderWorld();
     setVb([0, 0, MAP_W, MAP_H]);
     show('view-map');
     startRound();
   };
   // First-run intro before a fresh daily only (not resume/practice/locked).
-  if (mode === 'daily') maybeIntro('map', editionIndex, begin);
+  if (mode === 'daily') maybeIntro('map', editionIndex, begin, challenge);
   else begin();
 }
 
@@ -586,7 +598,7 @@ export function startMapPractice(editionIndex) { startEdition('practice', editio
 // A locked (already-completed) daily: the summary view, read-only. Rounds are
 // rebuilt from the MANIFEST (daily.getEdition) rather than from the ledger
 // entry — see the twin comment in revealgame.js showLockedResult.
-function showLockedResult(editionIndex, entry) {
+function showLockedResult(editionIndex, entry, challenge) {
   const byId = (id) => (DATA.figures || []).find((f) => f.id === id);
   const scored = new Map((entry.detail || []).map((r) => [r.id, r]));
   const aired = daily.getEdition('map', editionIndex);
@@ -597,6 +609,7 @@ function showLockedResult(editionIndex, entry) {
   S = {
     mode: 'daily', dailyKey: daily.dailyKey('map', editionIndex), store: modeStore('daily', null),
     editionIndex, done: true, locked: true,
+    challenge: challenge || null,
     // Foreign data enters here: a carry-imported entry could arrive without a
     // score (carry.js used to drop an invalid one rather than default it),
     // and renderLockedSummary's remark lookup threw on the hole — the
@@ -851,14 +864,21 @@ function renderLockedSummary() {
   }
   // Daily results are locked: replace the "Play again" action with a plain
   // Home button so a completed daily can't be replayed from its own summary.
-  // Share 2.0: dailies only (the issue number is the common reference).
+  // Challenge Rally: dailies only (the day is the common reference). A
+  // challenged summary answers the dare — verdict line, send-back share.
   const isDaily = S.mode === 'daily' && S.editionIndex != null;
+  const ch = isDaily ? S.challenge : null;
   S.share = isDaily ? {
     text: mapShareText(S.editionIndex, S.results, S.score),
-    trackAs: 'share-map',
+    trackAs: ch ? 'sendback-map' : 'share-map',
+    idle: ch ? 'Send your score back ›' : 'Challenge a friend',
   } : null;
   const sumShare = $('#sum-share');
-  if (sumShare) sumShare.hidden = !S.share;
+  if (sumShare) {
+    sumShare.hidden = !S.share;
+    if (S.share) sumShare.textContent = S.share.idle;
+  }
+  renderChallengeVerdict(ch);
   wireTurnThePage('sum-turn', S.editionIndex, isDaily);
   renderSolution();
   $('#sum-again').hidden = !!S.locked;
@@ -1082,7 +1102,33 @@ export function initMapGame() {
     sumShareBtn.addEventListener('click', async () => {
       if (!S || !S.share) return;
       const out = await shareResult(S.share);
-      flashShareButton(sumShareBtn, out, 'Share the run');
+      flashShareButton(sumShareBtn, out, S.share.idle);
     });
+  }
+}
+
+// The dare answered (Challenge Rally, 19 Aug 2026): one line above the share
+// button — their score, your score, the verdict — and the 4-family beacon,
+// once per summary. Same shape in revealgame.js / connectionsgame.js.
+function renderChallengeVerdict(ch) {
+  const anchor = $('#sum-share');
+  if (!anchor) return;
+  let v = $('#sum-challenge-verdict');
+  if (!ch) { if (v) v.hidden = true; return; }
+  if (!v) {
+    v = document.createElement('p');
+    v.id = 'sum-challenge-verdict';
+    v.className = 'challenge-verdict';
+    // Above the whole action row (receipt -> verdict -> buttons), not wedged
+    // between the forward button and the share.
+    const host = anchor.parentElement;
+    if (host) host.insertBefore(v, host.firstChild);
+    else anchor.insertAdjacentElement('beforebegin', v);
+  }
+  v.textContent = challengeVerdictLine(ch.s, S.score);
+  v.hidden = false;
+  if (!S.chVerdictTracked) {
+    S.chVerdictTracked = true;
+    track(`challenge-map-${S.score > ch.s ? 'beat' : S.score === ch.s ? 'tied' : 'lost'}`);
   }
 }

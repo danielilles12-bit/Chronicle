@@ -1,8 +1,8 @@
 // Connections — group 16 history clues into four hidden categories
-import { $, $$, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, announce, consumeShareLaunch } from './app.js';
+import { $, $$, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, announce, consumeShareLaunch, takeChallenge, setChallengeStrip } from './app.js';
 import * as store from './storage.js';
 import * as daily from './daily.js';
-import { threadShareText, shareResult, flashShareButton } from './sharecard.js';
+import { threadShareText, shareResult, flashShareButton, challengeVerdictLine } from './sharecard.js';
 import { track, durationBucket } from './track.js';
 import * as sfx from './sfx.js';
 
@@ -89,9 +89,12 @@ function startEdition(mode, editionIndex) {
   // this read), so it's safe even though the intro overlay can defer begin()
   // behind a user tap — fromShare is closed over either way.
   const fromShare = mode === 'daily' && consumeShareLaunch('thread');
+  // The dare — see the twin note in mapgame.js startEdition.
+  const challenge = mode === 'daily' ? takeChallenge('thread', editionIndex) : null;
   if (mode === 'daily') {
     const entry = store.getDailyEntry('thread', editionIndex);
-    if (entry) { showLockedResult(editionIndex, entry); return; }
+    // A challenge on a day already played: the locked receipt answers it.
+    if (entry) { showLockedResult(editionIndex, entry, challenge); return; }
   }
   const boards = daily.getEdition('thread', editionIndex);
   const puzzle = boards[0];
@@ -123,15 +126,18 @@ function startEdition(mode, editionIndex) {
       guesses: progress ? (progress.guesses || []) : [],
       startedAt: (progress && progress.startedAt) || Date.now(),
       fromShare,
+      // A fresh dare on this boot wins; otherwise the persisted one.
+      challenge: challenge || (progress && progress.challenge) || null,
       done: false,
     };
+    setChallengeStrip('view-conn', S.challenge, 'THREAD');
     $('#conn-puzzle-title').textContent = puzzle.title;
     renderConnGame();
     show('view-conn');
   };
   // First-run intro only on a genuinely fresh daily board (no saved progress).
   const fresh = !progress || (!(progress.found && progress.found.length) && !progress.mistakes);
-  if (mode === 'daily' && fresh) maybeIntro('thread', editionIndex, begin);
+  if (mode === 'daily' && fresh) maybeIntro('thread', editionIndex, begin, challenge);
   else begin();
 }
 
@@ -144,7 +150,33 @@ export function startThreadDaily(editionIndex) {
 }
 export function startThreadPractice(editionIndex) { startEdition('practice', editionIndex); }
 
-function showLockedResult(editionIndex, entry) {
+// The dare answered — twin of mapgame.js renderChallengeVerdict. Thread's
+// score arrives as the receipt's own param rather than S.score.
+function renderChallengeVerdict(ch, score) {
+  const anchor = $('#conn-sum-share');
+  if (!anchor) return;
+  let v = $('#conn-sum-challenge-verdict');
+  if (!ch) { if (v) v.hidden = true; return; }
+  if (!v) {
+    v = document.createElement('p');
+    v.id = 'conn-sum-challenge-verdict';
+    v.className = 'challenge-verdict';
+    // Above the whole action row (receipt -> verdict -> buttons), not wedged
+    // between the forward button and the share.
+    const host = anchor.parentElement;
+    if (host) host.insertBefore(v, host.firstChild);
+    else anchor.insertAdjacentElement('beforebegin', v);
+  }
+  const yours = Number.isFinite(score) ? score : 0;
+  v.textContent = challengeVerdictLine(ch.s, yours);
+  v.hidden = false;
+  if (!S.chVerdictTracked) {
+    S.chVerdictTracked = true;
+    track(`challenge-thread-${yours > ch.s ? 'beat' : yours === ch.s ? 'tied' : 'lost'}`);
+  }
+}
+
+function showLockedResult(editionIndex, entry, challenge) {
   const boards = daily.getEdition('thread', editionIndex);
   const puzzle = boards[0];
   currentPuzzle = puzzle;
@@ -152,6 +184,7 @@ function showLockedResult(editionIndex, entry) {
   S = {
     mode: 'daily', dailyKey: daily.dailyKey('thread', editionIndex), store: modeStore(null),
     editionIndex, puzzle, done: true, locked: true,
+    challenge: challenge || null,
     found: new Set(['yellow', 'green', 'blue', 'purple']),
     mistakes: detail.mistakes || 0,
   };
@@ -196,6 +229,7 @@ function persistProgress() {
     mistakes: S.mistakes,
     guesses: S.guesses || [],
     startedAt: S.startedAt,
+    challenge: S.challenge || null,
   });
 }
 
@@ -437,15 +471,22 @@ function finishPuzzle() {
 // when the per-group count wasn't recorded (locked entries store only
 // solved/perfect/mistakes).
 function renderThreadReceipt({ editionIndex, mode, title, score, solved, perfect, mistakes, found, guesses }) {
-  // Share 2.0: dailies are shareable (issue number = the common reference);
-  // practice/free runs are not — nothing to compare against.
+  // Challenge Rally: dailies are shareable (the day = the common reference);
+  // practice/free runs are not — nothing to compare against. A challenged
+  // receipt answers the dare: verdict line, send-back share.
   const isDaily = mode === 'daily' && editionIndex != null;
+  const ch = isDaily && S ? S.challenge : null;
   S.share = isDaily ? {
-    text: threadShareText(editionIndex, { guesses, solved, perfect, mistakes, title }),
-    trackAs: 'share-thread',
+    text: threadShareText(editionIndex, { guesses, solved, perfect, mistakes, title, score }),
+    trackAs: ch ? 'sendback-thread' : 'share-thread',
+    idle: ch ? 'Send your score back ›' : 'Challenge a friend',
   } : null;
   const shareBtn = $('#conn-sum-share');
-  if (shareBtn) shareBtn.hidden = !S.share;
+  if (shareBtn) {
+    shareBtn.hidden = !S.share;
+    if (S.share) shareBtn.textContent = S.share.idle;
+  }
+  renderChallengeVerdict(ch, score);
   wireTurnThePage('conn-sum-turn', editionIndex, isDaily);
   const head = $('#conn-receipt-head');
   if (head) {
@@ -515,7 +556,7 @@ export function initConnectionsGame() {
     connShare.addEventListener('click', async () => {
       if (!S || !S.share) return;
       const out = await shareResult(S.share);
-      flashShareButton(connShare, out, 'Share the thread');
+      flashShareButton(connShare, out, S.share.idle);
     });
   }
   $('#conn-quit').addEventListener('click', () => {

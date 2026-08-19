@@ -622,19 +622,24 @@ button { font: inherit; color: inherit; background: none; border: none; padding:
 }
 @media (prefers-reduced-motion: reduce) { #stranger-play { animation: none; } }
 
-/* Edition-closed strip (Change A): the quiet ending for a day finished but not
-   swept — top of Home + the destination of "Close the issue ›". Receipt-
-   adjacent (cream/ink, dashed rule), no CMYK: consolation, not celebration. */
-#issue-closed { margin: 12px 20px 2px; padding: 14px 16px; background: var(--ch-cream); border: 2px solid var(--ch-ink); box-shadow: var(--ch-shadow-card); }
-.ic-verdict { margin: 0; font-family: var(--ch-font-ui); font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; line-height: 1.5; color: var(--ch-text-primary); }
-.ic-row { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-top: 10px; padding-top: 10px; border-top: 2px dashed var(--ch-line-soft); }
-.ic-label { font-family: var(--ch-font-ui); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--ch-text-muted); }
-.ic-row b { font-family: var(--ch-font-display); font-weight: 400; font-size: 30px; line-height: 1; color: var(--ch-text-primary); font-variant-numeric: tabular-nums; }
-.ic-countdown { margin: 10px 0 0; font-family: var(--ch-font-ui); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--ch-text-muted); }
-.ic-countdown b { display: block; margin-top: 2px; font-family: var(--ch-font-display); font-weight: 400; font-size: 22px; letter-spacing: .02em; color: var(--ch-text-primary); }
+/* The Challenge Rally (19 Aug 2026). The strip is the dare said out loud:
+   pinned under a game view's topbar when a challenge link launched it, and
+   (the -home variant) at the top of Home for a full-house dare. Cream and
+   ink like every quiet surface; the score in <b> is the line's one accent —
+   a yellow highlighter swipe, the zine marking what matters. */
+.challenge-strip { padding: 8px 14px; background: var(--ch-cream); border-bottom: 2px solid var(--ch-ink); font-family: var(--ch-font-ui); font-weight: 700; font-size: 11.5px; text-transform: uppercase; letter-spacing: .07em; text-align: center; line-height: 1.5; color: var(--ch-text-primary); }
+.challenge-strip b { background: var(--df-yellow); padding: 1px 5px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.challenge-strip-home { margin: 12px 20px 2px; border: 2px solid var(--ch-ink); box-shadow: var(--ch-shadow-card); padding: 12px 16px; font-family: var(--ch-font-text); font-weight: 400; font-size: 15px; text-transform: none; letter-spacing: 0; text-align: left; line-height: 1.45; }
+.challenge-strip-home b { font-weight: 700; }
+/* The verdict on a challenged receipt: their score, your score, the call. */
+.challenge-verdict { margin: 0 0 10px; font-family: var(--ch-font-ui); font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; text-align: center; color: var(--ch-text-primary); }
+/* The dare on the intro card's doorstep — the mockup's rubber stamp. */
+#intro-challenge { border: 3px solid var(--ch-ink); padding: 10px 14px 9px; margin: 2px 6px 16px; transform: rotate(-2deg); text-align: center; }
+#intro-challenge b { display: block; font-family: var(--ch-font-display); font-weight: 400; font-size: 24px; letter-spacing: .02em; color: var(--ch-text-primary); }
+#intro-challenge small { display: block; margin-top: 4px; font-family: var(--ch-font-ui); font-weight: 700; font-size: 10.5px; text-transform: uppercase; letter-spacing: .09em; color: var(--ch-text-muted); }
 
-/* The repair strip (7 Aug 2026): a missed day that is still savable. Same box
-   as the edition-closed strip above — cream, ink, hard shadow, no new visual
+/* The repair strip (7 Aug 2026): a missed day that is still savable. Same
+   cream/ink/hard-shadow box as the Home strips around it — no new visual
    language — because this is an invitation, not an alarm. The one accent is
    the deadline in the first clause, which is the whole point of the thing. */
 #repair-strip { margin: 12px 20px 2px; padding: 14px 16px; background: var(--ch-cream); border: 2px solid var(--ch-ink); box-shadow: var(--ch-shadow-card); }

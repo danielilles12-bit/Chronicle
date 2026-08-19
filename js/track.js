@@ -176,7 +176,32 @@ Object.keys(GAME_DISPLAY_NAME).forEach((g) => {
   DISPLAY[`land-share-${g}`] = `1-land-share-${name}`;
   DISPLAY[`start-from-share-${g}`] = `3-start-from-share-${name}`;
   DISPLAY[`answer-from-share-${g}`] = `3-answer-from-share-${name}`;
+  // The Challenge Rally (19 Aug 2026). land-challenge fires WITH land-share
+  // (a challenge landing is a share landing that carried a score), so the
+  // rally's take-up rate is challenge÷share at a glance. The 4-family verdict
+  // fires once when a challenged player finishes the dared puzzle, and
+  // sendback replaces the plain 6-shared event on that summary — same
+  // success/copied/cancelled conventions as every other share family.
+  DISPLAY[`land-challenge-${g}`] = `1-land-challenge-${name}`;
+  DISPLAY[`challenge-${g}-beat`] = `4-challenge-${name}-beat`;
+  DISPLAY[`challenge-${g}-tied`] = `4-challenge-${name}-tied`;
+  DISPLAY[`challenge-${g}-lost`] = `4-challenge-${name}-lost`;
+  DISPLAY[`sendback-${g}`] = `6-sendback-${name}`;
+  DISPLAY[`sendback-${g}-copied`] = `6-sendback-${name}-copied`;
+  DISPLAY[`sendback-${g}-cancelled`] = `6x-sendback-cancelled-${name}`;
+  DISPLAY[`sendback-${g}-failed`] = `6x-sendback-failed-${name}`;
 });
+// A full-house challenge names no game: e+s alone in the link, landed as the
+// Home strip. The dare is remembered for the whole day (misc.dayChallenge),
+// and the celebration closes the rally: verdict + "Send your score back".
+DISPLAY['land-challenge-day'] = '1-land-challenge-day';
+DISPLAY['challenge-day-beat'] = '4-challenge-day-beat';
+DISPLAY['challenge-day-tied'] = '4-challenge-day-tied';
+DISPLAY['challenge-day-lost'] = '4-challenge-day-lost';
+DISPLAY['sendback-day'] = '6-sendback-day';
+DISPLAY['sendback-day-copied'] = '6-sendback-day-copied';
+DISPLAY['sendback-day-cancelled'] = '6x-sendback-cancelled-day';
+DISPLAY['sendback-day-failed'] = '6x-sendback-failed-day';
 DISPLAY['ret-d1'] = '8-return-d1';
 DISPLAY['ret-d7'] = '8-return-d7';
 DISPLAY['ret-d30'] = '8-return-d30';

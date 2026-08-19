@@ -5,13 +5,13 @@
 // only spender.
 // Mirrors the Map of a Life session shape (persisted, resumable; round count
 // comes from the edition — 3/day since edition 30, 5 before, free play 5).
-import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, teachWrongGuess, announce, testHooksEnabled, consumeShareLaunch, w800Url, loadImgFallback } from './app.js';
+import { DATA, $, show, back, goHome, refreshHomeStats, setReceiptStamp, maybeIntro, openIntroHelp, wireTurnThePage, teachWrongGuess, announce, testHooksEnabled, consumeShareLaunch, takeChallenge, setChallengeStrip, w800Url, loadImgFallback } from './app.js';
 import * as store from './storage.js';
 import { track, roundOutcome, durationBucket } from './track.js';
 import { isMatch, registerPool } from './match.js';
 import { confirmFirstGuess, confirmFirstRescue } from './guesswarn.js';
 import * as daily from './daily.js';
-import { revealShareText, shareResult, flashShareButton } from './sharecard.js';
+import { revealShareText, shareResult, flashShareButton, challengeVerdictLine } from './sharecard.js';
 import { attachPinchZoom } from './pinchzoom.js';
 import * as sfx from './sfx.js';
 
@@ -651,6 +651,7 @@ function persist() {
     score: S.score, streak: S.streak, bestStreak: S.bestStreak,
     editionIndex: S.editionIndex,
     startedAt: S.startedAt,
+    challenge: S.challenge || null,
     cur: S.cur && S.cur.open
       ? {
           torn: S.cur.torn.slice(), wrongs: S.cur.wrongs,
@@ -701,7 +702,7 @@ function resumeSession() {
 }
 
 // Shared resume path for free/daily/practice.
-function resumeFrom(sessMode, key, saved, fromShare) {
+function resumeFrom(sessMode, key, saved, fromShare, challenge) {
   const st = modeStore(sessMode, key);
   if (saved.ids.some((id) => !byId(id)) || saved.results.some((r) => !byId(r.id))) {
     st.clear();
@@ -721,8 +722,11 @@ function resumeFrom(sessMode, key, saved, fromShare) {
     pendingCur: saved.cur || null,
     startedAt: saved.startedAt || Date.now(),
     fromShare: !!fromShare,
+    // A fresh dare on this boot wins; otherwise the persisted one.
+    challenge: challenge || saved.challenge || null,
   };
   if (next >= saved.ids.length) { finishSession(); return; }
+  setChallengeStrip('view-reveal', S.challenge, MODE === 'who' ? 'FACE VALUE' : 'RELIC');
   show('view-reveal');
   startRound();
 }
@@ -741,14 +745,17 @@ function startEdition(sessMode, editionIndex) {
   // this read), so it's safe even though the intro overlay can defer begin()
   // behind a user tap — fromShare is closed over either way.
   const fromShare = sessMode === 'daily' && consumeShareLaunch(MODE);
+  // The dare — see the twin note in mapgame.js startEdition.
+  const challenge = sessMode === 'daily' ? takeChallenge(MODE, editionIndex) : null;
   if (sessMode === 'daily') {
     const entry = store.getDailyEntry(MODE, editionIndex);
-    if (entry) { showLockedResult(editionIndex, entry); return; }
+    // A challenge on a day already played: the locked receipt answers it.
+    if (entry) { showLockedResult(editionIndex, entry, challenge); return; }
   }
   const saved = store.getDailySession(key);
   if (saved && saved.ids && saved.results) {
     if (sessMode === 'daily') track(`resume-${MODE}`);
-    resumeFrom(sessMode, key, saved, fromShare);
+    resumeFrom(sessMode, key, saved, fromShare, challenge);
     return;
   }
   const mode = MODE;   // capture: MODE is stable while the intro overlay is up
@@ -761,8 +768,9 @@ function startEdition(sessMode, editionIndex) {
     S = {
       mode: sessMode, dailyKey: key, store: modeStore(sessMode, key), editionIndex,
       rounds, i: 0, score: 0, streak: 0, bestStreak: 0, results: [],
-      startedAt: Date.now(), fromShare,
+      startedAt: Date.now(), fromShare, challenge,
     };
+    setChallengeStrip('view-reveal', S.challenge, mode === 'who' ? 'FACE VALUE' : 'RELIC');
     show('view-reveal');
     startRound();
   };
@@ -780,7 +788,7 @@ function startEdition(sessMode, editionIndex) {
     begin();
     if (S) S.teach = !seenIntro;
   } else if (sessMode === 'daily') {
-    maybeIntro(mode, editionIndex, begin);
+    maybeIntro(mode, editionIndex, begin, challenge);
   } else {
     begin();
   }
@@ -804,7 +812,7 @@ export function startRevealPractice(mode, editionIndex) { MODE = mode; startEdit
 // entry — the manifest is the record of what actually aired, while the entry
 // only carries what the player scored on it. Points are matched back onto the
 // manifest's rounds by id.
-function showLockedResult(editionIndex, entry) {
+function showLockedResult(editionIndex, entry, challenge) {
   const scored = new Map((entry.detail || []).map((r) => [r.id, r]));
   const aired = daily.getEdition(MODE, editionIndex);
   const results = aired.map((item) => {
@@ -814,6 +822,7 @@ function showLockedResult(editionIndex, entry) {
   S = {
     mode: 'daily', dailyKey: daily.dailyKey(MODE, editionIndex), store: modeStore('daily', null),
     editionIndex, done: true, locked: true,
+    challenge: challenge || null,
     // Coerce at the door — a carry-imported entry could arrive scoreless (see
     // the twin note in mapgame.js showLockedResult) and the remark band
     // lookup below throws on a non-number.
@@ -1119,17 +1128,48 @@ function renderLockedSummary() {
     ol.appendChild(li);
   }
   // Daily results are locked: no replay from the summary screen.
-  // Share 2.0: dailies only (the issue number is the common reference).
+  // Challenge Rally: dailies only (the day is the common reference). A
+  // challenged summary answers the dare — verdict line, send-back share.
   const isDaily = S.mode === 'daily' && S.editionIndex != null;
+  const ch = isDaily ? S.challenge : null;
   S.share = isDaily ? {
     text: revealShareText(MODE, S.editionIndex, S.results, S.score),
-    trackAs: `share-${MODE}`,
+    trackAs: ch ? `sendback-${MODE}` : `share-${MODE}`,
+    idle: ch ? 'Send your score back ›' : 'Challenge a friend',
   } : null;
   const rvShare = $('#rv-sum-share');
-  if (rvShare) rvShare.hidden = !S.share;
+  if (rvShare) {
+    rvShare.hidden = !S.share;
+    if (S.share) rvShare.textContent = S.share.idle;
+  }
+  renderChallengeVerdict(ch);
   wireTurnThePage('rv-sum-turn', S.editionIndex, isDaily);
   renderSolution();
   $('#rv-sum-again').hidden = !!S.locked;
+}
+
+// The dare answered — twin of mapgame.js renderChallengeVerdict.
+function renderChallengeVerdict(ch) {
+  const anchor = $('#rv-sum-share');
+  if (!anchor) return;
+  let v = $('#rv-sum-challenge-verdict');
+  if (!ch) { if (v) v.hidden = true; return; }
+  if (!v) {
+    v = document.createElement('p');
+    v.id = 'rv-sum-challenge-verdict';
+    v.className = 'challenge-verdict';
+    // Above the whole action row (receipt -> verdict -> buttons), not wedged
+    // between the forward button and the share.
+    const host = anchor.parentElement;
+    if (host) host.insertBefore(v, host.firstChild);
+    else anchor.insertAdjacentElement('beforebegin', v);
+  }
+  v.textContent = challengeVerdictLine(ch.s, S.score);
+  v.hidden = false;
+  if (!S.chVerdictTracked) {
+    S.chVerdictTracked = true;
+    track(`challenge-${MODE}-${S.score > ch.s ? 'beat' : S.score === ch.s ? 'tied' : 'lost'}`);
+  }
 }
 
 // The solution recap under the receipt (Archive v2). One plate per round, in
@@ -1326,7 +1366,7 @@ export function initRevealGame() {
     rvShareBtn.addEventListener('click', async () => {
       if (!S || !S.share) return;
       const out = await shareResult(S.share);
-      flashShareButton(rvShareBtn, out, 'Share the tear-up');
+      flashShareButton(rvShareBtn, out, S.share.idle);
     });
   }
   $('#rv-sum-back').addEventListener('click', goHome);
