@@ -348,6 +348,30 @@ def check_full_screen_overlays():
         print("overlay sizing OK: all %d full-screen fixed rules use dvh" % checked)
 
 
+def check_image_immutability():
+    """Puzzle images are IMMUTABLE at their path (19 Aug 2026, the Angkor Wat
+    lesson). sw.js serves assets/img/** cache-first from a cache that survives
+    version bumps, so bytes replaced at an existing filename NEVER reach a
+    device that already cached them — the fix silently misses every regular
+    while every fresh profile (and every test) sees it working. A changed
+    image must get a NEW filename (angkor-wat-2.jpg) plus its w800 twin, and
+    the data file must point at the new path. Renames and brand-new files are
+    fine; in-place modification is the only thing this refuses."""
+    out = subprocess.run(
+        ["git", "diff", "--name-only", "--diff-filter=M", "HEAD", "--", "assets/img"],
+        capture_output=True, text=True, cwd=ROOT)
+    changed = [l for l in out.stdout.splitlines() if l.strip()]
+    if changed:
+        for f in changed:
+            errors.append(
+                "%s: puzzle image bytes replaced IN PLACE. Devices that cached "
+                "this path keep the old bytes forever (sw.js df-img cache). "
+                "Rename to a new filename (+ its w800 twin), update the data "
+                "file's img path, and leave the old files to git rm." % f)
+    else:
+        print("image immutability OK: no in-place edits under assets/img")
+
+
 def main():
     check_version_lock()
     check_file_sizes()
@@ -355,6 +379,7 @@ def main():
     check_deny_rules()
     check_brand_mark()
     check_full_screen_overlays()
+    check_image_immutability()
     if errors:
         for e in errors:
             print("ERROR " + e, file=sys.stderr)
