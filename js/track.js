@@ -210,6 +210,18 @@ DISPLAY['ret-d1'] = '8-return-d1';
 DISPLAY['ret-d7'] = '8-return-d7';
 DISPLAY['ret-d30'] = '8-return-d30';
 DISPLAY['ritual-week'] = '8-ritual-week';
+// The retention histogram (20 Aug 2026). The one-shots above say "this
+// device survived to day 7" once, ever — useful, but cumulative, so they
+// can't show whether THIS week's newcomers stick around. These fire on
+// every returning day, tagged with the device's age band, at most once per
+// local day (see app.js checkReturnAge): read any dashboard day and the
+// four rows are a headcount of that day's returners by age. Zero-padded so
+// the dashboard sorts them young-to-old. No ID leaves the phone — the
+// device works out its own age from an edition index it keeps locally.
+DISPLAY['ret-age-d01'] = '8-return-age-d01';
+DISPLAY['ret-age-d02-07'] = '8-return-age-d02-07';
+DISPLAY['ret-age-d08-30'] = '8-return-age-d08-30';
+DISPLAY['ret-age-d31p'] = '8-return-age-d31plus';
 // P2.2's file-load family covers data/*.json; this is the one other place a
 // player's device can silently fail to persist something useful (the image
 // cache, when storage is full or private-mode limits kick in) — sw.js can't
@@ -238,6 +250,16 @@ export function durationBucket(ms) {
   if (ms < 120000) return 'u2';
   if (ms < 300000) return 'u5';
   return 'o5';
+}
+
+// Retention histogram: a returning device's age band, in editions since the
+// day it was first seen (app.js checkReturnAge owns the stamp and the
+// once-per-day guard; this is just the banding). Day 0 never reaches here.
+export function returnAgeBucket(days) {
+  if (days <= 1) return 'd01';
+  if (days <= 7) return 'd02-07';
+  if (days <= 30) return 'd08-30';
+  return 'd31p';
 }
 
 export function track(event) {

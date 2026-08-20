@@ -239,7 +239,49 @@ def return_milestones(p, base):
         H.fail_on_errors(errors, "return_milestones")
 
 
-TESTS = [daily_lock_and_repair, rollover, archive_strip, no_encore, return_milestones]
+# ---------- return_age_histogram ----------
+def return_age_histogram(p, base):
+    """The retention histogram (20 Aug 2026): each returning day files the
+    device into an age band (editions since first seen), at most once per
+    local day. A device from before the stamp existed backfills from its
+    earliest completed daily; a brand-new device's first day is silent."""
+    with H.app(p) as (page, errors, _ctx):
+        # Ten editions of history, then wipe the stamp to impersonate a
+        # device that predates the feature — the ledger must answer for it.
+        H.boot(page, base, H.edition_date(N - 10))
+        H.seed_completion(page, "who", N - 10, score=70)
+        page.evaluate(
+            "__CHRONICLE_TEST__.store.setMisc("
+            "{ firstSeenOn: undefined, retAgeDay: undefined })")
+        H.boot(page, base, DATE)
+        events = H.gc_events(page)
+        assert "8-return-age-d08-30" in events, \
+            "backfilled device missing its age band: %r" % events
+        assert page.evaluate(
+            "__CHRONICLE_TEST__.store.getMisc().firstSeenOn") == N - 10, \
+            "backfill did not persist the ledger's first edition"
+        # Same local day again: the band fires once per day, not per open.
+        H.boot(page, base, DATE)
+        events = H.gc_events(page)
+        assert not any("return-age" in e for e in events), \
+            "age band re-fired on a same-day open: %r" % events
+    with H.app(p) as (page, errors, _ctx):
+        # A brand-new device: day 0 is an arrival, not a return...
+        H.boot(page, base, H.edition_date(N - 1))
+        events = H.gc_events(page)
+        assert not any("return-age" in e for e in events), \
+            "day-0 boot counted as a return: %r" % events
+        # ...and the next morning it is the youngest band, with no ledger
+        # entry ever written (the stamp alone carries the age).
+        H.boot(page, base, DATE)
+        events = H.gc_events(page)
+        assert "8-return-age-d01" in events, \
+            "next-day return missing d01: %r" % events
+        H.fail_on_errors(errors, "return_age_histogram")
+
+
+TESTS = [daily_lock_and_repair, rollover, archive_strip, no_encore, return_milestones,
+         return_age_histogram]
 
 
 def main():

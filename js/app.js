@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v226';
+const BUILD = 'v227';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -12,7 +12,7 @@ if (/iP(hone|ad|od)/.test(navigator.userAgent)
 }
 
 import * as store from './storage.js';
-import { track, initTracking } from './track.js';
+import { track, initTracking, returnAgeBucket } from './track.js';
 import { fullHouseShareText, obituaryShareText, shareResult, flashShareButton, challengeVerdictLine } from './sharecard.js';
 import { isMatch } from './match.js';
 import { initMapGame, renderMapStart, startMapDaily } from './mapgame.js';
@@ -1080,6 +1080,32 @@ function checkReturnMilestones() {
   if (changed) store.setMisc({ retFired: [...fired] });
 }
 
+// The retention histogram (20 Aug 2026): every returning day files the
+// device into an age band — see track.js for the four rows and the why.
+// Anchored to the day the device was FIRST SEEN (misc.firstSeenOn, an
+// edition index — never a wall-clock timestamp), where the milestones above
+// anchor to the first completed daily; a visitor who lurks before finishing
+// anything still ages from their real arrival. Devices from before this
+// shipped have no stamp: backfill from the ledger's earliest completed
+// daily — the closest honest stand-in — or, with nothing completed, start
+// the clock today. At most one event per local day, so a dashboard day
+// reads as a headcount of returners, not a tally of opens.
+function checkReturnAge() {
+  const today = daily.todayIndex();
+  const misc = store.getMisc();
+  let first = misc.firstSeenOn;
+  if (!Number.isFinite(first)) {
+    const led = daily.firstCompletedEdition();
+    first = led == null ? today : Math.min(led, today);
+    store.setMisc({ firstSeenOn: first });
+  }
+  const days = today - first;
+  if (days < 1) return; // same-day open (or a clock gone backwards): not a return
+  if (misc.retAgeDay === today) return;
+  store.setMisc({ retAgeDay: today });
+  track('ret-age-' + returnAgeBucket(days));
+}
+
 // ---------- boot ----------
 
 // The queen pull, riding native physics (iOS only). The overscroll bounce
@@ -1665,6 +1691,7 @@ async function boot() {
   daily.normalizeLedgerScales();
   checkAbandonedDailies();
   checkReturnMilestones();
+  checkReturnAge();
   // Free-play bests recorded before the rebase were 10-round sums; rescale
   // them onto the same 0–100 dial (approximate: sum/rounds).
   const mapStats = store.getMap();
