@@ -4175,7 +4175,7 @@
       "jawaharlal nehru",
       "nehru"
     ],
-    "blurb": "First Prime Minister of India (1889–1964) · Photograph — he marked independence at midnight with his 'Tryst with Destiny' speech",
+    "blurb": "First Prime Minister of India (1889–1964) · He marked independence at midnight with his 'Tryst with Destiny' speech",
     "img": "assets/img/jawaharlal-nehru.jpg",
     "fx": 0.4875,
     "fy": 0.41,
@@ -4191,7 +4191,7 @@
       "B. R. Ambedkar",
       "Muhammad Ali Jinnah"
     ],
-    "start": 1
+    "start": 0
   },
   {
     "id": "jean-jacques-rousseau",
@@ -8552,7 +8552,8 @@
     "mcq": [
       "Harry S. Truman",
       "Lyndon B. Johnson"
-    ]
+    ],
+    "start": 0
   },
   {
     "id": "steve-jobs",
@@ -9753,7 +9754,8 @@
       "pope john paul ii",
       "john paul ii",
       "karol wojtyla",
-      "saint john paul ii"
+      "saint john paul ii",
+      "wojtyla"
     ],
     "blurb": "Polish pope who led the Catholic Church for over 26 years (1920–2005) · Survived being shot four times in St Peter's Square in 1981, then visited his would-be assassin in prison to forgive him face to face",
     "img": "assets/img/pope-john-paul-ii.jpg",
@@ -9772,7 +9774,7 @@
       "Pope Benedict XVI",
       "Pope Pius XII"
     ],
-    "start": 7
+    "start": 6
   },
   {
     "id": "john-wayne",

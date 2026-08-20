@@ -2280,8 +2280,8 @@
     "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
     "image_retrieved": "2026-07-21",
     "mcq": [
-      "Hadrian's Villa",
-      "Royal Palace of Caserta"
+      "Hungarian Parliament Building",
+      "Hadrian's Villa"
     ]
   },
   {
@@ -3689,8 +3689,8 @@
     "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
     "image_retrieved": "2026-07-21",
     "mcq": [
-      "Stari Most",
-      "Royal Palace of Caserta"
+      "Hungarian Parliament Building",
+      "Stari Most"
     ]
   },
   {
@@ -10562,5 +10562,41 @@
       "Villa of the Mysteries",
       "Warren Cup"
     ]
+  },
+  {
+    "id": "hungarian-parliament",
+    "name": "Hungarian Parliament Building",
+    "kind": "artefact",
+    "difficulty": "easy",
+    "variants": [
+      "hungarian parliament",
+      "hungarian parliament building",
+      "parliament of hungary",
+      "budapest parliament",
+      "parliament building budapest",
+      "orszaghaz",
+      "országház",
+      "hungary's parliament",
+      "hungary parliament"
+    ],
+    "blurb": "Seat of Hungary's National Assembly on the Danube in Budapest, completed in 1904 · Architect Imre Steindl went blind before it was finished — he never saw his 691-room masterpiece",
+    "img": "assets/img/hungarian-parliament.jpg",
+    "fx": 0.5,
+    "fy": 0.34,
+    "frac": 0.3,
+    "license": "CC BY-SA 4.0",
+    "attribution": "Lynx1211",
+    "source": "Wikimedia Commons: Országház (Hungarian Parliament Building)(1).jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Orsz%C3%A1gh%C3%A1z_(Hungarian_Parliament_Building)(1).jpg",
+    "image_author": "Lynx1211",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "image_retrieved": "2026-08-20",
+    "image_modifications": "cropped to the river facade",
+    "mcq": [
+      "National Museum of Hungary",
+      "St Stephen's Basilica"
+    ],
+    "start": 1
   }
 ]

@@ -456,6 +456,17 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
   false accepts. Both directions were audited against all three pools
   before shipping and are pinned by `tests/match_harness.py` (SPELLING
   LENIENCY block). Loosen or tighten only with a new ruling.
+- **[ENGINE] Leniency extended to short names (Daniel, 20 Aug 2026).**
+  Ruling from the ed-53 review ("the ONLY user emails I receive are people
+  getting annoyed about spelling mistakes not being accepted"): the
+  phonetic fold's minimum word length dropped from 4 to 3 letters, so
+  "Jon" reaches "John" (the fold keeps a word's first letter, so a
+  3-letter word can only ever equal a near-identical name). Verified by
+  re-running the full match-harness cross-item sweep (149k comparisons,
+  0 false accepts). Same session: every answer airing the next day gets a
+  misspelling battery before deploy ("hungarian parlament", "chatrapati
+  shivaji", "pocohontas"-class guesses) — gaps are fixed with variants
+  ("wojtyla", "hungary parliament"), not by loosening the engine further.
 
 ## Scheduling (the day compiler)
 

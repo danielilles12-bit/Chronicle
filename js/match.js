@@ -135,7 +135,15 @@ function phoneticFold(s) {
   return collapseRuns(t);
 }
 function phoneticEq(a, b) {
-  if (a.length < 4 || b.length < 4) return false;
+  // Length gate lowered 4 → 3 (owner ruling 20 Aug 2026, spelling-leniency
+  // pass: "jon" must reach "john"). Only the plain fold applies at these
+  // lengths — the vowel fold below keeps its own >= 6 gate — and the fold
+  // preserves a word's first letter, so a 3-letter word can only ever equal
+  // a near-identical name, never a different one ("jon"="john" via the
+  // h-drop, but "cid" never reaches "sid"). Re-certified against all three
+  // content pools by tests/match_harness.py's cross-item sweep, same as the
+  // 18 Aug audit.
+  if (a.length < 3 || b.length < 3) return false;
   if (ROMANS.has(a) || ROMANS.has(b)) return false;
   if (phoneticFold(a) === phoneticFold(b)) return true;
   if (a.length < 6 || b.length < 6) return false;

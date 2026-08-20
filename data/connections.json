@@ -8741,5 +8741,52 @@
         ]
       }
     ]
+  },
+  {
+    "id": "conn-188",
+    "title": "Olympus, Inc.",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Human anatomy",
+        "items": [
+          "Hippocampus",
+          "Atlas",
+          "Iris",
+          "Achilles"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Global consumer brands",
+        "items": [
+          "Nike",
+          "Amazon",
+          "Hermes",
+          "Pandora"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Children of Zeus and/or Hera",
+        "items": [
+          "Hephaestus",
+          "Persephone",
+          "Helen of Troy",
+          "Ares"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Anthropic and OpenAI models",
+        "items": [
+          "Mythos",
+          "Opus",
+          "Luna",
+          "Terra"
+        ]
+      }
+    ]
   }
 ]
