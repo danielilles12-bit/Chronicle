@@ -612,6 +612,16 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
   one flat surface, no polysemy, no structural twist. Mechanism:
   `reserve: true` on `conn-065` in `data/connections.json`. Un-reserve
   only after a rework passes the NYT-grammar rubric.
+- **[JUDGMENT]** conn-137 "True Colours" reserved (Daniel, 21 Aug 2026,
+  ed 54 review: "no, will supply a new one"). No autopsy was given; the
+  recorded suspicion is that the board's own title announces the trick
+  and three of its four groups are colour-sorted the same way, so the
+  twist tiles ("Blackshirts" against "The Black Prince", "Redshirts"
+  against "Erik the Red") read as traps rather than as a mechanic.
+  Mechanism: `reserve: true` on `conn-137` in `data/connections.json`.
+  Edition 54 was refilled with conn-023 "Words From the Past" (hard,
+  no linked-subject collision) as a standing safety net — Daniel's own
+  replacement board supersedes it if it lands before the day airs.
 
 ## Face Value / Relic rounds
 

@@ -5743,8 +5743,8 @@
     "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
     "image_retrieved": "2026-08-06",
     "mcq": [
-      "Brandenburg Gate",
-      "Al-Aqsa Mosque"
+      "Venus de Milo",
+      "Winged Victory"
     ]
   },
   {
@@ -7889,7 +7889,8 @@
     "mcq": [
       "Book of Kells",
       "Gutenberg Bible"
-    ]
+    ],
+    "start": 1
   },
   {
     "id": "washington-monument",
@@ -9872,7 +9873,7 @@
       "Wright Flyer",
       "Enola Gay"
     ],
-    "start": 0,
+    "start": 3,
     "image_author": "Mariordo (Mario Roberto Durán Ortiz)"
   },
   {

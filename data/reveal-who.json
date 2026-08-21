@@ -1050,7 +1050,7 @@
       "Niels Bohr"
     ],
     "image_license_url": "https://commons.wikimedia.org/wiki/Template:PD-UKGov",
-    "start": 4
+    "start": 7
   },
   {
     "id": "alexander-graham-bell",
@@ -6063,7 +6063,8 @@
     "mcq": [
       "Eleanor Roosevelt",
       "Rosa Parks"
-    ]
+    ],
+    "start": 5
   },
   {
     "id": "henrik-ibsen",
@@ -10625,10 +10626,10 @@
     "image_license_url": "https://creativecommons.org/licenses/by/4.0",
     "image_retrieved": "2026-08-06",
     "mcq": [
-      "Mikhail Gorbachev",
+      "Leonid Brezhnev",
       "Nikita Khrushchev"
     ],
-    "start": 5
+    "start": 0
   },
   {
     "id": "david-lynch",
