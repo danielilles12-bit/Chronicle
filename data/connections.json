@@ -8827,12 +8827,12 @@
       },
       {
         "colour": "purple",
-        "label": "Countries since renamed",
+        "label": "Squares on the Monopoly board",
         "items": [
-          "Persia",
-          "Siam",
-          "Ceylon",
-          "Burma"
+          "Mayfair",
+          "Park Lane",
+          "Old Kent Road",
+          "Fleet Street"
         ]
       }
     ]
