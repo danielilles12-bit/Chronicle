@@ -8800,7 +8800,7 @@
         "label": "Dog breeds",
         "items": [
           "Labrador",
-          "Dalmatian",
+          "Brittany",
           "Chihuahua",
           "Newfoundland"
         ]
@@ -8827,12 +8827,12 @@
       },
       {
         "colour": "purple",
-        "label": "Squares on the Monopoly board",
+        "label": "Classic Fords",
         "items": [
-          "Mayfair",
-          "Park Lane",
-          "Old Kent Road",
-          "Fleet Street"
+          "Cortina",
+          "Capri",
+          "Granada",
+          "Anglia"
         ]
       }
     ]
