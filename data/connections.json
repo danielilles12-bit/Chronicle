@@ -8827,12 +8827,12 @@
       },
       {
         "colour": "purple",
-        "label": "Classic Fords",
+        "label": "British royal dukedoms",
         "items": [
-          "Cortina",
-          "Capri",
-          "Granada",
-          "Anglia"
+          "Sussex",
+          "Cambridge",
+          "Edinburgh",
+          "Cornwall"
         ]
       }
     ]
