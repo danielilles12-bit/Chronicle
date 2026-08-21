@@ -260,9 +260,29 @@ picture. Written down now. Built in `js/sharecard.js`;
   stamps, verdicts and share text alike ("87 to beat" sounded like 87
   people). In-game surfaces built earlier (worth line, Home card states)
   keep their `pts` wording until the copy pass rules on them.
+- **[ENGINE]** **The stranger-first share text (Daniel, 21 Aug 2026).** Most
+  recipients have never seen the game, so every share opens with one plain
+  sentence they can act on — it names the game, names Yesternerd, and gives
+  the score: *"I just played Relic, one of Yesternerd's daily history games,
+  and got 64/100."* (full house: *"I just played all four of Yesternerd's
+  daily history games and got 269/400."*). Then the emoji row bare, then the
+  dare (**"Think you can beat me?"** / **"Think you can beat my total?"**),
+  then the link. Ruled OUT of the text, deliberately: the **date** (the
+  recipient can't use it before tapping; the challenge landing stamp now
+  names the puzzle's day instead — it used to say "today" even for an older
+  day's link, fixed same session), the **streak** (sender vanity to a
+  stranger; the four scores already prove the day was played), and every
+  jargon detail line ("7 scraps torn", "1 hint, 1 funeral", Thread's
+  category confession). "I just played", never "I've been playing" — always
+  true, even on a first share. The all-caps headline is gone; the old
+  headline grammar ("RELIC 20 Aug ’26 🏺") was Wordle-convention insider
+  text and is what people cancelled on. Survived two GPT critique rounds.
+  Emoji rows, text-only, link-last, scores-over-maximum all unchanged.
+  `tests/test_share_text_only.py` enforces the new shape.
 - **[JUDGMENT]** The 7 Aug picture removal changed no wording; the 19 Aug
   challenge revision changed ONLY the wording above (score format + the
-  dare line) — the emoji rows and text-only rule are untouched.
+  dare line); the 21 Aug stranger-first rewrite changed ONLY the words
+  around the machinery — the emoji rows and text-only rule are untouched.
   `tests/test_share_text_only.py` + `tests/test_challenge_links.py` are the
   checks.
 

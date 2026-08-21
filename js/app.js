@@ -1,7 +1,7 @@
 // Boot, data loading, view router, home screen.
 // BUILD is shown in the home footer; bump it together with sw.js VERSION on
 // every deploy so what phones display always names what they are running.
-const BUILD = 'v228';
+const BUILD = 'v229';
 
 // iOS (incl. iPadOS, which masquerades as MacIntel) gets the OS's own
 // overscroll physics back — style.css keys native rubber-banding off this
@@ -723,10 +723,15 @@ function showIntroChallengeStamp(gameKey, ch) {
     body.insertBefore(stamp, body.firstChild);
   }
   const name = (INTRO_CONTENT[gameKey] ? INTRO_CONTENT[gameKey].kicker : gameKey).toUpperCase();
+  // Name the puzzle's actual day (21 Aug 2026): the share text no longer
+  // carries a date, so this stamp is where a recipient learns which day
+  // they were dared on — and an un-bridged link opened a day late used to
+  // lie ("today") about a yesterday puzzle.
+  const when = ch.e === daily.todayIndex() ? 'today' : `from ${daily.editionDateLabel(ch.e)}`;
   stamp.querySelector('b').textContent = `${ch.s}/100 TO BEAT`;
   stamp.querySelector('small').textContent = ch.bridged
     ? `A friend’s ${name} score — their day expired, this is today’s. Your move.`
-    : `A friend’s ${name} score today. Your move.`;
+    : `A friend’s ${name} score ${when}. Your move.`;
   stamp.hidden = false;
 }
 

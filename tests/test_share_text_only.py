@@ -9,8 +9,11 @@ streak obituary -- hands the OS a payload whose ONLY key is `text`, never
 touches navigator.canShare, and never constructs a canvas, a Blob or a File.
 
 It also checks the thing the picture was hiding: the shared text itself still
-carries its headline, its emoji result rows (aligned, one glyph per round) and
-the yesternerd.app link as its last line.
+carries its stranger-first opening sentence (Daniel, 21 Aug 2026 — names the
+game, names Yesternerd, gives the score over its maximum), its emoji result
+rows (aligned, one glyph per round), its dare, and the yesternerd.app link as
+its last line. No date and no streak in the text — the challenge landing
+stamp names the puzzle's day instead.
 
 See HOUSE_RULES.md "Sharing (what a share actually is)".
 """
@@ -23,8 +26,13 @@ import helpers as H  # noqa: E402
 
 N = H.latest_edition()
 DATE = H.edition_date(N)
-DAY = H.edition_day_label(N)   # shares name the day, not the issue (9 Aug 2026)
 LINK = "https://yesternerd.app/"
+DARE = "Think you can beat me?"
+
+
+def opener(game_title):
+    return ("I just played %s, one of Yesternerd's daily history games, "
+            "and got " % game_title)
 
 # A share sheet that always exists and always succeeds, wired to a recorder.
 # Also traps every ingredient the deleted image path needed, so a future
@@ -123,13 +131,13 @@ def four_games_share_text_only(p, base):
         H.play_reveal_daily(page)
         page.wait_for_selector("#rv-sum-share:not([hidden])")
         t = share_and_capture(page, "#rv-sum-share", "Face Value")
-        assert t.startswith("FACE VALUE %s \U0001F5BC" % DAY), \
-            "Face Value headline changed: %r" % t.split("\n")[0]
+        assert t.startswith(opener("Face Value")), \
+            "Face Value opening sentence changed: %r" % t.split("\n")[0]
+        assert "/100." in t.split("\n")[0], "Face Value score left the sentence"
         row = emoji_row(t)
         assert row and set(row) <= set("\U0001F7E9\U0001F7E8\U0001F7E5"), \
             "Face Value emoji row has stray glyphs: %r" % row
-        assert "/100" in t and "scraps torn" in t, "Face Value score line lost"
-        assert "Your move." in t, "Face Value share lost its dare line"
+        assert DARE in t, "Face Value share lost its dare line"
         assert "/play/face-value?e=%d&s=" % N in t and t.split("\n")[-1].endswith("&ref=share"), \
             "Face Value share lost its challenge deep link: %r" % t.split("\n")[-1]
         assert "6-shared-facevalue" in H.gc_events(page)
@@ -142,13 +150,13 @@ def four_games_share_text_only(p, base):
         H.dismiss_install(page)          # game two: the install screen opens
         page.wait_for_selector("#sum-share:not([hidden])")
         t = share_and_capture(page, "#sum-share", "Lifeline")
-        assert t.startswith("LIFELINE %s \U0001F5FA" % DAY), \
-            "Lifeline headline changed: %r" % t.split("\n")[0]
+        assert t.startswith(opener("Lifeline")), \
+            "Lifeline opening sentence changed: %r" % t.split("\n")[0]
         row = emoji_row(t)
         assert row and set(row) <= set("✅\U0001F9ED⚰️"), \
             "Lifeline emoji row has stray glyphs: %r" % row
         assert "/100" in t, "Lifeline score line lost"
-        assert "Your move." in t, "Lifeline share lost its dare line"
+        assert DARE in t, "Lifeline share lost its dare line"
         assert "/play/lifeline?e=%d&s=" % N in t, "Lifeline share lost its challenge deep link"
         assert "6-shared-lifeline" in H.gc_events(page)
         page.click("#sum-back")
@@ -159,13 +167,13 @@ def four_games_share_text_only(p, base):
         H.play_reveal_daily(page)
         page.wait_for_selector("#rv-sum-share:not([hidden])")
         t = share_and_capture(page, "#rv-sum-share", "Relic")
-        assert t.startswith("RELIC %s \U0001F3FA" % DAY), \
-            "Relic headline changed: %r" % t.split("\n")[0]
+        assert t.startswith(opener("Relic")), \
+            "Relic opening sentence changed: %r" % t.split("\n")[0]
         row = emoji_row(t)
         assert row and set(row) <= set("\U0001F7E9\U0001F7E8\U0001F7E5"), \
             "Relic emoji row has stray glyphs: %r" % row
         assert "/100" in t, "Relic score line lost"
-        assert "Your move." in t, "Relic share lost its dare line"
+        assert DARE in t, "Relic share lost its dare line"
         assert "/play/relic?e=%d&s=" % N in t, "Relic share lost its challenge deep link"
         assert "6-shared-relic" in H.gc_events(page)
         page.click("#rv-sum-back")
@@ -177,9 +185,9 @@ def four_games_share_text_only(p, base):
         H.play_thread_daily(page, board)
         page.wait_for_selector("#conn-sum-share:not([hidden])")
         t = share_and_capture(page, "#conn-sum-share", "Thread")
-        assert t.startswith("THREAD %s \U0001F9F5" % DAY), \
-            "Thread headline changed: %r" % t.split("\n")[0]
-        grid = t.split("\n")[1:-3]       # headline, grid..., human line, dare, link
+        assert t.startswith(opener("Thread")), \
+            "Thread opening sentence changed: %r" % t.split("\n")[0]
+        grid = t.split("\n")[1:-2]       # sentence, grid..., dare, link
         assert grid, "Thread share lost its emoji grid"
         widths = set(len(r) for r in grid)
         assert widths == {4}, (
@@ -189,6 +197,7 @@ def four_games_share_text_only(p, base):
             assert set(r) <= set("\U0001F7E8\U0001F7E9\U0001F7E6\U0001F7EA⬜"), \
                 "Thread grid has stray glyphs: %r" % r
         assert "/100" in t, "Thread share lost its score-to-beat line"
+        assert DARE in t, "Thread share lost its dare line"
         assert "/play/thread?e=%d&s=" % N in t, "Thread share lost its challenge deep link"
         assert "6-shared-thread" in H.gc_events(page)
 
@@ -197,10 +206,18 @@ def four_games_share_text_only(p, base):
         page.wait_for_selector("#view-daydone:not([hidden])")
         page.wait_for_selector("#dd-share:not([hidden])")
         t = share_and_capture(page, "#dd-share", "full house")
-        assert t.startswith("YESTERNERD %s — FULL HOUSE \U0001F3DB" % DAY), \
-            "full-house headline changed: %r" % t.split("\n")[0]
-        assert "/400" in emoji_row(t), "full-house score row lost its /400 total"
-        assert "Your move." in t, "full-house share lost its dare line"
+        assert t.startswith("I just played all four of Yesternerd's daily "
+                            "history games and got "), \
+            "full-house opening sentence changed: %r" % t.split("\n")[0]
+        assert "/400." in t.split("\n")[0], "full-house total left the sentence"
+        row = emoji_row(t)
+        for glyph in ("\U0001F5BC", "\U0001F5FA", "\U0001F3FA", "\U0001F9F5"):
+            assert glyph in row, (
+                "full-house score row lost a game glyph: %r" % row)
+        assert "streak" not in t, (
+            "the streak came back to the full-house share (cut 21 Aug 2026)")
+        assert "Think you can beat my total?" in t, \
+            "full-house share lost its dare line"
         last = t.split("\n")[-1]
         assert last.startswith(LINK + "?e=%d&s=" % N) and last.endswith("&ref=share"), (
             "the full house names no game but still carries the day dare "

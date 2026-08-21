@@ -570,10 +570,11 @@ def full_house_is_marked_but_counts_as_one_day(p, base):
 
 # ---------- celebration_and_share_carry_the_showed_up_run ----------
 def celebration_and_share_carry_the_showed_up_run(p, base):
-    """You Made History, its milestone postmark and its share receipt all read
-    the showed-up run. Four one-game days then a full house today = a 5-day run
-    (a milestone); the full-house streak is 1, which is what the screen used to
-    print — and 1 is no milestone at all, so the postmark never fired either."""
+    """You Made History and its milestone postmark read the showed-up run,
+    while the share receipt carries NO streak at all (21 Aug 2026). Four
+    one-game days then a full house today = a 5-day run (a milestone); the
+    full-house streak is 1, which is what the screen used to print — and 1 is
+    no milestone at all, so the postmark never fired either."""
     with H.app(p) as (page, errors, ctx):
         ctx.grant_permissions(["clipboard-read", "clipboard-write"], origin=base)
         seed_showed_up(page, base, [N - 4, N - 3, N - 2, N - 1], score=70)
@@ -595,8 +596,13 @@ def celebration_and_share_carry_the_showed_up_run(p, base):
             "document.querySelector('#dd-share').textContent"
             ".toLowerCase().indexOf('copied') === 0", timeout=8000)
         clip = page.evaluate("navigator.clipboard.readText()")
-        assert "5-day streak" in clip, (
-            "the receipt should carry the showed-up run: %r" % clip[:160])
+        # The share dropped ALL streak wording on 21 Aug 2026 (stranger-first
+        # rewrite): the run lives on the celebration screen, never in the text
+        # a stranger receives. This guard keeps it from creeping back.
+        assert "streak" not in clip.lower(), (
+            "the streak came back to the share receipt: %r" % clip[:160])
+        assert "/400." in clip.split("\n")[0], (
+            "the receipt lost its day total: %r" % clip[:160])
         H.fail_on_errors(errors, "celebration_and_share_carry_the_showed_up_run")
 
 

@@ -1,6 +1,9 @@
-// Share 2.0 — the approved grammar: one headline, one spoiler-free emoji row
-// that encodes the run, one human brag/wound line, then the link. Every game
-// keeps its own glyph so a group chat can tell games apart at a glance.
+// Share 3.0 — the stranger-first grammar (Daniel, 21 Aug 2026): one plain
+// sentence a friend who has never seen the game can act on (name the game,
+// name the app, give the score), the emoji row as a bare fingerprint of the
+// run, the dare, the link. No date in the text (the challenge landing card
+// names the puzzle's day), no streak line, no jargon detail lines. Survived
+// two GPT critique rounds; see HOUSE_RULES "Sharing".
 //
 // TEXT AND EMOJI ONLY (Daniel, 7 Aug 2026). A share is written results +
 // emoji + the link — never a generated image. The canvas "receipt card" that
@@ -68,49 +71,41 @@ function lines(url, ...parts) {
 }
 
 // ---------- per-game share text ----------
-// Challenge grammar (Daniel, 19 Aug 2026): scores read over their maximum
-// ("87/100", never "87 pts" — a bare 87 sounds like 87 of something else),
-// and every daily share ends its words with the dare before the link. All
-// working copy until the screenshot copy pass. Losses share exactly the same
-// way — a 0/100 to beat is the most beatable dare in the paper.
-const DARE = 'Your move.';
+// Stranger-first grammar (Daniel, 21 Aug 2026; scores still read over their
+// maximum per the 19 Aug ruling — "64/100", never "64 pts"). Losses share
+// exactly the same way — a 0/100 to beat is the most beatable dare in the
+// paper. "I just played" and not "I've been playing": always true, even for
+// a first-timer's very first share.
+const GAME_TITLE = { who: 'Face Value', map: 'Lifeline', what: 'Relic', thread: 'Thread' };
+const DARE = 'Think you can beat me?';
+const opener = (game, score) =>
+  `I just played ${GAME_TITLE[game]}, one of Yesternerd's daily history games, and got ${score}/100.`;
 
 export function threadShareText(issue, d) {
   const grid = threadEmojiRows(d.guesses).join('\n');
-  const human = d.perfect ? 'Flawless.'
-    : d.solved ? `${d.mistakes} slip${d.mistakes === 1 ? '' : 's'}${d.title ? ` — ${d.title.toUpperCase()} had me` : ''}.`
-    : `${d.title ? d.title.toUpperCase() : 'The board'} beat me.`;
   const score = d.score || 0;
   return lines(shareUrl('thread', { e: issue, s: score }),
-    `THREAD ${day(issue)} 🧵`, grid, human, `${score}/100 · ${DARE}`);
+    opener('thread', score), grid, DARE);
 }
 
 export function mapShareText(issue, rounds, score) {
-  const row = mapEmojiRow(rounds);
-  const hints = rounds.filter((r) => r.correct && r.hints).length;
-  const coffins = rounds.filter((r) => !r.correct).length;
-  const bits = [];
-  if (hints) bits.push(`${hints} hint${hints === 1 ? '' : 's'}`);
-  if (coffins) bits.push(`${coffins} funeral${coffins === 1 ? '' : 's'}`);
-  const human = `${score}/100${bits.length ? ' · ' + bits.join(', ') : ' · a clean sweep'}`;
   return lines(shareUrl('map', { e: issue, s: score }),
-    `LIFELINE ${day(issue)} 🗺️`, row, human, DARE);
+    opener('map', score), mapEmojiRow(rounds), DARE);
 }
 
 export function revealShareText(kind, issue, rounds, score) {
-  const name = kind === 'who' ? 'FACE VALUE' : 'RELIC';
-  const glyph = kind === 'who' ? '🖼️' : '🏺';
-  const row = revealEmojiRow(rounds);
-  const scraps = rounds.reduce((s, r) => s + (r.torn || 0), 0);
   return lines(shareUrl(kind, { e: issue, s: score }),
-    `${name} ${day(issue)} ${glyph}`, row, `${score}/100 · ${scraps} scraps torn`, DARE);
+    opener(kind, score), revealEmojiRow(rounds), DARE);
 }
 
-export function fullHouseShareText(issue, scores, total, streak) {
-  const row = `🖼️${scores.who} 🗺️${scores.map} 🏺${scores.what} 🧵${scores.thread} · ${total}/400`;
-  const flame = streak > 1 ? `🔥 ${streak}-day streak` : '';
+// The streak stays home (21 Aug 2026): it read as sender vanity to a
+// stranger, and the four scores already prove the day was played. Callers
+// still pass it; it is deliberately unread.
+export function fullHouseShareText(issue, scores, total) {
+  const row = `🖼️${scores.who} 🗺️${scores.map} 🏺${scores.what} 🧵${scores.thread}`;
   return lines(shareUrl(null, { e: issue, s: total }),
-    `YESTERNERD ${day(issue)} — FULL HOUSE 🏛️`, row, flame, DARE);
+    `I just played all four of Yesternerd's daily history games and got ${total}/400.`,
+    row, 'Think you can beat my total?');
 }
 
 // The receipt's verdict when a challenged player finishes the exact thing

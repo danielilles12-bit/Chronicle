@@ -40,7 +40,7 @@ def share_fallback(p, base):
             "document.querySelector('#conn-sum-share').textContent"
             ".indexOf('Copied') === 0")
         clip = page.evaluate("navigator.clipboard.readText()")
-        assert ("THREAD %s" % H.edition_day_label(N)) in clip, \
+        assert "I just played Thread, one of Yesternerd's daily history games" in clip, \
             "clipboard text wrong: %r" % clip[:80]
         assert "/play/thread?e=%d&s=100&ref=share" % N in clip, (
             "Thread's receipt should carry its challenge deep link "
