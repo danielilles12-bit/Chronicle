@@ -8809,10 +8809,10 @@
         "colour": "green",
         "label": "Things to wear",
         "items": [
-          "Bermuda",
-          "Panama",
+          "Bikini",
           "Balaclava",
-          "Fez"
+          "Duffel",
+          "Oxford"
         ]
       },
       {
@@ -8827,12 +8827,12 @@
       },
       {
         "colour": "purple",
-        "label": "Places that became sayings",
+        "label": "Countries since renamed",
         "items": [
-          "Waterloo",
-          "Coventry",
-          "Timbuktu",
-          "Damascus"
+          "Persia",
+          "Siam",
+          "Ceylon",
+          "Burma"
         ]
       }
     ]
