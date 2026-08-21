@@ -8792,7 +8792,7 @@
   {
     "id": "conn-189",
     "title": "Location, Location, Location",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "groups": [
       {
         "colour": "yellow",
@@ -8806,126 +8806,32 @@
       },
       {
         "colour": "green",
-        "label": "Clothes and headgear",
+        "label": "Things to wear",
         "items": [
           "Bermuda",
-          "Jodhpur",
+          "Panama",
           "Balaclava",
           "Fez"
         ]
       },
       {
         "colour": "blue",
-        "label": "Dances",
+        "label": "Cattle breeds",
         "items": [
-          "Charleston",
-          "Madison",
-          "Boston",
-          "Lambeth"
+          "Jersey",
+          "Hereford",
+          "Highland",
+          "Angus"
         ]
       },
       {
         "colour": "purple",
-        "label": "Psychological syndromes",
+        "label": "Places that became sayings",
         "items": [
-          "Stockholm",
-          "Jerusalem",
-          "Paris",
-          "Lima"
-        ]
-      }
-    ]
-  },
-  {
-    "id": "conn-190",
-    "title": "Old Names Die Hard",
-    "difficulty": "hard",
-    "groups": [
-      {
-        "colour": "yellow",
-        "label": "Greek city-states",
-        "items": [
-          "Sparta",
-          "Corinth",
-          "Argos",
-          "Megara"
-        ]
-      },
-      {
-        "colour": "green",
-        "label": "Capitals of ancient Egypt",
-        "items": [
-          "Memphis",
-          "Alexandria",
-          "Amarna",
-          "Tanis"
-        ]
-      },
-      {
-        "colour": "blue",
-        "label": "Upstate New York",
-        "items": [
-          "Troy",
-          "Ithaca",
-          "Syracuse",
-          "Rome"
-        ]
-      },
-      {
-        "colour": "purple",
-        "label": "Towns in Texas",
-        "items": [
-          "Paris",
-          "Athens",
-          "Palestine",
-          "Carthage"
-        ]
-      }
-    ]
-  },
-  {
-    "id": "conn-191",
-    "title": "Table Manners",
-    "difficulty": "hard",
-    "groups": [
-      {
-        "colour": "yellow",
-        "label": "Named for a newly found planet",
-        "items": [
-          "Uranium",
-          "Neptunium",
-          "Plutonium",
-          "Cerium"
-        ]
-      },
-      {
-        "colour": "green",
-        "label": "Named after a country",
-        "items": [
-          "Polonium",
-          "Francium",
-          "Germanium",
-          "Americium"
-        ]
-      },
-      {
-        "colour": "blue",
-        "label": "Named after a scientist",
-        "items": [
-          "Curium",
-          "Einsteinium",
-          "Nobelium",
-          "Mendelevium"
-        ]
-      },
-      {
-        "colour": "purple",
-        "label": "Named from Greek myth",
-        "items": [
-          "Titanium",
-          "Promethium",
-          "Tantalum",
-          "Niobium"
+          "Waterloo",
+          "Coventry",
+          "Timbuktu",
+          "Damascus"
         ]
       }
     ]
