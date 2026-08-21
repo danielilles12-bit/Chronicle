@@ -8788,5 +8788,146 @@
         ]
       }
     ]
+  },
+  {
+    "id": "conn-189",
+    "title": "Location, Location, Location",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Dog breeds",
+        "items": [
+          "Labrador",
+          "Dalmatian",
+          "Chihuahua",
+          "Newfoundland"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Clothes and headgear",
+        "items": [
+          "Bermuda",
+          "Jodhpur",
+          "Balaclava",
+          "Fez"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Dances",
+        "items": [
+          "Charleston",
+          "Madison",
+          "Boston",
+          "Lambeth"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Psychological syndromes",
+        "items": [
+          "Stockholm",
+          "Jerusalem",
+          "Paris",
+          "Lima"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-190",
+    "title": "Old Names Die Hard",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Greek city-states",
+        "items": [
+          "Sparta",
+          "Corinth",
+          "Argos",
+          "Megara"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Capitals of ancient Egypt",
+        "items": [
+          "Memphis",
+          "Alexandria",
+          "Amarna",
+          "Tanis"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Upstate New York",
+        "items": [
+          "Troy",
+          "Ithaca",
+          "Syracuse",
+          "Rome"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Towns in Texas",
+        "items": [
+          "Paris",
+          "Athens",
+          "Palestine",
+          "Carthage"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-191",
+    "title": "Table Manners",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Named for a newly found planet",
+        "items": [
+          "Uranium",
+          "Neptunium",
+          "Plutonium",
+          "Cerium"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Named after a country",
+        "items": [
+          "Polonium",
+          "Francium",
+          "Germanium",
+          "Americium"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Named after a scientist",
+        "items": [
+          "Curium",
+          "Einsteinium",
+          "Nobelium",
+          "Mendelevium"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Named from Greek myth",
+        "items": [
+          "Titanium",
+          "Promethium",
+          "Tantalum",
+          "Niobium"
+        ]
+      }
+    ]
   }
 ]
