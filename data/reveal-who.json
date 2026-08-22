@@ -9293,9 +9293,10 @@
     "image_license": "Public domain",
     "image_retrieved": "2026-07-24",
     "mcq": [
-      "Mustafa Kemal Atatürk",
-      "Leon Trotsky"
-    ]
+      "Tsar Nicholas II",
+      "Kaiser Wilhelm II"
+    ],
+    "start": 7
   },
   {
     "id": "george-harrison",
@@ -11160,7 +11161,7 @@
     "image_license": "Public domain",
     "image_retrieved": "2026-08-06",
     "mcq": [
-      "Amelia Earhart",
+      "Nancy Reagan",
       "Lady Bird Johnson"
     ],
     "start": 3,
@@ -11500,7 +11501,8 @@
       "Abraham Lincoln"
     ],
     "start": 5,
-    "image_modifications": "cropped"
+    "image_modifications": "cropped",
+    "reserve": true
   },
   {
     "id": "richard-feynman",

@@ -8836,5 +8836,52 @@
         ]
       }
     ]
+  },
+  {
+    "id": "conn-190",
+    "title": "Alphabet Soup",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Americans known by their initials",
+        "items": [
+          "JFK",
+          "FDR",
+          "LBJ",
+          "MLK"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Present-day international organisations",
+        "items": [
+          "NATO",
+          "UNESCO",
+          "UNICEF",
+          "OECD"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "20th-century secret police",
+        "items": [
+          "GESTAPO",
+          "STASI",
+          "KGB",
+          "KEMPEITAI"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Everyday words born as acronyms",
+        "items": [
+          "RADAR",
+          "LASER",
+          "SCUBA",
+          "SONAR"
+        ]
+      }
+    ]
   }
 ]

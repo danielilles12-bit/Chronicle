@@ -30,7 +30,7 @@
    "Daphne du Maurier"
   ],
   "jackie-kennedy": [
-   "Amelia Earhart",
+   "Nancy Reagan",
    "Lady Bird Johnson"
   ],
   "simone-de-beauvoir": [
@@ -124,6 +124,10 @@
   "boris-yeltsin": [
    "Leonid Brezhnev",
    "Nikita Khrushchev"
+  ],
+  "george-v": [
+   "Tsar Nicholas II",
+   "Kaiser Wilhelm II"
   ]
  },
  "what": {
@@ -228,8 +232,8 @@
    "Enola Gay"
   ],
   "st-edwards-crown": [
-   "Holy Crown of Hungary",
-   "Crown of Saint Wenceslas"
+   "Holy Crown of St Stephen",
+   "Imperial State Crown"
   ],
   "port-royal": [
    "Palenque",
@@ -390,6 +394,14 @@
   "laocoon": [
    "Venus de Milo",
    "Winged Victory"
+  ],
+  "codex-gigas": [
+   "Gutenberg Bible",
+   "King James Bible"
+  ],
+  "newgrange-entrance-stone": [
+   "Carnac Stones",
+   "Skara Brae"
   ]
  },
  "map": {

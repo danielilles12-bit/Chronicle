@@ -1563,9 +1563,10 @@
     "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "image_retrieved": "2026-07-21",
     "mcq": [
-      "Trajan's Column",
-      "Brandenburg Gate"
-    ]
+      "Gutenberg Bible",
+      "King James Bible"
+    ],
+    "start": 3
   },
   {
     "id": "doges-palace",
@@ -6044,25 +6045,28 @@
     "variants": [
       "newgrange",
       "newgrange entrance stone",
-      "bru na boinne"
+      "bru na boinne",
+      "new grange",
+      "bru na boinne passage tomb"
     ],
     "blurb": "Ireland's Neolithic passage tomb, carved with spirals and older than Stonehenge and the Great Pyramid of Giza alike, c. 3200 BC",
-    "img": "assets/img/newgrange-entrance-stone.jpg",
+    "img": "assets/img/newgrange-entrance-stone-2.jpg",
     "fx": 0.5,
-    "fy": 0.5,
+    "fy": 0.7,
     "frac": 0.26,
-    "license": "CC BY 2.0",
-    "attribution": "Mark McElroy",
-    "source": "Wikimedia Commons: Entrance Stone - Newgrange - Detail.jpg",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:Entrance_Stone_-_Newgrange_-_Detail.jpg",
-    "image_author": "Mark McElroy",
-    "image_license": "CC BY 2.0",
-    "image_license_url": "https://creativecommons.org/licenses/by/2.0",
-    "image_retrieved": "2026-07-21",
+    "license": "CC BY-SA 2.0",
+    "attribution": "spudmurphy",
+    "source": "Wikimedia Commons: Newgrange, Meath.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Newgrange,_Meath.jpg",
+    "image_author": "spudmurphy",
+    "image_license": "CC BY-SA 2.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "image_retrieved": "2026-08-22",
     "mcq": [
-      "Hope Diamond",
-      "Neuschwanstein Castle"
-    ]
+      "Carnac Stones",
+      "Skara Brae"
+    ],
+    "start": 6
   },
   {
     "id": "ollantaytambo",
@@ -8285,8 +8289,8 @@
     "image_license": "CC BY-SA 4.0",
     "image_retrieved": "2026-07-24",
     "mcq": [
-      "Holy Crown of Hungary",
-      "Crown of Saint Wenceslas"
+      "Holy Crown of St Stephen",
+      "Imperial State Crown"
     ],
     "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0"
   },
@@ -9678,7 +9682,8 @@
       "Palenque",
       "Herculaneum"
     ],
-    "start": 3
+    "start": 3,
+    "reserve": true
   },
   {
     "id": "badshahi-mosque",

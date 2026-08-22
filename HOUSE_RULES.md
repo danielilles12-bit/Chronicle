@@ -622,6 +622,19 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
   Edition 54 was refilled with conn-023 "Words From the Past" (hard,
   no linked-subject collision) as a standing safety net — Daniel's own
   replacement board supersedes it if it lands before the day airs.
+- **[JUDGMENT]** conn-190 "Alphabet Soup" is Daniel's own board, dictated
+  whole at the ed 55 review (22 Aug 2026) to replace conn-151 "Keep Your
+  Distance": everyday words born as acronyms (RADAR/LASER/SCUBA/SONAR),
+  present-day international organisations (NATO/UNESCO/UNICEF/OECD),
+  20th-century secret police (GESTAPO/STASI/KGB/KEMPEITAI), Americans
+  known by their initials (JFK/FDR/LBJ/MLK). He asked for a title and
+  took "Alphabet Soup"; titles naming "initials" or "acronym" were
+  rejected because they pre-solve a group. conn-151 was NOT reserved —
+  he asked for a replacement, not an autopsy, so it stays schedulable.
+  Standing note this board sets: a board whose whole surface is one
+  uniform type (all-caps letter strings) is fine PROVIDED the groups cut
+  across that surface — here the fake-five is NATO, which reads as an
+  acronym-word and resolves only by elimination.
 
 ## Face Value / Relic rounds
 
@@ -697,6 +710,30 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
   pool (not reserved), but when a day wants Pompeii, Priapus goes first.
   NOTE the chain detail is Daniel's shorthand, not the picture: the god
   weighs his member against a bag of gold on a balance scale.
+- **[JUDGMENT]** **The graded tear path** (Daniel, 22 Aug 2026, ed 55
+  review, on Martin Van Buren: "no matter where you put the opening
+  scrap, the next scrap basically has to reveal the face of the guy. If
+  you start in one of the corners, it's not really fair because it's
+  literally just an innocuous suit"). A reveal image must offer MIDDLE
+  ground — scraps that are neither the answer nor nothing. A dark studio
+  portrait where the frame is face + plain suit + backdrop fails even
+  when the opener is legal, because the round has only two states. Prefer
+  images whose periphery carries real evidence: regalia, orders, uniform,
+  tools, setting, carved surface. The swap that session was George V —
+  aiguillettes, then the Garter star, then the beard, then the face.
+  Mechanism: `reserve: true` on `martin-van-buren` in
+  `data/reveal-who.json` (the person is not retired — un-reserve with a
+  portrait that has an informative middle, e.g. a seated painted one).
+- **[JUDGMENT]** Port Royal reserved (Daniel, 22 Aug 2026, ed 55 review:
+  "a very unsatisfying image. Either find a much better image of this
+  thing, or just swap for something else entirely"). The only free-licensed
+  photographs are snapshot-grade views of Fort Charles — one has a modern
+  visitor and a pushchair in frame — and the city itself is under water,
+  so no photograph can show the thing the blurb is about. Falls under the
+  Persepolis test: no single canonical, self-identifying view. Mechanism:
+  `reserve: true` on `port-royal` in `data/reveal-what.json`; un-reserve
+  only with a museum-grade image that reads as Port Royal and not as any
+  Caribbean fort.
 
 ## Casting and tone
 
