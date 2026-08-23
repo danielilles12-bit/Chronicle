@@ -2298,7 +2298,7 @@
     "image_retrieved": "2026-08-06",
     "mcq": [
       "Joseph Haydn",
-      "George Frideric Handel"
+      "Ludwig van Beethoven"
     ]
   },
   {
@@ -3916,6 +3916,36 @@
     "image_author": "This file was donated to Wikimedia Commons as part of a project by the Metropolitan Museum of Art. See the Image and Data Resources Open Access Policy",
     "mcq": [
       "Nefertiti",
+      "Cleopatra"
+    ]
+  },
+  {
+    "id": "nefertiti",
+    "name": "Nefertiti",
+    "kind": "portrait",
+    "difficulty": "easy",
+    "variants": [
+      "nefertiti",
+      "nofretete",
+      "neferneferuaten nefertiti"
+    ],
+    "blurb": "Great Royal Wife of Akhenaten and queen of Egypt's 18th Dynasty (c. 1370–1330 BC) · Her painted bust lay forgotten in a sculptor's workshop for over 3,000 years, and only one of its eyes was ever inlaid",
+    "years": "c. 1370–1330 BC",
+    "img": "assets/img/nefertiti.jpg",
+    "fx": 0.42,
+    "fy": 0.55,
+    "frac": 0.2,
+    "license": "CC BY 2.0",
+    "attribution": "George M. Groutas from Dali, Nicosia, Cyprus",
+    "source": "Wikimedia Commons: Nefertiti bust - Altes Museum - Berlin.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Nefertiti_bust_-_Altes_Museum_-_Berlin.jpg",
+    "image_author": "George M. Groutas from Dali, Nicosia, Cyprus",
+    "image_license": "CC BY 2.0",
+    "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+    "image_retrieved": "2026-08-23",
+    "start": 2,
+    "mcq": [
+      "Hatshepsut",
       "Cleopatra"
     ]
   },
@@ -8524,7 +8554,7 @@
       "Pope Benedict XVI",
       "Pope John Paul II"
     ],
-    "start": 7
+    "start": 3
   },
   {
     "id": "eisenhower",

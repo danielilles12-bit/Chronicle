@@ -4938,12 +4938,32 @@
   },
   {
     "id": "conn-070",
-    "title": "Household Names",
+    "title": "The Old Ways",
     "difficulty": "easy",
     "groups": [
       {
         "colour": "yellow",
-        "label": "Non-mechanical ways to tell the time",
+        "label": "Surnames that began as a medieval trade",
+        "items": [
+          "Smith",
+          "Chandler",
+          "Miller",
+          "Taylor"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Ways to light a room before electricity",
+        "items": [
+          "Candle",
+          "Oil lamp",
+          "Gas lamp",
+          "Lantern"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Ways to tell the time",
         "items": [
           "Sundial",
           "Hourglass",
@@ -4952,33 +4972,13 @@
         ]
       },
       {
-        "colour": "green",
-        "label": "Surnames that began as a medieval trade",
-        "items": [
-          "Cooper",
-          "Fletcher",
-          "Chandler",
-          "Wainwright"
-        ]
-      },
-      {
-        "colour": "blue",
-        "label": "Everyday things named after a person",
-        "items": [
-          "Sandwich",
-          "Cardigan",
-          "Wellington",
-          "Mackintosh"
-        ]
-      },
-      {
         "colour": "purple",
-        "label": "Everyday English words borrowed from India",
+        "label": "Old units of measurement",
         "items": [
-          "Bungalow",
-          "Shampoo",
-          "Pyjamas",
-          "Loot"
+          "Furlong",
+          "Fathom",
+          "Cubit",
+          "League"
         ]
       }
     ]

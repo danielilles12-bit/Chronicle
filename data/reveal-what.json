@@ -862,7 +862,8 @@
     "kind": "artefact",
     "difficulty": "medium",
     "variants": [
-      "lycurgus cup"
+      "lycurgus cup",
+      "the lycurgus cup"
     ],
     "blurb": "Roman dichroic glass cage-cup that changes colour in light, 4th century AD · British Museum, London",
     "img": "assets/img/lycurgus-cup.jpg",
@@ -878,8 +879,8 @@
     "image_license_url": "https://creativecommons.org/licenses/by/4.0",
     "image_retrieved": "2026-07-21",
     "mcq": [
-      "The Arnolfini Portrait",
-      "Pena Palace"
+      "Portland Vase",
+      "Warren Cup"
     ]
   },
   {
@@ -9639,17 +9640,17 @@
     "blurb": "Rock-cut Hindu cave temples on an island near Mumbai, carved c. 5th–8th century AD · Named by Portuguese sailors after a giant stone elephant statue that once stood at the dock",
     "years": "5th–8th century AD",
     "img": "assets/img/elephanta-caves.jpg",
-    "fx": 0.34,
-    "fy": 0.3,
+    "fx": 0.48,
+    "fy": 0.5,
     "frac": 0.3,
-    "license": "CC BY 4.0",
-    "attribution": "Vyacheslav Argenberg",
-    "source": "Wikimedia Commons: Elephanta Caves, India.jpg",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:Elephanta_Caves,_India.jpg",
-    "image_author": "Vyacheslav Argenberg",
-    "image_license": "CC BY 4.0",
-    "image_license_url": "https://creativecommons.org/licenses/by/4.0",
-    "image_retrieved": "2026-08-06",
+    "license": "CC BY 2.0",
+    "attribution": "Christian Haugen",
+    "source": "Wikimedia Commons: Elephanta Caves Trimurti.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Elephanta_Caves_Trimurti.jpg",
+    "image_author": "Christian Haugen",
+    "image_license": "CC BY 2.0",
+    "image_license_url": "https://creativecommons.org/licenses/by/2.0",
+    "image_retrieved": "2026-08-23",
     "mcq": [
       "Sigiriya",
       "Kailasa Temple"

@@ -128,6 +128,10 @@
   "george-v": [
    "Tsar Nicholas II",
    "Kaiser Wilhelm II"
+  ],
+  "nefertiti": [
+   "Hatshepsut",
+   "Cleopatra"
   ]
  },
  "what": {
@@ -402,6 +406,10 @@
   "newgrange-entrance-stone": [
    "Carnac Stones",
    "Skara Brae"
+  ],
+  "lycurgus-cup": [
+   "Portland Vase",
+   "Warren Cup"
   ]
  },
  "map": {
