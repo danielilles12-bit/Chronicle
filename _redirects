@@ -45,3 +45,9 @@
 # Repository machinery that Pages uploads along with everything else.
 /.github/*            /nowhere  302
 /.claude/*            /nowhere  302
+
+# Short campaign links — pretty addresses for posting on social. Each one
+# forwards to the homepage with the tracking tags attached, so GoatCounter
+# can say where a visitor came from without the shared link looking like a
+# barcode. 302 on purpose, same reasoning as above.
+/fb                   /?utm_source=facebook&utm_campaign=addicted-to-history  302
