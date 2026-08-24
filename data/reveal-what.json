@@ -6496,8 +6496,8 @@
     "image_license": "Public domain",
     "image_retrieved": "2026-08-06",
     "mcq": [
-      "Codex Gigas",
-      "Laocoön and His Sons"
+      "The Luxor Obelisk, Paris",
+      "Arch of Constantine"
     ]
   },
   {
@@ -6953,7 +6953,8 @@
     "mcq": [
       "United States Constitution",
       "Magna Carta"
-    ]
+    ],
+    "start": 5
   },
   {
     "id": "us-constitution",
@@ -7405,8 +7406,8 @@
     "image_license": "Public domain",
     "image_retrieved": "2026-08-06",
     "mcq": [
-      "Enola Gay",
-      "Chrysler Building"
+      "Oxus Treasure",
+      "Aztec Sun Stone"
     ]
   },
   {

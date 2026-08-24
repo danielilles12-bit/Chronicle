@@ -132,6 +132,10 @@
   "nefertiti": [
    "Hatshepsut",
    "Cleopatra"
+  ],
+  "kim-il-sung": [
+   "Mao Zedong",
+   "Ho Chi Minh"
   ]
  },
  "what": {
@@ -410,6 +414,14 @@
   "lycurgus-cup": [
    "Portland Vase",
    "Warren Cup"
+  ],
+  "voyager-golden-record": [
+   "Oxus Treasure",
+   "Aztec Sun Stone"
+  ],
+  "trajan-column": [
+   "The Luxor Obelisk, Paris",
+   "Arch of Constantine"
   ]
  },
  "map": {

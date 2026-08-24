@@ -2163,7 +2163,7 @@
     "image_retrieved": "2026-07-21",
     "mcq": [
       "Hirohito",
-      "Deng Xiaoping"
+      "Kim Il-sung"
     ]
   },
   {
@@ -10028,8 +10028,8 @@
     "image_license": "Public domain",
     "image_retrieved": "2026-08-06",
     "mcq": [
-      "Deng Xiaoping",
-      "Mao Zedong"
+      "Kim Il-sung",
+      "Deng Xiaoping"
     ],
     "start": 1
   },
@@ -11222,7 +11222,7 @@
     "image_retrieved": "2026-08-06",
     "mcq": [
       "Deng Xiaoping",
-      "Hirohito"
+      "Kim Il-sung"
     ],
     "start": 1
   },
@@ -11416,8 +11416,8 @@
     "image_license": "Public domain",
     "image_retrieved": "2026-07-24",
     "mcq": [
-      "Hirohito",
-      "Shinzō Abe"
+      "Kim Il-sung",
+      "Hirohito"
     ]
   },
   {
@@ -11947,5 +11947,34 @@
       "Saddam Hussein"
     ],
     "reserve": true
+  },
+  {
+    "id": "kim-il-sung",
+    "name": "Kim Il-sung",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "kim il-sung",
+      "kim il sung",
+      "kim ilsung"
+    ],
+    "blurb": "Founding dictator of North Korea (1912–1994) · The country raised an estimated 140,000 monuments to him, and his portrait still hangs in every home",
+    "img": "assets/img/kim-il-sung.jpg",
+    "fx": 0.5,
+    "fy": 0.35,
+    "frac": 0.25,
+    "license": "CC0",
+    "attribution": "Jesse Charlie",
+    "source": "Wikimedia Commons: Kim Il Sung Portrait-3.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Kim_Il_Sung_Portrait-3.jpg",
+    "image_author": "Jesse Charlie",
+    "image_license": "CC0",
+    "image_license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "image_retrieved": "2026-08-24",
+    "mcq": [
+      "Mao Zedong",
+      "Ho Chi Minh"
+    ],
+    "start": 0
   }
 ]

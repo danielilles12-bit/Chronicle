@@ -8883,5 +8883,52 @@
         ]
       }
     ]
+  },
+  {
+    "id": "conn-191",
+    "title": "First-Name Basis",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "The Beatles",
+        "items": [
+          "John",
+          "Paul",
+          "George",
+          "Ringo"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Kings of England",
+        "items": [
+          "Stephen",
+          "Harold",
+          "Richard",
+          "Edward"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Tsars and Emperors of Russia",
+        "items": [
+          "Peter",
+          "Alexander",
+          "Nicholas",
+          "Ivan"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Kings of France",
+        "items": [
+          "Louis",
+          "Philippe",
+          "Henri",
+          "François"
+        ]
+      }
+    ]
   }
 ]
