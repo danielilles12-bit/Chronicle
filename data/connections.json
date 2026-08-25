@@ -8930,5 +8930,334 @@
         ]
       }
     ]
+  },
+  {
+    "id": "conn-192",
+    "title": "Chapter Headings",
+    "difficulty": "easy",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "___ Age",
+        "items": [
+          "Stone",
+          "Bronze",
+          "Iron",
+          "Ice"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "___ War",
+        "items": [
+          "Cold",
+          "Civil",
+          "Crimean",
+          "Boer"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "___ Empire",
+        "items": [
+          "Roman",
+          "Ottoman",
+          "British",
+          "Mughal"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "___ Revolution",
+        "items": [
+          "French",
+          "Russian",
+          "Industrial",
+          "Glorious"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-193",
+    "title": "Know Your Place",
+    "difficulty": "easy",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Chess pieces",
+        "items": [
+          "King",
+          "Queen",
+          "Bishop",
+          "Knight"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Military ranks",
+        "items": [
+          "General",
+          "Colonel",
+          "Major",
+          "Captain"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Titles and offices of the Church",
+        "items": [
+          "Pope",
+          "Cardinal",
+          "Abbot",
+          "Archbishop"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Ranks of the British peerage",
+        "items": [
+          "Duke",
+          "Marquess",
+          "Earl",
+          "Viscount"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-194",
+    "title": "Classical Education",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Teenage Mutant Ninja Turtles",
+        "items": [
+          "Leonardo",
+          "Michelangelo",
+          "Donatello",
+          "Raphael"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Philosophers of ancient Greece",
+        "items": [
+          "Socrates",
+          "Plato",
+          "Aristotle",
+          "Epicurus"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Writers of ancient Rome",
+        "items": [
+          "Virgil",
+          "Ovid",
+          "Horace",
+          "Livy"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Cities founded by the Phoenicians",
+        "items": [
+          "Carthage",
+          "Byblos",
+          "Tyre",
+          "Utica"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-195",
+    "title": "The Colour Supplement",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Golden ___",
+        "items": [
+          "Age",
+          "Horde",
+          "Gate",
+          "Fleece"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "White ___",
+        "items": [
+          "House",
+          "Ship",
+          "Noise",
+          "Elephant"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Red ___",
+        "items": [
+          "Baron",
+          "Square",
+          "Cross",
+          "Scare"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Black ___",
+        "items": [
+          "Death",
+          "Prince",
+          "Hand",
+          "Panthers"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-196",
+    "title": "Read the Small Print",
+    "difficulty": "medium",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "___ code",
+        "items": [
+          "Morse",
+          "Binary",
+          "Genetic",
+          "Zip"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "___ Papers",
+        "items": [
+          "Federalist",
+          "Pentagon",
+          "Panama",
+          "Paradise"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Acts Britain imposed on its American colonies",
+        "items": [
+          "Stamp",
+          "Tea",
+          "Sugar",
+          "Currency"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Treaty of ___",
+        "items": [
+          "Paris",
+          "Ghent",
+          "Versailles",
+          "Tordesillas"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-197",
+    "title": "Theatre of Operations",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Famous board games",
+        "items": [
+          "Monopoly",
+          "Battleship",
+          "Risk",
+          "Codenames"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Violent weather",
+        "items": [
+          "Hurricane",
+          "Typhoon",
+          "Tornado",
+          "Blizzard"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "One-word Shakespeare titles, minus 'The'",
+        "items": [
+          "Hamlet",
+          "Macbeth",
+          "Othello",
+          "Tempest"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Second World War operation codenames",
+        "items": [
+          "Overlord",
+          "Barbarossa",
+          "Dynamo",
+          "Mincemeat"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "conn-198",
+    "title": "Family Business",
+    "difficulty": "hard",
+    "groups": [
+      {
+        "colour": "yellow",
+        "label": "Famous pairs of brothers",
+        "items": [
+          "Grimm",
+          "Wright",
+          "Lumière",
+          "Kellogg"
+        ]
+      },
+      {
+        "colour": "green",
+        "label": "Famous sets of sisters",
+        "items": [
+          "Brontë",
+          "Mitford",
+          "Gabor",
+          "Boleyn"
+        ]
+      },
+      {
+        "colour": "blue",
+        "label": "Surnames shared by two US presidents",
+        "items": [
+          "Adams",
+          "Roosevelt",
+          "Harrison",
+          "Johnson"
+        ]
+      },
+      {
+        "colour": "purple",
+        "label": "Banking dynasties",
+        "items": [
+          "Rothschild",
+          "Medici",
+          "Berenberg",
+          "Morgan"
+        ]
+      }
+    ]
   }
 ]

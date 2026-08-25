@@ -28,7 +28,7 @@
     "image_retrieved": "2026-07-21",
     "mcq": [
       "Temple of Artemis",
-      "Church of the Holy Sepulchre"
+      "Verona Arena"
     ]
   },
   {
@@ -893,19 +893,19 @@
       "machu pichu"
     ],
     "blurb": "Inca citadel in the Andes (c. 1450) · Never found by the Spanish — stayed unknown until a local farmer led an American historian there in 1911",
-    "img": "assets/img/machu-picchu.jpg",
-    "fx": 0.5,
-    "fy": 0.6,
+    "img": "assets/img/machu-picchu-2.jpg",
+    "fx": 0.45,
+    "fy": 0.75,
     "frac": 0.2,
     "license": "CC BY-SA 4.0",
-    "attribution": "PIERRE ANDRE LECLERCQ",
-    "source": "Wikimedia Commons: Machu Picchu with Huayna Picchu Pérou (3).jpg",
-    "start": 3,
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:Machu_Picchu_with_Huayna_Picchu_P%C3%A9rou_(3).jpg",
-    "image_author": "PIERRE ANDRE LECLERCQ",
+    "attribution": "Lunaloop",
+    "source": "Wikimedia Commons: Machu Picchu (Peru).jpg",
+    "start": 6,
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Machu_Picchu_(Peru).jpg",
+    "image_author": "Lunaloop",
     "image_license": "CC BY-SA 4.0",
     "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "image_retrieved": "2026-08-06",
+    "image_retrieved": "2026-08-25",
     "mcq": [
       "Chichén Itzá",
       "Teotihuacan"
@@ -1639,18 +1639,18 @@
       "ellora caves"
     ],
     "blurb": "Colossal temple carved top-down from a single Indian cliff, 8th century AD",
-    "img": "assets/img/ellora-kailasa.jpg",
+    "img": "assets/img/ellora-kailasa-2.jpg",
     "fx": 0.4,
-    "fy": 0.35,
+    "fy": 0.4,
     "frac": 0.24,
-    "license": "CC0",
-    "attribution": "K.Venkataramana",
-    "source": "Wikimedia Commons: The Kailash Temple (also Kailasanatha),Cave No.16.jpg",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:The_Kailash_Temple_(also_Kailasanatha),Cave_No.16.jpg",
-    "image_author": "K.Venkataramana",
-    "image_license": "CC0",
-    "image_license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-    "image_retrieved": "2026-08-06",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Shreyans69",
+    "source": "Wikimedia Commons: Panoramic view of Kailash Temple Ellora.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Panoramic_view_of_Kailash_Temple_Ellora.jpg",
+    "image_author": "Shreyans69",
+    "image_license": "CC BY-SA 4.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "image_retrieved": "2026-08-25",
     "mcq": [
       "Elephanta Caves",
       "Sigiriya"
@@ -1736,22 +1736,23 @@
       "gobekli"
     ],
     "blurb": "The world's oldest known temple, in Anatolia, c. 9500 BC · Predates Stonehenge by 6,000 years and farming itself — builders later buried the site, reasons debated",
-    "img": "assets/img/gobekli-tepe.jpg",
-    "fx": 0.42,
-    "fy": 0.48,
+    "img": "assets/img/gobekli-tepe-2.jpg",
+    "fx": 0.5,
+    "fy": 0.75,
     "frac": 0.22,
-    "license": "CC BY-SA 4.0",
-    "attribution": "Zhengan",
-    "source": "Wikimedia Commons: Göbekli Tepe site (1).JPG",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_site_(1).JPG",
-    "image_author": "Zhengan",
-    "image_license": "CC BY-SA 4.0",
-    "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "image_retrieved": "2026-08-06",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Teomancimit",
+    "source": "Wikimedia Commons: Göbekli Tepe, Urfa.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe,_Urfa.jpg",
+    "image_author": "Teomancimit",
+    "image_license": "CC BY-SA 3.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "image_retrieved": "2026-08-25",
     "mcq": [
       "Persepolis",
       "Çatalhöyük"
-    ]
+    ],
+    "start": 3
   },
   {
     "id": "golden-gate-bridge",
@@ -4288,8 +4289,8 @@
     "image_license": "Public domain",
     "image_retrieved": "2026-07-21",
     "mcq": [
-      "Library of Celsus",
-      "Art Institute of Chicago"
+      "Nebra Sky Disc",
+      "Code of Hammurabi"
     ]
   },
   {
@@ -7323,7 +7324,7 @@
     "image_retrieved": "2026-08-06",
     "mcq": [
       "Mary Rose",
-      "Cutty Sark"
+      "Mary Celeste"
     ],
     "start": 8
   },
@@ -7493,7 +7494,8 @@
     "mcq": [
       "Liberty Bell",
       "Vasa"
-    ]
+    ],
+    "start": 3
   },
   {
     "id": "us-capitol",
@@ -9220,21 +9222,22 @@
       "khufu boat"
     ],
     "blurb": "Buried beside the Great Pyramid around 2500 BC and rediscovered in 1954 · The 1,224 disassembled cedar pieces were painstakingly rebuilt over a decade without a single nail — the planks are lashed together with rope",
-    "img": "assets/img/khufu-ship.jpg",
-    "fx": 0.12,
-    "fy": 0.5,
+    "img": "assets/img/khufu-ship-2.jpg",
+    "fx": 0.55,
+    "fy": 0.4,
     "frac": 0.35,
     "license": "CC BY-SA 3.0",
-    "attribution": "No machine-readable author provided. Bradipus assumed (based on copyright claims).",
-    "source": "Wikimedia Commons: Barque Solaire4.JPG",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:Barque_Solaire4.JPG",
+    "attribution": "Berthold Werner (cropped)",
+    "source": "Wikimedia Commons: Gizeh Sonnenbarke BW 1.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Gizeh_Sonnenbarke_BW_1.jpg",
     "image_license": "CC BY-SA 3.0",
     "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-    "image_retrieved": "2026-07-24",
+    "image_retrieved": "2026-08-25",
     "mcq": [
-      "Rosetta Stone",
-      "Peacock Throne"
-    ]
+      "Cutty Sark",
+      "Mary Celeste"
+    ],
+    "image_author": "Berthold Werner"
   },
   {
     "id": "rijksmuseum",
@@ -10053,7 +10056,7 @@
       "United States Capitol",
       "Faneuil Hall"
     ],
-    "start": 7
+    "start": 8
   },
   {
     "id": "art-institute-chicago",
@@ -10163,7 +10166,7 @@
       "Casa Batlló",
       "Palau de la Música Catalana"
     ],
-    "start": 6
+    "start": 8
   },
   {
     "id": "egyptian-museum",

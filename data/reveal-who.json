@@ -729,8 +729,8 @@
     "image_license": "CC BY-SA 4.0",
     "image_retrieved": "2026-07-21",
     "mcq": [
-      "Augustus",
-      "Saint Peter"
+      "Nero",
+      "Augustus"
     ],
     "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0"
   },
@@ -1512,22 +1512,21 @@
       "francisco de goya"
     ],
     "blurb": "Spanish painter of kings and nightmares (1746–1828) · Left deaf by an unexplained illness, he painted his bleakest work straight onto his own walls",
-    "img": "assets/img/francisco-goya.jpg",
+    "img": "assets/img/francisco-goya-2.jpg",
     "fx": 0.5,
-    "fy": 0.28,
+    "fy": 0.3,
     "frac": 0.14,
     "license": "Public domain",
-    "attribution": "Francisco Goya",
-    "source": "Wikimedia Commons: Francisco de Goya - Autorretrato - Google Art Project.jpg",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:Francisco_de_Goya_-_Autorretrato_-_Google_Art_Project.jpg",
-    "image_author": "Francisco Goya",
+    "attribution": "Vicente López Portaña",
+    "source": "Wikimedia Commons: Vicente López Portaña - el pintor Francisco de Goya.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Vicente_L%C3%B3pez_Porta%C3%B1a_-_el_pintor_Francisco_de_Goya.jpg",
+    "image_author": "Vicente López Portaña",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-25",
     "mcq": [
       "Jacques-Louis David",
       "Rembrandt"
-    ],
-    "start": 1
+    ]
   },
   {
     "id": "frederic-chopin",
@@ -1619,22 +1618,23 @@
       "friedrich nietzsche",
       "nietzsche"
     ],
-    "blurb": "Philosopher who declared God dead (1844–1900) · 1882 photograph",
-    "img": "assets/img/friedrich-nietzsche.jpg",
-    "fx": 0.45,
-    "fy": 0.3,
-    "frac": 0.15,
+    "blurb": "Philosopher who declared God dead (1844–1900) · Basel made him a professor of classics at 24, before he had finished his doctorate",
+    "img": "assets/img/friedrich-nietzsche-2.jpg",
+    "fx": 0.5,
+    "fy": 0.34,
+    "frac": 0.2,
     "license": "Public domain",
-    "attribution": "Gustav-Adolf Schultze",
-    "source": "Wikimedia Commons: Nietzsche1882.jpg",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:Nietzsche1882.jpg",
-    "image_author": "Gustav-Adolf Schultze (d. 1897)",
+    "attribution": "Friedrich Hermann Hartmann",
+    "source": "Wikimedia Commons: Nietzsche187a.jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Nietzsche187a.jpg",
+    "image_author": "Friedrich Hermann Hartmann",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-25",
     "mcq": [
       "Friedrich Engels",
       "Arthur Schopenhauer"
-    ]
+    ],
+    "start": 3
   },
   {
     "id": "fyodor-dostoevsky",
@@ -3273,8 +3273,8 @@
     "image_license": "CC BY-SA 2.5",
     "image_retrieved": "2026-08-06",
     "mcq": [
-      "Julius Caesar",
-      "Marcus Aurelius"
+      "Nero",
+      "Julius Caesar"
     ],
     "image_license_url": "https://creativecommons.org/licenses/by-sa/2.5"
   },
@@ -4072,18 +4072,18 @@
       "ida bell wells"
     ],
     "blurb": "American journalist who counted the lynchings nobody would name (1862–1931) · Photograph — her reporting drove her out of the South, and she went on to co-found the NAACP",
-    "img": "assets/img/ida-b-wells.jpg",
-    "fx": 0.4875,
-    "fy": 0.398,
+    "img": "assets/img/ida-b-wells-2.jpg",
+    "fx": 0.42,
+    "fy": 0.4,
     "frac": 0.2,
     "license": "Public domain",
-    "attribution": "Mary Garrity (restoration by Adam Cuerden)",
+    "attribution": "Mary Garrity (restoration by Adam Cuerden; head-and-shoulders crop)",
     "source": "Wikimedia Commons: Mary Garrity - Ida B. Wells-Barnett - Google Art Project - restoration crop.jpg",
     "start": 6,
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Mary_Garrity_-_Ida_B._Wells-Barnett_-_Google_Art_Project_-_restoration_crop.jpg",
     "image_author": "Adam Cuerden",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-25",
     "mcq": [
       "Emmy Noether",
       "Jane Addams"
@@ -4140,7 +4140,8 @@
     "mcq": [
       "Philip II of Spain",
       "Charles V"
-    ]
+    ],
+    "start": 7
   },
   {
     "id": "jacques-louis-david",
@@ -5595,22 +5596,22 @@
       "empress catherine"
     ],
     "blurb": "German princess who ruled Russia longer than any other woman (1729–1796) · Took the throne in a coup; her deposed husband died conveniently six days later",
-    "img": "assets/img/catherine-great.jpg",
-    "fx": 0.5,
-    "fy": 0.25,
+    "img": "assets/img/catherine-great-2.jpg",
+    "fx": 0.48,
+    "fy": 0.15,
     "frac": 0.24,
     "license": "Public domain",
-    "attribution": "Alexander Roslin",
-    "source": "Wikimedia Commons: Catherine II by A.Roslin (1776-7, Hermitage).jpg",
-    "image_source_url": "https://commons.wikimedia.org/wiki/File:Catherine_II_by_A.Roslin_%281776-7%2C_Hermitage%29.jpg",
-    "image_author": "Alexander Roslin",
+    "attribution": "Fyodor Rokotov, after Alexander Roslin (cropped)",
+    "source": "Wikimedia Commons: Catherine II by F.Rokotov after Roslin (1780s, Hermitage).jpg",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Catherine_II_by_F.Rokotov_after_Roslin_(1780s,_Hermitage).jpg",
+    "image_author": "Fyodor Rokotov",
     "image_license": "Public domain",
-    "image_retrieved": "2026-07-21",
+    "image_retrieved": "2026-08-25",
     "mcq": [
       "Marie Antoinette",
-      "Jane Austen"
+      "Maria Theresa"
     ],
-    "start": 3
+    "start": 8
   },
   {
     "id": "cecil-rhodes",
@@ -6500,7 +6501,7 @@
     "license": "Public domain",
     "attribution": "John Opie",
     "source": "Wikimedia Commons: Mary Wollstonecraft by John Opie from the National Portrait Gallery.jpg",
-    "start": 6,
+    "start": 7,
     "image_source_url": "https://commons.wikimedia.org/wiki/File:Mary_Wollstonecraft_by_John_Opie_from_the_National_Portrait_Gallery.jpg",
     "image_author": "John Opie",
     "image_license": "Public domain",
@@ -7546,7 +7547,7 @@
     "image_retrieved": "2026-08-06",
     "mcq": [
       "Augustus",
-      "Saint Peter"
+      "Nero"
     ],
     "image_license_url": "https://creativecommons.org/licenses/by/2.0"
   },
@@ -7770,7 +7771,8 @@
     "mcq": [
       "Nikola Tesla",
       "Alexander Graham Bell"
-    ]
+    ],
+    "start": 7
   },
   {
     "id": "vera-rubin",
@@ -8950,7 +8952,8 @@
     "mcq": [
       "C. S. Lewis",
       "Aldous Huxley"
-    ]
+    ],
+    "start": 0
   },
   {
     "id": "princess-diana",
@@ -9212,7 +9215,7 @@
       "Boris Yeltsin",
       "Henry Kissinger"
     ],
-    "start": 2
+    "start": 1
   },
   {
     "id": "bob-marley",
@@ -9237,7 +9240,7 @@
     "image_license": "Public domain",
     "image_retrieved": "2026-07-24",
     "mcq": [
-      "John Lennon",
+      "Louis Armstrong",
       "Jimi Hendrix"
     ],
     "start": 5
@@ -9693,7 +9696,7 @@
       "Aldous Huxley",
       "Graham Greene"
     ],
-    "start": 0
+    "start": 3
   },
   {
     "id": "andrew-jackson",
@@ -10365,7 +10368,7 @@
       "Nikola Tesla",
       "Alexander Graham Bell"
     ],
-    "start": 4
+    "start": 8
   },
   {
     "id": "william-mckinley",
@@ -11222,9 +11225,9 @@
     "image_retrieved": "2026-08-06",
     "mcq": [
       "Deng Xiaoping",
-      "Kim Il-sung"
+      "Emperor Taisho"
     ],
-    "start": 1
+    "start": 0
   },
   {
     "id": "james-buchanan",
@@ -11670,9 +11673,9 @@
     "image_retrieved": "2026-08-06",
     "mcq": [
       "Henry IV of England",
-      "Charles V"
+      "Charles III"
     ],
-    "start": 4
+    "start": 0
   },
   {
     "id": "hannibal",
@@ -11976,5 +11979,34 @@
       "Ho Chi Minh"
     ],
     "start": 0
+  },
+  {
+    "id": "nero",
+    "name": "Nero",
+    "kind": "portrait",
+    "difficulty": "medium",
+    "variants": [
+      "nero",
+      "emperor nero",
+      "nero claudius caesar"
+    ],
+    "blurb": "Roman emperor who fiddled while Rome burned (37–68 AD) · He tried to kill his mother with a collapsing boat; when she swam ashore, he sent men to stab her",
+    "img": "assets/img/nero.jpg",
+    "fx": 0.5,
+    "fy": 0.35,
+    "frac": 0.2,
+    "license": "CC BY-SA 3.0",
+    "attribution": "cjh1452000",
+    "source": "Wikimedia Commons: Nero 1.JPG",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Nero_1.JPG",
+    "image_author": "cjh1452000",
+    "image_license": "CC BY-SA 3.0",
+    "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "image_retrieved": "2026-08-25",
+    "mcq": [
+      "Caligula",
+      "Commodus"
+    ],
+    "start": 3
   }
 ]

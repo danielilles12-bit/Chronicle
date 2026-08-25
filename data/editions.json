@@ -1778,7 +1778,7 @@
     "phaistos-disc"
    ],
    "thread": [
-    "conn-055"
+    "conn-194"
    ]
   },
   "59": {
@@ -1799,7 +1799,7 @@
     "book-of-kells"
    ],
    "thread": [
-    "conn-018"
+    "conn-195"
    ]
   },
   "60": {
@@ -1811,7 +1811,7 @@
    ],
    "map": [
     "james-i-england",
-    "saint-peter",
+    "pompey",
     "josephus"
    ],
    "what": [
@@ -1820,7 +1820,7 @@
     "khufu-ship"
    ],
    "thread": [
-    "conn-048"
+    "conn-196"
    ]
   },
   "61": {
@@ -1841,7 +1841,7 @@
     "ellora-kailasa"
    ],
    "thread": [
-    "conn-014"
+    "conn-197"
    ]
   },
   "62": {
@@ -1854,7 +1854,7 @@
    "map": [
     "cleopatra",
     "septimius-severus",
-    "richard-ii"
+    "grand-duchess-anastasia"
    ],
    "what": [
     "machu-picchu",
@@ -1862,20 +1862,20 @@
     "konark-sun-temple"
    ],
    "thread": [
-    "conn-154"
+    "conn-198"
    ]
   },
   "63": {
    "date": "2026-08-31",
    "who": [
     "gorbachev",
-    "jesus",
+    "nero",
     "mary-wollstonecraft"
    ],
    "map": [
     "leon-trotsky",
-    "maimonides",
-    "subhas-chandra-bose"
+    "archimedes",
+    "ferdinand-magellan"
    ],
    "what": [
     "neuschwanstein-castle",
@@ -1883,7 +1883,7 @@
     "gobekli-tepe"
    ],
    "thread": [
-    "conn-108"
+    "conn-192"
    ]
   },
   "64": {
@@ -1899,12 +1899,12 @@
     "frederick-ii-hohenstaufen"
    ],
    "what": [
-    "bust-nefertiti",
+    "colossus-rhodes",
     "belem-tower",
     "saturn-v"
    ],
    "thread": [
-    "conn-074"
+    "conn-193"
    ]
   },
   "65": {

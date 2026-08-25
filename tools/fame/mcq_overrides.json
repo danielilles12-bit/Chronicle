@@ -71,7 +71,7 @@
   ],
   "henry-v": [
    "Henry IV of England",
-   "Charles V"
+   "Charles III"
   ],
   "saint-paul": [
    "Jesus",
@@ -136,6 +136,22 @@
   "kim-il-sung": [
    "Mao Zedong",
    "Ho Chi Minh"
+  ],
+  "bob-marley": [
+   "Louis Armstrong",
+   "Jimi Hendrix"
+  ],
+  "shinzo-abe": [
+   "Deng Xiaoping",
+   "Emperor Taisho"
+  ],
+  "catherine-great": [
+   "Marie Antoinette",
+   "Maria Theresa"
+  ],
+  "nero": [
+   "Caligula",
+   "Commodus"
   ]
  },
  "what": {
@@ -281,7 +297,7 @@
   ],
   "hms-victory": [
    "Mary Rose",
-   "Cutty Sark"
+   "Mary Celeste"
   ],
   "gobekli-tepe": [
    "Persepolis",
@@ -422,6 +438,18 @@
   "trajan-column": [
    "The Luxor Obelisk, Paris",
    "Arch of Constantine"
+  ],
+  "colosseum": [
+   "Temple of Artemis",
+   "Verona Arena"
+  ],
+  "phaistos-disc": [
+   "Nebra Sky Disc",
+   "Code of Hammurabi"
+  ],
+  "khufu-ship": [
+   "Cutty Sark",
+   "Mary Celeste"
   ]
  },
  "map": {
@@ -528,6 +556,26 @@
   "nightingale": [
    "Marie Curie",
    "Catherine de' Medici"
+  ],
+  "elizabeth-taylor": [
+   "Marlene Dietrich",
+   "Audrey Hepburn"
+  ],
+  "wilhelm-ii": [
+   "Otto von Bismarck",
+   "Emperor Franz Joseph"
+  ],
+  "marlene-dietrich": [
+   "Audrey Hepburn",
+   "Coco Chanel"
+  ],
+  "grand-duchess-anastasia": [
+   "Tsar Nicholas II",
+   "Vladimir Lenin"
+  ],
+  "william-of-orange": [
+   "William III of England",
+   "Henry IV of France"
   ]
  }
 }

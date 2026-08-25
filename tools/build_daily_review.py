@@ -27,11 +27,20 @@ Output is written for direct Claude-Artifact publishing: no <!DOCTYPE>,
 Default output lands in tools/out/ — gitignored and CI-enforced (repo_checks
 .py) because it shows UNAIRED answers and Pages serves the whole repo.
 
+Multi-day boards (Daniel, 25 Aug 2026): --days N renders N consecutive
+editions onto ONE page — a sticky-headed section per air date, a jump bar,
+a per-day tally, a per-day "Approve the rest" that never overwrites a
+decision already made, and an export grouped under the day each decision
+belongs to. Built for holidays: a week approved in one sitting beats seven
+boards he has to find. One day is still the default and renders exactly as
+before.
+
 Usage:
   python3 tools/build_daily_review.py --edition 42
   python3 tools/build_daily_review.py --date 2026-08-10
   python3 tools/build_daily_review.py --tomorrow          # default
   python3 tools/build_daily_review.py --tomorrow --out /some/path.html
+  python3 tools/build_daily_review.py --tomorrow --days 7  # a week, one page
 """
 import argparse
 import base64
@@ -391,6 +400,35 @@ a{color:var(--pink)}
 
 .wrap{max-width:900px;margin:0 auto;padding:10px 16px 140px}
 
+/* --- multi-day boards: jump bar + per-day sections --------------------- */
+/* the title bar and the date bar travel together as ONE sticky block, and
+   the day headers stick directly beneath it — --headh is measured in JS so
+   this holds at any width, with any number of dates, wrapped or not */
+.stickyhead{position:sticky;top:0;z-index:30}
+.stickyhead .top{position:static}
+.jumpbar{background:#1B1B1B;
+  padding:8px 10px;display:flex;gap:6px;overflow-x:auto;
+  -webkit-overflow-scrolling:touch;border-top:1px solid #3A3A3A}
+.jumpbar .jump{flex:0 0 auto;font:inherit;font-size:12px;font-weight:700;
+  padding:6px 11px;border:2px solid #6B675C;background:transparent;
+  color:var(--paper);cursor:pointer;border-radius:2px;white-space:nowrap}
+.jumpbar .jump.done{background:var(--green);border-color:var(--green);
+  color:#fff}
+.day{scroll-margin-top:var(--headh,90px)}
+.dayhead{position:sticky;top:var(--headh,90px);z-index:20;background:var(--paper);
+  border-bottom:3px solid var(--ink);margin:34px 0 16px;padding:10px 0 8px;
+  display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.day:first-child .dayhead{margin-top:6px}
+.dayhead .ednum{font-size:11px;font-weight:800;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--muted)}
+.dayhead h2{font-size:20px;margin:0;line-height:1.15}
+.dayhead .sp{flex:1}
+.dayhead .daycount{font-size:12px;font-weight:800;color:var(--muted)}
+.dayhead .approveday{font:inherit;font-size:12px;font-weight:700;
+  padding:6px 11px;border:2px solid var(--ink);background:var(--cream);
+  color:var(--ink);cursor:pointer;border-radius:2px}
+.dayhead .approveday:hover{background:var(--yellow)}
+
 .card{background:var(--cream);border:2px solid var(--ink);margin:0 0 22px;
   box-shadow:5px 5px 0 rgba(11,11,11,.14);scroll-margin-top:60px}
 .card.thread{}
@@ -528,21 +566,47 @@ textarea.edit.changed,input.edit.changed{border-color:var(--pink);background:#FF
 """
 
 
-def build_js(edition_n):
-    key = f"yn-daily-review-v1-ed{edition_n}"
+def build_js(store_key, export_title="YESTERNERD — ONE-DAY REVIEW"):
+    key = f"yn-daily-review-v1-{store_key}"
     return r"""
 const KEY='__KEY__';
+const EXPORT_TITLE='__TITLE__';
 const store=JSON.parse(localStorage.getItem(KEY)||'{}');
 function rec(k){return store[k]||(store[k]={});}
 function save(){localStorage.setItem(KEY,JSON.stringify(store));updateCount();}
 
-function updateCount(){
-  const cards=[...document.querySelectorAll('.card')];
-  const n=cards.filter(c=>{
-    const k=c.dataset.key; const s=store[k];
+let toastTimer=null;
+function toast(msg){
+  const el=document.getElementById('toast');
+  if(!el) return;
+  el.textContent=msg;
+  el.classList.add('on');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>el.classList.remove('on'),2200);
+}
+
+function approvedIn(cards){
+  return cards.filter(c=>{
+    const s=store[c.dataset.key];
     return s&&s.status==='approve';
   }).length;
-  document.getElementById('count').textContent=n+' of '+cards.length+' approved';
+}
+function updateCount(){
+  const cards=[...document.querySelectorAll('.card')];
+  document.getElementById('count').textContent=
+    approvedIn(cards)+' of '+cards.length+' approved';
+  // multi-day boards carry a per-day tally in each day header and in the
+  // jump bar, so a week's progress is legible without scrolling the lot
+  document.querySelectorAll('.day').forEach(sec=>{
+    const dc=[...sec.querySelectorAll('.card')];
+    const tally=sec.querySelector('.daycount');
+    if(tally) tally.textContent=approvedIn(dc)+'/'+dc.length+' approved';
+    // a date chip goes green once every round on it has been RULED ON —
+    // approved or flagged — so it answers "have I been through this day?"
+    const settled=dc.filter(c=>(store[c.dataset.key]||{}).status).length;
+    const chip=document.querySelector('.jump[data-target="'+sec.id+'"]');
+    if(chip) chip.classList.toggle('done',settled===dc.length);
+  });
 }
 
 // --- opener (scrap-picking) windows -----------------------------------------
@@ -604,6 +668,8 @@ document.querySelectorAll('.edit').forEach(el=>{
 });
 
 // --- approve / flag ----------------------------------------------------------
+const decisionPainters=[];
+function repaintDecisions(){ decisionPainters.forEach(p=>p()); }
 document.querySelectorAll('.decision').forEach(d=>{
   const k=d.dataset.key;
   const btns=[...d.querySelectorAll('.decbtn')];
@@ -611,6 +677,7 @@ document.querySelectorAll('.decision').forEach(d=>{
     const st=(store[k]||{}).status;
     btns.forEach(b=>b.classList.toggle('active',b.dataset.status===st));
   }
+  decisionPainters.push(paint);
   btns.forEach(b=>b.addEventListener('click',()=>{
     const R=rec(k);
     R.status=(R.status===b.dataset.status)?undefined:b.dataset.status;
@@ -618,6 +685,47 @@ document.querySelectorAll('.decision').forEach(d=>{
     save(); paint();
   }));
   paint();
+});
+
+// --- "approve the rest of this day" (multi-day boards only) -----------------
+// Never overwrites a decision already made: an untouched card becomes
+// approved, a flagged or approved one is left exactly as it is.
+document.querySelectorAll('.approveday').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const sec=btn.closest('.day');
+    let n=0;
+    sec.querySelectorAll('.card').forEach(card=>{
+      const R=rec(card.dataset.key);
+      if(!R.status){ R.status='approve'; n++; }
+    });
+    save(); repaintDecisions();
+    toast(n?('approved the '+n+' untouched round'+(n===1?'':'s')+' on this day')
+           :'nothing left undecided on this day');
+  });
+});
+
+// --- sticky-header height, published to CSS as --headh ----------------------
+// The day headers and every scroll-into-view target sit below the title +
+// date bars, whose combined height depends on width and on how many dates
+// there are — so it is measured, not guessed.
+const stickyHead=document.querySelector('.stickyhead');
+if(stickyHead){
+  const syncHead=()=>document.documentElement.style.setProperty(
+    '--headh', stickyHead.offsetHeight+'px');
+  syncHead();
+  window.addEventListener('resize', syncHead);
+  window.addEventListener('orientationchange', syncHead);
+  if(window.ResizeObserver) new ResizeObserver(syncHead).observe(stickyHead);
+}
+
+// --- jump bar ----------------------------------------------------------------
+document.querySelectorAll('.jump').forEach(chip=>{
+  chip.addEventListener('click',()=>{
+    // instant, not smooth: days are thousands of pixels apart, and animating
+    // that far reads as a hang on a phone
+    const t=document.getElementById(chip.dataset.target);
+    if(t) t.scrollIntoView({block:'start'});
+  });
 });
 
 // --- export: rendered into a visible, focused, fully-selected textarea
@@ -641,8 +749,23 @@ function openerLine(card){
 }
 function buildExport(){
   const now=new Date();
-  const lines=['YESTERNERD — ONE-DAY REVIEW','Exported: '+now.toLocaleString(),''];
-  document.querySelectorAll('.card').forEach(card=>{
+  const lines=[EXPORT_TITLE,'Exported: '+now.toLocaleString(),''];
+  const days=[...document.querySelectorAll('.day')];
+  if(days.length){
+    // one block per air date, so every decision carries the day it belongs to
+    days.forEach(sec=>{
+      const dc=[...sec.querySelectorAll('.card')];
+      lines.push('=== '+sec.dataset.label+' — edition '+sec.dataset.ed
+                 +' ('+approvedIn(dc)+'/'+dc.length+' approved) ===');
+      dc.forEach(card=>lines.push(cardLine(card)));
+      lines.push('');
+    });
+  } else {
+    document.querySelectorAll('.card').forEach(card=>lines.push(cardLine(card)));
+  }
+  return lines.join('\n');
+}
+function cardLine(card){
     const k=card.dataset.key, s=store[k]||{};
     const game=card.dataset.game, name=card.dataset.name;
     const tag=s.status==='approve'?'[APPROVE]':s.status==='flag'?'[FLAG]   ':'[UNDECIDED]';
@@ -672,9 +795,7 @@ function buildExport(){
     if(labelEdits.length) extras.push('group label'+(labelEdits.length>1?'s':'')+' edited: '+labelEdits.join(', '));
     extras.forEach(x=>{ line+=' — '+x; });
     if(s.note&&s.note.trim()) line+=' — "'+s.note.trim().replace(/\s+/g,' ')+'"';
-    lines.push(line);
-  });
-  return lines.join('\n');
+    return line;
 }
 document.getElementById('copy').addEventListener('click',()=>{
   const text=buildExport();
@@ -697,16 +818,18 @@ document.getElementById('exportOverlay').addEventListener('click',ev=>{
 });
 
 updateCount();
-""".replace("__KEY__", key)
+""".replace("__KEY__", key).replace("__TITLE__", export_title)
 
 
-def render(day):
-    order = [("who", "Face Value"), ("map", "Lifeline"),
-             ("what", "Relic"), ("thread", "Thread")]
+GAME_ORDER = [("who", "Face Value"), ("map", "Lifeline"),
+              ("what", "Relic"), ("thread", "Thread")]
+
+
+def day_cards(day, start_n=0):
+    """The ten cards of one edition, numbered from start_n+1."""
     cards = []
-    n = 0
-    world_land = json.loads((ROOT / "data/worldmap.json").read_text(encoding="utf-8"))["land"]
-    for g, _label in order:
+    n = start_n
+    for g, _label in GAME_ORDER:
         for r in day["games"][g]:
             n += 1
             key = f"{g}.{r['id']}"
@@ -716,15 +839,96 @@ def render(day):
                 cards.append(lifeline_card(r, key, n))
             else:
                 cards.append(image_card(r, key, n, g))
+    return cards, n
+
+
+def world_defs():
+    land = json.loads((ROOT / "data/worldmap.json").read_text(encoding="utf-8"))["land"]
+    return f"""
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs><path id="worldland" d="{land}"></path></defs>
+</svg>
+"""
+
+
+def render_range(days):
+    """One page, several editions — a holiday board. Each air date is its own
+    sticky-headed section with its own tally and its own 'approve the rest'
+    button; the export groups decisions under the day they belong to, so a
+    week can be approved in one sitting without losing which day is which."""
+    sections = []
+    n = 0
+    for d in days:
+        cards, n = day_cards(d, n)
+        sections.append(f"""
+<section class="day" id="day-{d['ed']}" data-ed="{d['ed']}"
+  data-date="{e(d['date'])}" data-label="{e(d['weekday'] + ' ' + d['nice'])}">
+  <div class="dayhead">
+    <span class="ednum">Edition {d['ed']}</span>
+    <h2>{e(d['weekday'])}, {e(d['nice'])}</h2>
+    <span class="sp"></span>
+    <span class="daycount">0/10 approved</span>
+    <button type="button" class="approveday">Approve the rest</button>
+  </div>
+  {''.join(cards)}
+</section>""")
+
+    first, last = days[0], days[-1]
+    span = f"{first['weekday']} {first['nice']} – {last['weekday']} {last['nice']}"
+    chips = "".join(
+        f'<button type="button" class="jump" data-target="day-{d["ed"]}">'
+        f'{e(d["weekday"][:3])} {e(datetime.date.fromisoformat(d["date"]).strftime("%-d %b"))}'
+        f'</button>' for d in days)
+    total = len(days) * 10
+    store_key = f"ed{first['ed']}-{last['ed']}"
+
+    return f"""<title>Yesternerd — {e(span)}</title>
+<style>{CSS}</style>
+{world_defs()}
+<div class="stickyhead">
+  <div class="top">
+    <h1>{len(days)}-day review</h1>
+    <span class="count" id="count">0 of {total} approved</span>
+    <span class="sp"></span>
+    <button type="button" id="copy">Copy decisions</button>
+  </div>
+  <div class="jumpbar">{chips}</div>
+</div>
+
+<div class="masthead">
+  <div class="ed">Editions {first['ed']}–{last['ed']}</div>
+  <h1>{e(span)}</h1>
+  <p>{total} puzzles — {len(days)} days of 3 Face Value, 3 Lifeline, 3 Relic and
+  1 Thread. Nothing is decided until you touch it: hit <b>Approve</b> or
+  <b>Flag</b> on each card, edit anything that needs fixing right on the card,
+  then <b>Copy decisions</b> for a complete instruction set. Use the dates along
+  the top to jump; <b>Approve the rest</b> in a day header approves only the
+  cards you have not already ruled on.</p>
+</div>
+
+<div class="wrap">{''.join(sections)}</div>
+
+<div id="toast"></div>
+<div class="overlay" id="exportOverlay">
+  <div class="overlaybox">
+    <p>Everything below is already selected — press <b>Cmd+C</b> (or Ctrl+C) to
+    copy, then paste it wherever you like.</p>
+    <textarea id="exportText" readonly></textarea>
+    <button type="button" id="closeExport">Close</button>
+  </div>
+</div>
+
+<script>{build_js(store_key, f"YESTERNERD — {len(days)}-DAY REVIEW")}</script>
+"""
+
+
+def render(day):
+    cards, _ = day_cards(day)
 
     title = f"Yesternerd — {day['weekday']} {day['nice']}"
     body = f"""<title>{e(title)}</title>
 <style>{CSS}</style>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs><path id="worldland" d="{world_land}"></path></defs>
-</svg>
-
+{world_defs()}
 <div class="top">
   <h1>One-day review</h1>
   <span class="count" id="count">0 of 10 approved</span>
@@ -753,7 +957,7 @@ def render(day):
   </div>
 </div>
 
-<script>{build_js(day['ed'])}</script>
+<script>{build_js('ed' + str(day['ed']))}</script>
 """
     return body
 
@@ -765,23 +969,51 @@ def main():
     g.add_argument("--date", help="air date, YYYY-MM-DD")
     g.add_argument("--tomorrow", action="store_true",
                     help="tomorrow's edition (default if nothing else given)")
+    ap.add_argument("--days", type=int, default=1,
+                    help="how many consecutive editions to render, starting at "
+                         "the one resolved above (default 1). More than one "
+                         "renders a single multi-day board — for holidays, "
+                         "when a week has to be approved in one sitting.")
     ap.add_argument("--out", help="output path (default tools/out/daily-review-<date>.html)")
     a = ap.parse_args()
+
+    if a.days < 1:
+        print("build_daily_review: --days must be 1 or more", file=sys.stderr)
+        return 1
 
     manifest = C.load_manifest()
     n = resolve_edition(a, manifest)
     if n is None:
         return 1
 
-    day = collect(n, manifest)
-    html_out = render(day)
+    eds = manifest["editions"]
+    missing = [n + i for i in range(a.days) if str(n + i) not in eds]
+    if missing:
+        print(f"build_daily_review: edition(s) {missing} are not in the manifest "
+              f"— run compile_editions.py propose/approve first", file=sys.stderr)
+        return 1
 
-    out = Path(a.out) if a.out else OUT_DIR / f"daily-review-{day['date']}.html"
+    days = [collect(n + i, manifest) for i in range(a.days)]
+
+    if len(days) == 1:
+        day = days[0]
+        html_out = render(day)
+        default_name = f"daily-review-{day['date']}.html"
+        label = (f"edition {n} ({day['weekday']} {day['nice']}), "
+                 f"{len(days) * 10} rounds")
+    else:
+        html_out = render_range(days)
+        default_name = f"review-{days[0]['date']}-to-{days[-1]['date']}.html"
+        label = (f"editions {days[0]['ed']}–{days[-1]['ed']} "
+                 f"({days[0]['date']} → {days[-1]['date']}), "
+                 f"{len(days)} days, {len(days) * 10} rounds")
+
+    out = Path(a.out) if a.out else OUT_DIR / default_name
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html_out, encoding="utf-8")
 
     size = out.stat().st_size
-    print(f"daily review: edition {n} ({day['weekday']} {day['nice']}), 10 rounds -> "
+    print(f"daily review: {label} -> "
           f"{out.relative_to(ROOT) if out.is_relative_to(ROOT) else out} "
           f"({size:,} bytes, {size / 1e6:.2f} MB)")
     return 0

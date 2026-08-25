@@ -2852,7 +2852,7 @@
     "fact": "She turned down Hitler's personal offer to be the Third Reich's star and took US citizenship instead",
     "mcq": [
       "Audrey Hepburn",
-      "Greta Garbo"
+      "Coco Chanel"
     ]
   },
   {
@@ -6018,7 +6018,7 @@
     "difficulty": "medium",
     "fact": "Raised over $270 million fighting AIDS after her friend Rock Hudson died of it, a cause few stars would touch",
     "mcq": [
-      "Hedy Lamarr",
+      "Marlene Dietrich",
       "Audrey Hepburn"
     ]
   },
@@ -6341,8 +6341,8 @@
     "difficulty": "hard",
     "fact": "Hid a withered left arm from a botched birth his whole reign — fifteen centimeters shorter than the right",
     "mcq": [
-      "Leon Trotsky",
-      "Mustafa Kemal Atatürk"
+      "Otto von Bismarck",
+      "Emperor Franz Joseph"
     ]
   },
   {
@@ -6884,8 +6884,8 @@
     "difficulty": "hard",
     "fact": "Captured by Rome, he prophesied that his captor Vespasian would become emperor — proven right within two years, earning his freedom",
     "mcq": [
-      "Septimius Severus",
-      "Seneca"
+      "Paul the Apostle",
+      "Saint Peter"
     ]
   },
   {
@@ -9271,7 +9271,7 @@
       "william of orange"
     ],
     "mcq": [
-      "Philip II of Spain",
+      "William III of England",
       "Henry IV of France"
     ]
   },
@@ -14996,6 +14996,36 @@
     "mcq": [
       "Mikhail Kutuzov",
       "Alexander Suvorov"
+    ]
+  },
+  {
+    "id": "grand-duchess-anastasia",
+    "name": "Grand Duchess Anastasia",
+    "difficulty": "medium",
+    "variants": [
+      "grand duchess anastasia",
+      "anastasia",
+      "anastasia romanov",
+      "anastasia nikolaevna",
+      "grand duchess anastasia nikolaevna"
+    ],
+    "occupation": "Youngest daughter of the last Tsar, killed with her family at seventeen",
+    "birth": {
+      "year": 1901,
+      "place": "Peterhof, Russia",
+      "lat": 59.88,
+      "lon": 29.9
+    },
+    "death": {
+      "year": 1918,
+      "place": "Yekaterinburg, Russia",
+      "lat": 56.84,
+      "lon": 60.61
+    },
+    "fact": "For eighty years women claimed to be her; DNA from the family's grave finally settled it in 2007",
+    "mcq": [
+      "Tsar Nicholas II",
+      "Vladimir Lenin"
     ]
   }
 ]

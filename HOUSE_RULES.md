@@ -650,6 +650,21 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
   frame (crop to the person if the source shows a crowd), no blur, the
   iconic view over the clever one. Rights recorded via
   `tools/fetch_commons.py` + `audit_rights.py`, w800 rebuild after swaps.
+- **[JUDGMENT]** **Default to the ICONIC likeness (Daniel, 25 Aug 2026).**
+  For every figure and every object, the picture we use is the one the
+  world already knows — the portrait on the Wikipedia infobox, the shot
+  that turns up first in a search, the face on the banknote — unless
+  there is a specific reason to prefer another. Rationale: the game asks
+  players to recognise a torn fragment, so a lesser-known likeness makes
+  a round hard for the wrong reason — obscure *image*, not obscure
+  *subject*. The 25 Aug sweep replaced six pictures on this rule
+  (Nietzsche's 1882 profile → the 1875 Hartmann full face; Ida B. Wells's
+  full-torso plate → the head-and-shoulders crop; Goya's self-portrait →
+  López's Prado portrait; the Khufu ship's cabin close-up → the sweeping
+  prow; Kailasa's visitor-filled courtyard → the overhead view into the
+  pit; Catherine the Great → the Rokotov/Roslin state portrait). Corollary:
+  a high-resolution copy of the iconic view beats a low-resolution copy of
+  the exact file to hand — match the framing, not the pixels.
 - **[ENGINE]** The dual-licence Commons trap (31 Jul 2026 audit): Commons
   files often carry one licence for the THING (public domain statue) and
   another for the PHOTOGRAPH (CC BY/BY-SA). The API's `LicenseShortName`
