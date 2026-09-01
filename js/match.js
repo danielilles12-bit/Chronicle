@@ -86,7 +86,8 @@ export function damerau(a, b, max) {
 
 // Tolerance scales with the target's length; very short names must be exact
 // so "book" never matches "Cook". One typo for ordinary words, two for long
-// ones (>= 8 chars) — "Tutankhamun", "Khrushchev" and friends attract more
+// ones (>= 7 chars — lowered from 8 by the owner's 1 Sep 2026 leniency
+// ruling) — "Tutankhamun", "Khrushchev" and friends attract more
 // than one slip and stay unmistakable anyway (owner recalibration 18 Aug
 // 2026: "be lenient with spelling"; the loneFuzzBlocked guard below keeps
 // the extra headroom from ever crediting a DIFFERENT pool item's name).
@@ -94,7 +95,7 @@ export function damerau(a, b, max) {
 // so this budget applies per word, not to the whole phrase at once.
 function tolerance(len) {
   if (len <= 4) return 0;
-  if (len <= 7) return 1;
+  if (len <= 6) return 1;
   return 2;
 }
 
@@ -678,7 +679,34 @@ export function isMatch(guess, figure, poolKey) {
   // the containment/distinctive-core carve-outs below. Otherwise a bare
   // fragment ("nazca", "tut", "wall", "pyramid") could ride a single shared
   // or distinctive word into an accept despite naming no one in full.
-  if (singleToken) return false;
+  //
+  // ONE exception (owner ruling 1 Sep 2026, the "Victory" report: "err on
+  // the side of leniency"): a lone word that IS one of this item's
+  // distinctive NAME tokens names the thing well enough — "Sagrada" at the
+  // Sagrada Família, "Neuschwanstein" without "Castle". Guarded four ways:
+  // the token must be distinctive for this item in its pool (so it can't
+  // name anything else), must not be a generic kind-word ("wall",
+  // "pyramid" — GENERIC_NOUNS), must be >= 5 chars, and must not sit within
+  // fuzzy range of another item's one-word name (loneFuzzBlocked). Matching
+  // is exact / doubled-letter / phonetic — never the raw typo budget, which
+  // is the collision-prone comparison the old guard existed to stop.
+  if (singleToken) {
+    if (pool && !namesOther) {
+      const entry = pool.byId.get(figure.id);
+      if (entry && entry.distinctive && entry.distinctive.size
+          && !hasExtraneousRegnal(guessToks, entry.nameToks || [])) {
+        for (const gt of guessToks) {
+          if (CORE_STOPWORDS.has(gt) || gt.length < 5) continue;
+          if (loneBlockedFor(gt)) continue;
+          for (const dt of entry.distinctive) {
+            if (GENERIC_NOUNS.has(dt)) continue;
+            if (gt === dt || doubledEq(gt, dt) || phoneticEq(gt, dt)) return true;
+          }
+        }
+      }
+    }
+    return false;
+  }
 
   // Guard rail: guesses under MIN_GUESS_LEN normalized characters never
   // auto-accept via containment/distinctive-core (rules 2-3) — they can

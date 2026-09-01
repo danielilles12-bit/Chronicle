@@ -37,9 +37,10 @@ from playwright.sync_api import sync_playwright  # noqa: E402
 from helpers import server, page_on, fail_on_errors, manifest  # noqa: E402
 
 # The scheduled window this suite guards: editions 29-64 are the unaired run
-# the 2026-08-03 launch review covered, plus the six editions (29-34) that air
+# the 2026-08-03 launch review covered (extended 1 Sep 2026 through the
+# regenerated fortnight, edition 79), plus the six editions (29-34) that air
 # just before it. Everything below sweeps exactly these items.
-SCHED_LO, SCHED_HI = 29, 64
+SCHED_LO, SCHED_HI = 29, 79
 
 # Identities that deliberately share a short form, so one item's variant
 # legitimately matches another's. Keep this list SHORT — every entry is a pair
@@ -55,6 +56,9 @@ SHARED_IDENTITY_PAIRS = {
     ("what", frozenset({"sunflowers", "sunflowers-munich"})),
     ("what", frozenset({"us-constitution", "uss-constitution"})),
     ("who", frozenset({"edward-vii", "george-vi"})),
+    # "Nelson" (owner leniency pass 1 Sep 2026: the admiral and Mandela both
+    # legitimately answer to the bare surname/first name)
+    ("who", frozenset({"horatio-nelson", "nelson-mandela"})),
 }
 
 passed = 0

@@ -476,6 +476,33 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
   false accepts. Both directions were audited against all three pools
   before shipping and are pinned by `tests/match_harness.py` (SPELLING
   LENIENCY block). Loosen or tighten only with a new ruling.
+- **[ENGINE] Leniency v3 — "err on the side of leniency" (Daniel, 1 Sep
+  2026).** Ruling from the ed 65–79 regeneration review, prompted by a player
+  report that "Victory" was refused for HMS Victory: *"the sole reason why I
+  receive email from users ever is bc they are pissed off that an answer
+  wasn't accepted even though they recognised the thing but spelled it
+  wrong."* Three changes, all in `js/match.js` + data variants:
+  (1) the two-typo budget now starts at **7** letters, not 8;
+  (2) a **lone distinctive name token now counts as the answer** — "Sagrada"
+  at the Sagrada Família, "Shackleton", "Neuschwanstein" without "Castle".
+  Four guards keep this honest: the token must be distinctive for the item
+  within its pool, must not be a generic kind-word (GENERIC_NOUNS — "wall",
+  "castle", "temple" still never carry a guess), must be ≥ 5 chars, and gets
+  no raw typo budget (exact / doubled-letter / phonetic only, with the
+  loneFuzzBlocked other-item guard). Bare first names (a lone "Louis",
+  "George") and shared surnames stay refused because they are not
+  distinctive; regnal traps ("Henry VII" at Henry VIII) stay refused by the
+  numeral guard;
+  (3) rightful short forms that the distinctiveness rule can't grant because
+  two items share the word are granted by **variant**, the established
+  channel: "Victory" (HMS Victory, shared with the Winged Victory) and
+  "Nelson" (the admiral AND Mandela — whitelisted as a shared identity in
+  the harness, same as the two Berties). Re-certified by
+  `tests/match_harness.py` — 275k checks incl. the cross-item sweep over
+  editions 29–79, 0 false accepts — plus a 598-guess misspelling battery
+  over every edition 65–79 answer (tools/spelling_battery.py, 1 Sep). The
+  battery's surviving refusals were audited by hand and are all correct
+  refusals (bare first names, generic nouns, wrong-regnal guesses).
 - **[ENGINE] Leniency extended to short names (Daniel, 20 Aug 2026).**
   Ruling from the ed-53 review ("the ONLY user emails I receive are people
   getting annoyed about spelling mistakes not being accepted"): the
@@ -636,6 +663,19 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
   across that surface — here the fake-five is NATO, which reads as an
   acronym-word and resolves only by elimination.
 
+- **[JUDGMENT] The tile bar is "I've heard of it" (Daniel, 1 Sep 2026, ed
+  66–69 review).** Difficulty on a Thread board comes from ambiguity between
+  FAMOUS things, never from tiles the general player hasn't met — even on
+  hard boards. Struck by name that session: Beaufort, Mohs and Scoville
+  (scales), Bunsen and Erlenmeyer (lab kit), Europe and Eagles (as bands),
+  and every knot except Windsor. When a group idea needs three obscure tiles
+  to fill out one famous one, replace the GROUP (the knots became British
+  royal residences: Windsor kept its trap, Balmoral/Sandringham/Kensington
+  are famous). Blue and purple may be tricky; they may not be homework.
+- **[JUDGMENT] Explicit beats elegant on hard groups (same ruling):** when a
+  category can be tightened to something more concrete the player can hold
+  ("Classic cocktails" → "Classic whiskey cocktails"), tighten it.
+
 ## Face Value / Relic rounds
 
 - **[JUDGMENT]** Tier by LIKENESS recognisability, not name fame — Ada
@@ -739,6 +779,14 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
   Mechanism: `reserve: true` on `martin-van-buren` in
   `data/reveal-who.json` (the person is not retired — un-reserve with a
   portrait that has an informative middle, e.g. a seated painted one).
+- **[JUDGMENT]** Mount Nemrut's picture is a frontal colossal head (Daniel,
+  1 Sep 2026, ed 67 review: "COMPLETELY the wrong image, pick an iconic one
+  showing a head from the front"). The wide toppled-heads terrace view reads
+  as rubble; the icon is one head, face-on, tiara and all. Swapped to the
+  Klearchos Kapoutsis Antiochus head (CC BY 2.0) at
+  `assets/img/mount-nemrut-2.jpg` under the rename ritual. Same standing
+  test as the George V tear-path rule: the money shot must be findable AND
+  the periphery must still carry evidence (scree, eagle, tumulus).
 - **[JUDGMENT]** Port Royal reserved (Daniel, 22 Aug 2026, ed 55 review:
   "a very unsatisfying image. Either find a much better image of this
   thing, or just swap for something else entirely"). The only free-licensed

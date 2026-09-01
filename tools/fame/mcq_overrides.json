@@ -152,6 +152,34 @@
   "nero": [
    "Caligula",
    "Commodus"
+  ],
+  "fidel-castro": [
+   "Augusto Pinochet",
+   "Che Guevara"
+  ],
+  "mary-anning": [
+   "Ada Lovelace",
+   "Jane Austen"
+  ],
+  "socrates": [
+   "Aristotle",
+   "Pericles"
+  ],
+  "isambard-brunel": [
+   "Henry Ford",
+   "Stonewall Jackson"
+  ],
+  "toussaint-louverture": [
+   "Simón Bolívar",
+   "Joseph Jenkins Roberts"
+  ],
+  "shaka-zulu": [
+   "Simón Bolívar",
+   "Saladin"
+  ],
+  "mussolini": [
+   "Giovanni Gentile",
+   "Robespierre"
   ]
  },
  "what": {
@@ -336,7 +364,7 @@
    "Seagram Building"
   ],
   "petra-treasury": [
-   "Terracotta Army",
+   "Persepolis",
    "Hegra (Mada'in Salih)"
   ],
   "abu-simbel": [
@@ -450,6 +478,30 @@
   "khufu-ship": [
    "Cutty Sark",
    "Mary Celeste"
+  ],
+  "vasa-ship": [
+   "Mary Celeste",
+   "Mary Rose"
+  ],
+  "standard-of-ur": [
+   "Bayeux Tapestry",
+   "Portland Vase"
+  ],
+  "great-wave": [
+   "The Storm on the Sea of Galilee",
+   "The Ninth Wave"
+  ],
+  "mask-of-agamemnon": [
+   "Tutankhamun's Mask",
+   "Dante's Death Mask"
+  ],
+  "hereford-mappa-mundi": [
+   "Babylonian Map of the World",
+   "Peutinger's Tabula"
+  ],
+  "hope-diamond": [
+   "Koh-i-Noor",
+   "Imperial State Crown"
   ]
  },
  "map": {
@@ -576,6 +628,14 @@
   "william-of-orange": [
    "William III of England",
    "Henry IV of France"
+  ],
+  "ovid": [
+   "Horace",
+   "Homer"
+  ],
+  "archduke-franz-ferdinand": [
+   "Emperor Franz Joseph",
+   "Kaiser Wilhelm II"
   ]
  }
 }
