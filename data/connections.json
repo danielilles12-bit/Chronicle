@@ -9537,7 +9537,7 @@
      "Gibraltar",
      "Bering",
      "Hormuz",
-     "Dover"
+     "Bosphorus"
     ]
    }
   ]
@@ -9601,27 +9601,27 @@
      "Jungle",
      "Shampoo",
      "Bungalow",
-     "Loot"
+     "Thug"
     ]
    },
    {
     "colour": "green",
-    "label": "Everyday words from Arabic",
+    "label": "Rulers of the Islamic world",
     "items": [
-     "Algebra",
-     "Algorithm",
-     "Coffee",
-     "Zero"
+     "Saladin",
+     "Suleiman",
+     "Akbar",
+     "Mansa Musa"
     ]
    },
    {
     "colour": "blue",
-    "label": "Everyday words from Persian",
+    "label": "Characters of the Arabian Nights",
     "items": [
-     "Paradise",
-     "Bazaar",
-     "Caravan",
-     "Magic"
+     "Aladdin",
+     "Sinbad",
+     "Ali Baba",
+     "Scheherazade"
     ]
    },
    {
@@ -9741,18 +9741,18 @@
     "items": [
      "Opinion",
      "Nature",
-     "City",
-     "Coming"
+     "Coming",
+     "Hand"
     ]
    },
    {
     "colour": "green",
     "label": "Famous Thirds",
     "items": [
-     "Man",
-     "Estate",
      "World",
-     "Degree"
+     "Party",
+     "Man",
+     "Eye"
     ]
    },
    {
@@ -9761,7 +9761,7 @@
     "items": [
      "Wall",
      "July",
-     "Crusade",
+     "Dimension",
      "Plinth"
     ]
    },
@@ -9770,56 +9770,56 @@
     "label": "Famous Fifths",
     "items": [
      "Avenue",
-     "Symphony",
-     "Column",
-     "Republic"
+     "Element",
+     "Beatle",
+     "Column"
     ]
    }
   ]
  },
  {
   "id": "conn-210",
-  "title": "Hostile Takeovers",
+  "title": "Change Here",
   "difficulty": "hard",
   "groups": [
    {
     "colour": "yellow",
-    "label": "Ways to be dismissed",
+    "label": "Napoleonic battles",
     "items": [
-     "Sacked",
-     "Axed",
-     "Canned",
-     "Booted"
+     "Austerlitz",
+     "Borodino",
+     "Leipzig",
+     "Marengo"
     ]
    },
    {
     "colour": "green",
-    "label": "Came to English through Turkish",
+    "label": "ABBA songs",
     "items": [
-     "Kiosk",
-     "Sofa",
-     "Yogurt",
-     "Divan"
+     "Waterloo",
+     "Fernando",
+     "Chiquitita",
+     "Mamma Mia"
     ]
    },
    {
     "colour": "blue",
-    "label": "Put to the torch",
+    "label": "Famous squares",
     "items": [
-     "Rome",
-     "Constantinople",
-     "Troy",
-     "Tenochtitlan"
+     "Trafalgar",
+     "Tiananmen",
+     "Times",
+     "St Peter's"
     ]
    },
    {
     "colour": "purple",
-    "label": "A ruler of history hiding inside",
+    "label": "London railway stations",
     "items": [
-     "Generous",
-     "Risotto",
-     "Decide",
-     "Trumpeter"
+     "Paddington",
+     "King's Cross",
+     "Euston",
+     "Liverpool Street"
     ]
    }
   ]

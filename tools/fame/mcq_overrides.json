@@ -180,6 +180,22 @@
   "mussolini": [
    "Giovanni Gentile",
    "Robespierre"
+  ],
+  "michael-jackson": [
+   "Jimi Hendrix",
+   "George Michael"
+  ],
+  "wellington": [
+   "Zachary Taylor",
+   "Horatio Nelson"
+  ],
+  "empress-dowager-cixi": [
+   "Corazon Aquino",
+   "Queen Zenobia"
+  ],
+  "rasputin": [
+   "Vladimir Lenin",
+   "Billy the Kid"
   ]
  },
  "what": {
@@ -502,6 +518,42 @@
   "hope-diamond": [
    "Koh-i-Noor",
    "Imperial State Crown"
+  ],
+  "library-celsus-ephesus": [
+   "Parthenon",
+   "Petra"
+  ],
+  "arnolfini-portrait": [
+   "Girl with the Red Hat",
+   "Dutch Courtyard"
+  ],
+  "taj-mahal": [
+   "The Grand Mosque",
+   "Angkor Wat"
+  ],
+  "brandenburg-gate": [
+   "The Tower",
+   "Arc de Triomphe"
+  ],
+  "oseberg-ship": [
+   "Vasa",
+   "Mary Celeste"
+  ],
+  "axum-obelisk": [
+   "Cleopatra's Needle",
+   "Bagan"
+  ],
+  "michelangelo-david": [
+   "The Thinker",
+   "The Pieta"
+  ],
+  "liberty-leading": [
+   "The Execution of Lady Jane Grey",
+   "The Battle of Bunker Hill"
+  ],
+  "taktsang": [
+   "Longmen Grottoes",
+   "Potala Palace"
   ]
  },
  "map": {
@@ -636,6 +688,14 @@
   "archduke-franz-ferdinand": [
    "Emperor Franz Joseph",
    "Kaiser Wilhelm II"
+  ],
+  "christina-of-sweden": [
+   "Catherine the Great",
+   "Elizabeth I of England"
+  ],
+  "ptolemy-i-soter": [
+   "Alexander the Great",
+   "Pyrrhus of Epirus"
   ]
  }
 }

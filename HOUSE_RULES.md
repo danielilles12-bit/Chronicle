@@ -424,6 +424,22 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
   Rocks/Madonna of the Carnation, all Leonardo). A distractor must also never
   be a same-day or adjacent-day ANSWER (Lewis Chessmen carried "Bayeux
   Tapestry" the day after it aired — anyone who played could eliminate it).
+- **[JUDGMENT]** **Relic distractors must be the same KIND of thing, or they
+  are not distractors (Daniel, 6 Sep 2026, ed 70–76 review).** He deleted
+  several generated trios outright — "if something is a ship, you cannot pick
+  a mosque or a disk as a distractor bc those are obviously wrong" — and asked
+  for 10× more thought. The standing test for every Relic trio: could the
+  photo, half-torn, plausibly BE the distractor? So a ship gets ships (Vasa
+  ↔ Mary Celeste), a diamond gets famous jewels (Koh-i-Noor, Imperial State
+  Crown), a Flemish double portrait gets other object-crammed Northern
+  Renaissance portraits (Arnolfini ↔ The Ambassadors, The Moneylender and His
+  Wife), an obelisk gets obelisks (Cleopatra's Needle), a Romantic history
+  painting gets Romantic history paintings (Liberty Leading ↔ Lady Jane
+  Grey, Bunker Hill). Same physical class first, then same era/region, then
+  the fame ladder from the 11 Aug rule (kind to obscure answers, cruel to
+  famous ones). `build_mcq.py`'s kind buckets are too coarse to be trusted
+  for this: every Relic trio in a staged window is hand-curated into
+  `tools/fame/mcq_overrides.json` before the review board goes to Daniel.
 - **[JUDGMENT]** **Relic images are museum-grade** (Daniel, 11 Aug 2026):
   crisp, well-lit, subject on a clean background — "no blurry figurines".
   When a round's image is a fuzzy snapshot, replace the image, don't excuse
