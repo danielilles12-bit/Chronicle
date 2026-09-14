@@ -196,6 +196,34 @@
   "rasputin": [
    "Vladimir Lenin",
    "Billy the Kid"
+  ],
+  "sitting-bull": [
+   "Geronimo",
+   "Red Cloud"
+  ],
+  "victor-hugo": [
+   "Émile Zola",
+   "Jules Verne"
+  ],
+  "empress-theodora": [
+   "Empress Irene",
+   "Saint Helena"
+  ],
+  "billie-holiday": [
+   "Ella Fitzgerald",
+   "Nina Simone"
+  ],
+  "rabindranath-tagore": [
+   "Mahatma Gandhi",
+   "Swami Vivekananda"
+  ],
+  "golda-meir": [
+   "Indira Gandhi",
+   "Margaret Thatcher"
+  ],
+  "muhammad-ali": [
+   "Joe Frazier",
+   "Sonny Liston"
   ]
  },
  "what": {
@@ -348,16 +376,16 @@
    "Çatalhöyük"
   ],
   "tower-bridge": [
-   "London Bridge",
-   "Southwark Bridge"
+   "Brooklyn Bridge",
+   "Sydney Harbour Bridge"
   ],
   "predjama-castle": [
-   "Stari Most",
-   "Bran Castle"
+   "Bran Castle",
+   "Hohenzollern Castle"
   ],
   "the-thinker": [
-   "Discobolus",
-   "The Age of Bronze"
+   "The Burghers of Calais",
+   "The Gates of Hell"
   ],
   "palmyra": [
    "Acropolis of Athens",
@@ -554,6 +582,82 @@
   "taktsang": [
    "Longmen Grottoes",
    "Potala Palace"
+  ],
+  "venus-de-milo": [
+   "Winged Victory of Samothrace",
+   "Aphrodite of Knidos"
+  ],
+  "garden-earthly-delights": [
+   "The Haywain Triptych",
+   "The Triumph of Death"
+  ],
+  "flatiron-building": [
+   "Chrysler Building",
+   "Woolworth Building"
+  ],
+  "dome-of-the-rock": [
+   "Al-Aqsa Mosque",
+   "Sheikh Zayed Mosque"
+  ],
+  "longmen-grottoes": [
+   "Yungang Grottoes",
+   "Mogao Caves"
+  ],
+  "kiss-klimt": [
+   "Portrait of Adele Bloch-Bauer I",
+   "The Embrace"
+  ],
+  "blue-mosque": [
+   "Süleymaniye Mosque",
+   "Hagia Sophia"
+  ],
+  "piri-reis-map": [
+   "Cantino Planisphere",
+   "Mercator's World Map"
+  ],
+  "school-of-athens": [
+   "The Disputation of the Holy Sacrament",
+   "The Last Judgement"
+  ],
+  "notre-dame-paris": [
+   "Chartres Cathedral",
+   "Reims Cathedral"
+  ],
+  "doges-palace": [
+   "Ca' d'Oro",
+   "Palazzo Vecchio"
+  ],
+  "las-meninas": [
+   "The Surrender of Breda",
+   "Las Hilanderas"
+  ],
+  "sydney-opera-house": [
+   "Guggenheim Bilbao",
+   "Walt Disney Concert Hall"
+  ],
+  "pantheon-rome": [
+   "Panthéon (Paris)",
+   "Maison Carrée"
+  ],
+  "great-buddha-kamakura": [
+   "Great Buddha of Nara",
+   "Leshan Giant Buddha"
+  ],
+  "american-gothic": [
+   "Christina's World",
+   "Nighthawks"
+  ],
+  "arc-de-triomphe": [
+   "Brandenburg Gate",
+   "Marble Arch"
+  ],
+  "chambord": [
+   "Château de Chenonceau",
+   "Château de Versailles"
+  ],
+  "imperial-state-crown": [
+   "St Edward's Crown",
+   "Imperial Crown of Austria"
   ]
  },
  "map": {
@@ -696,6 +800,46 @@
   "ptolemy-i-soter": [
    "Alexander the Great",
    "Pyrrhus of Epirus"
+  ],
+  "jose-de-san-martin": [
+   "Bernardo O'Higgins",
+   "Stonewall Jackson"
+  ],
+  "rudolf-nureyev": [
+   "Marlon Brando",
+   "Vladimir Lenin"
+  ],
+  "babur": [
+   "Akbar the Great",
+   "Tamerlane"
+  ],
+  "bruce-lee": [
+   "Anna May Wong",
+   "Sun Yat-sen"
+  ],
+  "richard-i": [
+   "Henry II",
+   "Edward I"
+  ],
+  "alfred-nobel": [
+   "Anders Celsius",
+   "Carl Linnaeus"
+  ],
+  "zheng-he": [
+   "Marco Polo",
+   "Ibn Battuta"
+  ],
+  "averroes": [
+   "Maimonides",
+   "Avicenna"
+  ],
+  "alexander-hamilton": [
+   "Aaron Burr",
+   "John Jay"
+  ],
+  "friedrich-engels": [
+   "Karl Marx",
+   "Sigmund Freud"
   ]
  }
 }

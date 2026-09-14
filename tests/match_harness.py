@@ -40,7 +40,7 @@ from helpers import server, page_on, fail_on_errors, manifest  # noqa: E402
 # the 2026-08-03 launch review covered (extended 1 Sep 2026 through the
 # regenerated fortnight, edition 79), plus the six editions (29-34) that air
 # just before it. Everything below sweeps exactly these items.
-SCHED_LO, SCHED_HI = 29, 79
+SCHED_LO, SCHED_HI = 29, 84
 
 # Identities that deliberately share a short form, so one item's variant
 # legitimately matches another's. Keep this list SHORT — every entry is a pair

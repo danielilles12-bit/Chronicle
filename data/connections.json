@@ -9873,47 +9873,47 @@
  },
  {
   "id": "conn-212",
-  "title": "Trade Secrets",
+  "title": "Also Known As",
   "difficulty": "easy",
   "groups": [
    {
     "colour": "yellow",
-    "label": "Spices of the spice trade",
+    "label": "Nicknames of cities",
     "items": [
-     "Pepper",
-     "Nutmeg",
-     "Cinnamon",
-     "Cloves"
+     "Big Apple",
+     "Windy City",
+     "Eternal City",
+     "City of Light"
     ]
    },
    {
     "colour": "green",
-    "label": "Historic ship types",
+    "label": "Nicknames of countries",
     "items": [
-     "Junk",
-     "Dhow",
-     "Caravel",
-     "Galleon"
+     "Emerald Isle",
+     "Land of the Rising Sun",
+     "Middle Kingdom",
+     "Down Under"
     ]
    },
    {
     "colour": "blue",
-    "label": "Once used as money",
+    "label": "Nicknames of musicians",
     "items": [
-     "Salt",
-     "Cowrie shells",
-     "Cacao beans",
-     "Rai stones"
+     "The King",
+     "The Boss",
+     "Ol' Blue Eyes",
+     "Satchmo"
     ]
    },
    {
     "colour": "purple",
-    "label": "Silk Road cities",
+    "label": "Nicknames of monarchs",
     "items": [
-     "Samarkand",
-     "Bukhara",
-     "Kashgar",
-     "Xi'an"
+     "Sun King",
+     "Virgin Queen",
+     "Lionheart",
+     "Conqueror"
     ]
    }
   ]
@@ -9961,6 +9961,241 @@
      "Tank",
      "Parachute",
      "Diving suit"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-214",
+  "title": "Blank Verse",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Great ___",
+    "items": [
+     "Gatsby",
+     "Depression",
+     "Escape",
+     "Fire"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Silver ___",
+    "items": [
+     "Screen",
+     "Spoon",
+     "Lining",
+     "Bullet"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Cold ___",
+    "items": [
+     "Shoulder",
+     "Feet",
+     "Turkey",
+     "Front"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Iron ___",
+    "items": [
+     "Lady",
+     "Maiden",
+     "Duke",
+     "Curtain"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-215",
+  "title": "Out of Town",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Mountain ranges",
+    "items": [
+     "Alps",
+     "Andes",
+     "Rockies",
+     "Urals"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Spanish cities",
+    "items": [
+     "Seville",
+     "Toledo",
+     "Valencia",
+     "Bilbao"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Italian islands",
+    "items": [
+     "Sicily",
+     "Sardinia",
+     "Elba",
+     "Capri"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Ford models",
+    "items": [
+     "Cortina",
+     "Granada",
+     "Sierra",
+     "Escort"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-216",
+  "title": "Loud and Clear",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Showbusiness awards",
+    "items": [
+     "Oscar",
+     "Emmy",
+     "Tony",
+     "Grammy"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Greek letters",
+    "items": [
+     "Alpha",
+     "Beta",
+     "Omega",
+     "Sigma"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Capital cities",
+    "items": [
+     "Lima",
+     "Delhi",
+     "Nairobi",
+     "Ottawa"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "NATO phonetic alphabet",
+    "items": [
+     "Romeo",
+     "Victor",
+     "Delta",
+     "Foxtrot"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-217",
+  "title": "Roman Holiday",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Months named after Roman gods",
+    "items": [
+     "January",
+     "March",
+     "May",
+     "June"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Latin words used unchanged in English",
+    "items": [
+     "Bonus",
+     "Exit",
+     "Veto",
+     "Ego"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Named after Julius Caesar",
+    "items": [
+     "July",
+     "Caesarean",
+     "Kaiser",
+     "Tsar"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Spelled entirely in Roman numerals",
+    "items": [
+     "Mix",
+     "Civic",
+     "Livid",
+     "Mild"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-218",
+  "title": "Required Reading",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Alphabets",
+    "items": [
+     "Latin",
+     "Cyrillic",
+     "Greek",
+     "Arabic"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Holy books",
+    "items": [
+     "Quran",
+     "Torah",
+     "Vedas",
+     "Book of Mormon"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Epic poems",
+    "items": [
+     "Iliad",
+     "Odyssey",
+     "Beowulf",
+     "Gilgamesh"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Historic legal documents",
+    "items": [
+     "Magna Carta",
+     "Code of Hammurabi",
+     "Napoleonic Code",
+     "Bill of Rights"
     ]
    }
   ]

@@ -2185,7 +2185,7 @@
    "who": [
     "che-guevara",
     "sitting-bull",
-    "peter-paul-rubens"
+    "victor-hugo"
    ],
    "map": [
     "bruce-lee",
@@ -2216,10 +2216,115 @@
    "what": [
     "flatiron-building",
     "dome-of-the-rock",
-    "longmen-grottoes"
+    "imperial-state-crown"
    ],
    "thread": [
     "conn-213"
+   ]
+  },
+  "80": {
+   "date": "2026-09-17",
+   "who": [
+    "charles-dickens",
+    "galileo",
+    "empress-theodora"
+   ],
+   "map": [
+    "richard-i",
+    "george-frideric-handel",
+    "rudolf-nureyev"
+   ],
+   "what": [
+    "kiss-klimt",
+    "blue-mosque",
+    "piri-reis-map"
+   ],
+   "thread": [
+    "conn-214"
+   ]
+  },
+  "81": {
+   "date": "2026-09-18",
+   "who": [
+    "khrushchev",
+    "billie-holiday",
+    "rabindranath-tagore"
+   ],
+   "map": [
+    "alfred-nobel",
+    "zheng-he",
+    "averroes"
+   ],
+   "what": [
+    "tower-bridge",
+    "the-thinker",
+    "school-of-athens"
+   ],
+   "thread": [
+    "conn-217"
+   ]
+  },
+  "82": {
+   "date": "2026-09-19",
+   "who": [
+    "ronald-reagan",
+    "golda-meir",
+    "leo-tolstoy"
+   ],
+   "map": [
+    "johannes-kepler",
+    "sergei-rachmaninoff",
+    "alexander-hamilton"
+   ],
+   "what": [
+    "notre-dame-paris",
+    "doges-palace",
+    "las-meninas"
+   ],
+   "thread": [
+    "conn-216"
+   ]
+  },
+  "83": {
+   "date": "2026-09-20",
+   "who": [
+    "nixon",
+    "eleanor-roosevelt",
+    "muhammad-ali"
+   ],
+   "map": [
+    "friedrich-engels",
+    "gustavus-adolphus",
+    "joseph-conrad"
+   ],
+   "what": [
+    "sydney-opera-house",
+    "pantheon-rome",
+    "great-buddha-kamakura"
+   ],
+   "thread": [
+    "conn-215"
+   ]
+  },
+  "84": {
+   "date": "2026-09-21",
+   "who": [
+    "martin-luther-king-jr",
+    "franz-schubert",
+    "fyodor-dostoevsky"
+   ],
+   "map": [
+    "babur",
+    "amerigo-vespucci",
+    "brutus"
+   ],
+   "what": [
+    "american-gothic",
+    "arc-de-triomphe",
+    "chambord"
+   ],
+   "thread": [
+    "conn-218"
    ]
   }
  },

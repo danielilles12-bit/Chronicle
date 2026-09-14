@@ -440,6 +440,19 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
   famous ones). `build_mcq.py`'s kind buckets are too coarse to be trusted
   for this: every Relic trio in a staged window is hand-curated into
   `tools/fame/mcq_overrides.json` before the review board goes to Daniel.
+- **[JUDGMENT]** **Every distractor, every game, must be a deliberate,
+  plausible distraction (Daniel, 14 Sep 2026, ed 78–84 review).** Extends
+  the 6 Sep Relic ruling to Face Value and Lifeline: *"for a guy born and
+  dead in India in the 14th century, don't pick a random European king.
+  Every distractor should feel like a deliberate distraction that's
+  plausible."* The test per game: Lifeline — could the SAME two pins, era
+  and role belong to the distractor? (Babur gets Akbar and Tamerlane, never
+  a Bourbon.) Face Value — same era, region, gender and photo-vs-painting,
+  and a face a player could actually confuse with this one (Sitting Bull
+  gets Geronimo and Red Cloud, not a Victorian statesman). Relic — same
+  physical kind first (6 Sep). The generator's gates are a floor, not a
+  standard: skim every trio in a staged window and pin the weak ones in
+  `tools/fame/mcq_overrides.json` BEFORE the board goes to Daniel.
 - **[JUDGMENT]** **Relic images are museum-grade** (Daniel, 11 Aug 2026):
   crisp, well-lit, subject on a clean background — "no blurry figurines".
   When a round's image is a fuzzy snapshot, replace the image, don't excuse
