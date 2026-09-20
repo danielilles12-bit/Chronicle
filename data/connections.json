@@ -10199,5 +10199,146 @@
     ]
    }
   ]
+ },
+ {
+  "id": "conn-219",
+  "title": "Grand Tour",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Capital cities on the Danube",
+    "items": [
+     "Vienna",
+     "Budapest",
+     "Bratislava",
+     "Belgrade"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Pre-Columbian civilisations",
+    "items": [
+     "Aztec",
+     "Inca",
+     "Maya",
+     "Olmec"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Pandemics of history",
+    "items": [
+     "Black Death",
+     "Spanish Flu",
+     "Cholera",
+     "Smallpox"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Have hosted the Summer Olympics more than once",
+    "items": [
+     "London",
+     "Athens",
+     "Tokyo",
+     "Los Angeles"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-220",
+  "title": "Name Dropping",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Norse gods",
+    "items": [
+     "Thor",
+     "Odin",
+     "Loki",
+     "Freya"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Called the 'father' of a discipline",
+    "items": [
+     "Herodotus",
+     "Hippocrates",
+     "Adam Smith",
+     "Euclid"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Doctors who never went to medical school",
+    "items": [
+     "Dr Seuss",
+     "Dr Dre",
+     "Dr Watson",
+     "Dr Who"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Countries named after a person",
+    "items": [
+     "Bolivia",
+     "Colombia",
+     "Philippines",
+     "Saudi Arabia"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-221",
+  "title": "Lost and Found",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Lost cities, found or not",
+    "items": [
+     "Atlantis",
+     "Troy",
+     "Pompeii",
+     "El Dorado"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Ancient Greek city-states",
+    "items": [
+     "Sparta",
+     "Corinth",
+     "Thebes",
+     "Argos"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Gave English an everyday word",
+    "items": [
+     "Narcissus",
+     "Tantalus",
+     "Pan",
+     "Echo"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Hollywood epics set in the ancient world",
+    "items": [
+     "Gladiator",
+     "Ben-Hur",
+     "300",
+     "Spartacus"
+    ]
+   }
+  ]
  }
 ]

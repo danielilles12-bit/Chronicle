@@ -224,6 +224,38 @@
   "muhammad-ali": [
    "Joe Frazier",
    "Sonny Liston"
+  ],
+  "isaac-newton": [
+   "Edmond Halley",
+   "Robert Boyle"
+  ],
+  "philip-ii-spain": [
+   "Charles V",
+   "Philip IV of Spain"
+  ],
+  "voltaire": [
+   "Denis Diderot",
+   "Jean-Jacques Rousseau"
+  ],
+  "darwin": [
+   "Alfred Russel Wallace",
+   "Thomas Huxley"
+  ],
+  "mary-shelley": [
+   "Jane Austen",
+   "Elizabeth Barrett Browning"
+  ],
+  "robert-e-lee": [
+   "Stonewall Jackson",
+   "Ulysses S. Grant"
+  ],
+  "george-washington": [
+   "John Adams",
+   "Thomas Jefferson"
+  ],
+  "akbar-great": [
+   "Shah Jahan",
+   "Aurangzeb"
   ]
  },
  "what": {
@@ -658,6 +690,30 @@
   "imperial-state-crown": [
    "St Edward's Crown",
    "Imperial Crown of Austria"
+  ],
+  "the-scream": [
+   "The Starry Night",
+   "Wanderer above the Sea of Fog"
+  ],
+  "windsor-castle": [
+   "Warwick Castle",
+   "Edinburgh Castle"
+  ],
+  "eiffel-tower": [
+   "Tokyo Tower",
+   "Blackpool Tower"
+  ],
+  "cyrus-cylinder": [
+   "Rosetta Stone",
+   "Behistun Inscription"
+  ],
+  "great-wall-china": [
+   "Hadrian's Wall",
+   "Walls of Constantinople"
+  ],
+  "winged-victory": [
+   "Venus de Milo",
+   "Laocoön and His Sons"
   ]
  },
  "map": {
@@ -710,7 +766,7 @@
    "David Alfaro Siqueiros"
   ],
   "subhas-chandra-bose": [
-   "Benito Mussolini",
+   "Ho Chi Minh",
    "Sukarno"
   ],
   "harriet-tubman": [
@@ -839,6 +895,38 @@
   ],
   "friedrich-engels": [
    "Karl Marx",
+   "Sigmund Freud"
+  ],
+  "paul-the-apostle": [
+   "Saint Peter",
+   "Barnabas"
+  ],
+  "annefrank": [
+   "Sophie Scholl",
+   "Edith Stein"
+  ],
+  "cook": [
+   "William Bligh",
+   "George Vancouver"
+  ],
+  "napoleon-iii": [
+   "Louis Philippe I",
+   "Charles X"
+  ],
+  "mark-antony": [
+   "Pompey the Great",
+   "Octavian"
+  ],
+  "henry-kissinger": [
+   "Albert Einstein",
+   "Hannah Arendt"
+  ],
+  "chiang-kai-shek": [
+   "Sun Yat-sen",
+   "Zhou Enlai"
+  ],
+  "ludwig-wittgenstein": [
+   "Karl Popper",
    "Sigmund Freud"
   ]
  }
