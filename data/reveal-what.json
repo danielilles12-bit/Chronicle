@@ -198,8 +198,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Sagrada Família",
-   "The Thinker"
+   "The Scream",
+   "Wanderer above the Sea of Fog"
   ]
  },
  {
@@ -575,8 +575,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Leshan Giant Buddha",
-   "Lalibela"
+   "Olmec colossal heads",
+   "Colossi of Memnon"
   ]
  },
  {
@@ -735,7 +735,7 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Petra",
+   "Colossi of Memnon",
    "Abu Simbel"
   ]
  },
@@ -1322,8 +1322,8 @@
   "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Pantheon Rome",
-   "Pompeii Forum"
+   "Delphi",
+   "Mycenae"
   ]
  },
  {
@@ -1707,8 +1707,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by/2.5",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Canterbury Cathedral",
-   "Cologne Cathedral"
+   "St Peter's Basilica",
+   "Siena Cathedral"
   ]
  },
  {
@@ -1856,8 +1856,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Badshahi Mosque",
-   "United States Capitol"
+   "Lotus Temple",
+   "Akshardham"
   ]
  },
  {
@@ -1888,8 +1888,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "American Gothic",
-   "Baths of Caracalla"
+   "Great Mosque of Kairouan",
+   "Umayyad Mosque"
   ]
  },
  {
@@ -1944,8 +1944,8 @@
   "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Nazca Lines",
-   "Mausoleum at Halicarnassus"
+   "Gate of All Nations",
+   "Pergamon Altar"
   ]
  },
  {
@@ -2595,8 +2595,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Elephanta Caves",
-   "Kailasa Temple"
+   "Meteora",
+   "Tiger's Nest"
   ]
  },
  {
@@ -2835,8 +2835,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by/2.5",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Elgin Marbles",
-   "Statue of Zeus at Olympia"
+   "Venus of Laussel",
+   "Lion-man of Hohlenstein"
   ]
  },
  {
@@ -2875,19 +2875,18 @@
    "windsor"
   ],
   "blurb": "The world's oldest inhabited castle, a royal residence west of London since 1070 · A 1992 fire tore through 100-plus rooms — restoration was paid for by opening Buckingham Palace to visitors",
-  "img": "assets/img/windsor-castle.jpg",
+  "img": "assets/img/windsor-castle-2.jpg",
   "fx": 0.55,
-  "fy": 0.35,
+  "fy": 0.5,
   "frac": 0.22,
-  "license": "CC BY-SA 3.0",
-  "attribution": "Ввласенко",
-  "source": "Wikimedia Commons: Castle View from Alexandra Park - Round Tower, St George’s Chapel and the Curfew Tower. Windsor, UK.jpg",
-  "start": 2,
-  "image_source_url": "https://commons.wikimedia.org/wiki/File:Castle_View_from_Alexandra_Park_-_Round_Tower%2C_St_George%E2%80%99s_Chapel_and_the_Curfew_Tower._Windsor%2C_UK.jpg",
-  "image_author": "Ввласенко",
-  "image_license": "CC BY-SA 3.0",
-  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-  "image_retrieved": "2026-07-21",
+  "license": "CC BY-SA 4.0",
+  "attribution": "Cmglee",
+  "source": "Wikimedia Commons: Cmglee Windsor Castle aerial view.jpg",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Cmglee_Windsor_Castle_aerial_view.jpg",
+  "image_author": "Cmglee",
+  "image_license": "CC BY-SA 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "image_retrieved": "2026-09-21",
   "mcq": [
    "Warwick Castle",
    "Edinburgh Castle"
@@ -2949,8 +2948,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Saint Basil's Cathedral",
-   "Uffizi"
+   "Catherine Palace",
+   "Peterhof Palace"
   ]
  },
  {
@@ -3396,8 +3395,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Staffordshire Hoard",
-   "Naqsh-e Rustam"
+   "Riace Bronzes",
+   "Artemision Bronze"
   ]
  },
  {
@@ -3426,8 +3425,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Milan Cathedral",
-   "Florence Cathedral Dome"
+   "Chartres Cathedral",
+   "Milan Cathedral"
   ]
  },
  {
@@ -3456,8 +3455,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-08-06",
   "mcq": [
-   "Hindenburg",
-   "Codex Sinaiticus"
+   "Persepolis",
+   "Hatra"
   ],
   "start": 5
  },
@@ -3573,8 +3572,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "image_retrieved": "2026-08-06",
   "mcq": [
-   "Angkor Wat",
-   "Borobudur"
+   "Summer Palace",
+   "Temple of Heaven"
   ]
  },
  {
@@ -3632,8 +3631,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "The Kremlin",
-   "Cahokia"
+   "Khami Ruins",
+   "Kilwa Kisiwani"
   ]
  },
  {
@@ -3687,8 +3686,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Portland Vase",
-   "Standard of Ur"
+   "Battersea Shield",
+   "Trundholm Sun Chariot"
   ]
  },
  {
@@ -3944,8 +3943,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Très Riches Heures du Duc de Berry",
-   "Catalan Atlas"
+   "Book of Kells",
+   "Codex Amiatinus"
   ]
  },
  {
@@ -4424,8 +4423,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by/2.5",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Gundestrup Cauldron",
-   "Standard of Ur"
+   "Warren Cup",
+   "Lycurgus Cup"
   ]
  },
  {
@@ -4942,8 +4941,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Quba Mosque",
-   "Nebra Sky Disc"
+   "Cerne Abbas Giant",
+   "Nazca Lines"
   ]
  },
  {
@@ -4998,8 +4997,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Stonehenge",
-   "Rosetta Stone"
+   "Canterbury Cathedral",
+   "York Minster"
   ]
  },
  {
@@ -5117,8 +5116,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Abu Simbel",
-   "Great Sphinx of Giza"
+   "Palmyra",
+   "Jerash"
   ]
  },
  {
@@ -5315,8 +5314,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Dead Sea Scrolls",
-   "Voynich Manuscript"
+   "Codex Vaticanus",
+   "Codex Alexandrinus"
   ]
  },
  {
@@ -5345,8 +5344,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "The Little Mermaid (statue)",
-   "The Birth of Venus"
+   "Trajan's Column",
+   "Column of Constantine"
   ]
  },
  {
@@ -5374,8 +5373,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by/2.5",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Meteora",
-   "Lincoln Memorial"
+   "Tikal",
+   "Palenque"
   ]
  },
  {
@@ -5655,8 +5654,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Himeji Castle",
-   "Winged Victory of Samothrace"
+   "Palmyra",
+   "Baalbek"
   ]
  },
  {
@@ -6217,8 +6216,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "image_retrieved": "2026-08-06",
   "mcq": [
-   "Acropolis of Athens",
-   "Baalbek"
+   "Baalbek",
+   "Petra"
   ],
   "start": 5
  },
@@ -7104,7 +7103,7 @@
   "image_retrieved": "2026-07-24",
   "mcq": [
    "Saturn V",
-   "Little Boy"
+   "Apollo Lunar Module"
   ],
   "start": 3
  },
@@ -7194,7 +7193,7 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Hagia Sophia",
+   "Al-Aqsa Mosque",
    "Dome of the Rock"
   ]
  },
@@ -8866,8 +8865,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-08-06",
   "mcq": [
-   "Elgin Marbles",
-   "Venus of Willendorf"
+   "Colossus of Rhodes",
+   "Athena Parthenos"
   ],
   "start": 1
  },
@@ -9157,8 +9156,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Karnak",
-   "Hattusa"
+   "Mount Athos",
+   "Meteora"
   ],
   "start": 5
  },
@@ -9524,8 +9523,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Imperial Regalia of Japan",
-   "Daigo Fukuryū Maru"
+   "HMS Dreadnought",
+   "USS Missouri"
   ],
   "start": 3
  },

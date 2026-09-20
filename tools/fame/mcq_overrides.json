@@ -256,6 +256,150 @@
   "akbar-great": [
    "Shah Jahan",
    "Aurangzeb"
+  ],
+  "thomas-jefferson": [
+   "John Adams",
+   "James Madison"
+  ],
+  "franz-kafka": [
+   "Rainer Maria Rilke",
+   "Stefan Zweig"
+  ],
+  "frank-sinatra": [
+   "Dean Martin",
+   "Bing Crosby"
+  ],
+  "michelangelo": [
+   "Leonardo da Vinci",
+   "Donatello"
+  ],
+  "rene-descartes": [
+   "Blaise Pascal",
+   "Baruch Spinoza"
+  ],
+  "benjamin-franklin": [
+   "John Adams",
+   "Samuel Adams"
+  ],
+  "rembrandt-self": [
+   "Frans Hals",
+   "Johannes Vermeer"
+  ],
+  "kurt-cobain": [
+   "Eddie Vedder",
+   "Chris Cornell"
+  ],
+  "jane-austen": [
+   "Charlotte Brontë",
+   "Mary Shelley"
+  ],
+  "johann-sebastian-bach": [
+   "George Frideric Handel",
+   "Antonio Vivaldi"
+  ],
+  "artemisia-gentileschi": [
+   "Sofonisba Anguissola",
+   "Judith Leyster"
+  ],
+  "andrew-jackson": [
+   "James Monroe",
+   "Martin Van Buren"
+  ],
+  "jimmy-carter": [
+   "Gerald Ford",
+   "Walter Mondale"
+  ],
+  "lenin": [
+   "Leon Trotsky",
+   "Joseph Stalin"
+  ],
+  "frederick-the-great": [
+   "Louis XV",
+   "Augustus the Strong"
+  ],
+  "immanuel-kant": [
+   "Georg Hegel",
+   "Arthur Schopenhauer"
+  ],
+  "rosa-parks": [
+   "Coretta Scott King",
+   "Harriet Tubman"
+  ],
+  "nicolaus-copernicus": [
+   "Tycho Brahe",
+   "Johannes Kepler"
+  ],
+  "titian": [
+   "Giorgione",
+   "Tintoretto"
+  ],
+  "coco-chanel": [
+   "Elsa Schiaparelli",
+   "Josephine Baker"
+  ],
+  "louis-pasteur": [
+   "Robert Koch",
+   "Joseph Lister"
+  ],
+  "woodrow-wilson": [
+   "William Howard Taft",
+   "Warren G. Harding"
+  ],
+  "deng-xiaoping": [
+   "Zhou Enlai",
+   "Jiang Zemin"
+  ],
+  "hernan-cortes": [
+   "Francisco Pizarro",
+   "Hernando de Soto"
+  ],
+  "raphael": [
+   "Sandro Botticelli",
+   "Perugino"
+  ],
+  "ella-fitzgerald": [
+   "Billie Holiday",
+   "Sarah Vaughan"
+  ],
+  "sylvia-plath": [
+   "Anne Sexton",
+   "Virginia Woolf"
+  ],
+  "robert-burns": [
+   "Walter Scott",
+   "James Boswell"
+  ],
+  "carl-sagan": [
+   "Richard Feynman",
+   "Neil deGrasse Tyson"
+  ],
+  "akhenaten": [
+   "Tutankhamun",
+   "Ramesses II"
+  ],
+  "oda-nobunaga": [
+   "Toyotomi Hideyoshi",
+   "Takeda Shingen"
+  ],
+  "lise-meitner": [
+   "Marie Curie",
+   "Emmy Noether"
+  ],
+  "neil-armstrong": [
+   "Buzz Aldrin",
+   "John Glenn"
+  ],
+  "truman": [
+   "Dwight D. Eisenhower",
+   "Herbert Hoover"
+  ],
+  "ulysses-grant": [
+   "William T. Sherman",
+   "George McClellan"
+  ],
+  "anton-chekhov": [
+   "Leo Tolstoy",
+   "Maxim Gorky"
   ]
  },
  "what": {
@@ -420,8 +564,8 @@
    "The Gates of Hell"
   ],
   "palmyra": [
-   "Acropolis of Athens",
-   "Baalbek"
+   "Baalbek",
+   "Petra"
   ],
   "red-square": [
    "Golden Temple",
@@ -714,6 +858,130 @@
   "winged-victory": [
    "Venus de Milo",
    "Laocoön and His Sons"
+  ],
+  "mikasa": [
+   "HMS Dreadnought",
+   "USS Missouri"
+  ],
+  "great-sphinx": [
+   "Colossi of Memnon",
+   "Abu Simbel"
+  ],
+  "ishtar-gate": [
+   "Gate of All Nations",
+   "Pergamon Altar"
+  ],
+  "ctesiphon": [
+   "Persepolis",
+   "Hatra"
+  ],
+  "westminster-abbey": [
+   "Canterbury Cathedral",
+   "York Minster"
+  ],
+  "venus-willendorf": [
+   "Venus of Laussel",
+   "Lion-man of Hohlenstein"
+  ],
+  "statue-zeus-olympia": [
+   "Colossus of Rhodes",
+   "Athena Parthenos"
+  ],
+  "kaaba": [
+   "Al-Aqsa Mosque",
+   "Dome of the Rock"
+  ],
+  "gundestrup-cauldron": [
+   "Battersea Shield",
+   "Trundholm Sun Chariot"
+  ],
+  "acropolis-athens": [
+   "Delphi",
+   "Mycenae"
+  ],
+  "lindisfarne-gospels": [
+   "Book of Kells",
+   "Codex Amiatinus"
+  ],
+  "space-shuttle": [
+   "Saturn V",
+   "Apollo Lunar Module"
+  ],
+  "portland-vase": [
+   "Warren Cup",
+   "Lycurgus Cup"
+  ],
+  "st-catherines-monastery": [
+   "Mount Athos",
+   "Meteora"
+  ],
+  "golden-temple": [
+   "Lotus Temple",
+   "Akshardham"
+  ],
+  "uffington-white-horse": [
+   "Cerne Abbas Giant",
+   "Nazca Lines"
+  ],
+  "copan": [
+   "Tikal",
+   "Palenque"
+  ],
+  "forbidden-city": [
+   "Summer Palace",
+   "Temple of Heaven"
+  ],
+  "sigiriya": [
+   "Meteora",
+   "Tiger's Nest"
+  ],
+  "easter-island-moai": [
+   "Olmec colossal heads",
+   "Colossi of Memnon"
+  ],
+  "charioteer-delphi": [
+   "Riace Bronzes",
+   "Artemision Bronze"
+  ],
+  "great-enclosure-zimbabwe": [
+   "Khami Ruins",
+   "Kilwa Kisiwani"
+  ],
+  "winter-palace": [
+   "Catherine Palace",
+   "Peterhof Palace"
+  ],
+  "great-mosque-cordoba": [
+   "Great Mosque of Kairouan",
+   "Umayyad Mosque"
+  ],
+  "column-marcus-aurelius": [
+   "Trajan's Column",
+   "Column of Constantine"
+  ],
+  "starry-night": [
+   "The Scream",
+   "Wanderer above the Sea of Fog"
+  ],
+  "cologne-cathedral": [
+   "Chartres Cathedral",
+   "Milan Cathedral"
+  ],
+  "florence-cathedral-dome": [
+   "St Peter's Basilica",
+   "Siena Cathedral"
+  ],
+  "codex-sinaiticus": [
+   "Codex Vaticanus",
+   "Codex Alexandrinus"
+  ],
+  "jerash": [
+   "Palmyra",
+   "Baalbek"
+  ],
+  "baalbek": [
+   "Palmyra",
+   "Jerash"
   ]
  },
  "map": {
@@ -922,12 +1190,136 @@
    "Hannah Arendt"
   ],
   "chiang-kai-shek": [
-   "Sun Yat-sen",
+   "Mao Zedong",
    "Zhou Enlai"
   ],
   "ludwig-wittgenstein": [
    "Karl Popper",
    "Sigmund Freud"
+  ],
+  "pythagoras": [
+   "Archimedes",
+   "Empedocles"
+  ],
+  "lady-jane-grey": [
+   "Mary I of England",
+   "Catherine Howard"
+  ],
+  "f-scott-fitzgerald": [
+   "Ernest Hemingway",
+   "John Steinbeck"
+  ],
+  "nina-simone": [
+   "Josephine Baker",
+   "Billie Holiday"
+  ],
+  "kwame-nkrumah": [
+   "Jomo Kenyatta",
+   "Julius Nyerere"
+  ],
+  "sun-yat-sen": [
+   "Yuan Shikai",
+   "Zhou Enlai"
+  ],
+  "maimonides": [
+   "Averroes",
+   "Ibn Khaldun"
+  ],
+  "empress-matilda": [
+   "Eleanor of Aquitaine",
+   "Matilda of Flanders"
+  ],
+  "wernher-von-braun": [
+   "Albert Einstein",
+   "Enrico Fermi"
+  ],
+  "sappho": [
+   "Hypatia",
+   "Aspasia"
+  ],
+  "hayreddin-barbarossa": [
+   "Piri Reis",
+   "Dragut"
+  ],
+  "yuri-gagarin": [
+   "Sergei Korolev",
+   "Alexei Leonov"
+  ],
+  "anne-of-cleves": [
+   "Catherine Howard",
+   "Catherine Parr"
+  ],
+  "alexander-iii-of-russia": [
+   "Nicholas II",
+   "Alexander II of Russia"
+  ],
+  "william-wallace": [
+   "Robert the Bruce",
+   "Rob Roy"
+  ],
+  "antonio-vivaldi": [
+   "Claudio Monteverdi",
+   "Domenico Scarlatti"
+  ],
+  "pyrrhus-of-epirus": [
+   "Hannibal",
+   "Philip II of Macedon"
+  ],
+  "pyotr-ilyich-tchaikovsky": [
+   "Modest Mussorgsky",
+   "Nikolai Rimsky-Korsakov"
+  ],
+  "theodosius-i": [
+   "Constantine the Great",
+   "Diocletian"
+  ],
+  "attila": [
+   "Genghis Khan",
+   "Alaric"
+  ],
+  "isabella-of-castile": [
+   "Joanna of Castile",
+   "Catherine of Aragon"
+  ],
+  "scipio-africanus": [
+   "Hannibal",
+   "Cato the Elder"
+  ],
+  "virgil": [
+   "Horace",
+   "Ovid"
+  ],
+  "edith-piaf": [
+   "Josephine Baker",
+   "Juliette Gréco"
+  ],
+  "t-e-lawrence": [
+   "Bernard Montgomery",
+   "Orde Wingate"
+  ],
+  "rosa-luxemburg": [
+   "Clara Zetkin",
+   "Emma Goldman"
+  ],
+  "frantz-fanon": [
+   "Aimé Césaire",
+   "Patrice Lumumba"
+  ],
+  "jean-jacques-rousseau": [
+   "Voltaire",
+   "Denis Diderot"
+  ],
+  "wu-zetian": [
+   "Empress Dowager Cixi",
+   "Yang Guifei"
+  ],
+  "clovis-i": [
+   "Charlemagne",
+   "Charles Martel"
+  ],
+  "richard-ii": [
+   "Henry IV of England",
+   "Edward II of England"
   ]
  }
 }

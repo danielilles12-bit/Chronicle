@@ -425,8 +425,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "George Washington",
-   "Thomas Jefferson"
+   "John Adams",
+   "Samuel Adams"
   ]
  },
  {
@@ -453,7 +453,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Richard Feynman",
-   "J. Robert Oppenheimer"
+   "Neil deGrasse Tyson"
   ]
  },
  {
@@ -623,7 +623,8 @@
   "mcq": [
    "Edmond Halley",
    "Robert Boyle"
-  ]
+  ],
+  "start": 5
  },
  {
   "id": "jane-austen",
@@ -646,8 +647,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Mary Wollstonecraft",
-   "Catherine the Great"
+   "Charlotte Brontë",
+   "Mary Shelley"
   ]
  },
  {
@@ -1419,7 +1420,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Billie Holiday",
-   "Enid Blyton"
+   "Sarah Vaughan"
   ]
  },
  {
@@ -1921,7 +1922,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "George Frideric Handel",
-   "Wolfgang Amadeus Mozart"
+   "Antonio Vivaldi"
   ]
  },
  {
@@ -2002,7 +2003,7 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Tsar Nicholas II",
+   "Leon Trotsky",
    "Joseph Stalin"
   ]
  },
@@ -2281,8 +2282,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Albrecht Dürer",
-   "Raphael"
+   "Leonardo da Vinci",
+   "Donatello"
   ]
  },
  {
@@ -2533,8 +2534,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Diego Velázquez",
-   "Peter Paul Rubens"
+   "Frans Hals",
+   "Johannes Vermeer"
   ]
  },
  {
@@ -2560,8 +2561,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Thomas Hobbes",
-   "John Locke"
+   "Blaise Pascal",
+   "Baruch Spinoza"
   ],
   "start": 4
  },
@@ -2588,8 +2589,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Friedrich Schiller",
-   "Denis Diderot"
+   "Walter Scott",
+   "James Boswell"
   ]
  },
  {
@@ -2615,8 +2616,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Helen Keller",
-   "Eleanor Roosevelt"
+   "Coretta Scott King",
+   "Harriet Tubman"
   ]
  },
  {
@@ -2812,8 +2813,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "James A. Garfield",
-   "Andrew Johnson"
+   "William T. Sherman",
+   "George McClellan"
   ]
  },
  {
@@ -3205,7 +3206,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Leo Tolstoy",
-   "Fyodor Dostoevsky"
+   "Maxim Gorky"
   ]
  },
  {
@@ -3229,8 +3230,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Kösem Sultan",
-   "Elizabeth I"
+   "Sofonisba Anguissola",
+   "Judith Leyster"
   ]
  },
  {
@@ -3742,8 +3743,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Louis XVI",
-   "George III"
+   "Louis XV",
+   "Augustus the Strong"
   ]
  },
  {
@@ -4017,8 +4018,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Vasco da Gama",
-   "Ferdinand Magellan"
+   "Francisco Pizarro",
+   "Hernando de Soto"
   ]
  },
  {
@@ -4129,8 +4130,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Jean-Jacques Rousseau",
-   "David Hume"
+   "Georg Hegel",
+   "Arthur Schopenhauer"
   ]
  },
  {
@@ -4540,8 +4541,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Galileo Galilei",
-   "Blaise Pascal"
+   "Tycho Brahe",
+   "Johannes Kepler"
   ]
  },
  {
@@ -4593,8 +4594,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Tokugawa Ieyasu",
-   "Zheng He"
+   "Toyotomi Hideyoshi",
+   "Takeda Shingen"
   ]
  },
  {
@@ -4772,8 +4773,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Albrecht Dürer",
-   "Michelangelo"
+   "Sandro Botticelli",
+   "Perugino"
   ]
  },
  {
@@ -5163,8 +5164,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Michelangelo",
-   "Albrecht Dürer"
+   "Giorgione",
+   "Tintoretto"
   ]
  },
  {
@@ -5335,8 +5336,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Warren G. Harding",
-   "Theodore Roosevelt"
+   "William Howard Taft",
+   "Warren G. Harding"
   ]
  },
  {
@@ -6464,8 +6465,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Alfred Nobel",
-   "James Clerk Maxwell"
+   "Robert Koch",
+   "Joseph Lister"
   ]
  },
  {
@@ -6999,8 +7000,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Toni Morrison",
-   "Agatha Christie"
+   "Anne Sexton",
+   "Virginia Woolf"
   ]
  },
  {
@@ -7640,7 +7641,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Marie Curie",
-   "Rosalind Franklin"
+   "Emmy Noether"
   ],
   "start": 7
  },
@@ -8213,8 +8214,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Frida Kahlo",
-   "Golda Meir"
+   "Elsa Schiaparelli",
+   "Josephine Baker"
   ]
  },
  {
@@ -8478,8 +8479,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "George H. W. Bush",
-   "Gerald Ford"
+   "Gerald Ford",
+   "Walter Mondale"
   ]
  },
  {
@@ -8934,8 +8935,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Tupac Shakur",
-   "Johnny Cash"
+   "Dean Martin",
+   "Bing Crosby"
   ]
  },
  {
@@ -9052,8 +9053,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Lyndon B. Johnson",
-   "Dwight D. Eisenhower"
+   "Dwight D. Eisenhower",
+   "Herbert Hoover"
   ]
  },
  {
@@ -9765,8 +9766,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-08-06",
   "mcq": [
-   "John Quincy Adams",
-   "William Henry Harrison"
+   "James Monroe",
+   "Martin Van Buren"
   ],
   "start": 4,
   "image_modifications": "cropped"
@@ -9904,8 +9905,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Arthur Conan Doyle",
-   "Jules Verne"
+   "Rainer Maria Rilke",
+   "Stefan Zweig"
   ],
   "start": 0
  },
@@ -10269,8 +10270,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Jacques Cousteau",
-   "Steve Jobs"
+   "Buzz Aldrin",
+   "John Glenn"
   ]
  },
  {
@@ -10382,8 +10383,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Tupac Shakur",
-   "Frank Sinatra"
+   "Eddie Vedder",
+   "Chris Cornell"
   ],
   "start": 5
  },
@@ -11463,8 +11464,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Kim Il-sung",
-   "Hirohito"
+   "Zhou Enlai",
+   "Jiang Zemin"
   ]
  },
  {

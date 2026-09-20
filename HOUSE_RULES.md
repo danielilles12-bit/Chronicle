@@ -705,6 +705,21 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
   category can be tightened to something more concrete the player can hold
   ("Classic cocktails" → "Classic whiskey cocktails"), tighten it.
 
+- **[JUDGMENT] Easy boards still need traps (Daniel, 21 Sep 2026, ed 85
+  review: "this is odd, kind of easy, zero traps or fun or delight??" on
+  conn-219 "Grand Tour" — four honest lists, no tile that could sit in two
+  groups).** Easy means the FAMOUS end of the tile bar, not the absence of
+  a mechanic: every board, whatever its tier, carries at least one fake-five
+  or polysemous tile (Waterloo, Delta, Polo), one group whose label is a
+  small surprise, and a title with a wink. The approved easy boards prove
+  it: "Location, Location, Location" (dog breeds vs cattle breeds vs
+  dukedoms), "Ruling the Waves", "Know Your Place". Board rebuilt that
+  night as "Lucky Number" (everything comes in sevens). Corollary from the
+  same review, Face Value: **"swap for someone more recognisable" applies to
+  medium AND hard slots** — Philip II of Spain and Voltaire were struck for
+  being famous names with unfamiliar faces; hard means a harder tear, not a
+  face nobody would know when it is fully revealed.
+
 ## Face Value / Relic rounds
 
 - **[JUDGMENT]** Tier by LIKENESS recognisability, not name fame — Ada

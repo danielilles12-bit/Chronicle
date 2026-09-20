@@ -10202,47 +10202,47 @@
  },
  {
   "id": "conn-219",
-  "title": "Grand Tour",
+  "title": "Lucky Number",
   "difficulty": "easy",
   "groups": [
    {
     "colour": "yellow",
-    "label": "Capital cities on the Danube",
+    "label": "Seven Wonders of the Ancient World",
     "items": [
-     "Vienna",
-     "Budapest",
-     "Bratislava",
-     "Belgrade"
+     "Pyramid",
+     "Lighthouse",
+     "Mausoleum",
+     "Hanging Gardens"
     ]
    },
    {
     "colour": "green",
-    "label": "Pre-Columbian civilisations",
+    "label": "Seven deadly sins",
     "items": [
-     "Aztec",
-     "Inca",
-     "Maya",
-     "Olmec"
+     "Pride",
+     "Envy",
+     "Wrath",
+     "Sloth"
     ]
    },
    {
     "colour": "blue",
-    "label": "Pandemics of history",
+    "label": "Seven Dwarfs",
     "items": [
-     "Black Death",
-     "Spanish Flu",
-     "Cholera",
-     "Smallpox"
+     "Doc",
+     "Grumpy",
+     "Sleepy",
+     "Bashful"
     ]
    },
    {
     "colour": "purple",
-    "label": "Have hosted the Summer Olympics more than once",
+    "label": "Seven colours of the rainbow",
     "items": [
-     "London",
-     "Athens",
-     "Tokyo",
-     "Los Angeles"
+     "Red",
+     "Orange",
+     "Indigo",
+     "Violet"
     ]
    }
   ]
@@ -10337,6 +10337,523 @@
      "Ben-Hur",
      "300",
      "Spartacus"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-222",
+  "title": "Cross Purposes",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Sportswear brands",
+    "items": [
+     "Puma",
+     "Adidas",
+     "Reebok",
+     "Umbro"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Big cats",
+    "items": [
+     "Jaguar",
+     "Leopard",
+     "Cougar",
+     "Cheetah"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Volkswagen models",
+    "items": [
+     "Golf",
+     "Beetle",
+     "Jetta",
+     "Passat"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Explorers, by surname",
+    "items": [
+     "Polo",
+     "Drake",
+     "Hudson",
+     "Cabot"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-223",
+  "title": "Coastal Erosion",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Bay of ___",
+    "items": [
+     "Pigs",
+     "Biscay",
+     "Bengal",
+     "Naples"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Gulf of ___",
+    "items": [
+     "Mexico",
+     "Tonkin",
+     "Aden",
+     "Finland"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Cape ___",
+    "items": [
+     "Horn",
+     "Canaveral",
+     "Town",
+     "Cod"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Sea of ___",
+    "items": [
+     "Galilee",
+     "Japan",
+     "Marmara",
+     "Tranquility"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-224",
+  "title": "Lost in Translation",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Everyday words from Arabic",
+    "items": [
+     "Algebra",
+     "Alcohol",
+     "Sofa",
+     "Admiral"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Everyday words from Japanese",
+    "items": [
+     "Tsunami",
+     "Karaoke",
+     "Emoji",
+     "Tycoon"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Everyday words from Dutch",
+    "items": [
+     "Yacht",
+     "Cookie",
+     "Boss",
+     "Landscape"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Everyday words from Russian",
+    "items": [
+     "Vodka",
+     "Tsar",
+     "Mammoth",
+     "Cosmonaut"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-225",
+  "title": "High Society",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Poker hands",
+    "items": [
+     "Flush",
+     "Straight",
+     "Full House",
+     "Pair"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Card games",
+    "items": [
+     "Bridge",
+     "Rummy",
+     "Snap",
+     "Patience"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Found in a deck of cards",
+    "items": [
+     "Joker",
+     "Ace",
+     "Jack",
+     "Spade"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Famous Jacks",
+    "items": [
+     "Nicholson",
+     "Sparrow",
+     "Kerouac",
+     "Frost"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-226",
+  "title": "Animal Farm",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Chinese zodiac animals",
+    "items": [
+     "Dragon",
+     "Rooster",
+     "Ox",
+     "Snake"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "National animals",
+    "items": [
+     "Lion",
+     "Eagle",
+     "Bear",
+     "Kiwi"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Famous bears",
+    "items": [
+     "Rupert",
+     "Pooh",
+     "Baloo",
+     "Yogi"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Animals that are also verbs",
+    "items": [
+     "Badger",
+     "Hound",
+     "Duck",
+     "Ape"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-227",
+  "title": "Playing God",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Hindu gods",
+    "items": [
+     "Shiva",
+     "Vishnu",
+     "Ganesh",
+     "Krishna"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Egyptian gods",
+    "items": [
+     "Ra",
+     "Anubis",
+     "Osiris",
+     "Horus"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Names for the Devil",
+    "items": [
+     "Lucifer",
+     "Beelzebub",
+     "Satan",
+     "Mephistopheles"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Pop acts with a sacred name",
+    "items": [
+     "Genesis",
+     "Nirvana",
+     "Creed",
+     "Madonna"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-228",
+  "title": "Common Ground",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "___ Fields",
+    "items": [
+     "Elysian",
+     "Killing",
+     "Strawberry",
+     "Flanders"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Battles fought on British soil",
+    "items": [
+     "Hastings",
+     "Bosworth",
+     "Culloden",
+     "Bannockburn"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Famous Marxes",
+    "items": [
+     "Karl",
+     "Groucho",
+     "Harpo",
+     "Chico"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Famous Browns",
+    "items": [
+     "Gordon",
+     "James",
+     "Charlie",
+     "Capability"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-229",
+  "title": "What's in a Name",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "US states named after a monarch",
+    "items": [
+     "Virginia",
+     "Georgia",
+     "Louisiana",
+     "Maryland"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "US states named after a Native American people",
+    "items": [
+     "Illinois",
+     "Dakota",
+     "Alabama",
+     "Kansas"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Cities named after saints",
+    "items": [
+     "San Francisco",
+     "St Petersburg",
+     "São Paulo",
+     "St Louis"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Victoria ___",
+    "items": [
+     "Falls",
+     "Cross",
+     "Sponge",
+     "Line"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-230",
+  "title": "Cover Story",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Hats",
+    "items": [
+     "Fedora",
+     "Trilby",
+     "Bowler",
+     "Fez"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Cities in Morocco",
+    "items": [
+     "Casablanca",
+     "Marrakesh",
+     "Tangier",
+     "Rabat"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Second World War films",
+    "items": [
+     "Dunkirk",
+     "Patton",
+     "Fury",
+     "Midway"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Cricket terms",
+    "items": [
+     "Wicket",
+     "Googly",
+     "Crease",
+     "Stumps"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-231",
+  "title": "Divided We Fall",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Cities that were split in two",
+    "items": [
+     "Berlin",
+     "Nicosia",
+     "Jerusalem",
+     "Belfast"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Countries partitioned in the 20th century",
+    "items": [
+     "Korea",
+     "Germany",
+     "India",
+     "Ireland"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Rivers that mark a border",
+    "items": [
+     "Rio Grande",
+     "Rhine",
+     "Yalu",
+     "Oder"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Famous lines on a map",
+    "items": [
+     "Mason-Dixon",
+     "Maginot",
+     "Siegfried",
+     "38th Parallel"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-232",
+  "title": "Once Upon a Time",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Tales collected by the Brothers Grimm",
+    "items": [
+     "Cinderella",
+     "Rapunzel",
+     "Rumpelstiltskin",
+     "Hansel and Gretel"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Arthurian legend",
+    "items": [
+     "Excalibur",
+     "Lancelot",
+     "Merlin",
+     "Camelot"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Nursery rhymes said to hide real history",
+    "items": [
+     "Humpty Dumpty",
+     "Old King Cole",
+     "Ring a Ring o' Roses",
+     "Georgie Porgie"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Fictional wizards",
+    "items": [
+     "Gandalf",
+     "Dumbledore",
+     "Harry Potter",
+     "Oz"
     ]
    }
   ]

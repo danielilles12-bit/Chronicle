@@ -2331,8 +2331,8 @@
    "date": "2026-09-22",
    "who": [
     "isaac-newton",
-    "philip-ii-spain",
-    "voltaire"
+    "thomas-jefferson",
+    "franz-kafka"
    ],
    "map": [
     "paul-the-apostle",
@@ -2342,7 +2342,7 @@
    "what": [
     "the-scream",
     "windsor-castle",
-    "dead-sea-scrolls"
+    "cyrus-cylinder"
    ],
    "thread": [
     "conn-219"
@@ -2363,7 +2363,7 @@
    "what": [
     "eiffel-tower",
     "amber-room",
-    "cyrus-cylinder"
+    "mikasa"
    ],
    "thread": [
     "conn-220"
@@ -2372,7 +2372,7 @@
   "87": {
    "date": "2026-09-24",
    "who": [
-    "george-washington",
+    "neil-armstrong",
     "akbar-great",
     "hatshepsut"
    ],
@@ -2388,6 +2388,237 @@
    ],
    "thread": [
     "conn-221"
+   ]
+  },
+  "88": {
+   "date": "2026-09-25",
+   "who": [
+    "frank-sinatra",
+    "nicolaus-copernicus",
+    "rene-descartes"
+   ],
+   "map": [
+    "pythagoras",
+    "lady-jane-grey",
+    "f-scott-fitzgerald"
+   ],
+   "what": [
+    "great-sphinx",
+    "ishtar-gate",
+    "ctesiphon"
+   ],
+   "thread": [
+    "conn-222"
+   ]
+  },
+  "89": {
+   "date": "2026-09-26",
+   "who": [
+    "benjamin-franklin",
+    "rembrandt-self",
+    "kurt-cobain"
+   ],
+   "map": [
+    "nina-simone",
+    "kwame-nkrumah",
+    "richard-ii"
+   ],
+   "what": [
+    "westminster-abbey",
+    "venus-willendorf",
+    "statue-zeus-olympia"
+   ],
+   "thread": [
+    "conn-223"
+   ]
+  },
+  "90": {
+   "date": "2026-09-27",
+   "who": [
+    "jane-austen",
+    "johann-sebastian-bach",
+    "artemisia-gentileschi"
+   ],
+   "map": [
+    "sun-yat-sen",
+    "maimonides",
+    "empress-matilda"
+   ],
+   "what": [
+    "kaaba",
+    "gundestrup-cauldron",
+    "palmyra"
+   ],
+   "thread": [
+    "conn-224"
+   ]
+  },
+  "91": {
+   "date": "2026-09-28",
+   "who": [
+    "george-washington",
+    "andrew-jackson",
+    "jimmy-carter"
+   ],
+   "map": [
+    "wernher-von-braun",
+    "sappho",
+    "hayreddin-barbarossa"
+   ],
+   "what": [
+    "acropolis-athens",
+    "lindisfarne-gospels",
+    "sacsayhuaman"
+   ],
+   "thread": [
+    "conn-225"
+   ]
+  },
+  "92": {
+   "date": "2026-09-29",
+   "who": [
+    "lenin",
+    "frederick-the-great",
+    "immanuel-kant"
+   ],
+   "map": [
+    "yuri-gagarin",
+    "anne-of-cleves",
+    "alexander-iii-of-russia"
+   ],
+   "what": [
+    "space-shuttle",
+    "portland-vase",
+    "st-catherines-monastery"
+   ],
+   "thread": [
+    "conn-226"
+   ]
+  },
+  "93": {
+   "date": "2026-09-30",
+   "who": [
+    "rosa-parks",
+    "louis-pasteur",
+    "titian"
+   ],
+   "map": [
+    "william-wallace",
+    "antonio-vivaldi",
+    "pyrrhus-of-epirus"
+   ],
+   "what": [
+    "golden-temple",
+    "uffington-white-horse",
+    "copan"
+   ],
+   "thread": [
+    "conn-227"
+   ]
+  },
+  "94": {
+   "date": "2026-10-01",
+   "who": [
+    "coco-chanel",
+    "akhenaten",
+    "woodrow-wilson"
+   ],
+   "map": [
+    "pyotr-ilyich-tchaikovsky",
+    "charles-xii-sweden",
+    "theodosius-i"
+   ],
+   "what": [
+    "forbidden-city",
+    "sigiriya",
+    "villa-of-mysteries"
+   ],
+   "thread": [
+    "conn-228"
+   ]
+  },
+  "95": {
+   "date": "2026-10-02",
+   "who": [
+    "deng-xiaoping",
+    "hernan-cortes",
+    "raphael"
+   ],
+   "map": [
+    "attila",
+    "isabella-of-castile",
+    "scipio-africanus"
+   ],
+   "what": [
+    "easter-island-moai",
+    "charioteer-delphi",
+    "great-enclosure-zimbabwe"
+   ],
+   "thread": [
+    "conn-229"
+   ]
+  },
+  "96": {
+   "date": "2026-10-03",
+   "who": [
+    "ella-fitzgerald",
+    "sylvia-plath",
+    "robert-burns"
+   ],
+   "map": [
+    "virgil",
+    "edith-piaf",
+    "bayezid-i"
+   ],
+   "what": [
+    "winter-palace",
+    "great-mosque-cordoba",
+    "baalbek"
+   ],
+   "thread": [
+    "conn-230"
+   ]
+  },
+  "97": {
+   "date": "2026-10-04",
+   "who": [
+    "carl-sagan",
+    "anton-chekhov",
+    "oda-nobunaga"
+   ],
+   "map": [
+    "t-e-lawrence",
+    "rosa-luxemburg",
+    "frantz-fanon"
+   ],
+   "what": [
+    "starry-night",
+    "cologne-cathedral",
+    "taxila"
+   ],
+   "thread": [
+    "conn-231"
+   ]
+  },
+  "98": {
+   "date": "2026-10-05",
+   "who": [
+    "ulysses-grant",
+    "truman",
+    "lise-meitner"
+   ],
+   "map": [
+    "jean-jacques-rousseau",
+    "wu-zetian",
+    "clovis-i"
+   ],
+   "what": [
+    "florence-cathedral-dome",
+    "codex-sinaiticus",
+    "jerash"
+   ],
+   "thread": [
+    "conn-232"
    ]
   }
  },
