@@ -10241,7 +10241,7 @@
     "items": [
      "Red",
      "Orange",
-     "Indigo",
+     "Green",
      "Violet"
     ]
    }
@@ -10249,64 +10249,64 @@
  },
  {
   "id": "conn-220",
-  "title": "Name Dropping",
+  "title": "Happy Hour",
   "difficulty": "medium",
   "groups": [
    {
     "colour": "yellow",
-    "label": "Norse gods",
+    "label": "Classic cocktails",
     "items": [
-     "Thor",
-     "Odin",
-     "Loki",
-     "Freya"
+     "Bloody Mary",
+     "Cosmopolitan",
+     "Margarita",
+     "Mojito"
     ]
    },
    {
     "colour": "green",
-    "label": "Called the 'father' of a discipline",
+    "label": "Magazines",
     "items": [
-     "Herodotus",
-     "Hippocrates",
-     "Adam Smith",
-     "Euclid"
+     "Vogue",
+     "Time",
+     "Punch",
+     "Tatler"
     ]
    },
    {
     "colour": "blue",
-    "label": "Doctors who never went to medical school",
+    "label": "Boroughs of New York",
     "items": [
-     "Dr Seuss",
-     "Dr Dre",
-     "Dr Watson",
-     "Dr Who"
+     "Manhattan",
+     "Brooklyn",
+     "Queens",
+     "Bronx"
     ]
    },
    {
     "colour": "purple",
-    "label": "Countries named after a person",
+    "label": "Tudor monarchs",
     "items": [
-     "Bolivia",
-     "Colombia",
-     "Philippines",
-     "Saudi Arabia"
+     "Henry",
+     "Edward",
+     "Mary",
+     "Elizabeth"
     ]
    }
   ]
  },
  {
   "id": "conn-221",
-  "title": "Lost and Found",
+  "title": "Greek Chorus",
   "difficulty": "medium",
   "groups": [
    {
     "colour": "yellow",
-    "label": "Lost cities, found or not",
+    "label": "Greek islands",
     "items": [
-     "Atlantis",
-     "Troy",
-     "Pompeii",
-     "El Dorado"
+     "Crete",
+     "Rhodes",
+     "Lesbos",
+     "Corfu"
     ]
    },
    {
@@ -10336,7 +10336,7 @@
      "Gladiator",
      "Ben-Hur",
      "300",
-     "Spartacus"
+     "Troy"
     ]
    }
   ]
@@ -10348,26 +10348,16 @@
   "groups": [
    {
     "colour": "yellow",
-    "label": "Sportswear brands",
+    "label": "Explorers, by surname",
     "items": [
-     "Puma",
-     "Adidas",
-     "Reebok",
-     "Umbro"
+     "Polo",
+     "Drake",
+     "Cabot",
+     "Raleigh"
     ]
    },
    {
     "colour": "green",
-    "label": "Big cats",
-    "items": [
-     "Jaguar",
-     "Leopard",
-     "Cougar",
-     "Cheetah"
-    ]
-   },
-   {
-    "colour": "blue",
     "label": "Volkswagen models",
     "items": [
      "Golf",
@@ -10377,20 +10367,30 @@
     ]
    },
    {
-    "colour": "purple",
-    "label": "Explorers, by surname",
+    "colour": "blue",
+    "label": "British prime ministers",
     "items": [
-     "Polo",
-     "Drake",
+     "Pitt",
+     "Peel",
+     "Eden",
+     "Major"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Rivers of North America",
+    "items": [
      "Hudson",
-     "Cabot"
+     "Mississippi",
+     "Colorado",
+     "Yukon"
     ]
    }
   ]
  },
  {
   "id": "conn-223",
-  "title": "Coastal Erosion",
+  "title": "Lie of the Land",
   "difficulty": "hard",
   "groups": [
    {
@@ -10405,16 +10405,6 @@
    },
    {
     "colour": "green",
-    "label": "Gulf of ___",
-    "items": [
-     "Mexico",
-     "Tonkin",
-     "Aden",
-     "Finland"
-    ]
-   },
-   {
-    "colour": "blue",
     "label": "Cape ___",
     "items": [
      "Horn",
@@ -10424,13 +10414,23 @@
     ]
    },
    {
-    "colour": "purple",
-    "label": "Sea of ___",
+    "colour": "blue",
+    "label": "Mount ___",
     "items": [
-     "Galilee",
-     "Japan",
-     "Marmara",
-     "Tranquility"
+     "Everest",
+     "Rushmore",
+     "Olympus",
+     "Vesuvius"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Lake ___",
+    "items": [
+     "Geneva",
+     "Titicaca",
+     "Superior",
+     "Como"
     ]
    }
   ]

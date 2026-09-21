@@ -3439,7 +3439,18 @@
    "taq kasra",
    "arch of ctesiphon",
    "taq-e kisra",
-   "arch of khosrow"
+   "arch of khosrow",
+   "ctesifon",
+   "ktesiphon",
+   "tesiphon",
+   "ctesephon",
+   "ctisiphon",
+   "ctesiphone",
+   "tesifon",
+   "taq-i kisra",
+   "taq i kisra",
+   "al-madain",
+   "madain"
   ],
   "blurb": "The soaring brick arch of a Persian palace near Baghdad, 6th century AD · Its brick vault is still the largest unreinforced arch on Earth, built with no supporting frame",
   "img": "assets/img/ctesiphon.jpg",
@@ -4230,8 +4241,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by/2.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Buckingham Palace",
-   "Louvre"
+   "Schönbrunn Palace",
+   "Peterhof Palace"
   ]
  },
  {
@@ -8632,7 +8643,13 @@
   "difficulty": "medium",
   "variants": [
    "amber room",
-   "the amber room"
+   "the amber room",
+   "catherine palace",
+   "the catherine palace",
+   "catherines palace",
+   "catherine's palace",
+   "tsarskoye selo",
+   "tsarskoe selo"
   ],
   "blurb": "Gifted to Peter the Great by Prussia in 1716, looted by Nazi forces in 1941 and never found again · This hall reopened in 2003 as an exact reconstruction at Catherine Palace",
   "img": "assets/img/amber-room.jpg",

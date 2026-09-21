@@ -400,6 +400,42 @@
   "anton-chekhov": [
    "Leo Tolstoy",
    "Maxim Gorky"
+  ],
+  "saddam-hussein": [
+   "Hafez al-Assad",
+   "Yasser Arafat"
+  ],
+  "al-capone": [
+   "Lucky Luciano",
+   "Bugsy Siegel"
+  ],
+  "confucius": [
+   "Laozi",
+   "Mencius"
+  ],
+  "george-harrison": [
+   "Ringo Starr",
+   "Eric Clapton"
+  ],
+  "sally-ride": [
+   "Valentina Tereshkova",
+   "Mae Jemison"
+  ],
+  "geronimo": [
+   "Sitting Bull",
+   "Cochise"
+  ],
+  "kublai-khan": [
+   "Genghis Khan",
+   "Ögedei Khan"
+  ],
+  "marie-antoinette": [
+   "Madame de Pompadour",
+   "Empress Elisabeth of Austria"
+  ],
+  "mary-magdalene": [
+   "Virgin Mary",
+   "Saint Veronica"
   ]
  },
  "what": {
@@ -982,6 +1018,10 @@
   "baalbek": [
    "Palmyra",
    "Jerash"
+  ],
+  "palace-of-versailles": [
+   "Schönbrunn Palace",
+   "Peterhof Palace"
   ]
  },
  "map": {
@@ -1320,6 +1360,22 @@
   "richard-ii": [
    "Henry IV of England",
    "Edward II of England"
+  ],
+  "robert-louis-stevenson": [
+   "Arthur Conan Doyle",
+   "Walter Scott"
+  ],
+  "spartacus": [
+   "Hannibal",
+   "Vercingetorix"
+  ],
+  "leonidas-i": [
+   "Themistocles",
+   "Pericles"
+  ],
+  "guy-fawkes": [
+   "Robert Catesby",
+   "Titus Oates"
   ]
  }
 }
