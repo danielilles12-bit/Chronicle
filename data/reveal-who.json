@@ -427,7 +427,8 @@
   "mcq": [
    "John Adams",
    "Samuel Adams"
-  ]
+  ],
+  "start": 7
  },
  {
   "id": "carl-sagan",
@@ -2564,7 +2565,7 @@
    "Blaise Pascal",
    "Baruch Spinoza"
   ],
-  "start": 4
+  "start": 3
  },
  {
   "id": "robert-burns",
@@ -2981,7 +2982,8 @@
   "mcq": [
    "Shah Jahan",
    "Aurangzeb"
-  ]
+  ],
+  "start": 7
  },
  {
   "id": "akhenaten",
@@ -3460,7 +3462,8 @@
   "mcq": [
    "Alfred Russel Wallace",
    "Thomas Huxley"
-  ]
+  ],
+  "start": 7
  },
  {
   "id": "diego-velazquez",
@@ -3936,7 +3939,8 @@
   "mcq": [
    "Nefertiti",
    "Cleopatra"
-  ]
+  ],
+  "start": 3
  },
  {
   "id": "nefertiti",
@@ -4432,7 +4436,8 @@
   "mcq": [
    "Jane Austen",
    "Elizabeth Barrett Browning"
-  ]
+  ],
+  "start": 3
  },
  {
   "id": "michael-faraday",
@@ -4830,7 +4835,7 @@
    "Stonewall Jackson",
    "Ulysses S. Grant"
   ],
-  "start": 4
+  "start": 7
  },
  {
   "id": "rosalind-franklin",
@@ -10272,7 +10277,8 @@
   "mcq": [
    "Buzz Aldrin",
    "John Glenn"
-  ]
+  ],
+  "start": 7
  },
  {
   "id": "chiang-kai-shek",

@@ -737,7 +737,8 @@
   "mcq": [
    "Colossi of Memnon",
    "Abu Simbel"
-  ]
+  ],
+  "start": 6
  },
  {
   "id": "hagia-sophia",
@@ -1917,7 +1918,8 @@
   "mcq": [
    "Hadrian's Wall",
    "Walls of Constantinople"
-  ]
+  ],
+  "start": 6
  },
  {
   "id": "ishtar-gate",
@@ -5010,7 +5012,8 @@
   "mcq": [
    "Canterbury Cathedral",
    "York Minster"
-  ]
+  ],
+  "start": 0
  },
  {
   "id": "alhambra-lions",
