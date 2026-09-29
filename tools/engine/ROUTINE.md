@@ -13,14 +13,16 @@ rulings; consult it when unsure.
 ## 0. Setup
 
 ```bash
-pip install Pillow playwright==1.60.0
-python -m playwright install --with-deps chromium   # for the browser suite
-git config user.name "Yesternerd content engine"
+pip install Pillow playwright==1.56.0   # matches the cloud's preinstalled chromiumgit config user.name "Yesternerd content engine"
 git config user.email "content-engine@yesternerd.app"
 git fetch origin
 ```
 
-If chromium cannot be installed, carry on. CI runs the browser suite after
+Do not run `playwright install`: the cloud container already has chromium
+in `/opt/pw-browsers`, and its network blocks the download. Playwright is
+pinned to 1.56 because that is the version that build belongs to (CI on
+GitHub uses 1.60 and downloads its own). If the browser tests still cannot
+start, carry on. CI runs the browser suite after
 you push, and the fast validators below still gate you.
 
 Work on a fresh branch from the latest main: `git checkout -B engine origin/main`.
