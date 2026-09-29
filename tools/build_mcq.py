@@ -122,9 +122,18 @@ def load(path):
 
 
 def save(path, items):
-    # indent=2 matches how the data files are committed — indent=1 here used
-    # to reformat all three files wholesale on every write (75k-line diffs).
-    path.write_text(json.dumps(items, indent=2, ensure_ascii=False) + "\n",
+    # Keep each file's OWN committed indent. The three files do not agree
+    # (figures.json uses 2, reveal-*.json use 1), and any fixed choice here
+    # reformats the others wholesale on every write (75k-line diffs; hit
+    # with indent=1 in Aug and again with indent=2 on 29 Sep 2026).
+    indent = 2
+    if path.exists():
+        for line in path.read_text(encoding="utf-8").splitlines()[1:6]:
+            stripped = line.lstrip(" ")
+            if stripped and len(stripped) < len(line):
+                indent = len(line) - len(stripped)
+                break
+    path.write_text(json.dumps(items, indent=indent, ensure_ascii=False) + "\n",
                     encoding="utf-8")
 
 

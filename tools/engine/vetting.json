@@ -1,0 +1,6786 @@
+{
+ "_note": "Content-engine verdicts; see tools/engine/PLAYBOOK.md s.8 and tools/engine/build_vetting.py for precedence.",
+ "who": {
+  "abraham": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Generic biblical painting; no famous likeness"
+  },
+  "ada-lovelace": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "adam-smith": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Wig curls opener; £20-note profile"
+  },
+  "agatha-christie": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "akbar-great": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "akhenaten": {
+   "ok": false,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Dark museum profile bust; face reached at once"
+  },
+  "al-capone": {
+   "ok": true,
+   "start": 8,
+   "by": "sonnet",
+   "why": "Cell 6 blank; striped tie and lapel at 8"
+  },
+  "albert-camus": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Cigarette hand start then coat then face"
+  },
+  "albrecht-durer": {
+   "ok": false,
+   "start": 6,
+   "by": "opus",
+   "why": "Very dark; name and monogram painted on canvas"
+  },
+  "alexander-fleming": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "alexander-graham-bell": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "Borderline face; plain suit and backdrop, beard is the only step"
+  },
+  "alexander-great": {
+   "ok": true,
+   "start": 4,
+   "by": "opus",
+   "why": "6 is mostly wall; open on neck/chest, Greek name nearby"
+  },
+  "alexander-hamilton": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Only face, jabot, brown coat, flat backdrop"
+  },
+  "alexander-pushkin": {
+   "ok": false,
+   "start": 6,
+   "by": "opus",
+   "why": "Lovely image but face unknown to UK/US audience"
+  },
+  "alexander-von-humboldt": {
+   "ok": false,
+   "start": 6,
+   "by": "opus",
+   "why": "Likeness unknown to general audience"
+  },
+  "alexandre-dumas": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Hand with cards opener; bow tie then face"
+  },
+  "alfred-hitchcock": {
+   "ok": true,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Old start was blank wall; tie and lapels then face"
+  },
+  "alfred-nobel": {
+   "ok": false,
+   "start": 6,
+   "by": "opus",
+   "why": "Nobel's face little known; white backdrop, plain dark suit"
+  },
+  "ambedkar": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "Likeness unknown to UK/US audience"
+  },
+  "amelia-earhart": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "andrew-jackson": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "andrew-johnson": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "Face little known; 2 is blank; bow tie jumps to face"
+  },
+  "anne-boleyn": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "anne-frank": {
+   "ok": true,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Hands and ring opener; cardigan then face"
+  },
+  "anton-chekhov": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "Face little known in West; small figure on white"
+  },
+  "aretha-franklin": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "artemisia-gentileschi": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "arthur-conan-doyle": {
+   "ok": false,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Boater hat opener; moustache follows"
+  },
+  "arthur-miller": {
+   "ok": false,
+   "start": 8,
+   "by": "sonnet",
+   "why": "Opener blank dark; pipe cell is the clue, then collar."
+  },
+  "arthur-schopenhauer": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Wild hair helps but likeness not familiar to audience"
+  },
+  "ataturk": {
+   "ok": true,
+   "start": 8,
+   "by": "sonnet",
+   "why": "Pocket square opener; suit, tie, then face"
+  },
+  "augustus-caesar": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "ayn-rand": {
+   "ok": false,
+   "start": 5,
+   "by": "sonnet",
+   "why": "Opener is blurred backdrop; likeness borderline, path thin."
+  },
+  "babe-ruth": {
+   "ok": false,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Signature \"Babe Ruth\" printed in bottom cells leaks name"
+  },
+  "beethoven": {
+   "ok": true,
+   "start": 6,
+   "by": "opus",
+   "why": "0 is dark background; open on Missa Solemnis score"
+  },
+  "benito-juarez": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Hand on table opener; coat and bow tie then face"
+  },
+  "benjamin-franklin": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "benjamin-harrison": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Obscure president; grey plain suit, no distinguishing evidence."
+  },
+  "billie-holiday": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "billy-the-kid": {
+   "ok": true,
+   "start": 7,
+   "by": "sonnet",
+   "why": "The one known tintype; gun belt then torso"
+  },
+  "bismarck": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "blaise-pascal": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "bob-marley": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "boris-yeltsin": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "brando": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Very dark tight face crop on black; nothing between"
+  },
+  "bruce-lee": {
+   "ok": true,
+   "start": 8,
+   "by": "sonnet",
+   "why": "White shirt then chin then face; old start curtain"
+  },
+  "calvin-coolidge": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Collar and tie start; old start black"
+  },
+  "carl-linnaeus": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Wig portrait, likeness not famous; opener 6 was blank brown"
+  },
+  "carl-sagan": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Dark podium photo, small face, black backdrop"
+  },
+  "catherine-de-medici": {
+   "ok": false,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Obscure likeness; mostly black, dark backdrop"
+  },
+  "catherine-great": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "cecil-rhodes": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "Borderline face; dark suit and backdrop, no graded path"
+  },
+  "charlemagne": {
+   "ok": true,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Durer painting; brocade and sword opener, medallion then face"
+  },
+  "charles-dickens": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "charles-i-england": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Six cells dark; mostly black clothing"
+  },
+  "charles-v-hre": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "charlie-chaplin": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "che-guevara": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "chiang-kai-shek": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Belt and orders then face; superb uniform path"
+  },
+  "christopher-columbus": {
+   "ok": true,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Standard portrait; hand opener; opener 6 was dark blank"
+  },
+  "chulalongkorn": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "Superb regalia but Siamese king's face unknown here"
+  },
+  "claude-monet": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "cleopatra": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "No agreed likeness; reads as generic Roman bust"
+  },
+  "coco-chanel": {
+   "ok": false,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Small subject, cluttered desk photo"
+  },
+  "confucius": {
+   "ok": false,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Faint ink on flat silk; no true likeness"
+  },
+  "corazon-aquino": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Awkward crop with another person's clothes; low quality photo"
+  },
+  "da-vinci-self": {
+   "ok": true,
+   "start": 7,
+   "by": "opus",
+   "why": "Iconic red chalk; open on beard below face, not corner"
+  },
+  "dante-alighieri": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "darwin": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "david": {
+   "ok": false,
+   "start": 8,
+   "by": "sonnet",
+   "why": "Harp and hand start but generic biblical painting"
+  },
+  "david-hume": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Wig portrait; likeness not famous; gold braid opener"
+  },
+  "david-lynch": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Filmmaker likeness modest; bystanders in frame"
+  },
+  "deng-xiaoping": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "Jimmy Carter blurred beside him; second famous face"
+  },
+  "denis-diderot": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "Nice portrait but likeness unknown"
+  },
+  "dian-fossey": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "No gorillas; face alone not recognisable"
+  },
+  "diego-velazquez": {
+   "ok": false,
+   "start": 4,
+   "by": "opus",
+   "why": "Unknown likeness like Rubens/Titian; mostly black garment"
+  },
+  "edgar-allan-poe": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "edgar-degas": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Unknown likeness; tight dark crop"
+  },
+  "edward-vii": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "edward-viii": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Blurry soft photo; likeness unfamiliar"
+  },
+  "einstein": {
+   "ok": true,
+   "start": 5,
+   "by": "sonnet",
+   "why": "Cell 6 is black; hair and ear at 5"
+  },
+  "eisenhower": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "eleanor-roosevelt": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "elizabeth-i": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "ella-fitzgerald": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Sleeve opener; start 1 leads straight to face"
+  },
+  "elvis-presley": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "emiliano-zapata": {
+   "ok": true,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Iconic photo; scarf and collar then moustache"
+  },
+  "emily-dickinson": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "emmeline-pankhurst": {
+   "ok": true,
+   "start": 5,
+   "by": "sonnet",
+   "why": "Cell 6 dark chair; lace sleeve at 5"
+  },
+  "emmy-noether": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Good photo but unfamiliar likeness"
+  },
+  "empress-dowager-cixi": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "empress-theodora": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "enid-blyton": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "Name famous, face not"
+  },
+  "ernest-rutherford": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Good photo; tie and waistcoat opener, collar then face; nerd-famous"
+  },
+  "eugene-delacroix": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Unfamiliar self-portrait"
+  },
+  "eva-peron": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "fdr": {
+   "ok": true,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Iconic colour portrait; opener 0 was blank backdrop, tie at 7"
+  },
+  "ferdinand-magellan": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "Mostly black backdrop and garment; likeness not widely known"
+  },
+  "ferdinand-marcos": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Grainy young photo, unrepresentative"
+  },
+  "fidel-castro": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "florence-nightingale": {
+   "ok": true,
+   "start": 4,
+   "by": "opus",
+   "why": "6 is mostly wall; open on hands and dress below face"
+  },
+  "francisco-goya": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "frank-lloyd-wright": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Dark blurry photo"
+  },
+  "frank-sinatra": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "franz-kafka": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "franz-schubert": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "frederic-chopin": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "frederick-douglass": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "frederick-the-great": {
+   "ok": false,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Very dark, face off-centre, opener 6 blank black garment"
+  },
+  "freud": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "friedrich-engels": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Cell 0 is backdrop; jacket at 7"
+  },
+  "friedrich-nietzsche": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "friedrich-schiller": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Unfamiliar likeness to Western audience"
+  },
+  "fyodor-dostoevsky": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "gaddafi": {
+   "ok": false,
+   "start": 1,
+   "by": "sonnet",
+   "why": "Other people crowd the frame; grainy"
+  },
+  "galileo": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "gandhi": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "gautama-buddha": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "genghis-khan": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "george-eliot": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Obscure likeness; lower half black; opener 0 blank"
+  },
+  "george-frideric-handel": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Dark generic wig portrait; opener 6 near black"
+  },
+  "george-harrison": {
+   "ok": true,
+   "start": 8,
+   "by": "sonnet",
+   "why": "Jacket badge start; hair and face crop"
+  },
+  "george-hw-bush": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Official portrait; tie start then smile"
+  },
+  "george-iii": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "george-orwell": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "george-v": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "george-vi": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "george-washington": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Six of nine cells near black"
+  },
+  "gerald-ford": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "geronimo": {
+   "ok": true,
+   "start": 6,
+   "by": "opus",
+   "why": "Iconic photo; jacket then neckerchief then face"
+  },
+  "gian-lorenzo-bernini": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Sculptor self-portrait, unknown likeness; face-only crop"
+  },
+  "giuseppe-garibaldi": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Shirt sleeve opener; beard and cap follow"
+  },
+  "giuseppe-verdi": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Boldini portrait; scarf and coat opener, top hat then face"
+  },
+  "goethe": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Stieler portrait; letter in hand opener, cravat then face"
+  },
+  "golda-meir": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "gorbachev": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "gottfried-leibniz": {
+   "ok": false,
+   "start": 4,
+   "by": "opus",
+   "why": "Dark painting, mostly brown backdrop; face not widely known"
+  },
+  "grover-cleveland": {
+   "ok": true,
+   "start": 7,
+   "by": "opus",
+   "why": "Walrus moustache gives a step; medium at most, not easy"
+  },
+  "gustave-courbet": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Famous painting but unknown as a person"
+  },
+  "haile-selassie": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "hans-christian-andersen": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Well-known profile photo; bow tie and lapel opener at 7"
+  },
+  "harriet-tubman": {
+   "ok": true,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Skirt opener, chair and bodice follow; iconic carte"
+  },
+  "harry-houdini": {
+   "ok": true,
+   "start": 7,
+   "by": "opus",
+   "why": "Classic photo; waistcoat, bow tie, then face"
+  },
+  "hatshepsut": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "helen-keller": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "hemingway": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "hendrix": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "henrik-ibsen": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Newspaper in hand opener, hands then coat then face"
+  },
+  "henry-ford": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "henry-v": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "henry-viii": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "herbert-hoover": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Very dark backdrop; six dark cells"
+  },
+  "herman-melville": {
+   "ok": false,
+   "start": 5,
+   "by": "sonnet",
+   "why": "Mostly black garment and backdrop; opener 6 blank; only two states"
+  },
+  "hernan-cortes": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Rich armour painting; sword hand opener then breastplate then face"
+  },
+  "hg-wells": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Face plus plain suit and backdrop; nothing between nothing and answer"
+  },
+  "hirohito": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "hitler": {
+   "ok": true,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Old start was black; collar and tie then face"
+  },
+  "ho-chi-minh": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "honore-de-balzac": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Obscure likeness; robe and folded arms"
+  },
+  "horatio-nelson": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "ida-b-wells": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "idi-amin": {
+   "ok": false,
+   "start": 8,
+   "by": "sonnet",
+   "why": "Medals and aiguillette then face"
+  },
+  "immanuel-kant": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Generic wig portrait, tiny face, dark green oval"
+  },
+  "isaac-asimov": {
+   "ok": false,
+   "start": 8,
+   "by": "sonnet",
+   "why": "Bow tie then glasses then face; grainy tight crop"
+  },
+  "isaac-newton": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "isambard-brunel": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "ivan-the-terrible": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "jackie-kennedy": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "jacques-cousteau": {
+   "ok": false,
+   "start": 8,
+   "by": "opus",
+   "why": "No red cap so not the iconic look; plain suit, blank wall"
+  },
+  "jacques-louis-david": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "james-buchanan": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Obscure president likeness"
+  },
+  "james-clerk-maxwell": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Grainy engraving; unfamiliar likeness"
+  },
+  "james-garfield": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "Generic bearded Victorian to this audience"
+  },
+  "james-madison": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Very dark painting; obscure likeness"
+  },
+  "james-polk": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "Dark, flat backdrop; likeness unknown"
+  },
+  "jan-van-eyck": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "jane-addams": {
+   "ok": false,
+   "start": 5,
+   "by": "sonnet",
+   "why": "Faded washed-out photo; unfamiliar likeness"
+  },
+  "jane-austen": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "jawaharlal-nehru": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "jean-jacques-rousseau": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Wig portrait like Voltaire; likeness not famous enough"
+  },
+  "jefferson-davis": {
+   "ok": false,
+   "start": 4,
+   "by": "opus",
+   "why": "Face unknown; small figure, flat grey backdrop"
+  },
+  "jesus": {
+   "ok": true,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Start was on lower face; hair and halo instead"
+  },
+  "jimmy-carter": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "jinnah": {
+   "ok": false,
+   "start": 1,
+   "by": "sonnet",
+   "why": "Karakul cap is the famous clue; cap, ears, then face."
+  },
+  "joan-of-arc": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Odd crop showing an unidentifiable man; unrepresentative image"
+  },
+  "johann-sebastian-bach": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "john-adams": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "john-f-kennedy": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "john-lennon": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Tight dark face crop; no clothes evidence cells"
+  },
+  "john-locke": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Kneller wig portrait, likeness not famous; opener 4 was on the face"
+  },
+  "john-quincy-adams": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Obscure president likeness"
+  },
+  "john-the-baptist": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Generic Titian saint; no known likeness"
+  },
+  "john-wayne": {
+   "ok": true,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Old start blank wall; collar then face"
+  },
+  "johnny-cash": {
+   "ok": true,
+   "start": 7,
+   "by": "opus",
+   "why": "Iconic; denim collar and grin, hair then face"
+  },
+  "jose-marti": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Unfamiliar to Western audience; opener 2 was blank"
+  },
+  "joseph-haydn": {
+   "ok": false,
+   "start": 8,
+   "by": "sonnet",
+   "why": "Generic wig portrait, unknown likeness; cuff opener fine"
+  },
+  "joseph-lister": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Plain suit and backdrop; opener 2 blank; likeness weak"
+  },
+  "joseph-smith": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Mostly black coat; harsh scan, dark opener."
+  },
+  "joseph-stalin": {
+   "ok": true,
+   "start": 8,
+   "by": "opus",
+   "why": "0 is blank; open on Hero star and epaulette"
+  },
+  "judy-garland": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Glamour still not Dorothy; face and hand only"
+  },
+  "jules-verne": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Dark Nadar photo; opener 0 blank; face plus dark coat only"
+  },
+  "julius-caesar": {
+   "ok": true,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Iconic Tusculum bust; neck opener, mouth then eyes"
+  },
+  "justinian-i": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "kaiser-wilhelm-ii": {
+   "ok": true,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Moustache and orders; opener 0 blank, use medal at 7"
+  },
+  "karl-marx": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "katherine-johnson": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Good NASA photo; hand and desk opener; opener 0 was background"
+  },
+  "khomeini": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "khrushchev": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "kim-il-sung": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "kipling": {
+   "ok": true,
+   "start": 7,
+   "by": "opus",
+   "why": "0 is blank; open on collar, glasses and moustache follow"
+  },
+  "kissinger": {
+   "ok": true,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Patterned tie then glasses and face; dark backdrop"
+  },
+  "kosem-sultan": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "kublai-khan": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Cell 0 flat; white robe and hat at 6"
+  },
+  "kurosawa": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Director likeness modest; hat and profile"
+  },
+  "kurt-cobain": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "lbj": {
+   "ok": true,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Striped tie start; old start was dark hand cell"
+  },
+  "lenin": {
+   "ok": false,
+   "start": 4,
+   "by": "opus",
+   "why": "Dark suit on dark backdrop; nothing between nothing and face"
+  },
+  "leo-tolstoy": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "lewis-carroll": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Face unknown to audience; carte de visite"
+  },
+  "lincoln": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "lise-meitner": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "Likeness unknown to general audience"
+  },
+  "lord-byron": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Cell 6 is landscape; embroidered tunic at 7"
+  },
+  "louis-armstrong": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "louis-pasteur": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "Borderline face; mostly dark suit, blank backdrop"
+  },
+  "louis-xiv": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "louis-xvi": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "lovecraft": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Unknown likeness; grey dark photo"
+  },
+  "macarthur": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "malcolm-x": {
+   "ok": true,
+   "start": 6,
+   "by": "opus",
+   "why": "Iconic; 0 is mostly dark hair edge, open on jacket, ear next"
+  },
+  "mao-zedong": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "marcus-aurelius": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Cell 6 is tree and sky; outstretched arm at 3"
+  },
+  "marie-antoinette": {
+   "ok": true,
+   "start": 5,
+   "by": "sonnet",
+   "why": "Cell 0 dark foliage; hand with rose at 5"
+  },
+  "marie-curie": {
+   "ok": true,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Striped blouse opener; profile then hair"
+  },
+  "marilyn-monroe": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "mark-twain": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "martin-luther": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "martin-luther-king-jr": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "mary-anning": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "mary-magdalene": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Generic penitent painting; no known likeness"
+  },
+  "mary-queen-of-scots": {
+   "ok": true,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Clouet portrait; pearl gown opener, ruff then face"
+  },
+  "mary-shelley": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "mary-wollstonecraft": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "michael-faraday": {
+   "ok": false,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Very dark; opener 8 blank; face partly off-frame"
+  },
+  "michael-jackson": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "michelangelo": {
+   "ok": false,
+   "start": 8,
+   "by": "sonnet",
+   "why": "Dark Volterra portrait; mostly flat black"
+  },
+  "mihrimah-sultan": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "Unknown likeness, like struck Kosem Sultan"
+  },
+  "mohammad-reza-pahlavi": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Orders and sash then face; superb regalia path"
+  },
+  "montesquieu": {
+   "ok": false,
+   "start": 8,
+   "by": "sonnet",
+   "why": "Tight profile crop; unfamiliar likeness"
+  },
+  "moses": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Tablets start then beard then face; generic biblical painting"
+  },
+  "mother-teresa": {
+   "ok": true,
+   "start": 8,
+   "by": "sonnet",
+   "why": "Sari stripes and crucifix then face"
+  },
+  "mozart": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "muhammad-ali": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "mussolini": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "napoleon": {
+   "ok": true,
+   "start": 4,
+   "by": "opus",
+   "why": "David's study portrait; hand-in-waistcoat opener is perfect"
+  },
+  "nefertiti": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "neil-armstrong": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "nelson-mandela": {
+   "ok": true,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Madiba shirt opener; blurry bystanders but iconic"
+  },
+  "nero": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "niccolo-machiavelli": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "nicolaus-copernicus": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "niels-bohr": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "nikola-tesla": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "nikolai-gogol": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Russian writer, unfamiliar likeness to Western audience"
+  },
+  "nixon": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "oda-nobunaga": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "Great image but likeness unknown to Western audience"
+  },
+  "oliver-cromwell": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "oscar-wilde": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "pablo-escobar": {
+   "ok": true,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Mugshot with floral shirt and placard; great path."
+  },
+  "paul-cezanne": {
+   "ok": false,
+   "start": 8,
+   "by": "sonnet",
+   "why": "Unfamiliar likeness; tight murky crop"
+  },
+  "paul-newman": {
+   "ok": true,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Old start blank; tie and suit then face"
+  },
+  "peter-great": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "peter-paul-rubens": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "philip-ii-spain": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "picasso": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "pinochet": {
+   "ok": true,
+   "start": 6,
+   "by": "opus",
+   "why": "Uniform, aiguillette, sash give a George V style path"
+  },
+  "pocahontas": {
+   "ok": false,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Engraving; not the likeness audience pictures"
+  },
+  "pol-pot": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Blurry low-quality photo"
+  },
+  "pope-benedict-xvi": {
+   "ok": true,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Gold cord and white vestments then face"
+  },
+  "pope-francis": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "pope-john-paul-ii": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "pope-leo-xiii": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Obscure pope; likeness not known"
+  },
+  "pope-pius-xii": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Obscure likeness; opener 8 blank robe"
+  },
+  "prince-philip": {
+   "ok": true,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Old start dark flat; striped shirt and tie then face"
+  },
+  "princess-diana": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "queen-elizabeth-ii": {
+   "ok": true,
+   "start": 4,
+   "by": "opus",
+   "why": "6 is mostly backdrop; open on necklace and Garter sash"
+  },
+  "queen-victoria": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "rabindranath-tagore": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "rachel-carson": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Not recognised by audience; tight crop, collar opener better"
+  },
+  "ralph-waldo-emerson": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "Faded sepia, face unknown, dark suit and blank card"
+  },
+  "ramesses-ii": {
+   "ok": false,
+   "start": 8,
+   "by": "opus",
+   "why": "Abu Simbel facade, not a portrait; belongs in Relic"
+  },
+  "rani-lakshmibai": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "raphael": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Face, beret and dark tunic only; likeness not famous"
+  },
+  "rasputin": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "rembrandt-self": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "rene-descartes": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "rfk": {
+   "ok": true,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Opener was backdrop; shirt and tie below face instead."
+  },
+  "richard-feynman": {
+   "ok": false,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Good candid shot; shirt, gesturing hand, then face."
+  },
+  "richard-wagner": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "robert-burns": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Cravat and waistcoat opener; dark coat elsewhere"
+  },
+  "robert-e-lee": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "robert-oppenheimer": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "robin-williams": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "rockefeller": {
+   "ok": true,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Black coat opener; collar and tie better, then moustache."
+  },
+  "ronald-reagan": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "rosa-parks": {
+   "ok": true,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Hair opener passes; tight crop, thin path"
+  },
+  "rosalind-franklin": {
+   "ok": false,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Grainy candid, cluttered background, French sign; poor photo"
+  },
+  "sacagawea": {
+   "ok": false,
+   "start": 5,
+   "by": "sonnet",
+   "why": "Coin photo with shadow, not a portrait; idealised likeness"
+  },
+  "saddam-hussein": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "saint-augustine": {
+   "ok": false,
+   "start": 5,
+   "by": "sonnet",
+   "why": "Busy Botticelli fresco crop; unknown likeness"
+  },
+  "saint-paul": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Generic saint painting; dark; no known likeness"
+  },
+  "saint-peter": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Generic Rubens saint; keys iconography but dark"
+  },
+  "sally-ride": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Great NASA photo; patch opener; opener 0 was flag background"
+  },
+  "samuel-morse": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Beard and medals; star opener 7; opener 0 was flat grey"
+  },
+  "selena": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Unfamiliar to UK/US history audience; crowded shot"
+  },
+  "senna": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Sponsor patches then McLaren suit then face"
+  },
+  "shaka-zulu": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "shakespeare": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "shinzo-abe": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "simon-bolivar": {
+   "ok": false,
+   "start": 8,
+   "by": "sonnet",
+   "why": "Full-length painting; sabre hand opener, sash then face"
+  },
+  "simone-de-beauvoir": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "sitting-bull": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "socrates": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "sojourner-truth": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "solomon": {
+   "ok": false,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Generic engraving; face tiny"
+  },
+  "stan-lee": {
+   "ok": true,
+   "start": 7,
+   "by": "opus",
+   "why": "0 is backdrop plus hair; open on collar below shades"
+  },
+  "stanley-kubrick": {
+   "ok": false,
+   "start": 6,
+   "by": "opus",
+   "why": "Young unbearded Kubrick, not the known face; others behind"
+  },
+  "steinbeck": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "Face not widely known; certainly not easy"
+  },
+  "stephen-hawking": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "steve-jobs": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "stonewall-jackson": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Clear photo; coat buttons opener, beard then face"
+  },
+  "suleiman-magnificent": {
+   "ok": false,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Name inscribed at cell 5 gives it away"
+  },
+  "sun-yat-sen": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Faded grey photo; weakly known likeness"
+  },
+  "susan-b-anthony": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Cell 0 blank white; bodice shoulder at 6"
+  },
+  "swami-vivekananda": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Little known to Western audience"
+  },
+  "sylvia-plath": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Low quality newsprint photo; opener on money cell"
+  },
+  "tchaikovsky": {
+   "ok": true,
+   "start": 8,
+   "by": "sonnet",
+   "why": "Good photo; pocket square opener, coat then face"
+  },
+  "theodore-roosevelt": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "thomas-edison": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "thomas-hobbes": {
+   "ok": false,
+   "start": 4,
+   "by": "opus",
+   "why": "Near-black painting; likeness unknown"
+  },
+  "thomas-jefferson": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "titian": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "tokugawa-ieyasu": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "tolkien": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "toni-morrison": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Cell 0 is blurred backdrop; teal top at 6"
+  },
+  "toussaint-louverture": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "trotsky": {
+   "ok": true,
+   "start": 2,
+   "by": "opus",
+   "why": "0 is blank wall; open on hair mop, glasses follow"
+  },
+  "truman": {
+   "ok": true,
+   "start": 7,
+   "by": "opus",
+   "why": "6 is flat dark; open on tie, glasses give the step"
+  },
+  "ts-eliot": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "Face not widely known; plain suit path; not easy"
+  },
+  "tupac": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Blurry over-smoothed photo; old start blank"
+  },
+  "turing": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "tutankhamun": {
+   "ok": true,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Golden mask iconic; collar opener adds evidence"
+  },
+  "ulysses-grant": {
+   "ok": true,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Cell 0 blank; shirt and vest at 7"
+  },
+  "van-gogh": {
+   "ok": true,
+   "start": 7,
+   "by": "opus",
+   "why": "0 is painted background; open on blue smock and beard"
+  },
+  "vasco-da-gama": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Unfamiliar likeness; opener 0 background; tight face crop"
+  },
+  "victor-hugo": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "virgin-mary": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Madonna and Child icon; robe then hand then face"
+  },
+  "virginia-woolf": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "vivien-leigh": {
+   "ok": true,
+   "start": 8,
+   "by": "sonnet",
+   "why": "Opener blurred backdrop; ruffled dress and bow instead."
+  },
+  "vlad-impaler": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "voltaire": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "walt-disney": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "walt-whitman": {
+   "ok": true,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Iconic hat photo; hat brim opener, beard then face"
+  },
+  "walter-scott": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Dark, obscure likeness; opener 6 blank"
+  },
+  "warhol": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "warren-harding": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Obscure president likeness"
+  },
+  "wellington": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "whitney-houston": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "william-henry-harrison": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "william-howard-taft": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Tie start then moustache then face"
+  },
+  "william-mckinley": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Bow tie start but likeness little known"
+  },
+  "winston-churchill": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "woodrow-wilson": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Familiar photo; opener 6 blank dark, use tie pin at 7"
+  },
+  "zachary-taylor": {
+   "ok": false,
+   "by": "owner-struck"
+  }
+ },
+ "what": {
+  "aachen-cathedral": {
+   "ok": false,
+   "start": 3,
+   "by": "opus",
+   "why": "Generic church cluster to this audience"
+  },
+  "abu-simbel": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "acropolis-athens": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Temples tiny among scrub; not iconic view; opener bush."
+  },
+  "air-space-museum": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Sculpture spire against sky; not iconic or identifiable"
+  },
+  "ajanta-caves": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "al-aqsa-mosque": {
+   "ok": false,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Dome barely visible; less iconic than Dome of Rock"
+  },
+  "alhambra-lions": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "amber-fort": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Generic fort; unknown to audience."
+  },
+  "amber-room": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "american-gothic": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "american-museum-natural-history": {
+   "ok": false,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Name carved across bottom row; odd close crop, US-centric"
+  },
+  "angkor-wat": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "antikythera-mechanism": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "appian-way": {
+   "ok": false,
+   "start": 5,
+   "by": "sonnet",
+   "why": "Pines and cobbles read as generic road; no self-identifying view"
+  },
+  "arc-de-triomphe": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "arena-verona": {
+   "ok": false,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Half crowd and sky; borderline fame."
+  },
+  "arnolfini-portrait": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "art-institute-chicago": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "Museum building; banners dominate facade"
+  },
+  "axum-obelisk": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "aztec-sun-stone": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "baalbek": {
+   "ok": false,
+   "start": 3,
+   "by": "opus",
+   "why": "Reads as generic ancient ruins"
+  },
+  "badshahi-mosque": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Lahore mosque, unknown; courtyard opener blank"
+  },
+  "bagan": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Generic pagodas, half sky, tiny money temple in trees"
+  },
+  "bamiyan-buddhas": {
+   "ok": false,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Robe folds opener beats blank rock; niche head is money"
+  },
+  "baths-caracalla": {
+   "ok": false,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Tilted brick and mosaic, unidentifiable"
+  },
+  "bayeux-tapestry": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "bayon-temple": {
+   "ok": true,
+   "start": 6,
+   "by": "opus",
+   "why": "0 is sky; open on carved stone, faces emerge"
+  },
+  "belem-tower": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "benin-bronzes": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "berlin-wall": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "bhimbetka": {
+   "ok": false,
+   "start": 0,
+   "by": "opus",
+   "why": "Ajanta-level unknown"
+  },
+  "big-ben": {
+   "ok": true,
+   "start": 1,
+   "by": "sonnet",
+   "why": "Opener was sky; use gothic spire cell."
+  },
+  "birth-of-venus": {
+   "ok": true,
+   "start": 8,
+   "by": "opus",
+   "why": "Shell edge opener, then feet, then Venus"
+  },
+  "blue-mosque": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "book-of-kells": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "borobudur": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "boudhanath": {
+   "ok": true,
+   "start": 6,
+   "by": "opus",
+   "why": "Dome edge, then prayer flags, then the eyes"
+  },
+  "bran-castle": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Opener was dark trees; use tower and roofs."
+  },
+  "brandenburg-gate": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "british-museum": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "buckingham-palace": {
+   "ok": true,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Facade with royal pediment; opener shows roofline"
+  },
+  "bust-nefertiti": {
+   "ok": true,
+   "start": 1,
+   "by": "opus",
+   "why": "Crown and uraeus opener; vivid on black"
+  },
+  "cahokia": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Grassy hill; unknown and generic"
+  },
+  "canterbury-cathedral": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Excellent postcard; porch opener builds to Bell Harry tower"
+  },
+  "carnac-stones": {
+   "ok": false,
+   "start": 8,
+   "by": "sonnet",
+   "why": "Tourists in poor snapshot, stones small"
+  },
+  "caserta-palace": {
+   "ok": false,
+   "start": 5,
+   "by": "sonnet",
+   "why": "Aerial of unfamiliar Italian palace; opener was money cell"
+  },
+  "catalan-atlas": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "catalhoyuk": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "catherine-palace": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Distinct blue-white facade; good graded path"
+  },
+  "chambord": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "chan-chan": {
+   "ok": false,
+   "start": 6,
+   "by": "opus",
+   "why": "Generic adobe ruins, unknown"
+  },
+  "charioteer-delphi": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Reads as generic Greek statue in museum"
+  },
+  "charles-bridge": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Not iconic view; half flat sky, single statue."
+  },
+  "chartres-cathedral": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "Generic Gothic facade to this audience"
+  },
+  "chichen-itza": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "christ-the-redeemer": {
+   "ok": true,
+   "start": 7,
+   "by": "opus",
+   "why": "Robe hem opener, arms then head"
+  },
+  "chrysler-building": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "codex-alexandrinus": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Identical Greek text in every scrap; unrecognisable manuscript"
+  },
+  "codex-gigas": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "codex-sinaiticus": {
+   "ok": false,
+   "start": 1,
+   "by": "opus",
+   "why": "Faded uniform text; unknown; no tear path"
+  },
+  "cologne-cathedral": {
+   "ok": false,
+   "start": 1,
+   "by": "opus",
+   "why": "Cathedral small behind office block; not postcard view"
+  },
+  "colosseum": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "colossus-rhodes": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "column-marcus-aurelius": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Obscure; mostly sky, Trajan is the famous one"
+  },
+  "copan": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Unknown stela with poles across it"
+  },
+  "creation-of-adam": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "ctesiphon": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "cullinan-diamond": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Grey rough stone, not recognisable cut gem"
+  },
+  "cutty-sark": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "cyrene": {
+   "ok": false,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Generic columns in ruins, unknown site"
+  },
+  "cyrus-cylinder": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "daigo-fukuryu-maru": {
+   "ok": false,
+   "start": 5,
+   "by": "opus",
+   "why": "Obscure; name painted on hull"
+  },
+  "daria-i-noor": {
+   "ok": false,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Obscure Iranian diamond; audience will not know"
+  },
+  "dead-sea-scrolls": {
+   "ok": false,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Hebrew script only, identical cells"
+  },
+  "declaration-independence": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "delphi-temple": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Three columns read as generic Greek ruins"
+  },
+  "diamond-sutra": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "doges-palace": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "dome-of-the-rock": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "domesday-book": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "easter-island-moai": {
+   "ok": true,
+   "start": 2,
+   "by": "sonnet",
+   "why": "Moai head top opener; fine."
+  },
+  "edinburgh-castle": {
+   "ok": false,
+   "start": 4,
+   "by": "opus",
+   "why": "Castle small amid city; no opener that isn't answer"
+  },
+  "egyptian-museum": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Museum exterior, not the golden mask; flags-and-sky opener bad"
+  },
+  "eiffel-tower": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "el-escorial": {
+   "ok": false,
+   "start": 3,
+   "by": "opus",
+   "why": "Generic grey palace to this audience; 6 is trees"
+  },
+  "elephanta-caves": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "elgin-marbles": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "ellora-kailasa": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "empire-state-building": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "enola-gay": {
+   "ok": true,
+   "start": 4,
+   "by": "sonnet",
+   "why": "B-29 nose art at money cell; propeller opener good"
+  },
+  "flatiron-building": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "florence-cathedral-dome": {
+   "ok": true,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Opener was rooftops; use dome ribs cell."
+  },
+  "forbidden-city": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "forth-bridge": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "fram-ship": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Grainy period photo, half blank ice; thin tear path"
+  },
+  "fushimi-inari": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "garden-earthly-delights": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "gateway-arch": {
+   "ok": true,
+   "start": 1,
+   "by": "sonnet",
+   "why": "Arch curve opener; sky opener useless"
+  },
+  "gedi-ruins": {
+   "ok": false,
+   "start": 2,
+   "by": "opus",
+   "why": "Unknown; 'THE PALACE' sign in frame"
+  },
+  "ghent-altarpiece": {
+   "ok": true,
+   "start": 6,
+   "by": "opus",
+   "why": "Rich panels, great path; medium not easy"
+  },
+  "girl-pearl-earring": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "gobekli-tepe": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "golden-gate-bridge": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "golden-pavilion": {
+   "ok": true,
+   "start": 5,
+   "by": "opus",
+   "why": "2 is trees and sky; open on gilded wall edge"
+  },
+  "golden-temple": {
+   "ok": false,
+   "start": 1,
+   "by": "opus",
+   "why": "Hazy, temple tiny; man and sign dominate foreground"
+  },
+  "great-buddha-kamakura": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "great-enclosure-zimbabwe": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Obscure; mostly sky and grass, generic wall"
+  },
+  "great-mosque-cordoba": {
+   "ok": false,
+   "start": 3,
+   "by": "opus",
+   "why": "Every arch scrap gives it away; bottom row tourists"
+  },
+  "great-mosque-djenne": {
+   "ok": false,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Distinctive mud-brick spires; opener has masonry"
+  },
+  "great-pyramid-giza": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "great-sphinx": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "great-wall-china": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "great-wave": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "gundestrup-cauldron": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "gutenberg-bible": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "gyeongbokgung": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Opener is paving; half pavement, half sky"
+  },
+  "hadrians-villa": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Generic Roman colonnade, third of image is water"
+  },
+  "hagia-sophia": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "hammurabi-stele": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "hampi": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "hanging-gardens": {
+   "ok": true,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Engraving; terrace top opener, plan-of-city noise minor"
+  },
+  "hattusa": {
+   "ok": false,
+   "start": 8,
+   "by": "sonnet",
+   "why": "Lion Gate distinctive; masonry opener then lion carving"
+  },
+  "hawa-mahal": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "hereford-mappa-mundi": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "himeji-castle": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "hindenburg": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "hms-victory": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "hollywood-sign": {
+   "ok": true,
+   "start": 5,
+   "by": "sonnet",
+   "why": "Sign readable; partial letters opener, sky opener was blank"
+  },
+  "holy-sepulchre": {
+   "ok": false,
+   "start": 5,
+   "by": "sonnet",
+   "why": "Plain sandstone courtyard; generic, sky opener bad"
+  },
+  "hoover-dam": {
+   "ok": false,
+   "start": 4,
+   "by": "opus",
+   "why": "Dam tiny in corner; opener 8 is river water"
+  },
+  "hope-diamond": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "hungarian-parliament": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "imperial-regalia-japan": {
+   "ok": false,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Composite of three objects on black; not a real image"
+  },
+  "imperial-state-crown": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "independence-hall": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "ishango-bone": {
+   "ok": false,
+   "start": 1,
+   "by": "sonnet",
+   "why": "Obscure; tiny bone in glass case"
+  },
+  "ishtar-gate": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "itsukushima-shrine": {
+   "ok": true,
+   "start": 4,
+   "by": "opus",
+   "why": "7 is water reflection; open on torii legs"
+  },
+  "jerash": {
+   "ok": false,
+   "start": 8,
+   "by": "sonnet",
+   "why": "Unknown; opener is paving stones"
+  },
+  "kaaba": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "kairouan-mosque": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Unknown mosque; opener is paving"
+  },
+  "kannon": {
+   "ok": false,
+   "start": 4,
+   "by": "opus",
+   "why": "Blurry, generic bodhisattva, not a specific relic"
+  },
+  "karnak-temple": {
+   "ok": true,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Hypostyle hall; opener was sky, use temple masonry"
+  },
+  "kerma-deffufa": {
+   "ok": false,
+   "start": 3,
+   "by": "opus",
+   "why": "Unknown mudbrick mound; half sky"
+  },
+  "khufu-ship": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "kilwa-kisiwani-ruins": {
+   "ok": false,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Unknown East African ruin, generic arches"
+  },
+  "kiss-klimt": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "knossos-palace": {
+   "ok": false,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Griffin fresco, not iconic palace view."
+  },
+  "koh-i-noor": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "konark-sun-temple": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "kremlin-walls": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "lahore-fort": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "lalibela": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Opener was bare rock; use church trench walls."
+  },
+  "lanse-aux-meadows": {
+   "ok": false,
+   "start": 5,
+   "by": "sonnet",
+   "why": "Sod huts under sky; generic, no identifying view"
+  },
+  "laocoon": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "las-meninas": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "lascaux": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "last-supper": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "leaning-tower-pisa": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "leptis-magna": {
+   "ok": false,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Unknown; generic ruined columns and paving"
+  },
+  "leshan-buddha": {
+   "ok": false,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Confusing close crop of curls and cliff, not iconic"
+  },
+  "lewis-chessmen": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "liberty-bell": {
+   "ok": true,
+   "start": 0,
+   "by": "opus",
+   "why": "Yoke opener, inscription, then the crack"
+  },
+  "liberty-leading": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "library-celsus-ephesus": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "lincoln-memorial": {
+   "ok": false,
+   "by": "engine-review",
+   "why": "aerial roof shot, not the iconic statue view"
+  },
+  "lindisfarne-gospels": {
+   "ok": false,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Carpet page pattern, uniform cells, lesser known"
+  },
+  "little-boy": {
+   "ok": false,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Cylinder and blank white; fins never distinctive enough"
+  },
+  "longmen-grottoes": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "lycurgus-cup": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "machu-picchu": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "magna-carta": {
+   "ok": false,
+   "start": 2,
+   "by": "sonnet",
+   "why": "All cells identical illegible text; no evidence path"
+  },
+  "mahabalipuram": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Unknown shore temple, people in frame"
+  },
+  "mahabodhi-temple": {
+   "ok": false,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Nice photo but unfamiliar temple; opener beside main tower"
+  },
+  "maitreya-koryuji": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Obscure Japanese statue on dark backdrop"
+  },
+  "mary-rose": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "masada": {
+   "ok": false,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Brown cliffs in every scrap; no graded path"
+  },
+  "mask-of-agamemnon": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "matsumoto-castle": {
+   "ok": false,
+   "start": 8,
+   "by": "sonnet",
+   "why": "Money cell is sky; castle only in right third"
+  },
+  "mausoleum-halicarnassus": {
+   "ok": false,
+   "start": 4,
+   "by": "opus",
+   "why": "Scattered rubble and houses; not self-identifying"
+  },
+  "meenakshi-temple": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Not iconic; gopuram tiny above water tank."
+  },
+  "merv": {
+   "ok": false,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Unknown site; sky and road cells"
+  },
+  "mesa-verde": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "met-museum": {
+   "ok": false,
+   "start": 5,
+   "by": "opus",
+   "why": "Museum building; 'THE MET' banner on facade"
+  },
+  "meteora": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Bare dark rock, monastery tiny; not iconic view"
+  },
+  "michelangelo-david": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "mikasa": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "milan-cathedral": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "mona-lisa": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "mont-saint-michel": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "mostar-bridge": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Bridge small; opener is neighbouring buildings."
+  },
+  "mount-nemrut": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "mount-rushmore": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "musee-dorsay": {
+   "ok": false,
+   "start": 5,
+   "by": "opus",
+   "why": "Museum building; the weakest kind of Relic"
+  },
+  "mycenae-lion-gate": {
+   "ok": false,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Lion Gate close crop; masonry to column to lions"
+  },
+  "nabta-playa-circle": {
+   "ok": false,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Obscure; standing stones in sand, generic"
+  },
+  "naqsh-e-rustam": {
+   "ok": false,
+   "start": 8,
+   "by": "sonnet",
+   "why": "Unknown; mostly sky and path"
+  },
+  "national-gallery-art": {
+   "ok": false,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Washington gallery, obscure and easily confused"
+  },
+  "natural-history-museum-london": {
+   "ok": false,
+   "by": "engine-rule",
+   "why": "museum building / modern tower — \"Tutankhamun's mask, not a museum\""
+  },
+  "nebra-sky-disc": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "neuschwanstein-castle": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "newgrange-entrance-stone": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "notre-dame-paris": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "ollantaytambo": {
+   "ok": false,
+   "start": 5,
+   "by": "opus",
+   "why": "Generic Inca terraces, unknown"
+  },
+  "oseberg-ship": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "palace-of-versailles": {
+   "ok": true,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Garden facade; opener was sky, use facade"
+  },
+  "palace-of-westminster": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "palenque-temple": {
+   "ok": false,
+   "start": 2,
+   "by": "sonnet",
+   "why": "Three grass cells; opener is trees"
+  },
+  "palmyra": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "pantheon-rome": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "park-guell": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "parthenon": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Parthenon tiny behind hill and trees; not iconic view."
+  },
+  "peacock-throne": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Miniature of Shah Jahan, not a recognisable throne image"
+  },
+  "pena-palace": {
+   "ok": false,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Colourful but audience unlikely to name it."
+  },
+  "pergamon": {
+   "ok": false,
+   "start": 4,
+   "by": "opus",
+   "why": "Generic ancient ruins"
+  },
+  "peterhof-palace": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "Fountain jets and sky; palace not in frame"
+  },
+  "petra-treasury": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "phaistos-disc": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "pieta-michelangelo": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "piri-reis-map": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "pont-du-gard-aqueduct": {
+   "ok": false,
+   "start": 5,
+   "by": "sonnet",
+   "why": "Dull sky and gravel; aqueduct a thin strip."
+  },
+  "ponte-vecchio": {
+   "ok": false,
+   "start": 5,
+   "by": "sonnet",
+   "why": "Bridge tiny; sky and water, money cell is reflection"
+  },
+  "portland-vase": {
+   "ok": true,
+   "start": 0,
+   "by": "opus",
+   "why": "Striking cameo glass; handle opener then figures"
+  },
+  "potala-palace": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Odd angle, foreground stupa dominates, not iconic view"
+  },
+  "prado-museum": {
+   "ok": false,
+   "start": 6,
+   "by": "opus",
+   "why": "Museum building; generic neoclassical facade"
+  },
+  "prague-castle": {
+   "ok": false,
+   "start": 5,
+   "by": "sonnet",
+   "why": "Telephoto over trees; not iconic castle view."
+  },
+  "prambanan": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Indonesian Hindu temple, unknown to audience"
+  },
+  "predjama-castle": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "priapus-vettii": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "qe2": {
+   "ok": false,
+   "start": 5,
+   "by": "opus",
+   "why": "Reads as generic liner; CUNARD text on hull"
+  },
+  "quba-mosque": {
+   "ok": false,
+   "start": 7,
+   "by": "opus",
+   "why": "Unknown to this audience"
+  },
+  "red-fort": {
+   "ok": true,
+   "start": 5,
+   "by": "opus",
+   "why": "0 is sky; open on red wall, gate follows"
+  },
+  "red-square": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Not St Basil's view; half pavement and sky."
+  },
+  "registan": {
+   "ok": false,
+   "start": 8,
+   "by": "sonnet",
+   "why": "Half sky, half empty plaza; unknown to audience"
+  },
+  "reichstag": {
+   "ok": true,
+   "start": 3,
+   "by": "opus",
+   "why": "0 is sky; open on side wing, dome follows"
+  },
+  "rialto-bridge": {
+   "ok": false,
+   "start": 5,
+   "by": "sonnet",
+   "why": "Opener was neighbouring buildings; use bridge arcade."
+  },
+  "rijksmuseum": {
+   "ok": false,
+   "start": 5,
+   "by": "sonnet",
+   "why": "Postcard view with I amsterdam sign; wing opener"
+  },
+  "rila-monastery": {
+   "ok": false,
+   "start": 2,
+   "by": "sonnet",
+   "why": "Obscure Bulgarian monastery, crowded with tourists"
+  },
+  "roman-forum": {
+   "ok": false,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Saturn columns read as generic ruins"
+  },
+  "rosetta-stone": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "rule-of-saint-benedict": {
+   "ok": false,
+   "start": 4,
+   "by": "opus",
+   "why": "Unknown manuscript; uniform text pages"
+  },
+  "sacre-coeur": {
+   "ok": true,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Iconic domes; opener was terrace foliage"
+  },
+  "sacsayhuaman": {
+   "ok": false,
+   "start": 5,
+   "by": "opus",
+   "why": "Reads as generic Inca walls; name obscure"
+  },
+  "sagrada-familia": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "saturn-v": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "schoenbrunn-palace": {
+   "ok": true,
+   "start": 3,
+   "by": "opus",
+   "why": "Postcard view from Gloriette; wing opener"
+  },
+  "school-of-athens": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "segovia-aqueduct": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Dramatic Roman arches; stone builds up"
+  },
+  "seville-cathedral": {
+   "ok": false,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Tiny old aerial of a whole city; few would name it"
+  },
+  "shivaji-terminus": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "shroud-of-turin": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "shwedagon-pagoda": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Gold pagoda reads as generic Southeast Asian"
+  },
+  "sigiriya": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Rock tiny in cloud and jungle."
+  },
+  "sistine-ceiling": {
+   "ok": false,
+   "start": 8,
+   "by": "sonnet",
+   "why": "Frescoes everywhere; prophet opener fine, ceiling borderline."
+  },
+  "sistine-chapel": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "space-shuttle": {
+   "ok": true,
+   "start": 2,
+   "by": "sonnet",
+   "why": "Iconic launch; open on orbiter nose and tank, not gantry"
+  },
+  "spirit-of-st-louis": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "st-basils-cathedral": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "st-catherines-monastery": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "st-edwards-crown": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "st-marks-basilica": {
+   "ok": false,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Spires and statues; fine."
+  },
+  "st-pauls-cathedral": {
+   "ok": true,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Dome aerial; portico opener not neighbouring rooftops"
+  },
+  "st-peters-basilica": {
+   "ok": false,
+   "start": 6,
+   "by": "opus",
+   "why": "Dome cut off; close facade is not the postcard view"
+  },
+  "st-stephens-vienna": {
+   "ok": false,
+   "start": 5,
+   "by": "sonnet",
+   "why": "Spire and tiled roof distinctive; use spire stonework"
+  },
+  "staffordshire-hoard": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Gold scraps on black cloth, generic, three cells empty"
+  },
+  "standard-of-ur": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "starry-night": {
+   "ok": true,
+   "start": 1,
+   "by": "sonnet",
+   "why": "Swirls and stars from scrap one; fine."
+  },
+  "statue-of-liberty": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "statue-zeus-olympia": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "stonehenge": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "summer-palace": {
+   "ok": false,
+   "start": 2,
+   "by": "sonnet",
+   "why": "Dusk gloom, fisherman, tiny palace"
+  },
+  "sunday-grande-jatte": {
+   "ok": false,
+   "start": 2,
+   "by": "sonnet",
+   "why": "Pointillist trees, then figures; recognisable."
+  },
+  "sunflowers": {
+   "ok": true,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Sunflower head opener; fine."
+  },
+  "sunflowers-munich": {
+   "ok": true,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Van Gogh icon; petals opener, vase signature last"
+  },
+  "susa": {
+   "ok": false,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Unknown site; mostly sky and dirt"
+  },
+  "sutton-hoo-helmet": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "sydney-harbour-bridge": {
+   "ok": true,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Iconic bridge; truss opener, water opener was wrong"
+  },
+  "sydney-opera-house": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "tabula-rogeriana": {
+   "ok": false,
+   "start": 5,
+   "by": "sonnet",
+   "why": "Map fragments never identify it; no graded path"
+  },
+  "taj-mahal": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "taktsang": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "tassili-rock-art": {
+   "ok": false,
+   "start": 3,
+   "by": "opus",
+   "why": "Ajanta-level unknown; generic rock art"
+  },
+  "tate-modern": {
+   "ok": false,
+   "start": 5,
+   "by": "opus",
+   "why": "Museum building; 0 is sky"
+  },
+  "taxila": {
+   "ok": false,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Unknown site, flat sky"
+  },
+  "temple-artemis": {
+   "ok": false,
+   "start": 5,
+   "by": "opus",
+   "why": "Lone column in swamp; not self-identifying"
+  },
+  "temple-of-heaven": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "temple-poseidon": {
+   "ok": false,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Generic Greek columns; reads as ancient ruins."
+  },
+  "the-scream": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "the-thinker": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "tikal": {
+   "ok": false,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Recognisable Maya pyramid; opener was mostly grass"
+  },
+  "titanic": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "tiwanaku": {
+   "ok": true,
+   "start": 6,
+   "by": "opus",
+   "why": "Gate of the Sun striking; 0 is sky, open on pillar"
+  },
+  "tokyo-tower": {
+   "ok": false,
+   "by": "engine-rule",
+   "why": "museum building / modern tower — \"Tutankhamun's mask, not a museum\""
+  },
+  "topkapi-palace": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Distant generic skyline over water, sky opener"
+  },
+  "tower-bridge": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "tower-of-london": {
+   "ok": true,
+   "start": 3,
+   "by": "opus",
+   "why": "Curtain wall opener, White Tower follows"
+  },
+  "trajan-column": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "tres-riches-heures": {
+   "ok": false,
+   "start": 6,
+   "by": "sonnet",
+   "why": "Zodiac medallion opener then figure; iconic manuscript page"
+  },
+  "trevi-fountain": {
+   "ok": true,
+   "start": 1,
+   "by": "sonnet",
+   "why": "Opener was sky; sculpture group at top instead."
+  },
+  "trundholm-sun-chariot": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "tulum": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Not iconic view; tiny ruin, rocks, beach."
+  },
+  "tut-mask": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "uffington-white-horse": {
+   "ok": true,
+   "start": 2,
+   "by": "opus",
+   "why": "7 is grass; open on chalk lines, Nazca-style reveal"
+  },
+  "uffizi": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Postcard courtyard view; facade opener good"
+  },
+  "umayyad-mosque": {
+   "ok": false,
+   "start": 4,
+   "by": "opus",
+   "why": "Unknown; crowded courtyard"
+  },
+  "us-capitol": {
+   "ok": true,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Dome facade; steps and columns opener, not lawn"
+  },
+  "us-constitution": {
+   "ok": true,
+   "start": 8,
+   "by": "opus",
+   "why": "Baffling script until We the People lands"
+  },
+  "uss-constitution": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "uxmal": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "valley-of-kings": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Anonymous rock hillside; tomb entrance tiny, generic"
+  },
+  "van-gogh-museum": {
+   "ok": false,
+   "start": 5,
+   "by": "sonnet",
+   "why": "Glass modern building; forgettable, museum building weakest"
+  },
+  "vasa-ship": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "vatican-museums": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Plain outer wall; not the spiral staircase view; sky opener"
+  },
+  "venus-de-milo": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "venus-willendorf": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "victoria-albert-museum": {
+   "ok": false,
+   "start": 7,
+   "by": "sonnet",
+   "why": "Generic Victorian facade; museum building weakest kind"
+  },
+  "villa-of-mysteries": {
+   "ok": false,
+   "start": 4,
+   "by": "sonnet",
+   "why": "Odd fresco crop; nerd-only subject"
+  },
+  "vitruvian-man": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "voyager-golden-record": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "voynich-manuscript": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "wanderer-sea-fog": {
+   "ok": true,
+   "start": 0,
+   "by": "sonnet",
+   "why": "Famous painting; misty peak opener gives long graded path"
+  },
+  "warren-cup": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Blurry museum backdrop, obscure"
+  },
+  "washington-monument": {
+   "ok": true,
+   "start": 7,
+   "by": "opus",
+   "why": "0 is sky; open on base with flags"
+  },
+  "wat-arun": {
+   "ok": false,
+   "start": 8,
+   "by": "sonnet",
+   "why": "Tilted ornate prang, not known to this audience"
+  },
+  "wawel-castle": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "westminster-abbey": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "white-house": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "windsor-castle": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "winged-victory": {
+   "ok": true,
+   "by": "owner-approved"
+  },
+  "winter-palace": {
+   "ok": false,
+   "start": 8,
+   "by": "opus",
+   "why": "Mostly sky, column and lamp; palace a strip"
+  },
+  "world-trade-center": {
+   "ok": true,
+   "start": 8,
+   "by": "opus",
+   "why": "Tower base opener, then twin tops"
+  },
+  "wright-flyer": {
+   "ok": true,
+   "start": 3,
+   "by": "opus",
+   "why": "Iconic 1903 photo; wingtip opener"
+  },
+  "ziggurat-ur": {
+   "ok": false,
+   "start": 3,
+   "by": "sonnet",
+   "why": "Opener equals money; bottom third gravel"
+  }
+ },
+ "map": {
+  "napoleon": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "cleopatra": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "caesar": {
+   "ok": false,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "columbus": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "einstein": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "leonardo": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "jfk": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "victoria": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "mandela": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "gandhi": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "mozart": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "joanofarc": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "curie": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "darwin": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "vangogh": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "marx": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "annefrank": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "marieantoinette": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "alexander": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "nightingale": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "hannibal": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "saladin": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "suleiman": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "pocahontas": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "vascodagama": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "cook": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "tamerlane": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "catherine": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "bolivar": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "jesus-christ": {
+   "ok": false,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": "pins legend or tradition, not record"
+  },
+  "michael-jackson": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "aristotle": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "confucius": {
+   "ok": false,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "vladimir-lenin": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "abraham-lincoln": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "johann-wolfgang-von-goethe": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "joseph-stalin": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "ludwig-van-beethoven": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "dante-alighieri": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "galileo-galilei": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "pablo-picasso": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "michelangelo": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "charlie-chaplin": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "johann-sebastian-bach": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "winston-churchill": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "mustafa-kemal-ataturk": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "elizabeth-ii": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "mark-twain": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "thomas-edison": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "rene-descartes": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "sigmund-freud": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "miguel-de-cervantes": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "augustus": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "charles-dickens": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "martin-luther-king-jr": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "virgil": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "archimedes": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "franklin-delano-roosevelt": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "hans-christian-andersen": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "marilyn-monroe": {
+   "ok": false,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "anton-chekhov": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "franz-kafka": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "pope-francis": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "mao-zedong": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "jean-jacques-rousseau": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "steve-jobs": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "edgar-allan-poe": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "che-guevara": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "niccolo-machiavelli": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "thomas-jefferson": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "oscar-wilde": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "adam-smith": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "neil-armstrong": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "otto-von-bismarck": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "lord-byron": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "charles-de-gaulle": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "benjamin-franklin": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "elvis-presley": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "nikola-tesla": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "sophocles": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "walt-disney": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "george-orwell": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "pythagoras": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "ernest-hemingway": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "thomas-aquinas": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "margaret-thatcher": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "genghis-khan": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "richard-wagner": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "fidel-castro": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "rembrandt": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "james-joyce": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "john-paul-ii": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "cicero": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "yuri-gagarin": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "j-r-r-tolkien": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "benedict-xvi": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "frederic-chopin": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "benito-mussolini": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "mikhail-gorbachev": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "ovid": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "stephen-hawking": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "marlene-dietrich": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "jimmy-carter": {
+   "ok": false,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "mother-teresa": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "henry-ford": {
+   "ok": false,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "herodotus": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "friedrich-engels": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "qin-shi-huang": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "ferdinand-magellan": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "harry-s-truman": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "george-h-w-bush": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "agatha-christie": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "paul-the-apostle": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "pyotr-ilyich-tchaikovsky": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "avicenna": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "raphael": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "alfred-nobel": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "theodore-roosevelt": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "jorge-luis-borges": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "jawaharlal-nehru": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "alan-turing": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "richard-nixon": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "woodrow-wilson": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "rudyard-kipling": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "dwight-d-eisenhower": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "roald-amundsen": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "john-adams": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "hugo-chavez": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "george-bernard-shaw": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "charlemagne": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "elizabeth-i-of-england": {
+   "ok": false,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "muammar-gaddafi": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "alfred-hitchcock": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "john-maynard-keynes": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "louis-xiv-of-france": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "john-lennon": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "maxim-gorky": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "leon-trotsky": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "muhammad-ali": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "pele": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "peter-the-great": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "johannes-gutenberg": {
+   "ok": false,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "andy-warhol": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "freddie-mercury": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "frank-lloyd-wright": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "kofi-annan": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "marcus-aurelius": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "louis-armstrong": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "ashoka": {
+   "ok": false,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "lyndon-b-johnson": {
+   "ok": false,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "diego-maradona": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "gerald-ford": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "james-madison": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "peter-paul-rubens": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "indira-gandhi": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "hernan-cortes": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "saddam-hussein": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "nikita-khrushchev": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "enrico-fermi": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "aesop": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins legend or tradition, not record"
+  },
+  "pablo-neruda": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "horace": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "akbar": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "john-quincy-adams": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "antonio-vivaldi": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "diego-velazquez": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "silvio-berlusconi": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "bob-marley": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "andrew-jackson": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "shinzo-abe": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "thomas-mann": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "isaac-asimov": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "alexander-graham-bell": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "boris-yeltsin": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "herbert-hoover": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "t-s-eliot": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "seneca": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "ulysses-s-grant": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "marlon-brando": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "george-frideric-handel": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "montesquieu": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "hirohito": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "constantine-the-great": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "john-milton": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "robert-louis-stevenson": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "claude-monet": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "yasser-arafat": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "saint-peter": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "erasmus": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "ho-chi-minh": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "zheng-he": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "judy-garland": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "diana-princess-of-wales": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": "pins give more away"
+  },
+  "benazir-bhutto": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "epicurus": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "jim-morrison": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "john-steinbeck": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "vladimir-nabokov": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "cyrus-the-great": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "sappho": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins legend or tradition, not record"
+  },
+  "edith-piaf": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "audrey-hepburn": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "james-a-garfield": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "grover-cleveland": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "william-howard-taft": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "martin-van-buren": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "maya-angelou": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "tacitus": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "vaclav-havel": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "jack-london": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "henry-kissinger": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "andrew-johnson": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "james-buchanan": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "james-k-polk": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "zachary-taylor": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "john-tyler": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "elizabeth-taylor": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "arthur-rimbaud": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "william-mckinley": {
+   "ok": false,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "john-keats": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "robert-mugabe": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": null
+  },
+  "francis-of-assisi": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "john-calvin": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "edmund-hillary": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "maximilien-robespierre": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "antoni-gaudi": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": null
+  },
+  "alexei-navalny": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "wilhelm-ii": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "shimon-peres": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "f-scott-fitzgerald": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "augusto-pinochet": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": null
+  },
+  "grace-kelly": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "ivan-the-terrible": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "tutankhamun": {
+   "ok": false,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": "pins vague or uncertain"
+  },
+  "greta-garbo": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "william-the-conqueror": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "alexander-i-of-russia": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": null
+  },
+  "madeleine-albright": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "cato-the-elder": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": null
+  },
+  "harper-lee": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "elie-wiesel": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "nefertiti": {
+   "ok": false,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": "pins vague or uncertain"
+  },
+  "harriet-tubman": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "alfred-the-great": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "frederick-barbarossa": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "alexander-iii-of-russia": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "cecil-john-rhodes": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "josephus": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "adolf-eichmann": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "theodosius-i": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "john-king-of-england": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": null
+  },
+  "galba": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "richard-i": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "eleanor-of-aquitaine": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "henry-ii-england": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "louis-ix": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "godfrey-of-bouillon": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "cnut-the-great": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "thomas-becket": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "william-wallace": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "robert-the-bruce": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "otto-the-great": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "edward-i": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "edward-ii": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "edward-iii": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "henry-v": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "richard-iii": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "henry-vii": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "henry-viii": {
+   "ok": false,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "mary-i": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "mary-queen-of-scots": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "charles-i-england": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "charles-ii-england": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "oliver-cromwell": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "thomas-more": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "anne-boleyn": {
+   "ok": false,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": "pins vague or uncertain"
+  },
+  "lady-jane-grey": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "francis-drake": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "guy-fawkes": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "mehmed-ii": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "philip-ii-spain": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "ferdinand-of-aragon": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "isabella-of-castile": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "francis-i-france": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "louis-xvi": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "george-washington": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "alexander-hamilton": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "horatio-nelson": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "duke-of-wellington": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "charles-xii-sweden": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "pompey": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "mark-antony": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "scipio-africanus": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": null
+  },
+  "philip-ii-macedon": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "pericles": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "xerxes-i": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins vague or uncertain"
+  },
+  "darius-i": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins vague or uncertain"
+  },
+  "spartacus": {
+   "ok": false,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": "pins vague or uncertain"
+  },
+  "sulla": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": null
+  },
+  "brutus": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "nero": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "caligula": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "trajan": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "hadrian": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "vespasian": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": null
+  },
+  "diocletian": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins are near-identical (same locale)"
+  },
+  "attila": {
+   "ok": false,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": "pins vague or uncertain"
+  },
+  "theodoric-the-great": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "justinian-i": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "clovis-i": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "charles-martel": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "jan-hus": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "francisco-pizarro": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "amerigo-vespucci": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "montezuma-ii": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "ernest-shackleton": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "giuseppe-garibaldi": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "jose-de-san-martin": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "geronimo": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "billy-the-kid": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "frederick-the-great": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "maria-theresa": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "archduke-franz-ferdinand": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "rasputin": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "catherine-de-medici": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "lorenzo-de-medici": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "anne-of-cleves": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "catherine-of-aragon": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "william-of-orange": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "william-iii": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "chiang-kai-shek": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "emperor-meiji": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "ramesses-ii": {
+   "ok": false,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "hatshepsut": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "akhenaten": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins vague or uncertain"
+  },
+  "nebuchadnezzar-ii": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "hammurabi": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "david-king": {
+   "ok": false,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": "pins legend or tradition, not record"
+  },
+  "herod-the-great": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins legend or tradition, not record"
+  },
+  "boudica": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins vague or uncertain"
+  },
+  "edward-teach-blackbeard": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "kit-marlowe": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "vlad-the-impaler": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins legend or tradition, not record"
+  },
+  "charles-v-hre": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "marco-polo": {
+   "ok": false,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "ibn-battuta": {
+   "ok": false,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": "pins vague or uncertain"
+  },
+  "xuanzang": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins vague or uncertain"
+  },
+  "wu-zetian": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "zhu-yuanzhang": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "toyotomi-hideyoshi": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "tokugawa-ieyasu": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "shaka-zulu": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "chandragupta-maurya": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "aurangzeb": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "el-cid": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "ibn-khaldun": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "rumi": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "averroes": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "alexander-nevsky": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "themistocles": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "demosthenes": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "ptolemy-i-soter": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "selim-i": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "osman-i": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins vague or uncertain"
+  },
+  "babur": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "nicolaus-copernicus": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "tycho-brahe": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "johannes-kepler": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "guru-nanak": {
+   "ok": false,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "buddha": {
+   "ok": false,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": "pins legend or tradition, not record"
+  },
+  "maimonides": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "william-tyndale": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins vague or uncertain"
+  },
+  "girolamo-savonarola": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "huldrych-zwingli": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "kamehameha-i": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "hayreddin-barbarossa": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "yongle-emperor": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "bayezid-i": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "peter-abelard": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "guru-gobind-singh": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "toussaint-louverture": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "giuseppe-mazzini": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "jose-marti": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "sun-yat-sen": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "rosa-luxemburg": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "wernher-von-braun": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "hedy-lamarr": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "diego-rivera": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "paul-gauguin": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "igor-stravinsky": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "sergei-rachmaninoff": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "joseph-conrad": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "t-e-lawrence": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "patrice-lumumba": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "anwar-sadat": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "malcolm-x": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "amelia-earhart": {
+   "ok": true,
+   "tier": "easy",
+   "by": "sonnet",
+   "why": null
+  },
+  "robert-falcon-scott": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "josephine-baker": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "w-e-b-du-bois": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "james-baldwin": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "subhas-chandra-bose": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "yitzhak-rabin": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "robert-koch": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "ludwig-wittgenstein": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "marc-chagall": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "rudolf-nureyev": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "kwame-nkrumah": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "haile-selassie": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "nina-simone": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "jimi-hendrix": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "simon-wiesenthal": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "marcus-garvey": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "golda-meir": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "alexander-solzhenitsyn": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "george-mallory": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "isadora-duncan": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "ayrton-senna": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "idi-amin": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "bruce-lee": {
+   "ok": true,
+   "tier": "easy",
+   "by": "owner-approved"
+  },
+  "george-gershwin": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "lee-harvey-oswald": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "frantz-fanon": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "anna-pavlova": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "erich-maria-remarque": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "benjamin-disraeli": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "emperor-pedro-ii": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "thomas-cochrane": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "william-penn": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": null
+  },
+  "john-smith": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "richard-francis-burton": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "fridtjof-nansen": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "john-reed": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "william-adams": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "harald-hardrada": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "david-livingstone": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "leif-erikson": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins legend or tradition, not record"
+  },
+  "erik-the-red": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "empress-matilda": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "alcibiades": {
+   "ok": false,
+   "by": "owner-struck"
+  },
+  "frederick-ii-hohenstaufen": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "henry-iv-france": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "louis-xv-france": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "louis-philippe-i": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "napoleon-iii": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "james-i-england": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "james-ii-england": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "george-i": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "george-iii": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "harold-godwinson": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "richard-ii": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "alexander-ii-of-russia": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "christina-of-sweden": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "gustavus-adolphus": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "john-iii-sobieski": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "matthias-corvinus": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "constantine-xi": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "tiberius": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "claudius": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "commodus": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "septimius-severus": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  },
+  "julian-the-apostate": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "leonidas-i": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "cato-the-younger": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "vercingetorix": {
+   "ok": true,
+   "tier": "hard",
+   "by": "owner-approved"
+  },
+  "pyrrhus-of-epirus": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": null
+  },
+  "seleucus-i": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "gaius-marius": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": null
+  },
+  "crassus": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": null
+  },
+  "basil-ii": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "belisarius": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": null
+  },
+  "nader-shah": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "metternich": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "talleyrand": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "richelieu": {
+   "ok": false,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "both pins same city"
+  },
+  "william-gladstone": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "robert-peel": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "william-wilberforce": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "georges-clemenceau": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": null
+  },
+  "konrad-adenauer": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "josip-broz-tito": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "robert-e-lee": {
+   "ok": true,
+   "tier": "medium",
+   "by": "sonnet",
+   "why": "pins give moderate away"
+  },
+  "stonewall-jackson": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "pins give less away"
+  },
+  "duke-of-marlborough": {
+   "ok": true,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": null
+  },
+  "alexander-suvorov": {
+   "ok": false,
+   "tier": "hard",
+   "by": "sonnet",
+   "why": "too obscure for the audience"
+  },
+  "grand-duchess-anastasia": {
+   "ok": true,
+   "tier": "medium",
+   "by": "owner-approved"
+  }
+ },
+ "thread": {
+  "conn-233": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-234": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-235": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-236": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-237": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-238": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-239": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-240": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-241": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-242": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-243": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-244": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-245": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-246": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-247": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-248": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-249": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-250": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-251": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-252": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-253": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-254": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-255": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-256": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-257": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-258": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-259": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-260": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-261": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-262": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-263": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-264": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-265": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-266": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-267": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-268": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-269": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-227": {
+   "ok": false,
+   "by": "opus-critic",
+   "why": "Egyptian gods group repeats conn-066 tile-for-tile; Genesis/Madonna reuse aired conn-203; no traps; religion taxonomies sort by surface."
+  },
+  "conn-228": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-229": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-230": {
+   "ok": false,
+   "by": "opus-critic",
+   "why": "Fails the history notch (Daniel flagged Cover Story as hat-light); only WWII films touch history."
+  },
+  "conn-231": {
+   "ok": false,
+   "by": "opus-critic",
+   "why": "Surface-sortable (cities, countries, rivers, lines); Belfast was never formally split; Jerusalem already on three boards."
+  },
+  "conn-232": {
+   "ok": false,
+   "by": "opus-critic",
+   "why": "Fails history notch (legend and fairy tale); Arthurian category repeats conn-119; wizards thin on easy day."
+  },
+  "conn-270": {
+   "ok": false,
+   "by": "opus-critic",
+   "december_only": true,
+   "hold": "december-only: hand-placed on 23 Dec (ed 177)",
+   "place_on": 177
+  },
+  "conn-271": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-272": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-273": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-274": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-275": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-276": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-277": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-278": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-279": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-280": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-281": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-282": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-283": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-284": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-285": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-286": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-287": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-288": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-289": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-290": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-291": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-292": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-293": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-294": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-295": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-296": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-297": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-298": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-299": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-300": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-301": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-302": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-303": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-304": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-305": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-306": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-307": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-308": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-309": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-310": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-311": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-312": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-313": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-314": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-315": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-316": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-317": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-318": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-319": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-320": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-321": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-322": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-323": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-324": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-325": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-326": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-327": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-328": {
+   "ok": true,
+   "by": "opus-critic"
+  }
+ }
+}

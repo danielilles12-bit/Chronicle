@@ -55,8 +55,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Voynich Manuscript",
-   "Tower Bridge"
+   "The Last Judgment",
+   "The School of Athens"
   ]
  },
  {
@@ -346,8 +346,8 @@
   "image_license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Nebra Sky Disc",
-   "Imperial Regalia of Japan"
+   "Mask of Agamemnon",
+   "Bust of Nefertiti"
   ]
  },
  {
@@ -374,7 +374,7 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Winged Victory of Samothrace",
+   "Capitoline Venus",
    "Aphrodite of Knidos"
   ]
  },
@@ -424,7 +424,7 @@
   "license": "CC BY 4.0",
   "attribution": "Julian Herzog (Website)",
   "source": "Wikimedia Commons: Big Ben Elizabeth Tower London 2023 01.jpg",
-  "start": 2,
+  "start": 1,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Big_Ben_Elizabeth_Tower_London_2023_01.jpg",
   "image_author": "Julian Herzog (Website)",
   "image_license": "CC BY 4.0",
@@ -432,7 +432,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Eiffel Tower",
-   "Neuschwanstein Castle"
+   "Leaning Tower of Pisa"
   ]
  },
  {
@@ -458,8 +458,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Las Meninas",
-   "Machu Picchu"
+   "Primavera",
+   "Venus of Urbino"
   ]
  },
  {
@@ -487,8 +487,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Abu Simbel",
-   "Great Sphinx of Giza"
+   "Great Sphinx of Giza",
+   "Mask of Tutankhamun"
   ]
  },
  {
@@ -518,7 +518,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Pyramid of the Sun",
-   "Acropolis of Athens"
+   "Tikal"
   ]
  },
  {
@@ -546,8 +546,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Aachen Cathedral",
-   "Abu Simbel"
+   "Statue of Liberty",
+   "The Motherland Calls"
   ]
  },
  {
@@ -618,14 +618,12 @@
    "fushimi inari taisha",
    "fushimi inari shrine",
    "kyoto torii gates",
-   "torii gates",
    "torii gates kyoto",
    "inari shrine",
    "fushimi",
    "inari",
    "kyoto shrine",
    "torii",
-   "torii gate",
    "red gates kyoto",
    "kyoto gates",
    "fushimi shrine"
@@ -644,8 +642,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Potala Palace",
-   "Aachen Cathedral"
+   "Itsukushima Shrine",
+   "Meiji Shrine"
   ]
  },
  {
@@ -705,8 +703,8 @@
   "image_license": "CC BY 2.5",
   "image_retrieved": "2026-08-16",
   "mcq": [
-   "Göbekli Tepe",
-   "Persepolis"
+   "Step Pyramid of Djoser",
+   "Pyramid of the Sun"
   ],
   "image_license_url": "https://creativecommons.org/licenses/by/2.5",
   "start": 7
@@ -766,8 +764,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Kaaba",
-   "Dome of the Rock"
+   "Blue Mosque",
+   "Basilica of San Vitale"
   ],
   "start": 2
  },
@@ -950,8 +948,8 @@
   "image_license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
   "image_retrieved": "2026-08-06",
   "mcq": [
-   "Reichstag building",
-   "Victoria and Albert Museum"
+   "Chateau de Chambord",
+   "Windsor Castle"
   ]
  },
  {
@@ -1156,8 +1154,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Winter Palace",
-   "Uffizi"
+   "Church of the Savior on Spilled Blood",
+   "Saint Isaac's Cathedral"
   ]
  },
  {
@@ -1184,8 +1182,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Court of the Lions",
-   "Warren Cup"
+   "Irises",
+   "The Starry Night"
   ]
  },
  {
@@ -1265,9 +1263,10 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Buddhas of Bamiyan",
-   "Hampi"
-  ]
+   "Fountain of the Four Rivers",
+   "Latona Fountain"
+  ],
+  "start": 1
  },
  {
   "id": "abu-simbel",
@@ -1670,7 +1669,7 @@
   "image_retrieved": "2026-08-25",
   "mcq": [
    "Elephanta Caves",
-   "Sigiriya"
+   "Ajanta Caves"
   ]
  },
  {
@@ -1701,7 +1700,7 @@
   "license": "CC BY 2.5",
   "attribution": "Sailko",
   "source": "Wikimedia Commons: Cupola di santa maria del fiore dal campanile di giotto, 01.JPG",
-  "start": 6,
+  "start": 7,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Cupola_di_santa_maria_del_fiore_dal_campanile_di_giotto%2C_01.JPG",
   "image_author": "sailko",
   "image_license": "CC BY 2.5",
@@ -1795,8 +1794,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Lincoln Memorial",
-   "Berlin Wall"
+   "Brooklyn Bridge",
+   "Sydney Harbour Bridge"
   ]
  },
  {
@@ -1818,15 +1817,15 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Basile Morin",
   "source": "Wikimedia Commons: Water reflection of Kinkaku-ji Temple a sunny day, Kyoto, Japan.jpg",
-  "start": 2,
+  "start": 5,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Water_reflection_of_Kinkaku-ji_Temple_a_sunny_day%2C_Kyoto%2C_Japan.jpg",
   "image_author": "Basile Morin",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "The Forbidden City",
-   "Chan Chan"
+   "Ginkaku-ji",
+   "Kiyomizu-dera"
   ]
  },
  {
@@ -1961,7 +1960,6 @@
    "floating torii",
    "miyajima",
    "itsukushima jinja",
-   "torii gate",
    "great torii"
   ],
   "blurb": "Japan's vermilion torii gate that floats at high tide, off Miyajima · The great vermilion gate isn't anchored to the seabed at all — it stands upright purely under its own weight",
@@ -1973,15 +1971,15 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Ian G Shingler",
   "source": "Wikimedia Commons: Miyajima Itsukushima shrine floating tori gate.jpg",
-  "start": 7,
+  "start": 4,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Miyajima_Itsukushima_shrine_floating_tori_gate.jpg",
   "image_author": "Ian G Shingler",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Potala Palace",
-   "Aachen Cathedral"
+   "Fushimi Inari",
+   "Kiyomizu-dera"
   ]
  },
  {
@@ -2038,7 +2036,7 @@
   "image_retrieved": "2026-08-06",
   "mcq": [
    "Meenakshi Temple",
-   "Florence Cathedral Dome"
+   "Khajuraho Temples"
   ],
   "start": 7
  },
@@ -2097,8 +2095,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by/2.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "USS Constitution",
-   "Vasa"
+   "Tsar Bell",
+   "Plymouth Rock"
   ]
  },
  {
@@ -2334,7 +2332,7 @@
   "image_retrieved": "2026-09-01",
   "mcq": [
    "Baalbek",
-   "Abu Simbel"
+   "Easter Island Moai"
   ]
  },
  {
@@ -2360,8 +2358,8 @@
   "image_license": "CC BY 2.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Neuschwanstein Castle",
-   "Kaaba"
+   "Crazy Horse Memorial",
+   "Stone Mountain"
   ],
   "image_license_url": "https://creativecommons.org/licenses/by/2.0"
  },
@@ -2863,8 +2861,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-08-06",
   "mcq": [
-   "Antikythera Mechanism",
-   "Göbekli Tepe"
+   "Mona Lisa",
+   "The Last Supper"
   ]
  },
  {
@@ -2919,7 +2917,7 @@
   "image_retrieved": "2026-07-21",
   "image_author": "Marie-Lan Nguyen",
   "mcq": [
-   "Venus de Milo",
+   "Nike of Paionios",
    "Laocoön and His Sons"
   ]
  },
@@ -2980,8 +2978,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Neuschwanstein Castle",
-   "Hope Diamond"
+   "Spirit of St. Louis",
+   "Bleriot XI"
   ]
  },
  {
@@ -3147,9 +3145,10 @@
   "image_license_url": "https://creativecommons.org/licenses/by/2.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Hattusa",
-   "Seville Cathedral"
-  ]
+   "Angkor Wat",
+   "Ta Prohm"
+  ],
+  "start": 6
  },
  {
   "id": "blue-mosque",
@@ -3201,8 +3200,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Voynich Manuscript",
-   "Gutenberg Bible"
+   "Lindisfarne Gospels",
+   "Tres Riches Heures du Duc de Berry"
   ]
  },
  {
@@ -3229,7 +3228,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Angkor Wat",
-   "Cahokia"
+   "Shwedagon Pagoda"
   ]
  },
  {
@@ -3257,8 +3256,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Daria-i-Noor",
-   "The Kiss (Klimt)"
+   "Swayambhunath",
+   "Sanchi Stupa"
   ]
  },
  {
@@ -3309,8 +3308,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Rule of Saint Benedict",
-   "Très Riches Heures du Duc de Berry"
+   "Hereford Mappa Mundi",
+   "Fra Mauro Map"
   ],
   "start": 7
  },
@@ -3759,8 +3758,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by/3.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Antikythera Mechanism",
-   "Rosetta Stone"
+   "Rosetta Stone",
+   "Cyrus Cylinder"
   ]
  },
  {
@@ -3844,9 +3843,10 @@
   "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Çatalhöyük",
-   "Valley of the Kings"
-  ]
+   "Abu Simbel",
+   "Temple of Hatshepsut"
+  ],
+  "start": 3
  },
  {
   "id": "lascaux",
@@ -3872,8 +3872,8 @@
   "image_license": "CC BY-SA 3.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Queen Elizabeth 2",
-   "Sydney Harbour Bridge"
+   "Altamira",
+   "Chauvet Cave"
   ],
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0"
  },
@@ -3930,7 +3930,7 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-08-11",
   "mcq": [
-   "Cyrus Cylinder",
+   "Sutton Hoo Helmet",
    "Venus of Willendorf"
   ],
   "start": 3
@@ -4236,7 +4236,7 @@
   "license": "CC BY 2.0",
   "attribution": "sybarite48",
   "source": "Wikimedia Commons: Garden facade of the Palace of Versailles 2.jpg",
-  "start": 1,
+  "start": 3,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Garden_facade_of_the_Palace_of_Versailles_2.jpg",
   "image_author": "sybarite48",
   "image_license": "CC BY 2.0",
@@ -4601,15 +4601,15 @@
   "license": "CC BY-SA 4.0",
   "attribution": "Terragio67",
   "source": "Wikimedia Commons: Basilique du Sacré-Cœur de Montmartre - Paris - GT-01 - 2024.jpg",
-  "start": 6,
+  "start": 3,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Basilique_du_Sacr%C3%A9-C%C5%93ur_de_Montmartre_-_Paris_-_GT-01_-_2024.jpg",
   "image_author": "Terragio67",
   "image_license": "CC BY-SA 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Aachen Cathedral",
-   "Abu Simbel"
+   "Notre-Dame de Paris",
+   "Saint Peter's Basilica"
   ]
  },
  {
@@ -4667,8 +4667,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Monastery and Site of the Escorial",
-   "Vatican Museums"
+   "Palace of Versailles",
+   "Hofburg Palace"
   ]
  },
  {
@@ -4867,8 +4867,8 @@
   "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Delphi Temple",
-   "Très Riches Heures du Duc de Berry"
+   "Forbidden City",
+   "Summer Palace"
   ]
  },
  {
@@ -4925,8 +4925,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Notre-Dame de Paris",
-   "Leaning Tower of Pisa"
+   "Windsor Castle",
+   "Edinburgh Castle"
   ]
  },
  {
@@ -4947,7 +4947,7 @@
   "license": "CC BY-SA 2.0",
   "attribution": "Dave Price",
   "source": "Wikimedia Commons: Aerial View of Uffington White Horse at Harvest Time - geograph.org.uk - 4403449.jpg",
-  "start": 7,
+  "start": 2,
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Aerial_View_of_Uffington_White_Horse_at_Harvest_Time_-_geograph.org.uk_-_4403449.jpg",
   "image_author": "Dave Price",
   "image_license": "CC BY-SA 2.0",
@@ -5040,8 +5040,8 @@
   "image_license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Aachen Cathedral",
-   "Rila Monastery"
+   "Alcazar of Seville",
+   "Great Mosque of Cordoba"
   ]
  },
  {
@@ -5188,8 +5188,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "image_retrieved": "2026-08-06",
   "mcq": [
-   "Palenque",
-   "Leptis Magna"
+   "Jeronimos Monastery",
+   "Tower of Hercules"
   ]
  },
  {
@@ -5216,8 +5216,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Cyrene",
-   "Registan"
+   "Ife Head",
+   "Igbo-Ukwu Bronzes"
   ]
  },
  {
@@ -5467,8 +5467,8 @@
   "image_retrieved": "2026-07-21",
   "image_author": "This file has been provided by the British Library from its digital collections. Links to the British Library's website may be broken as the library recovers from a October 2023 cyber attack, and will be updated once material becomes accessible online. For more information on the attack see: https://www.bl.uk/about/cyber-attack",
   "mcq": [
-   "Rule of Saint Benedict",
-   "Catalan Atlas"
+   "Dead Sea Scrolls",
+   "Gutenberg Bible"
   ]
  },
  {
@@ -5496,8 +5496,8 @@
   "image_retrieved": "2026-08-06",
   "image_author": "Joyofmuseums",
   "mcq": [
-   "Venus of Willendorf",
-   "Statue of Zeus at Olympia"
+   "Venus de Milo",
+   "Winged Victory of Samothrace"
   ],
   "start": 3
  },
@@ -5524,9 +5524,10 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "The Garden of Earthly Delights",
-   "Mona Lisa"
-  ]
+   "The Arnolfini Portrait",
+   "The Garden of Earthly Delights"
+  ],
+  "start": 6
  },
  {
   "id": "gutenberg-bible",
@@ -5551,8 +5552,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-08-06",
   "mcq": [
-   "Voynich Manuscript",
-   "Book of Kells"
+   "Book of Kells",
+   "Codex Sinaiticus"
   ],
   "start": 8
  },
@@ -5612,8 +5613,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Mausoleum at Halicarnassus",
-   "Hanging Gardens of Babylon"
+   "Konark Sun Temple",
+   "Angkor Wat"
   ]
  },
  {
@@ -6053,8 +6054,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Port Royal",
-   "Spirit of St. Louis"
+   "Chaco Canyon",
+   "Taos Pueblo"
   ],
   "start": 2
  },
@@ -6347,7 +6348,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Bayeux Tapestry",
-   "Portland Vase"
+   "Royal Game of Ur"
   ]
  },
  {
@@ -6519,9 +6520,10 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Canterbury Cathedral",
-   "Piri Reis Map"
-  ]
+   "Chan Chan",
+   "Sacsayhuaman"
+  ],
+  "start": 6
  },
  {
   "id": "trajan-column",
@@ -6574,7 +6576,7 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Nebra Sky Disc",
+   "Battersea Shield",
    "Gundestrup Cauldron"
   ],
   "start": 6
@@ -6605,7 +6607,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Palenque",
-   "Chan Chan"
+   "Tikal"
   ]
  },
  {
@@ -6745,7 +6747,7 @@
   "image_retrieved": "2026-07-21",
   "mcq": [
    "Koh-i-Noor",
-   "Imperial State Crown"
+   "Regent Diamond"
   ]
  },
  {
@@ -7119,7 +7121,7 @@
    "Saturn V",
    "Apollo Lunar Module"
   ],
-  "start": 3
+  "start": 2
  },
  {
   "id": "world-trade-center",
@@ -7291,8 +7293,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-08-06",
   "mcq": [
-   "Little Boy",
-   "Space Shuttle"
+   "Space Shuttle",
+   "V-2 Rocket"
   ],
   "start": 1
  },
@@ -7458,7 +7460,7 @@
   "image_retrieved": "2026-08-06",
   "mcq": [
    "Oxus Treasure",
-   "Aztec Sun Stone"
+   "Phaistos Disc"
   ]
  },
  {
@@ -7514,8 +7516,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "British Museum",
-   "St Paul's Cathedral"
+   "Saint Peter's Basilica",
+   "Sainte-Chapelle"
   ],
   "start": 1
  },
@@ -7542,8 +7544,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-08-06",
   "mcq": [
-   "Liberty Bell",
-   "HMS Victory"
+   "Mayflower",
+   "Cutty Sark"
   ],
   "start": 3
  },
@@ -7575,7 +7577,7 @@
    "White House",
    "Lincoln Memorial"
   ],
-  "start": 8
+  "start": 7
  },
  {
   "id": "british-museum",
@@ -7688,8 +7690,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-30",
   "mcq": [
-   "Little Boy",
-   "Saturn V"
+   "Memphis Belle",
+   "Supermarine Spitfire"
   ],
   "start": 4
  },
@@ -7776,9 +7778,10 @@
   "image_license": "Attribution",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Golden Temple",
-   "Konark Sun Temple"
-  ]
+   "Agra Fort",
+   "Fatehpur Sikri"
+  ],
+  "start": 5
  },
  {
   "id": "st-pauls-cathedral",
@@ -7808,7 +7811,7 @@
    "St Peter's Basilica",
    "Les Invalides"
   ],
-  "start": 5
+  "start": 7
  },
  {
   "id": "chrysler-building",
@@ -7946,7 +7949,7 @@
   "image_retrieved": "2026-07-24",
   "mcq": [
    "Book of Kells",
-   "Gutenberg Bible"
+   "Codex Gigas"
   ],
   "start": 1
  },
@@ -7973,9 +7976,10 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Tower Bridge",
-   "Arc de Triomphe"
-  ]
+   "Cleopatra's Needle",
+   "Nelson's Column"
+  ],
+  "start": 7
  },
  {
   "id": "al-aqsa-mosque",
@@ -8035,7 +8039,8 @@
   "mcq": [
    "Mausoleum at Halicarnassus",
    "Lighthouse of Alexandria"
-  ]
+  ],
+  "start": 4
  },
  {
   "id": "vasa-ship",
@@ -8462,9 +8467,10 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Victoria and Albert Museum",
-   "Prado Museum"
-  ]
+   "United States Capitol",
+   "Palace of Westminster"
+  ],
+  "start": 3
  },
  {
   "id": "sydney-harbour-bridge",
@@ -8490,9 +8496,10 @@
   "image_license_url": "https://creativecommons.org/licenses/by/2.5",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Brandenburg Gate",
-   "Mausoleum at Halicarnassus"
-  ]
+   "Golden Gate Bridge",
+   "Tower Bridge"
+  ],
+  "start": 3
  },
  {
   "id": "victoria-albert-museum",
@@ -8830,9 +8837,10 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Centre Pompidou",
-   "National Gallery of Art"
-  ]
+   "Eiffel Tower",
+   "Space Needle"
+  ],
+  "start": 7
  },
  {
   "id": "taxila",
@@ -9028,7 +9036,8 @@
   "mcq": [
    "Rijksmuseum",
    "Prado Museum"
-  ]
+  ],
+  "start": 3
  },
  {
   "id": "lincoln-memorial",
@@ -9052,9 +9061,10 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Hollywood Sign",
-   "Gateway Arch"
-  ]
+   "Jefferson Memorial",
+   "Parthenon"
+  ],
+  "start": 5
  },
  {
   "id": "el-escorial",
@@ -9112,8 +9122,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "The Scream",
-   "The Garden of Earthly Delights"
+   "The Hay Wain",
+   "The Fighting Temeraire"
   ]
  },
  {
@@ -9654,9 +9664,10 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Gateway Arch",
-   "Lincoln Memorial"
-  ]
+   "Welcome to Fabulous Las Vegas Sign",
+   "Griffith Observatory"
+  ],
+  "start": 5
  },
  {
   "id": "gateway-arch",
@@ -9683,9 +9694,10 @@
   "image_license_url": "https://creativecommons.org/licenses/by/2.0",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Hollywood Sign",
-   "Lincoln Memorial"
-  ]
+   "Arc de Triomphe",
+   "Space Needle"
+  ],
+  "start": 1
  },
  {
   "id": "elephanta-caves",
@@ -9967,8 +9979,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Court of the Lions",
-   "Warren Cup"
+   "Irises",
+   "The Starry Night"
   ]
  },
  {
@@ -10026,8 +10038,8 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Badshahi Mosque",
-   "Golden Temple"
+   "Amber Fort",
+   "Mysore Palace"
   ]
  },
  {
@@ -10111,7 +10123,7 @@
   "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "image_retrieved": "2026-08-06",
   "mcq": [
-   "United States Capitol",
+   "Old State House, Boston",
    "Faneuil Hall"
   ],
   "start": 8
@@ -10526,8 +10538,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-24",
   "mcq": [
-   "Imperial State Crown",
-   "Enola Gay"
+   "Graf Zeppelin",
+   "R101"
   ],
   "start": 4
  },

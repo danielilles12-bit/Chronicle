@@ -276,6 +276,20 @@ export function manifestReady(n) {
   return !!DATA.editions || n < MANIFEST_ERA_START;
 }
 
+// The approved edition a curation gap at n replays: n minus the smallest
+// whole number of 91-day (13-week) cycles that lands on a launch-era
+// edition the manifest actually holds. null when there is none.
+const REPLAY_CYCLE = 91;
+const REPLAY_FLOOR = 42;   // launch day; pre-launch issues are never replayed
+export function replayEditionFor(n) {
+  const eds = DATA.editions && DATA.editions.editions;
+  if (!eds) return null;
+  for (let m = n - REPLAY_CYCLE; m >= REPLAY_FLOOR; m -= REPLAY_CYCLE) {
+    if (eds[m]) return m;
+  }
+  return null;
+}
+
 // getEdition(game, n) -> ordered list of item objects for that edition.
 // game: 'map' | 'who' | 'what' | 'thread'
 // For 'thread' the return is a 1-element array [board] (kept as an array for
@@ -298,6 +312,18 @@ export function getEdition(game, n) {
   // no entry for n is a curation gap, not a lost file, and keeps its existing
   // emergency fallback below.
   if (!manifestReady(n)) return [];
+  // Curation gap (29 Sep 2026): the schedule is now topped up by an
+  // unattended weekly run, so a gap means that run stopped. Rather than cut
+  // an uncurated issue from the raw pools, replay an APPROVED issue from a
+  // whole number of 13-week cycles ago — same weekday (so Thread keeps its
+  // tier), long enough ago to feel half-forgotten, and every item already
+  // passed review once. Falls through to the old arithmetic only if no such
+  // issue exists (it always does once the manifest spans 13 weeks).
+  const replay = replayEditionFor(n);
+  if (replay !== null) {
+    const again = manifestEdition(game, replay);
+    if (again) return again;
+  }
   const items = poolFor(game);
   if (game === 'thread') {
     const tier = THREAD_TIER[weekday(n)];

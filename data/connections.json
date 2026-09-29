@@ -10662,7 +10662,7 @@
     "colour": "purple",
     "label": "Famous Browns",
     "items": [
-     "Gordon",
+     "Molly",
      "James",
      "Charlie",
      "Capability"
@@ -10677,7 +10677,7 @@
   "groups": [
    {
     "colour": "yellow",
-    "label": "US states named after a monarch",
+    "label": "US states named after a king or queen",
     "items": [
      "Virginia",
      "Georgia",
@@ -10690,7 +10690,7 @@
     "label": "US states named after a Native American people",
     "items": [
      "Illinois",
-     "Dakota",
+     "Utah",
      "Alabama",
      "Kansas"
     ]
@@ -10854,6 +10854,4518 @@
      "Dumbledore",
      "Harry Potter",
      "Oz"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-233",
+  "title": "Dead Language",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Roman goddesses",
+    "items": [
+     "Diana",
+     "Ceres",
+     "Vesta",
+     "Minerva"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Came to Britain while Roman emperor",
+    "items": [
+     "Caracalla",
+     "Hadrian",
+     "Constantine",
+     "Severus"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Famous early lawgivers",
+    "items": [
+     "Hammurabi",
+     "Justinian",
+     "Moses",
+     "Draco"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Harry Potter first names",
+    "items": [
+     "Albus",
+     "Sirius",
+     "Remus",
+     "Hermione"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-234",
+  "title": "Holy Spirits",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Champagne bottle sizes",
+    "items": [
+     "Magnum",
+     "Jeroboam",
+     "Balthazar",
+     "Nebuchadnezzar"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Lived over 900 years, according to Genesis",
+    "items": [
+     "Adam",
+     "Noah",
+     "Seth",
+     "Methuselah"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Captured Jerusalem",
+    "items": [
+     "David",
+     "Pompey",
+     "Herod",
+     "Titus"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Honoured by a triumphal arch or column still standing in Rome",
+    "items": [
+     "Constantine",
+     "Trajan",
+     "Marcus Aurelius",
+     "Septimius Severus"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-235",
+  "title": "Swarm Welcome",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Plagues of Egypt",
+    "items": [
+     "Locusts",
+     "Hail",
+     "Darkness",
+     "Flies"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "What Churchill offered in May 1940",
+    "items": [
+     "Blood",
+     "Toil",
+     "Tears",
+     "Sweat"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Alfred Hitchcock films, minus 'The'",
+    "items": [
+     "Psycho",
+     "Vertigo",
+     "Rope",
+     "Birds"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Comedies by Aristophanes, minus 'The'",
+    "items": [
+     "Frogs",
+     "Wasps",
+     "Clouds",
+     "Knights"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-236",
+  "title": "Epic Fail",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "The Simpsons",
+    "items": [
+     "Marge",
+     "Bart",
+     "Lisa",
+     "Milhouse"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Greek authors of antiquity",
+    "items": [
+     "Homer",
+     "Aesop",
+     "Plato",
+     "Herodotus"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Destroyed in antiquity",
+    "items": [
+     "Nineveh",
+     "Jericho",
+     "Troy",
+     "Pompeii"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Took on the might of Rome",
+    "items": [
+     "Hannibal",
+     "Spartacus",
+     "Attila",
+     "Pyrrhus"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-237",
+  "title": "Mob Rule",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Books of the New Testament",
+    "items": [
+     "Romans",
+     "Corinthians",
+     "Galatians",
+     "Hebrews"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Conquered by the Romans",
+    "items": [
+     "Etruscans",
+     "Carthaginians",
+     "Britons",
+     "Dacians"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Sacked the city of Rome",
+    "items": [
+     "Gauls",
+     "Visigoths",
+     "Vandals",
+     "Normans"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Peoples who live on in an English word",
+    "items": [
+     "Philistines",
+     "Spartans",
+     "Bohemians",
+     "Assassins"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-238",
+  "title": "Rich Pickings",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Metals known in the ancient world",
+    "items": [
+     "Gold",
+     "Tin",
+     "Lead",
+     "Copper"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Famous ancient trade routes, minus 'Road' or 'Route'",
+    "items": [
+     "Silk",
+     "Amber",
+     "Incense",
+     "Spice"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Wedding anniversaries",
+    "items": [
+     "Ruby",
+     "Pearl",
+     "Crystal",
+     "Leather"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Takes its name from a city or region of antiquity",
+    "items": [
+     "Currant",
+     "Magnet",
+     "Parchment",
+     "Damson"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-239",
+  "title": "A Tale of Many Cities",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Upstate NY cities",
+    "items": [
+     "Ithaca",
+     "Rochester",
+     "Buffalo",
+     "Albany"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Capitals of Egypt at some point in history",
+    "items": [
+     "Memphis",
+     "Alexandria",
+     "Amarna",
+     "Cairo"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Began as Greek colonies",
+    "items": [
+     "Naples",
+     "Marseille",
+     "Nice",
+     "Syracuse"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Fought Athens",
+    "items": [
+     "Sparta",
+     "Thebes",
+     "Persia",
+     "Macedon"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-240",
+  "title": "Destination Unknown",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Excavated in Egypt",
+    "items": [
+     "Giza",
+     "Karnak",
+     "Saqqara",
+     "Valley of the Kings"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Ruins you can visit in Greece",
+    "items": [
+     "Delphi",
+     "Olympia",
+     "Mycenae",
+     "Knossos"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Ancient ruins in modern Turkey",
+    "items": [
+     "Troy",
+     "Ephesus",
+     "Pergamon",
+     "Göbekli Tepe"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Las Vegas casino resorts",
+    "items": [
+     "Bellagio",
+     "Caesars Palace",
+     "Venetian",
+     "Luxor"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-241",
+  "title": "Changing of the Guard",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "First king or emperor of their realm",
+    "items": [
+     "Saul",
+     "Qin Shi Huang",
+     "Romulus",
+     "Peter the Great"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Last monarch of their realm",
+    "items": [
+     "Puyi",
+     "Nicholas II",
+     "Haile Selassie",
+     "Wilhelm II"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Reigned for more than 60 years",
+    "items": [
+     "Ramesses II",
+     "Victoria",
+     "Elizabeth II",
+     "Franz Joseph"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Children in Charlie and the Chocolate Factory",
+    "items": [
+     "Veruca",
+     "Violet",
+     "Mike",
+     "Augustus"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-242",
+  "title": "Exhibit A",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "In the Louvre",
+    "items": [
+     "Mona Lisa",
+     "Venus de Milo",
+     "Winged Victory",
+     "Code of Hammurabi"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "In the British Museum",
+    "items": [
+     "Lewis Chessmen",
+     "Sutton Hoo Helmet",
+     "Elgin Marbles",
+     "Moai"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "In the Vatican",
+    "items": [
+     "Sistine Chapel",
+     "School of Athens",
+     "Laocoön",
+     "Pietà"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "In Berlin",
+    "items": [
+     "Bust of Nefertiti",
+     "Ishtar Gate",
+     "Brandenburg Gate",
+     "Reichstag"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-243",
+  "title": "Urban Legends",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Founded by the Romans",
+    "items": [
+     "London",
+     "York",
+     "Cologne",
+     "Chester"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Served as a capital of the Roman Empire",
+    "items": [
+     "Rome",
+     "Milan",
+     "Ravenna",
+     "Trier"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Said to be built on seven hills",
+    "items": [
+     "Lisbon",
+     "Moscow",
+     "Sheffield",
+     "Kampala"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Nicknamed 'the Athens of' somewhere",
+    "items": [
+     "Edinburgh",
+     "Boston",
+     "Nashville",
+     "Munich"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-244",
+  "title": "Tablet Computing",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Crack a ___",
+    "items": [
+     "Joke",
+     "Code",
+     "Smile",
+     "Safe"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Forms of poem",
+    "items": [
+     "Sonnet",
+     "Haiku",
+     "Limerick",
+     "Ode"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "First created by the ancient Greeks",
+    "items": [
+     "Democracy",
+     "Olympics",
+     "Tragedy",
+     "Comedy"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "The oldest known example was written in Mesopotamia",
+    "items": [
+     "Complaint",
+     "Recipe",
+     "Lullaby",
+     "Epic"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-245",
+  "title": "Motherland",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Vehicle makers",
+    "items": [
+     "Kia",
+     "Lancia",
+     "Scania",
+     "Dacia"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Sailed for Cunard",
+    "items": [
+     "Lusitania",
+     "Mauretania",
+     "Aquitania",
+     "Carpathia"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "National personifications",
+    "items": [
+     "Britannia",
+     "Helvetia",
+     "Germania",
+     "Columbia"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Provinces of the Roman Empire",
+    "items": [
+     "Hispania",
+     "Judaea",
+     "Macedonia",
+     "Africa"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-246",
+  "title": "Rank and File",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "James Cameron films, minus 'The'",
+    "items": [
+     "Aliens",
+     "Terminator",
+     "Abyss",
+     "Avatar"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Came into English from Sanskrit",
+    "items": [
+     "Mantra",
+     "Juggernaut",
+     "Yoga",
+     "Pundit"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Standardised across China by its First Emperor",
+    "items": [
+     "Coins",
+     "Axles",
+     "Script",
+     "Weights"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Found among the Terracotta Army",
+    "items": [
+     "Archers",
+     "Acrobats",
+     "Horses",
+     "Officials"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-247",
+  "title": "Motley Crew",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Captain ___",
+    "items": [
+     "Cook",
+     "Hook",
+     "Kirk",
+     "America"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "First names of kings who went on crusade",
+    "items": [
+     "Richard",
+     "Louis",
+     "Frederick",
+     "Philip"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Robin Hood legend",
+    "items": [
+     "Marian",
+     "Tuck",
+     "Sherwood",
+     "Scarlet"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Pilgrims who tell a Canterbury Tale",
+    "items": [
+     "Miller",
+     "Pardoner",
+     "Wife of Bath",
+     "Monk"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-248",
+  "title": "Court Circular",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Parts of a book",
+    "items": [
+     "Spine",
+     "Cover",
+     "Chapter",
+     "Index"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Medieval punishments",
+    "items": [
+     "Stocks",
+     "Pillory",
+     "Gallows",
+     "Rack"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "British newspapers founded before 1900",
+    "items": [
+     "Times",
+     "Guardian",
+     "Observer",
+     "Telegraph"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Jobs in a medieval royal household",
+    "items": [
+     "Jester",
+     "Squire",
+     "Falconer",
+     "Page"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-249",
+  "title": "Minster of State",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Romantic heroes of classic novels",
+    "items": [
+     "Darcy",
+     "Heathcliff",
+     "Knightley",
+     "Rochester"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Science-fiction writers",
+    "items": [
+     "Verne",
+     "Shelley",
+     "Huxley",
+     "Asimov"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Archbishops of Canterbury",
+    "items": [
+     "Augustine",
+     "Anselm",
+     "Becket",
+     "Cranmer"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Cities with a great medieval cathedral",
+    "items": [
+     "Canterbury",
+     "Durham",
+     "Ely",
+     "Wells"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-250",
+  "title": "Ravenous",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Invaded Britain",
+    "items": [
+     "Romans",
+     "Normans",
+     "Saxons",
+     "Danes"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Found at the Tower of London",
+    "items": [
+     "Beefeaters",
+     "Crown Jewels",
+     "Traitors' Gate",
+     "Ravens"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "NFL teams",
+    "items": [
+     "Giants",
+     "Eagles",
+     "Patriots",
+     "Vikings"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Meat words English took from Norman French",
+    "items": [
+     "Beef",
+     "Pork",
+     "Mutton",
+     "Veal"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-251",
+  "title": "Dark Ages",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Kingdoms of Anglo-Saxon England",
+    "items": [
+     "Wessex",
+     "Mercia",
+     "Northumbria",
+     "East Anglia"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Irish cities founded by Vikings",
+    "items": [
+     "Dublin",
+     "Waterford",
+     "Limerick",
+     "Wexford"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Monasteries sacked by Vikings",
+    "items": [
+     "Lindisfarne",
+     "Iona",
+     "Jarrow",
+     "Whitby"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Superheroes' secret-identity surnames",
+    "items": [
+     "Wayne",
+     "Parker",
+     "Banner",
+     "Kent"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-252",
+  "title": "Sacred Grounds",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Music festivals",
+    "items": [
+     "Woodstock",
+     "Coachella",
+     "Download",
+     "Isle of Wight"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Took vows as a monk or friar",
+    "items": [
+     "Luther",
+     "Mendel",
+     "Aquinas",
+     "Dom Pérignon"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Site of a great medieval abbey",
+    "items": [
+     "Westminster",
+     "Tintern",
+     "Fountains",
+     "Reading"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Real places woven into the legend of King Arthur",
+    "items": [
+     "Tintagel",
+     "Cadbury",
+     "Winchester",
+     "Glastonbury"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-253",
+  "title": "Name Tags",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "First names of US First Ladies",
+    "items": [
+     "Martha",
+     "Abigail",
+     "Jacqueline",
+     "Nancy"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Title characters of Roald Dahl books",
+    "items": [
+     "Charlie",
+     "James",
+     "Danny",
+     "George"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Anglo-Saxon kings of England",
+    "items": [
+     "Athelstan",
+     "Edgar",
+     "Edmund",
+     "Harold"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Leading women of medieval England",
+    "items": [
+     "Eleanor",
+     "Matilda",
+     "Godiva",
+     "Isabella"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-254",
+  "title": "Hot Dates",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Emergency phone numbers",
+    "items": [
+     "999",
+     "911",
+     "112",
+     "000"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Years of revolution in Europe",
+    "items": [
+     "1789",
+     "1848",
+     "1917",
+     "1989"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Start the title of a famous book or film",
+    "items": [
+     "1984",
+     "2001",
+     "300",
+     "1066"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Magna Carta, Black Death in England, Agincourt, fall of Constantinople",
+    "items": [
+     "1215",
+     "1348",
+     "1415",
+     "1453"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-255",
+  "title": "The French Connection",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "French wine regions",
+    "items": [
+     "Bordeaux",
+     "Burgundy",
+     "Champagne",
+     "Alsace"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Battles and sieges of the Hundred Years' War",
+    "items": [
+     "Crécy",
+     "Poitiers",
+     "Agincourt",
+     "Calais"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Gave its name to a treaty signed after 1800",
+    "items": [
+     "Sèvres",
+     "Amiens",
+     "Nice",
+     "Fontainebleau"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Where Joan of Arc broke a siege, saw her king crowned, was captured, or was burned",
+    "items": [
+     "Orléans",
+     "Reims",
+     "Compiègne",
+     "Rouen"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-256",
+  "title": "The Long Way Round",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Sacked by the Mongols",
+    "items": [
+     "Baghdad",
+     "Kyiv",
+     "Samarkand",
+     "Moscow"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Came into English from Venice",
+    "items": [
+     "Ghetto",
+     "Arsenal",
+     "Gazette",
+     "Ciao"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Places Marco Polo lived or visited",
+    "items": [
+     "Venice",
+     "Genoa",
+     "Hormuz",
+     "Beijing"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Hit songs titled with a place name",
+    "items": [
+     "Vienna",
+     "Budapest",
+     "Xanadu",
+     "Kashmir"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-257",
+  "title": "Heads Will Roll",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Cockney rhyming slang",
+    "items": [
+     "Loaf",
+     "Plates",
+     "Syrup",
+     "Barnet"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "English racecourses",
+    "items": [
+     "Ascot",
+     "Epsom",
+     "Aintree",
+     "Cheltenham"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Battles of the Wars of the Roses",
+    "items": [
+     "Towton",
+     "Tewkesbury",
+     "Wakefield",
+     "Bosworth"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Where a medieval English king met his end",
+    "items": [
+     "Hastings",
+     "New Forest",
+     "Berkeley",
+     "Pontefract"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-258",
+  "title": "Bad Company",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Countries named after a river",
+    "items": [
+     "Niger",
+     "Senegal",
+     "Gambia",
+     "Zambia"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Assassins",
+    "items": [
+     "Booth",
+     "Princip",
+     "Brutus",
+     "Oswald"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Named after a pre-colonial African kingdom or city",
+    "items": [
+     "Ghana",
+     "Mali",
+     "Zimbabwe",
+     "Benin"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Anglo-Saxon saints",
+    "items": [
+     "Cuthbert",
+     "Swithin",
+     "Bede",
+     "Chad"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-259",
+  "title": "Change of Address",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Cities in Ohio",
+    "items": [
+     "Dayton",
+     "Akron",
+     "Cincinnati",
+     "Cleveland"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Famous English public schools",
+    "items": [
+     "Eton",
+     "Harrow",
+     "Rugby",
+     "Winchester"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "US presidents born in Ohio",
+    "items": [
+     "Grant",
+     "Garfield",
+     "Taft",
+     "Harding"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Capital of a medieval kingdom",
+    "items": [
+     "Aachen",
+     "Kraków",
+     "Palermo",
+     "Toledo"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-260",
+  "title": "Pennies from Heaven",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "UK Monopoly squares",
+    "items": [
+     "Mayfair",
+     "Strand",
+     "Whitehall",
+     "Piccadilly"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Ranks of angels in medieval theology",
+    "items": [
+     "Seraphim",
+     "Cherubim",
+     "Thrones",
+     "Dominions"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "London place names from a medieval religious order",
+    "items": [
+     "Temple",
+     "Blackfriars",
+     "Whitefriars",
+     "Charterhouse"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Coins of medieval England",
+    "items": [
+     "Groat",
+     "Noble",
+     "Sovereign",
+     "Angel"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-261",
+  "title": "Loose Threads",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Washing powders",
+    "items": [
+     "Persil",
+     "Ariel",
+     "Daz",
+     "Surf"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "RAF radio code words in the Battle of Britain",
+    "items": [
+     "Scramble",
+     "Bandit",
+     "Pancake",
+     "Angels"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Shown on the Bayeux Tapestry",
+    "items": [
+     "Comet",
+     "Oath",
+     "Feast",
+     "Arrow"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Star of a legend about a medieval king",
+    "items": [
+     "Cakes",
+     "Spider",
+     "Lampreys",
+     "Tide"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-262",
+  "title": "Home and Away",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Scottish cities",
+    "items": [
+     "Dundee",
+     "Stirling",
+     "Aberdeen",
+     "Perth"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Capitals of Australia's states",
+    "items": [
+     "Adelaide",
+     "Brisbane",
+     "Hobart",
+     "Melbourne"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "British scientists of the 1800s",
+    "items": [
+     "Darwin",
+     "Faraday",
+     "Kelvin",
+     "Babbage"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "British PMs of the 1800s",
+    "items": [
+     "Disraeli",
+     "Gladstone",
+     "Salisbury",
+     "Palmerston"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-263",
+  "title": "House Calls",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Doctors in 19th-century novels",
+    "items": [
+     "Jekyll",
+     "Watson",
+     "Van Helsing",
+     "Moreau"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Doctors in film and TV titles",
+    "items": [
+     "Who",
+     "No",
+     "Zhivago",
+     "Strangelove"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "18th-century figures known as 'Doctor'",
+    "items": [
+     "Johnson",
+     "Jenner",
+     "Guillotin",
+     "Franklin"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Real Victorians known as 'Doctor'",
+    "items": [
+     "Livingstone",
+     "Grace",
+     "Snow",
+     "Barnardo"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-264",
+  "title": "Pop Quiz",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Drinks invented by a chemist",
+    "items": [
+     "Pepsi",
+     "Lucozade",
+     "Horlicks",
+     "Ovaltine"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Diplomatic gifts",
+    "items": [
+     "Cleopatra's Needle",
+     "Giant pandas",
+     "Cherry trees",
+     "Christmas tree"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Things with a needle",
+    "items": [
+     "Compass",
+     "Gramophone",
+     "Syringe",
+     "Pine"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "All from 1886",
+    "items": [
+     "Coca-Cola",
+     "Statue of Liberty",
+     "Jekyll and Hyde",
+     "Johannesburg"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-265",
+  "title": "Colonial Office",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "British Formula One world champions",
+    "items": [
+     "Button",
+     "Hunt",
+     "Mansell",
+     "Hill"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Royal Navy admirals",
+    "items": [
+     "Fisher",
+     "Jellicoe",
+     "Collingwood",
+     "Hood"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Governors-General or Viceroys of India",
+    "items": [
+     "Cornwallis",
+     "Curzon",
+     "Dalhousie",
+     "Elgin"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "New Zealand cities honouring a Briton",
+    "items": [
+     "Hamilton",
+     "Hastings",
+     "Auckland",
+     "Nelson"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-266",
+  "title": "Topsy-Turvy",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Victorian women's fashion",
+    "items": [
+     "Crinoline",
+     "Bustle",
+     "Corset",
+     "Bonnet"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Titles for a monarch",
+    "items": [
+     "Kaiser",
+     "Sultan",
+     "Shah",
+     "Maharaja"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Venice, past and present",
+    "items": [
+     "Doge",
+     "Rialto",
+     "Lido",
+     "Bridge of Sighs"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Gilbert and Sullivan operas (short titles)",
+    "items": [
+     "Mikado",
+     "Pinafore",
+     "Gondoliers",
+     "Patience"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-267",
+  "title": "Elevenses",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "British biscuits",
+    "items": [
+     "Digestive",
+     "Custard cream",
+     "Rich Tea",
+     "Hobnob"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Grand hotels opened in the 1880s-90s",
+    "items": [
+     "Savoy",
+     "Ritz",
+     "Waldorf",
+     "Raffles"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Dynasties reigning in Europe in 1900",
+    "items": [
+     "Habsburg",
+     "Romanov",
+     "Hohenzollern",
+     "Bourbon"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Heroes of Italian unification",
+    "items": [
+     "Garibaldi",
+     "Cavour",
+     "Mazzini",
+     "Victor Emmanuel"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-268",
+  "title": "Gang of Four",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Dogs from China",
+    "items": [
+     "Pug",
+     "Shih Tzu",
+     "Pekingese",
+     "Chow Chow"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Citrus fruits",
+    "items": [
+     "Clementine",
+     "Kumquat",
+     "Jaffa",
+     "Mandarin"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Signed away by Qing China in the 1800s",
+    "items": [
+     "Hong Kong",
+     "Kowloon",
+     "Taiwan",
+     "Macau"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Gave their name to a 19th-century rebellion",
+    "items": [
+     "Boxer",
+     "Taiping",
+     "Sepoy",
+     "Satsuma"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-269",
+  "title": "Quick on the Draw",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Halves of comedy double acts",
+    "items": [
+     "Laurel",
+     "Abbott",
+     "Costello",
+     "Wise"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Guns named after their designer",
+    "items": [
+     "Colt",
+     "Gatling",
+     "Derringer",
+     "Browning"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Wild West figures, by surname",
+    "items": [
+     "Earp",
+     "Hickok",
+     "Holliday",
+     "Cassidy"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Poets published in Queen Victoria's reign",
+    "items": [
+     "Tennyson",
+     "Kipling",
+     "Lear",
+     "Hardy"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-270",
+  "title": "Christmas Past",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Female animals",
+    "items": [
+     "Vixen",
+     "Doe",
+     "Sow",
+     "Ewe"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Invented in the 1840s",
+    "items": [
+     "Christmas card",
+     "Cracker",
+     "Rubber band",
+     "Safety pin"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Santa's reindeer",
+    "items": [
+     "Comet",
+     "Cupid",
+     "Blitzen",
+     "Dasher"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Led an ill-fated expedition",
+    "items": [
+     "Franklin",
+     "Donner",
+     "Scott",
+     "Hudson"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-271",
+  "title": "Good Sports",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "First contested in the 1800s",
+    "items": [
+     "Wimbledon",
+     "Boat Race",
+     "FA Cup",
+     "Grand National"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "First contested between 1900 and 1930",
+    "items": [
+     "Tour de France",
+     "Ryder Cup",
+     "World Cup",
+     "Le Mans"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Football clubs founded as Victorian works teams",
+    "items": [
+     "Arsenal",
+     "West Ham",
+     "Manchester United",
+     "Millwall"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Sporting names taken from British aristocrats",
+    "items": [
+     "Queensberry",
+     "Lonsdale",
+     "Derby",
+     "Stanley"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-272",
+  "title": "Grand Finale",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Disney animated feature films",
+    "items": [
+     "Bambi",
+     "Dumbo",
+     "Pinocchio",
+     "Cinderella"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Works by Tchaikovsky",
+    "items": [
+     "Swan Lake",
+     "The Nutcracker",
+     "1812 Overture",
+     "Sleeping Beauty"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Tales by Hans Christian Andersen",
+    "items": [
+     "The Ugly Duckling",
+     "The Emperor's New Clothes",
+     "The Snow Queen",
+     "The Little Mermaid"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Events of 1812",
+    "items": [
+     "Retreat from Moscow",
+     "Grimms' Fairy Tales",
+     "Birth of Dickens",
+     "Battle of Borodino"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-273",
+  "title": "Signal Failure",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "London Underground lines",
+    "items": [
+     "Jubilee",
+     "Circle",
+     "Metropolitan",
+     "Northern"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Engines in Thomas the Tank Engine",
+    "items": [
+     "Thomas",
+     "Percy",
+     "Toby",
+     "Henry"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Kings of Scots",
+    "items": [
+     "Robert",
+     "Duncan",
+     "Malcolm",
+     "James"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Victorian army generals",
+    "items": [
+     "Gordon",
+     "Kitchener",
+     "Baden-Powell",
+     "Raglan"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-274",
+  "title": "Shore Leave",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Types of shorts",
+    "items": [
+     "Bermuda",
+     "Cargo",
+     "Hot pants",
+     "Lederhosen"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Found in Greenwich",
+    "items": [
+     "Royal Observatory",
+     "Prime Meridian",
+     "National Maritime Museum",
+     "Cutty Sark"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Whisky brands dating from the 1800s",
+    "items": [
+     "Johnnie Walker",
+     "Glenfiddich",
+     "Famous Grouse",
+     "Jack Daniel's"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Came under British rule in the 1800s",
+    "items": [
+     "Malta",
+     "Cyprus",
+     "Singapore",
+     "Falklands"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-275",
+  "title": "Giant Leaps",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Parts of a staircase",
+    "items": [
+     "Tread",
+     "Riser",
+     "Landing",
+     "Handrail"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Jazz legends, by surname",
+    "items": [
+     "Armstrong",
+     "Ellington",
+     "Holiday",
+     "Fitzgerald"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Scenes of amphibious landings in the World Wars",
+    "items": [
+     "Okinawa",
+     "Gallipoli",
+     "Anzio",
+     "Iwo Jima"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Achieved a famous 20th-century first, by surname",
+    "items": [
+     "Bannister",
+     "Hillary",
+     "Tenzing",
+     "Gagarin"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-276",
+  "title": "Trade Secrets",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Toy crazes of the 20th century",
+    "items": [
+     "Hula hoop",
+     "Frisbee",
+     "Rubik's Cube",
+     "Yo-yo"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Brand names that became verbs",
+    "items": [
+     "Hoover",
+     "Google",
+     "Xerox",
+     "Photoshop"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "20th-century US presidents",
+    "items": [
+     "Truman",
+     "Nixon",
+     "Carter",
+     "Ford"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Invented during the Second World War",
+    "items": [
+     "Fanta",
+     "Jeep",
+     "Slinky",
+     "Duct tape"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-277",
+  "title": "Stiff Upper Lip",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Features of Britain's wartime home front",
+    "items": [
+     "Blackout",
+     "Rationing",
+     "Evacuee",
+     "Land Girl"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Tory leaders who became prime minister",
+    "items": [
+     "Eden",
+     "Macmillan",
+     "Heath",
+     "Baldwin"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Dad's Army characters",
+    "items": [
+     "Mainwaring",
+     "Pike",
+     "Jones",
+     "Wilson"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Completes a wartime Home Front slogan",
+    "items": [
+     "Victory",
+     "Mend",
+     "Lives",
+     "Carry On"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-278",
+  "title": "City Breaks",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Pearl ___",
+    "items": [
+     "Harbor",
+     "Jam",
+     "Barley",
+     "Diver"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Berlin ___",
+    "items": [
+     "Wall",
+     "Airlift",
+     "Blockade",
+     "Philharmonic"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Cuban ___",
+    "items": [
+     "Crisis",
+     "Heels",
+     "Cigar",
+     "Revolution"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Munich ___",
+    "items": [
+     "Agreement",
+     "Massacre",
+     "Putsch",
+     "Olympics"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-279",
+  "title": "Honours Even",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Mr ___",
+    "items": [
+     "Bean",
+     "Darcy",
+     "Whippy",
+     "Potato Head"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Won the Nobel Peace Prize",
+    "items": [
+     "Mandela",
+     "Mother Teresa",
+     "Martin Luther King",
+     "Tutu"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Led a nation in the Second World War",
+    "items": [
+     "Roosevelt",
+     "Mussolini",
+     "Hirohito",
+     "Chamberlain"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Won the Nobel Prize in Literature",
+    "items": [
+     "Churchill",
+     "Kipling",
+     "Hemingway",
+     "Steinbeck"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-280",
+  "title": "Cover Versions",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Bands whose names borrow from history",
+    "items": [
+     "Franz Ferdinand",
+     "Led Zeppelin",
+     "Spandau Ballet",
+     "Jethro Tull"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Leaders assassinated in the 20th century",
+    "items": [
+     "Trotsky",
+     "Gandhi",
+     "Kennedy",
+     "Sadat"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Airports named after them",
+    "items": [
+     "O'Hare",
+     "LaGuardia",
+     "Reagan",
+     "Lennon"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Revolutionary aliases, not birth names",
+    "items": [
+     "Lenin",
+     "Stalin",
+     "Tito",
+     "Ho Chi Minh"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-281",
+  "title": "Party Lines",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "___ fight",
+    "items": [
+     "Pillow",
+     "Food",
+     "Fist",
+     "Dog"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Led France in the 20th century",
+    "items": [
+     "de Gaulle",
+     "Pétain",
+     "Clemenceau",
+     "Mitterrand"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Gave their name to a 20th-century uprising",
+    "items": [
+     "Easter",
+     "Warsaw",
+     "Hungarian",
+     "Mau Mau"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Characters in Animal Farm",
+    "items": [
+     "Benjamin",
+     "Snowball",
+     "Boxer",
+     "Squealer"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-282",
+  "title": "Crossing the Pond",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "British cities heavily bombed in the Blitz",
+    "items": [
+     "Coventry",
+     "Plymouth",
+     "Portsmouth",
+     "Birmingham"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Second World War generals",
+    "items": [
+     "Rommel",
+     "MacArthur",
+     "Zhukov",
+     "Eisenhower"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Where Martin Luther King led a campaign",
+    "items": [
+     "Selma",
+     "Montgomery",
+     "Memphis",
+     "Chicago"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Best Picture Oscar winners named after a real person",
+    "items": [
+     "Patton",
+     "Amadeus",
+     "Oppenheimer",
+     "Lawrence of Arabia"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-283",
+  "title": "Maiden Voyages",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "British comics",
+    "items": [
+     "Beano",
+     "Dandy",
+     "Viz",
+     "Commando"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Captain Cook's ships",
+    "items": [
+     "Endeavour",
+     "Discovery",
+     "Resolution",
+     "Adventure"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "NASA space shuttles",
+    "items": [
+     "Columbia",
+     "Challenger",
+     "Atlantis",
+     "Enterprise"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Part of the Apollo 11 mission",
+    "items": [
+     "Eagle",
+     "Aldrin",
+     "Collins",
+     "Tranquility"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-284",
+  "title": "By the Numbers",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Famous places known by a number",
+    "items": [
+     "10",
+     "51",
+     "66",
+     "54"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Number in the title of a 20th-century novel",
+    "items": [
+     "451",
+     "1984",
+     "39",
+     "5"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Apollo missions that made history",
+    "items": [
+     "1",
+     "8",
+     "11",
+     "13"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Lines of latitude that became borders",
+    "items": [
+     "38",
+     "17",
+     "49",
+     "22"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-285",
+  "title": "Family Rebrand",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Types of seat or sofa",
+    "items": [
+     "Chesterfield",
+     "Ottoman",
+     "Futon",
+     "Chaise longue"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Traditional British cakes",
+    "items": [
+     "Battenberg",
+     "Dundee",
+     "Madeira",
+     "Victoria sponge"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "German war machines of the First World War",
+    "items": [
+     "U-boat",
+     "Fokker",
+     "Gotha",
+     "Big Bertha"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Names British royals took in 1917 to sound less German",
+    "items": [
+     "Windsor",
+     "Mountbatten",
+     "Cambridge",
+     "Milford Haven"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-286",
+  "title": "Order of Battle",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Saints with a famous feast day",
+    "items": [
+     "Patrick",
+     "Swithin",
+     "Crispin",
+     "George"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Hollywood leading men of the 1940s",
+    "items": [
+     "Gable",
+     "Bogart",
+     "Cooper",
+     "Flynn"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "British tanks of the Second World War",
+    "items": [
+     "Cromwell",
+     "Matilda",
+     "Valentine",
+     "Crusader"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "British names for American WWII tanks, after Civil War generals",
+    "items": [
+     "Sherman",
+     "Grant",
+     "Lee",
+     "Stuart"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-287",
+  "title": "Headline Acts",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Newspaper page formats",
+    "items": [
+     "Tabloid",
+     "Broadsheet",
+     "Compact",
+     "Berliner"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Prestigious prizes, by name",
+    "items": [
+     "Nobel",
+     "Booker",
+     "Turner",
+     "Pulitzer"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Press barons",
+    "items": [
+     "Hearst",
+     "Beaverbrook",
+     "Northcliffe",
+     "Maxwell"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Completes a famous 20th-century speech line",
+    "items": [
+     "Infamy",
+     "Dream",
+     "Beaches",
+     "Few"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-288",
+  "title": "In Plain Sight",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Words for plain-spoken",
+    "items": [
+     "Frank",
+     "Candid",
+     "Direct",
+     "Straight"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "The Cambridge Five spy ring",
+    "items": [
+     "Philby",
+     "Burgess",
+     "Maclean",
+     "Blunt"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Novelists who worked for British intelligence",
+    "items": [
+     "Fleming",
+     "Greene",
+     "Maugham",
+     "le Carré"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Codenames of Double Cross agents in the Second World War",
+    "items": [
+     "Garbo",
+     "Tricycle",
+     "Zigzag",
+     "Tate"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-289",
+  "title": "Careless Talk",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Italian aperitifs",
+    "items": [
+     "Campari",
+     "Aperol",
+     "Martini",
+     "Cinzano"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Hollywood stars of the 1930s-50s",
+    "items": [
+     "Monroe",
+     "Dietrich",
+     "Hepburn",
+     "Bacall"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Leaders of the Soviet Communist Party",
+    "items": [
+     "Khrushchev",
+     "Brezhnev",
+     "Andropov",
+     "Gorbachev"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Wartime words taken from a real person's name",
+    "items": [
+     "Quisling",
+     "Molotov",
+     "Mae West",
+     "Big Bertha"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-290",
+  "title": "Hostile Takeover",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Italian brands founded in the 20th century",
+    "items": [
+     "Vespa",
+     "Olivetti",
+     "Gucci",
+     "Nutella"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "First discovered in the 20th century",
+    "items": [
+     "Insulin",
+     "Neutron",
+     "Lascaux",
+     "Dead Sea Scrolls"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Codenames in the D-Day plan",
+    "items": [
+     "Mulberry",
+     "Neptune",
+     "Fortitude",
+     "Pluto"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Hides the name of a 20th-century national leader",
+    "items": [
+     "Peroni",
+     "Castrol",
+     "Vitamin",
+     "Maori"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-291",
+  "title": "Going Places",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Hosted a World's Fair",
+    "items": [
+     "Chicago",
+     "Brussels",
+     "Shanghai",
+     "Osaka"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Gave its name to a worldwide agreement",
+    "items": [
+     "Kyoto",
+     "Geneva",
+     "Montreal",
+     "Bretton Woods"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Where an EU treaty was signed",
+    "items": [
+     "Maastricht",
+     "Lisbon",
+     "Rome",
+     "Amsterdam"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Hosted the Summer Olympics",
+    "items": [
+     "Athens",
+     "Seoul",
+     "Atlanta",
+     "Rio de Janeiro"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-292",
+  "title": "All That Glitters",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "TV soap operas",
+    "items": [
+     "Dynasty",
+     "Neighbours",
+     "EastEnders",
+     "Emmerdale"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Elizabeth II's jubilees marked with a bank holiday",
+    "items": [
+     "Silver",
+     "Golden",
+     "Diamond",
+     "Platinum"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Linked to the assassination of JFK",
+    "items": [
+     "Ruby",
+     "Dallas",
+     "Grassy Knoll",
+     "Magic Bullet"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Eras named after British monarchs",
+    "items": [
+     "Elizabethan",
+     "Victorian",
+     "Georgian",
+     "Edwardian"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-293",
+  "title": "Lashings and Lashings",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "The Famous Five",
+    "items": [
+     "Anne",
+     "Dick",
+     "George",
+     "Timmy"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Calendars",
+    "items": [
+     "Julian",
+     "Gregorian",
+     "Mayan",
+     "Advent"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Linked to the Great Fire of London",
+    "items": [
+     "Pudding Lane",
+     "Monument",
+     "St Paul's",
+     "Pepys"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Royal Parks of London",
+    "items": [
+     "Hyde",
+     "Regent's",
+     "Greenwich",
+     "Richmond"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-294",
+  "title": "Straight to the Point",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Famous archers of fiction and myth",
+    "items": [
+     "Robin Hood",
+     "Cupid",
+     "Katniss",
+     "Legolas"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Famously linked to an apple",
+    "items": [
+     "Isaac Newton",
+     "Eve",
+     "Snow White",
+     "Turing"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Died of an arrow or crossbow wound, in history or legend",
+    "items": [
+     "Harold II",
+     "William Rufus",
+     "Richard I",
+     "Achilles"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Heroes of resistance to foreign rule",
+    "items": [
+     "William Tell",
+     "William Wallace",
+     "Robert the Bruce",
+     "Joan of Arc"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-295",
+  "title": "Flower Power",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Colours",
+    "items": [
+     "Lilac",
+     "Mauve",
+     "Lavender",
+     "Violet"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Emblems of Scotland, Wales or Ireland",
+    "items": [
+     "Thistle",
+     "Shamrock",
+     "Daffodil",
+     "Leek"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Flowers named after a real person",
+    "items": [
+     "Dahlia",
+     "Fuchsia",
+     "Magnolia",
+     "Poinsettia"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Emblem of a royal dynasty",
+    "items": [
+     "Rose",
+     "Lily",
+     "Chrysanthemum",
+     "Broom"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-296",
+  "title": "Under Pressure",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Gin brands",
+    "items": [
+     "Bombay",
+     "Beefeater",
+     "Tanqueray",
+     "Hendrick's"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Famous sieges",
+    "items": [
+     "Masada",
+     "Troy",
+     "Alamo",
+     "Orléans"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "City names officially dropped since 1960",
+    "items": [
+     "Leningrad",
+     "Stalingrad",
+     "Saigon",
+     "Rangoon"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Died defending a place under siege",
+    "items": [
+     "Hector",
+     "Bowie",
+     "Crockett",
+     "Gordon"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-297",
+  "title": "Better Halves",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Half of a famous company name",
+    "items": [
+     "Rolls",
+     "Marks",
+     "Harley",
+     "Hewlett"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Half of a notorious criminal duo",
+    "items": [
+     "Hare",
+     "Clyde",
+     "Leopold",
+     "Sundance"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Half of a famous pair of explorers",
+    "items": [
+     "Lewis",
+     "Wills",
+     "Burton",
+     "Mallory"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Half of a famous royal couple",
+    "items": [
+     "Ferdinand",
+     "William",
+     "Albert",
+     "Louis"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-298",
+  "title": "Heady Mix",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Fragrances",
+    "items": [
+     "Brut",
+     "Poison",
+     "Obsession",
+     "Old Spice"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Mountains of the Bible",
+    "items": [
+     "Sinai",
+     "Ararat",
+     "Zion",
+     "Carmel"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Dumas heroes named after real musketeers",
+    "items": [
+     "Athos",
+     "Porthos",
+     "Aramis",
+     "d'Artagnan"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Goods the East India Company traded",
+    "items": [
+     "Opium",
+     "Indigo",
+     "Calico",
+     "Saltpetre"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-299",
+  "title": "Signed, Sealed, Delivered",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Baby ___",
+    "items": [
+     "Boomer",
+     "Grand",
+     "Shower",
+     "Bump"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Great grasslands",
+    "items": [
+     "Prairie",
+     "Steppe",
+     "Savannah",
+     "Pampas"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Classic vessel of a seafaring people",
+    "items": [
+     "Junk",
+     "Dhow",
+     "Longship",
+     "Trireme"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Scene of a famous peace, surrender or charter",
+    "items": [
+     "Carriage",
+     "Raft",
+     "Battleship",
+     "Meadow"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-300",
+  "title": "Go With the Flow",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Famous spa towns",
+    "items": [
+     "Vichy",
+     "Spa",
+     "Harrogate",
+     "Baden-Baden"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Order of the ___",
+    "items": [
+     "Bath",
+     "Garter",
+     "Golden Fleece",
+     "Elephant"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Rivers crossed at a turning point in a war",
+    "items": [
+     "Rubicon",
+     "Delaware",
+     "Rhine",
+     "Yangtze"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Hides a great river",
+    "items": [
+     "Industry",
+     "Senile",
+     "London",
+     "Rhinestone"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-301",
+  "title": "Power Behind the Throne",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Hairstyles",
+    "items": [
+     "Beehive",
+     "Quiff",
+     "Mullet",
+     "Mohican"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Royal mistresses",
+    "items": [
+     "Du Barry",
+     "Nell Gwyn",
+     "Lola Montez",
+     "Pompadour"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Famous mothers of rulers",
+    "items": [
+     "Agrippina",
+     "Olympias",
+     "Livia",
+     "Cixi"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Characters in A Midsummer Night's Dream",
+    "items": [
+     "Helena",
+     "Titania",
+     "Puck",
+     "Bottom"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-302",
+  "title": "Foreign Affairs",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Spanish ___",
+    "items": [
+     "Armada",
+     "Main",
+     "Flu",
+     "Succession"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Dutch ___",
+    "items": [
+     "Revolt",
+     "Republic",
+     "East Indies",
+     "Masters"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "French ___",
+    "items": [
+     "Foreign Legion",
+     "Indochina",
+     "Riviera",
+     "Kiss"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "American ___",
+    "items": [
+     "Civil War",
+     "Express",
+     "Independence",
+     "Pie"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-303",
+  "title": "Choice Words",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Bloody ___",
+    "items": [
+     "Sunday",
+     "Assizes",
+     "Tower",
+     "Mary"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Long ___",
+    "items": [
+     "Parliament",
+     "Knives",
+     "Bow",
+     "Island"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Glorious ___",
+    "items": [
+     "Revolution",
+     "Twelfth",
+     "Goodwood",
+     "Dead"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Good ___",
+    "items": [
+     "Friday",
+     "Samaritan",
+     "Hope",
+     "Shepherd"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-304",
+  "title": "Star Turn",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Space probes",
+    "items": [
+     "Rosetta",
+     "Voyager",
+     "Juno",
+     "Pioneer"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Italian painters who died before 1600",
+    "items": [
+     "Giotto",
+     "Titian",
+     "Botticelli",
+     "Bellini"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Trousers or shorts that take their name from a place",
+    "items": [
+     "Jodhpurs",
+     "Bermudas",
+     "Capris",
+     "Jeans"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Stock characters of the Italian commedia dell'arte",
+    "items": [
+     "Harlequin",
+     "Pierrot",
+     "Scaramouche",
+     "Pantaloon"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-305",
+  "title": "Sticks and Stones",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Vauxhall car models",
+    "items": [
+     "Astra",
+     "Corsa",
+     "Viva",
+     "Nova"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Began as an insult",
+    "items": [
+     "Tory",
+     "Whig",
+     "Methodist",
+     "Suffragette"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "What the two sides were called in 1640s England",
+    "items": [
+     "Roundhead",
+     "Cavalier",
+     "Royalist",
+     "Parliamentarian"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Art movements",
+    "items": [
+     "Impressionist",
+     "Surrealist",
+     "Futurist",
+     "Pre-Raphaelite"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-306",
+  "title": "Holiday Destinations",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Last word of a famous palindrome",
+    "items": [
+     "Elba",
+     "Adam",
+     "Even",
+     "Pets"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Named by Christopher Columbus",
+    "items": [
+     "Trinidad",
+     "Montserrat",
+     "Antigua",
+     "San Salvador"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Napoleon set foot there",
+    "items": [
+     "Corsica",
+     "Malta",
+     "Moscow",
+     "St Helena"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Took its name from the holy day European sailors first sighted it",
+    "items": [
+     "Natal",
+     "Florida",
+     "Ascension",
+     "Dominica"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-307",
+  "title": "Hot Stuff",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Dishes on a British curry-house menu",
+    "items": [
+     "Korma",
+     "Vindaloo",
+     "Jalfrezi",
+     "Balti"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Run by the East India Company",
+    "items": [
+     "Singapore",
+     "Bombay",
+     "Madras",
+     "Calcutta"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Brought to India by the Portuguese",
+    "items": [
+     "Chilli",
+     "Cashew",
+     "Pineapple",
+     "Potato"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Borrowed from Nahuatl, the Aztec language",
+    "items": [
+     "Avocado",
+     "Coyote",
+     "Guacamole",
+     "Chipotle"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-308",
+  "title": "Rum Ration",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Words for a tricky situation",
+    "items": [
+     "Jam",
+     "Fix",
+     "Scrape",
+     "Spot"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Characters in Cervantes's best-known novel",
+    "items": [
+     "Don Quixote",
+     "Sancho Panza",
+     "Dulcinea",
+     "Rocinante"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "In Nelson's fleet at Trafalgar",
+    "items": [
+     "Victory",
+     "Pickle",
+     "Temeraire",
+     "Dreadnought"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Books first published in the 1600s",
+    "items": [
+     "Leviathan",
+     "Paradise Lost",
+     "Pilgrim's Progress",
+     "King James Bible"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-309",
+  "title": "Fowl Play",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Ducks",
+    "items": [
+     "Eider",
+     "Teal",
+     "Pekin",
+     "Goldeneye"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Set a world speed record",
+    "items": [
+     "Mallard",
+     "Bluebird",
+     "Blackbird",
+     "Thrust SSC"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Names on a European map of the 1600s, since dropped",
+    "items": [
+     "Muscovy",
+     "Cathay",
+     "Tartary",
+     "Barbary"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Officials who governed for an emperor",
+    "items": [
+     "Mandarin",
+     "Satrap",
+     "Viceroy",
+     "Proconsul"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-310",
+  "title": "Hard Boiled",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Ways to cook an egg",
+    "items": [
+     "Scrambled",
+     "Poached",
+     "Fried",
+     "Coddled"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "In the rhyme about Henry VIII's six queens",
+    "items": [
+     "Divorced",
+     "Beheaded",
+     "Died",
+     "Survived"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Methods of execution in Tudor England",
+    "items": [
+     "Hanged",
+     "Burned",
+     "Boiled",
+     "Pressed"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "What English Parliaments of the 1600s were nicknamed",
+    "items": [
+     "Addled",
+     "Short",
+     "Long",
+     "Rump"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-311",
+  "title": "Art Attack",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Pop hits called by a woman's first name",
+    "items": [
+     "Layla",
+     "Jolene",
+     "Roxanne",
+     "Delilah"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Kings in the Bible",
+    "items": [
+     "Saul",
+     "Solomon",
+     "Ahab",
+     "Herod"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Works by Leonardo da Vinci",
+    "items": [
+     "Mona Lisa",
+     "Last Supper",
+     "Vitruvian Man",
+     "Lady with an Ermine"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Sculptures by Michelangelo",
+    "items": [
+     "David",
+     "Pietà",
+     "Moses",
+     "Bacchus"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-312",
+  "title": "Grounds for Belief",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Coffee drinks",
+    "items": [
+     "Espresso",
+     "Latte",
+     "Americano",
+     "Mocha"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Monkeys",
+    "items": [
+     "Howler",
+     "Spider",
+     "Rhesus",
+     "Squirrel"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Catholic religious orders",
+    "items": [
+     "Jesuit",
+     "Capuchin",
+     "Franciscan",
+     "Dominican"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Christian movements founded between 1600 and 1750",
+    "items": [
+     "Baptist",
+     "Quaker",
+     "Amish",
+     "Shaker"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-313",
+  "title": "Culture Club",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Fictional detectives",
+    "items": [
+     "Poirot",
+     "Morse",
+     "Marple",
+     "Columbo"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Painters of the 1600s",
+    "items": [
+     "Rembrandt",
+     "Vermeer",
+     "Rubens",
+     "Caravaggio"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Playwrights of the 1500s and 1600s",
+    "items": [
+     "Shakespeare",
+     "Marlowe",
+     "Molière",
+     "Jonson"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Poets of the 1600s and 1700s",
+    "items": [
+     "Milton",
+     "Donne",
+     "Pope",
+     "Burns"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-314",
+  "title": "Red Letter Days",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Names for the day before Ash Wednesday",
+    "items": [
+     "Pancake Day",
+     "Mardi Gras",
+     "Shrove Tuesday",
+     "Fat Tuesday"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Mark the anniversary of an event before 1800",
+    "items": [
+     "Bonfire Night",
+     "Bastille Day",
+     "Australia Day",
+     "Fourth of July"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Commemorate the two World Wars",
+    "items": [
+     "Anzac Day",
+     "VE Day",
+     "VJ Day",
+     "Armistice Day"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Hit songs with a weekday in the title",
+    "items": [
+     "Ruby Tuesday",
+     "Manic Monday",
+     "Sunday Bloody Sunday",
+     "Friday I'm in Love"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-315",
+  "title": "Kitted Out",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Football club nicknames",
+    "items": [
+     "Spurs",
+     "Gunners",
+     "Magpies",
+     "Saints"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Military gear that became high-street fashion",
+    "items": [
+     "Trench coat",
+     "Bomber jacket",
+     "Aviators",
+     "Camouflage"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Worn or carried by a Wild West cowboy",
+    "items": [
+     "Stetson",
+     "Chaps",
+     "Lasso",
+     "Bandana"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Fashion crazes of the 1920s",
+    "items": [
+     "Cloche hat",
+     "Oxford bags",
+     "Plus fours",
+     "Flapper dress"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-316",
+  "title": "Pillars of Society",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Police ranks",
+    "items": [
+     "Constable",
+     "Sergeant",
+     "Inspector",
+     "Superintendent"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Buried in St Paul's Cathedral",
+    "items": [
+     "Nelson",
+     "Wren",
+     "Fleming",
+     "Turner"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "English painters",
+    "items": [
+     "Gainsborough",
+     "Hogarth",
+     "Stubbs",
+     "Hockney"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Victorian novelists",
+    "items": [
+     "Dickens",
+     "Hardy",
+     "Eliot",
+     "Trollope"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-317",
+  "title": "Child's Play",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Weapons in the classic game of Cluedo",
+    "items": [
+     "Candlestick",
+     "Rope",
+     "Dagger",
+     "Revolver"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Toys children already had in antiquity",
+    "items": [
+     "Yo-yo",
+     "Kite",
+     "Marbles",
+     "Spinning top"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Toys named for someone real",
+    "items": [
+     "Teddy bear",
+     "Rubik's Cube",
+     "Hornby",
+     "Ken"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Invented for a completely different job",
+    "items": [
+     "Play-Doh",
+     "Slinky",
+     "Silly Putty",
+     "Bubble wrap"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-318",
+  "title": "Pomp and Circumstance",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Hogwarts house animals",
+    "items": [
+     "Lion",
+     "Badger",
+     "Eagle",
+     "Snake"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Part of the royal coat of arms",
+    "items": [
+     "Unicorn",
+     "Harp",
+     "Garter",
+     "Crown"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Coronation ___",
+    "items": [
+     "Chicken",
+     "Street",
+     "Oath",
+     "Mug"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Name used by only one English or British monarch",
+    "items": [
+     "Alfred",
+     "Stephen",
+     "Anne",
+     "Victoria"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-319",
+  "title": "Brand Loyalty",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Logo shows an animal",
+    "items": [
+     "Lacoste",
+     "Ferrari",
+     "Peugeot",
+     "Jaguar"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Trading since before 1800",
+    "items": [
+     "Twinings",
+     "Fortnum & Mason",
+     "Hamleys",
+     "Guinness"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Founded by Quakers",
+    "items": [
+     "Cadbury",
+     "Barclays",
+     "Clarks",
+     "Lloyds"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Founded in Britain by someone born abroad",
+    "items": [
+     "Selfridges",
+     "Reuters",
+     "Marks & Spencer",
+     "Burton"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-320",
+  "title": "Twelfth Night",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Gifts in The Twelve Days of Christmas",
+    "items": [
+     "Partridge",
+     "Swans",
+     "Gold rings",
+     "Drummers"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "The Twelve Apostles",
+    "items": [
+     "Peter",
+     "Andrew",
+     "Thomas",
+     "Judas"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "The Twelve Tribes of Israel",
+    "items": [
+     "Judah",
+     "Benjamin",
+     "Levi",
+     "Reuben"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Founder members of the Football League, 1888",
+    "items": [
+     "Everton",
+     "Aston Villa",
+     "Wolves",
+     "Burnley"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-321",
+  "title": "Money Talks",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Penny ___",
+    "items": [
+     "Black",
+     "Farthing",
+     "Lane",
+     "Dreadful"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Money that owes its name to a place",
+    "items": [
+     "Dollar",
+     "Rand",
+     "Guinea",
+     "Florin"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Money whose name first meant a weight",
+    "items": [
+     "Pound",
+     "Peso",
+     "Lira",
+     "Shekel"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Proverbially rich",
+    "items": [
+     "Croesus",
+     "Midas",
+     "Rockefeller",
+     "Rothschild"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-322",
+  "title": "Home Improvements",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Kitchen appliances",
+    "items": [
+     "Toaster",
+     "Kettle",
+     "Blender",
+     "Fridge"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Invented by a woman",
+    "items": [
+     "Dishwasher",
+     "Windscreen wiper",
+     "Kevlar",
+     "Chocolate chip cookie"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Sports whose first rules were written in Britain",
+    "items": [
+     "Football",
+     "Rugby",
+     "Cricket",
+     "Boxing"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Games that began in India",
+    "items": [
+     "Chess",
+     "Snakes and Ladders",
+     "Ludo",
+     "Snooker"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-323",
+  "title": "Bright Sparks",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "US tech giants",
+    "items": [
+     "Google",
+     "Microsoft",
+     "Tesla",
+     "Netflix"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Linked to Charles Darwin",
+    "items": [
+     "Beagle",
+     "Galápagos",
+     "Finches",
+     "Evolution"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Linked to Isaac Newton",
+    "items": [
+     "Apple",
+     "Gravity",
+     "Prism",
+     "Calculus"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Linked to Marie Curie",
+    "items": [
+     "Radium",
+     "Polonium",
+     "Radioactivity",
+     "Warsaw"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-324",
+  "title": "Leading Ladies",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "First name Catherine",
+    "items": [
+     "Howard",
+     "Parr",
+     "de' Medici",
+     "Zeta-Jones"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "First name Anne",
+    "items": [
+     "Boleyn",
+     "Frank",
+     "Hathaway",
+     "Brontë"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "First name Jane",
+    "items": [
+     "Seymour",
+     "Austen",
+     "Goodall",
+     "Grey"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "First name Mary",
+    "items": [
+     "Seacole",
+     "Magdalene",
+     "Celeste",
+     "Poppins"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-325",
+  "title": "Calling the Shots",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "James Bond actors, by surname",
+    "items": [
+     "Connery",
+     "Moore",
+     "Brosnan",
+     "Craig"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Pioneers of medicine, by surname",
+    "items": [
+     "Lister",
+     "Harvey",
+     "Pasteur",
+     "Nightingale"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "First name Alexander",
+    "items": [
+     "Fleming",
+     "Pope",
+     "Hamilton",
+     "Graham Bell"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "First name Edward",
+    "items": [
+     "Jenner",
+     "Elgar",
+     "Heath",
+     "Teach"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-326",
+  "title": "Fellow Travellers",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Birds",
+    "items": [
+     "Robin",
+     "Swift",
+     "Kestrel",
+     "Wren"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "British painters of the 1900s",
+    "items": [
+     "Freud",
+     "Hockney",
+     "Lowry",
+     "Spencer"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Fellows of the Royal Society in the 1600s",
+    "items": [
+     "Pepys",
+     "Hooke",
+     "Boyle",
+     "Halley"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Francis ___",
+    "items": [
+     "Bacon",
+     "Crick",
+     "Drake",
+     "Xavier"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-327",
+  "title": "Material Girls",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Cleopatra, in life and legend",
+    "items": [
+     "Asp",
+     "Carpet",
+     "Pearl",
+     "Needle"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Marie Antoinette, in life and legend",
+    "items": [
+     "Cake",
+     "Necklace",
+     "Austria",
+     "Hamlet"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Queen from 1837 to 1901: her life and reign",
+    "items": [
+     "Chloroform",
+     "Haemophilia",
+     "White wedding",
+     "Empress"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Elizabeth I, in life and reign",
+    "items": [
+     "Armada",
+     "Ruff",
+     "Virginia",
+     "Tilbury"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-328",
+  "title": "Nation Branding",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Name means 'equator', 'rich coast', 'depths' or 'black mountain'",
+    "items": [
+     "Ecuador",
+     "Costa Rica",
+     "Honduras",
+     "Montenegro"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Named for a tribe or people of old",
+    "items": [
+     "France",
+     "England",
+     "Belgium",
+     "Denmark"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Under Ottoman rule at some point",
+    "items": [
+     "Greece",
+     "Hungary",
+     "Egypt",
+     "Iraq"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Asian nations never colonised by a European power",
+    "items": [
+     "Japan",
+     "Thailand",
+     "Nepal",
+     "Iran"
     ]
    }
   ]

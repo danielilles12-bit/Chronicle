@@ -29,6 +29,7 @@ BROWSER = [
     ("home: card states", [os.path.join(HERE, "test_home_card_states.py")]),
     ("smoke: daily flow", [os.path.join(HERE, "test_daily_flow.py")]),
     ("archive window", [os.path.join(HERE, "test_archive_window.py")]),
+    ("curation-gap replay", [os.path.join(HERE, "test_replay_gap.py")]),
     ("smoke: resilience", [os.path.join(HERE, "test_resilience.py")]),
     ("share: text only", [os.path.join(HERE, "test_share_text_only.py")]),
     ("share: challenge rally", [os.path.join(HERE, "test_challenge_links.py")]),

@@ -61,3 +61,26 @@ jobs:
       # instead of rewriting it.
       - name: Promote green main to release
         run: git push origin HEAD:release
+
+  # The content engine's weekly cloud run (tools/engine/ROUTINE.md) pushes
+  # its work to claude/content-engine rather than main: cloud sessions may
+  # only be allowed to push claude/* branches, and this way nothing reaches
+  # main until the full suite has passed on that exact commit. When it
+  # passes, main and release both fast-forward to it. (A push made with the
+  # workflow's own token does not start another workflow run, so this job
+  # promotes release itself instead of waiting for main's run.) If Daniel
+  # has pushed to main since the engine branched, the fast-forward fails
+  # loudly and the next weekly run rebases and tries again.
+  promote-engine:
+    needs: test
+    if: github.ref == 'refs/heads/claude/content-engine' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fast-forward main and release to the green engine commit
+        run: |
+          git push origin HEAD:main
+          git push origin HEAD:release

@@ -28,7 +28,9 @@ Checks:
 
 Prints pass/fail counts; exits nonzero if anything fails.
 """
+import json
 import os
+from pathlib import Path
 import re
 import sys
 
@@ -40,7 +42,12 @@ from helpers import server, page_on, fail_on_errors, manifest  # noqa: E402
 # the 2026-08-03 launch review covered (extended 1 Sep 2026 through the
 # regenerated fortnight, edition 79), plus the six editions (29-34) that air
 # just before it. Everything below sweeps exactly these items.
-SCHED_LO, SCHED_HI = 29, 84
+SCHED_LO = 29
+# The top of the window follows the manifest (29 Sep 2026): the content
+# engine now stages months ahead unattended, so every edition it adds must be
+# swept here before it can ship, with no hand-edit of this number.
+SCHED_HI = max([84] + [int(k) for k in json.load(open(
+    Path(__file__).resolve().parent.parent / "data" / "editions.json"))["editions"]])
 
 # Identities that deliberately share a short form, so one item's variant
 # legitimately matches another's. Keep this list SHORT — every entry is a pair

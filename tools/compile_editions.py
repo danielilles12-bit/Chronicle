@@ -143,6 +143,23 @@ def load_pools():
     }
 
 
+VETTING_PATH = ROOT / "tools/engine/vetting.json"
+# id -> "male"/"female", the cache build_mcq.py maintains (Wikidata P21).
+_GENDER_PATH = ROOT / "tools/fame/mcq_gender.json"
+GENDERS = json.loads(_GENDER_PATH.read_text()) if _GENDER_PATH.exists() else {}
+_OBJECTS_PATH = ROOT / "tools/engine/relic_objects.json"
+RELIC_OBJECTS = set(json.loads(_OBJECTS_PATH.read_text())["objects"]) if _OBJECTS_PATH.exists() else set()
+
+
+def load_vetting():
+    """The content engine's auditor verdicts (tools/engine/PLAYBOOK.md s.8)."""
+    if not VETTING_PATH.exists():
+        print("propose --vetted-only: tools/engine/vetting.json is missing",
+              file=sys.stderr)
+        sys.exit(2)
+    return json.loads(VETTING_PATH.read_text())
+
+
 def load_config():
     defaults = {
         # Repeat cadence (owner brief + memory research, 30 Jul 2026):
@@ -653,10 +670,31 @@ def cmd_propose(args):
     # id). Encore (js/daily.js encoreItems) replays past editions by id and
     # never looks at this field either way, so a reserved item that has
     # aired at least once keeps working there with zero extra code.
-    by_tier = {g: {t: [x for x in pools[g] if x["difficulty"] == t and not x.get("reserve")]
+    # Content-engine gate (29 Sep 2026, tools/engine/PLAYBOOK.md): with
+    # --vetted-only, only items the engine's auditors passed are candidates,
+    # and a vetted tier override (the Lifeline vetter's recognisability
+    # tier) wins over the pool's own `difficulty`. Unvetted items stay in
+    # the pools for freeze/verify/review and for human scheduling.
+    vetting = load_vetting() if getattr(args, "vetted_only", False) else None
+
+    def tier_of(g, x):
+        if vetting is not None:
+            v = vetting.get(g, {}).get(x["id"]) or {}
+            if v.get("tier") in TIERS:
+                return v["tier"]
+        return x["difficulty"]
+
+    def vetted(g, x):
+        if vetting is None:
+            return True
+        return bool((vetting.get(g, {}).get(x["id"]) or {}).get("ok"))
+
+    by_tier = {g: {t: [x for x in pools[g] if tier_of(g, x) == t and not x.get("reserve")
+                       and vetted(g, x)]
                    for t in TIERS}
                for g in ("who", "map", "what")}
-    thread_by_tier = {t: [x for x in pools["thread"] if x["difficulty"] == t and not x.get("reserve")]
+    thread_by_tier = {t: [x for x in pools["thread"] if x["difficulty"] == t and not x.get("reserve")
+                          and vetted("thread", x)]
                       for t in TIERS}
     id_index = {g: {x["id"]: x for x in pools[g]} for g in GAMES}
 
@@ -706,6 +744,8 @@ def cmd_propose(args):
         # name, and the floor should hold for either kind of match.
         las = [last_aired.get((g, item["id"])) for g in GAMES]
         las.append(last_aired_by_name.get(normalise(item.get("name") or "")))
+        las.extend(last_aired_by_name.get(normalise(v)) for v in item.get("variants") or []
+                   if len(normalise(v)) >= 4)
         las = [d for d in las if d is not None]
         return None if not las else (on_date - max(las)).days
 
@@ -746,6 +786,12 @@ def cmd_propose(args):
             tone_rejects.setdefault((game, item["id"]),
                                     (item.get("name") or item["id"], reason))
             return False, reason
+        # Relic mix (owner, 29 Jul 2026; mechanical since 29 Sep 2026): at
+        # most two PLACES a day, so every Relic day carries a true object.
+        # tools/engine/relic_objects.json lists the objects; the rest are places.
+        if game == "what" and RELIC_OBJECTS and item["id"] not in RELIC_OBJECTS \
+                and sum(1 for i in (extra_reject or ()) if i not in RELIC_OBJECTS) >= 2:
+            return False, "third place on one Relic day (max 2 — a day needs an object)"
         if is_painting(game, item, fame_idx, tag_idx)                 and day_tone["paintings"] >= 1:
             return False, "second painting on one Relic day (max 1)"
         if game in ("who", "what"):
@@ -981,10 +1027,21 @@ def cmd_propose(args):
             # --- Thread first: one board, least flexible pool -------------
             tier = THREAD_TIER[wd]
             board = None
-            for cand in ranked(thread_by_tier[tier], "thread", on_date):
-                ok, _ = eligible("thread", cand, on_date, day_answers, None, day_subjects)
-                if ok:
-                    board = cand
+            # The weekday tier first; with --vetted-only the stock is new
+            # boards only, so a thin tier borrows its neighbour (the tier
+            # mix is a guide, not a law — owner, 29 Sep 2026).
+            thread_tiers = [tier] + ([t for t in ("medium", "easy", "hard") if t != tier]
+                                     if vetting is not None else [])
+            for try_tier in thread_tiers:
+                for cand in ranked(thread_by_tier[try_tier], "thread", on_date):
+                    ok, _ = eligible("thread", cand, on_date, day_answers, None, day_subjects)
+                    if ok:
+                        board = cand
+                        break
+                if board is not None:
+                    if try_tier != tier:
+                        note("tier-backfill", "thread", board["id"],
+                             f"{try_tier} board in a {tier} slot — {tier} stock exhausted")
                     break
             if board is None:
                 raise Shortage(n, "thread", tier, 1, 0)
@@ -1010,6 +1067,10 @@ def cmd_propose(args):
             # can't otherwise be filled), a ranking bias (western-audience
             # pv_pct tiebreak + era-novelty nudge, rules 1 & 5), and — after
             # both passes — a guaranteed-banker repair (rule 3).
+            def day_has_woman():
+                ids = list(picked_today.get("who", [])) + list(chosen_ids if game == "map" else [])
+                return any(GENDERS.get(i) == "female" for i in ids)
+
             for game in ("who", "map", "what"):
                 counts = recipe_for(n)
                 chosen_ids = set()
@@ -1136,6 +1197,15 @@ def cmd_propose(args):
                     for _ in range(need):
                         cand_pool = ranked(by_tier[game][pool_tier], game, on_date,
                                           bias_fn=bias_for(slot_tier))
+                        # At least one woman per issue across Face Value +
+                        # Lifeline (owner, 7 Aug 2026 — enforced here since
+                        # 29 Sep 2026, when the review sheet that used to
+                        # catch it stopped being read). Face Value is cast
+                        # first; if it cast no woman, Lifeline's picks put
+                        # eligible women at the front of the queue, keeping
+                        # the usual order among them.
+                        if game == "map" and not day_has_woman():
+                            cand_pool = sorted(cand_pool, key=lambda x: GENDERS.get(x["id"]) != "female")
                         pick = None
                         for cand in cand_pool:
                             if cand["id"] in chosen_ids:
@@ -1262,6 +1332,17 @@ def cmd_propose(args):
         for game in GAMES:
             for item_id in picked_today[game]:
                 last_aired[(game, item_id)] = on_date
+                # ...and by SUBJECT (29 Sep 2026): before this, only the
+                # id-keyed history moved forward inside a proposal, so the
+                # same person filed under two ids (who/marie-antoinette vs
+                # map/marieantoinette) could air four days apart in a long
+                # unattended run. Name AND variants, so "Elizabeth II" and
+                # "Queen Elizabeth II" are one subject.
+                if game != "thread":
+                    it = id_index[game].get(item_id) or {}
+                    for nm in [it.get("name")] + list(it.get("variants") or []):
+                        if nm and len(normalise(nm)) >= 4:
+                            last_aired_by_name[normalise(nm)] = on_date
         # Roll the adjacent-day net forward.
         prev_answers, prev_subjects = set(day_answers), set(day_subjects)
 
@@ -1811,6 +1892,9 @@ def main():
                                   "client algorithm")
     p = sub.add_parser("propose", help="draft the next N unaired editions")
     p.add_argument("--days", type=int, default=14)
+    p.add_argument("--vetted-only", action="store_true",
+                   help="candidates limited to items passed in tools/engine/vetting.json "
+                        "(the content engine's unattended mode)")
     p.add_argument("--out", default=None, metavar="PATH",
                    help="write the batch here instead of "
                         "data/editions.proposed.json (dry run: leaves the "

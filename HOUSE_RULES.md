@@ -8,11 +8,39 @@ check). When a new audit produces a new ruling, it gets added HERE in the
 same session — this file is why his feedback compounds instead of
 evaporating.
 
-Last updated: 9 Aug 2026 (the issue number stopped facing players — the date
+Last updated: 29 Sep 2026 (the content engine goes unattended; see its section below). Before that: 9 Aug 2026 (the issue number stopped facing players — the date
 replaces it everywhere; Encore deleted; every clue control quotes its true
 cost; the rescue asks once per game before it fires; blurbs capitalised after
 the middle dot; Home stopped narrating state and started drawing it — one
 marker per puzzle).
+
+## The content engine runs unattended (Daniel, 29 Sep 2026)
+
+- **[ENGINE]** Daniel no longer reviews content day to day. A weekly cloud
+  run (`tools/engine/ROUTINE.md`) keeps the schedule 8+ weeks ahead, drafting
+  only from items the engine's auditors passed (`tools/engine/vetting.json`,
+  `compile_editions.py propose --vetted-only`). Its taste is
+  `tools/engine/PLAYBOOK.md`, distilled from his 10 Aug – late Sep reviews
+  (Thread from 17 Aug). Everything he approved in that window counts as
+  vetted; everything he struck stays benched.
+- **[JUDGMENT]** The easy/medium/hard mix is a guide, not a law: *"it's ok
+  to depart from those rules for the right content."*
+- **[JUDGMENT]** The first tear must be fair to the nerdiest historian:
+  never blank background. At least clothes or regalia, and after the first
+  tear the path to the reveal should feel satisfying. The likeness itself
+  must be famous, not just the name: *"a random Swedish king that people
+  MAY have heard of but has an obscure portrait nobody has seen probably
+  isn't good content."*
+- **[JUDGMENT]** Distractors: the choice must feel earned. *"If a clay tablet
+  of sorts is the answer, the other 2 things should be plausible too — the
+  International Space Station would obviously be a bad distractor."*
+- **[JUDGMENT]** Thread gets one notch more history: at least two groups
+  per board must be a historical fact. Later boards (cards, animals, hats,
+  cocktails) were *"a bit light on history."*
+- **[ENGINE]** Safety net: if the schedule ever runs out, `js/daily.js`
+  replays an approved issue from a whole number of 13-week cycles earlier
+  (same weekday) instead of cutting an uncurated one
+  (`tests/test_replay_gap.py`).
 
 ## Navigation (the way back)
 
@@ -869,10 +897,11 @@ Daniel's rulings, 5 Aug 2026, from the restrained direction in
   `tools/validate_reveal.py` now ERRORs on a lowercase letter after the
   "·"; a clause opening on a digit or a quote is left alone. The blurb
   still carries no closing full stop — the app appends that itself.
-- **[JUDGMENT]** Every issue must carry at least one woman across Face
-  Value + Lifeline combined (Daniel, 7 Aug 2026). New standing rule — still
-  to be enforced in the compiler; until then it's a check on the review
-  sheet, same as the other judgment rules.
+- **[ENGINE]** Every issue must carry at least one woman across Face
+  Value + Lifeline combined (Daniel, 7 Aug 2026). Enforced in
+  `compile_editions.py propose` since 29 Sep 2026: if Face Value casts no
+  woman, Lifeline's candidates put eligible women first (genders from
+  `tools/fame/mcq_gender.json`).
 - **[JUDGMENT]** Occupation-family duplicates within an issue are
   advisory, not blocking (Daniel, 6 Aug 2026: Mother Teresa/Malcolm X and
   Josephus/Dickinson on the same day are fine together). Flag them for a
