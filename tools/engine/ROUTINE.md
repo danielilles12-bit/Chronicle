@@ -20,8 +20,12 @@ git config user.email "content-engine@yesternerd.app"
 git fetch origin
 ```
 
-If chromium cannot be installed, carry on. CI runs the browser suite after
-you push, and the fast validators below still gate you.
+Chromium usually CANNOT be installed in the cloud sandbox (smoke test,
+29 Sep 2026: the browser download is blocked, and the preinstalled build
+doesn't match Playwright 1.60). That is expected. Skip the local browser
+suite and rely on the validators here plus CI's full browser suite, which
+gates `claude/content-engine` before anything goes live. The sandbox also
+cannot reach Wikimedia, which is why this routine never touches images.
 
 Work on a fresh branch from the latest main: `git checkout -B engine origin/main`.
 
