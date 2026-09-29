@@ -13,17 +13,20 @@ rulings; consult it when unsure.
 ## 0. Setup
 
 ```bash
-pip install Pillow playwright==1.56.0   # matches the cloud's preinstalled chromiumgit config user.name "Yesternerd content engine"
+pip install Pillow playwright==1.56.0   # matches the cloud's preinstalled chromium
+git config user.name "Yesternerd content engine"
 git config user.email "content-engine@yesternerd.app"
 git fetch origin
 ```
 
-Do not run `playwright install`: the cloud container already has chromium
-in `/opt/pw-browsers`, and its network blocks the download. Playwright is
-pinned to 1.56 because that is the version that build belongs to (CI on
-GitHub uses 1.60 and downloads its own). If the browser tests still cannot
-start, carry on. CI runs the browser suite after
-you push, and the fast validators below still gate you.
+Do not run `playwright install`: the cloud sandbox cannot download
+browsers, but it ships chromium in `/opt/pw-browsers`, which is the build
+Playwright 1.56 expects (CI on GitHub uses 1.60 and downloads its own).
+With 1.56 the full suite runs here (21/21 on 29 Sep 2026). If the browser
+tests still cannot start, carry on: CI's full browser suite gates
+`claude/content-engine` before anything goes live, and the fast validators
+below still gate you. The sandbox cannot reach Wikimedia, which is why
+this routine never touches images.
 
 Work on a fresh branch from the latest main: `git checkout -B engine origin/main`.
 
