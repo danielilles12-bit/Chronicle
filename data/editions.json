@@ -4510,6 +4510,300 @@
    "thread": [
     "conn-322"
    ]
+  },
+  "189": {
+   "date": "2027-01-04",
+   "who": [
+    "theodore-roosevelt",
+    "edward-vii",
+    "emily-dickinson"
+   ],
+   "map": [
+    "george-orwell",
+    "charles-i-england",
+    "richard-ii"
+   ],
+   "what": [
+    "florence-cathedral-dome",
+    "mask-of-agamemnon",
+    "hammurabi-stele"
+   ],
+   "thread": [
+    "conn-323"
+   ]
+  },
+  "190": {
+   "date": "2027-01-05",
+   "who": [
+    "rosa-parks",
+    "gerald-ford",
+    "francisco-goya"
+   ],
+   "map": [
+    "gandhi",
+    "alfred-nobel",
+    "francis-i-france"
+   ],
+   "what": [
+    "christ-the-redeemer",
+    "benin-bronzes",
+    "antikythera-mechanism"
+   ],
+   "thread": [
+    "conn-329"
+   ]
+  },
+  "191": {
+   "date": "2027-01-06",
+   "who": [
+    "napoleon",
+    "kaiser-wilhelm-ii",
+    "van-gogh"
+   ],
+   "map": [
+    "elizabeth-ii",
+    "zheng-he",
+    "peter-paul-rubens"
+   ],
+   "what": [
+    "sydney-harbour-bridge",
+    "temple-of-heaven",
+    "domesday-book"
+   ],
+   "thread": [
+    "conn-325"
+   ]
+  },
+  "192": {
+   "date": "2027-01-07",
+   "who": [
+    "nelson-mandela",
+    "mark-twain",
+    "niccolo-machiavelli"
+   ],
+   "map": [
+    "charlie-chaplin",
+    "catherine",
+    "wu-zetian"
+   ],
+   "what": [
+    "wright-flyer",
+    "nebra-sky-disc",
+    "newgrange-entrance-stone"
+   ],
+   "thread": [
+    "conn-331"
+   ]
+  },
+  "193": {
+   "date": "2027-01-08",
+   "who": [
+    "beethoven",
+    "thomas-edison",
+    "toussaint-louverture"
+   ],
+   "map": [
+    "marx",
+    "audrey-hepburn",
+    "george-gershwin"
+   ],
+   "what": [
+    "trevi-fountain",
+    "library-celsus-ephesus",
+    "garden-earthly-delights"
+   ],
+   "thread": [
+    "conn-332"
+   ]
+  },
+  "194": {
+   "date": "2027-01-09",
+   "who": [
+    "prince-philip",
+    "trotsky",
+    "mary-anning"
+   ],
+   "map": [
+    "john-paul-ii",
+    "alexander-hamilton",
+    "ferdinand-of-aragon"
+   ],
+   "what": [
+    "empire-state-building",
+    "trundholm-sun-chariot",
+    "trajan-column"
+   ],
+   "thread": [
+    "conn-335"
+   ]
+  },
+  "195": {
+   "date": "2027-01-10",
+   "who": [
+    "john-wayne",
+    "elizabeth-i",
+    "freud"
+   ],
+   "map": [
+    "vladimir-lenin",
+    "friedrich-engels",
+    "edward-i"
+   ],
+   "what": [
+    "statue-of-liberty",
+    "pieta-michelangelo",
+    "book-of-kells"
+   ],
+   "thread": [
+    "conn-333"
+   ]
+  },
+  "196": {
+   "date": "2027-01-11",
+   "who": [
+    "tutankhamun",
+    "julius-caesar",
+    "lbj"
+   ],
+   "map": [
+    "michael-jackson",
+    "nina-simone",
+    "pyrrhus-of-epirus"
+   ],
+   "what": [
+    "stonehenge",
+    "hawa-mahal",
+    "saturn-v"
+   ],
+   "thread": [
+    "conn-330"
+   ]
+  },
+  "197": {
+   "date": "2027-01-12",
+   "who": [
+    "alexander-great",
+    "truman",
+    "wellington"
+   ],
+   "map": [
+    "rasputin",
+    "indira-gandhi",
+    "tacitus"
+   ],
+   "what": [
+    "abu-simbel",
+    "liberty-leading",
+    "hereford-mappa-mundi"
+   ],
+   "thread": [
+    "conn-337"
+   ]
+  },
+  "198": {
+   "date": "2027-01-13",
+   "who": [
+    "fdr",
+    "jesus",
+    "augustus-caesar"
+   ],
+   "map": [
+    "avicenna",
+    "edith-piaf",
+    "robert-mugabe"
+   ],
+   "what": [
+    "chrysler-building",
+    "taktsang",
+    "mary-rose"
+   ],
+   "thread": [
+    "conn-336"
+   ]
+  },
+  "199": {
+   "date": "2027-01-14",
+   "who": [
+    "malcolm-x",
+    "martin-luther",
+    "empress-dowager-cixi"
+   ],
+   "map": [
+    "einstein",
+    "gustavus-adolphus",
+    "isadora-duncan"
+   ],
+   "what": [
+    "vitruvian-man",
+    "lascaux",
+    "standard-of-ur"
+   ],
+   "thread": [
+    "conn-338"
+   ]
+  },
+  "200": {
+   "date": "2027-01-15",
+   "who": [
+    "grover-cleveland",
+    "robin-williams",
+    "rani-lakshmibai"
+   ],
+   "map": [
+    "freddie-mercury",
+    "brutus",
+    "diego-velazquez"
+   ],
+   "what": [
+    "white-house",
+    "phaistos-disc",
+    "arnolfini-portrait"
+   ],
+   "thread": [
+    "conn-334"
+   ]
+  },
+  "201": {
+   "date": "2027-01-16",
+   "who": [
+    "stan-lee",
+    "turing",
+    "tokugawa-ieyasu"
+   ],
+   "map": [
+    "francis-drake",
+    "maya-angelou",
+    "marc-chagall"
+   ],
+   "what": [
+    "hindenburg",
+    "itsukushima-shrine",
+    "catalan-atlas"
+   ],
+   "thread": [
+    "conn-341"
+   ]
+  },
+  "202": {
+   "date": "2027-01-17",
+   "who": [
+    "oscar-wilde",
+    "shakespeare",
+    "jacques-louis-david"
+   ],
+   "map": [
+    "marcus-aurelius",
+    "pocahontas",
+    "metternich"
+   ],
+   "what": [
+    "british-museum",
+    "imperial-state-crown",
+    "diamond-sutra"
+   ],
+   "thread": [
+    "conn-342"
+   ]
   }
  },
  "threeRoundEdition": 30

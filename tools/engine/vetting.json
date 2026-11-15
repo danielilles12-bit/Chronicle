@@ -560,8 +560,10 @@
    "by": "owner-approved"
   },
   "frederic-chopin": {
-   "ok": true,
-   "by": "owner-approved"
+   "ok": false,
+   "by": "owner-approved",
+   "benched_by": "sonnet-picture-audit 2026-11-15",
+   "why": "Mostly dark flat cells; murky Delacroix crop."
   },
   "frederick-douglass": {
    "ok": true,
@@ -575,7 +577,8 @@
   },
   "freud": {
    "ok": true,
-   "by": "owner-approved"
+   "by": "owner-approved",
+   "start": 3
   },
   "friedrich-engels": {
    "ok": false,
@@ -667,7 +670,8 @@
   },
   "gerald-ford": {
    "ok": true,
-   "by": "owner-approved"
+   "by": "owner-approved",
+   "start": 7
   },
   "geronimo": {
    "ok": true,
@@ -806,8 +810,10 @@
    "why": "Face plus plain suit and backdrop; nothing between nothing and answer"
   },
   "hirohito": {
-   "ok": true,
-   "by": "owner-approved"
+   "ok": false,
+   "by": "owner-approved",
+   "benched_by": "sonnet-picture-audit 2026-11-15",
+   "why": "Young odd-looking image, not iconic likeness."
   },
   "hitler": {
    "ok": true,
@@ -1250,8 +1256,10 @@
    "by": "owner-approved"
   },
   "mary-wollstonecraft": {
-   "ok": true,
-   "by": "owner-approved"
+   "ok": false,
+   "by": "owner-approved",
+   "benched_by": "sonnet-picture-audit 2026-11-15",
+   "why": "Obscure likeness, dark backdrop, white dress only."
   },
   "michael-faraday": {
    "ok": false,
@@ -1549,7 +1557,8 @@
   },
   "robin-williams": {
    "ok": true,
-   "by": "owner-approved"
+   "by": "owner-approved",
+   "start": 2
   },
   "rockefeller": {
    "ok": true,
@@ -1626,8 +1635,10 @@
    "why": "Sponsor patches then McLaren suit then face"
   },
   "shaka-zulu": {
-   "ok": true,
-   "by": "owner-approved"
+   "ok": false,
+   "by": "owner-approved",
+   "benched_by": "sonnet-picture-audit 2026-11-15",
+   "why": "Sketchy engraving, mostly blank paper; weak likeness."
   },
   "shakespeare": {
    "ok": true,
@@ -1799,7 +1810,8 @@
   },
   "turing": {
    "ok": true,
-   "by": "owner-approved"
+   "by": "owner-approved",
+   "start": 7
   },
   "tutankhamun": {
    "ok": true,
@@ -1927,7 +1939,8 @@
   },
   "abu-simbel": {
    "ok": true,
-   "by": "owner-approved"
+   "by": "owner-approved",
+   "start": 1
   },
   "acropolis-athens": {
    "ok": false,
@@ -2362,8 +2375,10 @@
    "by": "owner-approved"
   },
   "ellora-kailasa": {
-   "ok": true,
-   "by": "owner-approved"
+   "ok": false,
+   "by": "owner-approved",
+   "benched_by": "sonnet-picture-audit 2026-11-15",
+   "why": "Ellora-type unknown Indian rock temple; murky view."
   },
   "empire-state-building": {
    "ok": true,
@@ -2533,7 +2548,8 @@
   },
   "hawa-mahal": {
    "ok": true,
-   "by": "owner-approved"
+   "by": "owner-approved",
+   "start": 3
   },
   "hereford-mappa-mundi": {
    "ok": true,
@@ -2642,8 +2658,10 @@
    "why": "Unknown mudbrick mound; half sky"
   },
   "khufu-ship": {
-   "ok": true,
-   "by": "owner-approved"
+   "ok": false,
+   "by": "owner-approved",
+   "benched_by": "sonnet-picture-audit 2026-11-15",
+   "why": "Museum ceiling and railings; no self-identifying view."
   },
   "kilwa-kisiwani-ruins": {
    "ok": false,
@@ -2666,8 +2684,10 @@
    "by": "owner-approved"
   },
   "konark-sun-temple": {
-   "ok": true,
-   "by": "owner-approved"
+   "ok": false,
+   "by": "owner-approved",
+   "benched_by": "sonnet-picture-audit 2026-11-15",
+   "why": "Unknown to audience; scaffolding, half sky."
   },
   "kremlin-walls": {
    "ok": true,
@@ -2804,7 +2824,8 @@
   },
   "mask-of-agamemnon": {
    "ok": true,
-   "by": "owner-approved"
+   "by": "owner-approved",
+   "start": 3
   },
   "matsumoto-castle": {
    "ok": false,
@@ -2917,7 +2938,8 @@
   },
   "nebra-sky-disc": {
    "ok": true,
-   "by": "owner-approved"
+   "by": "owner-approved",
+   "start": 3
   },
   "neuschwanstein-castle": {
    "ok": true,
@@ -2938,8 +2960,10 @@
    "why": "Generic Inca terraces, unknown"
   },
   "oseberg-ship": {
-   "ok": true,
-   "by": "owner-approved"
+   "ok": false,
+   "by": "owner-approved",
+   "benched_by": "sonnet-picture-audit 2026-11-15",
+   "why": "Museum wall dominates; murky dark photo."
   },
   "palace-of-versailles": {
    "ok": true,
@@ -3078,10 +3102,11 @@
    "why": "Unknown to this audience"
   },
   "red-fort": {
-   "ok": true,
+   "ok": false,
    "start": 5,
    "by": "opus",
-   "why": "0 is sky; open on red wall, gate follows"
+   "why": "Lahore-Fort-like; mostly lawn and sky.",
+   "benched_by": "sonnet-picture-audit 2026-11-15"
   },
   "red-square": {
    "ok": false,
@@ -6779,6 +6804,62 @@
    "by": "opus-critic"
   },
   "conn-328": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-329": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-330": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-331": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-332": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-333": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-334": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-335": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-336": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-337": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-338": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-339": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-340": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-341": {
+   "ok": true,
+   "by": "opus-critic"
+  },
+  "conn-342": {
    "ok": true,
    "by": "opus-critic"
   }

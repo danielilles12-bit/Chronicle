@@ -1294,7 +1294,8 @@
   "mcq": [
    "Great Sphinx of Giza",
    "Karnak Temple"
-  ]
+  ],
+  "start": 1
  },
  {
   "id": "acropolis-athens",
@@ -2153,7 +2154,8 @@
   "mcq": [
    "Tutankhamun's Mask",
    "Dante's Death Mask"
-  ]
+  ],
+  "start": 3
  },
  {
   "id": "meenakshi-temple",
@@ -4158,7 +4160,8 @@
   "mcq": [
    "Standard of Ur",
    "Gundestrup Cauldron"
-  ]
+  ],
+  "start": 3
  },
  {
   "id": "olmec-colossal-head",
@@ -10040,7 +10043,8 @@
   "mcq": [
    "Amber Fort",
    "Mysore Palace"
-  ]
+  ],
+  "start": 3
  },
  {
   "id": "imperial-regalia-japan",

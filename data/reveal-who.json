@@ -2790,8 +2790,8 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-07-21",
   "mcq": [
-   "Vladimir Lenin",
-   "Joseph Stalin"
+   "Joseph Stalin",
+   "Nikita Khrushchev"
   ],
   "start": 2
  },
@@ -5984,7 +5984,8 @@
   "mcq": [
    "Carl Jung",
    "Alfred Adler"
-  ]
+  ],
+  "start": 3
  },
  {
   "id": "friedrich-schiller",
@@ -8815,7 +8816,8 @@
   "mcq": [
    "Jim Carrey",
    "Bill Murray"
-  ]
+  ],
+  "start": 2
  },
  {
   "id": "lbj",
@@ -9104,7 +9106,8 @@
   "mcq": [
    "Ronald Reagan",
    "George H. W. Bush"
-  ]
+  ],
+  "start": 7
  },
  {
   "id": "prince-philip",
@@ -9624,7 +9627,8 @@
   "mcq": [
    "John von Neumann",
    "A. A. Milne"
-  ]
+  ],
+  "start": 7
  },
  {
   "id": "edward-viii",
@@ -9702,7 +9706,7 @@
   "image_license": "Public domain",
   "image_retrieved": "2026-08-06",
   "mcq": [
-   "George V",
+   "Nicholas II",
    "Kaiser Wilhelm II"
   ],
   "start": 2

@@ -15369,5 +15369,663 @@
     ]
    }
   ]
+ },
+ {
+  "id": "conn-329",
+  "title": "Origin Stories",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Shades of brown",
+    "items": [
+     "Taupe",
+     "Beige",
+     "Chestnut",
+     "Sienna"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Cat breeds",
+    "items": [
+     "Persian",
+     "Siamese",
+     "Burmese",
+     "Abyssinian"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Ancient Middle Eastern peoples",
+    "items": [
+     "Sumerian",
+     "Assyrian",
+     "Hittite",
+     "Phoenician"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Named after a city of the Islamic world",
+    "items": [
+     "Damask",
+     "Fez",
+     "Tabby",
+     "Mocha"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-330",
+  "title": "Hammer Time",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Gods of Norse myth",
+    "items": [
+     "Odin",
+     "Thor",
+     "Loki",
+     "Freya"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Founding Avengers in the 2012 film",
+    "items": [
+     "Iron Man",
+     "Hulk",
+     "Hawkeye",
+     "Black Widow"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Nicknames of Viking leaders",
+    "items": [
+     "Bluetooth",
+     "Bloodaxe",
+     "Forkbeard",
+     "Boneless"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Viking-age rulers baptised as adults",
+    "items": [
+     "Olaf",
+     "Rollo",
+     "Olga",
+     "Vladimir"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-331",
+  "title": "By Any Other Name",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Characters in the Asterix comics",
+    "items": [
+     "Asterix",
+     "Obelix",
+     "Getafix",
+     "Dogmatix"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Took up arms against Julius Caesar",
+    "items": [
+     "Vercingetorix",
+     "Pompey",
+     "Brutus",
+     "Cassius"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Best known by a title or epithet",
+    "items": [
+     "Buddha",
+     "Sun Tzu",
+     "Rumi",
+     "Tamerlane"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Known in the West by a Latinised name",
+    "items": [
+     "Avicenna",
+     "Columbus",
+     "Copernicus",
+     "Confucius"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-332",
+  "title": "Des Res",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Fictional stately homes",
+    "items": [
+     "Manderley",
+     "Pemberley",
+     "Brideshead",
+     "Downton Abbey"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Pilgrims flocked here to an English saint or relic",
+    "items": [
+     "Canterbury",
+     "Glastonbury",
+     "Durham",
+     "St Albans"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Medieval crowning place of Scots, Germans, Frenchmen or Englishmen",
+    "items": [
+     "Reims",
+     "Aachen",
+     "Scone",
+     "Westminster"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Capital of a Mongol khan or a Gothic king",
+    "items": [
+     "Beijing",
+     "Xanadu",
+     "Ravenna",
+     "Toulouse"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-333",
+  "title": "Model Citizens",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Car brands bearing their founder's surname",
+    "items": [
+     "Ford",
+     "Dodge",
+     "Chrysler",
+     "Ferrari"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Patented a landmark invention in the 1800s",
+    "items": [
+     "Edison",
+     "Nobel",
+     "Diesel",
+     "Benz"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "US presidents between Jackson and Lincoln",
+    "items": [
+     "Tyler",
+     "Polk",
+     "Fillmore",
+     "Buchanan"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Car brands named after someone who didn't found them",
+    "items": [
+     "Cadillac",
+     "Mercedes",
+     "DeSoto",
+     "Tesla"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-334",
+  "title": "Stumped",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Where a Tube line terminates",
+    "items": [
+     "Cockfosters",
+     "Morden",
+     "Epping",
+     "Brixton"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Linked to the fighting in Crimea, 1853-56",
+    "items": [
+     "Balaclava",
+     "Sevastopol",
+     "Nightingale",
+     "Seacole"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Seafarers of classic 1800s fiction",
+    "items": [
+     "Ahab",
+     "Long John Silver",
+     "Nemo",
+     "Ishmael"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Lost an arm or leg in battle (real people)",
+    "items": [
+     "Raglan",
+     "Uxbridge",
+     "Santa Anna",
+     "Stuyvesant"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-335",
+  "title": "Strange Bedfellows",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Stars of the comics",
+    "items": [
+     "Snoopy",
+     "Popeye",
+     "Tintin",
+     "Dennis the Menace"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Kings in British legend",
+    "items": [
+     "Arthur",
+     "Lear",
+     "Cole",
+     "Uther"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Held the US presidency at some point in the 1880s",
+    "items": [
+     "Cleveland",
+     "Harrison",
+     "Hayes",
+     "Garfield"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Born or died in 1564",
+    "items": [
+     "Shakespeare",
+     "Marlowe",
+     "Michelangelo",
+     "Calvin"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-336",
+  "title": "Rough Diamonds",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Rum cocktails",
+    "items": [
+     "Mojito",
+     "Mai Tai",
+     "Painkiller",
+     "Cuba Libre"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Site of a 19th-century gold rush",
+    "items": [
+     "Klondike",
+     "California",
+     "Ballarat",
+     "Black Hills"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Founded as British convict settlements",
+    "items": [
+     "Sydney",
+     "Hobart",
+     "Brisbane",
+     "Norfolk Island"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Picked up from the Taíno, the first people Columbus met",
+    "items": [
+     "Hurricane",
+     "Hammock",
+     "Canoe",
+     "Barbecue"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-337",
+  "title": "Heirs and Graces",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Characters in the Sherlock Holmes stories",
+    "items": [
+     "Watson",
+     "Moriarty",
+     "Lestrade",
+     "Mycroft"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Lent their name to a sea or strait",
+    "items": [
+     "Hudson",
+     "Bering",
+     "Tasman",
+     "Ross"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Kings of the Belgians",
+    "items": [
+     "Leopold",
+     "Albert",
+     "Baudouin",
+     "Philippe"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Children of the queen who reigned 1837-1901",
+    "items": [
+     "Alice",
+     "Alfred",
+     "Louise",
+     "Beatrice"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-338",
+  "title": "Presumably",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Charted the interior of Africa",
+    "items": [
+     "Livingstone",
+     "Speke",
+     "Burton",
+     "Park"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Robber barons and society dynasties of the 1870s-90s",
+    "items": [
+     "Carnegie",
+     "Vanderbilt",
+     "Rockefeller",
+     "Astor"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Pre-Raphaelite painters",
+    "items": [
+     "Rossetti",
+     "Millais",
+     "Hunt",
+     "Burne-Jones"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Sporting trophies, minus 'Cup'",
+    "items": [
+     "Stanley",
+     "Ryder",
+     "Davis",
+     "Calcutta"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-339",
+  "title": "Pet Names",
+  "difficulty": "easy",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Slang for soldiers, 1914-45",
+    "items": [
+     "Tommy",
+     "Jerry",
+     "Doughboy",
+     "Digger"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Nicknames of US presidents",
+    "items": [
+     "Honest Abe",
+     "Old Hickory",
+     "Teddy",
+     "Tricky Dicky"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Nicknames of WWII commanders",
+    "items": [
+     "Ike",
+     "Desert Fox",
+     "Bomber Harris",
+     "Old Blood and Guts"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Full ___, to complete the phrase",
+    "items": [
+     "Monty",
+     "Moon",
+     "House",
+     "Stop"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-340",
+  "title": "Mind Your Ps and Qs",
+  "difficulty": "medium",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Clothing",
+    "items": [
+     "T-shirt",
+     "V-neck",
+     "Y-fronts",
+     "A-line"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Showbusiness grades and ratings",
+    "items": [
+     "A-list",
+     "B-movie",
+     "X-rated",
+     "Z-list"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Already in action by 1945",
+    "items": [
+     "A-bomb",
+     "U-boat",
+     "V-2",
+     "B-29"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "First built after 1945",
+    "items": [
+     "H-bomb",
+     "U-2",
+     "B-52",
+     "AK-47"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-341",
+  "title": "Holy Smoke",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Comes before 'Cross'",
+    "items": [
+     "Iron",
+     "Red",
+     "Southern",
+     "King's"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Allied bomber types of WWII",
+    "items": [
+     "Lancaster",
+     "Halifax",
+     "Liberator",
+     "Mosquito"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Atomic bombs of 1945: the test, the two bombs, the Hiroshima plane",
+    "items": [
+     "Trinity",
+     "Little Boy",
+     "Fat Man",
+     "Enola Gay"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Cambridge colleges",
+    "items": [
+     "Jesus",
+     "Magdalene",
+     "Emmanuel",
+     "Corpus Christi"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "conn-342",
+  "title": "Hatches and Dispatches",
+  "difficulty": "hard",
+  "groups": [
+   {
+    "colour": "yellow",
+    "label": "Children's authors",
+    "items": [
+     "Dahl",
+     "Milne",
+     "Seuss",
+     "Potter"
+    ]
+   },
+   {
+    "colour": "green",
+    "label": "Born in Norway",
+    "items": [
+     "Ibsen",
+     "Grieg",
+     "Munch",
+     "Amundsen"
+    ]
+   },
+   {
+    "colour": "blue",
+    "label": "Born in Alabama",
+    "items": [
+     "Parks",
+     "Owens",
+     "Harper Lee",
+     "Keller"
+    ]
+   },
+   {
+    "colour": "purple",
+    "label": "Died in 1968",
+    "items": [
+     "Steinbeck",
+     "Bobby Kennedy",
+     "Gagarin",
+     "Blyton"
+    ]
+   }
+  ]
  }
 ]
