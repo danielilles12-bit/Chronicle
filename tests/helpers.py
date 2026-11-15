@@ -20,6 +20,12 @@ import time
 import urllib.request
 from datetime import date, timedelta
 
+# Route service-worker fetches through context.route() so the resilience tests
+# can block a data file. Newer Playwright (CI's 1.60) does this anyway; the
+# cloud content engine runs 1.56 (to match its preinstalled chromium) and needs
+# it spelled out.
+os.environ.setdefault("PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS", "1")
+
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 PORT = 8200 + (os.getpid() % 400)
 EPOCH = date(2026, 6, 29)          # keep in sync with js/daily.js
